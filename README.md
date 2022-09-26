@@ -18,3 +18,17 @@ A simple tool for exploding large schemas into smaller files.
   * `language.[LANG]` - per-language settings
 * Group resources, functions and types into per-module folders
 * Split long descriptions into their own markdown file alongside
+
+## Issues
+
+### Case sentitivity
+
+We have two types in azure-native which only vary by case:
+
+```
+azure-native:network:IpAllocationMethod
+azure-native:network:IPAllocationMethod
+                      ^
+```
+
+This causes one file to overwrite the other. This likely also affects codegen too. The types have the same structure so doesn't really cause an actual issue.
