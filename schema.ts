@@ -1,5 +1,3 @@
-import * as enums from "./enums";
-
 /**
  * Enum Type Definition
  */
@@ -23,7 +21,7 @@ export interface ComplexTypeSpecEnum {
   /**
    * The underlying primitive type of the enum
    */
-  type: enums.PrimitiveTypeEnum;
+  type: PrimitiveTypeEnum;
 }
 
 /**
@@ -49,7 +47,7 @@ export interface ComplexTypeSpecEnumArgs {
   /**
    * The underlying primitive type of the enum
    */
-  type: enums.PrimitiveTypeEnum;
+  type: PrimitiveTypeEnum;
 }
 
 /**
@@ -179,7 +177,7 @@ export interface EnumValueDefinition {
   /**
    * The enum value itself
    */
-  value: enums.PrimitiveTypeEnum;
+  value: PrimitiveTypeEnum;
 }
 
 /**
@@ -201,7 +199,7 @@ export interface EnumValueDefinitionArgs {
   /**
    * The enum value itself
    */
-  value: enums.PrimitiveTypeEnum;
+  value: PrimitiveTypeEnum;
 }
 
 /**
@@ -719,7 +717,7 @@ export interface PropertySpecPrimitiveArgs {
   /**
    * The primitive type, if any
    */
-  type: enums.PrimitiveTypeEnum;
+  type: PrimitiveTypeEnum;
 }
 
 /**
@@ -765,7 +763,7 @@ export interface PropertySpecPrimitive {
   /**
    * The primitive type, if any
    */
-  type: enums.PrimitiveTypeEnum;
+  type: PrimitiveTypeEnum;
 }
 
 /**
@@ -825,7 +823,7 @@ export interface PropertySpecUnion {
   /**
    * The underlying primitive type of the union, if any
    */
-  type?: enums.PrimitiveTypeEnum;
+  type?: PrimitiveTypeEnum;
 }
 
 /**
@@ -885,7 +883,7 @@ export interface PropertySpecUnionArgs {
   /**
    * The underlying primitive type of the union, if any
    */
-  type?: enums.PrimitiveTypeEnum;
+  type?: PrimitiveTypeEnum;
 }
 
 /**
@@ -1279,3 +1277,16 @@ export interface Schema {
    */
   version?: string;
 }
+
+export const PrimitiveTypeEnum = {
+  Boolean: "boolean",
+  Integer: "integer",
+  Number: "number",
+  String: "string",
+} as const;
+
+/**
+ * Enum containing possible primitive types
+ */
+export type PrimitiveTypeEnum =
+  typeof PrimitiveTypeEnum[keyof typeof PrimitiveTypeEnum];
