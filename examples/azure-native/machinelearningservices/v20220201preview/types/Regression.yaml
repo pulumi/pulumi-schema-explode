@@ -1,0 +1,54 @@
+$token: azure-native:machinelearningservices/v20220201preview:Regression
+description: Regression task in AutoML Table vertical.
+properties:
+  allowedModels:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:machinelearningservices/v20220201preview:RegressionModels"
+    description: Allowed models for regression task.
+  blockedModels:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:machinelearningservices/v20220201preview:RegressionModels"
+    description: Blocked models for regression task.
+  dataSettings:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220201preview:TableVerticalDataSettings"
+    description: Data inputs for AutoMLJob.
+  featurizationSettings:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220201preview:TableVerticalFeaturizationSettings"
+    description: Featurization inputs needed for AutoML job.
+  limitSettings:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220201preview:TableVerticalLimitSettings"
+    description: Execution constraints for AutoMLJob.
+  logVerbosity:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearningservices/v20220201preview:LogVerbosity"
+    description: Log verbosity for the job.
+    default: Info
+  primaryMetric:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearningservices/v20220201preview:RegressionPrimaryMetrics"
+    description: Primary metric for regression task.
+    default: NormalizedRootMeanSquaredError
+  taskType:
+    type: string
+    description: |-
+      AutoMLJob Task type.
+      Expected value is 'Regression'.
+    const: Regression
+  trainingSettings:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220201preview:TrainingSettings"
+    description: Inputs for training phase for an AutoML Job.
+type: object
+required:
+  - taskType

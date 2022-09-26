@@ -1,0 +1,49 @@
+$token: azure-native:appplatform/v20220501preview:GatewayRouteConfig
+description: Spring Cloud Gateway route config resource
+properties:
+  name:
+    type: string
+    description: The name of the resource.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20220501preview:GatewayRouteConfigPropertiesResponse"
+    description: API route config of the Spring Cloud Gateway
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20220501preview:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - name
+  - properties
+  - systemData
+  - type
+inputProperties:
+  gatewayName:
+    type: string
+    description: The name of Spring Cloud Gateway.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20220501preview:GatewayRouteConfigProperties"
+    description: API route config of the Spring Cloud Gateway
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  routeConfigName:
+    type: string
+    description: The name of the Spring Cloud Gateway route config.
+  serviceName:
+    type: string
+    description: The name of the Service resource.
+requiredInputs:
+  - gatewayName
+  - resourceGroupName
+  - serviceName
+aliases:
+  - type: azure-native:appplatform:GatewayRouteConfig
+  - type: azure-native:appplatform/v20220101preview:GatewayRouteConfig
+  - type: azure-native:appplatform/v20220301preview:GatewayRouteConfig
+  - type: azure-native:appplatform/v20220901preview:GatewayRouteConfig

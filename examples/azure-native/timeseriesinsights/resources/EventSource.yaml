@@ -1,0 +1,67 @@
+$token: azure-native:timeseriesinsights:EventSource
+description: |-
+  An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
+  API Version: 2020-05-15.
+properties:
+  kind:
+    type: string
+    description: The kind of the event source.
+  location:
+    type: string
+    description: Resource location
+  name:
+    type: string
+    description: Resource name
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  type:
+    type: string
+    description: Resource type
+type: object
+required:
+  - kind
+  - location
+  - name
+  - type
+inputProperties:
+  environmentName:
+    type: string
+    description: The name of the Time Series Insights environment associated with the specified resource group.
+  eventSourceName:
+    type: string
+    description: Name of the event source.
+  kind:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:timeseriesinsights:EventSourceKind"
+    description: The kind of the event source.
+  localTimestamp:
+    type: object
+    $ref: "#/types/azure-native:timeseriesinsights:LocalTimestamp"
+    description: An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
+  location:
+    type: string
+    description: The location of the resource.
+  resourceGroupName:
+    type: string
+    description: Name of an Azure Resource group.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Key-value pairs of additional properties for the resource.
+requiredInputs:
+  - environmentName
+  - kind
+  - resourceGroupName
+aliases:
+  - type: azure-native:timeseriesinsights/v20170228preview:EventSource
+  - type: azure-native:timeseriesinsights/v20171115:EventSource
+  - type: azure-native:timeseriesinsights/v20180815preview:EventSource
+  - type: azure-native:timeseriesinsights/v20200515:EventSource
+  - type: azure-native:timeseriesinsights/v20210331preview:EventSource
+  - type: azure-native:timeseriesinsights/v20210630preview:EventSource
+deprecationMessage: "Please use one of the variants: EventHubEventSource, IoTHubEventSource."

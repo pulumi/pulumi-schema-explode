@@ -1,0 +1,28 @@
+$token: azure-native:storagecache/v20210901:CacheActiveDirectorySettings
+description: Active Directory settings used to join a cache to a domain.
+properties:
+  cacheNetBiosName:
+    type: string
+    description: The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server. Length must 1-15 characters from the class [-0-9a-zA-Z].
+  credentials:
+    type: object
+    $ref: "#/types/azure-native:storagecache/v20210901:CacheActiveDirectorySettingsCredentials"
+    description: Active Directory admin credentials used to join the HPC Cache to a domain.
+  domainName:
+    type: string
+    description: The fully qualified domain name of the Active Directory domain controller.
+  domainNetBiosName:
+    type: string
+    description: The Active Directory domain's NetBIOS name.
+  primaryDnsIpAddress:
+    type: string
+    description: Primary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
+  secondaryDnsIpAddress:
+    type: string
+    description: Secondary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
+type: object
+required:
+  - cacheNetBiosName
+  - domainName
+  - domainNetBiosName
+  - primaryDnsIpAddress

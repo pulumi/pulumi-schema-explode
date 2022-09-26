@@ -1,0 +1,107 @@
+$token: azure-native:cdn/v20190615preview:Policy
+description: Defines web application firewall policy for Azure CDN.
+properties:
+  customRules:
+    type: object
+    $ref: "#/types/azure-native:cdn/v20190615preview:CustomRuleListResponse"
+    description: Describes custom rules inside the policy.
+  endpointLinks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:cdn/v20190615preview:CdnEndpointResponse"
+    description: Describes Azure CDN endpoints associated with this Web Application Firewall policy.
+  etag:
+    type: string
+    description: Gets a unique read-only string that changes whenever the resource is updated.
+  location:
+    type: string
+    description: Resource location.
+  managedRules:
+    type: object
+    $ref: "#/types/azure-native:cdn/v20190615preview:ManagedRuleSetListResponse"
+    description: Describes managed rules inside the policy.
+  name:
+    type: string
+    description: Resource name.
+  policySettings:
+    type: object
+    $ref: "#/types/azure-native:cdn/v20190615preview:PolicySettingsResponse"
+    description: Describes  policySettings for policy
+  provisioningState:
+    type: string
+    description: Provisioning state of the WebApplicationFirewallPolicy.
+  rateLimitRules:
+    type: object
+    $ref: "#/types/azure-native:cdn/v20190615preview:RateLimitRuleListResponse"
+    description: Describes rate limit rules inside the policy.
+  resourceState:
+    type: string
+  sku:
+    type: object
+    $ref: "#/types/azure-native:cdn/v20190615preview:SkuResponse"
+    description: The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - endpointLinks
+  - location
+  - name
+  - provisioningState
+  - resourceState
+  - sku
+  - type
+inputProperties:
+  customRules:
+    type: object
+    $ref: "#/types/azure-native:cdn/v20190615preview:CustomRuleList"
+    description: Describes custom rules inside the policy.
+  location:
+    type: string
+    description: Resource location.
+  managedRules:
+    type: object
+    $ref: "#/types/azure-native:cdn/v20190615preview:ManagedRuleSetList"
+    description: Describes managed rules inside the policy.
+  policyName:
+    type: string
+    description: The name of the CdnWebApplicationFirewallPolicy.
+  policySettings:
+    type: object
+    $ref: "#/types/azure-native:cdn/v20190615preview:PolicySettings"
+    description: Describes  policySettings for policy
+  rateLimitRules:
+    type: object
+    $ref: "#/types/azure-native:cdn/v20190615preview:RateLimitRuleList"
+    description: Describes rate limit rules inside the policy.
+  resourceGroupName:
+    type: string
+    description: Name of the Resource group within the Azure subscription.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:cdn/v20190615preview:Sku"
+    description: The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - resourceGroupName
+  - sku
+aliases:
+  - type: azure-native:cdn:Policy
+  - type: azure-native:cdn/v20190615:Policy
+  - type: azure-native:cdn/v20200331:Policy
+  - type: azure-native:cdn/v20200415:Policy
+  - type: azure-native:cdn/v20200901:Policy
+  - type: azure-native:cdn/v20210601:Policy
+  - type: azure-native:cdn/v20220501preview:Policy
+deprecationMessage: Version 2019-06-15-preview will be removed in v2 of the provider.

@@ -1,0 +1,21 @@
+$token: azure-native:network/v20180501:getDnsResourceReferenceByTarResources
+description: Represents the properties of the Dns Resource Reference Result.
+inputs:
+  properties:
+    targetResources:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20180501:SubResource"
+      description: A list of references to azure resources for which referencing dns records need to be queried.
+  type: object
+outputs:
+  description: Represents the properties of the Dns Resource Reference Result.
+  properties:
+    dnsResourceReferences:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20180501:DnsResourceReferenceResponse"
+      description: The result of dns resource reference request. A list of dns resource references for each of the azure resource in the request
+  type: object

@@ -1,0 +1,35 @@
+$token: azure-native:aad/v20170601:LdapsSettingsResponse
+description: Secure LDAP Settings
+properties:
+  certificateNotAfter:
+    type: string
+    description: NotAfter DateTime of configure ldaps certificate.
+  certificateThumbprint:
+    type: string
+    description: Thumbprint of configure ldaps certificate.
+  externalAccess:
+    type: string
+    description: A flag to determine whether or not Secure LDAP access over the internet is enabled or disabled.
+    default: Disabled
+  externalAccessIpAddress:
+    type: string
+    description: External access ip address.
+  ldaps:
+    type: string
+    description: A flag to determine whether or not Secure LDAP is enabled or disabled.
+    default: Disabled
+  pfxCertificate:
+    type: string
+    description: The certificate required to configure Secure LDAP. The parameter passed here should be a base64encoded representation of the certificate pfx file.
+  pfxCertificatePassword:
+    type: string
+    description: The password to decrypt the provided Secure LDAP certificate pfx file.
+  publicCertificate:
+    type: string
+    description: Public certificate used to configure secure ldap.
+type: object
+required:
+  - certificateNotAfter
+  - certificateThumbprint
+  - externalAccessIpAddress
+  - publicCertificate

@@ -1,0 +1,89 @@
+$token: azure-native:labservices:getEnvironmentSetting
+description: |-
+  Represents settings of an environment, from which environment instances would be created
+  API Version: 2018-10-15.
+inputs:
+  properties:
+    environmentSettingName:
+      type: string
+      description: The name of the environment Setting.
+    expand:
+      type: string
+      description: "Specify the $expand query. Example: 'properties($select=publishingState)'"
+    labAccountName:
+      type: string
+      description: The name of the lab Account.
+    labName:
+      type: string
+      description: The name of the lab.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - environmentSettingName
+    - labAccountName
+    - labName
+    - resourceGroupName
+outputs:
+  description: Represents settings of an environment, from which environment instances would be created
+  properties:
+    configurationState:
+      type: string
+      description: Describes the user's progress in configuring their environment setting
+    description:
+      type: string
+      description: Describes the environment and its resource settings
+    id:
+      type: string
+      description: The identifier of the resource.
+    lastChanged:
+      type: string
+      description: Time when the template VM was last changed.
+    lastPublished:
+      type: string
+      description: Time when the template VM was last sent for publishing.
+    latestOperationResult:
+      type: object
+      $ref: "#/types/azure-native:labservices:LatestOperationResultResponse"
+      description: "The details of the latest operation. ex: status, error"
+    location:
+      type: string
+      description: The location of the resource.
+    name:
+      type: string
+      description: The name of the resource.
+    provisioningState:
+      type: string
+      description: The provisioning status of the resource.
+    publishingState:
+      type: string
+      description: Describes the readiness of this environment setting
+    resourceSettings:
+      type: object
+      $ref: "#/types/azure-native:labservices:ResourceSettingsResponse"
+      description: The resource specific settings
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: The tags of the resource.
+    title:
+      type: string
+      description: Brief title describing the environment and its resource settings
+    type:
+      type: string
+      description: The type of the resource.
+    uniqueIdentifier:
+      type: string
+      description: The unique immutable identifier of a resource (Guid).
+  type: object
+  required:
+    - id
+    - lastChanged
+    - lastPublished
+    - latestOperationResult
+    - name
+    - publishingState
+    - resourceSettings
+    - type

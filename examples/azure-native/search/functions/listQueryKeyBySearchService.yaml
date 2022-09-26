@@ -1,0 +1,32 @@
+$token: azure-native:search:listQueryKeyBySearchService
+description: |-
+  Response containing the query API keys for a given Azure Cognitive Search service.
+  API Version: 2020-08-01.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
+    searchServiceName:
+      type: string
+      description: The name of the Azure Cognitive Search service associated with the specified resource group.
+  type: object
+  required:
+    - resourceGroupName
+    - searchServiceName
+outputs:
+  description: Response containing the query API keys for a given Azure Cognitive Search service.
+  properties:
+    nextLink:
+      type: string
+      description: Request URL that can be used to query next page of query keys. Returned when the total number of requested query keys exceed maximum page size.
+    value:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:search:QueryKeyResponse"
+      description: The query keys for the Azure Cognitive Search service.
+  type: object
+  required:
+    - nextLink
+    - value

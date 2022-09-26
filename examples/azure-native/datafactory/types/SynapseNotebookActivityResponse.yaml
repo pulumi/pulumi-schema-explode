@@ -1,0 +1,66 @@
+$token: azure-native:datafactory:SynapseNotebookActivityResponse
+description: Execute Synapse notebook activity.
+properties:
+  conf:
+    $ref: pulumi.json#/Any
+    description: Spark configuration properties, which will override the 'conf' of the notebook you provide.
+  dependsOn:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory:ActivityDependencyResponse"
+    description: Activity depends on condition.
+  description:
+    type: string
+    description: Activity description.
+  driverSize:
+    $ref: pulumi.json#/Any
+    description: "Number of core and memory to be used for driver allocated in the specified Spark pool for the session, which will be used for overriding 'driverCores' and 'driverMemory' of the notebook you provide. Type: string (or Expression with resultType string)."
+  executorSize:
+    $ref: pulumi.json#/Any
+    description: "Number of core and memory to be used for executors allocated in the specified Spark pool for the session, which will be used for overriding 'executorCores' and 'executorMemory' of the notebook you provide. Type: string (or Expression with resultType string)."
+  linkedServiceName:
+    type: object
+    $ref: "#/types/azure-native:datafactory:LinkedServiceReferenceResponse"
+    description: Linked service reference.
+  name:
+    type: string
+    description: Activity name.
+  notebook:
+    type: object
+    $ref: "#/types/azure-native:datafactory:SynapseNotebookReferenceResponse"
+    description: Synapse notebook reference.
+  numExecutors:
+    type: integer
+    description: Number of executors to launch for this session, which will override the 'numExecutors' of the notebook you provide.
+  parameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:datafactory:NotebookParameterResponse"
+    description: Notebook parameters.
+  policy:
+    type: object
+    $ref: "#/types/azure-native:datafactory:ActivityPolicyResponse"
+    description: Activity policy.
+  sparkPool:
+    type: object
+    $ref: "#/types/azure-native:datafactory:BigDataPoolParametrizationReferenceResponse"
+    description: The name of the big data pool which will be used to execute the notebook.
+  type:
+    type: string
+    description: |-
+      Type of activity.
+      Expected value is 'SynapseNotebook'.
+    const: SynapseNotebook
+  userProperties:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory:UserPropertyResponse"
+    description: Activity user properties.
+type: object
+required:
+  - name
+  - notebook
+  - type

@@ -1,0 +1,103 @@
+$token: azure-native:devcenter/v20220901preview:NetworkConnection
+description: Network related settings
+properties:
+  domainJoinType:
+    type: string
+    description: AAD Join type.
+  domainName:
+    type: string
+    description: Active Directory domain name
+  domainPassword:
+    type: string
+    description: The password for the account used to join domain
+  domainUsername:
+    type: string
+    description: "The username of an Active Directory account (user or service account) that has permissions to create computer objects in Active Directory. Required format: admin@contoso.com."
+  healthCheckStatus:
+    type: string
+    description: Overall health status of the network connection. Health checks are run on creation, update, and periodically to validate the network connection.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  name:
+    type: string
+    description: The name of the resource
+  networkingResourceGroupName:
+    type: string
+    description: The name for resource group where NICs will be placed.
+  organizationUnit:
+    type: string
+    description: Active Directory domain Organization Unit (OU)
+  provisioningState:
+    type: string
+    description: The provisioning state of the resource.
+  subnetId:
+    type: string
+    description: The subnet to attach Virtual Machines to
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:devcenter/v20220901preview:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - domainJoinType
+  - healthCheckStatus
+  - location
+  - name
+  - provisioningState
+  - subnetId
+  - systemData
+  - type
+inputProperties:
+  domainJoinType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:devcenter/v20220901preview:DomainJoinType"
+    description: AAD Join type.
+  domainName:
+    type: string
+    description: Active Directory domain name
+  domainPassword:
+    type: string
+    description: The password for the account used to join domain
+  domainUsername:
+    type: string
+    description: "The username of an Active Directory account (user or service account) that has permissions to create computer objects in Active Directory. Required format: admin@contoso.com."
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  networkConnectionName:
+    type: string
+    description: Name of the Network Connection that can be applied to a Pool.
+  networkingResourceGroupName:
+    type: string
+    description: The name for resource group where NICs will be placed.
+  organizationUnit:
+    type: string
+    description: Active Directory domain Organization Unit (OU)
+  resourceGroupName:
+    type: string
+    description: Name of the resource group within the Azure subscription.
+  subnetId:
+    type: string
+    description: The subnet to attach Virtual Machines to
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - domainJoinType
+  - resourceGroupName
+  - subnetId
+aliases:
+  - type: azure-native:devcenter:NetworkConnection
+  - type: azure-native:devcenter/v20220801preview:NetworkConnection

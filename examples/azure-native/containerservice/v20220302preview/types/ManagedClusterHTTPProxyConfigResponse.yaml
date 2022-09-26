@@ -1,0 +1,25 @@
+$token: azure-native:containerservice/v20220302preview:ManagedClusterHTTPProxyConfigResponse
+description: Cluster HTTP proxy configuration.
+properties:
+  effectiveNoProxy:
+    type: array
+    items:
+      type: string
+    description: A read-only list of all endpoints for which traffic should not be sent to the proxy. This list is a superset of noProxy and values injected by AKS.
+  httpProxy:
+    type: string
+    description: The HTTP proxy server endpoint to use.
+  httpsProxy:
+    type: string
+    description: The HTTPS proxy server endpoint to use.
+  noProxy:
+    type: array
+    items:
+      type: string
+    description: The endpoints that should not go through proxy.
+  trustedCa:
+    type: string
+    description: Alternative CA cert to use for connecting to proxy servers.
+type: object
+required:
+  - effectiveNoProxy

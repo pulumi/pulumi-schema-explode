@@ -1,0 +1,35 @@
+$token: azure-native:authorization:PrivateLinkAssociation
+description: |-
+  
+  API Version: 2020-05-01.
+properties:
+  name:
+    type: string
+    description: The pla name.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:authorization:PrivateLinkAssociationPropertiesExpandedResponse"
+    description: The private link association properties.
+  type:
+    type: string
+    description: The operation type.
+type: object
+required:
+  - name
+  - properties
+  - type
+inputProperties:
+  groupId:
+    type: string
+    description: The management group ID.
+  plaId:
+    type: string
+    description: The ID of the PLA
+  properties:
+    type: object
+    $ref: "#/types/azure-native:authorization:PrivateLinkAssociationProperties"
+    description: The properties of the PrivateLinkAssociation.
+requiredInputs:
+  - groupId
+aliases:
+  - type: azure-native:authorization/v20200501:PrivateLinkAssociation

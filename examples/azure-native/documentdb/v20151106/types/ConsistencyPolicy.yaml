@@ -1,0 +1,15 @@
+$token: azure-native:documentdb/v20151106:ConsistencyPolicy
+description: The consistency policy for the Cosmos DB database account.
+properties:
+  defaultConsistencyLevel:
+    $ref: "#/types/azure-native:documentdb/v20151106:DefaultConsistencyLevel"
+    description: The default consistency level and configuration settings of the Cosmos DB account.
+  maxIntervalInSeconds:
+    type: integer
+    description: When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
+  maxStalenessPrefix:
+    type: number
+    description: When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
+type: object
+required:
+  - defaultConsistencyLevel

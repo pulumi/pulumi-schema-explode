@@ -1,0 +1,132 @@
+$token: azure-native:dbforpostgresql/v20210615privatepreview:Migration
+description: Represents a migration resource.
+properties:
+  currentStatus:
+    type: object
+    $ref: "#/types/azure-native:dbforpostgresql/v20210615privatepreview:MigrationStatusResponse"
+    description: Migration status.
+  dBsToMigrate:
+    type: array
+    items:
+      type: string
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  migrationDetailsLevel:
+    type: string
+    description: Migration details level.
+  migrationId:
+    type: string
+  migrationName:
+    type: string
+  migrationResourceGroup:
+    type: object
+    $ref: "#/types/azure-native:dbforpostgresql/v20210615privatepreview:MigrationResourceGroupResponse"
+    description: Migration resource group.
+  migrationWindowStartTimeInUtc:
+    type: string
+  name:
+    type: string
+    description: The name of the resource
+  overwriteDBsInTarget:
+    type: boolean
+  secretParameters:
+    type: object
+    $ref: "#/types/azure-native:dbforpostgresql/v20210615privatepreview:MigrationSecretParametersResponse"
+    description: Migration secret parameters.
+  setupLogicalReplicationOnSourceDBIfNeeded:
+    type: boolean
+  sourceDBServerMetadata:
+    type: object
+    $ref: "#/types/azure-native:dbforpostgresql/v20210615privatepreview:DBServerMetadataResponse"
+    description: Database server metadata.
+  sourceDBServerResourceId:
+    type: string
+  startDataMigration:
+    type: boolean
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:dbforpostgresql/v20210615privatepreview:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  targetDBServerMetadata:
+    type: object
+    $ref: "#/types/azure-native:dbforpostgresql/v20210615privatepreview:DBServerMetadataResponse"
+    description: Database server metadata.
+  targetDBServerResourceId:
+    type: string
+  triggerCutover:
+    type: boolean
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  userAssignedIdentityResourceId:
+    type: string
+type: object
+required:
+  - currentStatus
+  - location
+  - migrationDetailsLevel
+  - migrationId
+  - migrationName
+  - name
+  - sourceDBServerMetadata
+  - systemData
+  - targetDBServerMetadata
+  - targetDBServerResourceId
+  - type
+inputProperties:
+  dBsToMigrate:
+    type: array
+    items:
+      type: string
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  migrationName:
+    type: string
+    description: The name of the migration.
+  migrationResourceGroup:
+    type: object
+    $ref: "#/types/azure-native:dbforpostgresql/v20210615privatepreview:MigrationResourceGroup"
+    description: Migration resource group.
+  migrationWindowStartTimeInUtc:
+    type: string
+  overwriteDBsInTarget:
+    type: boolean
+  secretParameters:
+    type: object
+    $ref: "#/types/azure-native:dbforpostgresql/v20210615privatepreview:MigrationSecretParameters"
+    description: Migration secret parameters.
+  setupLogicalReplicationOnSourceDBIfNeeded:
+    type: boolean
+  sourceDBServerResourceId:
+    type: string
+  startDataMigration:
+    type: boolean
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  targetDBServerName:
+    type: string
+    description: The name of the target database server.
+  targetDBServerResourceGroupName:
+    type: string
+    description: The resource group name of the target database server.
+  targetDBServerSubscriptionId:
+    type: string
+    description: The subscription ID of the target database server.
+  triggerCutover:
+    type: boolean
+  userAssignedIdentityResourceId:
+    type: string
+requiredInputs:
+  - targetDBServerName
+  - targetDBServerResourceGroupName
+  - targetDBServerSubscriptionId

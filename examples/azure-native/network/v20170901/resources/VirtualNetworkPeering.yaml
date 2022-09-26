@@ -1,0 +1,123 @@
+$token: azure-native:network/v20170901:VirtualNetworkPeering
+description: Peerings in a virtual network resource.
+properties:
+  allowForwardedTraffic:
+    type: boolean
+    description: Whether the forwarded traffic from the VMs in the remote virtual network will be allowed/disallowed.
+  allowGatewayTransit:
+    type: boolean
+    description: If gateway links can be used in remote virtual networking to link to this virtual network.
+  allowVirtualNetworkAccess:
+    type: boolean
+    description: Whether the VMs in the linked virtual network space would be able to access all the VMs in local Virtual network space.
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  name:
+    type: string
+    description: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+  peeringState:
+    type: string
+    description: The status of the virtual network peering. Possible values are 'Initiated', 'Connected', and 'Disconnected'.
+  provisioningState:
+    type: string
+    description: The provisioning state of the resource.
+  remoteAddressSpace:
+    type: object
+    $ref: "#/types/azure-native:network/v20170901:AddressSpaceResponse"
+    description: The reference of the remote virtual network address space.
+  remoteVirtualNetwork:
+    type: object
+    $ref: "#/types/azure-native:network/v20170901:SubResourceResponse"
+    description: The reference of the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
+  useRemoteGateways:
+    type: boolean
+    description: If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
+type: object
+inputProperties:
+  allowForwardedTraffic:
+    type: boolean
+    description: Whether the forwarded traffic from the VMs in the remote virtual network will be allowed/disallowed.
+  allowGatewayTransit:
+    type: boolean
+    description: If gateway links can be used in remote virtual networking to link to this virtual network.
+  allowVirtualNetworkAccess:
+    type: boolean
+    description: Whether the VMs in the linked virtual network space would be able to access all the VMs in local Virtual network space.
+  id:
+    type: string
+    description: Resource ID.
+  name:
+    type: string
+    description: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+  peeringState:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20170901:VirtualNetworkPeeringState"
+    description: The status of the virtual network peering. Possible values are 'Initiated', 'Connected', and 'Disconnected'.
+  provisioningState:
+    type: string
+    description: The provisioning state of the resource.
+  remoteAddressSpace:
+    type: object
+    $ref: "#/types/azure-native:network/v20170901:AddressSpace"
+    description: The reference of the remote virtual network address space.
+  remoteVirtualNetwork:
+    type: object
+    $ref: "#/types/azure-native:network/v20170901:SubResource"
+    description: The reference of the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  useRemoteGateways:
+    type: boolean
+    description: If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
+  virtualNetworkName:
+    type: string
+    description: The name of the virtual network.
+  virtualNetworkPeeringName:
+    type: string
+    description: The name of the peering.
+requiredInputs:
+  - resourceGroupName
+  - virtualNetworkName
+aliases:
+  - type: azure-native:network:VirtualNetworkPeering
+  - type: azure-native:network/v20160601:VirtualNetworkPeering
+  - type: azure-native:network/v20160901:VirtualNetworkPeering
+  - type: azure-native:network/v20161201:VirtualNetworkPeering
+  - type: azure-native:network/v20170301:VirtualNetworkPeering
+  - type: azure-native:network/v20170601:VirtualNetworkPeering
+  - type: azure-native:network/v20170801:VirtualNetworkPeering
+  - type: azure-native:network/v20171001:VirtualNetworkPeering
+  - type: azure-native:network/v20171101:VirtualNetworkPeering
+  - type: azure-native:network/v20180101:VirtualNetworkPeering
+  - type: azure-native:network/v20180201:VirtualNetworkPeering
+  - type: azure-native:network/v20180401:VirtualNetworkPeering
+  - type: azure-native:network/v20180601:VirtualNetworkPeering
+  - type: azure-native:network/v20180701:VirtualNetworkPeering
+  - type: azure-native:network/v20180801:VirtualNetworkPeering
+  - type: azure-native:network/v20181001:VirtualNetworkPeering
+  - type: azure-native:network/v20181101:VirtualNetworkPeering
+  - type: azure-native:network/v20181201:VirtualNetworkPeering
+  - type: azure-native:network/v20190201:VirtualNetworkPeering
+  - type: azure-native:network/v20190401:VirtualNetworkPeering
+  - type: azure-native:network/v20190601:VirtualNetworkPeering
+  - type: azure-native:network/v20190701:VirtualNetworkPeering
+  - type: azure-native:network/v20190801:VirtualNetworkPeering
+  - type: azure-native:network/v20190901:VirtualNetworkPeering
+  - type: azure-native:network/v20191101:VirtualNetworkPeering
+  - type: azure-native:network/v20191201:VirtualNetworkPeering
+  - type: azure-native:network/v20200301:VirtualNetworkPeering
+  - type: azure-native:network/v20200401:VirtualNetworkPeering
+  - type: azure-native:network/v20200501:VirtualNetworkPeering
+  - type: azure-native:network/v20200601:VirtualNetworkPeering
+  - type: azure-native:network/v20200701:VirtualNetworkPeering
+  - type: azure-native:network/v20200801:VirtualNetworkPeering
+  - type: azure-native:network/v20201101:VirtualNetworkPeering
+  - type: azure-native:network/v20210201:VirtualNetworkPeering
+  - type: azure-native:network/v20210301:VirtualNetworkPeering
+  - type: azure-native:network/v20210501:VirtualNetworkPeering
+  - type: azure-native:network/v20210801:VirtualNetworkPeering
+  - type: azure-native:network/v20220101:VirtualNetworkPeering
+deprecationMessage: Version 2017-09-01 will be removed in v2 of the provider.

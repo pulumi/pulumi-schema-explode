@@ -1,0 +1,43 @@
+$token: azure-native:sql/v20201101preview:getTransparentDataEncryption
+description: A logical database transparent data encryption state.
+inputs:
+  properties:
+    databaseName:
+      type: string
+      description: The name of the logical database for which the transparent data encryption is defined.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    serverName:
+      type: string
+      description: The name of the server.
+    tdeName:
+      type: string
+      description: The name of the transparent data encryption configuration.
+  type: object
+  required:
+    - databaseName
+    - resourceGroupName
+    - serverName
+    - tdeName
+outputs:
+  description: A logical database transparent data encryption state.
+  properties:
+    id:
+      type: string
+      description: Resource ID.
+    name:
+      type: string
+      description: Resource name.
+    state:
+      type: string
+      description: Specifies the state of the transparent data encryption.
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - id
+    - name
+    - state
+    - type

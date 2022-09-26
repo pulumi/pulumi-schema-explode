@@ -1,0 +1,44 @@
+$token: azure-native:saas:SaasCreationProperties
+description: properties for creation saas
+properties:
+  autoRenew:
+    type: boolean
+    description: Whether the SaaS subscription will auto renew upon term end.
+  offerId:
+    type: string
+    description: The offer id.
+  paymentChannelMetadata:
+    type: object
+    additionalProperties:
+      type: string
+    description: The metadata about the SaaS subscription such as the AzureSubscriptionId and ResourceUri.
+  paymentChannelType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:saas:PaymentChannelType"
+    description: The Payment channel for the SaasSubscription.
+  publisherId:
+    type: string
+    description: The publisher id.
+  publisherTestEnvironment:
+    type: string
+    description: The environment in the publisher side for this resource.
+  quantity:
+    type: number
+    description: The seat count.
+  saasResourceName:
+    type: string
+    description: The SaaS resource name.
+  saasSessionId:
+    type: string
+    description: The saas session id used for dev service migration request.
+  saasSubscriptionId:
+    type: string
+    description: The saas subscription id used for tenant to subscription level migration request.
+  skuId:
+    type: string
+    description: The plan id.
+  termId:
+    type: string
+    description: The current Term id.
+type: object

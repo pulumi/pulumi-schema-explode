@@ -1,0 +1,80 @@
+$token: azure-native:storagepool:getDiskPool
+description: |-
+  Response for Disk pool request.
+  API Version: 2020-03-15-preview.
+inputs:
+  properties:
+    diskPoolName:
+      type: string
+      description: The name of the Disk pool.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+  type: object
+  required:
+    - diskPoolName
+    - resourceGroupName
+outputs:
+  description: Response for Disk pool request.
+  properties:
+    additionalCapabilities:
+      type: array
+      items:
+        type: string
+      description: List of additional capabilities for Disk pool.
+    availabilityZones:
+      type: array
+      items:
+        type: string
+      description: 'Logical zone for Disk pool resource; example: ["1"].'
+    disks:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:storagepool:DiskResponse"
+      description: List of Azure Managed Disks to attach to a Disk pool. Can attach 8 disks at most.
+    id:
+      type: string
+      description: Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    location:
+      type: string
+      description: The geo-location where the resource lives.
+    name:
+      type: string
+      description: The name of the resource
+    provisioningState:
+      type: string
+      description: State of the operation on the resource.
+    status:
+      type: string
+      description: Operational status of the Disk pool.
+    subnetId:
+      type: string
+      description: Azure Resource ID of a Subnet for the Disk pool.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:storagepool:SystemMetadataResponse"
+      description: Resource metadata required by ARM RPC
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    tier:
+      type: string
+      description: Determines the SKU of VM deployed for Disk pool
+    type:
+      type: string
+      description: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+  type: object
+  required:
+    - availabilityZones
+    - id
+    - location
+    - name
+    - provisioningState
+    - status
+    - subnetId
+    - systemData
+    - tier
+    - type

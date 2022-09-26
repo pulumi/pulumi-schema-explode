@@ -1,0 +1,47 @@
+$token: azure-native:sql/v20210201preview:getManagedInstancePrivateEndpointConnection
+description: A private endpoint connection
+inputs:
+  properties:
+    managedInstanceName:
+      type: string
+      description: The name of the managed instance.
+    privateEndpointConnectionName:
+      type: string
+      description: The name of the private endpoint connection.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  type: object
+  required:
+    - managedInstanceName
+    - privateEndpointConnectionName
+    - resourceGroupName
+outputs:
+  description: A private endpoint connection
+  properties:
+    id:
+      type: string
+      description: Resource ID.
+    name:
+      type: string
+      description: Resource name.
+    privateEndpoint:
+      type: object
+      $ref: "#/types/azure-native:sql/v20210201preview:ManagedInstancePrivateEndpointPropertyResponse"
+      description: Private endpoint which the connection belongs to.
+    privateLinkServiceConnectionState:
+      type: object
+      $ref: "#/types/azure-native:sql/v20210201preview:ManagedInstancePrivateLinkServiceConnectionStatePropertyResponse"
+      description: Connection State of the Private Endpoint Connection.
+    provisioningState:
+      type: string
+      description: State of the Private Endpoint Connection.
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - id
+    - name
+    - provisioningState
+    - type

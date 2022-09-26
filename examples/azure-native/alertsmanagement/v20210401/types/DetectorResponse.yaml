@@ -1,0 +1,47 @@
+$token: azure-native:alertsmanagement/v20210401:DetectorResponse
+description: The detector information. By default this is not populated, unless it's specified in expandDetector
+properties:
+  description:
+    type: string
+    description: The Smart Detector description.
+  id:
+    type: string
+    description: The detector id.
+  imagePaths:
+    type: array
+    items:
+      type: string
+    description: The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector
+  name:
+    type: string
+    description: The Smart Detector name.
+  parameterDefinitions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:alertsmanagement/v20210401:DetectorParameterDefinitionResponse"
+    description: The Smart Detector parameters definitions.'
+  parameters:
+    type: object
+    additionalProperties:
+      $ref: pulumi.json#/Any
+    description: The detector's parameters.'
+  supportedCadences:
+    type: array
+    items:
+      type: integer
+    description: The Smart Detector supported cadences.
+  supportedResourceTypes:
+    type: array
+    items:
+      type: string
+    description: The Smart Detector supported resource types.
+type: object
+required:
+  - description
+  - id
+  - imagePaths
+  - name
+  - parameterDefinitions
+  - supportedCadences
+  - supportedResourceTypes

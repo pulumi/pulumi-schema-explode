@@ -1,0 +1,74 @@
+$token: azure-native:communication/v20220701preview:getCommunicationService
+description: A class representing a CommunicationService resource.
+inputs:
+  properties:
+    communicationServiceName:
+      type: string
+      description: The name of the CommunicationService resource.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+  type: object
+  required:
+    - communicationServiceName
+    - resourceGroupName
+outputs:
+  description: A class representing a CommunicationService resource.
+  properties:
+    dataLocation:
+      type: string
+      description: The location where the communication service stores its data at rest.
+    hostName:
+      type: string
+      description: FQDN of the CommunicationService instance.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    immutableResourceId:
+      type: string
+      description: The immutable resource Id of the communication service.
+    linkedDomains:
+      type: array
+      items:
+        type: string
+      description: List of email Domain resource Ids.
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    name:
+      type: string
+      description: The name of the resource
+    notificationHubId:
+      type: string
+      description: Resource ID of an Azure Notification Hub linked to this resource.
+    provisioningState:
+      type: string
+      description: Provisioning state of the resource.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:communication/v20220701preview:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+    version:
+      type: string
+      description: Version of the CommunicationService resource. Probably you need the same or higher version of client SDKs.
+  type: object
+  required:
+    - dataLocation
+    - hostName
+    - id
+    - immutableResourceId
+    - location
+    - name
+    - notificationHubId
+    - provisioningState
+    - systemData
+    - type
+    - version

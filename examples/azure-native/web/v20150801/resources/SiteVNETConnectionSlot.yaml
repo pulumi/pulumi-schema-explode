@@ -1,0 +1,119 @@
+$token: azure-native:web/v20150801:SiteVNETConnectionSlot
+description: VNETInfo contract. This contract is public and is a stripped down version of VNETInfoInternal
+properties:
+  certBlob:
+    type: string
+    description: "A certificate file (.cer) blob containing the public key of the private key used to authenticate a \r
+
+      \            Point-To-Site VPN connection."
+  certThumbprint:
+    type: string
+    description: The client certificate thumbprint
+  dnsServers:
+    type: string
+    description: Dns servers to be used by this VNET. This should be a comma-separated list of IP addresses.
+  kind:
+    type: string
+    description: Kind of resource
+  location:
+    type: string
+    description: Resource Location
+  name:
+    type: string
+    description: Resource Name
+  resyncRequired:
+    type: boolean
+    description: Flag to determine if a resync is required
+  routes:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:web/v20150801:VnetRouteResponse"
+    description: The routes that this virtual network connection uses.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  type:
+    type: string
+    description: Resource type
+  vnetResourceId:
+    type: string
+    description: The vnet resource id
+type: object
+required:
+  - location
+inputProperties:
+  certBlob:
+    type: string
+    description: "A certificate file (.cer) blob containing the public key of the private key used to authenticate a \r
+
+      \            Point-To-Site VPN connection."
+  certThumbprint:
+    type: string
+    description: The client certificate thumbprint
+  dnsServers:
+    type: string
+    description: Dns servers to be used by this VNET. This should be a comma-separated list of IP addresses.
+  id:
+    type: string
+    description: Resource Id
+  kind:
+    type: string
+    description: Kind of resource
+  location:
+    type: string
+    description: Resource Location
+  name:
+    type: string
+    description: Resource Name
+  resourceGroupName:
+    type: string
+    description: The resource group name
+  resyncRequired:
+    type: boolean
+    description: Flag to determine if a resync is required
+  routes:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:web/v20150801:VnetRoute"
+    description: The routes that this virtual network connection uses.
+  slot:
+    type: string
+    description: The name of the slot for this web app.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  type:
+    type: string
+    description: Resource type
+  vnetName:
+    type: string
+    description: The name of the Virtual Network
+  vnetResourceId:
+    type: string
+    description: The vnet resource id
+requiredInputs:
+  - name
+  - resourceGroupName
+  - slot
+aliases:
+  - type: azure-native:web:SiteVNETConnectionSlot
+  - type: azure-native:web/v20160801:SiteVNETConnectionSlot
+  - type: azure-native:web/v20180201:SiteVNETConnectionSlot
+  - type: azure-native:web/v20181101:SiteVNETConnectionSlot
+  - type: azure-native:web/v20190801:SiteVNETConnectionSlot
+  - type: azure-native:web/v20200601:SiteVNETConnectionSlot
+  - type: azure-native:web/v20200901:SiteVNETConnectionSlot
+  - type: azure-native:web/v20201001:SiteVNETConnectionSlot
+  - type: azure-native:web/v20201201:SiteVNETConnectionSlot
+  - type: azure-native:web/v20210101:SiteVNETConnectionSlot
+  - type: azure-native:web/v20210115:SiteVNETConnectionSlot
+  - type: azure-native:web/v20210201:SiteVNETConnectionSlot
+  - type: azure-native:web/v20210301:SiteVNETConnectionSlot
+  - type: azure-native:web/v20220301:SiteVNETConnectionSlot
+deprecationMessage: Version 2015-08-01 will be removed in v2 of the provider.

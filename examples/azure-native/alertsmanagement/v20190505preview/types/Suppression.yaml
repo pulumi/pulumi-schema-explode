@@ -1,0 +1,33 @@
+$token: azure-native:alertsmanagement/v20190505preview:Suppression
+description: Action rule with suppression configuration
+properties:
+  conditions:
+    type: object
+    $ref: "#/types/azure-native:alertsmanagement/v20190505preview:Conditions"
+    description: conditions on which alerts will be filtered
+  description:
+    type: string
+    description: Description of action rule
+  scope:
+    type: object
+    $ref: "#/types/azure-native:alertsmanagement/v20190505preview:Scope"
+    description: scope on which action rule will apply
+  status:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:alertsmanagement/v20190505preview:ActionRuleStatus"
+    description: Indicates if the given action rule is enabled or disabled
+  suppressionConfig:
+    type: object
+    $ref: "#/types/azure-native:alertsmanagement/v20190505preview:SuppressionConfig"
+    description: suppression configuration for the action rule
+  type:
+    type: string
+    description: |-
+      Indicates type of action rule
+      Expected value is 'Suppression'.
+    const: Suppression
+type: object
+required:
+  - suppressionConfig
+  - type

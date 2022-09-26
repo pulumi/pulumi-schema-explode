@@ -1,0 +1,34 @@
+$token: azure-native:management/v20210401:ManagementGroupDetailsResponse
+description: The details of a management group.
+properties:
+  managementGroupAncestors:
+    type: array
+    items:
+      type: string
+    description: The ancestors of the management group.
+  managementGroupAncestorsChain:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:management/v20210401:ManagementGroupPathElementResponse"
+    description: The ancestors of the management group displayed in reversed order, from immediate parent to the root.
+  parent:
+    type: object
+    $ref: "#/types/azure-native:management/v20210401:ParentGroupInfoResponse"
+    description: (Optional) The ID of the parent management group.
+  path:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:management/v20210401:ManagementGroupPathElementResponse"
+    description: The path from the root to the current group.
+  updatedBy:
+    type: string
+    description: The identity of the principal or process that updated the object.
+  updatedTime:
+    type: string
+    description: The date and time when this object was last updated.
+  version:
+    type: number
+    description: The version number of the object.
+type: object

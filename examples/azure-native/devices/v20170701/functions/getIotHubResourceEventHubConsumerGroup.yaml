@@ -1,0 +1,38 @@
+$token: azure-native:devices/v20170701:getIotHubResourceEventHubConsumerGroup
+description: The properties of the EventHubConsumerGroupInfo object.
+inputs:
+  properties:
+    eventHubEndpointName:
+      type: string
+      description: The name of the Event Hub-compatible endpoint in the IoT hub.
+    name:
+      type: string
+      description: The name of the consumer group to retrieve.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the IoT hub.
+    resourceName:
+      type: string
+      description: The name of the IoT hub.
+  type: object
+  required:
+    - eventHubEndpointName
+    - name
+    - resourceGroupName
+    - resourceName
+outputs:
+  description: The properties of the EventHubConsumerGroupInfo object.
+  properties:
+    id:
+      type: string
+      description: The Event Hub-compatible consumer group identifier.
+    name:
+      type: string
+      description: The Event Hub-compatible consumer group name.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: The tags.
+  type: object
+deprecationMessage: Version 2017-07-01 will be removed in v2 of the provider.

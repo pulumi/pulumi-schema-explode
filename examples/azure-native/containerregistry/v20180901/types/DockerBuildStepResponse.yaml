@@ -1,0 +1,51 @@
+$token: azure-native:containerregistry/v20180901:DockerBuildStepResponse
+description: The Docker build step.
+properties:
+  arguments:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:containerregistry/v20180901:ArgumentResponse"
+    description: The collection of override arguments to be used when executing this build step.
+  baseImageDependencies:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:containerregistry/v20180901:BaseImageDependencyResponse"
+    description: List of base image dependencies for a step.
+  contextAccessToken:
+    type: string
+    description: The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+  contextPath:
+    type: string
+    description: The URL(absolute or relative) of the source context for the task step.
+  dockerFilePath:
+    type: string
+    description: The Docker file path relative to the source context.
+  imageNames:
+    type: array
+    items:
+      type: string
+    description: The fully qualified image names including the repository and tag.
+  isPushEnabled:
+    type: boolean
+    description: The value of this property indicates whether the image built should be pushed to the registry or not.
+    default: true
+  noCache:
+    type: boolean
+    description: The value of this property indicates whether the image cache is enabled or not.
+    default: false
+  target:
+    type: string
+    description: The name of the target build stage for the docker build.
+  type:
+    type: string
+    description: |-
+      The type of the step.
+      Expected value is 'Docker'.
+    const: Docker
+type: object
+required:
+  - baseImageDependencies
+  - dockerFilePath
+  - type

@@ -1,0 +1,24 @@
+$token: azure-native:authorization/v20201001:RoleManagementPolicyEnablementRuleResponse
+description: The role management policy enablement rule.
+properties:
+  enabledRules:
+    type: array
+    items:
+      type: string
+    description: The list of enabled rules.
+  id:
+    type: string
+    description: The id of the rule.
+  ruleType:
+    type: string
+    description: |-
+      The type of rule
+      Expected value is 'RoleManagementPolicyEnablementRule'.
+    const: RoleManagementPolicyEnablementRule
+  target:
+    type: object
+    $ref: "#/types/azure-native:authorization/v20201001:RoleManagementPolicyRuleTargetResponse"
+    description: The target of the current rule.
+type: object
+required:
+  - ruleType

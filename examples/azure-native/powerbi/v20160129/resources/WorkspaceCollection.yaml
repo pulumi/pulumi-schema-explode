@@ -1,0 +1,45 @@
+$token: azure-native:powerbi/v20160129:WorkspaceCollection
+properties:
+  location:
+    type: string
+    description: Azure location
+  name:
+    type: string
+    description: Workspace collection name
+  properties:
+    $ref: pulumi.json#/Any
+    description: Properties
+  sku:
+    type: object
+    $ref: "#/types/azure-native:powerbi/v20160129:AzureSkuResponse"
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+  type:
+    type: string
+    description: Resource type
+type: object
+required:
+  - properties
+inputProperties:
+  location:
+    type: string
+    description: Azure location
+  resourceGroupName:
+    type: string
+    description: Azure resource group
+  sku:
+    type: object
+    $ref: "#/types/azure-native:powerbi/v20160129:AzureSku"
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+  workspaceCollectionName:
+    type: string
+    description: Power BI Embedded Workspace Collection name
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:powerbi:WorkspaceCollection

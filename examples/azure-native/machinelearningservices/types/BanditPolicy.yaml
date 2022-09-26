@@ -1,0 +1,24 @@
+$token: azure-native:machinelearningservices:BanditPolicy
+description: Defines an early termination policy based on slack criteria, and a frequency and delay interval for evaluation.
+properties:
+  delayEvaluation:
+    type: integer
+    description: Number of intervals by which to delay the first evaluation.
+  evaluationInterval:
+    type: integer
+    description: Interval (number of runs) between policy evaluations.
+  policyType:
+    type: string
+    description: |-
+      
+      Expected value is 'Bandit'.
+    const: Bandit
+  slackAmount:
+    type: number
+    description: Absolute distance allowed from the best performing run.
+  slackFactor:
+    type: number
+    description: Ratio of the allowed distance from the best performing run.
+type: object
+required:
+  - policyType

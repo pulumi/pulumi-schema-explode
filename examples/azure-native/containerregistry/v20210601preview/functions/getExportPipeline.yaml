@@ -1,0 +1,61 @@
+$token: azure-native:containerregistry/v20210601preview:getExportPipeline
+description: An object that represents an export pipeline for a container registry.
+inputs:
+  properties:
+    exportPipelineName:
+      type: string
+      description: The name of the export pipeline.
+    registryName:
+      type: string
+      description: The name of the container registry.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group to which the container registry belongs.
+  type: object
+  required:
+    - exportPipelineName
+    - registryName
+    - resourceGroupName
+outputs:
+  description: An object that represents an export pipeline for a container registry.
+  properties:
+    id:
+      type: string
+      description: The resource ID.
+    identity:
+      type: object
+      $ref: "#/types/azure-native:containerregistry/v20210601preview:IdentityPropertiesResponse"
+      description: The identity of the export pipeline.
+    location:
+      type: string
+      description: The location of the export pipeline.
+    name:
+      type: string
+      description: The name of the resource.
+    options:
+      type: array
+      items:
+        type: string
+      description: The list of all options configured for the pipeline.
+    provisioningState:
+      type: string
+      description: The provisioning state of the pipeline at the time the operation was called.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:containerregistry/v20210601preview:SystemDataResponse"
+      description: Metadata pertaining to creation and last modification of the resource.
+    target:
+      type: object
+      $ref: "#/types/azure-native:containerregistry/v20210601preview:ExportPipelineTargetPropertiesResponse"
+      description: The target properties of the export pipeline.
+    type:
+      type: string
+      description: The type of the resource.
+  type: object
+  required:
+    - id
+    - name
+    - provisioningState
+    - systemData
+    - target
+    - type

@@ -1,0 +1,71 @@
+$token: azure-native:network/v20190801:VirtualNetworkGateway
+description: A common class for general resource information.
+properties:
+  activeActive:
+    type: boolean
+    description: ActiveActive flag.
+  bgpSettings:
+    type: object
+    $ref: "#/types/azure-native:network/v20190801:BgpSettings"
+    description: Virtual network gateway's BGP speaker settings.
+  customRoutes:
+    type: object
+    $ref: "#/types/azure-native:network/v20190801:AddressSpace"
+    description: The reference of the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
+  enableBgp:
+    type: boolean
+    description: Whether BGP is enabled for this virtual network gateway or not.
+  enableDnsForwarding:
+    type: boolean
+    description: Whether dns forwarding is enabled or not.
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  gatewayDefaultSite:
+    type: object
+    $ref: "#/types/azure-native:network/v20190801:SubResource"
+    description: The reference of the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
+  gatewayType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20190801:VirtualNetworkGatewayType"
+    description: The type of this virtual network gateway.
+  id:
+    type: string
+    description: Resource ID.
+  ipConfigurations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20190801:VirtualNetworkGatewayIPConfiguration"
+    description: IP configurations for virtual network gateway.
+  location:
+    type: string
+    description: Resource location.
+  resourceGuid:
+    type: string
+    description: The resource GUID property of the virtual network gateway resource.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:network/v20190801:VirtualNetworkGatewaySku"
+    description: The reference of the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  vpnClientConfiguration:
+    type: object
+    $ref: "#/types/azure-native:network/v20190801:VpnClientConfiguration"
+    description: The reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
+  vpnGatewayGeneration:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20190801:VpnGatewayGeneration"
+    description: The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
+  vpnType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20190801:VpnType"
+    description: The type of this virtual network gateway.
+type: object

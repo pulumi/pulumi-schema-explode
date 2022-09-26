@@ -1,0 +1,72 @@
+$token: azure-native:edgeorder:AddressByName
+description: |-
+  Address Resource.
+  API Version: 2021-12-01.
+properties:
+  addressValidationStatus:
+    type: string
+    description: Status of address validation
+  contactDetails:
+    type: object
+    $ref: "#/types/azure-native:edgeorder:ContactDetailsResponse"
+    description: Contact details for the address
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  name:
+    type: string
+    description: The name of the resource
+  shippingAddress:
+    type: object
+    $ref: "#/types/azure-native:edgeorder:ShippingAddressResponse"
+    description: Shipping details for the address
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:edgeorder:SystemDataResponse"
+    description: Represents resource creation and update time
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - addressValidationStatus
+  - contactDetails
+  - location
+  - name
+  - systemData
+  - type
+inputProperties:
+  addressName:
+    type: string
+    description: The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
+  contactDetails:
+    type: object
+    $ref: "#/types/azure-native:edgeorder:ContactDetails"
+    description: Contact details for the address
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  shippingAddress:
+    type: object
+    $ref: "#/types/azure-native:edgeorder:ShippingAddress"
+    description: Shipping details for the address
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - contactDetails
+  - resourceGroupName
+aliases:
+  - type: azure-native:edgeorder/v20201201preview:AddressByName
+  - type: azure-native:edgeorder/v20211201:AddressByName
+  - type: azure-native:edgeorder/v20220501preview:AddressByName

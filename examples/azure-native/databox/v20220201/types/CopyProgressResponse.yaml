@@ -1,0 +1,67 @@
+$token: azure-native:databox/v20220201:CopyProgressResponse
+description: Copy progress.
+properties:
+  accountId:
+    type: string
+    description: Id of the account where the data needs to be uploaded.
+  bytesProcessed:
+    type: number
+    description: To indicate bytes transferred.
+  dataAccountType:
+    type: string
+    description: Data Account Type.
+  directoriesErroredOut:
+    type: number
+    description: To indicate directories errored out in the job.
+  filesErroredOut:
+    type: number
+    description: Number of files which could not be copied
+  filesProcessed:
+    type: number
+    description: Number of files processed
+  invalidDirectoriesProcessed:
+    type: number
+    description: To indicate directories renamed
+  invalidFileBytesUploaded:
+    type: number
+    description: Total amount of data not adhering to azure naming conventions which were processed by automatic renaming
+  invalidFilesProcessed:
+    type: number
+    description: Number of files not adhering to azure naming conventions which were processed by automatic renaming
+  isEnumerationInProgress:
+    type: boolean
+    description: "To indicate if enumeration of data is in progress. \r
+
+      Until this is true, the TotalBytesToProcess may not be valid."
+  renamedContainerCount:
+    type: number
+    description: Number of folders not adhering to azure naming conventions which were processed by automatic renaming
+  storageAccountName:
+    type: string
+    description: Name of the storage account. This will be empty for data account types other than storage account.
+  totalBytesToProcess:
+    type: number
+    description: Total amount of data to be processed by the job.
+  totalFilesToProcess:
+    type: number
+    description: Total files to process
+  transferType:
+    type: string
+    description: Transfer type of data
+type: object
+required:
+  - accountId
+  - bytesProcessed
+  - dataAccountType
+  - directoriesErroredOut
+  - filesErroredOut
+  - filesProcessed
+  - invalidDirectoriesProcessed
+  - invalidFileBytesUploaded
+  - invalidFilesProcessed
+  - isEnumerationInProgress
+  - renamedContainerCount
+  - storageAccountName
+  - totalBytesToProcess
+  - totalFilesToProcess
+  - transferType

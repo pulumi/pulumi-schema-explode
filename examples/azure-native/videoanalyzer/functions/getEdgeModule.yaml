@@ -1,0 +1,46 @@
+$token: azure-native:videoanalyzer:getEdgeModule
+description: |-
+  The representation of an edge module.
+  API Version: 2021-05-01-preview.
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: The Azure Video Analyzer account name.
+    edgeModuleName:
+      type: string
+      description: The name of the edge module to retrieve.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+  type: object
+  required:
+    - accountName
+    - edgeModuleName
+    - resourceGroupName
+outputs:
+  description: The representation of an edge module.
+  properties:
+    edgeModuleId:
+      type: string
+      description: Internal ID generated for the instance of the Video Analyzer edge module.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    name:
+      type: string
+      description: The name of the resource
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:videoanalyzer:SystemDataResponse"
+      description: The system metadata relating to this resource.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - edgeModuleId
+    - id
+    - name
+    - systemData
+    - type

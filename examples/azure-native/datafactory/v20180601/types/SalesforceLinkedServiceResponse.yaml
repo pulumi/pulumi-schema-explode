@@ -1,0 +1,66 @@
+$token: azure-native:datafactory/v20180601:SalesforceLinkedServiceResponse
+description: Linked service for Salesforce.
+properties:
+  annotations:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: List of tags that can be used for describing the linked service.
+  apiVersion:
+    $ref: pulumi.json#/Any
+    description: "The Salesforce API version used in ADF. Type: string (or Expression with resultType string)."
+  connectVia:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20180601:IntegrationRuntimeReferenceResponse"
+    description: The integration runtime reference.
+  description:
+    type: string
+    description: Linked service description.
+  encryptedCredential:
+    $ref: pulumi.json#/Any
+    description: "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string)."
+  environmentUrl:
+    $ref: pulumi.json#/Any
+    description: "The URL of Salesforce instance. Default is 'https://login.salesforce.com'. To copy data from sandbox, specify 'https://test.salesforce.com'. To copy data from custom domain, specify, for example, 'https://[domain].my.salesforce.com'. Type: string (or Expression with resultType string)."
+  parameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20180601:ParameterSpecificationResponse"
+    description: Parameters for linked service.
+  password:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:AzureKeyVaultSecretReferenceResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:SecureStringResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        AzureKeyVaultSecret: "#/types/azure-native:datafactory/v20180601:AzureKeyVaultSecretReferenceResponse"
+        SecureString: "#/types/azure-native:datafactory/v20180601:SecureStringResponse"
+    description: The password for Basic authentication of the Salesforce instance.
+  securityToken:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:AzureKeyVaultSecretReferenceResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:SecureStringResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        AzureKeyVaultSecret: "#/types/azure-native:datafactory/v20180601:AzureKeyVaultSecretReferenceResponse"
+        SecureString: "#/types/azure-native:datafactory/v20180601:SecureStringResponse"
+    description: The security token is optional to remotely access Salesforce instance.
+  type:
+    type: string
+    description: |-
+      Type of linked service.
+      Expected value is 'Salesforce'.
+    const: Salesforce
+  username:
+    $ref: pulumi.json#/Any
+    description: "The username for Basic authentication of the Salesforce instance. Type: string (or Expression with resultType string)."
+type: object
+required:
+  - type

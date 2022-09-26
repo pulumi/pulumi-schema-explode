@@ -1,0 +1,30 @@
+$token: azure-native:network/v20190601:PrivateLinkServiceIpConfiguration
+description: The private link service ip configuration.
+properties:
+  id:
+    type: string
+    description: Resource ID.
+  name:
+    type: string
+    description: The name of private link service ip configuration.
+  primary:
+    type: boolean
+    description: Whether the ip configuration is primary or not.
+  privateIPAddress:
+    type: string
+    description: The private IP address of the IP configuration.
+  privateIPAddressVersion:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20190601:IPVersion"
+    description: Available from Api-Version 2016-03-30 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.
+  privateIPAllocationMethod:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20190601:IPAllocationMethod"
+    description: The private IP address allocation method.
+  subnet:
+    type: object
+    $ref: "#/types/azure-native:network/v20190601:Subnet"
+    description: The reference of the subnet resource.
+type: object

@@ -1,0 +1,72 @@
+$token: azure-native:eventgrid/v20201015preview:EventChannelFilterResponse
+description: Filter for the Event Channel.
+properties:
+  advancedFilters:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20201015preview:BoolEqualsAdvancedFilterResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20201015preview:IsNotNullAdvancedFilterResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20201015preview:IsNullOrUndefinedAdvancedFilterResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20201015preview:NumberGreaterThanAdvancedFilterResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20201015preview:NumberGreaterThanOrEqualsAdvancedFilterResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20201015preview:NumberInAdvancedFilterResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20201015preview:NumberInRangeAdvancedFilterResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20201015preview:NumberLessThanAdvancedFilterResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20201015preview:NumberLessThanOrEqualsAdvancedFilterResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20201015preview:NumberNotInAdvancedFilterResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20201015preview:NumberNotInRangeAdvancedFilterResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20201015preview:StringBeginsWithAdvancedFilterResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20201015preview:StringContainsAdvancedFilterResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20201015preview:StringEndsWithAdvancedFilterResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20201015preview:StringInAdvancedFilterResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20201015preview:StringNotBeginsWithAdvancedFilterResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20201015preview:StringNotContainsAdvancedFilterResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20201015preview:StringNotEndsWithAdvancedFilterResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20201015preview:StringNotInAdvancedFilterResponse"
+      discriminator:
+        propertyName: operatorType
+        mapping:
+          BoolEquals: "#/types/azure-native:eventgrid/v20201015preview:BoolEqualsAdvancedFilterResponse"
+          IsNotNull: "#/types/azure-native:eventgrid/v20201015preview:IsNotNullAdvancedFilterResponse"
+          IsNullOrUndefined: "#/types/azure-native:eventgrid/v20201015preview:IsNullOrUndefinedAdvancedFilterResponse"
+          NumberGreaterThan: "#/types/azure-native:eventgrid/v20201015preview:NumberGreaterThanAdvancedFilterResponse"
+          NumberGreaterThanOrEquals: "#/types/azure-native:eventgrid/v20201015preview:NumberGreaterThanOrEqualsAdvancedFilterResponse"
+          NumberIn: "#/types/azure-native:eventgrid/v20201015preview:NumberInAdvancedFilterResponse"
+          NumberInRange: "#/types/azure-native:eventgrid/v20201015preview:NumberInRangeAdvancedFilterResponse"
+          NumberLessThan: "#/types/azure-native:eventgrid/v20201015preview:NumberLessThanAdvancedFilterResponse"
+          NumberLessThanOrEquals: "#/types/azure-native:eventgrid/v20201015preview:NumberLessThanOrEqualsAdvancedFilterResponse"
+          NumberNotIn: "#/types/azure-native:eventgrid/v20201015preview:NumberNotInAdvancedFilterResponse"
+          NumberNotInRange: "#/types/azure-native:eventgrid/v20201015preview:NumberNotInRangeAdvancedFilterResponse"
+          StringBeginsWith: "#/types/azure-native:eventgrid/v20201015preview:StringBeginsWithAdvancedFilterResponse"
+          StringContains: "#/types/azure-native:eventgrid/v20201015preview:StringContainsAdvancedFilterResponse"
+          StringEndsWith: "#/types/azure-native:eventgrid/v20201015preview:StringEndsWithAdvancedFilterResponse"
+          StringIn: "#/types/azure-native:eventgrid/v20201015preview:StringInAdvancedFilterResponse"
+          StringNotBeginsWith: "#/types/azure-native:eventgrid/v20201015preview:StringNotBeginsWithAdvancedFilterResponse"
+          StringNotContains: "#/types/azure-native:eventgrid/v20201015preview:StringNotContainsAdvancedFilterResponse"
+          StringNotEndsWith: "#/types/azure-native:eventgrid/v20201015preview:StringNotEndsWithAdvancedFilterResponse"
+          StringNotIn: "#/types/azure-native:eventgrid/v20201015preview:StringNotInAdvancedFilterResponse"
+    description: An array of advanced filters that are used for filtering event channels.
+  enableAdvancedFilteringOnArrays:
+    type: boolean
+    description: Allows advanced filters to be evaluated against an array of values instead of expecting a singular value.
+type: object

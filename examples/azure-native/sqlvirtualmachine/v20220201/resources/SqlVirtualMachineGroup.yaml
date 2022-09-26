@@ -1,0 +1,88 @@
+$token: azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachineGroup
+description: A SQL virtual machine group.
+properties:
+  clusterConfiguration:
+    type: string
+    description: Cluster type.
+  clusterManagerType:
+    type: string
+    description: "Type of cluster manager: Windows Server Failover Cluster (WSFC), implied by the scale type of the group and the OS type."
+  location:
+    type: string
+    description: Resource location.
+  name:
+    type: string
+    description: Resource name.
+  provisioningState:
+    type: string
+    description: Provisioning state to track the async operation status.
+  scaleType:
+    type: string
+    description: Scale type.
+  sqlImageOffer:
+    type: string
+    description: SQL image offer. Examples may include SQL2016-WS2016, SQL2017-WS2016.
+  sqlImageSku:
+    type: string
+    description: SQL image sku.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:sqlvirtualmachine/v20220201:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: Resource type.
+  wsfcDomainProfile:
+    type: object
+    $ref: "#/types/azure-native:sqlvirtualmachine/v20220201:WsfcDomainProfileResponse"
+    description: Cluster Active Directory domain profile.
+type: object
+required:
+  - clusterConfiguration
+  - clusterManagerType
+  - location
+  - name
+  - provisioningState
+  - scaleType
+  - systemData
+  - type
+inputProperties:
+  location:
+    type: string
+    description: Resource location.
+  resourceGroupName:
+    type: string
+    description: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  sqlImageOffer:
+    type: string
+    description: SQL image offer. Examples may include SQL2016-WS2016, SQL2017-WS2016.
+  sqlImageSku:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:sqlvirtualmachine/v20220201:SqlVmGroupImageSku"
+    description: SQL image sku.
+  sqlVirtualMachineGroupName:
+    type: string
+    description: Name of the SQL virtual machine group.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  wsfcDomainProfile:
+    type: object
+    $ref: "#/types/azure-native:sqlvirtualmachine/v20220201:WsfcDomainProfile"
+    description: Cluster Active Directory domain profile.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:sqlvirtualmachine:SqlVirtualMachineGroup
+  - type: azure-native:sqlvirtualmachine/v20170301preview:SqlVirtualMachineGroup
+  - type: azure-native:sqlvirtualmachine/v20211101preview:SqlVirtualMachineGroup
+  - type: azure-native:sqlvirtualmachine/v20220201preview:SqlVirtualMachineGroup
+  - type: azure-native:sqlvirtualmachine/v20220701preview:SqlVirtualMachineGroup

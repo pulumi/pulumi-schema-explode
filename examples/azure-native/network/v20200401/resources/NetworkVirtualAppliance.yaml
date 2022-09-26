@@ -1,0 +1,120 @@
+$token: azure-native:network/v20200401:NetworkVirtualAppliance
+description: NetworkVirtualAppliance Resource.
+properties:
+  bootStrapConfigurationBlob:
+    type: array
+    items:
+      type: string
+    description: BootStrapConfigurationBlob storage URLs.
+  cloudInitConfigurationBlob:
+    type: array
+    items:
+      type: string
+    description: CloudInitConfigurationBlob storage URLs.
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:network/v20200401:ManagedServiceIdentityResponse"
+    description: The service principal that has read access to cloud-init and config blob.
+  location:
+    type: string
+    description: Resource location.
+  name:
+    type: string
+    description: Resource name.
+  provisioningState:
+    type: string
+    description: The provisioning state of the resource.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:network/v20200401:VirtualApplianceSkuPropertiesResponse"
+    description: Network Virtual Appliance SKU.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: Resource type.
+  virtualApplianceAsn:
+    type: number
+    description: VirtualAppliance ASN.
+  virtualApplianceNics:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20200401:VirtualApplianceNicPropertiesResponse"
+    description: List of Virtual Appliance Network Interfaces.
+  virtualHub:
+    type: object
+    $ref: "#/types/azure-native:network/v20200401:SubResourceResponse"
+    description: The Virtual Hub where Network Virtual Appliance is being deployed.
+type: object
+required:
+  - etag
+  - name
+  - provisioningState
+  - type
+  - virtualApplianceNics
+inputProperties:
+  bootStrapConfigurationBlob:
+    type: array
+    items:
+      type: string
+    description: BootStrapConfigurationBlob storage URLs.
+  cloudInitConfigurationBlob:
+    type: array
+    items:
+      type: string
+    description: CloudInitConfigurationBlob storage URLs.
+  id:
+    type: string
+    description: Resource ID.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:network/v20200401:ManagedServiceIdentity"
+    description: The service principal that has read access to cloud-init and config blob.
+  location:
+    type: string
+    description: Resource location.
+  networkVirtualApplianceName:
+    type: string
+    description: The name of Network Virtual Appliance.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:network/v20200401:VirtualApplianceSkuProperties"
+    description: Network Virtual Appliance SKU.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  virtualApplianceAsn:
+    type: number
+    description: VirtualAppliance ASN.
+  virtualHub:
+    type: object
+    $ref: "#/types/azure-native:network/v20200401:SubResource"
+    description: The Virtual Hub where Network Virtual Appliance is being deployed.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:network:NetworkVirtualAppliance
+  - type: azure-native:network/v20191201:NetworkVirtualAppliance
+  - type: azure-native:network/v20200301:NetworkVirtualAppliance
+  - type: azure-native:network/v20200501:NetworkVirtualAppliance
+  - type: azure-native:network/v20200601:NetworkVirtualAppliance
+  - type: azure-native:network/v20200701:NetworkVirtualAppliance
+  - type: azure-native:network/v20200801:NetworkVirtualAppliance
+  - type: azure-native:network/v20201101:NetworkVirtualAppliance
+  - type: azure-native:network/v20210201:NetworkVirtualAppliance
+  - type: azure-native:network/v20210301:NetworkVirtualAppliance
+  - type: azure-native:network/v20210501:NetworkVirtualAppliance
+  - type: azure-native:network/v20210801:NetworkVirtualAppliance
+  - type: azure-native:network/v20220101:NetworkVirtualAppliance

@@ -1,0 +1,92 @@
+$token: azure-native:datafactory/v20170901preview:HiveLinkedServiceResponse
+description: Hive Server linked service.
+properties:
+  allowHostNameCNMismatch:
+    $ref: pulumi.json#/Any
+    description: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
+  allowSelfSignedServerCert:
+    $ref: pulumi.json#/Any
+    description: Specifies whether to allow self-signed certificates from the server. The default value is false.
+  annotations:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: List of tags that can be used for describing the Dataset.
+  authenticationType:
+    type: string
+    description: The authentication method used to access the Hive server.
+  connectVia:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20170901preview:IntegrationRuntimeReferenceResponse"
+    description: The integration runtime reference.
+  description:
+    type: string
+    description: Linked service description.
+  enableSsl:
+    $ref: pulumi.json#/Any
+    description: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
+  encryptedCredential:
+    $ref: pulumi.json#/Any
+    description: "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string)."
+  host:
+    $ref: pulumi.json#/Any
+    description: IP address or host name of the Hive server, separated by ';' for multiple hosts (only when serviceDiscoveryMode is enable).
+  httpPath:
+    $ref: pulumi.json#/Any
+    description: The partial URL corresponding to the Hive server.
+  parameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20170901preview:ParameterSpecificationResponse"
+    description: Parameters for linked service.
+  password:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:AzureKeyVaultSecretReferenceResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:SecureStringResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        AzureKeyVaultSecret: "#/types/azure-native:datafactory/v20170901preview:AzureKeyVaultSecretReferenceResponse"
+        SecureString: "#/types/azure-native:datafactory/v20170901preview:SecureStringResponse"
+    description: The password corresponding to the user name that you provided in the Username field
+  port:
+    $ref: pulumi.json#/Any
+    description: The TCP port that the Hive server uses to listen for client connections.
+  serverType:
+    type: string
+    description: The type of Hive server.
+  serviceDiscoveryMode:
+    $ref: pulumi.json#/Any
+    description: true to indicate using the ZooKeeper service, false not.
+  thriftTransportProtocol:
+    type: string
+    description: The transport protocol to use in the Thrift layer.
+  trustedCertPath:
+    $ref: pulumi.json#/Any
+    description: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
+  type:
+    type: string
+    description: |-
+      Type of linked service.
+      Expected value is 'Hive'.
+    const: Hive
+  useNativeQuery:
+    $ref: pulumi.json#/Any
+    description: Specifies whether the driver uses native HiveQL queries,or converts them into an equivalent form in HiveQL.
+  useSystemTrustStore:
+    $ref: pulumi.json#/Any
+    description: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
+  username:
+    $ref: pulumi.json#/Any
+    description: The user name that you use to access Hive Server.
+  zooKeeperNameSpace:
+    $ref: pulumi.json#/Any
+    description: The namespace on ZooKeeper under which Hive Server 2 nodes are added.
+type: object
+required:
+  - authenticationType
+  - host
+  - type

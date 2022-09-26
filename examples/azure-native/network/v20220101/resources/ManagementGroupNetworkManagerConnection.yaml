@@ -1,0 +1,46 @@
+$token: azure-native:network/v20220101:ManagementGroupNetworkManagerConnection
+description: The Network Manager Connection resource
+properties:
+  description:
+    type: string
+    description: A description of the network manager connection.
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  name:
+    type: string
+    description: Resource name.
+  networkManagerId:
+    type: string
+    description: Network Manager Id.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:network/v20220101:SystemDataResponse"
+    description: The system metadata related to this resource.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - etag
+  - name
+  - systemData
+  - type
+inputProperties:
+  description:
+    type: string
+    description: A description of the network manager connection.
+  managementGroupId:
+    type: string
+    description: The management group Id which uniquely identify the Microsoft Azure management group.
+  networkManagerConnectionName:
+    type: string
+    description: Name for the network manager connection.
+  networkManagerId:
+    type: string
+    description: Network Manager Id.
+requiredInputs:
+  - managementGroupId
+aliases:
+  - type: azure-native:network/v20220201preview:ManagementGroupNetworkManagerConnection
+  - type: azure-native:network/v20220401preview:ManagementGroupNetworkManagerConnection

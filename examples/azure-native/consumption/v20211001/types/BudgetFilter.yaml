@@ -1,0 +1,18 @@
+$token: azure-native:consumption/v20211001:BudgetFilter
+description: May be used to filter budgets by resource group, resource, or meter.
+properties:
+  and:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:consumption/v20211001:BudgetFilterProperties"
+    description: The logical "AND" expression. Must have at least 2 items.
+  dimensions:
+    type: object
+    $ref: "#/types/azure-native:consumption/v20211001:BudgetComparisonExpression"
+    description: Has comparison expression for a dimension
+  tags:
+    type: object
+    $ref: "#/types/azure-native:consumption/v20211001:BudgetComparisonExpression"
+    description: Has comparison expression for a tag
+type: object

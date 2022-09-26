@@ -1,0 +1,32 @@
+$token: azure-native:network/v20210801:ApplicationGatewayLoadDistributionPolicyResponse
+description: Load Distribution Policy of an application gateway.
+properties:
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  id:
+    type: string
+    description: Resource ID.
+  loadDistributionAlgorithm:
+    type: string
+    description: Load Distribution Targets resource of an application gateway.
+  loadDistributionTargets:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210801:ApplicationGatewayLoadDistributionTargetResponse"
+    description: Load Distribution Targets resource of an application gateway.
+  name:
+    type: string
+    description: Name of the load distribution policy that is unique within an Application Gateway.
+  provisioningState:
+    type: string
+    description: The provisioning state of the Load Distribution Policy resource.
+  type:
+    type: string
+    description: Type of the resource.
+type: object
+required:
+  - etag
+  - provisioningState
+  - type

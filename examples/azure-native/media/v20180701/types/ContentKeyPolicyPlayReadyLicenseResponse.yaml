@@ -1,0 +1,49 @@
+$token: azure-native:media/v20180701:ContentKeyPolicyPlayReadyLicenseResponse
+description: The PlayReady license
+properties:
+  allowTestDevices:
+    type: boolean
+    description: A flag indicating whether test devices can use the license.
+  beginDate:
+    type: string
+    description: The begin date of license
+  contentKeyLocation:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:media/v20180701:ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderResponse"
+      - type: object
+        $ref: "#/types/azure-native:media/v20180701:ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierResponse"
+    discriminator:
+      propertyName: odataType
+      mapping:
+        "#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader": "#/types/azure-native:media/v20180701:ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderResponse"
+        "#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifier": "#/types/azure-native:media/v20180701:ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierResponse"
+    description: The content key location.
+  contentType:
+    type: string
+    description: The PlayReady content type.
+  expirationDate:
+    type: string
+    description: The expiration date of license.
+  gracePeriod:
+    type: string
+    description: The grace period of license.
+  licenseType:
+    type: string
+    description: The license type.
+  playRight:
+    type: object
+    $ref: "#/types/azure-native:media/v20180701:ContentKeyPolicyPlayReadyPlayRightResponse"
+    description: The license PlayRight
+  relativeBeginDate:
+    type: string
+    description: The relative begin date of license.
+  relativeExpirationDate:
+    type: string
+    description: The relative expiration date of license.
+type: object
+required:
+  - allowTestDevices
+  - contentKeyLocation
+  - contentType
+  - licenseType

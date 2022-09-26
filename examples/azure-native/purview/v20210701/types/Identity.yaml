@@ -1,0 +1,14 @@
+$token: azure-native:purview/v20210701:Identity
+description: The Managed Identity of the resource
+properties:
+  type:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:purview/v20210701:Type"
+    description: Identity Type
+  userAssignedIdentities:
+    type: object
+    additionalProperties:
+      $ref: pulumi.json#/Any
+    description: User Assigned Identities
+type: object

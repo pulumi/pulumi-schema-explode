@@ -1,0 +1,57 @@
+$token: azure-native:security/v20220101preview:getGovernanceAssignment
+description: Security GovernanceAssignment over a given scope
+inputs:
+  properties:
+    assessmentName:
+      type: string
+      description: The Assessment Key - Unique key for the assessment type
+    assignmentKey:
+      type: string
+      description: The security governance assignment key - the assessment key of the required governance assignment
+    scope:
+      type: string
+      description: Scope of the query, can be subscription (/subscriptions/0b06d9ea-afe6-4779-bd59-30e5c2d9d13f) or management group (/providers/Microsoft.Management/managementGroups/mgName).
+  type: object
+  required:
+    - assessmentName
+    - assignmentKey
+    - scope
+outputs:
+  description: Security GovernanceAssignment over a given scope
+  properties:
+    additionalData:
+      type: object
+      $ref: "#/types/azure-native:security/v20220101preview:GovernanceAssignmentAdditionalDataResponse"
+      description: The additional data for the governance assignment - e.g. links to ticket (optional), see example
+    governanceEmailNotification:
+      type: object
+      $ref: "#/types/azure-native:security/v20220101preview:GovernanceEmailNotificationResponse"
+      description: The email notifications settings for the governance rule, states whether to disable notifications for mangers and owners
+    id:
+      type: string
+      description: Resource Id
+    isGracePeriod:
+      type: boolean
+      description: Defines whether there is a grace period on the governance assignment
+    name:
+      type: string
+      description: Resource name
+    owner:
+      type: string
+      description: The Owner for the governance assignment - e.g. user@contoso.com - see example
+    remediationDueDate:
+      type: string
+      description: The remediation due-date - after this date Secure Score will be affected (in case of  active grace-period)
+    remediationEta:
+      type: object
+      $ref: "#/types/azure-native:security/v20220101preview:RemediationEtaResponse"
+      description: The ETA (estimated time of arrival) for remediation (optional), see example
+    type:
+      type: string
+      description: Resource type
+  type: object
+  required:
+    - id
+    - name
+    - remediationDueDate
+    - type

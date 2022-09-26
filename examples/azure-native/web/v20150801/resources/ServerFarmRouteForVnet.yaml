@@ -1,0 +1,114 @@
+$token: azure-native:web/v20150801:ServerFarmRouteForVnet
+description: VnetRoute contract used to pass routing information for a vnet.
+properties:
+  endAddress:
+    type: string
+    description: The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
+  kind:
+    type: string
+    description: Kind of resource
+  location:
+    type: string
+    description: Resource Location
+  name:
+    type: string
+    description: Resource Name
+  routeType:
+    type: string
+    description: "The type of route this is:\r
+
+      \            DEFAULT - By default, every web app has routes to the local address ranges specified by RFC1918\r
+
+      \            INHERITED - Routes inherited from the real Virtual Network routes\r
+
+      \            STATIC - Static route set on the web app only\r
+
+      \            \r
+
+      \            These values will be used for syncing a Web App's routes with those from a Virtual Network. This operation will clear all DEFAULT and INHERITED routes and replace them\r
+
+      \            with new INHERITED routes."
+  startAddress:
+    type: string
+    description: The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  type:
+    type: string
+    description: Resource type
+type: object
+required:
+  - location
+inputProperties:
+  endAddress:
+    type: string
+    description: The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
+  id:
+    type: string
+    description: Resource Id
+  kind:
+    type: string
+    description: Kind of resource
+  location:
+    type: string
+    description: Resource Location
+  name:
+    type: string
+    description: Resource Name
+  resourceGroupName:
+    type: string
+    description: Name of resource group
+  routeName:
+    type: string
+    description: Name of the virtual network route
+  routeType:
+    type: string
+    description: "The type of route this is:\r
+
+      \            DEFAULT - By default, every web app has routes to the local address ranges specified by RFC1918\r
+
+      \            INHERITED - Routes inherited from the real Virtual Network routes\r
+
+      \            STATIC - Static route set on the web app only\r
+
+      \            \r
+
+      \            These values will be used for syncing a Web App's routes with those from a Virtual Network. This operation will clear all DEFAULT and INHERITED routes and replace them\r
+
+      \            with new INHERITED routes."
+  startAddress:
+    type: string
+    description: The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  type:
+    type: string
+    description: Resource type
+  vnetName:
+    type: string
+    description: Name of virtual network
+requiredInputs:
+  - name
+  - resourceGroupName
+  - vnetName
+aliases:
+  - type: azure-native:web:ServerFarmRouteForVnet
+  - type: azure-native:web/v20160901:ServerFarmRouteForVnet
+  - type: azure-native:web/v20180201:ServerFarmRouteForVnet
+  - type: azure-native:web/v20190801:ServerFarmRouteForVnet
+  - type: azure-native:web/v20200601:ServerFarmRouteForVnet
+  - type: azure-native:web/v20200901:ServerFarmRouteForVnet
+  - type: azure-native:web/v20201001:ServerFarmRouteForVnet
+  - type: azure-native:web/v20201201:ServerFarmRouteForVnet
+  - type: azure-native:web/v20210101:ServerFarmRouteForVnet
+  - type: azure-native:web/v20210115:ServerFarmRouteForVnet
+  - type: azure-native:web/v20210201:ServerFarmRouteForVnet
+  - type: azure-native:web/v20210301:ServerFarmRouteForVnet
+  - type: azure-native:web/v20220301:ServerFarmRouteForVnet
+deprecationMessage: Version 2015-08-01 will be removed in v2 of the provider.

@@ -1,0 +1,26 @@
+$token: azure-native:containerinstance/v20181001:ContainerPropertiesResponseInstanceView
+description: The instance view of the container instance. Only valid in response.
+properties:
+  currentState:
+    type: object
+    $ref: "#/types/azure-native:containerinstance/v20181001:ContainerStateResponse"
+    description: Current container instance state.
+  events:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:containerinstance/v20181001:EventResponse"
+    description: The events of the container instance.
+  previousState:
+    type: object
+    $ref: "#/types/azure-native:containerinstance/v20181001:ContainerStateResponse"
+    description: Previous container instance state.
+  restartCount:
+    type: integer
+    description: The number of times that the container instance has been restarted.
+type: object
+required:
+  - currentState
+  - events
+  - previousState
+  - restartCount

@@ -1,0 +1,40 @@
+$token: azure-native:network/v20200401:FrontendIPConfiguration
+description: Frontend IP address of the load balancer.
+properties:
+  id:
+    type: string
+    description: Resource ID.
+  name:
+    type: string
+    description: The name of the resource that is unique within the set of frontend IP configurations used by the load balancer. This name can be used to access the resource.
+  privateIPAddress:
+    type: string
+    description: The private IP address of the IP configuration.
+  privateIPAddressVersion:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20200401:IPVersion"
+    description: Whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.
+  privateIPAllocationMethod:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20200401:IPAllocationMethod"
+    description: The Private IP allocation method.
+  publicIPAddress:
+    type: object
+    $ref: "#/types/azure-native:network/v20200401:PublicIPAddress"
+    description: The reference to the Public IP resource.
+  publicIPPrefix:
+    type: object
+    $ref: "#/types/azure-native:network/v20200401:SubResource"
+    description: The reference to the Public IP Prefix resource.
+  subnet:
+    type: object
+    $ref: "#/types/azure-native:network/v20200401:Subnet"
+    description: The reference to the subnet resource.
+  zones:
+    type: array
+    items:
+      type: string
+    description: A list of availability zones denoting the IP allocated for the resource needs to come from.
+type: object

@@ -1,0 +1,18 @@
+$token: azure-native:costmanagement/v20201201preview:ExportSchedule
+description: The schedule associated with the export.
+properties:
+  recurrence:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:costmanagement/v20201201preview:RecurrenceType"
+    description: The schedule recurrence.
+  recurrencePeriod:
+    type: object
+    $ref: "#/types/azure-native:costmanagement/v20201201preview:ExportRecurrencePeriod"
+    description: Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+  status:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:costmanagement/v20201201preview:StatusType"
+    description: The status of the export's schedule. If 'Inactive', the export's schedule is paused.
+type: object

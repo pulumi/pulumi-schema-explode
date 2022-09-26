@@ -1,0 +1,38 @@
+$token: azure-native:security/v20210701preview:CustomEntityStoreAssignment
+description: Custom entity store assignment
+properties:
+  entityStoreDatabaseLink:
+    type: string
+    description: The link to entity store database.
+  name:
+    type: string
+    description: Resource name
+  principal:
+    type: string
+    description: "The principal assigned with entity store. Format of principal is: [AAD type]=[PrincipalObjectId];[TenantId]"
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:security/v20210701preview:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  type:
+    type: string
+    description: Resource type
+type: object
+required:
+  - name
+  - systemData
+  - type
+inputProperties:
+  customEntityStoreAssignmentName:
+    type: string
+    description: Name of the custom entity store assignment. Generated name is GUID.
+  principal:
+    type: string
+    description: "The principal assigned with entity store. If not provided, will use caller principal. Format of principal is: [AAD type]=[PrincipalObjectId];[TenantId]"
+  resourceGroupName:
+    type: string
+    description: The name of the resource group within the user's subscription. The name is case insensitive.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:security:CustomEntityStoreAssignment

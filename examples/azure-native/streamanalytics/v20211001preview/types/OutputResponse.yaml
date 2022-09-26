@@ -1,0 +1,114 @@
+$token: azure-native:streamanalytics/v20211001preview:OutputResponse
+description: An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
+properties:
+  datasource:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:AzureDataLakeStoreOutputDataSourceResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:AzureFunctionOutputDataSourceResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:AzureSqlDatabaseOutputDataSourceResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:AzureSynapseOutputDataSourceResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:AzureTableOutputDataSourceResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:BlobOutputDataSourceResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:DocumentDbOutputDataSourceResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:EventHubOutputDataSourceResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:EventHubV2OutputDataSourceResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:GatewayMessageBusOutputDataSourceResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:PostgreSQLOutputDataSourceResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:PowerBIOutputDataSourceResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:RawOutputDatasourceResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:ServiceBusQueueOutputDataSourceResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:ServiceBusTopicOutputDataSourceResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        GatewayMessageBus: "#/types/azure-native:streamanalytics/v20211001preview:GatewayMessageBusOutputDataSourceResponse"
+        Microsoft.AzureFunction: "#/types/azure-native:streamanalytics/v20211001preview:AzureFunctionOutputDataSourceResponse"
+        Microsoft.DBForPostgreSQL/servers/databases: "#/types/azure-native:streamanalytics/v20211001preview:PostgreSQLOutputDataSourceResponse"
+        Microsoft.DataLake/Accounts: "#/types/azure-native:streamanalytics/v20211001preview:AzureDataLakeStoreOutputDataSourceResponse"
+        Microsoft.EventHub/EventHub: "#/types/azure-native:streamanalytics/v20211001preview:EventHubV2OutputDataSourceResponse"
+        Microsoft.ServiceBus/EventHub: "#/types/azure-native:streamanalytics/v20211001preview:EventHubOutputDataSourceResponse"
+        Microsoft.ServiceBus/Queue: "#/types/azure-native:streamanalytics/v20211001preview:ServiceBusQueueOutputDataSourceResponse"
+        Microsoft.ServiceBus/Topic: "#/types/azure-native:streamanalytics/v20211001preview:ServiceBusTopicOutputDataSourceResponse"
+        Microsoft.Sql/Server/DataWarehouse: "#/types/azure-native:streamanalytics/v20211001preview:AzureSynapseOutputDataSourceResponse"
+        Microsoft.Sql/Server/Database: "#/types/azure-native:streamanalytics/v20211001preview:AzureSqlDatabaseOutputDataSourceResponse"
+        Microsoft.Storage/Blob: "#/types/azure-native:streamanalytics/v20211001preview:BlobOutputDataSourceResponse"
+        Microsoft.Storage/DocumentDB: "#/types/azure-native:streamanalytics/v20211001preview:DocumentDbOutputDataSourceResponse"
+        Microsoft.Storage/Table: "#/types/azure-native:streamanalytics/v20211001preview:AzureTableOutputDataSourceResponse"
+        PowerBI: "#/types/azure-native:streamanalytics/v20211001preview:PowerBIOutputDataSourceResponse"
+        Raw: "#/types/azure-native:streamanalytics/v20211001preview:RawOutputDatasourceResponse"
+    description: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+  diagnostics:
+    type: object
+    $ref: "#/types/azure-native:streamanalytics/v20211001preview:DiagnosticsResponse"
+    description: Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+  etag:
+    type: string
+    description: The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+  id:
+    type: string
+    description: Resource Id
+  lastOutputEventTimestamps:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:streamanalytics/v20211001preview:LastOutputEventTimestampResponse"
+    description: A list of the last output event times for each output partition. The index of the array corresponds to the partition number.
+  name:
+    type: string
+    description: Resource name
+  serialization:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:AvroSerializationResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:CsvSerializationResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:CustomClrSerializationResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:JsonSerializationResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:ParquetSerializationResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        Avro: "#/types/azure-native:streamanalytics/v20211001preview:AvroSerializationResponse"
+        Csv: "#/types/azure-native:streamanalytics/v20211001preview:CsvSerializationResponse"
+        CustomClr: "#/types/azure-native:streamanalytics/v20211001preview:CustomClrSerializationResponse"
+        Json: "#/types/azure-native:streamanalytics/v20211001preview:JsonSerializationResponse"
+        Parquet: "#/types/azure-native:streamanalytics/v20211001preview:ParquetSerializationResponse"
+    description: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+  sizeWindow:
+    type: number
+    description: The size window to constrain a Stream Analytics output to.
+  timeWindow:
+    type: string
+    description: The time frame for filtering Stream Analytics job outputs.
+  type:
+    type: string
+    description: Resource type
+  watermarkSettings:
+    type: object
+    $ref: "#/types/azure-native:streamanalytics/v20211001preview:OutputWatermarkPropertiesResponse"
+    description: Settings which determine whether to send watermarks to downstream.
+type: object
+required:
+  - diagnostics
+  - etag
+  - id
+  - lastOutputEventTimestamps
+  - type

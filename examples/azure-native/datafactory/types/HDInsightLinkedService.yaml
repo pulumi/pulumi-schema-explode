@@ -1,0 +1,66 @@
+$token: azure-native:datafactory:HDInsightLinkedService
+description: HDInsight linked service.
+properties:
+  annotations:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: List of tags that can be used for describing the linked service.
+  clusterUri:
+    $ref: pulumi.json#/Any
+    description: "HDInsight cluster URI. Type: string (or Expression with resultType string)."
+  connectVia:
+    type: object
+    $ref: "#/types/azure-native:datafactory:IntegrationRuntimeReference"
+    description: The integration runtime reference.
+  description:
+    type: string
+    description: Linked service description.
+  encryptedCredential:
+    $ref: pulumi.json#/Any
+    description: "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string)."
+  fileSystem:
+    $ref: pulumi.json#/Any
+    description: "Specify the FileSystem if the main storage for the HDInsight is ADLS Gen2. Type: string (or Expression with resultType string)."
+  hcatalogLinkedServiceName:
+    type: object
+    $ref: "#/types/azure-native:datafactory:LinkedServiceReference"
+    description: A reference to the Azure SQL linked service that points to the HCatalog database.
+  isEspEnabled:
+    $ref: pulumi.json#/Any
+    description: "Specify if the HDInsight is created with ESP (Enterprise Security Package). Type: Boolean."
+  linkedServiceName:
+    type: object
+    $ref: "#/types/azure-native:datafactory:LinkedServiceReference"
+    description: The Azure Storage linked service reference.
+  parameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:datafactory:ParameterSpecification"
+    description: Parameters for linked service.
+  password:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureKeyVaultSecretReference"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SecureString"
+    discriminator:
+      propertyName: type
+      mapping:
+        AzureKeyVaultSecret: "#/types/azure-native:datafactory:AzureKeyVaultSecretReference"
+        SecureString: "#/types/azure-native:datafactory:SecureString"
+    description: HDInsight cluster password.
+  type:
+    type: string
+    description: |-
+      Type of linked service.
+      Expected value is 'HDInsight'.
+    const: HDInsight
+  userName:
+    $ref: pulumi.json#/Any
+    description: "HDInsight cluster user name. Type: string (or Expression with resultType string)."
+type: object
+required:
+  - clusterUri
+  - type

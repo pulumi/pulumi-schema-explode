@@ -1,0 +1,24 @@
+$token: azure-native:netapp/v20210801:VolumeGroupMetaData
+description: Volume group properties
+properties:
+  applicationIdentifier:
+    type: string
+    description: Application specific identifier
+  applicationType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:netapp/v20210801:ApplicationType"
+    description: Application Type
+  deploymentSpecId:
+    type: string
+    description: Application specific identifier of deployment rules for the volume group
+  globalPlacementRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:netapp/v20210801:PlacementKeyValuePairs"
+    description: Application specific placement rules for the volume group
+  groupDescription:
+    type: string
+    description: Group Description
+type: object

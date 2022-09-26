@@ -1,0 +1,21 @@
+$token: azure-native:datamigration/v20220130preview:ValidateMigrationInputSqlServerSqlMITaskProperties
+description: Properties for task that validates migration input for SQL to Azure SQL Database Managed Instance
+properties:
+  clientData:
+    type: object
+    additionalProperties:
+      type: string
+    description: Key value pairs of client data to attach meta data information to task
+  input:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20220130preview:ValidateMigrationInputSqlServerSqlMITaskInput"
+    description: Task input
+  taskType:
+    type: string
+    description: |-
+      Task type.
+      Expected value is 'ValidateMigrationInput.SqlServer.AzureSqlDbMI'.
+    const: ValidateMigrationInput.SqlServer.AzureSqlDbMI
+type: object
+required:
+  - taskType

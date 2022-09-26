@@ -1,0 +1,53 @@
+$token: azure-native:hybridcontainerservice/v20220501preview:getstorageSpaceRetrieve
+description: The storageSpaces resource definition.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    storageSpacesName:
+      type: string
+      description: Parameter for the name of the storage object
+  type: object
+  required:
+    - resourceGroupName
+    - storageSpacesName
+outputs:
+  description: The storageSpaces resource definition.
+  properties:
+    extendedLocation:
+      type: object
+      $ref: "#/types/azure-native:hybridcontainerservice/v20220501preview:StorageSpacesResponseExtendedLocation"
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    name:
+      type: string
+      description: The name of the resource
+    properties:
+      type: object
+      $ref: "#/types/azure-native:hybridcontainerservice/v20220501preview:StorageSpacesPropertiesResponse"
+      description: HybridAKSStorageSpec defines the desired state of HybridAKSStorage
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:hybridcontainerservice/v20220501preview:SystemDataResponse"
+      description: Metadata pertaining to creation and last modification of the resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - properties
+    - systemData
+    - type

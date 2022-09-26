@@ -1,0 +1,47 @@
+$token: azure-native:datafactory/v20180601:AzureTableStorageLinkedService
+description: The azure table storage linked service.
+properties:
+  accountKey:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20180601:AzureKeyVaultSecretReference"
+    description: The Azure key vault secret reference of accountKey in connection string.
+  annotations:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: List of tags that can be used for describing the linked service.
+  connectVia:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20180601:IntegrationRuntimeReference"
+    description: The integration runtime reference.
+  connectionString:
+    $ref: pulumi.json#/Any
+    description: "The connection string. It is mutually exclusive with sasUri property. Type: string, SecureString or AzureKeyVaultSecretReference."
+  description:
+    type: string
+    description: Linked service description.
+  encryptedCredential:
+    type: string
+    description: "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string)."
+  parameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20180601:ParameterSpecification"
+    description: Parameters for linked service.
+  sasToken:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20180601:AzureKeyVaultSecretReference"
+    description: The Azure key vault secret reference of sasToken in sas uri.
+  sasUri:
+    $ref: pulumi.json#/Any
+    description: "SAS URI of the Azure Storage resource. It is mutually exclusive with connectionString property. Type: string, SecureString or AzureKeyVaultSecretReference."
+  type:
+    type: string
+    description: |-
+      Type of linked service.
+      Expected value is 'AzureTableStorage'.
+    const: AzureTableStorage
+type: object
+required:
+  - type

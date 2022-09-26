@@ -1,0 +1,16 @@
+$token: azure-native:devcenter/v20220901preview:ManagedServiceIdentity
+description: Managed service identity (system assigned and/or user assigned identities)
+properties:
+  type:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:devcenter/v20220901preview:ManagedServiceIdentityType"
+    description: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+  userAssignedIdentities:
+    type: object
+    additionalProperties:
+      $ref: pulumi.json#/Any
+    description: "The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests."
+type: object
+required:
+  - type

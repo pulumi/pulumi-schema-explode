@@ -1,0 +1,43 @@
+$token: azure-native:network/v20160601:PublicIPAddress
+description: PublicIPAddress resource
+properties:
+  dnsSettings:
+    type: object
+    $ref: "#/types/azure-native:network/v20160601:PublicIPAddressDnsSettings"
+    description: Gets or sets FQDN of the DNS record associated with the public IP address
+  etag:
+    type: string
+    description: Gets a unique read-only string that changes whenever the resource is updated
+  id:
+    type: string
+    description: Resource Id
+  idleTimeoutInMinutes:
+    type: integer
+    description: Gets or sets the idle timeout of the public IP address
+  ipAddress:
+    type: string
+  location:
+    type: string
+    description: Resource location
+  provisioningState:
+    type: string
+    description: Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+  publicIPAddressVersion:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20160601:IPVersion"
+    description: Gets or sets PublicIP address version (IPv4/IPv6)
+  publicIPAllocationMethod:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20160601:IPAllocationMethod"
+    description: Gets or sets PublicIP allocation method (Static/Dynamic)
+  resourceGuid:
+    type: string
+    description: Gets or sets resource guid property of the PublicIP resource
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+type: object

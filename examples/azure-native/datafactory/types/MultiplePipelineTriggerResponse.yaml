@@ -1,0 +1,30 @@
+$token: azure-native:datafactory:MultiplePipelineTriggerResponse
+description: Base class for all triggers that support one to many model for trigger to pipeline.
+properties:
+  annotations:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: List of tags that can be used for describing the trigger.
+  description:
+    type: string
+    description: Trigger description.
+  pipelines:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory:TriggerPipelineReferenceResponse"
+    description: Pipelines that need to be started.
+  runtimeState:
+    type: string
+    description: Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
+  type:
+    type: string
+    description: |-
+      Trigger type.
+      Expected value is 'MultiplePipelineTrigger'.
+    const: MultiplePipelineTrigger
+type: object
+required:
+  - runtimeState
+  - type

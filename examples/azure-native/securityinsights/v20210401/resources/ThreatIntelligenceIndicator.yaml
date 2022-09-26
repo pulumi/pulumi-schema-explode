@@ -1,0 +1,168 @@
+$token: azure-native:securityinsights/v20210401:ThreatIntelligenceIndicator
+description: Threat intelligence information object.
+properties:
+  etag:
+    type: string
+    description: Etag of the azure resource
+  kind:
+    type: string
+    description: The kind of the entity.
+  name:
+    type: string
+    description: Azure resource name
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:securityinsights/v20210401:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  type:
+    type: string
+    description: Azure resource type
+type: object
+required:
+  - kind
+  - name
+  - systemData
+  - type
+inputProperties:
+  confidence:
+    type: integer
+    description: Confidence of threat intelligence entity
+  created:
+    type: string
+    description: Created by
+  createdByRef:
+    type: string
+    description: Created by reference of threat intelligence entity
+  defanged:
+    type: boolean
+    description: Is threat intelligence entity defanged
+  description:
+    type: string
+    description: Description of a threat intelligence entity
+  displayName:
+    type: string
+    description: Display name of a threat intelligence entity
+  extensions:
+    $ref: pulumi.json#/Any
+    description: Extensions map
+  externalId:
+    type: string
+    description: External ID of threat intelligence entity
+  externalLastUpdatedTimeUtc:
+    type: string
+    description: External last updated time in UTC
+  externalReferences:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:securityinsights/v20210401:ThreatIntelligenceExternalReference"
+    description: External References
+  granularMarkings:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:securityinsights/v20210401:ThreatIntelligenceGranularMarkingModel"
+    description: Granular Markings
+  indicatorTypes:
+    type: array
+    items:
+      type: string
+    description: Indicator types of threat intelligence entities
+  killChainPhases:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:securityinsights/v20210401:ThreatIntelligenceKillChainPhase"
+    description: Kill chain phases
+  kind:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:securityinsights/v20210401:ThreatIntelligenceResourceInnerKind"
+    description: The kind of the entity.
+  labels:
+    type: array
+    items:
+      type: string
+    description: Labels  of threat intelligence entity
+  language:
+    type: string
+    description: Language of threat intelligence entity
+  lastUpdatedTimeUtc:
+    type: string
+    description: Last updated time in UTC
+  modified:
+    type: string
+    description: Modified by
+  name:
+    type: string
+    description: Threat intelligence indicator name field.
+  objectMarkingRefs:
+    type: array
+    items:
+      type: string
+    description: Threat intelligence entity object marking references
+  operationalInsightsResourceProvider:
+    type: string
+    description: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+  parsedPattern:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:securityinsights/v20210401:ThreatIntelligenceParsedPattern"
+    description: Parsed patterns
+  pattern:
+    type: string
+    description: Pattern of a threat intelligence entity
+  patternType:
+    type: string
+    description: Pattern type of a threat intelligence entity
+  patternVersion:
+    type: string
+    description: Pattern version of a threat intelligence entity
+  resourceGroupName:
+    type: string
+    description: The name of the resource group within the user's subscription. The name is case insensitive.
+  revoked:
+    type: boolean
+    description: Is threat intelligence entity revoked
+  source:
+    type: string
+    description: Source of a threat intelligence entity
+  threatIntelligenceTags:
+    type: array
+    items:
+      type: string
+    description: List of tags
+  threatTypes:
+    type: array
+    items:
+      type: string
+    description: Threat types
+  validFrom:
+    type: string
+    description: Valid from
+  validUntil:
+    type: string
+    description: Valid until
+  workspaceName:
+    type: string
+    description: The name of the workspace.
+requiredInputs:
+  - kind
+  - operationalInsightsResourceProvider
+  - resourceGroupName
+  - workspaceName
+aliases:
+  - type: azure-native:securityinsights:ThreatIntelligenceIndicator
+  - type: azure-native:securityinsights/v20190101preview:ThreatIntelligenceIndicator
+  - type: azure-native:securityinsights/v20210901preview:ThreatIntelligenceIndicator
+  - type: azure-native:securityinsights/v20211001:ThreatIntelligenceIndicator
+  - type: azure-native:securityinsights/v20211001preview:ThreatIntelligenceIndicator
+  - type: azure-native:securityinsights/v20220101preview:ThreatIntelligenceIndicator
+  - type: azure-native:securityinsights/v20220401preview:ThreatIntelligenceIndicator
+  - type: azure-native:securityinsights/v20220501preview:ThreatIntelligenceIndicator
+  - type: azure-native:securityinsights/v20220601preview:ThreatIntelligenceIndicator
+  - type: azure-native:securityinsights/v20220701preview:ThreatIntelligenceIndicator
+  - type: azure-native:securityinsights/v20220801:ThreatIntelligenceIndicator
+  - type: azure-native:securityinsights/v20220801preview:ThreatIntelligenceIndicator
+  - type: azure-native:securityinsights/v20220901preview:ThreatIntelligenceIndicator

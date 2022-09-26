@@ -1,0 +1,30 @@
+$token: azure-native:mobilenetwork/v20220401preview:PccRuleConfiguration
+description: Data flow policy rule configuration
+properties:
+  ruleName:
+    type: string
+    description: The name of the rule. This must be unique within the parent service. You must not use any of the following reserved strings - `default`, `requested` or `service`.
+  rulePrecedence:
+    type: integer
+    description: A precedence value that is used to decide between data flow policy rules when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all data flow policy rules configured in the mobile network.
+  ruleQosPolicy:
+    type: object
+    $ref: "#/types/azure-native:mobilenetwork/v20220401preview:PccRuleQosPolicy"
+    description: The QoS policy to use for packets matching this rule. If this field is null then the parent service will define the QoS settings.
+  serviceDataFlowTemplates:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:mobilenetwork/v20220401preview:ServiceDataFlowTemplate"
+    description: The set of data flow templates to use for this data flow policy rule.
+  trafficControl:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:mobilenetwork/v20220401preview:TrafficControlPermission"
+    description: Determines whether flows that match this data flow policy rule are permitted.
+    default: Enabled
+type: object
+required:
+  - ruleName
+  - rulePrecedence
+  - serviceDataFlowTemplates

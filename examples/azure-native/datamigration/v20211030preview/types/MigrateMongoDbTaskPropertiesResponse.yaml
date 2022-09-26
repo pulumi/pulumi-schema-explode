@@ -1,0 +1,64 @@
+$token: azure-native:datamigration/v20211030preview:MigrateMongoDbTaskPropertiesResponse
+description: Properties for the task that migrates data between MongoDB data sources
+properties:
+  clientData:
+    type: object
+    additionalProperties:
+      type: string
+    description: Key value pairs of client data to attach meta data information to task
+  commands:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:datamigration/v20211030preview:MigrateMISyncCompleteCommandPropertiesResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration/v20211030preview:MigrateSyncCompleteCommandPropertiesResponse"
+      discriminator:
+        propertyName: commandType
+        mapping:
+          Migrate.SqlServer.AzureDbSqlMi.Complete: "#/types/azure-native:datamigration/v20211030preview:MigrateMISyncCompleteCommandPropertiesResponse"
+          Migrate.Sync.Complete.Database: "#/types/azure-native:datamigration/v20211030preview:MigrateSyncCompleteCommandPropertiesResponse"
+    description: Array of command properties.
+  errors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration/v20211030preview:ODataErrorResponse"
+    description: Array of errors. This is ignored if submitted.
+  input:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20211030preview:MongoDbMigrationSettingsResponse"
+    description: Describes how a MongoDB data migration should be performed
+  output:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:datamigration/v20211030preview:MongoDbCollectionProgressResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration/v20211030preview:MongoDbDatabaseProgressResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration/v20211030preview:MongoDbMigrationProgressResponse"
+      discriminator:
+        propertyName: resultType
+        mapping:
+          Collection: "#/types/azure-native:datamigration/v20211030preview:MongoDbCollectionProgressResponse"
+          Database: "#/types/azure-native:datamigration/v20211030preview:MongoDbDatabaseProgressResponse"
+          Migration: "#/types/azure-native:datamigration/v20211030preview:MongoDbMigrationProgressResponse"
+  state:
+    type: string
+    description: The state of the task. This is ignored if submitted.
+  taskType:
+    type: string
+    description: |-
+      Task type.
+      Expected value is 'Migrate.MongoDb'.
+    const: Migrate.MongoDb
+type: object
+required:
+  - commands
+  - errors
+  - output
+  - state
+  - taskType

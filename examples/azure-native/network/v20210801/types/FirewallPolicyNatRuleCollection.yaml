@@ -1,0 +1,39 @@
+$token: azure-native:network/v20210801:FirewallPolicyNatRuleCollection
+description: Firewall Policy NAT Rule Collection.
+properties:
+  action:
+    type: object
+    $ref: "#/types/azure-native:network/v20210801:FirewallPolicyNatRuleCollectionAction"
+    description: The action type of a Nat rule collection.
+  name:
+    type: string
+    description: The name of the rule collection.
+  priority:
+    type: integer
+    description: Priority of the Firewall Policy Rule Collection resource.
+  ruleCollectionType:
+    type: string
+    description: |-
+      The type of the rule collection.
+      Expected value is 'FirewallPolicyNatRuleCollection'.
+    const: FirewallPolicyNatRuleCollection
+  rules:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:network/v20210801:ApplicationRule"
+        - type: object
+          $ref: "#/types/azure-native:network/v20210801:NatRule"
+        - type: object
+          $ref: "#/types/azure-native:network/v20210801:NetworkRule"
+      discriminator:
+        propertyName: ruleType
+        mapping:
+          ApplicationRule: "#/types/azure-native:network/v20210801:ApplicationRule"
+          NatRule: "#/types/azure-native:network/v20210801:NatRule"
+          NetworkRule: "#/types/azure-native:network/v20210801:NetworkRule"
+    description: List of rules included in a rule collection.
+type: object
+required:
+  - ruleCollectionType

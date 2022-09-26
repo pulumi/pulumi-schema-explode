@@ -1,0 +1,65 @@
+$token: azure-native:networkfunction:CollectorPolicy
+description: |-
+  Collector policy resource.
+  API Version: 2022-05-01.
+properties:
+  emissionPolicies:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:networkfunction:EmissionPoliciesPropertiesFormatResponse"
+    description: Emission policies.
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  ingestionPolicy:
+    type: object
+    $ref: "#/types/azure-native:networkfunction:IngestionPolicyPropertiesFormatResponse"
+    description: Ingestion policies.
+  name:
+    type: string
+    description: Azure resource name
+  provisioningState:
+    type: string
+    description: The provisioning state.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:networkfunction:CollectorPolicyResponseSystemData"
+    description: Metadata pertaining to creation and last modification of the resource.
+  type:
+    type: string
+    description: Azure resource type
+type: object
+required:
+  - etag
+  - name
+  - provisioningState
+  - systemData
+  - type
+inputProperties:
+  azureTrafficCollectorName:
+    type: string
+    description: Azure Traffic Collector name
+  collectorPolicyName:
+    type: string
+    description: Collector Policy Name
+  emissionPolicies:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:networkfunction:EmissionPoliciesPropertiesFormat"
+    description: Emission policies.
+  ingestionPolicy:
+    type: object
+    $ref: "#/types/azure-native:networkfunction:IngestionPolicyPropertiesFormat"
+    description: Ingestion policies.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+requiredInputs:
+  - azureTrafficCollectorName
+  - resourceGroupName
+aliases:
+  - type: azure-native:networkfunction/v20210901preview:CollectorPolicy
+  - type: azure-native:networkfunction/v20220501:CollectorPolicy
+  - type: azure-native:networkfunction/v20220801:CollectorPolicy

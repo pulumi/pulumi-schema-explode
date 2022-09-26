@@ -1,0 +1,15 @@
+$token: azure-native:cdn/v20200415:ManagedRuleGroupOverride
+description: Defines a managed rule group override setting.
+properties:
+  ruleGroupName:
+    type: string
+    description: Describes the managed rule group within the rule set to override
+  rules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:cdn/v20200415:ManagedRuleOverride"
+    description: List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+type: object
+required:
+  - ruleGroupName

@@ -1,0 +1,25 @@
+$token: azure-native:storagecache/v20220501:CacheUpgradeStatusResponse
+description: Properties describing the software upgrade state of the Cache.
+properties:
+  currentFirmwareVersion:
+    type: string
+    description: Version string of the firmware currently installed on this Cache.
+  firmwareUpdateDeadline:
+    type: string
+    description: Time at which the pending firmware update will automatically be installed on the Cache.
+  firmwareUpdateStatus:
+    type: string
+    description: True if there is a firmware update ready to install on this Cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
+  lastFirmwareUpdate:
+    type: string
+    description: Time of the last successful firmware update.
+  pendingFirmwareVersion:
+    type: string
+    description: When firmwareUpdateAvailable is true, this field holds the version string for the update.
+type: object
+required:
+  - currentFirmwareVersion
+  - firmwareUpdateDeadline
+  - firmwareUpdateStatus
+  - lastFirmwareUpdate
+  - pendingFirmwareVersion

@@ -1,0 +1,52 @@
+$token: azure-native:securityinsights:getSentinelOnboardingState
+description: |-
+  Sentinel onboarding state
+  API Version: 2021-03-01-preview.
+inputs:
+  properties:
+    operationalInsightsResourceProvider:
+      type: string
+      description: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    sentinelOnboardingStateName:
+      type: string
+      description: The Sentinel onboarding state name. Supports - default
+    workspaceName:
+      type: string
+      description: The name of the workspace.
+  type: object
+  required:
+    - operationalInsightsResourceProvider
+    - resourceGroupName
+    - sentinelOnboardingStateName
+    - workspaceName
+outputs:
+  description: Sentinel onboarding state
+  properties:
+    customerManagedKey:
+      type: boolean
+      description: Flag that indicates the status of the CMK setting
+    etag:
+      type: string
+      description: Etag of the azure resource
+    id:
+      type: string
+      description: Azure resource Id
+    name:
+      type: string
+      description: Azure resource name
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:securityinsights:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    type:
+      type: string
+      description: Azure resource type
+  type: object
+  required:
+    - id
+    - name
+    - systemData
+    - type

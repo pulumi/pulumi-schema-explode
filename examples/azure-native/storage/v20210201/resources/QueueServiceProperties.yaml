@@ -1,0 +1,44 @@
+$token: azure-native:storage/v20210201:QueueServiceProperties
+description: The properties of a storage account’s Queue service.
+properties:
+  cors:
+    type: object
+    $ref: "#/types/azure-native:storage/v20210201:CorsRulesResponse"
+    description: Specifies CORS rules for the Queue service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Queue service.
+  name:
+    type: string
+    description: The name of the resource
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - name
+  - type
+inputProperties:
+  accountName:
+    type: string
+    description: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+  cors:
+    type: object
+    $ref: "#/types/azure-native:storage/v20210201:CorsRules"
+    description: Specifies CORS rules for the Queue service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Queue service.
+  queueServiceName:
+    type: string
+    description: The name of the Queue Service within the specified storage account. Queue Service Name must be 'default'
+  resourceGroupName:
+    type: string
+    description: The name of the resource group within the user's subscription. The name is case insensitive.
+requiredInputs:
+  - accountName
+  - resourceGroupName
+aliases:
+  - type: azure-native:storage:QueueServiceProperties
+  - type: azure-native:storage/v20190601:QueueServiceProperties
+  - type: azure-native:storage/v20200801preview:QueueServiceProperties
+  - type: azure-native:storage/v20210101:QueueServiceProperties
+  - type: azure-native:storage/v20210401:QueueServiceProperties
+  - type: azure-native:storage/v20210601:QueueServiceProperties
+  - type: azure-native:storage/v20210801:QueueServiceProperties
+  - type: azure-native:storage/v20210901:QueueServiceProperties
+  - type: azure-native:storage/v20220501:QueueServiceProperties

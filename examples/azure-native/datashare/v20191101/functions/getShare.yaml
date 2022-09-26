@@ -1,0 +1,61 @@
+$token: azure-native:datashare/v20191101:getShare
+description: A share data transfer object.
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: The name of the share account.
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+    shareName:
+      type: string
+      description: The name of the share to retrieve.
+  type: object
+  required:
+    - accountName
+    - resourceGroupName
+    - shareName
+outputs:
+  description: A share data transfer object.
+  properties:
+    createdAt:
+      type: string
+      description: Time at which the share was created.
+    description:
+      type: string
+      description: Share description.
+    id:
+      type: string
+      description: The resource id of the azure resource
+    name:
+      type: string
+      description: Name of the azure resource
+    provisioningState:
+      type: string
+      description: Gets or sets the provisioning state
+    shareKind:
+      type: string
+      description: Share kind.
+    terms:
+      type: string
+      description: Share terms.
+    type:
+      type: string
+      description: Type of the azure resource
+    userEmail:
+      type: string
+      description: Email of the user who created the resource
+    userName:
+      type: string
+      description: Name of the user who created the resource
+  type: object
+  required:
+    - createdAt
+    - id
+    - name
+    - provisioningState
+    - type
+    - userEmail
+    - userName
+deprecationMessage: Version 2019-11-01 will be removed in v2 of the provider.

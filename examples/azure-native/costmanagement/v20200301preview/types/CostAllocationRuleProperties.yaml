@@ -1,0 +1,19 @@
+$token: azure-native:costmanagement/v20200301preview:CostAllocationRuleProperties
+description: The properties of a cost allocation rule
+properties:
+  description:
+    type: string
+    description: Description of a cost allocation rule.
+  details:
+    type: object
+    $ref: "#/types/azure-native:costmanagement/v20200301preview:CostAllocationRuleDetails"
+    description: Resource information for the cost allocation rule
+  status:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:costmanagement/v20200301preview:RuleStatus"
+    description: Status of the rule
+type: object
+required:
+  - details
+  - status

@@ -1,0 +1,45 @@
+$token: azure-native:eventgrid/v20211015preview:WebhookPartnerDestinationInfoResponse
+description: Information about the WebHook of the partner destination.
+properties:
+  azureSubscriptionId:
+    type: string
+    description: "Azure subscription ID of the subscriber. The partner destination associated with the channel will be\r
+
+      created under this Azure subscription."
+  clientAuthentication:
+    type: object
+    $ref: "#/types/azure-native:eventgrid/v20211015preview:AzureADPartnerClientAuthenticationResponse"
+    description: Partner client authentication
+  endpointBaseUrl:
+    type: string
+    description: The base URL that represents the endpoint of the partner destination.
+  endpointServiceContext:
+    type: string
+    description: Additional context of the partner destination endpoint.
+  endpointType:
+    type: string
+    description: |-
+      Type of the endpoint for the partner destination
+      Expected value is 'WebHook'.
+    const: WebHook
+    default: WebHook
+  endpointUrl:
+    type: string
+    description: The URL that represents the endpoint of the partner destination.
+  name:
+    type: string
+    description: Name of the partner destination associated with the channel.
+  resourceGroupName:
+    type: string
+    description: "Azure Resource Group of the subscriber. The partner destination associated with the channel will be\r
+
+      created under this resource group."
+  resourceMoveChangeHistory:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:eventgrid/v20211015preview:ResourceMoveChangeHistoryResponse"
+    description: Change history of the resource move.
+type: object
+required:
+  - endpointType

@@ -1,0 +1,18 @@
+$token: azure-native:storage/v20181101:RestrictionResponse
+description: The restriction because of which SKU cannot be used.
+properties:
+  reasonCode:
+    type: string
+    description: The reason for the restriction. As of now this can be "QuotaId" or "NotAvailableForSubscription". Quota Id is set when the SKU has requiredQuotas parameter as the subscription does not belong to that quota. The "NotAvailableForSubscription" is related to capacity at DC.
+  type:
+    type: string
+    description: The type of restrictions. As of now only possible value for this is location.
+  values:
+    type: array
+    items:
+      type: string
+    description: The value of restrictions. If the restriction type is set to location. This would be different locations where the SKU is restricted.
+type: object
+required:
+  - type
+  - values

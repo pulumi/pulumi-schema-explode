@@ -1,0 +1,20 @@
+$token: azure-native:datamigration:ConnectToTargetSqlMISyncTaskOutputResponse
+description: Output for the task that validates connection to Azure SQL Database Managed Instance.
+properties:
+  targetServerBrandVersion:
+    type: string
+    description: Target server brand version
+  targetServerVersion:
+    type: string
+    description: Target server version
+  validationErrors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration:ReportableExceptionResponse"
+    description: Validation errors
+type: object
+required:
+  - targetServerBrandVersion
+  - targetServerVersion
+  - validationErrors

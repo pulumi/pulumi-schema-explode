@@ -1,0 +1,94 @@
+$token: azure-native:customerinsights:getLink
+description: |-
+  The link resource format.
+  API Version: 2017-04-26.
+inputs:
+  properties:
+    hubName:
+      type: string
+      description: The name of the hub.
+    linkName:
+      type: string
+      description: The name of the link.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - hubName
+    - linkName
+    - resourceGroupName
+outputs:
+  description: The link resource format.
+  properties:
+    description:
+      type: object
+      additionalProperties:
+        type: string
+      description: Localized descriptions for the Link.
+    displayName:
+      type: object
+      additionalProperties:
+        type: string
+      description: Localized display name for the Link.
+    id:
+      type: string
+      description: Resource ID.
+    linkName:
+      type: string
+      description: The link name.
+    mappings:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:customerinsights:TypePropertiesMappingResponse"
+      description: The set of properties mappings between the source and target Types.
+    name:
+      type: string
+      description: Resource name.
+    operationType:
+      type: string
+      description: Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
+    participantPropertyReferences:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:customerinsights:ParticipantPropertyReferenceResponse"
+      description: The properties that represent the participating profile.
+    provisioningState:
+      type: string
+      description: Provisioning state.
+    referenceOnly:
+      type: boolean
+      description: Indicating whether the link is reference only link. This flag is ignored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.
+    sourceEntityType:
+      type: string
+      description: Type of source entity.
+    sourceEntityTypeName:
+      type: string
+      description: Name of the source Entity Type.
+    targetEntityType:
+      type: string
+      description: Type of target entity.
+    targetEntityTypeName:
+      type: string
+      description: Name of the target Entity Type.
+    tenantId:
+      type: string
+      description: The hub name.
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - id
+    - linkName
+    - name
+    - participantPropertyReferences
+    - provisioningState
+    - sourceEntityType
+    - sourceEntityTypeName
+    - targetEntityType
+    - targetEntityTypeName
+    - tenantId
+    - type

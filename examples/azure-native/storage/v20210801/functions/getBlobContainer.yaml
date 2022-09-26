@@ -1,0 +1,113 @@
+$token: azure-native:storage/v20210801:getBlobContainer
+description: Properties of the blob container, including Id, resource name, resource type, Etag.
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+    containerName:
+      type: string
+      description: The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group within the user's subscription. The name is case insensitive.
+  type: object
+  required:
+    - accountName
+    - containerName
+    - resourceGroupName
+outputs:
+  description: Properties of the blob container, including Id, resource name, resource type, Etag.
+  properties:
+    defaultEncryptionScope:
+      type: string
+      description: Default the container to use specified encryption scope for all writes.
+    deleted:
+      type: boolean
+      description: Indicates whether the blob container was deleted.
+    deletedTime:
+      type: string
+      description: Blob container deletion time.
+    denyEncryptionScopeOverride:
+      type: boolean
+      description: Block override of encryption scope from the container default.
+    enableNfsV3AllSquash:
+      type: boolean
+      description: Enable NFSv3 all squash on blob container.
+    enableNfsV3RootSquash:
+      type: boolean
+      description: Enable NFSv3 root squash on blob container.
+    etag:
+      type: string
+      description: Resource Etag.
+    hasImmutabilityPolicy:
+      type: boolean
+      description: The hasImmutabilityPolicy public property is set to true by SRP if ImmutabilityPolicy has been created for this container. The hasImmutabilityPolicy public property is set to false by SRP if ImmutabilityPolicy has not been created for this container.
+    hasLegalHold:
+      type: boolean
+      description: The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    immutabilityPolicy:
+      type: object
+      $ref: "#/types/azure-native:storage/v20210801:ImmutabilityPolicyPropertiesResponse"
+      description: The ImmutabilityPolicy property of the container.
+    immutableStorageWithVersioning:
+      type: object
+      $ref: "#/types/azure-native:storage/v20210801:ImmutableStorageWithVersioningResponse"
+      description: The object level immutability property of the container. The property is immutable and can only be set to true at the container creation time. Existing containers must undergo a migration process.
+    lastModifiedTime:
+      type: string
+      description: Returns the date and time the container was last modified.
+    leaseDuration:
+      type: string
+      description: Specifies whether the lease on a container is of infinite or fixed duration, only when the container is leased.
+    leaseState:
+      type: string
+      description: Lease state of the container.
+    leaseStatus:
+      type: string
+      description: The lease status of the container.
+    legalHold:
+      type: object
+      $ref: "#/types/azure-native:storage/v20210801:LegalHoldPropertiesResponse"
+      description: The LegalHold property of the container.
+    metadata:
+      type: object
+      additionalProperties:
+        type: string
+      description: A name-value pair to associate with the container as metadata.
+    name:
+      type: string
+      description: The name of the resource
+    publicAccess:
+      type: string
+      description: Specifies whether data in the container may be accessed publicly and the level of access.
+    remainingRetentionDays:
+      type: integer
+      description: Remaining retention days for soft deleted blob container.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+    version:
+      type: string
+      description: The version of the deleted blob container.
+  type: object
+  required:
+    - deleted
+    - deletedTime
+    - etag
+    - hasImmutabilityPolicy
+    - hasLegalHold
+    - id
+    - immutabilityPolicy
+    - lastModifiedTime
+    - leaseDuration
+    - leaseState
+    - leaseStatus
+    - legalHold
+    - name
+    - remainingRetentionDays
+    - type
+    - version

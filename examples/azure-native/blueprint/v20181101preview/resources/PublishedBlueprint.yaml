@@ -1,0 +1,86 @@
+$token: azure-native:blueprint/v20181101preview:PublishedBlueprint
+description: Represents a published blueprint.
+properties:
+  blueprintName:
+    type: string
+    description: Name of the published blueprint definition.
+  changeNotes:
+    type: string
+    description: Version-specific change notes.
+  description:
+    type: string
+    description: Multi-line explain this resource.
+  displayName:
+    type: string
+    description: One-liner string explain this resource.
+  name:
+    type: string
+    description: Name of this resource.
+  parameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:blueprint/v20181101preview:ParameterDefinitionResponse"
+    description: Parameters required by this blueprint definition.
+  resourceGroups:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:blueprint/v20181101preview:ResourceGroupDefinitionResponse"
+    description: Resource group placeholders defined by this blueprint definition.
+  status:
+    type: object
+    $ref: "#/types/azure-native:blueprint/v20181101preview:BlueprintStatusResponse"
+    description: Status of the blueprint. This field is readonly.
+  targetScope:
+    type: string
+    description: The scope where this blueprint definition can be assigned.
+  type:
+    type: string
+    description: Type of this resource.
+type: object
+required:
+  - name
+  - status
+  - type
+inputProperties:
+  blueprintName:
+    type: string
+    description: Name of the published blueprint definition.
+  changeNotes:
+    type: string
+    description: Version-specific change notes.
+  description:
+    type: string
+    description: Multi-line explain this resource.
+  displayName:
+    type: string
+    description: One-liner string explain this resource.
+  parameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:blueprint/v20181101preview:ParameterDefinition"
+    description: Parameters required by this blueprint definition.
+  resourceGroups:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:blueprint/v20181101preview:ResourceGroupDefinition"
+    description: Resource group placeholders defined by this blueprint definition.
+  resourceScope:
+    type: string
+    description: "The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}')."
+  targetScope:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:blueprint/v20181101preview:BlueprintTargetScope"
+    description: The scope where this blueprint definition can be assigned.
+  versionId:
+    type: string
+    description: Version of the published blueprint definition.
+requiredInputs:
+  - blueprintName
+  - resourceScope
+aliases:
+  - type: azure-native:blueprint:PublishedBlueprint

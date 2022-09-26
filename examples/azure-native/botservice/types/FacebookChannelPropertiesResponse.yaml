@@ -1,0 +1,30 @@
+$token: azure-native:botservice:FacebookChannelPropertiesResponse
+description: The parameters to provide for the Facebook channel.
+properties:
+  appId:
+    type: string
+    description: Facebook application id
+  appSecret:
+    type: string
+    description: Facebook application secret. Value only returned through POST to the action Channel List API, otherwise empty.
+  callbackUrl:
+    type: string
+    description: Callback Url
+  isEnabled:
+    type: boolean
+    description: Whether this channel is enabled for the bot
+  pages:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:botservice:FacebookPageResponse"
+    description: The list of Facebook pages
+  verifyToken:
+    type: string
+    description: Verify token. Value only returned through POST to the action Channel List API, otherwise empty.
+type: object
+required:
+  - appId
+  - callbackUrl
+  - isEnabled
+  - verifyToken

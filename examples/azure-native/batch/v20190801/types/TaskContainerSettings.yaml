@@ -1,0 +1,17 @@
+$token: azure-native:batch/v20190801:TaskContainerSettings
+properties:
+  containerRunOptions:
+    type: string
+    description: These additional options are supplied as arguments to the "docker create" command, in addition to those controlled by the Batch Service.
+  imageName:
+    type: string
+    description: This is the full image reference, as would be specified to "docker pull". If no tag is provided as part of the image name, the tag ":latest" is used as a default.
+  registry:
+    type: object
+    $ref: "#/types/azure-native:batch/v20190801:ContainerRegistry"
+    description: This setting can be omitted if was already provided at pool creation.
+  workingDirectory:
+    $ref: "#/types/azure-native:batch/v20190801:ContainerWorkingDirectory"
+type: object
+required:
+  - imageName

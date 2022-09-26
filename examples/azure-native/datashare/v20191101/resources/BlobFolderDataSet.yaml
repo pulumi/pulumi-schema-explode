@@ -1,0 +1,94 @@
+$token: azure-native:datashare/v20191101:BlobFolderDataSet
+description: An Azure storage blob folder data set.
+properties:
+  containerName:
+    type: string
+    description: Container that has the file path.
+  dataSetId:
+    type: string
+    description: Unique id for identifying a data set resource
+  kind:
+    type: string
+    description: |-
+      Kind of data set.
+      Expected value is 'BlobFolder'.
+    const: BlobFolder
+  name:
+    type: string
+    description: Name of the azure resource
+  prefix:
+    type: string
+    description: Prefix for blob folder
+  resourceGroup:
+    type: string
+    description: Resource group of storage account
+  storageAccountName:
+    type: string
+    description: Storage account name of the source data set
+  subscriptionId:
+    type: string
+    description: Subscription id of storage account
+  type:
+    type: string
+    description: Type of the azure resource
+type: object
+required:
+  - containerName
+  - dataSetId
+  - kind
+  - name
+  - prefix
+  - resourceGroup
+  - storageAccountName
+  - subscriptionId
+  - type
+inputProperties:
+  accountName:
+    type: string
+    description: The name of the share account.
+  containerName:
+    type: string
+    description: Container that has the file path.
+  dataSetName:
+    type: string
+    description: The name of the dataSet.
+  kind:
+    type: string
+    description: |-
+      Kind of data set.
+      Expected value is 'BlobFolder'.
+    const: BlobFolder
+  prefix:
+    type: string
+    description: Prefix for blob folder
+  resourceGroup:
+    type: string
+    description: Resource group of storage account
+  resourceGroupName:
+    type: string
+    description: The resource group name.
+  shareName:
+    type: string
+    description: The name of the share to add the data set to.
+  storageAccountName:
+    type: string
+    description: Storage account name of the source data set
+  subscriptionId:
+    type: string
+    description: Subscription id of storage account
+requiredInputs:
+  - accountName
+  - containerName
+  - kind
+  - prefix
+  - resourceGroup
+  - resourceGroupName
+  - shareName
+  - storageAccountName
+  - subscriptionId
+aliases:
+  - type: azure-native:datashare:BlobFolderDataSet
+  - type: azure-native:datashare/v20181101preview:BlobFolderDataSet
+  - type: azure-native:datashare/v20200901:BlobFolderDataSet
+  - type: azure-native:datashare/v20201001preview:BlobFolderDataSet
+  - type: azure-native:datashare/v20210801:BlobFolderDataSet

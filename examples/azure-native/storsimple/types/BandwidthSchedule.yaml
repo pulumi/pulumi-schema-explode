@@ -1,0 +1,25 @@
+$token: azure-native:storsimple:BandwidthSchedule
+description: The schedule for bandwidth setting.
+properties:
+  days:
+    type: array
+    items:
+      $ref: "#/types/azure-native:storsimple:DayOfWeek"
+    description: The days of the week when this schedule is applicable.
+  rateInMbps:
+    type: integer
+    description: The rate in Mbps.
+  start:
+    type: object
+    $ref: "#/types/azure-native:storsimple:Time"
+    description: The start time of the schedule.
+  stop:
+    type: object
+    $ref: "#/types/azure-native:storsimple:Time"
+    description: The stop time of the schedule.
+type: object
+required:
+  - days
+  - rateInMbps
+  - start
+  - stop

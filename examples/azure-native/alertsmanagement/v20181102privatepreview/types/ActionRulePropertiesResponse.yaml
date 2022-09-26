@@ -1,0 +1,43 @@
+$token: azure-native:alertsmanagement/v20181102privatepreview:ActionRulePropertiesResponse
+description: Action rule properties defining scope, conditions, suppression logic for action rule
+properties:
+  conditions:
+    type: object
+    $ref: "#/types/azure-native:alertsmanagement/v20181102privatepreview:ConditionsResponse"
+    description: Conditions in alert instance to be matched for a given action rule. Default value is all. Multiple values could be provided with comma separation.
+  createdAt:
+    type: string
+    description: Creation time of action rule. Date-Time in ISO-8601 format.
+  createdBy:
+    type: string
+    description: Created by user name.
+  description:
+    type: string
+    description: Description of action rule
+  lastModifiedAt:
+    type: string
+    description: Last updated time of action rule. Date-Time in ISO-8601 format.
+  lastModifiedBy:
+    type: string
+    description: Last modified by user name.
+  resourceGroup:
+    type: string
+    description: Resource group where action rule is stored
+  scope:
+    type: object
+    $ref: "#/types/azure-native:alertsmanagement/v20181102privatepreview:ScopeResponse"
+    description: Target scope for a given action rule. By default scope will be the subscription. User can also provide list of resource groups or list of resources from the scope subscription as well.
+  status:
+    type: string
+    description: Indicates if the given action rule is enabled or disabled
+  suppressionConfig:
+    type: object
+    $ref: "#/types/azure-native:alertsmanagement/v20181102privatepreview:SuppressionConfigResponse"
+    description: Suppression logic for a given action rule
+type: object
+required:
+  - createdAt
+  - createdBy
+  - lastModifiedAt
+  - lastModifiedBy
+  - resourceGroup

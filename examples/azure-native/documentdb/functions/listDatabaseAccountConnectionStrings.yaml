@@ -1,0 +1,26 @@
+$token: azure-native:documentdb:listDatabaseAccountConnectionStrings
+description: |-
+  The connection strings for the given database account.
+  API Version: 2021-03-15.
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: Cosmos DB database account name.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+  type: object
+  required:
+    - accountName
+    - resourceGroupName
+outputs:
+  description: The connection strings for the given database account.
+  properties:
+    connectionStrings:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:documentdb:DatabaseAccountConnectionStringResponse"
+      description: An array that contains the connection strings for the Cosmos DB account.
+  type: object

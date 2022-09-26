@@ -1,0 +1,34 @@
+$token: azure-native:machinelearningservices/v20220201preview:TableVerticalValidationDataSettings
+description: Validation settings for AutoML Table vertical tasks - Classification/Regression/Forecasting.
+properties:
+  cvSplitColumnNames:
+    type: array
+    items:
+      type: string
+    description: Columns to use for CVSplit data.
+  data:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220201preview:MLTableJobInput"
+    description: Validation data MLTable.
+  nCrossValidations:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220201preview:AutoNCrossValidations"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220201preview:CustomNCrossValidations"
+    discriminator:
+      propertyName: mode
+      mapping:
+        Auto: "#/types/azure-native:machinelearningservices/v20220201preview:AutoNCrossValidations"
+        Custom: "#/types/azure-native:machinelearningservices/v20220201preview:CustomNCrossValidations"
+    description: "Number of cross validation folds to be applied on training dataset\r
+
+      when validation dataset is not provided."
+  validationDataSize:
+    type: number
+    description: "The fraction of training dataset that needs to be set aside for validation purpose.\r
+
+      Values between (0.0 , 1.0)\r
+
+      Applied when validation dataset is not provided."
+type: object

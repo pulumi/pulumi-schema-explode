@@ -1,0 +1,67 @@
+$token: azure-native:operationalinsights:getSavedSearch
+description: |-
+  Value object for saved search results.
+  API Version: 2020-08-01.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    savedSearchId:
+      type: string
+      description: The id of the saved search.
+    workspaceName:
+      type: string
+      description: The name of the workspace.
+  type: object
+  required:
+    - resourceGroupName
+    - savedSearchId
+    - workspaceName
+outputs:
+  description: Value object for saved search results.
+  properties:
+    category:
+      type: string
+      description: "The category of the saved search. This helps the user to find a saved search faster. "
+    displayName:
+      type: string
+      description: Saved search display name.
+    etag:
+      type: string
+      description: The ETag of the saved search. To override an existing saved search, use "*" or specify the current Etag
+    functionAlias:
+      type: string
+      description: The function alias if query serves as a function.
+    functionParameters:
+      type: string
+      description: "The optional function parameters if query serves as a function. Value should be in the following format: 'param-name1:type1 = default_value1, param-name2:type2 = default_value2'. For more examples and proper syntax please refer to https://docs.microsoft.com/en-us/azure/kusto/query/functions/user-defined-functions."
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    name:
+      type: string
+      description: The name of the resource
+    query:
+      type: string
+      description: The query expression for the saved search.
+    tags:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:operationalinsights:TagResponse"
+      description: The tags attached to the saved search.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+    version:
+      type: number
+      description: The version number of the query language. The current version is 2 and is the default.
+  type: object
+  required:
+    - category
+    - displayName
+    - id
+    - name
+    - query
+    - type

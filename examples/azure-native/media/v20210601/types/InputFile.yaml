@@ -1,0 +1,41 @@
+$token: azure-native:media/v20210601:InputFile
+description: An InputDefinition for a single file.  TrackSelections are scoped to the file specified.
+properties:
+  filename:
+    type: string
+    description: Name of the file that this input definition applies to.
+  includedTracks:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:media/v20210601:AudioTrackDescriptor"
+        - type: object
+          $ref: "#/types/azure-native:media/v20210601:SelectAudioTrackByAttribute"
+        - type: object
+          $ref: "#/types/azure-native:media/v20210601:SelectAudioTrackById"
+        - type: object
+          $ref: "#/types/azure-native:media/v20210601:SelectVideoTrackByAttribute"
+        - type: object
+          $ref: "#/types/azure-native:media/v20210601:SelectVideoTrackById"
+        - type: object
+          $ref: "#/types/azure-native:media/v20210601:VideoTrackDescriptor"
+      discriminator:
+        propertyName: odataType
+        mapping:
+          "#Microsoft.Media.AudioTrackDescriptor": "#/types/azure-native:media/v20210601:AudioTrackDescriptor"
+          "#Microsoft.Media.SelectAudioTrackByAttribute": "#/types/azure-native:media/v20210601:SelectAudioTrackByAttribute"
+          "#Microsoft.Media.SelectAudioTrackById": "#/types/azure-native:media/v20210601:SelectAudioTrackById"
+          "#Microsoft.Media.SelectVideoTrackByAttribute": "#/types/azure-native:media/v20210601:SelectVideoTrackByAttribute"
+          "#Microsoft.Media.SelectVideoTrackById": "#/types/azure-native:media/v20210601:SelectVideoTrackById"
+          "#Microsoft.Media.VideoTrackDescriptor": "#/types/azure-native:media/v20210601:VideoTrackDescriptor"
+    description: The list of TrackDescriptors which define the metadata and selection of tracks in the input.
+  odataType:
+    type: string
+    description: |-
+      The discriminator for derived types.
+      Expected value is '#Microsoft.Media.InputFile'.
+    const: "#Microsoft.Media.InputFile"
+type: object
+required:
+  - odataType

@@ -1,0 +1,23 @@
+$token: azure-native:sql/v20210801preview:PrivateEndpointConnectionPropertiesResponse
+description: Properties of a private endpoint connection.
+properties:
+  groupIds:
+    type: array
+    items:
+      type: string
+    description: Group IDs.
+  privateEndpoint:
+    type: object
+    $ref: "#/types/azure-native:sql/v20210801preview:PrivateEndpointPropertyResponse"
+    description: Private endpoint which the connection belongs to.
+  privateLinkServiceConnectionState:
+    type: object
+    $ref: "#/types/azure-native:sql/v20210801preview:PrivateLinkServiceConnectionStatePropertyResponse"
+    description: Connection state of the private endpoint connection.
+  provisioningState:
+    type: string
+    description: State of the private endpoint connection.
+type: object
+required:
+  - groupIds
+  - provisioningState

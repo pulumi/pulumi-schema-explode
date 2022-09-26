@@ -1,0 +1,54 @@
+$token: azure-native:automation/v20200113preview:PrivateEndpointConnection
+description: A private endpoint connection
+properties:
+  groupIds:
+    type: array
+    items:
+      type: string
+    description: Gets the groupIds.
+  name:
+    type: string
+    description: The name of the resource
+  privateEndpoint:
+    type: object
+    $ref: "#/types/azure-native:automation/v20200113preview:PrivateEndpointPropertyResponse"
+    description: Private endpoint which the connection belongs to.
+  privateLinkServiceConnectionState:
+    type: object
+    $ref: "#/types/azure-native:automation/v20200113preview:PrivateLinkServiceConnectionStatePropertyResponse"
+    description: Connection State of the Private Endpoint Connection.
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - name
+  - type
+inputProperties:
+  automationAccountName:
+    type: string
+    description: The name of the automation account.
+  groupIds:
+    type: array
+    items:
+      type: string
+    description: Gets the groupIds.
+  privateEndpoint:
+    type: object
+    $ref: "#/types/azure-native:automation/v20200113preview:PrivateEndpointProperty"
+    description: Private endpoint which the connection belongs to.
+  privateEndpointConnectionName:
+    type: string
+    description: The name of the private endpoint connection.
+  privateLinkServiceConnectionState:
+    type: object
+    $ref: "#/types/azure-native:automation/v20200113preview:PrivateLinkServiceConnectionStateProperty"
+    description: Connection State of the Private Endpoint Connection.
+  resourceGroupName:
+    type: string
+    description: Name of an Azure Resource group.
+requiredInputs:
+  - automationAccountName
+  - resourceGroupName
+aliases:
+  - type: azure-native:automation:PrivateEndpointConnection

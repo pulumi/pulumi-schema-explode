@@ -1,0 +1,20 @@
+$token: azure-native:datamigration:ValidateSyncMigrationInputSqlServerTaskOutputResponse
+description: Output for task that validates migration input for SQL sync migrations
+properties:
+  id:
+    type: string
+    description: Database identifier
+  name:
+    type: string
+    description: Name of database
+  validationErrors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration:ReportableExceptionResponse"
+    description: Errors associated with a selected database object
+type: object
+required:
+  - id
+  - name
+  - validationErrors

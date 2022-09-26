@@ -1,0 +1,47 @@
+$token: azure-native:billing/v20200501:InvoiceSectionWithCreateSubPermissionResponse
+description: Invoice section properties with create subscription permission.
+properties:
+  billingProfileDisplayName:
+    type: string
+    description: The name of the billing profile for the invoice section.
+  billingProfileId:
+    type: string
+    description: The ID of the billing profile for the invoice section.
+  billingProfileSpendingLimit:
+    type: string
+    description: The billing profile spending limit.
+  billingProfileStatus:
+    type: string
+    description: The status of the billing profile.
+  billingProfileStatusReasonCode:
+    type: string
+    description: Reason for the specified billing profile status.
+  billingProfileSystemId:
+    type: string
+    description: The system generated unique identifier for a billing profile.
+  enabledAzurePlans:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:billing/v20200501:AzurePlanResponse"
+    description: Enabled azure plans for the associated billing profile.
+  invoiceSectionDisplayName:
+    type: string
+    description: The name of the invoice section.
+  invoiceSectionId:
+    type: string
+    description: The ID of the invoice section.
+  invoiceSectionSystemId:
+    type: string
+    description: The system generated unique identifier for an invoice section.
+type: object
+required:
+  - billingProfileDisplayName
+  - billingProfileId
+  - billingProfileSpendingLimit
+  - billingProfileStatus
+  - billingProfileStatusReasonCode
+  - billingProfileSystemId
+  - invoiceSectionDisplayName
+  - invoiceSectionId
+  - invoiceSectionSystemId

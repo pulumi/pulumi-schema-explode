@@ -1,0 +1,26 @@
+$token: azure-native:streamanalytics/v20211001preview:CSharpFunctionBinding
+description: The binding to a CSharp function.
+properties:
+  class:
+    type: string
+    description: The Csharp code containing a single function definition.
+  dllPath:
+    type: string
+    description: The Csharp code containing a single function definition.
+  method:
+    type: string
+    description: The Csharp code containing a single function definition.
+  type:
+    type: string
+    description: |-
+      Indicates the function binding type.
+      Expected value is 'Microsoft.StreamAnalytics/CLRUdf'.
+    const: Microsoft.StreamAnalytics/CLRUdf
+  updateMode:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:streamanalytics/v20211001preview:UpdateMode"
+    description: Refresh modes for Stream Analytics functions.
+type: object
+required:
+  - type

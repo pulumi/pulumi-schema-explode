@@ -1,0 +1,27 @@
+$token: azure-native:streamanalytics/v20160301:EventHubOutputDataSourceResponse
+description: Describes an Event Hub output data source.
+properties:
+  eventHubName:
+    type: string
+    description: The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
+  partitionKey:
+    type: string
+    description: The key/column that is used to determine to which partition to send event data.
+  serviceBusNamespace:
+    type: string
+    description: The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+  sharedAccessPolicyKey:
+    type: string
+    description: The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
+  sharedAccessPolicyName:
+    type: string
+    description: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+  type:
+    type: string
+    description: |-
+      Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+      Expected value is 'Microsoft.ServiceBus/EventHub'.
+    const: Microsoft.ServiceBus/EventHub
+type: object
+required:
+  - type

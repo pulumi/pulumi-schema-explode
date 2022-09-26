@@ -1,0 +1,39 @@
+$token: azure-native:appplatform/v20220901preview:NetworkProfileResponse
+description: Service network profile payload
+properties:
+  appNetworkResourceGroup:
+    type: string
+    description: Name of the resource group containing network resources for customer apps in Azure Spring Apps
+  appSubnetId:
+    type: string
+    description: Fully qualified resource Id of the subnet to host customer apps in Azure Spring Apps
+  ingressConfig:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20220901preview:IngressConfigResponse"
+    description: Ingress configuration payload for Azure Spring Apps resource.
+  outboundIPs:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20220901preview:NetworkProfileResponseOutboundIPs"
+    description: Desired outbound IP resources for Azure Spring Apps resource.
+  outboundType:
+    type: string
+    description: The egress traffic type of Azure Spring Apps VNet instances.
+  requiredTraffics:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:appplatform/v20220901preview:RequiredTrafficResponse"
+    description: Required inbound or outbound traffics for Azure Spring Apps resource.
+  serviceCidr:
+    type: string
+    description: Azure Spring Apps service reserved CIDR
+  serviceRuntimeNetworkResourceGroup:
+    type: string
+    description: Name of the resource group containing network resources of Azure Spring Apps Service Runtime
+  serviceRuntimeSubnetId:
+    type: string
+    description: Fully qualified resource Id of the subnet to host Azure Spring Apps Service Runtime
+type: object
+required:
+  - outboundIPs
+  - requiredTraffics

@@ -1,0 +1,21 @@
+$token: azure-native:insights/v20180416:Dimension
+description: Specifies the criteria for converting log to metric.
+properties:
+  name:
+    type: string
+    description: Name of the dimension
+  operator:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:insights/v20180416:Operator"
+    description: Operator for dimension values
+  values:
+    type: array
+    items:
+      type: string
+    description: List of dimension values
+type: object
+required:
+  - name
+  - operator
+  - values

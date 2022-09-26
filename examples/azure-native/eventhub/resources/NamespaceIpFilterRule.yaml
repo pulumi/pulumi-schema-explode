@@ -1,0 +1,50 @@
+$token: azure-native:eventhub:NamespaceIpFilterRule
+description: |-
+  Single item in a List or Get IpFilterRules operation
+  API Version: 2018-01-01-preview.
+properties:
+  action:
+    type: string
+    description: The IP Filter Action
+  filterName:
+    type: string
+    description: IP Filter name
+  ipMask:
+    type: string
+    description: IP Mask
+  name:
+    type: string
+    description: The name of the resource
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - name
+  - type
+inputProperties:
+  action:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:eventhub:IPAction"
+    description: The IP Filter Action
+  filterName:
+    type: string
+    description: IP Filter name
+  ipFilterRuleName:
+    type: string
+    description: The IP Filter Rule name.
+  ipMask:
+    type: string
+    description: IP Mask
+  namespaceName:
+    type: string
+    description: The Namespace name
+  resourceGroupName:
+    type: string
+    description: Name of the resource group within the azure subscription.
+requiredInputs:
+  - namespaceName
+  - resourceGroupName
+aliases:
+  - type: azure-native:eventhub/v20180101preview:NamespaceIpFilterRule

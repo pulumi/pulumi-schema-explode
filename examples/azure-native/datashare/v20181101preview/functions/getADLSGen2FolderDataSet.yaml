@@ -1,0 +1,70 @@
+$token: azure-native:datashare/v20181101preview:getADLSGen2FolderDataSet
+description: An ADLS Gen 2 folder data set.
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: The name of the share account.
+    dataSetName:
+      type: string
+      description: The name of the dataSet.
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+    shareName:
+      type: string
+      description: The name of the share.
+  type: object
+  required:
+    - accountName
+    - dataSetName
+    - resourceGroupName
+    - shareName
+outputs:
+  description: An ADLS Gen 2 folder data set.
+  properties:
+    dataSetId:
+      type: string
+      description: Unique id for identifying a data set resource
+    fileSystem:
+      type: string
+      description: File system to which the folder belongs.
+    folderPath:
+      type: string
+      description: Folder path within the file system.
+    id:
+      type: string
+      description: The resource id of the azure resource
+    kind:
+      type: string
+      description: |-
+        Kind of data set.
+        Expected value is 'AdlsGen2Folder'.
+      const: AdlsGen2Folder
+    name:
+      type: string
+      description: Name of the azure resource
+    resourceGroup:
+      type: string
+      description: Resource group of storage account
+    storageAccountName:
+      type: string
+      description: Storage account name of the source data set
+    subscriptionId:
+      type: string
+      description: Subscription id of storage account
+    type:
+      type: string
+      description: Type of the azure resource
+  type: object
+  required:
+    - dataSetId
+    - fileSystem
+    - folderPath
+    - id
+    - kind
+    - name
+    - resourceGroup
+    - storageAccountName
+    - subscriptionId
+    - type

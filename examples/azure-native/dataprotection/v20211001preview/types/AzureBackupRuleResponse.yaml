@@ -1,0 +1,37 @@
+$token: azure-native:dataprotection/v20211001preview:AzureBackupRuleResponse
+description: Azure backup rule
+properties:
+  backupParameters:
+    type: object
+    $ref: "#/types/azure-native:dataprotection/v20211001preview:AzureBackupParamsResponse"
+    description: BackupParameters base
+  dataStore:
+    type: object
+    $ref: "#/types/azure-native:dataprotection/v20211001preview:DataStoreInfoBaseResponse"
+    description: DataStoreInfo base
+  name:
+    type: string
+  objectType:
+    type: string
+    description: |-
+      
+      Expected value is 'AzureBackupRule'.
+    const: AzureBackupRule
+  trigger:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:dataprotection/v20211001preview:AdhocBasedTriggerContextResponse"
+      - type: object
+        $ref: "#/types/azure-native:dataprotection/v20211001preview:ScheduleBasedTriggerContextResponse"
+    discriminator:
+      propertyName: objectType
+      mapping:
+        AdhocBasedTriggerContext: "#/types/azure-native:dataprotection/v20211001preview:AdhocBasedTriggerContextResponse"
+        ScheduleBasedTriggerContext: "#/types/azure-native:dataprotection/v20211001preview:ScheduleBasedTriggerContextResponse"
+    description: Trigger context
+type: object
+required:
+  - dataStore
+  - name
+  - objectType
+  - trigger

@@ -1,0 +1,50 @@
+$token: azure-native:storagesync/v20200301:ServerEndpointCloudTieringStatusResponse
+description: Server endpoint cloud tiering status object.
+properties:
+  cachePerformance:
+    type: object
+    $ref: "#/types/azure-native:storagesync/v20200301:CloudTieringCachePerformanceResponse"
+    description: Information regarding how well the local cache on the server is performing.
+  datePolicyStatus:
+    type: object
+    $ref: "#/types/azure-native:storagesync/v20200301:CloudTieringDatePolicyStatusResponse"
+    description: Status of the date policy
+  filesNotTiering:
+    type: object
+    $ref: "#/types/azure-native:storagesync/v20200301:CloudTieringFilesNotTieringResponse"
+    description: Information regarding files that failed to be tiered
+  health:
+    type: string
+    description: Cloud tiering health state.
+  healthLastUpdatedTimestamp:
+    type: string
+    description: The last updated timestamp of health state
+  lastCloudTieringResult:
+    type: integer
+    description: Last cloud tiering result (HResult)
+  lastSuccessTimestamp:
+    type: string
+    description: Last cloud tiering success timestamp
+  lastUpdatedTimestamp:
+    type: string
+    description: Last updated timestamp
+  spaceSavings:
+    type: object
+    $ref: "#/types/azure-native:storagesync/v20200301:CloudTieringSpaceSavingsResponse"
+    description: Information regarding how much local space cloud tiering is saving.
+  volumeFreeSpacePolicyStatus:
+    type: object
+    $ref: "#/types/azure-native:storagesync/v20200301:CloudTieringVolumeFreeSpacePolicyStatusResponse"
+    description: Status of the volume free space policy
+type: object
+required:
+  - cachePerformance
+  - datePolicyStatus
+  - filesNotTiering
+  - health
+  - healthLastUpdatedTimestamp
+  - lastCloudTieringResult
+  - lastSuccessTimestamp
+  - lastUpdatedTimestamp
+  - spaceSavings
+  - volumeFreeSpacePolicyStatus

@@ -1,0 +1,129 @@
+$token: azure-native:operationalinsights/v20200801:Workspace
+description: The top level Workspace resource container.
+properties:
+  createdDate:
+    type: string
+    description: Workspace creation date.
+  customerId:
+    type: string
+    description: This is a read-only property. Represents the ID associated with the workspace.
+  eTag:
+    type: string
+    description: The ETag of the workspace.
+  features:
+    $ref: pulumi.json#/Any
+    description: Workspace features.
+  forceCmkForQuery:
+    type: boolean
+    description: Indicates whether customer managed storage is mandatory for query management.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  modifiedDate:
+    type: string
+    description: Workspace modification date.
+  name:
+    type: string
+    description: The name of the resource
+  privateLinkScopedResources:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:operationalinsights/v20200801:PrivateLinkScopedResourceResponse"
+    description: List of linked private link scope resources.
+  provisioningState:
+    type: string
+    description: The provisioning state of the workspace.
+  publicNetworkAccessForIngestion:
+    type: string
+    description: The network access type for accessing Log Analytics ingestion.
+  publicNetworkAccessForQuery:
+    type: string
+    description: The network access type for accessing Log Analytics query.
+  retentionInDays:
+    type: integer
+    description: The workspace data retention in days. Allowed values are per pricing plan. See pricing tiers documentation for details.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:operationalinsights/v20200801:WorkspaceSkuResponse"
+    description: The SKU of the workspace.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  workspaceCapping:
+    type: object
+    $ref: "#/types/azure-native:operationalinsights/v20200801:WorkspaceCappingResponse"
+    description: The daily volume cap for ingestion.
+type: object
+required:
+  - createdDate
+  - customerId
+  - location
+  - modifiedDate
+  - name
+  - privateLinkScopedResources
+  - type
+inputProperties:
+  eTag:
+    type: string
+    description: The ETag of the workspace.
+  features:
+    $ref: pulumi.json#/Any
+    description: Workspace features.
+  forceCmkForQuery:
+    type: boolean
+    description: Indicates whether customer managed storage is mandatory for query management.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  provisioningState:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:operationalinsights/v20200801:WorkspaceEntityStatus"
+    description: The provisioning state of the workspace.
+  publicNetworkAccessForIngestion:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:operationalinsights/v20200801:PublicNetworkAccessType"
+    description: The network access type for accessing Log Analytics ingestion.
+  publicNetworkAccessForQuery:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:operationalinsights/v20200801:PublicNetworkAccessType"
+    description: The network access type for accessing Log Analytics query.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  retentionInDays:
+    type: integer
+    description: The workspace data retention in days. Allowed values are per pricing plan. See pricing tiers documentation for details.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:operationalinsights/v20200801:WorkspaceSku"
+    description: The SKU of the workspace.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  workspaceCapping:
+    type: object
+    $ref: "#/types/azure-native:operationalinsights/v20200801:WorkspaceCapping"
+    description: The daily volume cap for ingestion.
+  workspaceName:
+    type: string
+    description: The name of the workspace.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:operationalinsights:Workspace
+  - type: azure-native:operationalinsights/v20151101preview:Workspace
+  - type: azure-native:operationalinsights/v20200301preview:Workspace
+  - type: azure-native:operationalinsights/v20201001:Workspace
+  - type: azure-native:operationalinsights/v20210601:Workspace
+  - type: azure-native:operationalinsights/v20211201preview:Workspace

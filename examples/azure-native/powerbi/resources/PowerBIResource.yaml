@@ -1,0 +1,65 @@
+$token: azure-native:powerbi:PowerBIResource
+description: |-
+  
+  API Version: 2020-06-01.
+properties:
+  location:
+    type: string
+    description: Specifies the location of the resource.
+  name:
+    type: string
+    description: Specifies the name of the resource.
+  privateEndpointConnections:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:powerbi:PrivateEndpointConnectionResponse"
+    description: Specifies the private endpoint connections of the resource.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:powerbi:SystemDataResponse"
+    description: The system metadata relating to this resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Specifies the tags of the resource.
+  tenantId:
+    type: string
+    description: Specifies the tenant id of the resource.
+  type:
+    type: string
+    description: Specifies the type of the resource.
+type: object
+required:
+  - name
+  - systemData
+  - type
+inputProperties:
+  azureResourceName:
+    type: string
+    description: The name of the Azure resource.
+  location:
+    type: string
+    description: Specifies the location of the resource.
+  privateEndpointConnections:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:powerbi:PrivateEndpointConnection"
+    description: Specifies the private endpoint connections of the resource.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Specifies the tags of the resource.
+  tenantId:
+    type: string
+    description: Specifies the tenant id of the resource.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:powerbi/v20200601:PowerBIResource

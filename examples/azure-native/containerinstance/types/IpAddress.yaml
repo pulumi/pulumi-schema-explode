@@ -1,0 +1,24 @@
+$token: azure-native:containerinstance:IpAddress
+description: IP address for the container group.
+properties:
+  dnsNameLabel:
+    type: string
+    description: The Dns name label for the IP.
+  ip:
+    type: string
+    description: The IP exposed to the public internet.
+  ports:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:containerinstance:Port"
+    description: The list of ports exposed on the container group.
+  type:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:containerinstance:ContainerGroupIpAddressType"
+    description: Specifies if the IP is exposed to the public internet or private VNET.
+type: object
+required:
+  - ports
+  - type

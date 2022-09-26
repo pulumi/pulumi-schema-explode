@@ -1,0 +1,20 @@
+$token: azure-native:videoanalyzer:EncoderCustomPresetResponse
+description: Describes a custom preset for encoding the input content using the encoder processor.
+properties:
+  audioEncoder:
+    type: object
+    $ref: "#/types/azure-native:videoanalyzer:AudioEncoderAacResponse"
+    description: Describes a custom preset for encoding audio.
+  type:
+    type: string
+    description: |-
+      The discriminator for derived types.
+      Expected value is '#Microsoft.VideoAnalyzer.EncoderCustomPreset'.
+    const: "#Microsoft.VideoAnalyzer.EncoderCustomPreset"
+  videoEncoder:
+    type: object
+    $ref: "#/types/azure-native:videoanalyzer:VideoEncoderH264Response"
+    description: Describes a custom preset for encoding video.
+type: object
+required:
+  - type

@@ -1,0 +1,54 @@
+$token: azure-native:media/v20200501:getAccountFilter
+description: An Account Filter.
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: The Media Services account name.
+    filterName:
+      type: string
+      description: The Account Filter name
+    resourceGroupName:
+      type: string
+      description: The name of the resource group within the Azure subscription.
+  type: object
+  required:
+    - accountName
+    - filterName
+    - resourceGroupName
+outputs:
+  description: An Account Filter.
+  properties:
+    firstQuality:
+      type: object
+      $ref: "#/types/azure-native:media/v20200501:FirstQualityResponse"
+      description: The first quality.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    name:
+      type: string
+      description: The name of the resource
+    presentationTimeRange:
+      type: object
+      $ref: "#/types/azure-native:media/v20200501:PresentationTimeRangeResponse"
+      description: The presentation time range.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:media/v20200501:SystemDataResponse"
+      description: The system metadata relating to this resource.
+    tracks:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:media/v20200501:FilterTrackSelectionResponse"
+      description: The tracks selection conditions.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - id
+    - name
+    - systemData
+    - type

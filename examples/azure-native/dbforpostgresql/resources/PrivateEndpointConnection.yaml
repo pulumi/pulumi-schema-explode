@@ -1,0 +1,50 @@
+$token: azure-native:dbforpostgresql:PrivateEndpointConnection
+description: |-
+  A private endpoint connection
+  API Version: 2018-06-01.
+properties:
+  name:
+    type: string
+    description: The name of the resource
+  privateEndpoint:
+    type: object
+    $ref: "#/types/azure-native:dbforpostgresql:PrivateEndpointPropertyResponse"
+    description: Private endpoint which the connection belongs to.
+  privateLinkServiceConnectionState:
+    type: object
+    $ref: "#/types/azure-native:dbforpostgresql:PrivateLinkServiceConnectionStatePropertyResponse"
+    description: Connection state of the private endpoint connection.
+  provisioningState:
+    type: string
+    description: State of the private endpoint connection.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - name
+  - provisioningState
+  - type
+inputProperties:
+  privateEndpoint:
+    type: object
+    $ref: "#/types/azure-native:dbforpostgresql:PrivateEndpointProperty"
+    description: Private endpoint which the connection belongs to.
+  privateEndpointConnectionName:
+    type: string
+  privateLinkServiceConnectionState:
+    type: object
+    $ref: "#/types/azure-native:dbforpostgresql:PrivateLinkServiceConnectionStateProperty"
+    description: Connection state of the private endpoint connection.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  serverName:
+    type: string
+    description: The name of the server.
+requiredInputs:
+  - resourceGroupName
+  - serverName
+aliases:
+  - type: azure-native:dbforpostgresql/v20180601:PrivateEndpointConnection
+  - type: azure-native:dbforpostgresql/v20180601privatepreview:PrivateEndpointConnection

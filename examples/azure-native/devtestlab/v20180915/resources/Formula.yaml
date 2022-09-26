@@ -1,0 +1,90 @@
+$token: azure-native:devtestlab/v20180915:Formula
+description: A formula for creating a VM, specifying an image base and other parameters
+properties:
+  author:
+    type: string
+    description: The author of the formula.
+  creationDate:
+    type: string
+    description: The creation date of the formula.
+  description:
+    type: string
+    description: The description of the formula.
+  formulaContent:
+    type: object
+    $ref: "#/types/azure-native:devtestlab/v20180915:LabVirtualMachineCreationParameterResponse"
+    description: The content of the formula.
+  location:
+    type: string
+    description: The location of the resource.
+  name:
+    type: string
+    description: The name of the resource.
+  osType:
+    type: string
+    description: The OS type of the formula.
+  provisioningState:
+    type: string
+    description: The provisioning status of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+  type:
+    type: string
+    description: The type of the resource.
+  uniqueIdentifier:
+    type: string
+    description: The unique immutable identifier of a resource (Guid).
+  vm:
+    type: object
+    $ref: "#/types/azure-native:devtestlab/v20180915:FormulaPropertiesFromVmResponse"
+    description: Information about a VM from which a formula is to be created.
+type: object
+required:
+  - author
+  - creationDate
+  - name
+  - provisioningState
+  - type
+  - uniqueIdentifier
+inputProperties:
+  description:
+    type: string
+    description: The description of the formula.
+  formulaContent:
+    type: object
+    $ref: "#/types/azure-native:devtestlab/v20180915:LabVirtualMachineCreationParameter"
+    description: The content of the formula.
+  labName:
+    type: string
+    description: The name of the lab.
+  location:
+    type: string
+    description: The location of the resource.
+  name:
+    type: string
+    description: The name of the formula.
+  osType:
+    type: string
+    description: The OS type of the formula.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+  vm:
+    type: object
+    $ref: "#/types/azure-native:devtestlab/v20180915:FormulaPropertiesFromVm"
+    description: Information about a VM from which a formula is to be created.
+requiredInputs:
+  - labName
+  - resourceGroupName
+aliases:
+  - type: azure-native:devtestlab:Formula
+  - type: azure-native:devtestlab/v20150521preview:Formula
+  - type: azure-native:devtestlab/v20160515:Formula

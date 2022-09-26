@@ -1,0 +1,55 @@
+$token: azure-native:automation/v20190601:getConnectionType
+description: Definition of the connection type.
+inputs:
+  properties:
+    automationAccountName:
+      type: string
+      description: The name of the automation account.
+    connectionTypeName:
+      type: string
+      description: The name of connection type.
+    resourceGroupName:
+      type: string
+      description: Name of an Azure Resource group.
+  type: object
+  required:
+    - automationAccountName
+    - connectionTypeName
+    - resourceGroupName
+outputs:
+  description: Definition of the connection type.
+  properties:
+    creationTime:
+      type: string
+      description: Gets the creation time.
+    description:
+      type: string
+      description: Gets or sets the description.
+    fieldDefinitions:
+      type: object
+      additionalProperties:
+        type: object
+        $ref: "#/types/azure-native:automation/v20190601:FieldDefinitionResponse"
+      description: Gets the field definitions of the connection type.
+    id:
+      type: string
+      description: Gets the id of the resource.
+    isGlobal:
+      type: boolean
+      description: Gets or sets a Boolean value to indicate if the connection type is global.
+    lastModifiedTime:
+      type: string
+      description: Gets or sets the last modified time.
+    name:
+      type: string
+      description: Gets the name of the connection type.
+    type:
+      type: string
+      description: Resource type
+  type: object
+  required:
+    - creationTime
+    - fieldDefinitions
+    - id
+    - name
+    - type

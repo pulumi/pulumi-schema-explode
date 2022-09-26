@@ -1,0 +1,30 @@
+$token: azure-native:appconfiguration/v20200601:listConfigurationStoreKeys
+description: The result of a request to list API keys.
+inputs:
+  properties:
+    configStoreName:
+      type: string
+      description: The name of the configuration store.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group to which the container registry belongs.
+    skipToken:
+      type: string
+      description: A skip token is used to continue retrieving items after an operation returns a partial result. If a previous response contains a nextLink element, the value of the nextLink element will include a skipToken parameter that specifies a starting point to use for subsequent calls.
+  type: object
+  required:
+    - configStoreName
+    - resourceGroupName
+outputs:
+  description: The result of a request to list API keys.
+  properties:
+    nextLink:
+      type: string
+      description: The URI that can be used to request the next set of paged results.
+    value:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:appconfiguration/v20200601:ApiKeyResponse"
+      description: The collection value.
+  type: object

@@ -1,0 +1,62 @@
+$token: azure-native:web/v20210115:StaticSiteCustomDomain
+description: Static Site Custom Domain Overview ARM resource.
+properties:
+  createdOn:
+    type: string
+    description: The date and time on which the custom domain was created for the static site.
+  domainName:
+    type: string
+    description: The domain name for the static site custom domain.
+  errorMessage:
+    type: string
+  kind:
+    type: string
+    description: Kind of resource.
+  name:
+    type: string
+    description: Resource Name.
+  status:
+    type: string
+    description: The status of the custom domain
+  type:
+    type: string
+    description: Resource type.
+  validationToken:
+    type: string
+    description: The TXT record validation token
+type: object
+required:
+  - createdOn
+  - domainName
+  - errorMessage
+  - name
+  - status
+  - type
+  - validationToken
+inputProperties:
+  domainName:
+    type: string
+    description: The custom domain to create.
+  kind:
+    type: string
+    description: Kind of resource.
+  name:
+    type: string
+    description: Name of the static site.
+  resourceGroupName:
+    type: string
+    description: Name of the resource group to which the resource belongs.
+  validationMethod:
+    type: string
+    description: Validation method for adding a custom domain
+    default: cname-delegation
+requiredInputs:
+  - name
+  - resourceGroupName
+aliases:
+  - type: azure-native:web:StaticSiteCustomDomain
+  - type: azure-native:web/v20201201:StaticSiteCustomDomain
+  - type: azure-native:web/v20210101:StaticSiteCustomDomain
+  - type: azure-native:web/v20210201:StaticSiteCustomDomain
+  - type: azure-native:web/v20210301:StaticSiteCustomDomain
+  - type: azure-native:web/v20220301:StaticSiteCustomDomain

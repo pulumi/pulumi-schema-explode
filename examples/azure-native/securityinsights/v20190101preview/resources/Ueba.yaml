@@ -1,0 +1,71 @@
+$token: azure-native:securityinsights/v20190101preview:Ueba
+description: Settings with single toggle.
+properties:
+  dataSources:
+    type: array
+    items:
+      type: string
+    description: The relevant data sources that enriched by ueba
+  etag:
+    type: string
+    description: Etag of the azure resource
+  kind:
+    type: string
+    description: |-
+      
+      Expected value is 'Ueba'.
+    const: Ueba
+  name:
+    type: string
+    description: Azure resource name
+  type:
+    type: string
+    description: Azure resource type
+type: object
+required:
+  - kind
+  - name
+  - type
+inputProperties:
+  dataSources:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:securityinsights/v20190101preview:UebaDataSources"
+    description: The relevant data sources that enriched by ueba
+  kind:
+    type: string
+    description: |-
+      
+      Expected value is 'Ueba'.
+    const: Ueba
+  operationalInsightsResourceProvider:
+    type: string
+    description: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group within the user's subscription. The name is case insensitive.
+  settingsName:
+    type: string
+    description: The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
+  workspaceName:
+    type: string
+    description: The name of the workspace.
+requiredInputs:
+  - kind
+  - operationalInsightsResourceProvider
+  - resourceGroupName
+  - workspaceName
+aliases:
+  - type: azure-native:securityinsights:Ueba
+  - type: azure-native:securityinsights/v20210301preview:Ueba
+  - type: azure-native:securityinsights/v20210901preview:Ueba
+  - type: azure-native:securityinsights/v20211001preview:Ueba
+  - type: azure-native:securityinsights/v20220101preview:Ueba
+  - type: azure-native:securityinsights/v20220401preview:Ueba
+  - type: azure-native:securityinsights/v20220501preview:Ueba
+  - type: azure-native:securityinsights/v20220601preview:Ueba
+  - type: azure-native:securityinsights/v20220701preview:Ueba
+  - type: azure-native:securityinsights/v20220801preview:Ueba
+  - type: azure-native:securityinsights/v20220901preview:Ueba

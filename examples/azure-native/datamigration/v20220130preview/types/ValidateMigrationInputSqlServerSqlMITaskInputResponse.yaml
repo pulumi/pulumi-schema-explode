@@ -1,0 +1,39 @@
+$token: azure-native:datamigration/v20220130preview:ValidateMigrationInputSqlServerSqlMITaskInputResponse
+description: Input for task that validates migration input for SQL to Azure SQL Managed Instance
+properties:
+  backupBlobShare:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20220130preview:BlobShareResponse"
+    description: SAS URI of Azure Storage Account Container to be used for storing backup files.
+  backupFileShare:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20220130preview:FileShareResponse"
+    description: Backup file share information for all selected databases.
+  backupMode:
+    type: string
+    description: Backup Mode to specify whether to use existing backup or create new backup.
+  selectedDatabases:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration/v20220130preview:MigrateSqlServerSqlMIDatabaseInputResponse"
+    description: Databases to migrate
+  selectedLogins:
+    type: array
+    items:
+      type: string
+    description: Logins to migrate
+  sourceConnectionInfo:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20220130preview:SqlConnectionInfoResponse"
+    description: Information for connecting to source
+  targetConnectionInfo:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20220130preview:SqlConnectionInfoResponse"
+    description: Information for connecting to target
+type: object
+required:
+  - backupBlobShare
+  - selectedDatabases
+  - sourceConnectionInfo
+  - targetConnectionInfo

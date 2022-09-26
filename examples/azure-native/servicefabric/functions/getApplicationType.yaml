@@ -1,0 +1,53 @@
+$token: azure-native:servicefabric:getApplicationType
+description: |-
+  The application type name resource
+  API Version: 2020-03-01.
+inputs:
+  properties:
+    applicationTypeName:
+      type: string
+      description: The name of the application type name resource.
+    clusterName:
+      type: string
+      description: The name of the cluster resource.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - applicationTypeName
+    - clusterName
+    - resourceGroupName
+outputs:
+  description: The application type name resource
+  properties:
+    etag:
+      type: string
+      description: Azure resource etag.
+    id:
+      type: string
+      description: Azure resource identifier.
+    location:
+      type: string
+      description: It will be deprecated in New API, resource location depends on the parent resource.
+    name:
+      type: string
+      description: Azure resource name.
+    provisioningState:
+      type: string
+      description: The current deployment or provisioning state, which only appears in the response.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Azure resource tags.
+    type:
+      type: string
+      description: Azure resource type.
+  type: object
+  required:
+    - etag
+    - id
+    - name
+    - provisioningState
+    - type

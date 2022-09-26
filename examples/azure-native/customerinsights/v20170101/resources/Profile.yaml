@@ -1,0 +1,168 @@
+$token: azure-native:customerinsights/v20170101:Profile
+description: The profile resource format.
+properties:
+  apiEntitySetName:
+    type: string
+    description: The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.
+  attributes:
+    type: object
+    additionalProperties:
+      type: array
+      items:
+        type: string
+    description: The attributes for the Type.
+  description:
+    type: object
+    additionalProperties:
+      type: string
+    description: Localized descriptions for the property.
+  displayName:
+    type: object
+    additionalProperties:
+      type: string
+    description: Localized display names for the property.
+  entityType:
+    type: string
+    description: Type of entity.
+  fields:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:customerinsights/v20170101:PropertyDefinitionResponse"
+    description: The properties of the Profile.
+  instancesCount:
+    type: integer
+    description: The instance count.
+  largeImage:
+    type: string
+    description: Large Image associated with the Property or EntityType.
+  lastChangedUtc:
+    type: string
+    description: The last changed time for the type definition.
+  localizedAttributes:
+    type: object
+    additionalProperties:
+      type: object
+      additionalProperties:
+        type: string
+    description: Any custom localized attributes for the Type.
+  mediumImage:
+    type: string
+    description: Medium Image associated with the Property or EntityType.
+  name:
+    type: string
+    description: Resource name.
+  provisioningState:
+    type: string
+    description: Provisioning state.
+  schemaItemTypeLink:
+    type: string
+    description: The schema org link. This helps ACI identify and suggest semantic models.
+  smallImage:
+    type: string
+    description: Small Image associated with the Property or EntityType.
+  strongIds:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:customerinsights/v20170101:StrongIdResponse"
+    description: The strong IDs.
+  tenantId:
+    type: string
+    description: The hub name.
+  timestampFieldName:
+    type: string
+    description: The timestamp property name. Represents the time when the interaction or profile update happened.
+  type:
+    type: string
+    description: Resource type.
+  typeName:
+    type: string
+    description: The name of the entity.
+type: object
+required:
+  - lastChangedUtc
+  - name
+  - provisioningState
+  - tenantId
+  - type
+inputProperties:
+  apiEntitySetName:
+    type: string
+    description: The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.
+  attributes:
+    type: object
+    additionalProperties:
+      type: array
+      items:
+        type: string
+    description: The attributes for the Type.
+  description:
+    type: object
+    additionalProperties:
+      type: string
+    description: Localized descriptions for the property.
+  displayName:
+    type: object
+    additionalProperties:
+      type: string
+    description: Localized display names for the property.
+  entityType:
+    $ref: "#/types/azure-native:customerinsights/v20170101:EntityTypes"
+    description: Type of entity.
+  fields:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:customerinsights/v20170101:PropertyDefinition"
+    description: The properties of the Profile.
+  hubName:
+    type: string
+    description: The name of the hub.
+  instancesCount:
+    type: integer
+    description: The instance count.
+  largeImage:
+    type: string
+    description: Large Image associated with the Property or EntityType.
+  localizedAttributes:
+    type: object
+    additionalProperties:
+      type: object
+      additionalProperties:
+        type: string
+    description: Any custom localized attributes for the Type.
+  mediumImage:
+    type: string
+    description: Medium Image associated with the Property or EntityType.
+  profileName:
+    type: string
+    description: The name of the profile.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  schemaItemTypeLink:
+    type: string
+    description: The schema org link. This helps ACI identify and suggest semantic models.
+  smallImage:
+    type: string
+    description: Small Image associated with the Property or EntityType.
+  strongIds:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:customerinsights/v20170101:StrongId"
+    description: The strong IDs.
+  timestampFieldName:
+    type: string
+    description: The timestamp property name. Represents the time when the interaction or profile update happened.
+  typeName:
+    type: string
+    description: The name of the entity.
+requiredInputs:
+  - hubName
+  - resourceGroupName
+aliases:
+  - type: azure-native:customerinsights:Profile
+  - type: azure-native:customerinsights/v20170426:Profile
+deprecationMessage: Version 2017-01-01 will be removed in v2 of the provider.

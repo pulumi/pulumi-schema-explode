@@ -1,0 +1,49 @@
+$token: azure-native:apimanagement/v20211201preview:getPolicyFragment
+description: Policy fragment contract details.
+inputs:
+  properties:
+    format:
+      type: string
+      description: Policy fragment content format.
+    id:
+      type: string
+      description: A resource identifier.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    serviceName:
+      type: string
+      description: The name of the API Management service.
+  type: object
+  required:
+    - id
+    - resourceGroupName
+    - serviceName
+outputs:
+  description: Policy fragment contract details.
+  properties:
+    description:
+      type: string
+      description: Policy fragment description.
+    format:
+      type: string
+      description: Format of the policy fragment content.
+      default: xml
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    name:
+      type: string
+      description: The name of the resource
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+    value:
+      type: string
+      description: Contents of the policy fragment.
+  type: object
+  required:
+    - id
+    - name
+    - type
+    - value

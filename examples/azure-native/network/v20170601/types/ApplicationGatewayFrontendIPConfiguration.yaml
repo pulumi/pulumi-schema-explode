@@ -1,0 +1,35 @@
+$token: azure-native:network/v20170601:ApplicationGatewayFrontendIPConfiguration
+description: Frontend IP configuration of an application gateway.
+properties:
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  id:
+    type: string
+    description: Resource ID.
+  name:
+    type: string
+    description: Name of the resource that is unique within a resource group. This name can be used to access the resource.
+  privateIPAddress:
+    type: string
+    description: PrivateIPAddress of the network interface IP Configuration.
+  privateIPAllocationMethod:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20170601:IPAllocationMethod"
+    description: PrivateIP allocation method.
+  provisioningState:
+    type: string
+    description: "Provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'."
+  publicIPAddress:
+    type: object
+    $ref: "#/types/azure-native:network/v20170601:SubResource"
+    description: Reference of the PublicIP resource.
+  subnet:
+    type: object
+    $ref: "#/types/azure-native:network/v20170601:SubResource"
+    description: Reference of the subnet resource.
+  type:
+    type: string
+    description: Type of the resource.
+type: object

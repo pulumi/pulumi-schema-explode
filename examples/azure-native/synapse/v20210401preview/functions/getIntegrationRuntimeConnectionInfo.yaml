@@ -1,0 +1,47 @@
+$token: azure-native:synapse/v20210401preview:getIntegrationRuntimeConnectionInfo
+description: Connection information for encrypting the on-premises data source credentials.
+inputs:
+  properties:
+    integrationRuntimeName:
+      type: string
+      description: Integration runtime name
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    workspaceName:
+      type: string
+      description: The name of the workspace.
+  type: object
+  required:
+    - integrationRuntimeName
+    - resourceGroupName
+    - workspaceName
+outputs:
+  description: Connection information for encrypting the on-premises data source credentials.
+  properties:
+    hostServiceUri:
+      type: string
+      description: The on-premises integration runtime host URL.
+    identityCertThumbprint:
+      type: string
+      description: The integration runtime SSL certificate thumbprint. Click-Once application uses it to do server validation.
+    isIdentityCertExprired:
+      type: boolean
+      description: Whether the identity certificate is expired.
+    publicKey:
+      type: string
+      description: The public key for encrypting a credential when transferring the credential to the integration runtime.
+    serviceToken:
+      type: string
+      description: The token generated in service. Callers use this token to authenticate to integration runtime.
+    version:
+      type: string
+      description: The integration runtime version.
+  type: object
+  required:
+    - hostServiceUri
+    - identityCertThumbprint
+    - isIdentityCertExprired
+    - publicKey
+    - serviceToken
+    - version

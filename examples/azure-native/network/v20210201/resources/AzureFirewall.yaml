@@ -1,0 +1,200 @@
+$token: azure-native:network/v20210201:AzureFirewall
+description: Azure Firewall resource.
+properties:
+  additionalProperties:
+    type: object
+    additionalProperties:
+      type: string
+    description: The additional properties used to further config this azure firewall.
+  applicationRuleCollections:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210201:AzureFirewallApplicationRuleCollectionResponse"
+    description: Collection of application rule collections used by Azure Firewall.
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  firewallPolicy:
+    type: object
+    $ref: "#/types/azure-native:network/v20210201:SubResourceResponse"
+    description: The firewallPolicy associated with this azure firewall.
+  hubIPAddresses:
+    type: object
+    $ref: "#/types/azure-native:network/v20210201:HubIPAddressesResponse"
+    description: IP addresses associated with AzureFirewall.
+  ipConfigurations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210201:AzureFirewallIPConfigurationResponse"
+    description: IP configuration of the Azure Firewall resource.
+  ipGroups:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210201:AzureFirewallIpGroupsResponse"
+    description: IpGroups associated with AzureFirewall.
+  location:
+    type: string
+    description: Resource location.
+  managementIpConfiguration:
+    type: object
+    $ref: "#/types/azure-native:network/v20210201:AzureFirewallIPConfigurationResponse"
+    description: IP configuration of the Azure Firewall used for management traffic.
+  name:
+    type: string
+    description: Resource name.
+  natRuleCollections:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210201:AzureFirewallNatRuleCollectionResponse"
+    description: Collection of NAT rule collections used by Azure Firewall.
+  networkRuleCollections:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210201:AzureFirewallNetworkRuleCollectionResponse"
+    description: Collection of network rule collections used by Azure Firewall.
+  provisioningState:
+    type: string
+    description: The provisioning state of the Azure firewall resource.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:network/v20210201:AzureFirewallSkuResponse"
+    description: The Azure Firewall Resource SKU.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  threatIntelMode:
+    type: string
+    description: The operation mode for Threat Intelligence.
+  type:
+    type: string
+    description: Resource type.
+  virtualHub:
+    type: object
+    $ref: "#/types/azure-native:network/v20210201:SubResourceResponse"
+    description: The virtualHub to which the firewall belongs.
+  zones:
+    type: array
+    items:
+      type: string
+    description: A list of availability zones denoting where the resource needs to come from.
+type: object
+required:
+  - etag
+  - ipGroups
+  - name
+  - provisioningState
+  - type
+inputProperties:
+  additionalProperties:
+    type: object
+    additionalProperties:
+      type: string
+    description: The additional properties used to further config this azure firewall.
+  applicationRuleCollections:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210201:AzureFirewallApplicationRuleCollection"
+    description: Collection of application rule collections used by Azure Firewall.
+  azureFirewallName:
+    type: string
+    description: The name of the Azure Firewall.
+  firewallPolicy:
+    type: object
+    $ref: "#/types/azure-native:network/v20210201:SubResource"
+    description: The firewallPolicy associated with this azure firewall.
+  hubIPAddresses:
+    type: object
+    $ref: "#/types/azure-native:network/v20210201:HubIPAddresses"
+    description: IP addresses associated with AzureFirewall.
+  id:
+    type: string
+    description: Resource ID.
+  ipConfigurations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210201:AzureFirewallIPConfiguration"
+    description: IP configuration of the Azure Firewall resource.
+  location:
+    type: string
+    description: Resource location.
+  managementIpConfiguration:
+    type: object
+    $ref: "#/types/azure-native:network/v20210201:AzureFirewallIPConfiguration"
+    description: IP configuration of the Azure Firewall used for management traffic.
+  natRuleCollections:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210201:AzureFirewallNatRuleCollection"
+    description: Collection of NAT rule collections used by Azure Firewall.
+  networkRuleCollections:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210201:AzureFirewallNetworkRuleCollection"
+    description: Collection of network rule collections used by Azure Firewall.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:network/v20210201:AzureFirewallSku"
+    description: The Azure Firewall Resource SKU.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  threatIntelMode:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20210201:AzureFirewallThreatIntelMode"
+    description: The operation mode for Threat Intelligence.
+  virtualHub:
+    type: object
+    $ref: "#/types/azure-native:network/v20210201:SubResource"
+    description: The virtualHub to which the firewall belongs.
+  zones:
+    type: array
+    items:
+      type: string
+    description: A list of availability zones denoting where the resource needs to come from.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:network:AzureFirewall
+  - type: azure-native:network/v20180401:AzureFirewall
+  - type: azure-native:network/v20180601:AzureFirewall
+  - type: azure-native:network/v20180701:AzureFirewall
+  - type: azure-native:network/v20180801:AzureFirewall
+  - type: azure-native:network/v20181001:AzureFirewall
+  - type: azure-native:network/v20181101:AzureFirewall
+  - type: azure-native:network/v20181201:AzureFirewall
+  - type: azure-native:network/v20190201:AzureFirewall
+  - type: azure-native:network/v20190401:AzureFirewall
+  - type: azure-native:network/v20190601:AzureFirewall
+  - type: azure-native:network/v20190701:AzureFirewall
+  - type: azure-native:network/v20190801:AzureFirewall
+  - type: azure-native:network/v20190901:AzureFirewall
+  - type: azure-native:network/v20191101:AzureFirewall
+  - type: azure-native:network/v20191201:AzureFirewall
+  - type: azure-native:network/v20200301:AzureFirewall
+  - type: azure-native:network/v20200401:AzureFirewall
+  - type: azure-native:network/v20200501:AzureFirewall
+  - type: azure-native:network/v20200601:AzureFirewall
+  - type: azure-native:network/v20200701:AzureFirewall
+  - type: azure-native:network/v20200801:AzureFirewall
+  - type: azure-native:network/v20201101:AzureFirewall
+  - type: azure-native:network/v20210301:AzureFirewall
+  - type: azure-native:network/v20210501:AzureFirewall
+  - type: azure-native:network/v20210801:AzureFirewall
+  - type: azure-native:network/v20220101:AzureFirewall

@@ -1,0 +1,31 @@
+$token: azure-native:recoveryservices/v20180110:CreatePolicyInputProperties
+description: Policy creation properties.
+properties:
+  providerSpecificInput:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20180110:A2APolicyCreationInput"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20180110:HyperVReplicaAzurePolicyInput"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20180110:HyperVReplicaBluePolicyInput"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20180110:HyperVReplicaPolicyInput"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20180110:InMageAzureV2PolicyInput"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20180110:InMagePolicyInput"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20180110:VMwareCbtPolicyCreationInput"
+    discriminator:
+      propertyName: instanceType
+      mapping:
+        A2A: "#/types/azure-native:recoveryservices/v20180110:A2APolicyCreationInput"
+        HyperVReplica2012: "#/types/azure-native:recoveryservices/v20180110:HyperVReplicaPolicyInput"
+        HyperVReplica2012R2: "#/types/azure-native:recoveryservices/v20180110:HyperVReplicaBluePolicyInput"
+        HyperVReplicaAzure: "#/types/azure-native:recoveryservices/v20180110:HyperVReplicaAzurePolicyInput"
+        InMage: "#/types/azure-native:recoveryservices/v20180110:InMagePolicyInput"
+        InMageAzureV2: "#/types/azure-native:recoveryservices/v20180110:InMageAzureV2PolicyInput"
+        VMwareCbt: "#/types/azure-native:recoveryservices/v20180110:VMwareCbtPolicyCreationInput"
+    description: The ReplicationProviderSettings.
+type: object

@@ -1,0 +1,22 @@
+$token: azure-native:sql/v20211101preview:ResourceIdentityResponse
+description: Azure Active Directory identity configuration for a resource.
+properties:
+  principalId:
+    type: string
+    description: The Azure Active Directory principal id.
+  tenantId:
+    type: string
+    description: The Azure Active Directory tenant id.
+  type:
+    type: string
+    description: The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+  userAssignedIdentities:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:sql/v20211101preview:UserIdentityResponse"
+    description: The resource ids of the user assigned identities to use
+type: object
+required:
+  - principalId
+  - tenantId

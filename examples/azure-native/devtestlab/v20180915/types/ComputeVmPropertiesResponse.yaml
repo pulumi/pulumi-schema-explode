@@ -1,0 +1,33 @@
+$token: azure-native:devtestlab/v20180915:ComputeVmPropertiesResponse
+description: Properties of a virtual machine returned by the Microsoft.Compute API.
+properties:
+  dataDiskIds:
+    type: array
+    items:
+      type: string
+    description: Gets data disks blob uri for the virtual machine.
+  dataDisks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:devtestlab/v20180915:ComputeDataDiskResponse"
+    description: Gets all data disks attached to the virtual machine.
+  networkInterfaceId:
+    type: string
+    description: Gets the network interface ID of the virtual machine.
+  osDiskId:
+    type: string
+    description: Gets OS disk blob uri for the virtual machine.
+  osType:
+    type: string
+    description: Gets the OS type of the virtual machine.
+  statuses:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:devtestlab/v20180915:ComputeVmInstanceViewStatusResponse"
+    description: Gets the statuses of the virtual machine.
+  vmSize:
+    type: string
+    description: Gets the size of the virtual machine.
+type: object

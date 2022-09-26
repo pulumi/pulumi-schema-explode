@@ -1,0 +1,176 @@
+$token: azure-native:authorization/v20180501preview:AccessReviewScheduleDefinitionById
+description: Access Review Schedule Definition.
+properties:
+  autoApplyDecisionsEnabled:
+    type: boolean
+    description: Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
+  defaultDecision:
+    type: string
+    description: This specifies the behavior for the autoReview feature when an access review completes.
+  defaultDecisionEnabled:
+    type: boolean
+    description: Flag to indicate whether reviewers are required to provide a justification when reviewing access.
+  descriptionForAdmins:
+    type: string
+    description: The description provided by the access review creator and visible to admins.
+  descriptionForReviewers:
+    type: string
+    description: The description provided by the access review creator to be shown to reviewers.
+  displayName:
+    type: string
+    description: The display name for the schedule definition.
+  endDate:
+    type: string
+    description: The DateTime when the review is scheduled to end. Required if type is endDate
+  instanceDurationInDays:
+    type: integer
+    description: The duration in days for an instance.
+  instances:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:authorization/v20180501preview:AccessReviewInstanceResponse"
+    description: This is the collection of instances returned when one does an expand on it.
+  interval:
+    type: integer
+    description: "The interval for recurrence. For a quarterly review, the interval is 3 for type : absoluteMonthly."
+  justificationRequiredOnApproval:
+    type: boolean
+    description: Flag to indicate whether the reviewer is required to pass justification when recording a decision.
+  mailNotificationsEnabled:
+    type: boolean
+    description: Flag to indicate whether sending mails to reviewers and the review creator is enabled.
+  name:
+    type: string
+    description: The access review schedule definition unique id.
+  numberOfOccurrences:
+    type: integer
+    description: The number of times to repeat the access review. Required and must be positive if type is numbered.
+  principalId:
+    type: string
+    description: The identity id
+  principalName:
+    type: string
+    description: The identity display name
+  principalType:
+    type: string
+    description: The identity type user/servicePrincipal to review
+  recommendationsEnabled:
+    type: boolean
+    description: Flag to indicate whether showing recommendations to reviewers is enabled.
+  reminderNotificationsEnabled:
+    type: boolean
+    description: Flag to indicate whether sending reminder emails to reviewers are enabled.
+  resourceId:
+    type: string
+    description: ResourceId in which this review is getting created
+  reviewers:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:authorization/v20180501preview:AccessReviewReviewerResponse"
+    description: This is the collection of reviewers.
+  reviewersType:
+    type: string
+    description: This field specifies the type of reviewers for a review. Usually for a review, reviewers are explicitly assigned. However, in some cases, the reviewers may not be assigned and instead be chosen dynamically. For example managers review or self review.
+  roleDefinitionId:
+    type: string
+    description: This is used to indicate the role being reviewed
+  startDate:
+    type: string
+    description: The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
+  status:
+    type: string
+    description: This read-only field specifies the status of an accessReview.
+  type:
+    type: string
+    description: The resource type.
+  userPrincipalName:
+    type: string
+    description: The user principal name(if valid)
+type: object
+required:
+  - name
+  - principalId
+  - principalName
+  - principalType
+  - resourceId
+  - reviewersType
+  - roleDefinitionId
+  - status
+  - type
+  - userPrincipalName
+inputProperties:
+  autoApplyDecisionsEnabled:
+    type: boolean
+    description: Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
+  defaultDecision:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:authorization/v20180501preview:DefaultDecisionType"
+    description: This specifies the behavior for the autoReview feature when an access review completes.
+  defaultDecisionEnabled:
+    type: boolean
+    description: Flag to indicate whether reviewers are required to provide a justification when reviewing access.
+  descriptionForAdmins:
+    type: string
+    description: The description provided by the access review creator and visible to admins.
+  descriptionForReviewers:
+    type: string
+    description: The description provided by the access review creator to be shown to reviewers.
+  displayName:
+    type: string
+    description: The display name for the schedule definition.
+  endDate:
+    type: string
+    description: The DateTime when the review is scheduled to end. Required if type is endDate
+  instanceDurationInDays:
+    type: integer
+    description: The duration in days for an instance.
+  instances:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:authorization/v20180501preview:AccessReviewInstance"
+    description: This is the collection of instances returned when one does an expand on it.
+  interval:
+    type: integer
+    description: "The interval for recurrence. For a quarterly review, the interval is 3 for type : absoluteMonthly."
+  justificationRequiredOnApproval:
+    type: boolean
+    description: Flag to indicate whether the reviewer is required to pass justification when recording a decision.
+  mailNotificationsEnabled:
+    type: boolean
+    description: Flag to indicate whether sending mails to reviewers and the review creator is enabled.
+  numberOfOccurrences:
+    type: integer
+    description: The number of times to repeat the access review. Required and must be positive if type is numbered.
+  recommendationsEnabled:
+    type: boolean
+    description: Flag to indicate whether showing recommendations to reviewers is enabled.
+  reminderNotificationsEnabled:
+    type: boolean
+    description: Flag to indicate whether sending reminder emails to reviewers are enabled.
+  reviewers:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:authorization/v20180501preview:AccessReviewReviewer"
+    description: This is the collection of reviewers.
+  scheduleDefinitionId:
+    type: string
+    description: The id of the access review schedule definition.
+  startDate:
+    type: string
+    description: The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
+  type:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:authorization/v20180501preview:AccessReviewRecurrenceRangeType"
+    description: "The recurrence range type. The possible values are: endDate, noEnd, numbered."
+aliases:
+  - type: azure-native:authorization:AccessReviewScheduleDefinitionById
+  - type: azure-native:authorization/v20210301preview:AccessReviewScheduleDefinitionById
+  - type: azure-native:authorization/v20210701preview:AccessReviewScheduleDefinitionById
+  - type: azure-native:authorization/v20211116preview:AccessReviewScheduleDefinitionById
+  - type: azure-native:authorization/v20211201preview:AccessReviewScheduleDefinitionById

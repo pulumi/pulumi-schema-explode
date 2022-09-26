@@ -1,0 +1,63 @@
+$token: azure-native:datafactory:HDInsightPigActivityResponse
+description: HDInsight Pig activity type.
+properties:
+  arguments:
+    $ref: pulumi.json#/Any
+    description: "User specified arguments to HDInsightActivity. Type: array (or Expression with resultType array)."
+  defines:
+    type: object
+    additionalProperties:
+      $ref: pulumi.json#/Any
+    description: Allows user to specify defines for Pig job request.
+  dependsOn:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory:ActivityDependencyResponse"
+    description: Activity depends on condition.
+  description:
+    type: string
+    description: Activity description.
+  getDebugInfo:
+    type: string
+    description: Debug info option.
+  linkedServiceName:
+    type: object
+    $ref: "#/types/azure-native:datafactory:LinkedServiceReferenceResponse"
+    description: Linked service reference.
+  name:
+    type: string
+    description: Activity name.
+  policy:
+    type: object
+    $ref: "#/types/azure-native:datafactory:ActivityPolicyResponse"
+    description: Activity policy.
+  scriptLinkedService:
+    type: object
+    $ref: "#/types/azure-native:datafactory:LinkedServiceReferenceResponse"
+    description: Script linked service reference.
+  scriptPath:
+    $ref: pulumi.json#/Any
+    description: "Script path. Type: string (or Expression with resultType string)."
+  storageLinkedServices:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory:LinkedServiceReferenceResponse"
+    description: Storage linked service references.
+  type:
+    type: string
+    description: |-
+      Type of activity.
+      Expected value is 'HDInsightPig'.
+    const: HDInsightPig
+  userProperties:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory:UserPropertyResponse"
+    description: Activity user properties.
+type: object
+required:
+  - name
+  - type

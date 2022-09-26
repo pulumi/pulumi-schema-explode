@@ -1,0 +1,83 @@
+$token: azure-native:healthcareapis/v20210601preview:Service
+description: The description of the service.
+properties:
+  etag:
+    type: string
+    description: An etag associated with the resource, used for optimistic concurrency when editing it.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:healthcareapis/v20210601preview:ServicesResourceResponseIdentity"
+    description: Setting indicating whether the service has a managed identity associated with it.
+  kind:
+    type: string
+    description: The kind of the service.
+  location:
+    type: string
+    description: The resource location.
+  name:
+    type: string
+    description: The resource name.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:healthcareapis/v20210601preview:ServicesPropertiesResponse"
+    description: The common properties of a service.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:healthcareapis/v20210601preview:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The resource tags.
+  type:
+    type: string
+    description: The resource type.
+type: object
+required:
+  - kind
+  - location
+  - name
+  - properties
+  - systemData
+  - type
+inputProperties:
+  identity:
+    type: object
+    $ref: "#/types/azure-native:healthcareapis/v20210601preview:ServicesResourceIdentity"
+    description: Setting indicating whether the service has a managed identity associated with it.
+  kind:
+    $ref: "#/types/azure-native:healthcareapis/v20210601preview:Kind"
+    description: The kind of the service.
+  location:
+    type: string
+    description: The resource location.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:healthcareapis/v20210601preview:ServicesProperties"
+    description: The common properties of a service.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the service instance.
+  resourceName:
+    type: string
+    description: The name of the service instance.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The resource tags.
+requiredInputs:
+  - kind
+  - resourceGroupName
+aliases:
+  - type: azure-native:healthcareapis:Service
+  - type: azure-native:healthcareapis/v20180820preview:Service
+  - type: azure-native:healthcareapis/v20190916:Service
+  - type: azure-native:healthcareapis/v20200315:Service
+  - type: azure-native:healthcareapis/v20200330:Service
+  - type: azure-native:healthcareapis/v20210111:Service
+  - type: azure-native:healthcareapis/v20211101:Service
+  - type: azure-native:healthcareapis/v20220131preview:Service
+  - type: azure-native:healthcareapis/v20220515:Service
+  - type: azure-native:healthcareapis/v20220601:Service

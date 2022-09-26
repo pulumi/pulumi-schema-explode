@@ -1,0 +1,22 @@
+$token: azure-native:storage/v20210101:BlobInventoryPolicyFilter
+description: An object that defines the blob inventory rule filter conditions.
+properties:
+  blobTypes:
+    type: array
+    items:
+      type: string
+    description: An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs.
+  includeBlobVersions:
+    type: boolean
+    description: Includes blob versions in blob inventory when value set to true.
+  includeSnapshots:
+    type: boolean
+    description: Includes blob snapshots in blob inventory when value set to true.
+  prefixMatch:
+    type: array
+    items:
+      type: string
+    description: An array of strings for blob prefixes to be matched.
+type: object
+required:
+  - blobTypes

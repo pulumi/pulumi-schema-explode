@@ -1,0 +1,69 @@
+$token: azure-native:policyinsights/v20210101:getAttestationAtResourceGroup
+description: An attestation resource.
+inputs:
+  properties:
+    attestationName:
+      type: string
+      description: The name of the attestation.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+  type: object
+  required:
+    - attestationName
+    - resourceGroupName
+outputs:
+  description: An attestation resource.
+  properties:
+    comments:
+      type: string
+      description: Comments describing why this attestation was created.
+    complianceState:
+      type: string
+      description: The compliance state that should be set on the resource.
+    evidence:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:policyinsights/v20210101:AttestationEvidenceResponse"
+      description: The evidence supporting the compliance state set in this attestation.
+    expiresOn:
+      type: string
+      description: The time the compliance state should expire.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    lastComplianceStateChangeAt:
+      type: string
+      description: The time the compliance state was last changed in this attestation.
+    name:
+      type: string
+      description: The name of the resource
+    owner:
+      type: string
+      description: The person responsible for setting the state of the resource. This value is typically an Azure Active Directory object ID.
+    policyAssignmentId:
+      type: string
+      description: The resource ID of the policy assignment that the attestation is setting the state for.
+    policyDefinitionReferenceId:
+      type: string
+      description: The policy definition reference ID from a policy set definition that the attestation is setting the state for. If the policy assignment assigns a policy set definition the attestation can choose a definition within the set definition with this property or omit this and set the state for the entire set definition.
+    provisioningState:
+      type: string
+      description: The status of the attestation.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:policyinsights/v20210101:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - id
+    - lastComplianceStateChangeAt
+    - name
+    - policyAssignmentId
+    - provisioningState
+    - systemData
+    - type

@@ -1,0 +1,82 @@
+$token: azure-native:edgeorder/v20211201:OrderItemDetailsResponse
+description: Order item details
+properties:
+  cancellationReason:
+    type: string
+    description: Cancellation reason.
+  cancellationStatus:
+    type: string
+    description: Describes whether the order item is cancellable or not.
+  currentStage:
+    type: object
+    $ref: "#/types/azure-native:edgeorder/v20211201:StageDetailsResponse"
+    description: Current Order item Status
+  deletionStatus:
+    type: string
+    description: Describes whether the order item is deletable or not.
+  error:
+    type: object
+    $ref: "#/types/azure-native:edgeorder/v20211201:ErrorDetailResponse"
+    description: Top level error for the job.
+  forwardShippingDetails:
+    type: object
+    $ref: "#/types/azure-native:edgeorder/v20211201:ForwardShippingDetailsResponse"
+    description: Forward Package Shipping details
+  managementRpDetails:
+    type: object
+    $ref: "#/types/azure-native:edgeorder/v20211201:ResourceProviderDetailsResponse"
+    description: Parent RP details - this returns only the first or default parent RP from the entire list
+  managementRpDetailsList:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:edgeorder/v20211201:ResourceProviderDetailsResponse"
+    description: List of parent RP details supported for configuration.
+  notificationEmailList:
+    type: array
+    items:
+      type: string
+    description: Additional notification email list
+  orderItemStageHistory:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:edgeorder/v20211201:StageDetailsResponse"
+    description: Order item status history
+  orderItemType:
+    type: string
+    description: Order item type.
+  preferences:
+    type: object
+    $ref: "#/types/azure-native:edgeorder/v20211201:PreferencesResponse"
+    description: Customer notification Preferences
+  productDetails:
+    type: object
+    $ref: "#/types/azure-native:edgeorder/v20211201:ProductDetailsResponse"
+    description: Unique identifier for configuration.
+  returnReason:
+    type: string
+    description: Return reason.
+  returnStatus:
+    type: string
+    description: Describes whether the order item is returnable or not.
+  reverseShippingDetails:
+    type: object
+    $ref: "#/types/azure-native:edgeorder/v20211201:ReverseShippingDetailsResponse"
+    description: Reverse Package Shipping details
+type: object
+required:
+  - cancellationReason
+  - cancellationStatus
+  - currentStage
+  - deletionStatus
+  - error
+  - forwardShippingDetails
+  - managementRpDetails
+  - managementRpDetailsList
+  - orderItemStageHistory
+  - orderItemType
+  - productDetails
+  - returnReason
+  - returnStatus
+  - reverseShippingDetails

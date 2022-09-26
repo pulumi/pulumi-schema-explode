@@ -1,0 +1,26 @@
+$token: azure-native:datamigration:MigrateSqlServerSqlDbSyncTaskInput
+description: Input for the task that migrates on-prem SQL Server databases to Azure SQL Database for online migrations
+properties:
+  selectedDatabases:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration:MigrateSqlServerSqlDbSyncDatabaseInput"
+    description: Databases to migrate
+  sourceConnectionInfo:
+    type: object
+    $ref: "#/types/azure-native:datamigration:SqlConnectionInfo"
+    description: Information for connecting to source
+  targetConnectionInfo:
+    type: object
+    $ref: "#/types/azure-native:datamigration:SqlConnectionInfo"
+    description: Information for connecting to target
+  validationOptions:
+    type: object
+    $ref: "#/types/azure-native:datamigration:MigrationValidationOptions"
+    description: Validation options
+type: object
+required:
+  - selectedDatabases
+  - sourceConnectionInfo
+  - targetConnectionInfo

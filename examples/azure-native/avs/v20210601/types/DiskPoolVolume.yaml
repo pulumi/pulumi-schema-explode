@@ -1,0 +1,19 @@
+$token: azure-native:avs/v20210601:DiskPoolVolume
+description: An iSCSI volume from Microsoft.StoragePool provider
+properties:
+  lunName:
+    type: string
+    description: Name of the LUN to be used for datastore
+  mountOption:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:avs/v20210601:MountOptionEnum"
+    description: Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
+    default: MOUNT
+  targetId:
+    type: string
+    description: Azure resource ID of the iSCSI target
+type: object
+required:
+  - lunName
+  - targetId

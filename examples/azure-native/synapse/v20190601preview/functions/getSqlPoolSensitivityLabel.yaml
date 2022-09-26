@@ -1,0 +1,86 @@
+$token: azure-native:synapse/v20190601preview:getSqlPoolSensitivityLabel
+description: A sensitivity label.
+inputs:
+  properties:
+    columnName:
+      type: string
+      description: The name of the column.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    schemaName:
+      type: string
+      description: The name of the schema.
+    sensitivityLabelSource:
+      type: string
+      description: The source of the sensitivity label.
+    sqlPoolName:
+      type: string
+      description: SQL pool name
+    tableName:
+      type: string
+      description: The name of the table.
+    workspaceName:
+      type: string
+      description: The name of the workspace
+  type: object
+  required:
+    - columnName
+    - resourceGroupName
+    - schemaName
+    - sensitivityLabelSource
+    - sqlPoolName
+    - tableName
+    - workspaceName
+outputs:
+  description: A sensitivity label.
+  properties:
+    columnName:
+      type: string
+      description: The column name.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    informationType:
+      type: string
+      description: The information type.
+    informationTypeId:
+      type: string
+      description: The information type ID.
+    isDisabled:
+      type: boolean
+      description: Is sensitivity recommendation disabled. Applicable for recommended sensitivity label only. Specifies whether the sensitivity recommendation on this column is disabled (dismissed) or not.
+    labelId:
+      type: string
+      description: The label ID.
+    labelName:
+      type: string
+      description: The label name.
+    managedBy:
+      type: string
+      description: managed by
+    name:
+      type: string
+      description: The name of the resource
+    rank:
+      type: string
+    schemaName:
+      type: string
+      description: The schema name.
+    tableName:
+      type: string
+      description: The table name.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - columnName
+    - id
+    - isDisabled
+    - managedBy
+    - name
+    - schemaName
+    - tableName
+    - type
+deprecationMessage: Version 2019-06-01-preview will be removed in v2 of the provider.

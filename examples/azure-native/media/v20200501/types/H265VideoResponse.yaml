@@ -1,0 +1,36 @@
+$token: azure-native:media/v20200501:H265VideoResponse
+description: Describes all the properties for encoding a video with the H.265 codec.
+properties:
+  complexity:
+    type: string
+    description: Tells the encoder how to choose its encoding settings.  Quality will provide for a higher compression ratio but at a higher cost and longer compute time.  Speed will produce a relatively larger file but is faster and more economical. The default value is Balanced.
+  keyFrameInterval:
+    type: string
+    description: The distance between two key frames. The value should be non-zero in the range [0.5, 20] seconds, specified in ISO 8601 format. The default is 2 seconds(PT2S). Note that this setting is ignored if VideoSyncMode.Passthrough is set, where the KeyFrameInterval value will follow the input source setting.
+  label:
+    type: string
+    description: An optional label for the codec. The label can be used to control muxing behavior.
+  layers:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:media/v20200501:H265LayerResponse"
+    description: The collection of output H.265 layers to be produced by the encoder.
+  odataType:
+    type: string
+    description: |-
+      The discriminator for derived types.
+      Expected value is '#Microsoft.Media.H265Video'.
+    const: "#Microsoft.Media.H265Video"
+  sceneChangeDetection:
+    type: boolean
+    description: Specifies whether or not the encoder should insert key frames at scene changes. If not specified, the default is false. This flag should be set to true only when the encoder is being configured to produce a single output video.
+  stretchMode:
+    type: string
+    description: The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+  syncMode:
+    type: string
+    description: The Video Sync Mode
+type: object
+required:
+  - odataType

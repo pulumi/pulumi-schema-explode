@@ -1,0 +1,102 @@
+$token: azure-native:network/v20200601:getNetworkVirtualAppliance
+description: NetworkVirtualAppliance Resource.
+inputs:
+  properties:
+    expand:
+      type: string
+      description: Expands referenced resources.
+    networkVirtualApplianceName:
+      type: string
+      description: The name of Network Virtual Appliance.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - networkVirtualApplianceName
+    - resourceGroupName
+outputs:
+  description: NetworkVirtualAppliance Resource.
+  properties:
+    addressPrefix:
+      type: string
+      description: Address Prefix.
+    bootStrapConfigurationBlobs:
+      type: array
+      items:
+        type: string
+      description: BootStrapConfigurationBlobs storage URLs.
+    cloudInitConfiguration:
+      type: string
+      description: CloudInitConfiguration string in plain text.
+    cloudInitConfigurationBlobs:
+      type: array
+      items:
+        type: string
+      description: CloudInitConfigurationBlob storage URLs.
+    etag:
+      type: string
+      description: A unique read-only string that changes whenever the resource is updated.
+    id:
+      type: string
+      description: Resource ID.
+    identity:
+      type: object
+      $ref: "#/types/azure-native:network/v20200601:ManagedServiceIdentityResponse"
+      description: The service principal that has read access to cloud-init and config blob.
+    inboundSecurityRules:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20200601:SubResourceResponse"
+      description: List of references to InboundSecurityRules.
+    location:
+      type: string
+      description: Resource location.
+    name:
+      type: string
+      description: Resource name.
+    nvaSku:
+      type: object
+      $ref: "#/types/azure-native:network/v20200601:VirtualApplianceSkuPropertiesResponse"
+      description: Network Virtual Appliance SKU.
+    provisioningState:
+      type: string
+      description: The provisioning state of the resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: Resource type.
+    virtualApplianceAsn:
+      type: number
+      description: VirtualAppliance ASN.
+    virtualApplianceNics:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20200601:VirtualApplianceNicPropertiesResponse"
+      description: List of Virtual Appliance Network Interfaces.
+    virtualApplianceSites:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20200601:SubResourceResponse"
+      description: List of references to VirtualApplianceSite.
+    virtualHub:
+      type: object
+      $ref: "#/types/azure-native:network/v20200601:SubResourceResponse"
+      description: The Virtual Hub where Network Virtual Appliance is being deployed.
+  type: object
+  required:
+    - addressPrefix
+    - etag
+    - inboundSecurityRules
+    - name
+    - provisioningState
+    - type
+    - virtualApplianceNics
+    - virtualApplianceSites

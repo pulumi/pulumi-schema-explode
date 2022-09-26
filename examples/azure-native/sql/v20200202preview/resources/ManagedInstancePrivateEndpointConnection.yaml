@@ -1,0 +1,55 @@
+$token: azure-native:sql/v20200202preview:ManagedInstancePrivateEndpointConnection
+description: A private endpoint connection
+properties:
+  name:
+    type: string
+    description: Resource name.
+  privateEndpoint:
+    type: object
+    $ref: "#/types/azure-native:sql/v20200202preview:ManagedInstancePrivateEndpointPropertyResponse"
+    description: Private endpoint which the connection belongs to.
+  privateLinkServiceConnectionState:
+    type: object
+    $ref: "#/types/azure-native:sql/v20200202preview:ManagedInstancePrivateLinkServiceConnectionStatePropertyResponse"
+    description: Connection State of the Private Endpoint Connection.
+  provisioningState:
+    type: string
+    description: State of the Private Endpoint Connection.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - name
+  - provisioningState
+  - type
+inputProperties:
+  managedInstanceName:
+    type: string
+    description: The name of the managed instance.
+  privateEndpoint:
+    type: object
+    $ref: "#/types/azure-native:sql/v20200202preview:ManagedInstancePrivateEndpointProperty"
+    description: Private endpoint which the connection belongs to.
+  privateEndpointConnectionName:
+    type: string
+  privateLinkServiceConnectionState:
+    type: object
+    $ref: "#/types/azure-native:sql/v20200202preview:ManagedInstancePrivateLinkServiceConnectionStateProperty"
+    description: Connection State of the Private Endpoint Connection.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+requiredInputs:
+  - managedInstanceName
+  - resourceGroupName
+aliases:
+  - type: azure-native:sql:ManagedInstancePrivateEndpointConnection
+  - type: azure-native:sql/v20200801preview:ManagedInstancePrivateEndpointConnection
+  - type: azure-native:sql/v20201101preview:ManagedInstancePrivateEndpointConnection
+  - type: azure-native:sql/v20210201preview:ManagedInstancePrivateEndpointConnection
+  - type: azure-native:sql/v20210501preview:ManagedInstancePrivateEndpointConnection
+  - type: azure-native:sql/v20210801preview:ManagedInstancePrivateEndpointConnection
+  - type: azure-native:sql/v20211101:ManagedInstancePrivateEndpointConnection
+  - type: azure-native:sql/v20211101preview:ManagedInstancePrivateEndpointConnection
+  - type: azure-native:sql/v20220201preview:ManagedInstancePrivateEndpointConnection

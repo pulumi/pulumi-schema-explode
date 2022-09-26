@@ -1,0 +1,25 @@
+$token: azure-native:securityinsights/v20220901preview:MetadataDependenciesResponse
+description: Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex dependencies.
+properties:
+  contentId:
+    type: string
+    description: Id of the content item we depend on
+  criteria:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:securityinsights/v20220901preview:MetadataDependenciesResponse"
+    description: This is the list of dependencies we must fulfill, according to the AND/OR operator
+  kind:
+    type: string
+    description: Type of the content item we depend on
+  name:
+    type: string
+    description: Name of the content item
+  operator:
+    type: string
+    description: Operator used for list of dependencies in criteria array.
+  version:
+    type: string
+    description: Version of the the content item we depend on.  Can be blank, * or missing to indicate any version fulfills the dependency.  If version does not match our defined numeric format then an exact match is required.
+type: object

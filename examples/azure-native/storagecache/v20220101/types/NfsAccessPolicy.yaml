@@ -1,0 +1,16 @@
+$token: azure-native:storagecache/v20220101:NfsAccessPolicy
+description: A set of rules describing access policies applied to NFSv3 clients of the cache.
+properties:
+  accessRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:storagecache/v20220101:NfsAccessRule"
+    description: The set of rules describing client accesses allowed under this policy.
+  name:
+    type: string
+    description: Name identifying this policy. Access Policy names are not case sensitive.
+type: object
+required:
+  - accessRules
+  - name

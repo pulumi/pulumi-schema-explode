@@ -1,0 +1,22 @@
+$token: azure-native:machinelearningservices/v20220101preview:IdentityResponse
+description: Identity for the resource.
+properties:
+  principalId:
+    type: string
+    description: The principal ID of resource identity.
+  tenantId:
+    type: string
+    description: The tenant ID of resource.
+  type:
+    type: string
+    description: The identity type.
+  userAssignedIdentities:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20220101preview:UserAssignedIdentityResponse"
+    description: The user assigned identities associated with the resource.
+type: object
+required:
+  - principalId
+  - tenantId

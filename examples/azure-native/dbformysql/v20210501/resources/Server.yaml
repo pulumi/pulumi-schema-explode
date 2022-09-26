@@ -1,0 +1,170 @@
+$token: azure-native:dbformysql/v20210501:Server
+description: Represents a server.
+properties:
+  administratorLogin:
+    type: string
+    description: The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+  availabilityZone:
+    type: string
+    description: availability Zone information of the server.
+  backup:
+    type: object
+    $ref: "#/types/azure-native:dbformysql/v20210501:BackupResponse"
+    description: Backup related properties of a server.
+  dataEncryption:
+    type: object
+    $ref: "#/types/azure-native:dbformysql/v20210501:DataEncryptionResponse"
+    description: The Data Encryption for CMK.
+  fullyQualifiedDomainName:
+    type: string
+    description: The fully qualified domain name of a server.
+  highAvailability:
+    type: object
+    $ref: "#/types/azure-native:dbformysql/v20210501:HighAvailabilityResponse"
+    description: High availability related properties of a server.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:dbformysql/v20210501:IdentityResponse"
+    description: The cmk identity for the server.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  maintenanceWindow:
+    type: object
+    $ref: "#/types/azure-native:dbformysql/v20210501:MaintenanceWindowResponse"
+    description: Maintenance window of a server.
+  name:
+    type: string
+    description: The name of the resource
+  network:
+    type: object
+    $ref: "#/types/azure-native:dbformysql/v20210501:NetworkResponse"
+    description: Network related properties of a server.
+  replicaCapacity:
+    type: integer
+    description: The maximum number of replicas that a primary server can have.
+  replicationRole:
+    type: string
+    description: The replication role.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:dbformysql/v20210501:SkuResponse"
+    description: The SKU (pricing tier) of the server.
+  sourceServerResourceId:
+    type: string
+    description: The source MySQL server id.
+  state:
+    type: string
+    description: The state of a server.
+  storage:
+    type: object
+    $ref: "#/types/azure-native:dbformysql/v20210501:StorageResponse"
+    description: Storage related properties of a server.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:dbformysql/v20210501:SystemDataResponse"
+    description: The system metadata relating to this resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  version:
+    type: string
+    description: Server version.
+type: object
+required:
+  - fullyQualifiedDomainName
+  - location
+  - name
+  - replicaCapacity
+  - state
+  - systemData
+  - type
+inputProperties:
+  administratorLogin:
+    type: string
+    description: The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+  administratorLoginPassword:
+    type: string
+    description: The password of the administrator login (required for server creation).
+  availabilityZone:
+    type: string
+    description: availability Zone information of the server.
+  backup:
+    type: object
+    $ref: "#/types/azure-native:dbformysql/v20210501:Backup"
+    description: Backup related properties of a server.
+  createMode:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:dbformysql/v20210501:CreateMode"
+    description: The mode to create a new MySQL server.
+  dataEncryption:
+    type: object
+    $ref: "#/types/azure-native:dbformysql/v20210501:DataEncryption"
+    description: The Data Encryption for CMK.
+  highAvailability:
+    type: object
+    $ref: "#/types/azure-native:dbformysql/v20210501:HighAvailability"
+    description: High availability related properties of a server.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:dbformysql/v20210501:Identity"
+    description: The cmk identity for the server.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  maintenanceWindow:
+    type: object
+    $ref: "#/types/azure-native:dbformysql/v20210501:MaintenanceWindow"
+    description: Maintenance window of a server.
+  network:
+    type: object
+    $ref: "#/types/azure-native:dbformysql/v20210501:Network"
+    description: Network related properties of a server.
+  replicationRole:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:dbformysql/v20210501:ReplicationRole"
+    description: The replication role.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  restorePointInTime:
+    type: string
+    description: Restore point creation time (ISO8601 format), specifying the time to restore from.
+  serverName:
+    type: string
+    description: The name of the server.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:dbformysql/v20210501:Sku"
+    description: The SKU (pricing tier) of the server.
+  sourceServerResourceId:
+    type: string
+    description: The source MySQL server id.
+  storage:
+    type: object
+    $ref: "#/types/azure-native:dbformysql/v20210501:Storage"
+    description: Storage related properties of a server.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  version:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:dbformysql/v20210501:ServerVersion"
+    description: Server version.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:dbformysql/v20200701preview:Server
+  - type: azure-native:dbformysql/v20200701privatepreview:Server
+  - type: azure-native:dbformysql/v20210501preview:Server
+  - type: azure-native:dbformysql/v20211201preview:Server

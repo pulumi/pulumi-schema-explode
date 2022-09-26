@@ -1,0 +1,37 @@
+$token: azure-native:recoveryservices/v20220101:RecoveryPlanActionResponse
+description: Recovery plan action details.
+properties:
+  actionName:
+    type: string
+    description: The action name.
+  customDetails:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20220101:RecoveryPlanAutomationRunbookActionDetailsResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20220101:RecoveryPlanManualActionDetailsResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20220101:RecoveryPlanScriptActionDetailsResponse"
+    discriminator:
+      propertyName: instanceType
+      mapping:
+        AutomationRunbookActionDetails: "#/types/azure-native:recoveryservices/v20220101:RecoveryPlanAutomationRunbookActionDetailsResponse"
+        ManualActionDetails: "#/types/azure-native:recoveryservices/v20220101:RecoveryPlanManualActionDetailsResponse"
+        ScriptActionDetails: "#/types/azure-native:recoveryservices/v20220101:RecoveryPlanScriptActionDetailsResponse"
+    description: The custom details.
+  failoverDirections:
+    type: array
+    items:
+      type: string
+    description: The list of failover directions.
+  failoverTypes:
+    type: array
+    items:
+      type: string
+    description: The list of failover types.
+type: object
+required:
+  - actionName
+  - customDetails
+  - failoverDirections
+  - failoverTypes

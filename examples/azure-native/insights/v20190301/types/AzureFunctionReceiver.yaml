@@ -1,0 +1,25 @@
+$token: azure-native:insights/v20190301:AzureFunctionReceiver
+description: An azure function receiver.
+properties:
+  functionAppResourceId:
+    type: string
+    description: The azure resource id of the function app.
+  functionName:
+    type: string
+    description: The function name in the function app.
+  httpTriggerUrl:
+    type: string
+    description: The http trigger url where http request sent to.
+  name:
+    type: string
+    description: The name of the azure function receiver. Names must be unique across all receivers within an action group.
+  useCommonAlertSchema:
+    type: boolean
+    description: Indicates whether to use common alert schema.
+    default: false
+type: object
+required:
+  - functionAppResourceId
+  - functionName
+  - httpTriggerUrl
+  - name

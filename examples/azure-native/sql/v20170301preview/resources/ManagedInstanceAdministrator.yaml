@@ -1,0 +1,69 @@
+$token: azure-native:sql/v20170301preview:ManagedInstanceAdministrator
+description: An Azure SQL managed instance administrator.
+properties:
+  administratorType:
+    type: string
+    description: Type of the managed instance administrator.
+  login:
+    type: string
+    description: Login name of the managed instance administrator.
+  name:
+    type: string
+    description: Resource name.
+  sid:
+    type: string
+    description: SID (object ID) of the managed instance administrator.
+  tenantId:
+    type: string
+    description: Tenant ID of the managed instance administrator.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - administratorType
+  - login
+  - name
+  - sid
+  - type
+inputProperties:
+  administratorName:
+    type: string
+    description: The requested administrator name.
+  administratorType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:sql/v20170301preview:ManagedInstanceAdministratorType"
+    description: Type of the managed instance administrator.
+  login:
+    type: string
+    description: Login name of the managed instance administrator.
+  managedInstanceName:
+    type: string
+    description: The name of the managed instance.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  sid:
+    type: string
+    description: SID (object ID) of the managed instance administrator.
+  tenantId:
+    type: string
+    description: Tenant ID of the managed instance administrator.
+requiredInputs:
+  - administratorType
+  - login
+  - managedInstanceName
+  - resourceGroupName
+  - sid
+aliases:
+  - type: azure-native:sql:ManagedInstanceAdministrator
+  - type: azure-native:sql/v20200202preview:ManagedInstanceAdministrator
+  - type: azure-native:sql/v20200801preview:ManagedInstanceAdministrator
+  - type: azure-native:sql/v20201101preview:ManagedInstanceAdministrator
+  - type: azure-native:sql/v20210201preview:ManagedInstanceAdministrator
+  - type: azure-native:sql/v20210501preview:ManagedInstanceAdministrator
+  - type: azure-native:sql/v20210801preview:ManagedInstanceAdministrator
+  - type: azure-native:sql/v20211101:ManagedInstanceAdministrator
+  - type: azure-native:sql/v20211101preview:ManagedInstanceAdministrator
+  - type: azure-native:sql/v20220201preview:ManagedInstanceAdministrator

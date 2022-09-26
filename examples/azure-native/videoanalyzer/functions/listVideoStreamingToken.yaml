@@ -1,0 +1,33 @@
+$token: azure-native:videoanalyzer:listVideoStreamingToken
+description: |-
+  Video streaming token grants access to the video streaming URLs which can be used by an compatible HLS or DASH player.
+  API Version: 2021-05-01-preview.
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: The Azure Video Analyzer account name.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    videoName:
+      type: string
+      description: The name of the video to generate a token for playback.
+  type: object
+  required:
+    - accountName
+    - resourceGroupName
+    - videoName
+outputs:
+  description: Video streaming token grants access to the video streaming URLs which can be used by an compatible HLS or DASH player.
+  properties:
+    expirationDate:
+      type: string
+      description: The streaming token expiration date in ISO8601 format (eg. 2021-01-01T00:00:00Z).
+    token:
+      type: string
+      description: The streaming token value to be added to the video streaming URL as the value for a "token" query string parameter. The token is specific to a single video.
+  type: object
+  required:
+    - expirationDate
+    - token

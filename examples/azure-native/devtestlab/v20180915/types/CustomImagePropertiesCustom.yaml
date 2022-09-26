@@ -1,0 +1,17 @@
+$token: azure-native:devtestlab/v20180915:CustomImagePropertiesCustom
+description: Properties for creating a custom image from a VHD.
+properties:
+  imageName:
+    type: string
+    description: The image name.
+  osType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:devtestlab/v20180915:CustomImageOsType"
+    description: The OS type of the custom image (i.e. Windows, Linux)
+  sysPrep:
+    type: boolean
+    description: Indicates whether sysprep has been run on the VHD.
+type: object
+required:
+  - osType

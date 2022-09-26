@@ -1,0 +1,51 @@
+$token: azure-native:eventhub/v20220101preview:listNamespaceKeys
+description: Namespace/EventHub Connection String
+inputs:
+  properties:
+    authorizationRuleName:
+      type: string
+      description: The authorization rule name.
+    namespaceName:
+      type: string
+      description: The Namespace name
+    resourceGroupName:
+      type: string
+      description: Name of the resource group within the azure subscription.
+  type: object
+  required:
+    - authorizationRuleName
+    - namespaceName
+    - resourceGroupName
+outputs:
+  description: Namespace/EventHub Connection String
+  properties:
+    aliasPrimaryConnectionString:
+      type: string
+      description: Primary connection string of the alias if GEO DR is enabled
+    aliasSecondaryConnectionString:
+      type: string
+      description: Secondary  connection string of the alias if GEO DR is enabled
+    keyName:
+      type: string
+      description: A string that describes the AuthorizationRule.
+    primaryConnectionString:
+      type: string
+      description: Primary connection string of the created namespace AuthorizationRule.
+    primaryKey:
+      type: string
+      description: A base64-encoded 256-bit primary key for signing and validating the SAS token.
+    secondaryConnectionString:
+      type: string
+      description: Secondary connection string of the created namespace AuthorizationRule.
+    secondaryKey:
+      type: string
+      description: A base64-encoded 256-bit primary key for signing and validating the SAS token.
+  type: object
+  required:
+    - aliasPrimaryConnectionString
+    - aliasSecondaryConnectionString
+    - keyName
+    - primaryConnectionString
+    - primaryKey
+    - secondaryConnectionString
+    - secondaryKey

@@ -1,0 +1,119 @@
+$token: azure-native:iotcentral/v20211101preview:App
+description: The IoT Central application.
+properties:
+  applicationId:
+    type: string
+    description: The ID of the application.
+  displayName:
+    type: string
+    description: The display name of the application.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:iotcentral/v20211101preview:SystemAssignedServiceIdentityResponse"
+    description: The managed identities for the IoT Central application.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  name:
+    type: string
+    description: The name of the resource
+  networkRuleSets:
+    type: object
+    $ref: "#/types/azure-native:iotcentral/v20211101preview:NetworkRuleSetsResponse"
+    description: Network Rule Set Properties of this IoT Central application.
+  privateEndpointConnections:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:iotcentral/v20211101preview:PrivateEndpointConnectionResponse"
+    description: Private endpoint connections created on this IoT Central application.
+  provisioningState:
+    type: string
+    description: The provisioning state of the application.
+  publicNetworkAccess:
+    type: string
+    description: Whether requests from the public network are allowed.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:iotcentral/v20211101preview:AppSkuInfoResponse"
+    description: A valid instance SKU.
+  state:
+    type: string
+    description: The current state of the application.
+  subdomain:
+    type: string
+    description: The subdomain of the application.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:iotcentral/v20211101preview:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  template:
+    type: string
+    description: The ID of the application template, which is a blueprint that defines the characteristics and behaviors of an application. Optional; if not specified, defaults to a blank blueprint and allows the application to be defined from scratch.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - applicationId
+  - location
+  - name
+  - privateEndpointConnections
+  - provisioningState
+  - sku
+  - state
+  - systemData
+  - type
+inputProperties:
+  displayName:
+    type: string
+    description: The display name of the application.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:iotcentral/v20211101preview:SystemAssignedServiceIdentity"
+    description: The managed identities for the IoT Central application.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  networkRuleSets:
+    type: object
+    $ref: "#/types/azure-native:iotcentral/v20211101preview:NetworkRuleSets"
+    description: Network Rule Set Properties of this IoT Central application.
+  publicNetworkAccess:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:iotcentral/v20211101preview:PublicNetworkAccess"
+    description: Whether requests from the public network are allowed.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the IoT Central application.
+  resourceName:
+    type: string
+    description: The ARM resource name of the IoT Central application.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:iotcentral/v20211101preview:AppSkuInfo"
+    description: A valid instance SKU.
+  subdomain:
+    type: string
+    description: The subdomain of the application.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  template:
+    type: string
+    description: The ID of the application template, which is a blueprint that defines the characteristics and behaviors of an application. Optional; if not specified, defaults to a blank blueprint and allows the application to be defined from scratch.
+requiredInputs:
+  - resourceGroupName
+  - sku
+aliases:
+  - type: azure-native:iotcentral:App
+  - type: azure-native:iotcentral/v20180901:App
+  - type: azure-native:iotcentral/v20210601:App

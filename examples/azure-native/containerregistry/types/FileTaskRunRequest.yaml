@@ -1,0 +1,57 @@
+$token: azure-native:containerregistry:FileTaskRunRequest
+description: The request parameters for a scheduling run against a task file.
+properties:
+  agentConfiguration:
+    type: object
+    $ref: "#/types/azure-native:containerregistry:AgentProperties"
+    description: The machine configuration of the run agent.
+  agentPoolName:
+    type: string
+    description: The dedicated agent pool for the run.
+  credentials:
+    type: object
+    $ref: "#/types/azure-native:containerregistry:Credentials"
+    description: The properties that describes a set of credentials that will be used when this run is invoked.
+  isArchiveEnabled:
+    type: boolean
+    description: The value that indicates whether archiving is enabled for the run or not.
+    default: false
+  logTemplate:
+    type: string
+    description: The template that describes the repository and tag information for run log artifact.
+  platform:
+    type: object
+    $ref: "#/types/azure-native:containerregistry:PlatformProperties"
+    description: The platform properties against which the run has to happen.
+  sourceLocation:
+    type: string
+    description: "The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.\r
+
+      If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API."
+  taskFilePath:
+    type: string
+    description: The template/definition file path relative to the source.
+  timeout:
+    type: integer
+    description: Run timeout in seconds.
+    default: 3600
+  type:
+    type: string
+    description: |-
+      The type of the run request.
+      Expected value is 'FileTaskRunRequest'.
+    const: FileTaskRunRequest
+  values:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:containerregistry:SetValue"
+    description: The collection of overridable values that can be passed when running a task.
+  valuesFilePath:
+    type: string
+    description: The values/parameters file path relative to the source.
+type: object
+required:
+  - platform
+  - taskFilePath
+  - type

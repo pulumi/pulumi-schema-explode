@@ -1,0 +1,14 @@
+$token: azure-native:compute/v20210801:KeyVaultAndKeyReference
+description: Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey
+properties:
+  keyUrl:
+    type: string
+    description: Url pointing to a key or secret in KeyVault
+  sourceVault:
+    type: object
+    $ref: "#/types/azure-native:compute/v20210801:SourceVault"
+    description: Resource id of the KeyVault containing the key or secret
+type: object
+required:
+  - keyUrl
+  - sourceVault

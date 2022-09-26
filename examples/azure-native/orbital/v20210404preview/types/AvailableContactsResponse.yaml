@@ -1,0 +1,49 @@
+$token: azure-native:orbital/v20210404preview:AvailableContactsResponse
+description: Customer retrieves list of Available Contacts for a spacecraft resource. Later, one of the available contact can be selected to create a contact.
+properties:
+  endAzimuthDegrees:
+    type: number
+    description: Azimuth of the antenna at the end of the contact in decimal degrees.
+  endElevationDegrees:
+    type: number
+    description: Spacecraft elevation above the horizon at contact end.
+  groundStationName:
+    type: string
+    description: Name of Azure Ground Station.
+  maximumElevationDegrees:
+    type: number
+    description: Maximum elevation of the antenna during the contact in decimal degrees.
+  rxEndTime:
+    type: string
+    description: Time to lost receiving a signal.
+  rxStartTime:
+    type: string
+    description: Earliest time to receive a signal.
+  spacecraft:
+    type: object
+    $ref: "#/types/azure-native:orbital/v20210404preview:ResourceReferenceResponse"
+    description: The reference to the spacecraft resource.
+  startAzimuthDegrees:
+    type: number
+    description: Azimuth of the antenna at the start of the contact in decimal degrees.
+  startElevationDegrees:
+    type: number
+    description: Spacecraft elevation above the horizon at contact start.
+  txEndTime:
+    type: string
+    description: Time at which antenna transmit will be disabled.
+  txStartTime:
+    type: string
+    description: Time at which antenna transmit will be enabled.
+type: object
+required:
+  - endAzimuthDegrees
+  - endElevationDegrees
+  - groundStationName
+  - maximumElevationDegrees
+  - rxEndTime
+  - rxStartTime
+  - startAzimuthDegrees
+  - startElevationDegrees
+  - txEndTime
+  - txStartTime

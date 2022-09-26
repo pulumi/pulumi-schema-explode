@@ -1,0 +1,94 @@
+$token: azure-native:apimanagement/v20180601preview:getApi
+description: API details.
+inputs:
+  properties:
+    apiId:
+      type: string
+      description: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    serviceName:
+      type: string
+      description: The name of the API Management service.
+  type: object
+  required:
+    - apiId
+    - resourceGroupName
+    - serviceName
+outputs:
+  description: API details.
+  properties:
+    apiRevision:
+      type: string
+      description: Describes the Revision of the Api. If no value is provided, default revision 1 is created
+    apiRevisionDescription:
+      type: string
+      description: Description of the Api Revision.
+    apiType:
+      type: string
+      description: Type of API.
+    apiVersion:
+      type: string
+      description: Indicates the Version identifier of the API if the API is versioned
+    apiVersionDescription:
+      type: string
+      description: Description of the Api Version.
+    apiVersionSet:
+      type: object
+      $ref: "#/types/azure-native:apimanagement/v20180601preview:ApiVersionSetContractDetailsResponse"
+      description: "An API Version Set contains the common configuration for a set of API Versions relating "
+    apiVersionSetId:
+      type: string
+      description: A resource identifier for the related ApiVersionSet.
+    authenticationSettings:
+      type: object
+      $ref: "#/types/azure-native:apimanagement/v20180601preview:AuthenticationSettingsContractResponse"
+      description: Collection of authentication settings included into this API.
+    description:
+      type: string
+      description: Description of the API. May include HTML formatting tags.
+    displayName:
+      type: string
+      description: API name.
+    id:
+      type: string
+      description: Resource ID.
+    isCurrent:
+      type: boolean
+      description: Indicates if API revision is current api revision.
+    isOnline:
+      type: boolean
+      description: Indicates if API revision is accessible via the gateway.
+    name:
+      type: string
+      description: Resource name.
+    path:
+      type: string
+      description: Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
+    protocols:
+      type: array
+      items:
+        type: string
+      description: Describes on which protocols the operations in this API can be invoked.
+    serviceUrl:
+      type: string
+      description: Absolute URL of the backend service implementing this API.
+    subscriptionKeyParameterNames:
+      type: object
+      $ref: "#/types/azure-native:apimanagement/v20180601preview:SubscriptionKeyParameterNamesContractResponse"
+      description: Protocols over which API is made available.
+    subscriptionRequired:
+      type: boolean
+      description: Specifies whether an API or Product subscription is required for accessing the API.
+    type:
+      type: string
+      description: Resource type for API Management resource.
+  type: object
+  required:
+    - id
+    - isCurrent
+    - isOnline
+    - name
+    - path
+    - type

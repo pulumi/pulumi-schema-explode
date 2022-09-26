@@ -1,0 +1,15 @@
+$token: azure-native:dbforpostgresql/v20210601preview:Sku
+description: Sku information related properties of a server.
+properties:
+  name:
+    type: string
+    description: The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
+  tier:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:dbforpostgresql/v20210601preview:SkuTier"
+    description: The tier of the particular SKU, e.g. Burstable.
+type: object
+required:
+  - name
+  - tier

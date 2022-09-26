@@ -1,0 +1,20 @@
+$token: azure-native:botservice/v20210301:LineChannelPropertiesResponse
+description: The parameters to provide for the Line channel.
+properties:
+  callbackUrl:
+    type: string
+    description: Callback Url to enter in line registration.
+  isValidated:
+    type: boolean
+    description: Whether this channel is validated for the bot
+  lineRegistrations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:botservice/v20210301:LineRegistrationResponse"
+    description: The list of line channel registrations
+type: object
+required:
+  - callbackUrl
+  - isValidated
+  - lineRegistrations

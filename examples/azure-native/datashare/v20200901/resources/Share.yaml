@@ -1,0 +1,73 @@
+$token: azure-native:datashare/v20200901:Share
+description: A share data transfer object.
+properties:
+  createdAt:
+    type: string
+    description: Time at which the share was created.
+  description:
+    type: string
+    description: Share description.
+  name:
+    type: string
+    description: Name of the azure resource
+  provisioningState:
+    type: string
+    description: Gets or sets the provisioning state
+  shareKind:
+    type: string
+    description: Share kind.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:datashare/v20200901:SystemDataResponse"
+    description: System Data of the Azure resource.
+  terms:
+    type: string
+    description: Share terms.
+  type:
+    type: string
+    description: Type of the azure resource
+  userEmail:
+    type: string
+    description: Email of the user who created the resource
+  userName:
+    type: string
+    description: Name of the user who created the resource
+type: object
+required:
+  - createdAt
+  - name
+  - provisioningState
+  - systemData
+  - type
+  - userEmail
+  - userName
+inputProperties:
+  accountName:
+    type: string
+    description: The name of the share account.
+  description:
+    type: string
+    description: Share description.
+  resourceGroupName:
+    type: string
+    description: The resource group name.
+  shareKind:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:datashare/v20200901:ShareKind"
+    description: Share kind.
+  shareName:
+    type: string
+    description: The name of the share.
+  terms:
+    type: string
+    description: Share terms.
+requiredInputs:
+  - accountName
+  - resourceGroupName
+aliases:
+  - type: azure-native:datashare:Share
+  - type: azure-native:datashare/v20181101preview:Share
+  - type: azure-native:datashare/v20191101:Share
+  - type: azure-native:datashare/v20201001preview:Share
+  - type: azure-native:datashare/v20210801:Share

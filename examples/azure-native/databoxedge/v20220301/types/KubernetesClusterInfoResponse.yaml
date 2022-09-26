@@ -1,0 +1,21 @@
+$token: azure-native:databoxedge/v20220301:KubernetesClusterInfoResponse
+description: Kubernetes cluster configuration
+properties:
+  etcdInfo:
+    type: object
+    $ref: "#/types/azure-native:databoxedge/v20220301:EtcdInfoResponse"
+    description: Etcd configuration
+  nodes:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:databoxedge/v20220301:NodeInfoResponse"
+    description: Kubernetes cluster nodes
+  version:
+    type: string
+    description: Kubernetes cluster version
+type: object
+required:
+  - etcdInfo
+  - nodes
+  - version

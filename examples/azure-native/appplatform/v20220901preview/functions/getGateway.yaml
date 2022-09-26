@@ -1,0 +1,49 @@
+$token: azure-native:appplatform/v20220901preview:getGateway
+description: Spring Cloud Gateway resource
+inputs:
+  properties:
+    gatewayName:
+      type: string
+      description: The name of Spring Cloud Gateway.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    serviceName:
+      type: string
+      description: The name of the Service resource.
+  type: object
+  required:
+    - gatewayName
+    - resourceGroupName
+    - serviceName
+outputs:
+  description: Spring Cloud Gateway resource
+  properties:
+    id:
+      type: string
+      description: Fully qualified resource Id for the resource.
+    name:
+      type: string
+      description: The name of the resource.
+    properties:
+      type: object
+      $ref: "#/types/azure-native:appplatform/v20220901preview:GatewayPropertiesResponse"
+      description: Spring Cloud Gateway properties payload
+    sku:
+      type: object
+      $ref: "#/types/azure-native:appplatform/v20220901preview:SkuResponse"
+      description: Sku of the Spring Cloud Gateway resource
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:appplatform/v20220901preview:SystemDataResponse"
+      description: Metadata pertaining to creation and last modification of the resource.
+    type:
+      type: string
+      description: The type of the resource.
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - systemData
+    - type

@@ -1,0 +1,53 @@
+$token: azure-native:avs/v20200717preview:getGlobalReachConnection
+description: A global reach connection resource
+inputs:
+  properties:
+    globalReachConnectionName:
+      type: string
+      description: Name of the global reach connection in the private cloud
+    privateCloudName:
+      type: string
+      description: Name of the private cloud
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+  type: object
+  required:
+    - globalReachConnectionName
+    - privateCloudName
+    - resourceGroupName
+outputs:
+  description: A global reach connection resource
+  properties:
+    addressPrefix:
+      type: string
+      description: The network used for global reach carved out from the original network block provided for the private cloud
+    authorizationKey:
+      type: string
+      description: Authorization key from the peer express route used for the global reach connection
+    circuitConnectionStatus:
+      type: string
+      description: The connection status of the global reach connection
+    id:
+      type: string
+      description: Resource ID.
+    name:
+      type: string
+      description: Resource name.
+    peerExpressRouteCircuit:
+      type: string
+      description: Identifier of the ExpressRoute Circuit to peer with in the global reach connection
+    provisioningState:
+      type: string
+      description: The state of the  ExpressRoute Circuit Authorization provisioning
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - addressPrefix
+    - circuitConnectionStatus
+    - id
+    - name
+    - provisioningState
+    - type

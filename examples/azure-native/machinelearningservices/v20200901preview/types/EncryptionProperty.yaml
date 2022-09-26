@@ -1,0 +1,15 @@
+$token: azure-native:machinelearningservices/v20200901preview:EncryptionProperty
+properties:
+  keyVaultProperties:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20200901preview:KeyVaultProperties"
+    description: Customer Key vault properties.
+  status:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearningservices/v20200901preview:EncryptionStatus"
+    description: Indicates whether or not the encryption is enabled for the workspace.
+type: object
+required:
+  - keyVaultProperties
+  - status

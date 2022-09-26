@@ -1,0 +1,103 @@
+$token: azure-native:servicefabric:getNodeType
+description: |-
+  Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
+  API Version: 2020-01-01-preview.
+inputs:
+  properties:
+    clusterName:
+      type: string
+      description: The name of the cluster resource.
+    nodeTypeName:
+      type: string
+      description: The name of the node type.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - clusterName
+    - nodeTypeName
+    - resourceGroupName
+outputs:
+  description: Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
+  properties:
+    applicationPorts:
+      type: object
+      $ref: "#/types/azure-native:servicefabric:EndpointRangeDescriptionResponse"
+      description: The range of ports from which cluster assigned port to Service Fabric applications.
+    capacities:
+      type: object
+      additionalProperties:
+        type: string
+      description: The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
+    dataDiskSizeGB:
+      type: integer
+      description: Disk size for each vm in the node type in GBs.
+    ephemeralPorts:
+      type: object
+      $ref: "#/types/azure-native:servicefabric:EndpointRangeDescriptionResponse"
+      description: The range of ephemeral ports that nodes in this node type should be configured with.
+    id:
+      type: string
+      description: Azure resource identifier.
+    isPrimary:
+      type: boolean
+      description: The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
+    name:
+      type: string
+      description: Azure resource name.
+    placementProperties:
+      type: object
+      additionalProperties:
+        type: string
+      description: The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
+    provisioningState:
+      type: string
+      description: The provisioning state of the managed cluster resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Azure resource tags.
+    type:
+      type: string
+      description: Azure resource type.
+    vmExtensions:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:servicefabric:VMSSExtensionResponse"
+      description: Set of extensions that should be installed onto the virtual machines.
+    vmImageOffer:
+      type: string
+      description: The offer type of the Azure Virtual Machines Marketplace image. For example, UbuntuServer or WindowsServer.
+    vmImagePublisher:
+      type: string
+      description: The publisher of the Azure Virtual Machines Marketplace image. For example, Canonical or MicrosoftWindowsServer.
+    vmImageSku:
+      type: string
+      description: The SKU of the Azure Virtual Machines Marketplace image. For example, 14.04.0-LTS or 2012-R2-Datacenter.
+    vmImageVersion:
+      type: string
+      description: The version of the Azure Virtual Machines Marketplace image. A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'.
+    vmInstanceCount:
+      type: integer
+      description: The number of nodes in the node type.
+    vmSecrets:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:servicefabric:VaultSecretGroupResponse"
+      description: The secrets to install in the virtual machines.
+    vmSize:
+      type: string
+      description: The size of virtual machines in the pool. All virtual machines in a pool are the same size. For example, Standard_D3.
+  type: object
+  required:
+    - dataDiskSizeGB
+    - id
+    - isPrimary
+    - name
+    - provisioningState
+    - type
+    - vmInstanceCount

@@ -1,0 +1,43 @@
+$token: azure-native:recoveryservices/v20211001:VMwareV2FabricSpecificDetailsResponse
+description: VMwareV2 fabric specific details.
+properties:
+  instanceType:
+    type: string
+    description: |-
+      Gets the class type. Overridden in derived classes.
+      Expected value is 'VMwareV2'.
+    const: VMwareV2
+  migrationSolutionId:
+    type: string
+    description: The Migration solution ARM Id.
+  physicalSiteId:
+    type: string
+    description: The ARM Id of the physical site.
+  processServers:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:recoveryservices/v20211001:ProcessServerDetailsResponse"
+    description: The list of process servers.
+  serviceContainerId:
+    type: string
+    description: The service container Id.
+  serviceEndpoint:
+    type: string
+    description: The service endpoint.
+  serviceResourceId:
+    type: string
+    description: The service resource Id.
+  vmwareSiteId:
+    type: string
+    description: The ARM Id of the VMware site.
+type: object
+required:
+  - instanceType
+  - migrationSolutionId
+  - physicalSiteId
+  - processServers
+  - serviceContainerId
+  - serviceEndpoint
+  - serviceResourceId
+  - vmwareSiteId

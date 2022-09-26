@@ -1,0 +1,66 @@
+$token: azure-native:security/v20200101:JitNetworkAccessPolicy
+properties:
+  kind:
+    type: string
+    description: Kind of the resource
+  location:
+    type: string
+    description: Location where the resource is stored
+  name:
+    type: string
+    description: Resource name
+  provisioningState:
+    type: string
+    description: Gets the provisioning state of the Just-in-Time policy.
+  requests:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:security/v20200101:JitNetworkAccessRequestResponse"
+  type:
+    type: string
+    description: Resource type
+  virtualMachines:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:security/v20200101:JitNetworkAccessPolicyVirtualMachineResponse"
+    description: Configurations for Microsoft.Compute/virtualMachines resource type.
+type: object
+required:
+  - location
+  - name
+  - provisioningState
+  - type
+  - virtualMachines
+inputProperties:
+  ascLocation:
+    type: string
+    description: The location where ASC stores the data of the subscription. can be retrieved from Get locations
+  jitNetworkAccessPolicyName:
+    type: string
+    description: Name of a Just-in-Time access configuration policy.
+  kind:
+    type: string
+    description: Kind of the resource
+  requests:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:security/v20200101:JitNetworkAccessRequest"
+  resourceGroupName:
+    type: string
+    description: The name of the resource group within the user's subscription. The name is case insensitive.
+  virtualMachines:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:security/v20200101:JitNetworkAccessPolicyVirtualMachine"
+    description: Configurations for Microsoft.Compute/virtualMachines resource type.
+requiredInputs:
+  - ascLocation
+  - resourceGroupName
+  - virtualMachines
+aliases:
+  - type: azure-native:security:JitNetworkAccessPolicy
+  - type: azure-native:security/v20150601preview:JitNetworkAccessPolicy

@@ -1,0 +1,52 @@
+$token: azure-native:videoanalyzer:AccessPolicy
+description: |-
+  Policy that determines how a video can be accessed.
+  API Version: 2021-05-01-preview.
+properties:
+  authentication:
+    type: object
+    $ref: "#/types/azure-native:videoanalyzer:JwtAuthenticationResponse"
+    description: Authentication method to be used when validating client API access.
+  name:
+    type: string
+    description: The name of the resource
+  role:
+    type: string
+    description: Defines the access level granted by this policy.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:videoanalyzer:SystemDataResponse"
+    description: The system metadata relating to this resource.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - name
+  - systemData
+  - type
+inputProperties:
+  accessPolicyName:
+    type: string
+    description: The name of the access policy to create or update.
+  accountName:
+    type: string
+    description: The Azure Video Analyzer account name.
+  authentication:
+    type: object
+    $ref: "#/types/azure-native:videoanalyzer:JwtAuthentication"
+    description: Authentication method to be used when validating client API access.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  role:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:videoanalyzer:AccessPolicyRole"
+    description: Defines the access level granted by this policy.
+requiredInputs:
+  - accountName
+  - resourceGroupName
+aliases:
+  - type: azure-native:videoanalyzer/v20210501preview:AccessPolicy
+  - type: azure-native:videoanalyzer/v20211101preview:AccessPolicy

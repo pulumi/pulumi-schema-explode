@@ -1,0 +1,54 @@
+$token: azure-native:recoveryservices:FabricPropertiesResponse
+description: Fabric properties.
+properties:
+  bcdrState:
+    type: string
+    description: BCDR state of the fabric.
+  customDetails:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices:AzureFabricSpecificDetailsResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices:HyperVSiteDetailsResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices:InMageRcmFabricSpecificDetailsResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices:VMwareDetailsResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices:VMwareV2FabricSpecificDetailsResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices:VmmDetailsResponse"
+    discriminator:
+      propertyName: instanceType
+      mapping:
+        Azure: "#/types/azure-native:recoveryservices:AzureFabricSpecificDetailsResponse"
+        HyperVSite: "#/types/azure-native:recoveryservices:HyperVSiteDetailsResponse"
+        InMageRcm: "#/types/azure-native:recoveryservices:InMageRcmFabricSpecificDetailsResponse"
+        VMM: "#/types/azure-native:recoveryservices:VmmDetailsResponse"
+        VMware: "#/types/azure-native:recoveryservices:VMwareDetailsResponse"
+        VMwareV2: "#/types/azure-native:recoveryservices:VMwareV2FabricSpecificDetailsResponse"
+    description: Fabric specific settings.
+  encryptionDetails:
+    type: object
+    $ref: "#/types/azure-native:recoveryservices:EncryptionDetailsResponse"
+    description: Encryption details for the fabric.
+  friendlyName:
+    type: string
+    description: Friendly name of the fabric.
+  health:
+    type: string
+    description: Health of fabric.
+  healthErrorDetails:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:recoveryservices:HealthErrorResponse"
+    description: Fabric health error details.
+  internalIdentifier:
+    type: string
+    description: Dra Registration Id.
+  rolloverEncryptionDetails:
+    type: object
+    $ref: "#/types/azure-native:recoveryservices:EncryptionDetailsResponse"
+    description: Rollover encryption details for the fabric.
+type: object

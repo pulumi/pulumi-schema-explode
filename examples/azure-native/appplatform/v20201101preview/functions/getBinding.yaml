@@ -1,0 +1,44 @@
+$token: azure-native:appplatform/v20201101preview:getBinding
+description: Binding resource payload
+inputs:
+  properties:
+    appName:
+      type: string
+      description: The name of the App resource.
+    bindingName:
+      type: string
+      description: The name of the Binding resource.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    serviceName:
+      type: string
+      description: The name of the Service resource.
+  type: object
+  required:
+    - appName
+    - bindingName
+    - resourceGroupName
+    - serviceName
+outputs:
+  description: Binding resource payload
+  properties:
+    id:
+      type: string
+      description: Fully qualified resource Id for the resource.
+    name:
+      type: string
+      description: The name of the resource.
+    properties:
+      type: object
+      $ref: "#/types/azure-native:appplatform/v20201101preview:BindingResourcePropertiesResponse"
+      description: Properties of the Binding resource
+    type:
+      type: string
+      description: The type of the resource.
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - type

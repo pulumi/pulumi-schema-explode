@@ -1,0 +1,103 @@
+$token: azure-native:network/v20190901:getVpnServerConfiguration
+description: VpnServerConfiguration Resource.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The resource group name of the VpnServerConfiguration.
+    vpnServerConfigurationName:
+      type: string
+      description: The name of the VpnServerConfiguration being retrieved.
+  type: object
+  required:
+    - resourceGroupName
+    - vpnServerConfigurationName
+outputs:
+  description: VpnServerConfiguration Resource.
+  properties:
+    aadAuthenticationParameters:
+      type: object
+      $ref: "#/types/azure-native:network/v20190901:AadAuthenticationParametersResponse"
+      description: The set of aad vpn authentication parameters.
+    etag:
+      type: string
+      description: A unique read-only string that changes whenever the resource is updated.
+    id:
+      type: string
+      description: Resource ID.
+    location:
+      type: string
+      description: Resource location.
+    name:
+      type: string
+      description: Resource name.
+    p2SVpnGateways:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20190901:P2SVpnGatewayResponse"
+      description: List of references to P2SVpnGateways.
+    provisioningState:
+      type: string
+      description: "The provisioning state of the VpnServerConfiguration resource. Possible values are: 'Updating', 'Deleting', and 'Failed'."
+    radiusClientRootCertificates:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20190901:VpnServerConfigRadiusClientRootCertificateResponse"
+      description: Radius client root certificate of VpnServerConfiguration.
+    radiusServerAddress:
+      type: string
+      description: The radius server address property of the VpnServerConfiguration resource for point to site client connection.
+    radiusServerRootCertificates:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20190901:VpnServerConfigRadiusServerRootCertificateResponse"
+      description: Radius Server root certificate of VpnServerConfiguration.
+    radiusServerSecret:
+      type: string
+      description: The radius secret property of the VpnServerConfiguration resource for point to site client connection.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: Resource type.
+    vpnAuthenticationTypes:
+      type: array
+      items:
+        type: string
+      description: VPN authentication types for the VpnServerConfiguration.
+    vpnClientIpsecPolicies:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20190901:IpsecPolicyResponse"
+      description: VpnClientIpsecPolicies for VpnServerConfiguration.
+    vpnClientRevokedCertificates:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20190901:VpnServerConfigVpnClientRevokedCertificateResponse"
+      description: VPN client revoked certificate of VpnServerConfiguration.
+    vpnClientRootCertificates:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20190901:VpnServerConfigVpnClientRootCertificateResponse"
+      description: VPN client root certificate of VpnServerConfiguration.
+    vpnProtocols:
+      type: array
+      items:
+        type: string
+      description: VPN protocols for the VpnServerConfiguration.
+  type: object
+  required:
+    - etag
+    - name
+    - p2SVpnGateways
+    - provisioningState
+    - type

@@ -1,0 +1,22 @@
+$token: azure-native:logz:MetricsTagRulesPropertiesResponse
+description: Definition of the properties for a TagRules resource.
+properties:
+  metricRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:logz:MetricRulesResponse"
+  provisioningState:
+    type: string
+    description: Flag specifying if the resource provisioning state as tracked by ARM.
+  sendMetrics:
+    type: boolean
+    description: Flag specifying if metrics from Azure resources should be sent for the Monitor resource.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:logz:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+type: object
+required:
+  - provisioningState
+  - systemData

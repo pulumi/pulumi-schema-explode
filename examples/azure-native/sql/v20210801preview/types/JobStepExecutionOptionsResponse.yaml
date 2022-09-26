@@ -1,0 +1,24 @@
+$token: azure-native:sql/v20210801preview:JobStepExecutionOptionsResponse
+description: The execution options of a job step.
+properties:
+  initialRetryIntervalSeconds:
+    type: integer
+    description: Initial delay between retries for job step execution.
+    default: 1
+  maximumRetryIntervalSeconds:
+    type: integer
+    description: The maximum amount of time to wait between retries for job step execution.
+    default: 120
+  retryAttempts:
+    type: integer
+    description: Maximum number of times the job step will be reattempted if the first attempt fails.
+    default: 10
+  retryIntervalBackoffMultiplier:
+    type: number
+    description: The backoff multiplier for the time between retries.
+    default: 2
+  timeoutSeconds:
+    type: integer
+    description: Execution timeout for the job step.
+    default: 43200
+type: object

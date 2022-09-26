@@ -1,0 +1,156 @@
+$token: azure-native:recoveryservices/v20210701:ProtectionContainer
+description: Base class for container with backup items. Containers with specific workloads are derived from this class.
+properties:
+  eTag:
+    type: string
+    description: Optional ETag.
+  location:
+    type: string
+    description: Resource location.
+  name:
+    type: string
+    description: Resource name associated with the resource.
+  properties:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210701:AzureBackupServerContainerResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210701:AzureIaaSClassicComputeVMContainerResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210701:AzureIaaSComputeVMContainerResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210701:AzureSQLAGWorkloadContainerProtectionContainerResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210701:AzureSqlContainerResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210701:AzureStorageContainerResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210701:AzureVMAppContainerProtectionContainerResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210701:AzureWorkloadContainerResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210701:DpmContainerResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210701:GenericContainerResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210701:IaaSVMContainerResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210701:MabContainerResponse"
+    discriminator:
+      propertyName: containerType
+      mapping:
+        AzureBackupServerContainer: "#/types/azure-native:recoveryservices/v20210701:AzureBackupServerContainerResponse"
+        AzureSqlContainer: "#/types/azure-native:recoveryservices/v20210701:AzureSqlContainerResponse"
+        AzureWorkloadContainer: "#/types/azure-native:recoveryservices/v20210701:AzureWorkloadContainerResponse"
+        DPMContainer: "#/types/azure-native:recoveryservices/v20210701:DpmContainerResponse"
+        GenericContainer: "#/types/azure-native:recoveryservices/v20210701:GenericContainerResponse"
+        IaaSVMContainer: "#/types/azure-native:recoveryservices/v20210701:IaaSVMContainerResponse"
+        Microsoft.ClassicCompute/virtualMachines: "#/types/azure-native:recoveryservices/v20210701:AzureIaaSClassicComputeVMContainerResponse"
+        Microsoft.Compute/virtualMachines: "#/types/azure-native:recoveryservices/v20210701:AzureIaaSComputeVMContainerResponse"
+        SQLAGWorkLoadContainer: "#/types/azure-native:recoveryservices/v20210701:AzureSQLAGWorkloadContainerProtectionContainerResponse"
+        StorageContainer: "#/types/azure-native:recoveryservices/v20210701:AzureStorageContainerResponse"
+        VMAppContainer: "#/types/azure-native:recoveryservices/v20210701:AzureVMAppContainerProtectionContainerResponse"
+        Windows: "#/types/azure-native:recoveryservices/v20210701:MabContainerResponse"
+    description: ProtectionContainerResource properties
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+type: object
+required:
+  - name
+  - properties
+  - type
+inputProperties:
+  containerName:
+    type: string
+    description: Name of the container to be registered.
+  eTag:
+    type: string
+    description: Optional ETag.
+  fabricName:
+    type: string
+    description: Fabric name associated with the container.
+  location:
+    type: string
+    description: Resource location.
+  properties:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210701:AzureBackupServerContainer"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210701:AzureIaaSClassicComputeVMContainer"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210701:AzureIaaSComputeVMContainer"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210701:AzureSQLAGWorkloadContainerProtectionContainer"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210701:AzureSqlContainer"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210701:AzureStorageContainer"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210701:AzureVMAppContainerProtectionContainer"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210701:AzureWorkloadContainer"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210701:DpmContainer"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210701:GenericContainer"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210701:IaaSVMContainer"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210701:MabContainer"
+    discriminator:
+      propertyName: containerType
+      mapping:
+        AzureBackupServerContainer: "#/types/azure-native:recoveryservices/v20210701:AzureBackupServerContainer"
+        AzureSqlContainer: "#/types/azure-native:recoveryservices/v20210701:AzureSqlContainer"
+        AzureWorkloadContainer: "#/types/azure-native:recoveryservices/v20210701:AzureWorkloadContainer"
+        DPMContainer: "#/types/azure-native:recoveryservices/v20210701:DpmContainer"
+        GenericContainer: "#/types/azure-native:recoveryservices/v20210701:GenericContainer"
+        IaaSVMContainer: "#/types/azure-native:recoveryservices/v20210701:IaaSVMContainer"
+        Microsoft.ClassicCompute/virtualMachines: "#/types/azure-native:recoveryservices/v20210701:AzureIaaSClassicComputeVMContainer"
+        Microsoft.Compute/virtualMachines: "#/types/azure-native:recoveryservices/v20210701:AzureIaaSComputeVMContainer"
+        SQLAGWorkLoadContainer: "#/types/azure-native:recoveryservices/v20210701:AzureSQLAGWorkloadContainerProtectionContainer"
+        StorageContainer: "#/types/azure-native:recoveryservices/v20210701:AzureStorageContainer"
+        VMAppContainer: "#/types/azure-native:recoveryservices/v20210701:AzureVMAppContainerProtectionContainer"
+        Windows: "#/types/azure-native:recoveryservices/v20210701:MabContainer"
+    description: ProtectionContainerResource properties
+  resourceGroupName:
+    type: string
+    description: The name of the resource group where the recovery services vault is present.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  vaultName:
+    type: string
+    description: The name of the recovery services vault.
+requiredInputs:
+  - fabricName
+  - resourceGroupName
+  - vaultName
+aliases:
+  - type: azure-native:recoveryservices:ProtectionContainer
+  - type: azure-native:recoveryservices/v20161201:ProtectionContainer
+  - type: azure-native:recoveryservices/v20201001:ProtectionContainer
+  - type: azure-native:recoveryservices/v20201201:ProtectionContainer
+  - type: azure-native:recoveryservices/v20210101:ProtectionContainer
+  - type: azure-native:recoveryservices/v20210201:ProtectionContainer
+  - type: azure-native:recoveryservices/v20210201preview:ProtectionContainer
+  - type: azure-native:recoveryservices/v20210210:ProtectionContainer
+  - type: azure-native:recoveryservices/v20210301:ProtectionContainer
+  - type: azure-native:recoveryservices/v20210401:ProtectionContainer
+  - type: azure-native:recoveryservices/v20210601:ProtectionContainer
+  - type: azure-native:recoveryservices/v20210801:ProtectionContainer
+  - type: azure-native:recoveryservices/v20211001:ProtectionContainer
+  - type: azure-native:recoveryservices/v20211201:ProtectionContainer
+  - type: azure-native:recoveryservices/v20220101:ProtectionContainer
+  - type: azure-native:recoveryservices/v20220201:ProtectionContainer
+  - type: azure-native:recoveryservices/v20220301:ProtectionContainer
+  - type: azure-native:recoveryservices/v20220601preview:ProtectionContainer

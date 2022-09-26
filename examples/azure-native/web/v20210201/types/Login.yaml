@@ -1,0 +1,31 @@
+$token: azure-native:web/v20210201:Login
+description: The configuration settings of the login flow of users using App Service Authentication/Authorization.
+properties:
+  allowedExternalRedirectUrls:
+    type: array
+    items:
+      type: string
+    description: |-
+      External URLs that can be redirected to as part of logging in or logging out of the app. Note that the query string part of the URL is ignored.
+      This is an advanced setting typically only needed by Windows Store application backends.
+      Note that URLs within the current domain are always implicitly allowed.
+  cookieExpiration:
+    type: object
+    $ref: "#/types/azure-native:web/v20210201:CookieExpiration"
+    description: The configuration settings of the session cookie's expiration.
+  nonce:
+    type: object
+    $ref: "#/types/azure-native:web/v20210201:Nonce"
+    description: The configuration settings of the nonce used in the login flow.
+  preserveUrlFragmentsForLogins:
+    type: boolean
+    description: <code>true</code> if the fragments from the request are preserved after the login request is made; otherwise, <code>false</code>.
+  routes:
+    type: object
+    $ref: "#/types/azure-native:web/v20210201:LoginRoutes"
+    description: The routes that specify the endpoints used for login and logout requests.
+  tokenStore:
+    type: object
+    $ref: "#/types/azure-native:web/v20210201:TokenStore"
+    description: The configuration settings of the token store.
+type: object

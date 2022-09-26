@@ -1,0 +1,34 @@
+$token: azure-native:containerinstance/v20210301:InitContainerDefinitionResponse
+description: The init container definition.
+properties:
+  command:
+    type: array
+    items:
+      type: string
+    description: The command to execute within the init container in exec form.
+  environmentVariables:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:containerinstance/v20210301:EnvironmentVariableResponse"
+    description: The environment variables to set in the init container.
+  image:
+    type: string
+    description: The image of the init container.
+  instanceView:
+    type: object
+    $ref: "#/types/azure-native:containerinstance/v20210301:InitContainerPropertiesDefinitionResponseInstanceView"
+    description: The instance view of the init container. Only valid in response.
+  name:
+    type: string
+    description: The name for the init container.
+  volumeMounts:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:containerinstance/v20210301:VolumeMountResponse"
+    description: The volume mounts available to the init container.
+type: object
+required:
+  - instanceView
+  - name

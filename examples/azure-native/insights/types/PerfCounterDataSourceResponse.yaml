@@ -1,0 +1,30 @@
+$token: azure-native:insights:PerfCounterDataSourceResponse
+description: "Definition of which performance counters will be collected and how they will be collected by this data collection rule.\r
+
+  Collected from both Windows and Linux machines where the counter is present."
+properties:
+  counterSpecifiers:
+    type: array
+    items:
+      type: string
+    description: "A list of specifier names of the performance counters you want to collect.\r
+
+      Use a wildcard (*) to collect a counter for all instances.\r
+
+      To get a list of performance counters on Windows, run the command 'typeperf'."
+  name:
+    type: string
+    description: "A friendly name for the data source. \r
+
+      This name should be unique across all data sources (regardless of type) within the data collection rule."
+  samplingFrequencyInSeconds:
+    type: integer
+    description: The number of seconds between consecutive counter measurements (samples).
+  streams:
+    type: array
+    items:
+      type: string
+    description: "List of streams that this data source will be sent to.\r
+
+      A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to."
+type: object

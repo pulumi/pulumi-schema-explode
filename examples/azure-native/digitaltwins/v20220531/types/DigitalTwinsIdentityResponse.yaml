@@ -1,0 +1,16 @@
+$token: azure-native:digitaltwins/v20220531:DigitalTwinsIdentityResponse
+description: The managed identity for the DigitalTwinsInstance.
+properties:
+  principalId:
+    type: string
+    description: The object id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-identity-principal-id header in the PUT request if the resource has a systemAssigned(implicit) identity
+  tenantId:
+    type: string
+    description: The tenant id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-client-tenant-id header in the PUT request if the resource has a systemAssigned(implicit) identity
+  type:
+    type: string
+    description: The type of Managed Identity used by the DigitalTwinsInstance. Only SystemAssigned is supported.
+type: object
+required:
+  - principalId
+  - tenantId

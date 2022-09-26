@@ -1,0 +1,58 @@
+$token: azure-native:logic:IntegrationAccountBatchConfiguration
+description: |-
+  The batch configuration resource definition.
+  API Version: 2019-05-01.
+properties:
+  location:
+    type: string
+    description: The resource location.
+  name:
+    type: string
+    description: Gets the resource name.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:logic:BatchConfigurationPropertiesResponse"
+    description: The batch configuration properties.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The resource tags.
+  type:
+    type: string
+    description: Gets the resource type.
+type: object
+required:
+  - name
+  - properties
+  - type
+inputProperties:
+  batchConfigurationName:
+    type: string
+    description: The batch configuration name.
+  integrationAccountName:
+    type: string
+    description: The integration account name.
+  location:
+    type: string
+    description: The resource location.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:logic:BatchConfigurationProperties"
+    description: The batch configuration properties.
+  resourceGroupName:
+    type: string
+    description: The resource group name.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The resource tags.
+requiredInputs:
+  - integrationAccountName
+  - properties
+  - resourceGroupName
+aliases:
+  - type: azure-native:logic/v20160601:IntegrationAccountBatchConfiguration
+  - type: azure-native:logic/v20180701preview:IntegrationAccountBatchConfiguration
+  - type: azure-native:logic/v20190501:IntegrationAccountBatchConfiguration

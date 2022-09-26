@@ -1,0 +1,101 @@
+$token: azure-native:alertsmanagement/v20190301:SmartDetectorAlertRule
+description: The alert rule information
+properties:
+  actionGroups:
+    type: object
+    $ref: "#/types/azure-native:alertsmanagement/v20190301:ActionGroupsInformationResponse"
+    description: The alert rule actions.
+  description:
+    type: string
+    description: The alert rule description.
+  detector:
+    type: object
+    $ref: "#/types/azure-native:alertsmanagement/v20190301:DetectorResponse"
+    description: The alert rule's detector.
+  frequency:
+    type: string
+    description: The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
+  name:
+    type: string
+    description: The resource name.
+  scope:
+    type: array
+    items:
+      type: string
+    description: The alert rule resources scope.
+  severity:
+    type: string
+    description: The alert rule severity.
+  state:
+    type: string
+    description: The alert rule state.
+  throttling:
+    type: object
+    $ref: "#/types/azure-native:alertsmanagement/v20190301:ThrottlingInformationResponse"
+    description: The alert rule throttling information.
+  type:
+    type: string
+    description: The resource type.
+type: object
+required:
+  - actionGroups
+  - detector
+  - frequency
+  - name
+  - scope
+  - severity
+  - state
+  - type
+inputProperties:
+  actionGroups:
+    type: object
+    $ref: "#/types/azure-native:alertsmanagement/v20190301:ActionGroupsInformation"
+    description: The alert rule actions.
+  alertRuleName:
+    type: string
+    description: The name of the alert rule.
+  description:
+    type: string
+    description: The alert rule description.
+  detector:
+    type: object
+    $ref: "#/types/azure-native:alertsmanagement/v20190301:Detector"
+    description: The alert rule's detector.
+  frequency:
+    type: string
+    description: The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  scope:
+    type: array
+    items:
+      type: string
+    description: The alert rule resources scope.
+  severity:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:alertsmanagement/v20190301:Severity"
+    description: The alert rule severity.
+  state:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:alertsmanagement/v20190301:AlertRuleState"
+    description: The alert rule state.
+  throttling:
+    type: object
+    $ref: "#/types/azure-native:alertsmanagement/v20190301:ThrottlingInformation"
+    description: The alert rule throttling information.
+requiredInputs:
+  - actionGroups
+  - detector
+  - frequency
+  - resourceGroupName
+  - scope
+  - severity
+  - state
+aliases:
+  - type: azure-native:alertsmanagement:SmartDetectorAlertRule
+  - type: azure-native:alertsmanagement/v20190601:SmartDetectorAlertRule
+  - type: azure-native:alertsmanagement/v20210401:SmartDetectorAlertRule
+deprecationMessage: Version 2019-03-01 will be removed in v2 of the provider.

@@ -1,0 +1,31 @@
+$token: azure-native:azurestack/v20160101:getProducts
+description: Pageable list of products.
+inputs:
+  properties:
+    productName:
+      type: string
+      description: Name of the product.
+    registrationName:
+      type: string
+      description: Name of the Azure Stack registration.
+    resourceGroup:
+      type: string
+      description: Name of the resource group.
+  type: object
+  required:
+    - productName
+    - registrationName
+    - resourceGroup
+outputs:
+  description: Pageable list of products.
+  properties:
+    nextLink:
+      type: string
+      description: URI to the next page.
+    value:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:azurestack/v20160101:ProductResponse"
+      description: List of products.
+  type: object

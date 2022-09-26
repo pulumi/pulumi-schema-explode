@@ -1,0 +1,77 @@
+$token: azure-native:botservice/v20180712:BotConnection
+description: Bot channel resource definition
+properties:
+  etag:
+    type: string
+    description: Entity Tag
+  kind:
+    type: string
+    description: Required. Gets or sets the Kind of the resource.
+  location:
+    type: string
+    description: Specifies the location of the resource.
+  name:
+    type: string
+    description: Specifies the name of the resource.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:botservice/v20180712:ConnectionSettingPropertiesResponse"
+    description: The set of properties specific to bot channel resource
+  sku:
+    type: object
+    $ref: "#/types/azure-native:botservice/v20180712:SkuResponse"
+    description: Gets or sets the SKU of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Contains resource tags defined as key/value pairs.
+  type:
+    type: string
+    description: Specifies the type of the resource.
+type: object
+required:
+  - name
+  - properties
+  - type
+inputProperties:
+  connectionName:
+    type: string
+    description: The name of the Bot Service Connection Setting resource
+  kind:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:botservice/v20180712:Kind"
+    description: Required. Gets or sets the Kind of the resource.
+  location:
+    type: string
+    description: Specifies the location of the resource.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:botservice/v20180712:ConnectionSettingProperties"
+    description: The set of properties specific to bot channel resource
+  resourceGroupName:
+    type: string
+    description: The name of the Bot resource group in the user subscription.
+  resourceName:
+    type: string
+    description: The name of the Bot resource.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:botservice/v20180712:Sku"
+    description: Gets or sets the SKU of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Contains resource tags defined as key/value pairs.
+requiredInputs:
+  - resourceGroupName
+  - resourceName
+aliases:
+  - type: azure-native:botservice:BotConnection
+  - type: azure-native:botservice/v20171201:BotConnection
+  - type: azure-native:botservice/v20200602:BotConnection
+  - type: azure-native:botservice/v20210301:BotConnection
+  - type: azure-native:botservice/v20210501preview:BotConnection
+  - type: azure-native:botservice/v20220615preview:BotConnection

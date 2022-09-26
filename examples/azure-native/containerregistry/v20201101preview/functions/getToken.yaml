@@ -1,0 +1,58 @@
+$token: azure-native:containerregistry/v20201101preview:getToken
+description: An object that represents a token for a container registry.
+inputs:
+  properties:
+    registryName:
+      type: string
+      description: The name of the container registry.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group to which the container registry belongs.
+    tokenName:
+      type: string
+      description: The name of the token.
+  type: object
+  required:
+    - registryName
+    - resourceGroupName
+    - tokenName
+outputs:
+  description: An object that represents a token for a container registry.
+  properties:
+    creationDate:
+      type: string
+      description: The creation date of scope map.
+    credentials:
+      type: object
+      $ref: "#/types/azure-native:containerregistry/v20201101preview:TokenCredentialsPropertiesResponse"
+      description: The credentials that can be used for authenticating the token.
+    id:
+      type: string
+      description: The resource ID.
+    name:
+      type: string
+      description: The name of the resource.
+    provisioningState:
+      type: string
+      description: Provisioning state of the resource.
+    scopeMapId:
+      type: string
+      description: The resource ID of the scope map to which the token will be associated with.
+    status:
+      type: string
+      description: The status of the token example enabled or disabled.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:containerregistry/v20201101preview:SystemDataResponse"
+      description: Metadata pertaining to creation and last modification of the resource.
+    type:
+      type: string
+      description: The type of the resource.
+  type: object
+  required:
+    - creationDate
+    - id
+    - name
+    - provisioningState
+    - systemData
+    - type

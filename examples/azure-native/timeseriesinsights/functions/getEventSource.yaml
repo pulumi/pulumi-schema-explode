@@ -1,0 +1,51 @@
+$token: azure-native:timeseriesinsights:getEventSource
+description: |-
+  An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
+  API Version: 2020-05-15.
+inputs:
+  properties:
+    environmentName:
+      type: string
+      description: The name of the Time Series Insights environment associated with the specified resource group.
+    eventSourceName:
+      type: string
+      description: The name of the Time Series Insights event source associated with the specified environment.
+    resourceGroupName:
+      type: string
+      description: Name of an Azure Resource group.
+  type: object
+  required:
+    - environmentName
+    - eventSourceName
+    - resourceGroupName
+outputs:
+  description: An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
+  properties:
+    id:
+      type: string
+      description: Resource Id
+    kind:
+      type: string
+      description: The kind of the event source.
+    location:
+      type: string
+      description: Resource location
+    name:
+      type: string
+      description: Resource name
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    type:
+      type: string
+      description: Resource type
+  type: object
+  required:
+    - id
+    - kind
+    - location
+    - name
+    - type
+deprecationMessage: "Please use one of the variants: EventHubEventSource, IoTHubEventSource."

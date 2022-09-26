@@ -1,0 +1,47 @@
+$token: azure-native:migrate/v20200501:getMigrateProjectsControllerMigrateProject
+description: Migrate project.
+inputs:
+  properties:
+    migrateProjectName:
+      type: string
+      description: Migrate project name.
+    resourceGroupName:
+      type: string
+      description: Name of the Azure Resource Group that project is part of.
+  type: object
+  required:
+    - migrateProjectName
+    - resourceGroupName
+outputs:
+  description: Migrate project.
+  properties:
+    eTag:
+      type: string
+      description: For optimistic concurrency control.
+    id:
+      type: string
+      description: Path reference to this project /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{projectName}
+    location:
+      type: string
+      description: Azure location in which project is created.
+    name:
+      type: string
+      description: Name of the project.
+    properties:
+      type: object
+      $ref: "#/types/azure-native:migrate/v20200501:MigrateProjectPropertiesResponse"
+      description: Properties of a migrate project.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:migrate/v20200501:SystemDataResponse"
+      description: Metadata pertaining to creation and last modification of the resource.
+    type:
+      type: string
+      description: Type of the object = [Microsoft.Migrate/migrateProjects].
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - systemData
+    - type

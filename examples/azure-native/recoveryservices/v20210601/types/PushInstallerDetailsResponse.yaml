@@ -1,0 +1,44 @@
+$token: azure-native:recoveryservices/v20210601:PushInstallerDetailsResponse
+description: Push installer details.
+properties:
+  biosId:
+    type: string
+    description: The push installer Bios Id.
+  fabricObjectId:
+    type: string
+    description: The fabric object Id.
+  fqdn:
+    type: string
+    description: The push installer Fqdn.
+  health:
+    type: string
+    description: The health of the push installer.
+  healthErrors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:recoveryservices/v20210601:HealthErrorResponse"
+    description: The health errors.
+  id:
+    type: string
+    description: The push installer Id.
+  lastHeartbeatUtc:
+    type: string
+    description: The last heartbeat received from the push installer.
+  name:
+    type: string
+    description: The push installer name.
+  version:
+    type: string
+    description: The version.
+type: object
+required:
+  - biosId
+  - fabricObjectId
+  - fqdn
+  - health
+  - healthErrors
+  - id
+  - lastHeartbeatUtc
+  - name
+  - version

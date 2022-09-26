@@ -1,0 +1,66 @@
+$token: azure-native:azurestack/v20200601preview:Registration
+description: Registration information.
+properties:
+  billingModel:
+    type: string
+    description: Specifies the billing mode for the Azure Stack registration.
+  cloudId:
+    type: string
+    description: The identifier of the registered Azure Stack.
+  etag:
+    type: string
+    description: The entity tag used for optimistic concurrency when modifying the resource.
+  kind:
+    type: string
+    description: The kind of the resource.
+  location:
+    type: string
+    description: Location of the resource.
+  name:
+    type: string
+    description: Name of the resource.
+  objectId:
+    type: string
+    description: The object identifier associated with the Azure Stack connecting to Azure.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:azurestack/v20200601preview:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Custom tags for the resource.
+  type:
+    type: string
+    description: Type of Resource.
+type: object
+required:
+  - kind
+  - location
+  - name
+  - systemData
+  - type
+inputProperties:
+  location:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:azurestack/v20200601preview:Location"
+    description: Location of the resource.
+  registrationName:
+    type: string
+    description: Name of the Azure Stack registration.
+  registrationToken:
+    type: string
+    description: The token identifying registered Azure Stack
+  resourceGroup:
+    type: string
+    description: Name of the resource group.
+requiredInputs:
+  - registrationToken
+  - resourceGroup
+aliases:
+  - type: azure-native:azurestack:Registration
+  - type: azure-native:azurestack/v20160101:Registration
+  - type: azure-native:azurestack/v20170601:Registration
+  - type: azure-native:azurestack/v20220601:Registration

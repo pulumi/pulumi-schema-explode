@@ -1,0 +1,78 @@
+$token: azure-native:logic/v20150201preview:getWorkflow
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+    workflowName:
+      type: string
+      description: The workflow name.
+  type: object
+  required:
+    - resourceGroupName
+    - workflowName
+outputs:
+  properties:
+    accessEndpoint:
+      type: string
+      description: Gets the access endpoint.
+    changedTime:
+      type: string
+      description: Gets the changed time.
+    createdTime:
+      type: string
+      description: Gets the created time.
+    definition:
+      $ref: pulumi.json#/Any
+      description: Gets or sets the definition.
+    definitionLink:
+      type: object
+      $ref: "#/types/azure-native:logic/v20150201preview:ContentLinkResponse"
+      description: Gets or sets the link to definition.
+    id:
+      type: string
+      description: Gets or sets the resource id.
+    location:
+      type: string
+      description: Gets or sets the resource location.
+    name:
+      type: string
+      description: Gets the resource name.
+    parameters:
+      type: object
+      additionalProperties:
+        type: object
+        $ref: "#/types/azure-native:logic/v20150201preview:WorkflowParameterResponse"
+      description: Gets or sets the parameters.
+    parametersLink:
+      type: object
+      $ref: "#/types/azure-native:logic/v20150201preview:ContentLinkResponse"
+      description: Gets or sets the link to parameters.
+    provisioningState:
+      type: string
+      description: Gets the provisioning state.
+    sku:
+      type: object
+      $ref: "#/types/azure-native:logic/v20150201preview:SkuResponse"
+      description: Gets or sets the sku.
+    state:
+      type: string
+      description: Gets or sets the state.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Gets or sets the resource tags.
+    type:
+      type: string
+      description: Gets the resource type.
+    version:
+      type: string
+      description: Gets the version.
+  type: object
+  required:
+    - accessEndpoint
+    - changedTime
+    - createdTime
+    - provisioningState
+    - version

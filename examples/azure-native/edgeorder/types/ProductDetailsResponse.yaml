@@ -1,0 +1,29 @@
+$token: azure-native:edgeorder:ProductDetailsResponse
+description: Represents product details
+properties:
+  count:
+    type: integer
+    description: Quantity of the product
+  deviceDetails:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:edgeorder:DeviceDetailsResponse"
+    description: list of device details
+  displayInfo:
+    type: object
+    $ref: "#/types/azure-native:edgeorder:DisplayInfoResponse"
+    description: Display details of the product
+  hierarchyInformation:
+    type: object
+    $ref: "#/types/azure-native:edgeorder:HierarchyInformationResponse"
+    description: Hierarchy of the product which uniquely identifies the product
+  productDoubleEncryptionStatus:
+    type: string
+    description: Double encryption status of the configuration. Read-only field.
+type: object
+required:
+  - count
+  - deviceDetails
+  - hierarchyInformation
+  - productDoubleEncryptionStatus

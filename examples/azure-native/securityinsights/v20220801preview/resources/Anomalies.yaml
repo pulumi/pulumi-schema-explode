@@ -1,0 +1,64 @@
+$token: azure-native:securityinsights/v20220801preview:Anomalies
+description: Settings with single toggle.
+properties:
+  etag:
+    type: string
+    description: Etag of the azure resource
+  isEnabled:
+    type: boolean
+    description: Determines whether the setting is enable or disabled.
+  kind:
+    type: string
+    description: |-
+      The kind of the setting
+      Expected value is 'Anomalies'.
+    const: Anomalies
+  name:
+    type: string
+    description: The name of the resource
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:securityinsights/v20220801preview:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - isEnabled
+  - kind
+  - name
+  - systemData
+  - type
+inputProperties:
+  kind:
+    type: string
+    description: |-
+      The kind of the setting
+      Expected value is 'Anomalies'.
+    const: Anomalies
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  settingsName:
+    type: string
+    description: The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
+  workspaceName:
+    type: string
+    description: The name of the workspace.
+requiredInputs:
+  - kind
+  - resourceGroupName
+  - workspaceName
+aliases:
+  - type: azure-native:securityinsights:Anomalies
+  - type: azure-native:securityinsights/v20190101preview:Anomalies
+  - type: azure-native:securityinsights/v20210301preview:Anomalies
+  - type: azure-native:securityinsights/v20210901preview:Anomalies
+  - type: azure-native:securityinsights/v20211001preview:Anomalies
+  - type: azure-native:securityinsights/v20220101preview:Anomalies
+  - type: azure-native:securityinsights/v20220401preview:Anomalies
+  - type: azure-native:securityinsights/v20220501preview:Anomalies
+  - type: azure-native:securityinsights/v20220601preview:Anomalies
+  - type: azure-native:securityinsights/v20220701preview:Anomalies
+  - type: azure-native:securityinsights/v20220901preview:Anomalies

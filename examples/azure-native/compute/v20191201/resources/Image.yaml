@@ -1,0 +1,85 @@
+$token: azure-native:compute/v20191201:Image
+description: The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
+properties:
+  hyperVGeneration:
+    type: string
+    description: Gets the HyperVGenerationType of the VirtualMachine created from the image
+  location:
+    type: string
+    description: Resource location
+  name:
+    type: string
+    description: Resource name
+  provisioningState:
+    type: string
+    description: The provisioning state.
+  sourceVirtualMachine:
+    type: object
+    $ref: "#/types/azure-native:compute/v20191201:SubResourceResponse"
+    description: The source virtual machine from which Image is created.
+  storageProfile:
+    type: object
+    $ref: "#/types/azure-native:compute/v20191201:ImageStorageProfileResponse"
+    description: Specifies the storage settings for the virtual machine disks.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  type:
+    type: string
+    description: Resource type
+type: object
+required:
+  - location
+  - name
+  - provisioningState
+  - type
+inputProperties:
+  hyperVGeneration:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:compute/v20191201:HyperVGenerationTypes"
+    description: Gets the HyperVGenerationType of the VirtualMachine created from the image
+  imageName:
+    type: string
+    description: The name of the image.
+  location:
+    type: string
+    description: Resource location
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  sourceVirtualMachine:
+    type: object
+    $ref: "#/types/azure-native:compute/v20191201:SubResource"
+    description: The source virtual machine from which Image is created.
+  storageProfile:
+    type: object
+    $ref: "#/types/azure-native:compute/v20191201:ImageStorageProfile"
+    description: Specifies the storage settings for the virtual machine disks.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:compute:Image
+  - type: azure-native:compute/v20160430preview:Image
+  - type: azure-native:compute/v20170330:Image
+  - type: azure-native:compute/v20171201:Image
+  - type: azure-native:compute/v20180401:Image
+  - type: azure-native:compute/v20180601:Image
+  - type: azure-native:compute/v20181001:Image
+  - type: azure-native:compute/v20190301:Image
+  - type: azure-native:compute/v20190701:Image
+  - type: azure-native:compute/v20200601:Image
+  - type: azure-native:compute/v20201201:Image
+  - type: azure-native:compute/v20210301:Image
+  - type: azure-native:compute/v20210401:Image
+  - type: azure-native:compute/v20210701:Image
+  - type: azure-native:compute/v20211101:Image
+  - type: azure-native:compute/v20220301:Image
+deprecationMessage: Version 2019-12-01 will be removed in v2 of the provider.

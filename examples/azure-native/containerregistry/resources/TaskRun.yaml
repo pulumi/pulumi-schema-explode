@@ -1,0 +1,102 @@
+$token: azure-native:containerregistry:TaskRun
+description: "The task run that has the ARM resource and properties. \r
+
+  The task run will have the information of request and result of a run.
+
+  API Version: 2019-06-01-preview."
+properties:
+  forceUpdateTag:
+    type: string
+    description: How the run should be forced to rerun even if the run request configuration has not changed
+  identity:
+    type: object
+    $ref: "#/types/azure-native:containerregistry:IdentityPropertiesResponse"
+    description: Identity for the resource.
+  location:
+    type: string
+    description: The location of the resource
+  name:
+    type: string
+    description: The name of the resource.
+  provisioningState:
+    type: string
+    description: The provisioning state of this task run
+  runRequest:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:containerregistry:DockerBuildRequestResponse"
+      - type: object
+        $ref: "#/types/azure-native:containerregistry:EncodedTaskRunRequestResponse"
+      - type: object
+        $ref: "#/types/azure-native:containerregistry:FileTaskRunRequestResponse"
+      - type: object
+        $ref: "#/types/azure-native:containerregistry:TaskRunRequestResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        DockerBuildRequest: "#/types/azure-native:containerregistry:DockerBuildRequestResponse"
+        EncodedTaskRunRequest: "#/types/azure-native:containerregistry:EncodedTaskRunRequestResponse"
+        FileTaskRunRequest: "#/types/azure-native:containerregistry:FileTaskRunRequestResponse"
+        TaskRunRequest: "#/types/azure-native:containerregistry:TaskRunRequestResponse"
+    description: The request (parameters) for the run
+  runResult:
+    type: object
+    $ref: "#/types/azure-native:containerregistry:RunResponse"
+    description: The result of this task run
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:containerregistry:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - name
+  - provisioningState
+  - runResult
+  - systemData
+  - type
+inputProperties:
+  forceUpdateTag:
+    type: string
+    description: How the run should be forced to rerun even if the run request configuration has not changed
+  identity:
+    type: object
+    $ref: "#/types/azure-native:containerregistry:IdentityProperties"
+    description: Identity for the resource.
+  location:
+    type: string
+    description: The location of the resource
+  registryName:
+    type: string
+    description: The name of the container registry.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group to which the container registry belongs.
+  runRequest:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:containerregistry:DockerBuildRequest"
+      - type: object
+        $ref: "#/types/azure-native:containerregistry:EncodedTaskRunRequest"
+      - type: object
+        $ref: "#/types/azure-native:containerregistry:FileTaskRunRequest"
+      - type: object
+        $ref: "#/types/azure-native:containerregistry:TaskRunRequest"
+    discriminator:
+      propertyName: type
+      mapping:
+        DockerBuildRequest: "#/types/azure-native:containerregistry:DockerBuildRequest"
+        EncodedTaskRunRequest: "#/types/azure-native:containerregistry:EncodedTaskRunRequest"
+        FileTaskRunRequest: "#/types/azure-native:containerregistry:FileTaskRunRequest"
+        TaskRunRequest: "#/types/azure-native:containerregistry:TaskRunRequest"
+    description: The request (parameters) for the run
+  taskRunName:
+    type: string
+    description: The name of the task run.
+requiredInputs:
+  - registryName
+  - resourceGroupName
+aliases:
+  - type: azure-native:containerregistry/v20190601preview:TaskRun

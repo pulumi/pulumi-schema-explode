@@ -1,0 +1,49 @@
+$token: azure-native:recoveryservices/v20220601preview:SubProtectionPolicy
+description: Sub-protection policy which includes schedule and retention
+properties:
+  policyType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:recoveryservices/v20220601preview:PolicyType"
+    description: Type of backup policy type
+  retentionPolicy:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20220601preview:LongTermRetentionPolicy"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20220601preview:SimpleRetentionPolicy"
+    discriminator:
+      propertyName: retentionPolicyType
+      mapping:
+        LongTermRetentionPolicy: "#/types/azure-native:recoveryservices/v20220601preview:LongTermRetentionPolicy"
+        SimpleRetentionPolicy: "#/types/azure-native:recoveryservices/v20220601preview:SimpleRetentionPolicy"
+    description: Retention policy with the details on backup copy retention ranges.
+  schedulePolicy:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20220601preview:LogSchedulePolicy"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20220601preview:LongTermSchedulePolicy"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20220601preview:SimpleSchedulePolicy"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20220601preview:SimpleSchedulePolicyV2"
+    discriminator:
+      propertyName: schedulePolicyType
+      mapping:
+        LogSchedulePolicy: "#/types/azure-native:recoveryservices/v20220601preview:LogSchedulePolicy"
+        LongTermSchedulePolicy: "#/types/azure-native:recoveryservices/v20220601preview:LongTermSchedulePolicy"
+        SimpleSchedulePolicy: "#/types/azure-native:recoveryservices/v20220601preview:SimpleSchedulePolicy"
+        SimpleSchedulePolicyV2: "#/types/azure-native:recoveryservices/v20220601preview:SimpleSchedulePolicyV2"
+    description: Backup schedule specified as part of backup policy.
+  tieringPolicy:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:recoveryservices/v20220601preview:TieringPolicy"
+    description: "Tiering policy to automatically move RPs to another tier.\r
+
+      Key is Target Tier, defined in RecoveryPointTierType enum.\r
+
+      Tiering policy specifies the criteria to move RP to the target tier."
+type: object

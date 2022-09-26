@@ -1,0 +1,20 @@
+$token: azure-native:storagesync/v20200901:CloudTieringFilesNotTieringResponse
+description: Server endpoint cloud tiering status object.
+properties:
+  errors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:storagesync/v20200901:FilesNotTieringErrorResponse"
+    description: Array of tiering errors
+  lastUpdatedTimestamp:
+    type: string
+    description: Last updated timestamp
+  totalFileCount:
+    type: number
+    description: Last cloud tiering result (HResult)
+type: object
+required:
+  - errors
+  - lastUpdatedTimestamp
+  - totalFileCount

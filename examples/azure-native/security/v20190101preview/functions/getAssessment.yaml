@@ -1,0 +1,69 @@
+$token: azure-native:security/v20190101preview:getAssessment
+description: Security assessment on a resource
+inputs:
+  properties:
+    assessmentName:
+      type: string
+      description: The Assessment Key - Unique key for the assessment type
+    expand:
+      type: string
+      description: OData expand. Optional.
+    resourceId:
+      type: string
+      description: The identifier of the resource.
+  type: object
+  required:
+    - assessmentName
+    - resourceId
+outputs:
+  description: Security assessment on a resource
+  properties:
+    additionalData:
+      type: object
+      additionalProperties:
+        type: string
+      description: Additional data regarding the assessment
+    displayName:
+      type: string
+      description: User friendly display name of the assessment
+    id:
+      type: string
+      description: Resource Id
+    links:
+      type: object
+      $ref: "#/types/azure-native:security/v20190101preview:AssessmentLinksResponse"
+      description: Links relevant to the assessment
+    name:
+      type: string
+      description: Resource name
+    resourceDetails:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:security/v20190101preview:AzureResourceDetailsResponse"
+        - type: object
+          $ref: "#/types/azure-native:security/v20190101preview:OnPremiseResourceDetailsResponse"
+        - type: object
+          $ref: "#/types/azure-native:security/v20190101preview:OnPremiseSqlResourceDetailsResponse"
+      discriminator:
+        propertyName: source
+        mapping:
+          Azure: "#/types/azure-native:security/v20190101preview:AzureResourceDetailsResponse"
+          OnPremise: "#/types/azure-native:security/v20190101preview:OnPremiseResourceDetailsResponse"
+          OnPremiseSql: "#/types/azure-native:security/v20190101preview:OnPremiseSqlResourceDetailsResponse"
+      description: Details of the resource that was assessed
+    status:
+      type: object
+      $ref: "#/types/azure-native:security/v20190101preview:AssessmentStatusResponse"
+      description: The result of the assessment
+    type:
+      type: string
+      description: Resource type
+  type: object
+  required:
+    - displayName
+    - id
+    - links
+    - name
+    - resourceDetails
+    - status
+    - type

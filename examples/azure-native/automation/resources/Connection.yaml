@@ -1,0 +1,70 @@
+$token: azure-native:automation:Connection
+description: |-
+  Definition of the connection.
+  API Version: 2019-06-01.
+properties:
+  connectionType:
+    type: object
+    $ref: "#/types/azure-native:automation:ConnectionTypeAssociationPropertyResponse"
+    description: Gets or sets the connectionType of the connection.
+  creationTime:
+    type: string
+    description: Gets the creation time.
+  description:
+    type: string
+    description: Gets or sets the description.
+  fieldDefinitionValues:
+    type: object
+    additionalProperties:
+      type: string
+    description: Gets the field definition values of the connection.
+  lastModifiedTime:
+    type: string
+    description: Gets the last modified time.
+  name:
+    type: string
+    description: The name of the resource
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - creationTime
+  - fieldDefinitionValues
+  - lastModifiedTime
+  - name
+  - type
+inputProperties:
+  automationAccountName:
+    type: string
+    description: The name of the automation account.
+  connectionName:
+    type: string
+    description: The parameters supplied to the create or update connection operation.
+  connectionType:
+    type: object
+    $ref: "#/types/azure-native:automation:ConnectionTypeAssociationProperty"
+    description: Gets or sets the connectionType of the connection.
+  description:
+    type: string
+    description: Gets or sets the description of the connection.
+  fieldDefinitionValues:
+    type: object
+    additionalProperties:
+      type: string
+    description: Gets or sets the field definition properties of the connection.
+  name:
+    type: string
+    description: Gets or sets the name of the connection.
+  resourceGroupName:
+    type: string
+    description: Name of an Azure Resource group.
+requiredInputs:
+  - automationAccountName
+  - connectionType
+  - name
+  - resourceGroupName
+aliases:
+  - type: azure-native:automation/v20151031:Connection
+  - type: azure-native:automation/v20190601:Connection
+  - type: azure-native:automation/v20200113preview:Connection

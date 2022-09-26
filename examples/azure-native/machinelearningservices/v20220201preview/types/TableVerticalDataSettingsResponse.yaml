@@ -1,0 +1,27 @@
+$token: azure-native:machinelearningservices/v20220201preview:TableVerticalDataSettingsResponse
+description: Class for data inputs.
+properties:
+  targetColumnName:
+    type: string
+    description: "[Required] Target column name: This is prediction values column.\r
+
+      Also known as label column name in context of classification tasks."
+  testData:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220201preview:TestDataSettingsResponse"
+    description: Test data input.
+  trainingData:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220201preview:TrainingDataSettingsResponse"
+    description: "[Required] Training data input."
+  validationData:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220201preview:TableVerticalValidationDataSettingsResponse"
+    description: Validation data inputs.
+  weightColumnName:
+    type: string
+    description: The name of the sample weight column. Automated ML supports a weighted column as an input, causing rows in the data to be weighted up or down.
+type: object
+required:
+  - targetColumnName
+  - trainingData

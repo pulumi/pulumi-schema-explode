@@ -1,0 +1,23 @@
+$token: azure-native:datamigration/v20180331preview:ConnectToSourceSqlServerTaskInput
+description: Input for the task that validates connection to SQL Server and also validates source server requirements
+properties:
+  checkPermissionsGroup:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:datamigration/v20180331preview:ServerLevelPermissionsGroup"
+    description: Permission group for validations
+  collectAgentJobs:
+    type: boolean
+    description: Flag for whether to collect agent jobs from source server.
+    default: false
+  collectLogins:
+    type: boolean
+    description: Flag for whether to collect logins from source server.
+    default: false
+  sourceConnectionInfo:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20180331preview:SqlConnectionInfo"
+    description: Connection information for Source SQL Server
+type: object
+required:
+  - sourceConnectionInfo

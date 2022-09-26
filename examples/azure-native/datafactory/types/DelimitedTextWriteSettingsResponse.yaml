@@ -1,0 +1,25 @@
+$token: azure-native:datafactory:DelimitedTextWriteSettingsResponse
+description: Delimited text write settings.
+properties:
+  fileExtension:
+    $ref: pulumi.json#/Any
+    description: "The file extension used to create the files. Type: string (or Expression with resultType string)."
+  fileNamePrefix:
+    $ref: pulumi.json#/Any
+    description: "Specifies the file name pattern <fileNamePrefix>_<fileIndex>.<fileExtension> when copy from non-file based store without partitionOptions. Type: string (or Expression with resultType string)."
+  maxRowsPerFile:
+    $ref: pulumi.json#/Any
+    description: "Limit the written file's row count to be smaller than or equal to the specified count. Type: integer (or Expression with resultType integer)."
+  quoteAllText:
+    $ref: pulumi.json#/Any
+    description: "Indicates whether string values should always be enclosed with quotes. Type: boolean (or Expression with resultType boolean)."
+  type:
+    type: string
+    description: |-
+      The write setting type.
+      Expected value is 'DelimitedTextWriteSettings'.
+    const: DelimitedTextWriteSettings
+type: object
+required:
+  - fileExtension
+  - type

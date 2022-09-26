@@ -1,0 +1,67 @@
+$token: azure-native:blueprint/v20171111preview:getPolicyAssignmentArtifact
+description: Blueprint artifact applies Policy assignments.
+inputs:
+  properties:
+    artifactName:
+      type: string
+      description: name of the artifact.
+    blueprintName:
+      type: string
+      description: name of the blueprint.
+    managementGroupName:
+      type: string
+      description: ManagementGroup where blueprint stores.
+  type: object
+  required:
+    - artifactName
+    - blueprintName
+    - managementGroupName
+outputs:
+  description: Blueprint artifact applies Policy assignments.
+  properties:
+    dependsOn:
+      type: array
+      items:
+        type: string
+      description: Artifacts which need to be deployed before the specified artifact.
+    description:
+      type: string
+      description: Multi-line explain this resource.
+    displayName:
+      type: string
+      description: One-liner string explain this resource.
+    id:
+      type: string
+      description: String Id used to locate any resource on Azure.
+    kind:
+      type: string
+      description: |-
+        Specifies the kind of Blueprint artifact.
+        Expected value is 'policyAssignment'.
+      const: policyAssignment
+    name:
+      type: string
+      description: Name of this resource.
+    parameters:
+      type: object
+      additionalProperties:
+        type: object
+        $ref: "#/types/azure-native:blueprint/v20171111preview:ParameterValueBaseResponse"
+      description: Parameter values for the policy definition.
+    policyDefinitionId:
+      type: string
+      description: Azure resource ID of the policy definition.
+    resourceGroup:
+      type: string
+      description: Name of the resource group placeholder to which the policy will be assigned.
+    type:
+      type: string
+      description: Type of this resource.
+  type: object
+  required:
+    - id
+    - kind
+    - name
+    - parameters
+    - policyDefinitionId
+    - type

@@ -1,0 +1,20 @@
+$token: azure-native:appplatform/v20200701:UserSourceInfo
+description: Source information for a deployment
+properties:
+  artifactSelector:
+    type: string
+    description: "Selector for the artifact to be used for the deployment for multi-module projects. This should be\r
+
+      the relative path to the target module/project."
+  relativePath:
+    type: string
+    description: Relative path of the storage which stores the source
+  type:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:appplatform/v20200701:UserSourceType"
+    description: Type of the source uploaded
+  version:
+    type: string
+    description: Version of the source
+type: object

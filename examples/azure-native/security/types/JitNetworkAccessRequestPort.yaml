@@ -1,0 +1,34 @@
+$token: azure-native:security:JitNetworkAccessRequestPort
+properties:
+  allowedSourceAddressPrefix:
+    type: string
+    description: Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
+  allowedSourceAddressPrefixes:
+    type: array
+    items:
+      type: string
+    description: Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
+  endTimeUtc:
+    type: string
+    description: The date & time at which the request ends in UTC
+  mappedPort:
+    type: integer
+    description: The port which is mapped to this port's `number` in the Azure Firewall, if applicable
+  number:
+    type: integer
+  status:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:security:Status"
+    description: The status of the port
+  statusReason:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:security:StatusReason"
+    description: A description of why the `status` has its value
+type: object
+required:
+  - endTimeUtc
+  - number
+  - status
+  - statusReason

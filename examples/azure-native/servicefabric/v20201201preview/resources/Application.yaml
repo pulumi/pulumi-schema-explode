@@ -1,0 +1,146 @@
+$token: azure-native:servicefabric/v20201201preview:Application
+description: The application resource.
+properties:
+  etag:
+    type: string
+    description: Azure resource etag.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:servicefabric/v20201201preview:ManagedIdentityResponse"
+    description: Describes the managed identities for an Azure resource.
+  location:
+    type: string
+    description: It will be deprecated in New API, resource location depends on the parent resource.
+  managedIdentities:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:servicefabric/v20201201preview:ApplicationUserAssignedIdentityResponse"
+    description: List of user assigned identities for the application, each mapped to a friendly name.
+  maximumNodes:
+    type: number
+    description: The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
+    default: 0
+  metrics:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:servicefabric/v20201201preview:ApplicationMetricDescriptionResponse"
+    description: List of application capacity metric description.
+  minimumNodes:
+    type: number
+    description: The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
+  name:
+    type: string
+    description: Azure resource name.
+  parameters:
+    type: object
+    additionalProperties:
+      type: string
+    description: List of application parameters with overridden values from their default values specified in the application manifest.
+  provisioningState:
+    type: string
+    description: The current deployment or provisioning state, which only appears in the response
+  removeApplicationCapacity:
+    type: boolean
+    description: Remove the current application capacity settings.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:servicefabric/v20201201preview:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Azure resource tags.
+  type:
+    type: string
+    description: Azure resource type.
+  typeName:
+    type: string
+    description: The application type name as defined in the application manifest.
+  typeVersion:
+    type: string
+    description: The version of the application type as defined in the application manifest.
+  upgradePolicy:
+    type: object
+    $ref: "#/types/azure-native:servicefabric/v20201201preview:ApplicationUpgradePolicyResponse"
+    description: Describes the policy for a monitored application upgrade.
+type: object
+required:
+  - etag
+  - name
+  - provisioningState
+  - systemData
+  - type
+inputProperties:
+  applicationName:
+    type: string
+    description: The name of the application resource.
+  clusterName:
+    type: string
+    description: The name of the cluster resource.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:servicefabric/v20201201preview:ManagedIdentity"
+    description: Describes the managed identities for an Azure resource.
+  location:
+    type: string
+    description: It will be deprecated in New API, resource location depends on the parent resource.
+  managedIdentities:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:servicefabric/v20201201preview:ApplicationUserAssignedIdentity"
+    description: List of user assigned identities for the application, each mapped to a friendly name.
+  maximumNodes:
+    type: number
+    description: The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
+    default: 0
+  metrics:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:servicefabric/v20201201preview:ApplicationMetricDescription"
+    description: List of application capacity metric description.
+  minimumNodes:
+    type: number
+    description: The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
+  parameters:
+    type: object
+    additionalProperties:
+      type: string
+    description: List of application parameters with overridden values from their default values specified in the application manifest.
+  removeApplicationCapacity:
+    type: boolean
+    description: Remove the current application capacity settings.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Azure resource tags.
+  typeName:
+    type: string
+    description: The application type name as defined in the application manifest.
+  typeVersion:
+    type: string
+    description: The version of the application type as defined in the application manifest.
+  upgradePolicy:
+    type: object
+    $ref: "#/types/azure-native:servicefabric/v20201201preview:ApplicationUpgradePolicy"
+    description: Describes the policy for a monitored application upgrade.
+requiredInputs:
+  - clusterName
+  - resourceGroupName
+aliases:
+  - type: azure-native:servicefabric:Application
+  - type: azure-native:servicefabric/v20170701preview:Application
+  - type: azure-native:servicefabric/v20190301:Application
+  - type: azure-native:servicefabric/v20190301preview:Application
+  - type: azure-native:servicefabric/v20190601preview:Application
+  - type: azure-native:servicefabric/v20191101preview:Application
+  - type: azure-native:servicefabric/v20200301:Application
+  - type: azure-native:servicefabric/v20210601:Application

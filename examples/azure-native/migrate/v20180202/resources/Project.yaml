@@ -1,0 +1,98 @@
+$token: azure-native:migrate/v20180202:Project
+description: Azure Migrate Project.
+properties:
+  createdTimestamp:
+    type: string
+    description: Time when this project was created. Date-Time represented in ISO-8601 format.
+  customerWorkspaceId:
+    type: string
+    description: ARM ID of the Service Map workspace created by user.
+  customerWorkspaceLocation:
+    type: string
+    description: Location of the Service Map workspace created by user.
+  discoveryStatus:
+    type: string
+    description: Reports whether project is under discovery.
+  eTag:
+    type: string
+    description: For optimistic concurrency control.
+  lastAssessmentTimestamp:
+    type: string
+    description: Time when last assessment was created. Date-Time represented in ISO-8601 format. This value will be null until assessment is created.
+  lastDiscoverySessionId:
+    type: string
+    description: Session id of the last discovery.
+  lastDiscoveryTimestamp:
+    type: string
+    description: Time when this project was created. Date-Time represented in ISO-8601 format. This value will be null until discovery is complete.
+  location:
+    type: string
+    description: Azure location in which project is created.
+  name:
+    type: string
+    description: Name of the project.
+  numberOfAssessments:
+    type: integer
+    description: Number of assessments created in the project.
+  numberOfGroups:
+    type: integer
+    description: Number of groups created in the project.
+  numberOfMachines:
+    type: integer
+    description: Number of machines in the project.
+  provisioningState:
+    type: string
+    description: Provisioning state of the project.
+  tags:
+    $ref: pulumi.json#/Any
+    description: Tags provided by Azure Tagging service.
+  type:
+    type: string
+    description: Type of the object = [Microsoft.Migrate/projects].
+  updatedTimestamp:
+    type: string
+    description: Time when this project was last updated. Date-Time represented in ISO-8601 format.
+type: object
+required:
+  - createdTimestamp
+  - discoveryStatus
+  - lastAssessmentTimestamp
+  - lastDiscoverySessionId
+  - lastDiscoveryTimestamp
+  - name
+  - numberOfAssessments
+  - numberOfGroups
+  - numberOfMachines
+  - type
+  - updatedTimestamp
+inputProperties:
+  customerWorkspaceId:
+    type: string
+    description: ARM ID of the Service Map workspace created by user.
+  customerWorkspaceLocation:
+    type: string
+    description: Location of the Service Map workspace created by user.
+  eTag:
+    type: string
+    description: For optimistic concurrency control.
+  location:
+    type: string
+    description: Azure location in which project is created.
+  projectName:
+    type: string
+    description: Name of the Azure Migrate project.
+  provisioningState:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:migrate/v20180202:ProvisioningState"
+    description: Provisioning state of the project.
+  resourceGroupName:
+    type: string
+    description: Name of the Azure Resource Group that project is part of.
+  tags:
+    $ref: pulumi.json#/Any
+    description: Tags provided by Azure Tagging service.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:migrate/v20171111preview:Project

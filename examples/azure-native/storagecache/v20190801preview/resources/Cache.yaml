@@ -1,0 +1,88 @@
+$token: azure-native:storagecache/v20190801preview:Cache
+description: "A cache instance.  Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md"
+properties:
+  cacheSizeGB:
+    type: integer
+    description: The size of this cache's cache, in GB.
+  health:
+    type: object
+    $ref: "#/types/azure-native:storagecache/v20190801preview:CacheHealthResponse"
+    description: Health of the cache.
+  location:
+    type: string
+    description: Region name string.
+  mountAddresses:
+    type: array
+    items:
+      type: string
+    description: Array of IP addresses that can be used by clients mounting this Cache.
+  name:
+    type: string
+    description: Name of cache.
+  provisioningState:
+    type: string
+    description: ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+  sku:
+    type: object
+    $ref: "#/types/azure-native:storagecache/v20190801preview:CacheResponseSku"
+    description: Sku for the cache.
+  subnet:
+    type: string
+    description: Subnet used for the cache.
+  tags:
+    $ref: pulumi.json#/Any
+    description: ARM tags as name/value pairs.
+  type:
+    type: string
+    description: Type for the cache; Microsoft.StorageCache/Cache
+  upgradeStatus:
+    type: object
+    $ref: "#/types/azure-native:storagecache/v20190801preview:CacheUpgradeStatusResponse"
+    description: Upgrade status of the cache.
+type: object
+required:
+  - health
+  - mountAddresses
+  - name
+  - type
+inputProperties:
+  cacheName:
+    type: string
+    description: Name of cache.
+  cacheSizeGB:
+    type: integer
+    description: The size of this cache's cache, in GB.
+  location:
+    type: string
+    description: Region name string.
+  provisioningState:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:storagecache/v20190801preview:ProvisioningStateType"
+    description: ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+  resourceGroupName:
+    type: string
+    description: Target resource group.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:storagecache/v20190801preview:CacheSku"
+    description: Sku for the cache.
+  subnet:
+    type: string
+    description: Subnet used for the cache.
+  tags:
+    $ref: pulumi.json#/Any
+    description: ARM tags as name/value pairs.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:storagecache:Cache
+  - type: azure-native:storagecache/v20191101:Cache
+  - type: azure-native:storagecache/v20200301:Cache
+  - type: azure-native:storagecache/v20201001:Cache
+  - type: azure-native:storagecache/v20210301:Cache
+  - type: azure-native:storagecache/v20210501:Cache
+  - type: azure-native:storagecache/v20210901:Cache
+  - type: azure-native:storagecache/v20220101:Cache
+  - type: azure-native:storagecache/v20220501:Cache
+deprecationMessage: Version 2019-08-01-preview will be removed in v2 of the provider.

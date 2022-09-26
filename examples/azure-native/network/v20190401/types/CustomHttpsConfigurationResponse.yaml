@@ -1,0 +1,23 @@
+$token: azure-native:network/v20190401:CustomHttpsConfigurationResponse
+description: Https settings for a domain
+properties:
+  certificateSource:
+    type: string
+    description: Defines the source of the SSL certificate
+  certificateType:
+    type: string
+    description: Defines the type of the certificate used for secure connections to a frontendEndpoint
+  protocolType:
+    type: string
+    description: Defines the TLS extension protocol that is used for secure delivery
+  secretName:
+    type: string
+    description: The name of the Key Vault secret representing the full certificate PFX
+  secretVersion:
+    type: string
+    description: The version of the Key Vault secret representing the full certificate PFX
+  vault:
+    type: object
+    $ref: "#/types/azure-native:network/v20190401:KeyVaultCertificateSourceParametersResponseVault"
+    description: The Key Vault containing the SSL certificate
+type: object

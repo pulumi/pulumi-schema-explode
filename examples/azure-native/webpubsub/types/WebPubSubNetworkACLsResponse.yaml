@@ -1,0 +1,18 @@
+$token: azure-native:webpubsub:WebPubSubNetworkACLsResponse
+description: Network ACLs for the resource
+properties:
+  defaultAction:
+    type: string
+    description: Default action when no other rule matches
+    default: Deny
+  privateEndpoints:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:webpubsub:PrivateEndpointACLResponse"
+    description: ACLs for requests from private endpoints
+  publicNetwork:
+    type: object
+    $ref: "#/types/azure-native:webpubsub:NetworkACLResponse"
+    description: ACL for requests from public network
+type: object

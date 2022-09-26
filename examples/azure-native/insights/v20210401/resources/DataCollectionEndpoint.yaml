@@ -1,0 +1,91 @@
+$token: azure-native:insights/v20210401:DataCollectionEndpoint
+description: Definition of ARM tracked top level resource.
+properties:
+  configurationAccess:
+    type: object
+    $ref: "#/types/azure-native:insights/v20210401:DataCollectionEndpointResponseConfigurationAccess"
+    description: The endpoint used by agents to access their configuration.
+  description:
+    type: string
+    description: Description of the data collection endpoint.
+  etag:
+    type: string
+    description: Resource entity tag (ETag).
+  immutableId:
+    type: string
+    description: The immutable ID of this data collection endpoint resource. This property is READ-ONLY.
+  kind:
+    type: string
+    description: The kind of the resource.
+  location:
+    type: string
+    description: The geo-location where the resource lives.
+  logsIngestion:
+    type: object
+    $ref: "#/types/azure-native:insights/v20210401:DataCollectionEndpointResponseLogsIngestion"
+    description: The endpoint used by clients to ingest logs.
+  name:
+    type: string
+    description: The name of the resource.
+  networkAcls:
+    type: object
+    $ref: "#/types/azure-native:insights/v20210401:DataCollectionEndpointResponseNetworkAcls"
+    description: Network access control rules for the endpoints.
+  provisioningState:
+    type: string
+    description: The resource provisioning state. This property is READ-ONLY.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:insights/v20210401:DataCollectionEndpointResourceResponseSystemData"
+    description: Metadata pertaining to creation and last modification of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - etag
+  - location
+  - name
+  - provisioningState
+  - systemData
+  - type
+inputProperties:
+  dataCollectionEndpointName:
+    type: string
+    description: The name of the data collection endpoint. The name is case insensitive.
+  description:
+    type: string
+    description: Description of the data collection endpoint.
+  immutableId:
+    type: string
+    description: The immutable ID of this data collection endpoint resource. This property is READ-ONLY.
+  kind:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:insights/v20210401:KnownDataCollectionEndpointResourceKind"
+    description: The kind of the resource.
+  location:
+    type: string
+    description: The geo-location where the resource lives.
+  networkAcls:
+    type: object
+    $ref: "#/types/azure-native:insights/v20210401:DataCollectionEndpointNetworkAcls"
+    description: Network access control rules for the endpoints.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:insights:DataCollectionEndpoint
+  - type: azure-native:insights/v20210901preview:DataCollectionEndpoint

@@ -1,0 +1,107 @@
+$token: azure-native:communication:Domain
+description: |-
+  A class representing a Domains resource.
+  API Version: 2021-10-01-preview.
+properties:
+  dataLocation:
+    type: string
+    description: The location where the Domains resource data is stored at rest.
+  domainManagement:
+    type: string
+    description: Describes how a Domains resource is being managed.
+  fromSenderDomain:
+    type: string
+    description: P2 sender domain that is displayed to the email recipients [RFC 5322].
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  mailFromSenderDomain:
+    type: string
+    description: P1 sender domain that is present on the email envelope [RFC 5321].
+  name:
+    type: string
+    description: The name of the resource
+  provisioningState:
+    type: string
+    description: Provisioning state of the resource.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:communication:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  userEngagementTracking:
+    type: string
+    description: Describes whether user engagement tracking is enabled or disabled.
+  validSenderUsernames:
+    type: object
+    additionalProperties:
+      type: string
+    description: Collection of valid sender usernames. This is a key-value pair where key=username and value=display name.
+  verificationRecords:
+    type: object
+    $ref: "#/types/azure-native:communication:DomainPropertiesResponseVerificationRecords"
+    description: List of DnsRecord
+  verificationStates:
+    type: object
+    $ref: "#/types/azure-native:communication:DomainPropertiesResponseVerificationStates"
+    description: List of VerificationStatusRecord
+type: object
+required:
+  - dataLocation
+  - domainManagement
+  - fromSenderDomain
+  - location
+  - mailFromSenderDomain
+  - name
+  - provisioningState
+  - systemData
+  - type
+  - verificationRecords
+  - verificationStates
+inputProperties:
+  domainManagement:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:communication:DomainManagement"
+    description: Describes how a Domains resource is being managed.
+  domainName:
+    type: string
+    description: The name of the Domains resource.
+  emailServiceName:
+    type: string
+    description: The name of the EmailService resource.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  userEngagementTracking:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:communication:UserEngagementTracking"
+    description: Describes whether user engagement tracking is enabled or disabled.
+  validSenderUsernames:
+    type: object
+    additionalProperties:
+      type: string
+    description: Collection of valid sender usernames. This is a key-value pair where key=username and value=display name.
+requiredInputs:
+  - domainManagement
+  - emailServiceName
+  - resourceGroupName
+aliases:
+  - type: azure-native:communication/v20211001preview:Domain
+  - type: azure-native:communication/v20220701preview:Domain

@@ -1,0 +1,100 @@
+$token: azure-native:solutions/v20190701:JitRequest
+description: Information about JIT request definition.
+properties:
+  applicationResourceId:
+    type: string
+    description: The parent application id.
+  createdBy:
+    type: object
+    $ref: "#/types/azure-native:solutions/v20190701:ApplicationClientDetailsResponse"
+    description: The client entity that created the JIT request.
+  jitAuthorizationPolicies:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:solutions/v20190701:JitAuthorizationPoliciesResponse"
+    description: The JIT authorization policies.
+  jitRequestState:
+    type: string
+    description: The JIT request state.
+  jitSchedulingPolicy:
+    type: object
+    $ref: "#/types/azure-native:solutions/v20190701:JitSchedulingPolicyResponse"
+    description: The JIT request properties.
+  location:
+    type: string
+    description: Resource location
+  name:
+    type: string
+    description: Resource name
+  provisioningState:
+    type: string
+    description: The JIT request provisioning state.
+  publisherTenantId:
+    type: string
+    description: The publisher tenant id.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  type:
+    type: string
+    description: Resource type
+  updatedBy:
+    type: object
+    $ref: "#/types/azure-native:solutions/v20190701:ApplicationClientDetailsResponse"
+    description: The client entity that last updated the JIT request.
+type: object
+required:
+  - applicationResourceId
+  - createdBy
+  - jitAuthorizationPolicies
+  - jitRequestState
+  - jitSchedulingPolicy
+  - name
+  - provisioningState
+  - publisherTenantId
+  - type
+  - updatedBy
+inputProperties:
+  applicationResourceId:
+    type: string
+    description: The parent application id.
+  jitAuthorizationPolicies:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:solutions/v20190701:JitAuthorizationPolicies"
+    description: The JIT authorization policies.
+  jitRequestName:
+    type: string
+    description: The name of the JIT request.
+  jitSchedulingPolicy:
+    type: object
+    $ref: "#/types/azure-native:solutions/v20190701:JitSchedulingPolicy"
+    description: The JIT request properties.
+  location:
+    type: string
+    description: Resource location
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+requiredInputs:
+  - applicationResourceId
+  - jitAuthorizationPolicies
+  - jitSchedulingPolicy
+  - resourceGroupName
+aliases:
+  - type: azure-native:solutions:JitRequest
+  - type: azure-native:solutions/v20180301:JitRequest
+  - type: azure-native:solutions/v20180601:JitRequest
+  - type: azure-native:solutions/v20180901preview:JitRequest
+  - type: azure-native:solutions/v20200821preview:JitRequest
+  - type: azure-native:solutions/v20210201preview:JitRequest
+  - type: azure-native:solutions/v20210701:JitRequest

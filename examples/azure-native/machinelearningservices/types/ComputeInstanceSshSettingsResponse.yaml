@@ -1,0 +1,20 @@
+$token: azure-native:machinelearningservices:ComputeInstanceSshSettingsResponse
+description: Specifies policy and settings for SSH access.
+properties:
+  adminPublicKey:
+    type: string
+    description: Specifies the SSH rsa public key file as a string. Use "ssh-keygen -t rsa -b 2048" to generate your SSH key pairs.
+  adminUserName:
+    type: string
+    description: Describes the admin user name.
+  sshPort:
+    type: integer
+    description: Describes the port for connecting through SSH.
+  sshPublicAccess:
+    type: string
+    description: "State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on this instance. Enabled - Indicates that the public ssh port is open and accessible according to the VNet/subnet policy if applicable."
+    default: Disabled
+type: object
+required:
+  - adminUserName
+  - sshPort

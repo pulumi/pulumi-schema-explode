@@ -1,0 +1,95 @@
+$token: azure-native:netapp/v20190701:getVolume
+description: Volume resource
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: The name of the NetApp account
+    poolName:
+      type: string
+      description: The name of the capacity pool
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    volumeName:
+      type: string
+      description: The name of the volume
+  type: object
+  required:
+    - accountName
+    - poolName
+    - resourceGroupName
+    - volumeName
+outputs:
+  description: Volume resource
+  properties:
+    baremetalTenantId:
+      type: string
+      description: Unique Baremetal Tenant Identifier.
+    creationToken:
+      type: string
+      description: A unique file path for the volume. Used when creating mount targets
+    exportPolicy:
+      type: object
+      $ref: "#/types/azure-native:netapp/v20190701:VolumePropertiesResponseExportPolicy"
+      description: Set of export policy rules
+    fileSystemId:
+      type: string
+      description: Unique FileSystem Identifier.
+    id:
+      type: string
+      description: Resource Id
+    location:
+      type: string
+      description: Resource location
+    mountTargets:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:netapp/v20190701:MountTargetPropertiesResponse"
+      description: List of mount targets
+    name:
+      type: string
+      description: Resource name
+    protocolTypes:
+      type: array
+      items:
+        type: string
+      description: Set of protocol types, default NFSv3, CIFS fro SMB protocol
+    provisioningState:
+      type: string
+      description: Azure lifecycle management
+    serviceLevel:
+      type: string
+      description: The service level of the file system
+      default: Premium
+    snapshotId:
+      type: string
+      description: UUID v4 or resource identifier used to identify the Snapshot.
+    subnetId:
+      type: string
+      description: The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
+    tags:
+      $ref: pulumi.json#/Any
+      description: Resource tags
+    type:
+      type: string
+      description: Resource type
+    usageThreshold:
+      type: number
+      description: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+      default: 107374182400
+  type: object
+  required:
+    - baremetalTenantId
+    - creationToken
+    - fileSystemId
+    - id
+    - location
+    - mountTargets
+    - name
+    - provisioningState
+    - subnetId
+    - type
+    - usageThreshold
+deprecationMessage: Version 2019-07-01 will be removed in v2 of the provider.

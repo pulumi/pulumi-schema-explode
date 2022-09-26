@@ -1,0 +1,18 @@
+$token: azure-native:servicefabricmesh:DiagnosticsDescriptionResponse
+description: Describes the diagnostics options available
+properties:
+  defaultSinkRefs:
+    type: array
+    items:
+      type: string
+    description: The sinks to be used if diagnostics is enabled. Sink choices can be overridden at the service and code package level.
+  enabled:
+    type: boolean
+    description: Status of whether or not sinks are enabled.
+  sinks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:servicefabricmesh:AzureInternalMonitoringPipelineSinkDescriptionResponse"
+    description: List of supported sinks that can be referenced.
+type: object

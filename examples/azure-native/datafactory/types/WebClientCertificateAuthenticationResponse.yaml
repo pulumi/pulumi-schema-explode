@@ -1,0 +1,42 @@
+$token: azure-native:datafactory:WebClientCertificateAuthenticationResponse
+description: A WebLinkedService that uses client certificate based authentication to communicate with an HTTP endpoint. This scheme follows mutual authentication; the server must also provide valid credentials to the client.
+properties:
+  authenticationType:
+    type: string
+    description: |-
+      Type of authentication used to connect to the web table source.
+      Expected value is 'ClientCertificate'.
+    const: ClientCertificate
+  password:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureKeyVaultSecretReferenceResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SecureStringResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        AzureKeyVaultSecret: "#/types/azure-native:datafactory:AzureKeyVaultSecretReferenceResponse"
+        SecureString: "#/types/azure-native:datafactory:SecureStringResponse"
+    description: Password for the PFX file.
+  pfx:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureKeyVaultSecretReferenceResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SecureStringResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        AzureKeyVaultSecret: "#/types/azure-native:datafactory:AzureKeyVaultSecretReferenceResponse"
+        SecureString: "#/types/azure-native:datafactory:SecureStringResponse"
+    description: Base64-encoded contents of a PFX file.
+  url:
+    $ref: pulumi.json#/Any
+    description: "The URL of the web service endpoint, e.g. https://www.microsoft.com . Type: string (or Expression with resultType string)."
+type: object
+required:
+  - authenticationType
+  - password
+  - pfx
+  - url

@@ -1,0 +1,82 @@
+$token: azure-native:notificationhubs/v20160301:getNotificationHub
+description: Description of a NotificationHub Resource.
+inputs:
+  properties:
+    namespaceName:
+      type: string
+      description: The namespace name.
+    notificationHubName:
+      type: string
+      description: The notification hub name.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - namespaceName
+    - notificationHubName
+    - resourceGroupName
+outputs:
+  description: Description of a NotificationHub Resource.
+  properties:
+    admCredential:
+      type: object
+      $ref: "#/types/azure-native:notificationhubs/v20160301:AdmCredentialResponse"
+      description: The AdmCredential of the created NotificationHub
+    apnsCredential:
+      type: object
+      $ref: "#/types/azure-native:notificationhubs/v20160301:ApnsCredentialResponse"
+      description: The ApnsCredential of the created NotificationHub
+    authorizationRules:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:notificationhubs/v20160301:SharedAccessAuthorizationRulePropertiesResponse"
+      description: The AuthorizationRules of the created NotificationHub
+    baiduCredential:
+      type: object
+      $ref: "#/types/azure-native:notificationhubs/v20160301:BaiduCredentialResponse"
+      description: The BaiduCredential of the created NotificationHub
+    gcmCredential:
+      type: object
+      $ref: "#/types/azure-native:notificationhubs/v20160301:GcmCredentialResponse"
+      description: The GcmCredential of the created NotificationHub
+    id:
+      type: string
+      description: Resource Id
+    location:
+      type: string
+      description: Resource location
+    mpnsCredential:
+      type: object
+      $ref: "#/types/azure-native:notificationhubs/v20160301:MpnsCredentialResponse"
+      description: The MpnsCredential of the created NotificationHub
+    name:
+      type: string
+      description: Resource name
+    registrationTtl:
+      type: string
+      description: The RegistrationTtl of the created NotificationHub
+    sku:
+      type: object
+      $ref: "#/types/azure-native:notificationhubs/v20160301:SkuResponse"
+      description: The sku of the created namespace
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    type:
+      type: string
+      description: Resource type
+    wnsCredential:
+      type: object
+      $ref: "#/types/azure-native:notificationhubs/v20160301:WnsCredentialResponse"
+      description: The WnsCredential of the created NotificationHub
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - type
+deprecationMessage: Version 2016-03-01 will be removed in v2 of the provider.

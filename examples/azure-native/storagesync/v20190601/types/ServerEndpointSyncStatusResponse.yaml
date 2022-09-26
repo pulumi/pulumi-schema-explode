@@ -1,0 +1,53 @@
+$token: azure-native:storagesync/v20190601:ServerEndpointSyncStatusResponse
+description: Server Endpoint sync status
+properties:
+  combinedHealth:
+    type: string
+    description: Combined Health Status.
+  downloadActivity:
+    type: object
+    $ref: "#/types/azure-native:storagesync/v20190601:ServerEndpointSyncActivityStatusResponse"
+    description: Download sync activity
+  downloadHealth:
+    type: string
+    description: Download Health Status.
+  downloadStatus:
+    type: object
+    $ref: "#/types/azure-native:storagesync/v20190601:ServerEndpointSyncSessionStatusResponse"
+    description: Download Status
+  lastUpdatedTimestamp:
+    type: string
+    description: Last Updated Timestamp
+  offlineDataTransferStatus:
+    type: string
+    description: Offline Data Transfer State
+  syncActivity:
+    type: string
+    description: Sync activity
+  totalPersistentFilesNotSyncingCount:
+    type: number
+    description: Total count of persistent files not syncing (combined upload + download).
+  uploadActivity:
+    type: object
+    $ref: "#/types/azure-native:storagesync/v20190601:ServerEndpointSyncActivityStatusResponse"
+    description: Upload sync activity
+  uploadHealth:
+    type: string
+    description: Upload Health Status.
+  uploadStatus:
+    type: object
+    $ref: "#/types/azure-native:storagesync/v20190601:ServerEndpointSyncSessionStatusResponse"
+    description: Upload Status
+type: object
+required:
+  - combinedHealth
+  - downloadActivity
+  - downloadHealth
+  - downloadStatus
+  - lastUpdatedTimestamp
+  - offlineDataTransferStatus
+  - syncActivity
+  - totalPersistentFilesNotSyncingCount
+  - uploadActivity
+  - uploadHealth
+  - uploadStatus

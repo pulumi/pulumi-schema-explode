@@ -1,0 +1,200 @@
+$token: azure-native:web/v20181101:SiteConfigResponse
+description: Configuration of an App Service app.
+properties:
+  alwaysOn:
+    type: boolean
+    description: <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
+  apiDefinition:
+    type: object
+    $ref: "#/types/azure-native:web/v20181101:ApiDefinitionInfoResponse"
+    description: Information about the formal API definition for the app.
+  appCommandLine:
+    type: string
+    description: App command line to launch.
+  appSettings:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:web/v20181101:NameValuePairResponse"
+    description: Application settings.
+  autoHealEnabled:
+    type: boolean
+    description: <code>true</code> if Auto Heal is enabled; otherwise, <code>false</code>.
+  autoHealRules:
+    type: object
+    $ref: "#/types/azure-native:web/v20181101:AutoHealRulesResponse"
+    description: Auto Heal rules.
+  autoSwapSlotName:
+    type: string
+    description: Auto-swap slot name.
+  azureStorageAccounts:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:web/v20181101:AzureStorageInfoValueResponse"
+    description: User-provided Azure storage accounts.
+  connectionStrings:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:web/v20181101:ConnStringInfoResponse"
+    description: Connection strings.
+  cors:
+    type: object
+    $ref: "#/types/azure-native:web/v20181101:CorsSettingsResponse"
+    description: Cross-Origin Resource Sharing (CORS) settings.
+  defaultDocuments:
+    type: array
+    items:
+      type: string
+    description: Default documents.
+  detailedErrorLoggingEnabled:
+    type: boolean
+    description: <code>true</code> if detailed error logging is enabled; otherwise, <code>false</code>.
+  documentRoot:
+    type: string
+    description: Document root.
+  experiments:
+    type: object
+    $ref: "#/types/azure-native:web/v20181101:ExperimentsResponse"
+    description: This is work around for polymorphic types.
+  ftpsState:
+    type: string
+    description: State of FTP / FTPS service
+  handlerMappings:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:web/v20181101:HandlerMappingResponse"
+    description: Handler mappings.
+  http20Enabled:
+    type: boolean
+    description: "Http20Enabled: configures a web site to allow clients to connect over http2.0"
+    default: true
+  httpLoggingEnabled:
+    type: boolean
+    description: <code>true</code> if HTTP logging is enabled; otherwise, <code>false</code>.
+  ipSecurityRestrictions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:web/v20181101:IpSecurityRestrictionResponse"
+    description: IP security restrictions for main.
+  javaContainer:
+    type: string
+    description: Java container.
+  javaContainerVersion:
+    type: string
+    description: Java container version.
+  javaVersion:
+    type: string
+    description: Java version.
+  limits:
+    type: object
+    $ref: "#/types/azure-native:web/v20181101:SiteLimitsResponse"
+    description: Site limits.
+  linuxFxVersion:
+    type: string
+    description: Linux App Framework and version
+  loadBalancing:
+    type: string
+    description: Site load balancing.
+  localMySqlEnabled:
+    type: boolean
+    description: <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
+    default: false
+  logsDirectorySizeLimit:
+    type: integer
+    description: HTTP logs directory size limit.
+  machineKey:
+    type: object
+    $ref: "#/types/azure-native:web/v20181101:SiteMachineKeyResponse"
+    description: Site MachineKey.
+  managedPipelineMode:
+    type: string
+    description: Managed pipeline mode.
+  managedServiceIdentityId:
+    type: integer
+    description: Managed Service Identity Id
+  minTlsVersion:
+    type: string
+    description: "MinTlsVersion: configures the minimum version of TLS required for SSL requests"
+  netFrameworkVersion:
+    type: string
+    description: .NET Framework version.
+    default: v4.6
+  nodeVersion:
+    type: string
+    description: Version of Node.js.
+  numberOfWorkers:
+    type: integer
+    description: Number of workers.
+  phpVersion:
+    type: string
+    description: Version of PHP.
+  publishingUsername:
+    type: string
+    description: Publishing user name.
+  push:
+    type: object
+    $ref: "#/types/azure-native:web/v20181101:PushSettingsResponse"
+    description: Push endpoint settings.
+  pythonVersion:
+    type: string
+    description: Version of Python.
+  remoteDebuggingEnabled:
+    type: boolean
+    description: <code>true</code> if remote debugging is enabled; otherwise, <code>false</code>.
+  remoteDebuggingVersion:
+    type: string
+    description: Remote debugging version.
+  requestTracingEnabled:
+    type: boolean
+    description: <code>true</code> if request tracing is enabled; otherwise, <code>false</code>.
+  requestTracingExpirationTime:
+    type: string
+    description: Request tracing expiration time.
+  reservedInstanceCount:
+    type: integer
+    description: |-
+      Number of reserved instances.
+      This setting only applies to the Consumption Plan
+  scmIpSecurityRestrictions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:web/v20181101:IpSecurityRestrictionResponse"
+    description: IP security restrictions for scm.
+  scmIpSecurityRestrictionsUseMain:
+    type: boolean
+    description: IP security restrictions for scm to use main.
+  scmType:
+    type: string
+    description: SCM type.
+  tracingOptions:
+    type: string
+    description: Tracing options.
+  use32BitWorkerProcess:
+    type: boolean
+    description: <code>true</code> to use 32-bit worker process; otherwise, <code>false</code>.
+  virtualApplications:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:web/v20181101:VirtualApplicationResponse"
+    description: Virtual applications.
+  vnetName:
+    type: string
+    description: Virtual Network name.
+  webSocketsEnabled:
+    type: boolean
+    description: <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
+  windowsFxVersion:
+    type: string
+    description: Xenon App Framework and version
+  xManagedServiceIdentityId:
+    type: integer
+    description: Explicit Managed Service Identity Id
+type: object
+required:
+  - machineKey

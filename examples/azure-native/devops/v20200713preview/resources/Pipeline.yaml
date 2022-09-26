@@ -1,0 +1,70 @@
+$token: azure-native:devops/v20200713preview:Pipeline
+description: Pipeline used to configure Continuous Integration (CI) & Continuous Delivery (CD) for Azure resources.
+properties:
+  bootstrapConfiguration:
+    type: object
+    $ref: "#/types/azure-native:devops/v20200713preview:BootstrapConfigurationResponse"
+    description: Configuration used to bootstrap the Pipeline.
+  location:
+    type: string
+    description: Resource Location
+  name:
+    type: string
+    description: Resource Name
+  pipelineId:
+    type: integer
+    description: Unique identifier of the Pipeline
+  pipelineType:
+    type: string
+    description: Specifies which CI/CD provider to use. Valid options are 'azurePipeline', 'githubWorkflow'.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:devops/v20200713preview:SystemDataResponse"
+    description: The system metadata pertaining to this resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource Tags
+  type:
+    type: string
+    description: Resource Type
+type: object
+required:
+  - bootstrapConfiguration
+  - name
+  - pipelineId
+  - pipelineType
+  - systemData
+  - type
+inputProperties:
+  bootstrapConfiguration:
+    type: object
+    $ref: "#/types/azure-native:devops/v20200713preview:BootstrapConfiguration"
+    description: Configuration used to bootstrap the Pipeline.
+  location:
+    type: string
+    description: Resource Location
+  pipelineName:
+    type: string
+    description: The name of the Pipeline resource in ARM.
+  pipelineType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:devops/v20200713preview:PipelineTypeEnum"
+    description: Specifies which CI/CD provider to use. Valid options are 'azurePipeline', 'githubWorkflow'.
+  resourceGroupName:
+    type: string
+    description: Name of the resource group within the Azure subscription.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource Tags
+requiredInputs:
+  - bootstrapConfiguration
+  - pipelineType
+  - resourceGroupName
+aliases:
+  - type: azure-native:devops:Pipeline
+  - type: azure-native:devops/v20190701preview:Pipeline

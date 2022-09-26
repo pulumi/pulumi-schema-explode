@@ -1,0 +1,50 @@
+$token: azure-native:web:listConnectionKeys
+description: |-
+  
+  API Version: 2015-08-01-preview.
+inputs:
+  properties:
+    connectionName:
+      type: string
+      description: The connection name.
+    id:
+      type: string
+      description: Resource Id
+    kind:
+      type: string
+      description: Kind of resource
+    location:
+      type: string
+      description: Resource Location
+    name:
+      type: string
+      description: Resource Name
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    type:
+      type: string
+      description: Resource type
+    validityTimeSpan:
+      type: string
+      description: time span for how long the keys will be valid
+  type: object
+  required:
+    - connectionName
+    - resourceGroupName
+outputs:
+  properties:
+    connectionKey:
+      type: string
+      description: Connection Key
+    parameterValues:
+      type: object
+      additionalProperties:
+        $ref: pulumi.json#/Any
+      description: Tokens/Claim
+  type: object

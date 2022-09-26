@@ -1,0 +1,48 @@
+$token: azure-native:batch/v20220601:getApplication
+description: Contains information about an application in a Batch account.
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: The name of the Batch account.
+    applicationName:
+      type: string
+      description: The name of the application. This must be unique within the account.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the Batch account.
+  type: object
+  required:
+    - accountName
+    - applicationName
+    - resourceGroupName
+outputs:
+  description: Contains information about an application in a Batch account.
+  properties:
+    allowUpdates:
+      type: boolean
+      description: A value indicating whether packages within the application may be overwritten using the same version string.
+    defaultVersion:
+      type: string
+      description: The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
+    displayName:
+      type: string
+      description: The display name for the application.
+    etag:
+      type: string
+      description: The ETag of the resource, used for concurrency statements.
+    id:
+      type: string
+      description: The ID of the resource.
+    name:
+      type: string
+      description: The name of the resource.
+    type:
+      type: string
+      description: The type of the resource.
+  type: object
+  required:
+    - etag
+    - id
+    - name
+    - type

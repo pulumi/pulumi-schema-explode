@@ -1,0 +1,75 @@
+$token: azure-native:machinelearningservices/v20210401:getEndpointVariant
+description: Machine Learning service object wrapped into ARM resource envelope.
+inputs:
+  properties:
+    expand:
+      type: boolean
+      description: Set to True to include Model details.
+    resourceGroupName:
+      type: string
+      description: Name of the resource group in which workspace is located.
+    serviceName:
+      type: string
+      description: Name of the Azure Machine Learning service.
+    workspaceName:
+      type: string
+      description: Name of Azure Machine Learning workspace.
+  type: object
+  required:
+    - resourceGroupName
+    - serviceName
+    - workspaceName
+outputs:
+  description: Machine Learning service object wrapped into ARM resource envelope.
+  properties:
+    id:
+      type: string
+      description: Specifies the resource ID.
+    identity:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20210401:IdentityResponse"
+      description: The identity of the resource.
+    location:
+      type: string
+      description: Specifies the location of the resource.
+    name:
+      type: string
+      description: Specifies the name of the resource.
+    properties:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:machinelearningservices/v20210401:ACIServiceResponseResponse"
+        - type: object
+          $ref: "#/types/azure-native:machinelearningservices/v20210401:AKSServiceResponseResponse"
+        - type: object
+          $ref: "#/types/azure-native:machinelearningservices/v20210401:AKSVariantResponseResponse"
+      discriminator:
+        propertyName: computeType
+        mapping:
+          ACI: "#/types/azure-native:machinelearningservices/v20210401:ACIServiceResponseResponse"
+          AKS: "#/types/azure-native:machinelearningservices/v20210401:AKSServiceResponseResponse"
+          Custom: "#/types/azure-native:machinelearningservices/v20210401:AKSVariantResponseResponse"
+      description: Service properties
+    sku:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20210401:SkuResponse"
+      description: The sku of the workspace.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20210401:SystemDataResponse"
+      description: Read only system data
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Contains resource tags defined as key/value pairs.
+    type:
+      type: string
+      description: Specifies the type of the resource.
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - systemData
+    - type

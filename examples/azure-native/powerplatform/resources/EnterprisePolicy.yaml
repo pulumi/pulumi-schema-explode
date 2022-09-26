@@ -1,0 +1,94 @@
+$token: azure-native:powerplatform:EnterprisePolicy
+description: |-
+  Definition of the EnterprisePolicy.
+  API Version: 2020-10-30-preview.
+properties:
+  encryption:
+    type: object
+    $ref: "#/types/azure-native:powerplatform:PropertiesResponseEncryption"
+    description: The encryption settings for a configuration store.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:powerplatform:EnterprisePolicyIdentityResponse"
+    description: The identity of the EnterprisePolicy.
+  kind:
+    type: string
+    description: The kind (type) of Enterprise Policy.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  lockbox:
+    type: object
+    $ref: "#/types/azure-native:powerplatform:PropertiesResponseLockbox"
+    description: Settings concerning lockbox.
+  name:
+    type: string
+    description: The name of the resource
+  networkInjection:
+    type: object
+    $ref: "#/types/azure-native:powerplatform:PropertiesResponseNetworkInjection"
+    description: Settings concerning network injection.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:powerplatform:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  systemId:
+    type: string
+    description: The internally assigned unique identifier of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - kind
+  - location
+  - name
+  - systemData
+  - systemId
+  - type
+inputProperties:
+  encryption:
+    type: object
+    $ref: "#/types/azure-native:powerplatform:PropertiesEncryption"
+    description: The encryption settings for a configuration store.
+  enterprisePolicyName:
+    type: string
+    description: Name of the EnterprisePolicy.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:powerplatform:EnterprisePolicyIdentity"
+    description: The identity of the EnterprisePolicy.
+  kind:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:powerplatform:EnterprisePolicyKind"
+    description: The kind (type) of Enterprise Policy.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  lockbox:
+    type: object
+    $ref: "#/types/azure-native:powerplatform:PropertiesLockbox"
+    description: Settings concerning lockbox.
+  networkInjection:
+    type: object
+    $ref: "#/types/azure-native:powerplatform:PropertiesNetworkInjection"
+    description: Settings concerning network injection.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - kind
+  - resourceGroupName
+aliases:
+  - type: azure-native:powerplatform/v20201030preview:EnterprisePolicy

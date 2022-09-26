@@ -1,0 +1,61 @@
+$token: azure-native:storagepool:IscsiTarget
+description: |-
+  Response for iSCSI target requests.
+  API Version: 2020-03-15-preview.
+properties:
+  name:
+    type: string
+    description: The name of the resource
+  provisioningState:
+    type: string
+    description: State of the operation on the resource.
+  status:
+    type: string
+    description: Operational status of the iSCSI target.
+  targetIqn:
+    type: string
+    description: 'iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".'
+  tpgs:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:storagepool:TargetPortalGroupResponse"
+    description: List of iSCSI target portal groups. Can have 1 portal group at most.
+  type:
+    type: string
+    description: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+type: object
+required:
+  - name
+  - provisioningState
+  - status
+  - targetIqn
+  - tpgs
+  - type
+inputProperties:
+  diskPoolName:
+    type: string
+    description: The name of the Disk pool.
+  iscsiTargetName:
+    type: string
+    description: The name of the iSCSI target.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  targetIqn:
+    type: string
+    description: 'iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".'
+  tpgs:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:storagepool:TargetPortalGroupCreate"
+    description: List of iSCSI target portal groups. Can have 1 portal group at most.
+requiredInputs:
+  - diskPoolName
+  - resourceGroupName
+  - tpgs
+aliases:
+  - type: azure-native:storagepool/v20200315preview:IscsiTarget
+  - type: azure-native:storagepool/v20210401preview:IscsiTarget
+  - type: azure-native:storagepool/v20210801:IscsiTarget

@@ -1,0 +1,63 @@
+$token: azure-native:sql/v20211101:SyncAgent
+description: An Azure SQL Database sync agent.
+properties:
+  expiryTime:
+    type: string
+    description: Expiration time of the sync agent version.
+  isUpToDate:
+    type: boolean
+    description: If the sync agent version is up to date.
+  lastAliveTime:
+    type: string
+    description: Last alive time of the sync agent.
+  name:
+    type: string
+    description: Resource name.
+  state:
+    type: string
+    description: State of the sync agent.
+  syncDatabaseId:
+    type: string
+    description: ARM resource id of the sync database in the sync agent.
+  type:
+    type: string
+    description: Resource type.
+  version:
+    type: string
+    description: Version of the sync agent.
+type: object
+required:
+  - expiryTime
+  - isUpToDate
+  - lastAliveTime
+  - name
+  - state
+  - type
+  - version
+inputProperties:
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  serverName:
+    type: string
+    description: The name of the server on which the sync agent is hosted.
+  syncAgentName:
+    type: string
+    description: The name of the sync agent.
+  syncDatabaseId:
+    type: string
+    description: ARM resource id of the sync database in the sync agent.
+requiredInputs:
+  - resourceGroupName
+  - serverName
+aliases:
+  - type: azure-native:sql:SyncAgent
+  - type: azure-native:sql/v20150501preview:SyncAgent
+  - type: azure-native:sql/v20200202preview:SyncAgent
+  - type: azure-native:sql/v20200801preview:SyncAgent
+  - type: azure-native:sql/v20201101preview:SyncAgent
+  - type: azure-native:sql/v20210201preview:SyncAgent
+  - type: azure-native:sql/v20210501preview:SyncAgent
+  - type: azure-native:sql/v20210801preview:SyncAgent
+  - type: azure-native:sql/v20211101preview:SyncAgent
+  - type: azure-native:sql/v20220201preview:SyncAgent

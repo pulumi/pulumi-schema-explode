@@ -1,0 +1,70 @@
+$token: azure-native:powerbidedicated/v20171001:getCapacityDetails
+description: Represents an instance of a Dedicated Capacity resource.
+inputs:
+  properties:
+    dedicatedCapacityName:
+      type: string
+      description: The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
+    resourceGroupName:
+      type: string
+      description: The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
+  type: object
+  required:
+    - dedicatedCapacityName
+    - resourceGroupName
+outputs:
+  description: Represents an instance of a Dedicated Capacity resource.
+  properties:
+    administration:
+      type: object
+      $ref: "#/types/azure-native:powerbidedicated/v20171001:DedicatedCapacityAdministratorsResponse"
+      description: A collection of Dedicated capacity administrators
+    friendlyName:
+      type: string
+      description: Capacity name
+    id:
+      type: string
+      description: An identifier that represents the PowerBI Dedicated resource.
+    location:
+      type: string
+      description: Location of the PowerBI Dedicated resource.
+    mode:
+      type: string
+      description: The capacity mode.
+    name:
+      type: string
+      description: The name of the PowerBI Dedicated resource.
+    provisioningState:
+      type: string
+      description: The current deployment state of PowerBI Dedicated resource. The provisioningState is to indicate states for resource provisioning.
+    sku:
+      type: object
+      $ref: "#/types/azure-native:powerbidedicated/v20171001:ResourceSkuResponse"
+      description: The SKU of the PowerBI Dedicated resource.
+    state:
+      type: string
+      description: The current state of PowerBI Dedicated resource. The state is to indicate more states outside of resource provisioning.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Key-value pairs of additional resource provisioning properties.
+    tenantId:
+      type: string
+      description: Tenant ID for the capacity. Used for creating Pro Plus capacity.
+    type:
+      type: string
+      description: The type of the PowerBI Dedicated resource.
+  type: object
+  required:
+    - friendlyName
+    - id
+    - location
+    - mode
+    - name
+    - provisioningState
+    - sku
+    - state
+    - tenantId
+    - type
+deprecationMessage: Version 2017-10-01 will be removed in v2 of the provider.

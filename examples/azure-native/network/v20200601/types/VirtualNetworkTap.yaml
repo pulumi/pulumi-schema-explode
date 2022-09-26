@@ -1,0 +1,26 @@
+$token: azure-native:network/v20200601:VirtualNetworkTap
+description: Virtual Network Tap resource.
+properties:
+  destinationLoadBalancerFrontEndIPConfiguration:
+    type: object
+    $ref: "#/types/azure-native:network/v20200601:FrontendIPConfiguration"
+    description: The reference to the private IP address on the internal Load Balancer that will receive the tap.
+  destinationNetworkInterfaceIPConfiguration:
+    type: object
+    $ref: "#/types/azure-native:network/v20200601:NetworkInterfaceIPConfiguration"
+    description: The reference to the private IP Address of the collector nic that will receive the tap.
+  destinationPort:
+    type: integer
+    description: The VXLAN destination port that will receive the tapped traffic.
+  id:
+    type: string
+    description: Resource ID.
+  location:
+    type: string
+    description: Resource location.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+type: object

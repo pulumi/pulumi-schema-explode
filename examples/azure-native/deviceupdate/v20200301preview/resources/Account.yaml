@@ -1,0 +1,86 @@
+$token: azure-native:deviceupdate/v20200301preview:Account
+description: Device Update account details.
+properties:
+  hostName:
+    type: string
+    description: API host name.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:deviceupdate/v20200301preview:ManagedServiceIdentityResponse"
+    description: The type of identity used for the resource.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  name:
+    type: string
+    description: The name of the resource
+  privateEndpointConnections:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:deviceupdate/v20200301preview:PrivateEndpointConnectionResponse"
+    description: List of private endpoint connections associated with the account.
+  provisioningState:
+    type: string
+    description: Provisioning state.
+  publicNetworkAccess:
+    type: string
+    description: Whether or not public network access is allowed for the account.
+    default: Enabled
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:deviceupdate/v20200301preview:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - hostName
+  - location
+  - name
+  - provisioningState
+  - systemData
+  - type
+inputProperties:
+  accountName:
+    type: string
+    description: Account name.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:deviceupdate/v20200301preview:ManagedServiceIdentity"
+    description: The type of identity used for the resource.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  privateEndpointConnections:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:deviceupdate/v20200301preview:PrivateEndpointConnection"
+    description: List of private endpoint connections associated with the account.
+  publicNetworkAccess:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:deviceupdate/v20200301preview:PublicNetworkAccess"
+    description: Whether or not public network access is allowed for the account.
+    default: Enabled
+  resourceGroupName:
+    type: string
+    description: The resource group name.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:deviceupdate:Account
+  - type: azure-native:deviceupdate/v20220401preview:Account
+  - type: azure-native:deviceupdate/v20221001:Account

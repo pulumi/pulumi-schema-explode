@@ -1,0 +1,28 @@
+$token: azure-native:network/v20180701:AzureFirewallIPConfiguration
+description: IP configuration of an Azure Firewall.
+properties:
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  id:
+    type: string
+    description: Resource ID.
+  internalPublicIpAddress:
+    type: object
+    $ref: "#/types/azure-native:network/v20180701:SubResource"
+    description: Reference of the PublicIP resource. This field is a mandatory input.
+  name:
+    type: string
+    description: Name of the resource that is unique within a resource group. This name can be used to access the resource.
+  privateIPAddress:
+    type: string
+    description: The Firewall Internal Load Balancer IP to be used as the next hop in User Defined Routes.
+  publicIPAddress:
+    type: object
+    $ref: "#/types/azure-native:network/v20180701:SubResource"
+    description: Reference of the PublicIP resource. This field is populated in the output.
+  subnet:
+    type: object
+    $ref: "#/types/azure-native:network/v20180701:SubResource"
+    description: Reference of the subnet resource. This resource must be named 'AzureFirewallSubnet'.
+type: object

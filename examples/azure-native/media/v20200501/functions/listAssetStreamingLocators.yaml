@@ -1,0 +1,30 @@
+$token: azure-native:media/v20200501:listAssetStreamingLocators
+description: The Streaming Locators associated with this Asset.
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: The Media Services account name.
+    assetName:
+      type: string
+      description: The Asset name.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group within the Azure subscription.
+  type: object
+  required:
+    - accountName
+    - assetName
+    - resourceGroupName
+outputs:
+  description: The Streaming Locators associated with this Asset.
+  properties:
+    streamingLocators:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:media/v20200501:AssetStreamingLocatorResponse"
+      description: The list of Streaming Locators.
+  type: object
+  required:
+    - streamingLocators

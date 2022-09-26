@@ -1,0 +1,36 @@
+$token: azure-native:network/v20210201:AzureFirewallApplicationRule
+description: Properties of an application rule.
+properties:
+  description:
+    type: string
+    description: Description of the rule.
+  fqdnTags:
+    type: array
+    items:
+      type: string
+    description: List of FQDN Tags for this rule.
+  name:
+    type: string
+    description: Name of the application rule.
+  protocols:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210201:AzureFirewallApplicationRuleProtocol"
+    description: Array of ApplicationRuleProtocols.
+  sourceAddresses:
+    type: array
+    items:
+      type: string
+    description: List of source IP addresses for this rule.
+  sourceIpGroups:
+    type: array
+    items:
+      type: string
+    description: List of source IpGroups for this rule.
+  targetFqdns:
+    type: array
+    items:
+      type: string
+    description: List of FQDNs for this rule.
+type: object

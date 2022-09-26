@@ -1,0 +1,49 @@
+$token: azure-native:datafactory/v20180601:BlobEventsTriggerResponse
+description: Trigger that runs every time a Blob event occurs.
+properties:
+  annotations:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: List of tags that can be used for describing the trigger.
+  blobPathBeginsWith:
+    type: string
+    description: "The blob path must begin with the pattern provided for trigger to fire. For example, '/records/blobs/december/' will only fire the trigger for blobs in the december folder under the records container. At least one of these must be provided: blobPathBeginsWith, blobPathEndsWith."
+  blobPathEndsWith:
+    type: string
+    description: "The blob path must end with the pattern provided for trigger to fire. For example, 'december/boxes.csv' will only fire the trigger for blobs named boxes in a december folder. At least one of these must be provided: blobPathBeginsWith, blobPathEndsWith."
+  description:
+    type: string
+    description: Trigger description.
+  events:
+    type: array
+    items:
+      type: string
+    description: The type of events that cause this trigger to fire.
+  ignoreEmptyBlobs:
+    type: boolean
+    description: If set to true, blobs with zero bytes will be ignored.
+  pipelines:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20180601:TriggerPipelineReferenceResponse"
+    description: Pipelines that need to be started.
+  runtimeState:
+    type: string
+    description: Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
+  scope:
+    type: string
+    description: The ARM resource ID of the Storage Account.
+  type:
+    type: string
+    description: |-
+      Trigger type.
+      Expected value is 'BlobEventsTrigger'.
+    const: BlobEventsTrigger
+type: object
+required:
+  - events
+  - runtimeState
+  - scope
+  - type

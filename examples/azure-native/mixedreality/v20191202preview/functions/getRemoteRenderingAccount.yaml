@@ -1,0 +1,53 @@
+$token: azure-native:mixedreality/v20191202preview:getRemoteRenderingAccount
+description: RemoteRenderingAccount Response.
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: Name of an Mixed Reality Account.
+    resourceGroupName:
+      type: string
+      description: Name of an Azure resource group.
+  type: object
+  required:
+    - accountName
+    - resourceGroupName
+outputs:
+  description: RemoteRenderingAccount Response.
+  properties:
+    accountDomain:
+      type: string
+      description: Correspond domain name of certain Spatial Anchors Account
+    accountId:
+      type: string
+      description: unique id of certain account.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    identity:
+      type: object
+      $ref: "#/types/azure-native:mixedreality/v20191202preview:IdentityResponse"
+      description: The identity associated with this account
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    name:
+      type: string
+      description: The name of the resource
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - accountDomain
+    - accountId
+    - id
+    - location
+    - name
+    - type
+deprecationMessage: Version 2019-12-02-preview will be removed in v2 of the provider.

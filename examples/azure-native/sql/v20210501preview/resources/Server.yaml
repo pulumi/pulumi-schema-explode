@@ -1,0 +1,146 @@
+$token: azure-native:sql/v20210501preview:Server
+description: An Azure SQL Database server.
+properties:
+  administratorLogin:
+    type: string
+    description: Administrator username for the server. Once created it cannot be changed.
+  administrators:
+    type: object
+    $ref: "#/types/azure-native:sql/v20210501preview:ServerExternalAdministratorResponse"
+    description: The Azure Active Directory administrator of the server.
+  federatedClientId:
+    type: string
+    description: The Client id used for cross tenant CMK scenario
+  fullyQualifiedDomainName:
+    type: string
+    description: The fully qualified domain name of the server.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:sql/v20210501preview:ResourceIdentityResponse"
+    description: The Azure Active Directory identity of the server.
+  keyId:
+    type: string
+    description: A CMK URI of the key to use for encryption.
+  kind:
+    type: string
+    description: Kind of sql server. This is metadata used for the Azure portal experience.
+  location:
+    type: string
+    description: Resource location.
+  minimalTlsVersion:
+    type: string
+    description: "Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'"
+  name:
+    type: string
+    description: Resource name.
+  primaryUserAssignedIdentityId:
+    type: string
+    description: The resource id of a user assigned identity to be used by default.
+  privateEndpointConnections:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:sql/v20210501preview:ServerPrivateEndpointConnectionResponse"
+    description: List of private endpoint connections on a server
+  publicNetworkAccess:
+    type: string
+    description: Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+  restrictOutboundNetworkAccess:
+    type: string
+    description: Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+  state:
+    type: string
+    description: The state of the server.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: Resource type.
+  version:
+    type: string
+    description: The version of the server.
+  workspaceFeature:
+    type: string
+    description: Whether or not existing server has a workspace created and if it allows connection from workspace
+type: object
+required:
+  - fullyQualifiedDomainName
+  - kind
+  - location
+  - name
+  - privateEndpointConnections
+  - state
+  - type
+  - workspaceFeature
+inputProperties:
+  administratorLogin:
+    type: string
+    description: Administrator username for the server. Once created it cannot be changed.
+  administratorLoginPassword:
+    type: string
+    description: The administrator login password (required for server creation).
+  administrators:
+    type: object
+    $ref: "#/types/azure-native:sql/v20210501preview:ServerExternalAdministrator"
+    description: The Azure Active Directory administrator of the server.
+  federatedClientId:
+    type: string
+    description: The Client id used for cross tenant CMK scenario
+  identity:
+    type: object
+    $ref: "#/types/azure-native:sql/v20210501preview:ResourceIdentity"
+    description: The Azure Active Directory identity of the server.
+  keyId:
+    type: string
+    description: A CMK URI of the key to use for encryption.
+  location:
+    type: string
+    description: Resource location.
+  minimalTlsVersion:
+    type: string
+    description: "Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'"
+  primaryUserAssignedIdentityId:
+    type: string
+    description: The resource id of a user assigned identity to be used by default.
+  publicNetworkAccess:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:sql/v20210501preview:ServerNetworkAccessFlag"
+    description: Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  restrictOutboundNetworkAccess:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:sql/v20210501preview:ServerNetworkAccessFlag"
+    description: Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+  serverName:
+    type: string
+    description: The name of the server.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  version:
+    type: string
+    description: The version of the server.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:sql:Server
+  - type: azure-native:sql/v20140401:Server
+  - type: azure-native:sql/v20150501preview:Server
+  - type: azure-native:sql/v20190601preview:Server
+  - type: azure-native:sql/v20200202preview:Server
+  - type: azure-native:sql/v20200801preview:Server
+  - type: azure-native:sql/v20201101preview:Server
+  - type: azure-native:sql/v20210201preview:Server
+  - type: azure-native:sql/v20210801preview:Server
+  - type: azure-native:sql/v20211101:Server
+  - type: azure-native:sql/v20211101preview:Server
+  - type: azure-native:sql/v20220201preview:Server

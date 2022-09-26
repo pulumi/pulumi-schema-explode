@@ -1,0 +1,42 @@
+$token: azure-native:machinelearningservices:getLinkedWorkspace
+description: |-
+  Linked workspace.
+  API Version: 2020-03-01.
+inputs:
+  properties:
+    linkName:
+      type: string
+      description: Friendly name of the linked workspace
+    resourceGroupName:
+      type: string
+      description: Name of the resource group in which workspace is located.
+    workspaceName:
+      type: string
+      description: Name of Azure Machine Learning workspace.
+  type: object
+  required:
+    - linkName
+    - resourceGroupName
+    - workspaceName
+outputs:
+  description: Linked workspace.
+  properties:
+    id:
+      type: string
+      description: ResourceId of the link of the linked workspace.
+    name:
+      type: string
+      description: Friendly name of the linked workspace.
+    properties:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices:LinkedWorkspacePropsResponse"
+      description: LinkedWorkspace specific properties.
+    type:
+      type: string
+      description: Resource type of linked workspace.
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - type

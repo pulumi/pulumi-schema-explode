@@ -1,0 +1,98 @@
+$token: azure-native:costmanagement/v20220601preview:ScheduledAction
+description: Scheduled action definition.
+properties:
+  displayName:
+    type: string
+    description: Scheduled action name.
+  eTag:
+    type: string
+    description: Resource Etag.
+  fileDestination:
+    type: object
+    $ref: "#/types/azure-native:costmanagement/v20220601preview:FileDestinationResponse"
+    description: Destination format of the view data. This is optional.
+  kind:
+    type: string
+    description: Kind of the scheduled action.
+  name:
+    type: string
+    description: Resource name.
+  notification:
+    type: object
+    $ref: "#/types/azure-native:costmanagement/v20220601preview:NotificationPropertiesResponse"
+    description: Notification properties based on scheduled action kind.
+  schedule:
+    type: object
+    $ref: "#/types/azure-native:costmanagement/v20220601preview:SchedulePropertiesResponse"
+    description: Schedule of the scheduled action.
+  scope:
+    type: string
+    description: Cost Management scope like 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
+  status:
+    type: string
+    description: Status of the scheduled action.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:costmanagement/v20220601preview:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  type:
+    type: string
+    description: Resource type.
+  viewId:
+    type: string
+    description: Cost analysis viewId used for scheduled action. For example, '/providers/Microsoft.CostManagement/views/swaggerExample'
+type: object
+required:
+  - displayName
+  - eTag
+  - name
+  - notification
+  - schedule
+  - status
+  - systemData
+  - type
+  - viewId
+inputProperties:
+  displayName:
+    type: string
+    description: Scheduled action name.
+  fileDestination:
+    type: object
+    $ref: "#/types/azure-native:costmanagement/v20220601preview:FileDestination"
+    description: Destination format of the view data. This is optional.
+  kind:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:costmanagement/v20220601preview:ScheduledActionKind"
+    description: Kind of the scheduled action.
+  name:
+    type: string
+    description: Scheduled action name.
+  notification:
+    type: object
+    $ref: "#/types/azure-native:costmanagement/v20220601preview:NotificationProperties"
+    description: Notification properties based on scheduled action kind.
+  schedule:
+    type: object
+    $ref: "#/types/azure-native:costmanagement/v20220601preview:ScheduleProperties"
+    description: Schedule of the scheduled action.
+  scope:
+    type: string
+    description: Cost Management scope like 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
+  status:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:costmanagement/v20220601preview:ScheduledActionStatus"
+    description: Status of the scheduled action.
+  viewId:
+    type: string
+    description: Cost analysis viewId used for scheduled action. For example, '/providers/Microsoft.CostManagement/views/swaggerExample'
+requiredInputs:
+  - displayName
+  - notification
+  - schedule
+  - status
+  - viewId
+aliases:
+  - type: azure-native:costmanagement:ScheduledAction
+  - type: azure-native:costmanagement/v20220401preview:ScheduledAction

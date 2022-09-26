@@ -1,0 +1,30 @@
+$token: azure-native:azurearcdata:DataControllerProperties
+description: The data controller properties.
+properties:
+  basicLoginInformation:
+    type: object
+    $ref: "#/types/azure-native:azurearcdata:BasicLoginInformation"
+    description: Username and password for basic login authentication.
+  k8sRaw:
+    $ref: pulumi.json#/Any
+    description: The raw kubernetes information
+  lastUploadedDate:
+    type: string
+    description: Last uploaded date from Kubernetes cluster. Defaults to current date time
+  logAnalyticsWorkspaceConfig:
+    type: object
+    $ref: "#/types/azure-native:azurearcdata:LogAnalyticsWorkspaceConfig"
+    description: Log analytics workspace id and primary key
+  onPremiseProperty:
+    type: object
+    $ref: "#/types/azure-native:azurearcdata:OnPremiseProperty"
+    description: Properties from the Kubernetes data controller
+  uploadServicePrincipal:
+    type: object
+    $ref: "#/types/azure-native:azurearcdata:UploadServicePrincipal"
+    description: Service principal for uploading billing, metrics and logs.
+  uploadWatermark:
+    type: object
+    $ref: "#/types/azure-native:azurearcdata:UploadWatermark"
+    description: Properties on upload watermark.  Mostly timestamp for each upload data type
+type: object

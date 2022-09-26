@@ -1,0 +1,73 @@
+$token: azure-native:apimanagement/v20210801:getApiDiagnostic
+description: Diagnostic details.
+inputs:
+  properties:
+    apiId:
+      type: string
+      description: API identifier. Must be unique in the current API Management service instance.
+    diagnosticId:
+      type: string
+      description: Diagnostic identifier. Must be unique in the current API Management service instance.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    serviceName:
+      type: string
+      description: The name of the API Management service.
+  type: object
+  required:
+    - apiId
+    - diagnosticId
+    - resourceGroupName
+    - serviceName
+outputs:
+  description: Diagnostic details.
+  properties:
+    alwaysLog:
+      type: string
+      description: Specifies for what type of messages sampling settings should not apply.
+    backend:
+      type: object
+      $ref: "#/types/azure-native:apimanagement/v20210801:PipelineDiagnosticSettingsResponse"
+      description: Diagnostic settings for incoming/outgoing HTTP messages to the Backend
+    frontend:
+      type: object
+      $ref: "#/types/azure-native:apimanagement/v20210801:PipelineDiagnosticSettingsResponse"
+      description: Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
+    httpCorrelationProtocol:
+      type: string
+      description: Sets correlation protocol to use for Application Insights diagnostics.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    logClientIp:
+      type: boolean
+      description: Log the ClientIP. Default is false.
+    loggerId:
+      type: string
+      description: Resource Id of a target logger.
+    metrics:
+      type: boolean
+      description: Emit custom metrics via emit-metric policy. Applicable only to Application Insights diagnostic settings.
+    name:
+      type: string
+      description: The name of the resource
+    operationNameFormat:
+      type: string
+      description: The format of the Operation Name for Application Insights telemetries. Default is Name.
+    sampling:
+      type: object
+      $ref: "#/types/azure-native:apimanagement/v20210801:SamplingSettingsResponse"
+      description: Sampling settings for Diagnostic.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+    verbosity:
+      type: string
+      description: The verbosity level applied to traces emitted by trace policies.
+  type: object
+  required:
+    - id
+    - loggerId
+    - name
+    - type

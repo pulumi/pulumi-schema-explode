@@ -1,0 +1,50 @@
+$token: azure-native:recoveryservices/v20220101:getReplicationNetworkMapping
+inputs:
+  properties:
+    fabricName:
+      type: string
+      description: Primary fabric name.
+    networkMappingName:
+      type: string
+      description: Network mapping name.
+    networkName:
+      type: string
+      description: Primary network name.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group where the recovery services vault is present.
+    resourceName:
+      type: string
+      description: The name of the recovery services vault.
+  type: object
+  required:
+    - fabricName
+    - networkMappingName
+    - networkName
+    - resourceGroupName
+    - resourceName
+outputs:
+  description: Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
+  properties:
+    id:
+      type: string
+      description: Resource Id
+    location:
+      type: string
+      description: Resource Location
+    name:
+      type: string
+      description: Resource Name
+    properties:
+      type: object
+      $ref: "#/types/azure-native:recoveryservices/v20220101:NetworkMappingPropertiesResponse"
+      description: The Network Mapping Properties.
+    type:
+      type: string
+      description: Resource Type
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - type

@@ -1,0 +1,87 @@
+$token: azure-native:mobilenetwork/v20220301preview:getPacketCoreControlPlane
+description: Packet core control plane resource.
+inputs:
+  properties:
+    packetCoreControlPlaneName:
+      type: string
+      description: The name of the packet core control plane.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+  type: object
+  required:
+    - packetCoreControlPlaneName
+    - resourceGroupName
+outputs:
+  description: Packet core control plane resource.
+  properties:
+    controlPlaneAccessInterface:
+      type: object
+      $ref: "#/types/azure-native:mobilenetwork/v20220301preview:InterfacePropertiesResponse"
+      description: The control plane interface on the access network. In 5G networks this is called as N2 interface whereas in 4G networks this is called as S1-MME interface.
+    coreNetworkTechnology:
+      type: string
+      description: The core network technology generation.
+    createdAt:
+      type: string
+      description: The timestamp of resource creation (UTC).
+    createdBy:
+      type: string
+      description: The identity that created the resource.
+    createdByType:
+      type: string
+      description: The type of identity that created the resource.
+    customLocation:
+      type: object
+      $ref: "#/types/azure-native:mobilenetwork/v20220301preview:CustomLocationResourceIdResponse"
+      description: Azure ARC custom location where the packet core is deployed.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    lastModifiedAt:
+      type: string
+      description: The timestamp of resource last modification (UTC)
+    lastModifiedBy:
+      type: string
+      description: The identity that last modified the resource.
+    lastModifiedByType:
+      type: string
+      description: The type of identity that last modified the resource.
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    mobileNetwork:
+      type: object
+      $ref: "#/types/azure-native:mobilenetwork/v20220301preview:MobileNetworkResourceIdResponse"
+      description: Mobile network that this packet core control plane belongs to
+    name:
+      type: string
+      description: The name of the resource
+    provisioningState:
+      type: string
+      description: The provisioning state of the packet core control plane resource.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:mobilenetwork/v20220301preview:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+    version:
+      type: string
+      description: The version of the packet core software that is deployed.
+  type: object
+  required:
+    - controlPlaneAccessInterface
+    - id
+    - location
+    - mobileNetwork
+    - name
+    - provisioningState
+    - systemData
+    - type

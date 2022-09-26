@@ -1,0 +1,98 @@
+$token: azure-native:devhub:getWorkflow
+description: |-
+  Resource representation of a workflow
+  API Version: 2022-04-01-preview.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    workflowName:
+      type: string
+      description: The name of the workflow resource.
+  type: object
+  required:
+    - resourceGroupName
+    - workflowName
+outputs:
+  description: Resource representation of a workflow
+  properties:
+    acr:
+      type: object
+      $ref: "#/types/azure-native:devhub:ACRResponse"
+      description: Information on the azure container registry
+    aksResourceId:
+      type: string
+      description: The Azure Kubernetes Cluster Resource the application will be deployed to.
+    authStatus:
+      type: string
+      description: Determines the authorization status of requests.
+    branchName:
+      type: string
+      description: Repository Branch Name
+    deploymentProperties:
+      type: object
+      $ref: "#/types/azure-native:devhub:DeploymentPropertiesResponse"
+    dockerBuildContext:
+      type: string
+      description: Path to Dockerfile Build Context within the repository.
+    dockerfile:
+      type: string
+      description: Path to the Dockerfile within the repository.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    lastWorkflowRun:
+      type: object
+      $ref: "#/types/azure-native:devhub:WorkflowRunResponse"
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    name:
+      type: string
+      description: The name of the resource
+    namespace:
+      type: string
+      description: Kubernetes namespace the application is deployed to.
+    oidcCredentials:
+      type: object
+      $ref: "#/types/azure-native:devhub:GitHubWorkflowProfileResponseOidcCredentials"
+      description: The fields needed for OIDC with GitHub.
+    prStatus:
+      type: string
+      description: The status of the Pull Request submitted against the users repository.
+    prURL:
+      type: string
+      description: The URL to the Pull Request submitted against the users repository.
+    pullNumber:
+      type: integer
+      description: The number associated with the submitted pull request.
+    repositoryName:
+      type: string
+      description: Repository Name
+    repositoryOwner:
+      type: string
+      description: Repository Owner
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:devhub:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - authStatus
+    - id
+    - location
+    - name
+    - prStatus
+    - prURL
+    - pullNumber
+    - systemData
+    - type

@@ -1,0 +1,15 @@
+$token: azure-native:devtestlab/v20180915:AttachNewDataDiskOptions
+description: Properties to attach new disk to the Virtual Machine.
+properties:
+  diskName:
+    type: string
+    description: The name of the disk to be attached.
+  diskSizeGiB:
+    type: integer
+    description: Size of the disk to be attached in Gibibytes.
+  diskType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:devtestlab/v20180915:StorageType"
+    description: The storage type for the disk (i.e. Standard, Premium).
+type: object

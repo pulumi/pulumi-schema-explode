@@ -1,0 +1,59 @@
+$token: azure-native:desktopvirtualization/v20201110preview:getApplicationGroup
+description: Represents a ApplicationGroup definition.
+inputs:
+  properties:
+    applicationGroupName:
+      type: string
+      description: The name of the application group
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+  type: object
+  required:
+    - applicationGroupName
+    - resourceGroupName
+outputs:
+  description: Represents a ApplicationGroup definition.
+  properties:
+    applicationGroupType:
+      type: string
+      description: Resource Type of ApplicationGroup.
+    description:
+      type: string
+      description: Description of ApplicationGroup.
+    friendlyName:
+      type: string
+      description: Friendly name of ApplicationGroup.
+    hostPoolArmPath:
+      type: string
+      description: HostPool arm path of ApplicationGroup.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    name:
+      type: string
+      description: The name of the resource
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+    workspaceArmPath:
+      type: string
+      description: Workspace arm path of ApplicationGroup.
+  type: object
+  required:
+    - applicationGroupType
+    - hostPoolArmPath
+    - id
+    - location
+    - name
+    - type
+    - workspaceArmPath
+deprecationMessage: Version 2020-11-10-preview will be removed in v2 of the provider.

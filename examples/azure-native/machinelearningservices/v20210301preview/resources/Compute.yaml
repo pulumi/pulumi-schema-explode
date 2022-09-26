@@ -1,0 +1,153 @@
+$token: azure-native:machinelearningservices/v20210301preview:Compute
+description: Machine Learning compute object wrapped into ARM resource envelope.
+properties:
+  identity:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20210301preview:IdentityResponse"
+    description: The identity of the resource.
+  location:
+    type: string
+    description: Specifies the location of the resource.
+  name:
+    type: string
+    description: The name of the resource
+  properties:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:AKSResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:AmlComputeResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:ComputeInstanceResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:DataFactoryResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:DataLakeAnalyticsResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:DatabricksResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:HDInsightResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:SynapseSparkResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:VirtualMachineResponse"
+    discriminator:
+      propertyName: computeType
+      mapping:
+        AKS: "#/types/azure-native:machinelearningservices/v20210301preview:AKSResponse"
+        AmlCompute: "#/types/azure-native:machinelearningservices/v20210301preview:AmlComputeResponse"
+        ComputeInstance: "#/types/azure-native:machinelearningservices/v20210301preview:ComputeInstanceResponse"
+        DataFactory: "#/types/azure-native:machinelearningservices/v20210301preview:DataFactoryResponse"
+        DataLakeAnalytics: "#/types/azure-native:machinelearningservices/v20210301preview:DataLakeAnalyticsResponse"
+        Databricks: "#/types/azure-native:machinelearningservices/v20210301preview:DatabricksResponse"
+        HDInsight: "#/types/azure-native:machinelearningservices/v20210301preview:HDInsightResponse"
+        SynapseSpark: "#/types/azure-native:machinelearningservices/v20210301preview:SynapseSparkResponse"
+        VirtualMachine: "#/types/azure-native:machinelearningservices/v20210301preview:VirtualMachineResponse"
+    description: Compute properties
+  sku:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20210301preview:SkuResponse"
+    description: The sku of the workspace.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20210301preview:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Contains resource tags defined as key/value pairs.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - name
+  - properties
+  - systemData
+  - type
+inputProperties:
+  computeName:
+    type: string
+    description: Name of the Azure Machine Learning compute.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20210301preview:Identity"
+    description: The identity of the resource.
+  location:
+    type: string
+    description: Specifies the location of the resource.
+  properties:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:AKS"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:AmlCompute"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:ComputeInstance"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:DataFactory"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:DataLakeAnalytics"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:Databricks"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:HDInsight"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:SynapseSpark"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:VirtualMachine"
+    discriminator:
+      propertyName: computeType
+      mapping:
+        AKS: "#/types/azure-native:machinelearningservices/v20210301preview:AKS"
+        AmlCompute: "#/types/azure-native:machinelearningservices/v20210301preview:AmlCompute"
+        ComputeInstance: "#/types/azure-native:machinelearningservices/v20210301preview:ComputeInstance"
+        DataFactory: "#/types/azure-native:machinelearningservices/v20210301preview:DataFactory"
+        DataLakeAnalytics: "#/types/azure-native:machinelearningservices/v20210301preview:DataLakeAnalytics"
+        Databricks: "#/types/azure-native:machinelearningservices/v20210301preview:Databricks"
+        HDInsight: "#/types/azure-native:machinelearningservices/v20210301preview:HDInsight"
+        SynapseSpark: "#/types/azure-native:machinelearningservices/v20210301preview:SynapseSpark"
+        VirtualMachine: "#/types/azure-native:machinelearningservices/v20210301preview:VirtualMachine"
+    description: Compute properties
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20210301preview:Sku"
+    description: The sku of the workspace.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Contains resource tags defined as key/value pairs.
+  workspaceName:
+    type: string
+    description: Name of Azure Machine Learning workspace.
+requiredInputs:
+  - resourceGroupName
+  - workspaceName
+aliases:
+  - type: azure-native:machinelearningservices:Compute
+  - type: azure-native:machinelearningservices/v20180301preview:Compute
+  - type: azure-native:machinelearningservices/v20181119:Compute
+  - type: azure-native:machinelearningservices/v20190501:Compute
+  - type: azure-native:machinelearningservices/v20190601:Compute
+  - type: azure-native:machinelearningservices/v20191101:Compute
+  - type: azure-native:machinelearningservices/v20200101:Compute
+  - type: azure-native:machinelearningservices/v20200218preview:Compute
+  - type: azure-native:machinelearningservices/v20200301:Compute
+  - type: azure-native:machinelearningservices/v20200401:Compute
+  - type: azure-native:machinelearningservices/v20200501preview:Compute
+  - type: azure-native:machinelearningservices/v20200515preview:Compute
+  - type: azure-native:machinelearningservices/v20200601:Compute
+  - type: azure-native:machinelearningservices/v20200801:Compute
+  - type: azure-native:machinelearningservices/v20200901preview:Compute
+  - type: azure-native:machinelearningservices/v20210101:Compute
+  - type: azure-native:machinelearningservices/v20210401:Compute
+  - type: azure-native:machinelearningservices/v20210701:Compute
+  - type: azure-native:machinelearningservices/v20220101preview:Compute
+  - type: azure-native:machinelearningservices/v20220201preview:Compute
+  - type: azure-native:machinelearningservices/v20220501:Compute
+  - type: azure-native:machinelearningservices/v20220601preview:Compute

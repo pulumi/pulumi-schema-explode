@@ -1,0 +1,24 @@
+$token: azure-native:storage/v20180301preview:ImmutabilityPolicyPropertiesResponse
+description: The properties of an ImmutabilityPolicy of a blob container.
+properties:
+  etag:
+    type: string
+    description: ImmutabilityPolicy Etag.
+  immutabilityPeriodSinceCreationInDays:
+    type: integer
+    description: The immutability period for the blobs in the container since the policy creation, in days.
+  state:
+    type: string
+    description: "The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked."
+  updateHistory:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:storage/v20180301preview:UpdateHistoryPropertyResponse"
+    description: The ImmutabilityPolicy update history of the blob container.
+type: object
+required:
+  - etag
+  - immutabilityPeriodSinceCreationInDays
+  - state
+  - updateHistory

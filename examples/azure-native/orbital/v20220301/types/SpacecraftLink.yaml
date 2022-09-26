@@ -1,0 +1,29 @@
+$token: azure-native:orbital/v20220301:SpacecraftLink
+description: List of authorized spacecraft links per ground station and the expiration date of the authorization.
+properties:
+  bandwidthMHz:
+    type: number
+    description: Bandwidth in MHz.
+  centerFrequencyMHz:
+    type: number
+    description: Center Frequency in MHz.
+  direction:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:orbital/v20220301:Direction"
+    description: Direction (uplink or downlink).
+  name:
+    type: string
+    description: Link name.
+  polarization:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:orbital/v20220301:Polarization"
+    description: Polarization. e.g. (RHCP, LHCP).
+type: object
+required:
+  - bandwidthMHz
+  - centerFrequencyMHz
+  - direction
+  - name
+  - polarization

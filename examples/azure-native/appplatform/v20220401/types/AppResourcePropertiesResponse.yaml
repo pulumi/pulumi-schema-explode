@@ -1,0 +1,48 @@
+$token: azure-native:appplatform/v20220401:AppResourcePropertiesResponse
+description: App resource properties payload
+properties:
+  addonConfigs:
+    type: object
+    additionalProperties:
+      type: object
+      additionalProperties:
+        $ref: pulumi.json#/Any
+    description: Collection of addons
+  enableEndToEndTLS:
+    type: boolean
+    description: Indicate if end to end TLS is enabled.
+    default: false
+  fqdn:
+    type: string
+    description: Fully qualified dns Name.
+  httpsOnly:
+    type: boolean
+    description: Indicate if only https is allowed.
+    default: false
+  loadedCertificates:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:appplatform/v20220401:LoadedCertificateResponse"
+    description: Collection of loaded certificates
+  persistentDisk:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20220401:PersistentDiskResponse"
+    description: Persistent disk settings
+  provisioningState:
+    type: string
+    description: Provisioning state of the App
+  public:
+    type: boolean
+    description: Indicates whether the App exposes public endpoint
+  temporaryDisk:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20220401:TemporaryDiskResponse"
+    description: Temporary disk settings
+  url:
+    type: string
+    description: URL of the App
+type: object
+required:
+  - provisioningState
+  - url

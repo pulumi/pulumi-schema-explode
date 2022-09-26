@@ -1,0 +1,42 @@
+$token: azure-native:automanage/v20210430preview:ConfigurationProfileHCIAssignment
+description: Configuration profile assignment is an association between a VM and automanage profile configuration.
+properties:
+  name:
+    type: string
+    description: The name of the resource
+  properties:
+    type: object
+    $ref: "#/types/azure-native:automanage/v20210430preview:ConfigurationProfileAssignmentPropertiesResponse"
+    description: Properties of the configuration profile assignment.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:automanage/v20210430preview:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - name
+  - properties
+  - systemData
+  - type
+inputProperties:
+  clusterName:
+    type: string
+    description: The name of the Arc machine.
+  configurationProfileAssignmentName:
+    type: string
+    description: Name of the configuration profile assignment. Only default is supported.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:automanage/v20210430preview:ConfigurationProfileAssignmentProperties"
+    description: Properties of the configuration profile assignment.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+requiredInputs:
+  - clusterName
+  - resourceGroupName
+aliases:
+  - type: azure-native:automanage/v20220504:ConfigurationProfileHCIAssignment

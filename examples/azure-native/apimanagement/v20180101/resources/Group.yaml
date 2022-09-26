@@ -1,0 +1,68 @@
+$token: azure-native:apimanagement/v20180101:Group
+description: Contract details.
+properties:
+  builtIn:
+    type: boolean
+    description: true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
+  description:
+    type: string
+    description: Group description. Can contain HTML formatting tags.
+  displayName:
+    type: string
+    description: Group name.
+  externalId:
+    type: string
+    description: For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://<tenant>.onmicrosoft.com/groups/<group object id>; otherwise the value is null.
+  name:
+    type: string
+    description: Resource name.
+  type:
+    type: string
+    description: Resource type for API Management resource.
+type: object
+required:
+  - builtIn
+  - displayName
+  - name
+  - type
+inputProperties:
+  description:
+    type: string
+    description: Group description.
+  displayName:
+    type: string
+    description: Group name.
+  externalId:
+    type: string
+    description: Identifier of the external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://<tenant>.onmicrosoft.com/groups/<group object id>; otherwise the value is null.
+  groupId:
+    type: string
+    description: Group identifier. Must be unique in the current API Management service instance.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  serviceName:
+    type: string
+    description: The name of the API Management service.
+  type:
+    $ref: "#/types/azure-native:apimanagement/v20180101:GroupType"
+    description: Group type.
+requiredInputs:
+  - displayName
+  - resourceGroupName
+  - serviceName
+aliases:
+  - type: azure-native:apimanagement:Group
+  - type: azure-native:apimanagement/v20160707:Group
+  - type: azure-native:apimanagement/v20161010:Group
+  - type: azure-native:apimanagement/v20170301:Group
+  - type: azure-native:apimanagement/v20180601preview:Group
+  - type: azure-native:apimanagement/v20190101:Group
+  - type: azure-native:apimanagement/v20191201:Group
+  - type: azure-native:apimanagement/v20191201preview:Group
+  - type: azure-native:apimanagement/v20200601preview:Group
+  - type: azure-native:apimanagement/v20201201:Group
+  - type: azure-native:apimanagement/v20210101preview:Group
+  - type: azure-native:apimanagement/v20210401preview:Group
+  - type: azure-native:apimanagement/v20210801:Group
+  - type: azure-native:apimanagement/v20211201preview:Group

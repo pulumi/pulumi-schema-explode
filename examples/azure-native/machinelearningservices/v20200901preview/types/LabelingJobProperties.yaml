@@ -1,0 +1,41 @@
+$token: azure-native:machinelearningservices/v20200901preview:LabelingJobProperties
+description: Definition of a labeling job.
+properties:
+  datasetConfiguration:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20200901preview:LabelingDatasetConfiguration"
+    description: Dataset configuration for the job.
+  jobInstructions:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20200901preview:LabelingJobInstructions"
+    description: Instructions for the job.
+  labelCategories:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20200901preview:LabelCategory"
+    description: Label categories of the job.
+  labelingJobMediaProperties:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20200901preview:LabelingJobImageProperties"
+    description: Media specific properties in a labeling job.
+  mlAssistConfiguration:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20200901preview:MLAssistConfiguration"
+    description: Machine learning assisted configuration for the job.
+  properties:
+    type: object
+    additionalProperties:
+      type: string
+    description: The job property dictionary. Properties can be added, but not removed or altered.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The job tag dictionary. Tags can be added, removed, and updated.
+type: object
+required:
+  - datasetConfiguration
+  - jobInstructions
+  - labelCategories
+  - labelingJobMediaProperties

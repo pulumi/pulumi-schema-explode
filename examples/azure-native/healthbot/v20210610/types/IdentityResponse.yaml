@@ -1,0 +1,24 @@
+$token: azure-native:healthbot/v20210610:IdentityResponse
+description: Identity for the resource.
+properties:
+  principalId:
+    type: string
+    description: The principal ID of resource identity. This property will only be provided for a system assigned identity.
+  tenantId:
+    type: string
+    description: The tenant ID of resource. This property will only be provided for a system assigned identity.
+  type:
+    type: string
+    description: The identity type. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the Azure Health Bot
+  userAssignedIdentities:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:healthbot/v20210610:UserAssignedIdentityResponse"
+    description: |
+      The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
+      '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+type: object
+required:
+  - principalId
+  - tenantId

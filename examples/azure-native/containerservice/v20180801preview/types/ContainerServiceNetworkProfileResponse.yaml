@@ -1,0 +1,27 @@
+$token: azure-native:containerservice/v20180801preview:ContainerServiceNetworkProfileResponse
+description: Profile of network configuration.
+properties:
+  dnsServiceIP:
+    type: string
+    description: An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
+    default: 10.0.0.10
+  dockerBridgeCidr:
+    type: string
+    description: A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
+    default: 172.17.0.1/16
+  networkPlugin:
+    type: string
+    description: Network plugin used for building Kubernetes network.
+    default: kubenet
+  networkPolicy:
+    type: string
+    description: Network policy used for building Kubernetes network.
+  podCidr:
+    type: string
+    description: A CIDR notation IP range from which to assign pod IPs when kubenet is used.
+    default: 10.244.0.0/16
+  serviceCidr:
+    type: string
+    description: A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
+    default: 10.0.0.0/16
+type: object

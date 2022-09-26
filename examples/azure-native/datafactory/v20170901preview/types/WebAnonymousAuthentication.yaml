@@ -1,0 +1,16 @@
+$token: azure-native:datafactory/v20170901preview:WebAnonymousAuthentication
+description: A WebLinkedService that uses anonymous authentication to communicate with an HTTP endpoint.
+properties:
+  authenticationType:
+    type: string
+    description: |-
+      Type of authentication used to connect to the web table source.
+      Expected value is 'Anonymous'.
+    const: Anonymous
+  url:
+    $ref: pulumi.json#/Any
+    description: "The URL of the web service endpoint, e.g. https://www.microsoft.com . Type: string (or Expression with resultType string)."
+type: object
+required:
+  - authenticationType
+  - url

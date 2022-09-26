@@ -1,0 +1,52 @@
+$token: azure-native:machinelearningservices/v20210301preview:TrialComponentResponse
+description: Trial component definition.
+properties:
+  codeId:
+    type: string
+    description: ARM resource ID of the code asset.
+  command:
+    type: string
+    description: '[Required] The command to execute on startup of the job. eg. "python train.py"'
+  distribution:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:MpiResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:PyTorchResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:TensorFlowResponse"
+    discriminator:
+      propertyName: distributionType
+      mapping:
+        Mpi: "#/types/azure-native:machinelearningservices/v20210301preview:MpiResponse"
+        PyTorch: "#/types/azure-native:machinelearningservices/v20210301preview:PyTorchResponse"
+        TensorFlow: "#/types/azure-native:machinelearningservices/v20210301preview:TensorFlowResponse"
+    description: Distribution configuration of the job. If set, this should be one of Mpi, Tensorflow, PyTorch, or null.
+  environmentId:
+    type: string
+    description: The ARM resource ID of the Environment specification for the job.
+  environmentVariables:
+    type: object
+    additionalProperties:
+      type: string
+    description: Environment variables included in the job.
+  inputDataBindings:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20210301preview:InputDataBindingResponse"
+    description: Mapping of input data bindings used in the job.
+  outputDataBindings:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20210301preview:OutputDataBindingResponse"
+    description: Mapping of output data bindings used in the job.
+  timeout:
+    type: string
+    description: "The max run duration in ISO 8601 format, after which the trial component will be cancelled.\r
+
+      Only supports duration with precision as low as Seconds."
+type: object
+required:
+  - command

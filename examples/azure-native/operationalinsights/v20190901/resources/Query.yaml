@@ -1,0 +1,97 @@
+$token: azure-native:operationalinsights/v20190901:Query
+description: A Log Analytics QueryPack-Query definition.
+properties:
+  author:
+    type: string
+    description: Object Id of user creating the query.
+  body:
+    type: string
+    description: Body of the query.
+  description:
+    type: string
+    description: Description of the query.
+  displayName:
+    type: string
+    description: Unique display name for your query within the Query Pack.
+  name:
+    type: string
+    description: Azure resource name
+  properties:
+    $ref: pulumi.json#/Any
+    description: Additional properties that can be set for the query.
+  related:
+    type: object
+    $ref: "#/types/azure-native:operationalinsights/v20190901:LogAnalyticsQueryPackQueryPropertiesResponseRelated"
+    description: The related metadata items for the function.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:operationalinsights/v20190901:SystemDataResponse"
+    description: Read only system data
+  tags:
+    type: object
+    additionalProperties:
+      type: array
+      items:
+        type: string
+    description: Tags associated with the query.
+  timeCreated:
+    type: string
+    description: Creation Date for the Log Analytics Query, in ISO 8601 format.
+  timeModified:
+    type: string
+    description: Last modified date of the Log Analytics Query, in ISO 8601 format.
+  type:
+    type: string
+    description: Azure resource type
+type: object
+required:
+  - author
+  - body
+  - displayName
+  - name
+  - properties
+  - systemData
+  - timeCreated
+  - timeModified
+  - type
+inputProperties:
+  body:
+    type: string
+    description: Body of the query.
+  description:
+    type: string
+    description: Description of the query.
+  displayName:
+    type: string
+    description: Unique display name for your query within the Query Pack.
+  id:
+    type: string
+    description: The id of a specific query defined in the Log Analytics QueryPack
+  properties:
+    $ref: pulumi.json#/Any
+    description: Additional properties that can be set for the query.
+  queryPackName:
+    type: string
+    description: The name of the Log Analytics QueryPack resource.
+  related:
+    type: object
+    $ref: "#/types/azure-native:operationalinsights/v20190901:LogAnalyticsQueryPackQueryPropertiesRelated"
+    description: The related metadata items for the function.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  tags:
+    type: object
+    additionalProperties:
+      type: array
+      items:
+        type: string
+    description: Tags associated with the query.
+requiredInputs:
+  - body
+  - displayName
+  - queryPackName
+  - resourceGroupName
+aliases:
+  - type: azure-native:operationalinsights:Query
+  - type: azure-native:operationalinsights/v20190901preview:Query

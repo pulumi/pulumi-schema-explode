@@ -1,0 +1,67 @@
+$token: azure-native:timeseriesinsights/v20210630preview:Environment
+description: An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
+properties:
+  kind:
+    type: string
+    description: The kind of the environment.
+  location:
+    type: string
+    description: Resource location
+  name:
+    type: string
+    description: Resource name
+  sku:
+    type: object
+    $ref: "#/types/azure-native:timeseriesinsights/v20210630preview:SkuResponse"
+    description: The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  type:
+    type: string
+    description: Resource type
+type: object
+required:
+  - kind
+  - location
+  - name
+  - sku
+  - type
+inputProperties:
+  environmentName:
+    type: string
+    description: Name of the environment
+  kind:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:timeseriesinsights/v20210630preview:EnvironmentKind"
+    description: The kind of the environment.
+  location:
+    type: string
+    description: The location of the resource.
+  resourceGroupName:
+    type: string
+    description: Name of an Azure Resource group.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:timeseriesinsights/v20210630preview:Sku"
+    description: The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Key-value pairs of additional properties for the resource.
+requiredInputs:
+  - kind
+  - resourceGroupName
+  - sku
+aliases:
+  - type: azure-native:timeseriesinsights:Environment
+  - type: azure-native:timeseriesinsights/v20170228preview:Environment
+  - type: azure-native:timeseriesinsights/v20171115:Environment
+  - type: azure-native:timeseriesinsights/v20180815preview:Environment
+  - type: azure-native:timeseriesinsights/v20200515:Environment
+  - type: azure-native:timeseriesinsights/v20210331preview:Environment
+deprecationMessage: "Please use one of the variants: Gen1Environment, Gen2Environment."

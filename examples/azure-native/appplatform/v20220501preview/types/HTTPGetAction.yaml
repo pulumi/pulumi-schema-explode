@@ -1,0 +1,25 @@
+$token: azure-native:appplatform/v20220501preview:HTTPGetAction
+description: HTTPGetAction describes an action based on HTTP Get requests.
+properties:
+  path:
+    type: string
+    description: Path to access on the HTTP server.
+  scheme:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:appplatform/v20220501preview:HTTPSchemeType"
+    description: |-
+      Scheme to use for connecting to the host. Defaults to HTTP.
+
+      Possible enum values:
+       - `"HTTP"` means that the scheme used will be http://
+       - `"HTTPS"` means that the scheme used will be https://
+  type:
+    type: string
+    description: |-
+      The type of the action to take to perform the health check.
+      Expected value is 'HTTPGetAction'.
+    const: HTTPGetAction
+type: object
+required:
+  - type

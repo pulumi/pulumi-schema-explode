@@ -1,0 +1,20 @@
+$token: azure-native:redhatopenshift/v20210901preview:MasterProfile
+description: MasterProfile represents a master profile.
+properties:
+  diskEncryptionSetId:
+    type: string
+    description: The resource ID of an associated DiskEncryptionSet, if applicable.
+  encryptionAtHost:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:redhatopenshift/v20210901preview:EncryptionAtHost"
+    description: Whether master virtual machines are encrypted at host.
+  subnetId:
+    type: string
+    description: The Azure resource ID of the master subnet.
+  vmSize:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:redhatopenshift/v20210901preview:VMSize"
+    description: The size of the master VMs.
+type: object

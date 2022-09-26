@@ -1,0 +1,91 @@
+$token: azure-native:authorization/v20211116preview:getAccessReviewHistoryDefinitionById
+description: Access Review History Definition.
+inputs:
+  properties:
+    historyDefinitionId:
+      type: string
+      description: The id of the access review history definition.
+  type: object
+  required:
+    - historyDefinitionId
+outputs:
+  description: Access Review History Definition.
+  properties:
+    createdDateTime:
+      type: string
+      description: Date time when history definition was created
+    decisions:
+      type: array
+      items:
+        type: string
+      description: Collection of review decisions which the history data should be filtered on. For example if Approve and Deny are supplied the data will only contain review results in which the decision maker approved or denied a review request.
+    displayName:
+      type: string
+      description: The display name for the history definition.
+    endDate:
+      type: string
+      description: The DateTime when the review is scheduled to end. Required if type is endDate
+    id:
+      type: string
+      description: The access review history definition id.
+    instances:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:authorization/v20211116preview:AccessReviewHistoryInstanceResponse"
+      description: Set of access review history instances for this history definition.
+    interval:
+      type: integer
+      description: "The interval for recurrence. For a quarterly review, the interval is 3 for type : absoluteMonthly."
+    name:
+      type: string
+      description: The access review history definition unique id.
+    numberOfOccurrences:
+      type: integer
+      description: The number of times to repeat the access review. Required and must be positive if type is numbered.
+    principalId:
+      type: string
+      description: The identity id
+    principalName:
+      type: string
+      description: The identity display name
+    principalType:
+      type: string
+      description: "The identity type : user/servicePrincipal"
+    reviewHistoryPeriodEndDateTime:
+      type: string
+      description: Date time used when selecting review data, all reviews included in data end on or before this date. For use only with one-time/non-recurring reports.
+    reviewHistoryPeriodStartDateTime:
+      type: string
+      description: Date time used when selecting review data, all reviews included in data start on or after this date. For use only with one-time/non-recurring reports.
+    scopes:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:authorization/v20211116preview:AccessReviewScopeResponse"
+      description: A collection of scopes used when selecting review history data
+    startDate:
+      type: string
+      description: The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
+    status:
+      type: string
+      description: This read-only field specifies the of the requested review history data. This is either requested, in-progress, done or error.
+    type:
+      type: string
+      description: The resource type.
+    userPrincipalName:
+      type: string
+      description: The user principal name(if valid)
+  type: object
+  required:
+    - createdDateTime
+    - id
+    - name
+    - principalId
+    - principalName
+    - principalType
+    - reviewHistoryPeriodEndDateTime
+    - reviewHistoryPeriodStartDateTime
+    - status
+    - type
+    - userPrincipalName

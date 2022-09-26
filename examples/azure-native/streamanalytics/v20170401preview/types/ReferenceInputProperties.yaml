@@ -1,0 +1,55 @@
+$token: azure-native:streamanalytics/v20170401preview:ReferenceInputProperties
+description: The properties that are associated with an input containing reference data.
+properties:
+  compression:
+    type: object
+    $ref: "#/types/azure-native:streamanalytics/v20170401preview:Compression"
+    description: Describes how input data is compressed
+  datasource:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20170401preview:AzureSqlReferenceInputDataSource"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20170401preview:BlobReferenceInputDataSource"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20170401preview:RawReferenceInputDataSource"
+    discriminator:
+      propertyName: type
+      mapping:
+        Microsoft.Sql/Server/Database: "#/types/azure-native:streamanalytics/v20170401preview:AzureSqlReferenceInputDataSource"
+        Microsoft.Storage/Blob: "#/types/azure-native:streamanalytics/v20170401preview:BlobReferenceInputDataSource"
+        Raw: "#/types/azure-native:streamanalytics/v20170401preview:RawReferenceInputDataSource"
+    description: Describes an input data source that contains reference data. Required on PUT (CreateOrReplace) requests.
+  partitionKey:
+    type: string
+    description: partitionKey Describes a key in the input data which is used for partitioning the input data
+  serialization:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20170401preview:AvroSerialization"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20170401preview:CsvSerialization"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20170401preview:CustomClrSerialization"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20170401preview:JsonSerialization"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20170401preview:ParquetSerialization"
+    discriminator:
+      propertyName: type
+      mapping:
+        Avro: "#/types/azure-native:streamanalytics/v20170401preview:AvroSerialization"
+        Csv: "#/types/azure-native:streamanalytics/v20170401preview:CsvSerialization"
+        CustomClr: "#/types/azure-native:streamanalytics/v20170401preview:CustomClrSerialization"
+        Json: "#/types/azure-native:streamanalytics/v20170401preview:JsonSerialization"
+        Parquet: "#/types/azure-native:streamanalytics/v20170401preview:ParquetSerialization"
+    description: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+  type:
+    type: string
+    description: |-
+      Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
+      Expected value is 'Reference'.
+    const: Reference
+type: object
+required:
+  - type

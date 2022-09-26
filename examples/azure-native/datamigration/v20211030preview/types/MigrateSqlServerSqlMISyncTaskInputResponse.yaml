@@ -1,0 +1,35 @@
+$token: azure-native:datamigration/v20211030preview:MigrateSqlServerSqlMISyncTaskInputResponse
+description: Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance online scenario.
+properties:
+  azureApp:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20211030preview:AzureActiveDirectoryAppResponse"
+    description: Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
+  backupFileShare:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20211030preview:FileShareResponse"
+    description: Backup file share information for all selected databases.
+  selectedDatabases:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration/v20211030preview:MigrateSqlServerSqlMIDatabaseInputResponse"
+    description: Databases to migrate
+  sourceConnectionInfo:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20211030preview:SqlConnectionInfoResponse"
+    description: Connection information for source SQL Server
+  storageResourceId:
+    type: string
+    description: Fully qualified resourceId of storage
+  targetConnectionInfo:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20211030preview:MiSqlConnectionInfoResponse"
+    description: Connection information for Azure SQL Database Managed Instance
+type: object
+required:
+  - azureApp
+  - selectedDatabases
+  - sourceConnectionInfo
+  - storageResourceId
+  - targetConnectionInfo

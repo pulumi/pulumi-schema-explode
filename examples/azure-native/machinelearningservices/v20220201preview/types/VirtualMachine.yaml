@@ -1,0 +1,24 @@
+$token: azure-native:machinelearningservices/v20220201preview:VirtualMachine
+description: A Machine Learning compute based on Azure Virtual Machines.
+properties:
+  computeType:
+    type: string
+    description: |-
+      The type of compute
+      Expected value is 'VirtualMachine'.
+    const: VirtualMachine
+  description:
+    type: string
+    description: The description of the Machine Learning compute.
+  disableLocalAuth:
+    type: boolean
+    description: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220201preview:VirtualMachineSchemaProperties"
+  resourceId:
+    type: string
+    description: ARM resource id of the underlying compute
+type: object
+required:
+  - computeType

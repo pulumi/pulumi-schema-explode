@@ -1,0 +1,145 @@
+$token: azure-native:machinelearningservices/v20220201preview:PipelineJobResponse
+description: "Pipeline Job definition: defines generic to MFE attributes."
+properties:
+  computeId:
+    type: string
+    description: ARM resource ID of the compute resource.
+  description:
+    type: string
+    description: The asset description text.
+  displayName:
+    type: string
+    description: Display name of job.
+  experimentName:
+    type: string
+    description: The name of the experiment the job belongs to. If not set, the job is placed in the "Default" experiment.
+    default: Default
+  identity:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220201preview:AmlTokenResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220201preview:ManagedIdentityResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220201preview:UserIdentityResponse"
+    discriminator:
+      propertyName: identityType
+      mapping:
+        AMLToken: "#/types/azure-native:machinelearningservices/v20220201preview:AmlTokenResponse"
+        Managed: "#/types/azure-native:machinelearningservices/v20220201preview:ManagedIdentityResponse"
+        UserIdentity: "#/types/azure-native:machinelearningservices/v20220201preview:UserIdentityResponse"
+    description: "Identity configuration. If set, this should be one of AmlToken, ManagedIdentity, UserIdentity or null.\r
+
+      Defaults to AmlToken if null."
+  inputs:
+    type: object
+    additionalProperties:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:machinelearningservices/v20220201preview:CustomModelJobInputResponse"
+        - type: object
+          $ref: "#/types/azure-native:machinelearningservices/v20220201preview:LiteralJobInputResponse"
+        - type: object
+          $ref: "#/types/azure-native:machinelearningservices/v20220201preview:MLFlowModelJobInputResponse"
+        - type: object
+          $ref: "#/types/azure-native:machinelearningservices/v20220201preview:MLTableJobInputResponse"
+        - type: object
+          $ref: "#/types/azure-native:machinelearningservices/v20220201preview:TritonModelJobInputResponse"
+        - type: object
+          $ref: "#/types/azure-native:machinelearningservices/v20220201preview:UriFileJobInputResponse"
+        - type: object
+          $ref: "#/types/azure-native:machinelearningservices/v20220201preview:UriFolderJobInputResponse"
+      discriminator:
+        propertyName: jobInputType
+        mapping:
+          CustomModel: "#/types/azure-native:machinelearningservices/v20220201preview:CustomModelJobInputResponse"
+          Literal: "#/types/azure-native:machinelearningservices/v20220201preview:LiteralJobInputResponse"
+          MLFlowModel: "#/types/azure-native:machinelearningservices/v20220201preview:MLFlowModelJobInputResponse"
+          MLTable: "#/types/azure-native:machinelearningservices/v20220201preview:MLTableJobInputResponse"
+          TritonModel: "#/types/azure-native:machinelearningservices/v20220201preview:TritonModelJobInputResponse"
+          UriFile: "#/types/azure-native:machinelearningservices/v20220201preview:UriFileJobInputResponse"
+          UriFolder: "#/types/azure-native:machinelearningservices/v20220201preview:UriFolderJobInputResponse"
+    description: Inputs for the pipeline job.
+  isArchived:
+    type: boolean
+    description: Is the asset archived?
+    default: false
+  jobType:
+    type: string
+    description: |-
+      Enum to determine the type of job.
+      Expected value is 'Pipeline'.
+    const: Pipeline
+  jobs:
+    type: object
+    additionalProperties:
+      $ref: pulumi.json#/Any
+    description: Jobs construct the Pipeline Job.
+  outputs:
+    type: object
+    additionalProperties:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:machinelearningservices/v20220201preview:CustomModelJobOutputResponse"
+        - type: object
+          $ref: "#/types/azure-native:machinelearningservices/v20220201preview:MLFlowModelJobOutputResponse"
+        - type: object
+          $ref: "#/types/azure-native:machinelearningservices/v20220201preview:MLTableJobOutputResponse"
+        - type: object
+          $ref: "#/types/azure-native:machinelearningservices/v20220201preview:TritonModelJobOutputResponse"
+        - type: object
+          $ref: "#/types/azure-native:machinelearningservices/v20220201preview:UriFileJobOutputResponse"
+        - type: object
+          $ref: "#/types/azure-native:machinelearningservices/v20220201preview:UriFolderJobOutputResponse"
+      discriminator:
+        propertyName: jobOutputType
+        mapping:
+          CustomModel: "#/types/azure-native:machinelearningservices/v20220201preview:CustomModelJobOutputResponse"
+          MLFlowModel: "#/types/azure-native:machinelearningservices/v20220201preview:MLFlowModelJobOutputResponse"
+          MLTable: "#/types/azure-native:machinelearningservices/v20220201preview:MLTableJobOutputResponse"
+          TritonModel: "#/types/azure-native:machinelearningservices/v20220201preview:TritonModelJobOutputResponse"
+          UriFile: "#/types/azure-native:machinelearningservices/v20220201preview:UriFileJobOutputResponse"
+          UriFolder: "#/types/azure-native:machinelearningservices/v20220201preview:UriFolderJobOutputResponse"
+    description: Outputs for the pipeline job
+  properties:
+    type: object
+    additionalProperties:
+      type: string
+    description: The asset property dictionary.
+  schedule:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220201preview:CronScheduleResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220201preview:RecurrenceScheduleResponse"
+    discriminator:
+      propertyName: scheduleType
+      mapping:
+        Cron: "#/types/azure-native:machinelearningservices/v20220201preview:CronScheduleResponse"
+        Recurrence: "#/types/azure-native:machinelearningservices/v20220201preview:RecurrenceScheduleResponse"
+    description: "Schedule definition of job.\r
+
+      If no schedule is provided, the job is run once and immediately after submission."
+  services:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20220201preview:JobServiceResponse"
+    description: "List of JobEndpoints.\r
+
+      For local jobs, a job endpoint will have an endpoint value of FileStreamObject."
+  settings:
+    $ref: pulumi.json#/Any
+    description: Pipeline settings, for things like ContinueRunOnStepFailure etc.
+  status:
+    type: string
+    description: Status of the job.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Tag dictionary. Tags can be added, removed, and updated.
+type: object
+required:
+  - jobType
+  - status

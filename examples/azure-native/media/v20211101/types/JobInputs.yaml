@@ -1,0 +1,35 @@
+$token: azure-native:media/v20211101:JobInputs
+description: Describes a list of inputs to a Job.
+properties:
+  inputs:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:media/v20211101:JobInputAsset"
+        - type: object
+          $ref: "#/types/azure-native:media/v20211101:JobInputClip"
+        - type: object
+          $ref: "#/types/azure-native:media/v20211101:JobInputHttp"
+        - type: object
+          $ref: "#/types/azure-native:media/v20211101:JobInputSequence"
+        - type: object
+          $ref: "#/types/azure-native:media/v20211101:JobInputs"
+      discriminator:
+        propertyName: odataType
+        mapping:
+          "#Microsoft.Media.JobInputAsset": "#/types/azure-native:media/v20211101:JobInputAsset"
+          "#Microsoft.Media.JobInputClip": "#/types/azure-native:media/v20211101:JobInputClip"
+          "#Microsoft.Media.JobInputHttp": "#/types/azure-native:media/v20211101:JobInputHttp"
+          "#Microsoft.Media.JobInputSequence": "#/types/azure-native:media/v20211101:JobInputSequence"
+          "#Microsoft.Media.JobInputs": "#/types/azure-native:media/v20211101:JobInputs"
+    description: List of inputs to a Job.
+  odataType:
+    type: string
+    description: |-
+      The discriminator for derived types.
+      Expected value is '#Microsoft.Media.JobInputs'.
+    const: "#Microsoft.Media.JobInputs"
+type: object
+required:
+  - odataType

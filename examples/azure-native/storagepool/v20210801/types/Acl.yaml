@@ -1,0 +1,15 @@
+$token: azure-native:storagepool/v20210801:Acl
+description: Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
+properties:
+  initiatorIqn:
+    type: string
+    description: 'iSCSI initiator IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:client".'
+  mappedLuns:
+    type: array
+    items:
+      type: string
+    description: List of LUN names mapped to the ACL.
+type: object
+required:
+  - initiatorIqn
+  - mappedLuns

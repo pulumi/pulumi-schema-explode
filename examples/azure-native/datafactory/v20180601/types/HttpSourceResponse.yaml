@@ -1,0 +1,27 @@
+$token: azure-native:datafactory/v20180601:HttpSourceResponse
+description: A copy activity source for an HTTP file.
+properties:
+  disableMetricsCollection:
+    $ref: pulumi.json#/Any
+    description: "If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean)."
+  httpRequestTimeout:
+    $ref: pulumi.json#/Any
+    description: "Specifies the timeout for a HTTP client to get HTTP response from HTTP server. The default value is equivalent to System.Net.HttpWebRequest.Timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9]))."
+  maxConcurrentConnections:
+    $ref: pulumi.json#/Any
+    description: "The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer)."
+  sourceRetryCount:
+    $ref: pulumi.json#/Any
+    description: "Source retry count. Type: integer (or Expression with resultType integer)."
+  sourceRetryWait:
+    $ref: pulumi.json#/Any
+    description: "Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9]))."
+  type:
+    type: string
+    description: |-
+      Copy source type.
+      Expected value is 'HttpSource'.
+    const: HttpSource
+type: object
+required:
+  - type

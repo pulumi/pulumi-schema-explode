@@ -1,0 +1,56 @@
+$token: azure-native:avs:getWorkloadNetworkVMGroup
+description: |-
+  NSX VM Group
+  API Version: 2020-07-17-preview.
+inputs:
+  properties:
+    privateCloudName:
+      type: string
+      description: Name of the private cloud
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    vmGroupId:
+      type: string
+      description: NSX VM Group identifier. Generally the same as the VM Group's display name
+  type: object
+  required:
+    - privateCloudName
+    - resourceGroupName
+    - vmGroupId
+outputs:
+  description: NSX VM Group
+  properties:
+    displayName:
+      type: string
+      description: Display name of the VM group.
+    id:
+      type: string
+      description: Resource ID.
+    members:
+      type: array
+      items:
+        type: string
+      description: Virtual machine members of this group.
+    name:
+      type: string
+      description: Resource name.
+    provisioningState:
+      type: string
+      description: The provisioning state
+    revision:
+      type: number
+      description: NSX revision number.
+    status:
+      type: string
+      description: VM Group status.
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - id
+    - name
+    - provisioningState
+    - status
+    - type

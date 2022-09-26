@@ -1,0 +1,23 @@
+$token: azure-native:storagepool:Acl
+description: Access Control List (ACL) for an iSCSI target portal group
+properties:
+  initiatorIqn:
+    type: string
+    description: 'iSCSI initiator IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:client".'
+  mappedLuns:
+    type: array
+    items:
+      type: string
+    description: List of LUN names mapped to the ACL.
+  password:
+    type: string
+    description: Password for Challenge Handshake Authentication Protocol (CHAP) authentication.
+  username:
+    type: string
+    description: Username for Challenge Handshake Authentication Protocol (CHAP) authentication.
+type: object
+required:
+  - initiatorIqn
+  - mappedLuns
+  - password
+  - username

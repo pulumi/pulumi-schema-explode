@@ -1,0 +1,60 @@
+$token: azure-native:network:ScopeConnection
+description: |-
+  The Scope Connections resource
+  API Version: 2022-02-01-preview.
+properties:
+  description:
+    type: string
+    description: A description of the scope connection.
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  name:
+    type: string
+    description: Resource name.
+  resourceId:
+    type: string
+    description: Resource ID.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:network:SystemDataResponse"
+    description: The system metadata related to this resource.
+  tenantId:
+    type: string
+    description: Tenant ID.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - etag
+  - name
+  - systemData
+  - type
+inputProperties:
+  description:
+    type: string
+    description: A description of the scope connection.
+  networkManagerName:
+    type: string
+    description: The name of the network manager.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  resourceId:
+    type: string
+    description: Resource ID.
+  scopeConnectionName:
+    type: string
+    description: Name for the cross-tenant connection.
+  tenantId:
+    type: string
+    description: Tenant ID.
+requiredInputs:
+  - networkManagerName
+  - resourceGroupName
+aliases:
+  - type: azure-native:network/v20210501preview:ScopeConnection
+  - type: azure-native:network/v20220101:ScopeConnection
+  - type: azure-native:network/v20220201preview:ScopeConnection
+  - type: azure-native:network/v20220401preview:ScopeConnection

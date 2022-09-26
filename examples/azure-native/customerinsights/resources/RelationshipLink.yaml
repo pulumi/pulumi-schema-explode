@@ -1,0 +1,123 @@
+$token: azure-native:customerinsights:RelationshipLink
+description: |-
+  The relationship link resource format.
+  API Version: 2017-04-26.
+properties:
+  description:
+    type: object
+    additionalProperties:
+      type: string
+    description: Localized descriptions for the Relationship Link.
+  displayName:
+    type: object
+    additionalProperties:
+      type: string
+    description: Localized display name for the Relationship Link.
+  interactionType:
+    type: string
+    description: The InteractionType associated with the Relationship Link.
+  linkName:
+    type: string
+    description: The name of the Relationship Link.
+  mappings:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:customerinsights:RelationshipLinkFieldMappingResponse"
+    description: The mappings between Interaction and Relationship fields.
+  name:
+    type: string
+    description: Resource name.
+  profilePropertyReferences:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:customerinsights:ParticipantProfilePropertyReferenceResponse"
+    description: The property references for the Profile of the Relationship.
+  provisioningState:
+    type: string
+    description: Provisioning state.
+  relatedProfilePropertyReferences:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:customerinsights:ParticipantProfilePropertyReferenceResponse"
+    description: The property references for the Related Profile of the Relationship.
+  relationshipGuidId:
+    type: string
+    description: The relationship guid id.
+  relationshipName:
+    type: string
+    description: The Relationship associated with the Link.
+  tenantId:
+    type: string
+    description: The hub name.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - interactionType
+  - linkName
+  - name
+  - profilePropertyReferences
+  - provisioningState
+  - relatedProfilePropertyReferences
+  - relationshipGuidId
+  - relationshipName
+  - tenantId
+  - type
+inputProperties:
+  description:
+    type: object
+    additionalProperties:
+      type: string
+    description: Localized descriptions for the Relationship Link.
+  displayName:
+    type: object
+    additionalProperties:
+      type: string
+    description: Localized display name for the Relationship Link.
+  hubName:
+    type: string
+    description: The name of the hub.
+  interactionType:
+    type: string
+    description: The InteractionType associated with the Relationship Link.
+  mappings:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:customerinsights:RelationshipLinkFieldMapping"
+    description: The mappings between Interaction and Relationship fields.
+  profilePropertyReferences:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:customerinsights:ParticipantProfilePropertyReference"
+    description: The property references for the Profile of the Relationship.
+  relatedProfilePropertyReferences:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:customerinsights:ParticipantProfilePropertyReference"
+    description: The property references for the Related Profile of the Relationship.
+  relationshipLinkName:
+    type: string
+    description: The name of the relationship link.
+  relationshipName:
+    type: string
+    description: The Relationship associated with the Link.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+requiredInputs:
+  - hubName
+  - interactionType
+  - profilePropertyReferences
+  - relatedProfilePropertyReferences
+  - relationshipName
+  - resourceGroupName
+aliases:
+  - type: azure-native:customerinsights/v20170101:RelationshipLink
+  - type: azure-native:customerinsights/v20170426:RelationshipLink

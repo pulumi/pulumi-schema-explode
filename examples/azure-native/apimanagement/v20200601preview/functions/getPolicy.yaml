@@ -1,0 +1,46 @@
+$token: azure-native:apimanagement/v20200601preview:getPolicy
+description: Policy Contract details.
+inputs:
+  properties:
+    format:
+      type: string
+      description: Policy Export Format.
+    policyId:
+      type: string
+      description: The identifier of the Policy.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    serviceName:
+      type: string
+      description: The name of the API Management service.
+  type: object
+  required:
+    - policyId
+    - resourceGroupName
+    - serviceName
+outputs:
+  description: Policy Contract details.
+  properties:
+    format:
+      type: string
+      description: Format of the policyContent.
+      default: xml
+    id:
+      type: string
+      description: Resource ID.
+    name:
+      type: string
+      description: Resource name.
+    type:
+      type: string
+      description: Resource type for API Management resource.
+    value:
+      type: string
+      description: Contents of the Policy as defined by the format.
+  type: object
+  required:
+    - id
+    - name
+    - type
+    - value

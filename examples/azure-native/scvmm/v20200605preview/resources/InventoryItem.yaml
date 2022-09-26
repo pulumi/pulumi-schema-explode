@@ -1,0 +1,65 @@
+$token: azure-native:scvmm/v20200605preview:InventoryItem
+description: Defines the inventory item.
+properties:
+  inventoryItemName:
+    type: string
+    description: Gets the Managed Object name in VMM for the inventory item.
+  inventoryType:
+    type: string
+    description: They inventory type.
+  kind:
+    type: string
+    description: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+  managedResourceId:
+    type: string
+    description: Gets the tracked resource id corresponding to the inventory resource.
+  name:
+    type: string
+    description: The name of the resource
+  provisioningState:
+    type: string
+    description: Gets the provisioning state.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:scvmm/v20200605preview:SystemDataResponse"
+    description: The system data.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  uuid:
+    type: string
+    description: Gets the UUID (which is assigned by VMM) for the inventory item.
+type: object
+required:
+  - inventoryItemName
+  - inventoryType
+  - managedResourceId
+  - name
+  - provisioningState
+  - systemData
+  - type
+  - uuid
+inputProperties:
+  inventoryItemName:
+    type: string
+    description: Name of the inventoryItem.
+  inventoryType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:scvmm/v20200605preview:InventoryType"
+    description: They inventory type.
+  kind:
+    type: string
+    description: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  vmmServerName:
+    type: string
+    description: Name of the VMMServer.
+requiredInputs:
+  - inventoryType
+  - resourceGroupName
+  - vmmServerName
+aliases:
+  - type: azure-native:scvmm:InventoryItem

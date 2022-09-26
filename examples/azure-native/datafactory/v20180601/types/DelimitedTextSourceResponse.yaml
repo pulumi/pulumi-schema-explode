@@ -1,0 +1,76 @@
+$token: azure-native:datafactory/v20180601:DelimitedTextSourceResponse
+description: A copy activity DelimitedText source.
+properties:
+  additionalColumns:
+    $ref: pulumi.json#/Any
+    description: "Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects)."
+  disableMetricsCollection:
+    $ref: pulumi.json#/Any
+    description: "If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean)."
+  formatSettings:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20180601:DelimitedTextReadSettingsResponse"
+    description: DelimitedText format settings.
+  maxConcurrentConnections:
+    $ref: pulumi.json#/Any
+    description: "The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer)."
+  sourceRetryCount:
+    $ref: pulumi.json#/Any
+    description: "Source retry count. Type: integer (or Expression with resultType integer)."
+  sourceRetryWait:
+    $ref: pulumi.json#/Any
+    description: "Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9]))."
+  storeSettings:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:AmazonS3CompatibleReadSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:AmazonS3ReadSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:AzureBlobFSReadSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:AzureBlobStorageReadSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:AzureDataLakeStoreReadSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:AzureFileStorageReadSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:FileServerReadSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:FtpReadSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:GoogleCloudStorageReadSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:HdfsReadSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:HttpReadSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:OracleCloudStorageReadSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:SftpReadSettingsResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        AmazonS3CompatibleReadSettings: "#/types/azure-native:datafactory/v20180601:AmazonS3CompatibleReadSettingsResponse"
+        AmazonS3ReadSettings: "#/types/azure-native:datafactory/v20180601:AmazonS3ReadSettingsResponse"
+        AzureBlobFSReadSettings: "#/types/azure-native:datafactory/v20180601:AzureBlobFSReadSettingsResponse"
+        AzureBlobStorageReadSettings: "#/types/azure-native:datafactory/v20180601:AzureBlobStorageReadSettingsResponse"
+        AzureDataLakeStoreReadSettings: "#/types/azure-native:datafactory/v20180601:AzureDataLakeStoreReadSettingsResponse"
+        AzureFileStorageReadSettings: "#/types/azure-native:datafactory/v20180601:AzureFileStorageReadSettingsResponse"
+        FileServerReadSettings: "#/types/azure-native:datafactory/v20180601:FileServerReadSettingsResponse"
+        FtpReadSettings: "#/types/azure-native:datafactory/v20180601:FtpReadSettingsResponse"
+        GoogleCloudStorageReadSettings: "#/types/azure-native:datafactory/v20180601:GoogleCloudStorageReadSettingsResponse"
+        HdfsReadSettings: "#/types/azure-native:datafactory/v20180601:HdfsReadSettingsResponse"
+        HttpReadSettings: "#/types/azure-native:datafactory/v20180601:HttpReadSettingsResponse"
+        OracleCloudStorageReadSettings: "#/types/azure-native:datafactory/v20180601:OracleCloudStorageReadSettingsResponse"
+        SftpReadSettings: "#/types/azure-native:datafactory/v20180601:SftpReadSettingsResponse"
+    description: DelimitedText store settings.
+  type:
+    type: string
+    description: |-
+      Copy source type.
+      Expected value is 'DelimitedTextSource'.
+    const: DelimitedTextSource
+type: object
+required:
+  - type

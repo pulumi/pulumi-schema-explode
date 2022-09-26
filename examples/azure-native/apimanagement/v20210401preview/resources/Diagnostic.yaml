@@ -1,0 +1,115 @@
+$token: azure-native:apimanagement/v20210401preview:Diagnostic
+description: Diagnostic details.
+properties:
+  alwaysLog:
+    type: string
+    description: Specifies for what type of messages sampling settings should not apply.
+  backend:
+    type: object
+    $ref: "#/types/azure-native:apimanagement/v20210401preview:PipelineDiagnosticSettingsResponse"
+    description: Diagnostic settings for incoming/outgoing HTTP messages to the Backend
+  frontend:
+    type: object
+    $ref: "#/types/azure-native:apimanagement/v20210401preview:PipelineDiagnosticSettingsResponse"
+    description: Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
+  httpCorrelationProtocol:
+    type: string
+    description: Sets correlation protocol to use for Application Insights diagnostics.
+  logClientIp:
+    type: boolean
+    description: Log the ClientIP. Default is false.
+  loggerId:
+    type: string
+    description: Resource Id of a target logger.
+  metrics:
+    type: boolean
+    description: Emit custom metrics via emit-metric policy. Applicable only to Application Insights diagnostic settings.
+  name:
+    type: string
+    description: The name of the resource
+  operationNameFormat:
+    type: string
+    description: The format of the Operation Name for Application Insights telemetries. Default is Name.
+  sampling:
+    type: object
+    $ref: "#/types/azure-native:apimanagement/v20210401preview:SamplingSettingsResponse"
+    description: Sampling settings for Diagnostic.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  verbosity:
+    type: string
+    description: The verbosity level applied to traces emitted by trace policies.
+type: object
+required:
+  - loggerId
+  - name
+  - type
+inputProperties:
+  alwaysLog:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:apimanagement/v20210401preview:AlwaysLog"
+    description: Specifies for what type of messages sampling settings should not apply.
+  backend:
+    type: object
+    $ref: "#/types/azure-native:apimanagement/v20210401preview:PipelineDiagnosticSettings"
+    description: Diagnostic settings for incoming/outgoing HTTP messages to the Backend
+  diagnosticId:
+    type: string
+    description: Diagnostic identifier. Must be unique in the current API Management service instance.
+  frontend:
+    type: object
+    $ref: "#/types/azure-native:apimanagement/v20210401preview:PipelineDiagnosticSettings"
+    description: Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
+  httpCorrelationProtocol:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:apimanagement/v20210401preview:HttpCorrelationProtocol"
+    description: Sets correlation protocol to use for Application Insights diagnostics.
+  logClientIp:
+    type: boolean
+    description: Log the ClientIP. Default is false.
+  loggerId:
+    type: string
+    description: Resource Id of a target logger.
+  metrics:
+    type: boolean
+    description: Emit custom metrics via emit-metric policy. Applicable only to Application Insights diagnostic settings.
+  operationNameFormat:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:apimanagement/v20210401preview:OperationNameFormat"
+    description: The format of the Operation Name for Application Insights telemetries. Default is Name.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  sampling:
+    type: object
+    $ref: "#/types/azure-native:apimanagement/v20210401preview:SamplingSettings"
+    description: Sampling settings for Diagnostic.
+  serviceName:
+    type: string
+    description: The name of the API Management service.
+  verbosity:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:apimanagement/v20210401preview:Verbosity"
+    description: The verbosity level applied to traces emitted by trace policies.
+requiredInputs:
+  - loggerId
+  - resourceGroupName
+  - serviceName
+aliases:
+  - type: azure-native:apimanagement:Diagnostic
+  - type: azure-native:apimanagement/v20170301:Diagnostic
+  - type: azure-native:apimanagement/v20180101:Diagnostic
+  - type: azure-native:apimanagement/v20180601preview:Diagnostic
+  - type: azure-native:apimanagement/v20190101:Diagnostic
+  - type: azure-native:apimanagement/v20191201:Diagnostic
+  - type: azure-native:apimanagement/v20191201preview:Diagnostic
+  - type: azure-native:apimanagement/v20200601preview:Diagnostic
+  - type: azure-native:apimanagement/v20201201:Diagnostic
+  - type: azure-native:apimanagement/v20210101preview:Diagnostic
+  - type: azure-native:apimanagement/v20210801:Diagnostic
+  - type: azure-native:apimanagement/v20211201preview:Diagnostic

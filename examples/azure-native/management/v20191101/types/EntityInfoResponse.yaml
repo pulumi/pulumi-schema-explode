@@ -1,0 +1,51 @@
+$token: azure-native:management/v20191101:EntityInfoResponse
+description: The entity.
+properties:
+  displayName:
+    type: string
+    description: The friendly name of the management group.
+  id:
+    type: string
+    description: The fully qualified ID for the entity.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+  inheritedPermissions:
+    type: string
+    description: The users specific permissions to this item.
+  name:
+    type: string
+    description: The name of the entity. For example, 00000000-0000-0000-0000-000000000000
+  numberOfChildGroups:
+    type: integer
+    description: Number of children is the number of Groups that are exactly one level underneath the current Group.
+  numberOfChildren:
+    type: integer
+    description: Number of children is the number of Groups and Subscriptions that are exactly one level underneath the current Group.
+  numberOfDescendants:
+    type: integer
+  parent:
+    type: object
+    $ref: "#/types/azure-native:management/v20191101:EntityParentGroupInfoResponse"
+    description: (Optional) The ID of the parent management group.
+  parentDisplayNameChain:
+    type: array
+    items:
+      type: string
+    description: The parent display name chain from the root group to the immediate parent
+  parentNameChain:
+    type: array
+    items:
+      type: string
+    description: The parent name chain from the root group to the immediate parent
+  permissions:
+    type: string
+    description: The users specific permissions to this item.
+  tenantId:
+    type: string
+    description: The AAD Tenant ID associated with the entity. For example, 00000000-0000-0000-0000-000000000000
+  type:
+    type: string
+    description: The type of the resource. For example, Microsoft.Management/managementGroups
+type: object
+required:
+  - id
+  - name
+  - type

@@ -1,0 +1,77 @@
+$token: azure-native:databoxedge/v20201201:getIoTAddon
+description: IoT Addon.
+inputs:
+  properties:
+    addonName:
+      type: string
+      description: The addon name.
+    deviceName:
+      type: string
+      description: The device name.
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+    roleName:
+      type: string
+      description: The role name.
+  type: object
+  required:
+    - addonName
+    - deviceName
+    - resourceGroupName
+    - roleName
+outputs:
+  description: IoT Addon.
+  properties:
+    hostPlatform:
+      type: string
+      description: Host OS supported by the IoT addon.
+    hostPlatformType:
+      type: string
+      description: Platform where the runtime is hosted.
+    id:
+      type: string
+      description: The path ID that uniquely identifies the object.
+    ioTDeviceDetails:
+      type: object
+      $ref: "#/types/azure-native:databoxedge/v20201201:IoTDeviceInfoResponse"
+      description: IoT device metadata to which appliance needs to be connected.
+    ioTEdgeDeviceDetails:
+      type: object
+      $ref: "#/types/azure-native:databoxedge/v20201201:IoTDeviceInfoResponse"
+      description: IoT edge device to which the IoT Addon needs to be configured.
+    kind:
+      type: string
+      description: |-
+        Addon type.
+        Expected value is 'IotEdge'.
+      const: IotEdge
+    name:
+      type: string
+      description: The object name.
+    provisioningState:
+      type: string
+      description: Addon Provisioning State
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:databoxedge/v20201201:SystemDataResponse"
+      description: Addon type
+    type:
+      type: string
+      description: The hierarchical type of the object.
+    version:
+      type: string
+      description: Version of IoT running on the appliance.
+  type: object
+  required:
+    - hostPlatform
+    - hostPlatformType
+    - id
+    - ioTDeviceDetails
+    - ioTEdgeDeviceDetails
+    - kind
+    - name
+    - provisioningState
+    - systemData
+    - type
+    - version

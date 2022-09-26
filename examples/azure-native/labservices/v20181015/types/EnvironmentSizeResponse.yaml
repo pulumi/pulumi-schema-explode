@@ -1,0 +1,26 @@
+$token: azure-native:labservices/v20181015:EnvironmentSizeResponse
+description: Represents a size category supported by this Lab Account (small, medium or large)
+properties:
+  maxPrice:
+    type: number
+    description: The pay-as-you-go dollar price per hour this size will cost. It does not include discounts and may not reflect the actual price the size will cost. This is the maximum price of all prices within this tier.
+  minMemory:
+    type: number
+    description: The amount of memory available (in GB). This is the minimum amount of memory within this tier.
+  minNumberOfCores:
+    type: integer
+    description: The number of cores a VM of this size has. This is the minimum number of cores within this tier.
+  name:
+    type: string
+    description: The size category
+  vmSizes:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:labservices/v20181015:SizeInfoResponse"
+    description: Represents a set of compute sizes that can serve this given size type
+type: object
+required:
+  - maxPrice
+  - minMemory
+  - minNumberOfCores

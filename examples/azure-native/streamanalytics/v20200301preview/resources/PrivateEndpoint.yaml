@@ -1,0 +1,42 @@
+$token: azure-native:streamanalytics/v20200301preview:PrivateEndpoint
+description: Complete information about the private endpoint.
+properties:
+  etag:
+    type: string
+    description: Unique opaque string (generally a GUID) that represents the metadata state of the resource (private endpoint) and changes whenever the resource is updated. Required on PUT (CreateOrUpdate) requests.
+  name:
+    type: string
+    description: The name of the resource
+  properties:
+    type: object
+    $ref: "#/types/azure-native:streamanalytics/v20200301preview:PrivateEndpointPropertiesResponse"
+    description: The properties associated with a private endpoint.
+  type:
+    type: string
+    description: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+type: object
+required:
+  - etag
+  - name
+  - properties
+  - type
+inputProperties:
+  clusterName:
+    type: string
+    description: The name of the cluster.
+  privateEndpointName:
+    type: string
+    description: The name of the private endpoint.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:streamanalytics/v20200301preview:PrivateEndpointProperties"
+    description: The properties associated with a private endpoint.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+requiredInputs:
+  - clusterName
+  - resourceGroupName
+aliases:
+  - type: azure-native:streamanalytics:PrivateEndpoint
+  - type: azure-native:streamanalytics/v20200301:PrivateEndpoint

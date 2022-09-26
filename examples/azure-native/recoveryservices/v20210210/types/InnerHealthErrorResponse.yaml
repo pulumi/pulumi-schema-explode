@@ -1,0 +1,46 @@
+$token: azure-native:recoveryservices/v20210210:InnerHealthErrorResponse
+description: Implements InnerHealthError class. HealthError object has a list of InnerHealthErrors as child errors. InnerHealthError is used because this will prevent an infinite loop of structures when Hydra tries to auto-generate the contract. We are exposing the related health errors as inner health errors and all API consumers can utilize this in the same fashion as Exception -&gt; InnerException.
+properties:
+  creationTimeUtc:
+    type: string
+    description: Error creation time (UTC).
+  customerResolvability:
+    type: string
+    description: Value indicating whether the health error is customer resolvable.
+  entityId:
+    type: string
+    description: ID of the entity.
+  errorCategory:
+    type: string
+    description: Category of error.
+  errorCode:
+    type: string
+    description: Error code.
+  errorId:
+    type: string
+    description: The health error unique id.
+  errorLevel:
+    type: string
+    description: Level of error.
+  errorMessage:
+    type: string
+    description: Error message.
+  errorSource:
+    type: string
+    description: Source of error.
+  errorType:
+    type: string
+    description: Type of error.
+  possibleCauses:
+    type: string
+    description: Possible causes of error.
+  recommendedAction:
+    type: string
+    description: Recommended action to resolve error.
+  recoveryProviderErrorMessage:
+    type: string
+    description: DRA error message.
+  summaryMessage:
+    type: string
+    description: Summary message of the entity.
+type: object

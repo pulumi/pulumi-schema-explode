@@ -1,0 +1,186 @@
+$token: azure-native:webpubsub/v20211001:WebPubSub
+description: A class represent a resource.
+properties:
+  disableAadAuth:
+    type: boolean
+    description: "DisableLocalAuth\r
+
+      Enable or disable aad auth\r
+
+      When set as true, connection with AuthType=aad won't work."
+    default: false
+  disableLocalAuth:
+    type: boolean
+    description: "DisableLocalAuth\r
+
+      Enable or disable local auth with AccessKey\r
+
+      When set as true, connection with AccessKey=xxx won't work."
+    default: false
+  externalIP:
+    type: string
+    description: The publicly accessible IP of the resource.
+  hostName:
+    type: string
+    description: FQDN of the service instance.
+  hostNamePrefix:
+    type: string
+    description: Deprecated.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:webpubsub/v20211001:ManagedIdentityResponse"
+    description: A class represent managed identities used for request and response
+  liveTraceConfiguration:
+    type: object
+    $ref: "#/types/azure-native:webpubsub/v20211001:LiveTraceConfigurationResponse"
+    description: Live trace configuration of a Microsoft.SignalRService resource.
+  location:
+    type: string
+    description: The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
+  name:
+    type: string
+    description: The name of the resource.
+  networkACLs:
+    type: object
+    $ref: "#/types/azure-native:webpubsub/v20211001:WebPubSubNetworkACLsResponse"
+    description: Network ACLs for the resource
+  privateEndpointConnections:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:webpubsub/v20211001:PrivateEndpointConnectionResponse"
+    description: Private endpoint connections to the resource.
+  provisioningState:
+    type: string
+    description: Provisioning state of the resource.
+  publicNetworkAccess:
+    type: string
+    description: "Enable or disable public network access. Default to \"Enabled\".\r
+
+      When it's Enabled, network ACLs still apply.\r
+
+      When it's Disabled, public network access is always disabled no matter what you set in network ACLs."
+    default: Enabled
+  publicPort:
+    type: integer
+    description: The publicly accessible port of the resource which is designed for browser/client side usage.
+  resourceLogConfiguration:
+    type: object
+    $ref: "#/types/azure-native:webpubsub/v20211001:ResourceLogConfigurationResponse"
+    description: Resource log configuration of a Microsoft.SignalRService resource.
+  serverPort:
+    type: integer
+    description: The publicly accessible port of the resource which is designed for customer server side usage.
+  sharedPrivateLinkResources:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:webpubsub/v20211001:SharedPrivateLinkResourceResponse"
+    description: The list of shared private link resources.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:webpubsub/v20211001:ResourceSkuResponse"
+    description: The billing information of the resource.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:webpubsub/v20211001:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Tags of the service which is a list of key value pairs that describe the resource.
+  tls:
+    type: object
+    $ref: "#/types/azure-native:webpubsub/v20211001:WebPubSubTlsSettingsResponse"
+    description: TLS settings for the resource
+  type:
+    type: string
+    description: The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+  version:
+    type: string
+    description: Version of the resource. Probably you need the same or higher version of client SDKs.
+type: object
+required:
+  - externalIP
+  - hostName
+  - hostNamePrefix
+  - name
+  - privateEndpointConnections
+  - provisioningState
+  - publicPort
+  - serverPort
+  - sharedPrivateLinkResources
+  - systemData
+  - type
+  - version
+inputProperties:
+  disableAadAuth:
+    type: boolean
+    description: "DisableLocalAuth\r
+
+      Enable or disable aad auth\r
+
+      When set as true, connection with AuthType=aad won't work."
+    default: false
+  disableLocalAuth:
+    type: boolean
+    description: "DisableLocalAuth\r
+
+      Enable or disable local auth with AccessKey\r
+
+      When set as true, connection with AccessKey=xxx won't work."
+    default: false
+  identity:
+    type: object
+    $ref: "#/types/azure-native:webpubsub/v20211001:ManagedIdentity"
+    description: A class represent managed identities used for request and response
+  liveTraceConfiguration:
+    type: object
+    $ref: "#/types/azure-native:webpubsub/v20211001:LiveTraceConfiguration"
+    description: Live trace configuration of a Microsoft.SignalRService resource.
+  location:
+    type: string
+    description: The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
+  networkACLs:
+    type: object
+    $ref: "#/types/azure-native:webpubsub/v20211001:WebPubSubNetworkACLs"
+    description: Network ACLs for the resource
+  publicNetworkAccess:
+    type: string
+    description: "Enable or disable public network access. Default to \"Enabled\".\r
+
+      When it's Enabled, network ACLs still apply.\r
+
+      When it's Disabled, public network access is always disabled no matter what you set in network ACLs."
+    default: Enabled
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  resourceLogConfiguration:
+    type: object
+    $ref: "#/types/azure-native:webpubsub/v20211001:ResourceLogConfiguration"
+    description: Resource log configuration of a Microsoft.SignalRService resource.
+  resourceName:
+    type: string
+    description: The name of the resource.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:webpubsub/v20211001:ResourceSku"
+    description: The billing information of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Tags of the service which is a list of key value pairs that describe the resource.
+  tls:
+    type: object
+    $ref: "#/types/azure-native:webpubsub/v20211001:WebPubSubTlsSettings"
+    description: TLS settings for the resource
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:webpubsub:WebPubSub
+  - type: azure-native:webpubsub/v20210401preview:WebPubSub
+  - type: azure-native:webpubsub/v20210601preview:WebPubSub
+  - type: azure-native:webpubsub/v20210901preview:WebPubSub

@@ -1,0 +1,70 @@
+$token: azure-native:digitaltwins:getDigitalTwin
+description: |-
+  The description of the DigitalTwins service.
+  API Version: 2020-12-01.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the DigitalTwinsInstance.
+    resourceName:
+      type: string
+      description: The name of the DigitalTwinsInstance.
+  type: object
+  required:
+    - resourceGroupName
+    - resourceName
+outputs:
+  description: The description of the DigitalTwins service.
+  properties:
+    createdTime:
+      type: string
+      description: Time when DigitalTwinsInstance was created.
+    hostName:
+      type: string
+      description: Api endpoint to work with DigitalTwinsInstance.
+    id:
+      type: string
+      description: The resource identifier.
+    identity:
+      type: object
+      $ref: "#/types/azure-native:digitaltwins:DigitalTwinsIdentityResponse"
+      description: The managed identity for the DigitalTwinsInstance.
+    lastUpdatedTime:
+      type: string
+      description: Time when DigitalTwinsInstance was updated.
+    location:
+      type: string
+      description: The resource location.
+    name:
+      type: string
+      description: The resource name.
+    privateEndpointConnections:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:digitaltwins:PrivateEndpointConnectionResponse"
+    provisioningState:
+      type: string
+      description: The provisioning state.
+    publicNetworkAccess:
+      type: string
+      description: Public network access for the DigitalTwinsInstance.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: The resource tags.
+    type:
+      type: string
+      description: The resource type.
+  type: object
+  required:
+    - createdTime
+    - hostName
+    - id
+    - lastUpdatedTime
+    - location
+    - name
+    - provisioningState
+    - type

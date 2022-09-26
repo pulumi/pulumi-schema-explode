@@ -1,0 +1,28 @@
+$token: azure-native:datafactory/v20180601:ComponentSetup
+description: The custom setup of installing 3rd party components.
+properties:
+  componentName:
+    type: string
+    description: The name of the 3rd party component.
+  licenseKey:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:AzureKeyVaultSecretReference"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:SecureString"
+    discriminator:
+      propertyName: type
+      mapping:
+        AzureKeyVaultSecret: "#/types/azure-native:datafactory/v20180601:AzureKeyVaultSecretReference"
+        SecureString: "#/types/azure-native:datafactory/v20180601:SecureString"
+    description: The license key to activate the component.
+  type:
+    type: string
+    description: |-
+      The type of custom setup.
+      Expected value is 'ComponentSetup'.
+    const: ComponentSetup
+type: object
+required:
+  - componentName
+  - type

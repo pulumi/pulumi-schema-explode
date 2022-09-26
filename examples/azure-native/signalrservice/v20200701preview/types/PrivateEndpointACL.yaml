@@ -1,0 +1,23 @@
+$token: azure-native:signalrservice/v20200701preview:PrivateEndpointACL
+description: ACL for a private endpoint
+properties:
+  allow:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:signalrservice/v20200701preview:SignalRRequestType"
+    description: "Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI."
+  deny:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:signalrservice/v20200701preview:SignalRRequestType"
+    description: "Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI."
+  name:
+    type: string
+    description: Name of the private endpoint connection
+type: object
+required:
+  - name

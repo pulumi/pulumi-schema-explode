@@ -1,0 +1,95 @@
+$token: azure-native:kubernetesconfiguration/v20220301:getSourceControlConfiguration
+description: The SourceControl Configuration object returned in Get & Put response.
+inputs:
+  properties:
+    clusterName:
+      type: string
+      description: The name of the kubernetes cluster.
+    clusterResourceName:
+      type: string
+      description: The Kubernetes cluster resource name - i.e. managedClusters, connectedClusters, provisionedClusters.
+    clusterRp:
+      type: string
+      description: The Kubernetes cluster RP - i.e. Microsoft.ContainerService, Microsoft.Kubernetes, Microsoft.HybridContainerService.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    sourceControlConfigurationName:
+      type: string
+      description: Name of the Source Control Configuration.
+  type: object
+  required:
+    - clusterName
+    - clusterResourceName
+    - clusterRp
+    - resourceGroupName
+    - sourceControlConfigurationName
+outputs:
+  description: The SourceControl Configuration object returned in Get & Put response.
+  properties:
+    complianceStatus:
+      type: object
+      $ref: "#/types/azure-native:kubernetesconfiguration/v20220301:ComplianceStatusResponse"
+      description: Compliance Status of the Configuration
+    configurationProtectedSettings:
+      type: object
+      additionalProperties:
+        type: string
+      description: Name-value pairs of protected configuration settings for the configuration
+    enableHelmOperator:
+      type: boolean
+      description: Option to enable Helm Operator for this git configuration.
+    helmOperatorProperties:
+      type: object
+      $ref: "#/types/azure-native:kubernetesconfiguration/v20220301:HelmOperatorPropertiesResponse"
+      description: Properties for Helm operator.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    name:
+      type: string
+      description: The name of the resource
+    operatorInstanceName:
+      type: string
+      description: Instance name of the operator - identifying the specific configuration.
+    operatorNamespace:
+      type: string
+      description: The namespace to which this operator is installed to. Maximum of 253 lower case alphanumeric characters, hyphen and period only.
+      default: default
+    operatorParams:
+      type: string
+      description: Any Parameters for the Operator instance in string format.
+    operatorScope:
+      type: string
+      description: Scope at which the operator will be installed.
+    operatorType:
+      type: string
+      description: Type of the operator
+    provisioningState:
+      type: string
+      description: The provisioning state of the resource provider.
+    repositoryPublicKey:
+      type: string
+      description: Public Key associated with this SourceControl configuration (either generated within the cluster or provided by the user).
+    repositoryUrl:
+      type: string
+      description: Url of the SourceControl Repository.
+    sshKnownHostsContents:
+      type: string
+      description: Base64-encoded known_hosts contents containing public SSH keys required to access private Git instances
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:kubernetesconfiguration/v20220301:SystemDataResponse"
+      description: Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - complianceStatus
+    - id
+    - name
+    - provisioningState
+    - repositoryPublicKey
+    - systemData
+    - type

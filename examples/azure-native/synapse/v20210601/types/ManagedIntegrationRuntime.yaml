@@ -1,0 +1,33 @@
+$token: azure-native:synapse/v20210601:ManagedIntegrationRuntime
+description: Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
+properties:
+  computeProperties:
+    type: object
+    $ref: "#/types/azure-native:synapse/v20210601:IntegrationRuntimeComputeProperties"
+    description: The compute resource for managed integration runtime.
+  customerVirtualNetwork:
+    type: object
+    $ref: "#/types/azure-native:synapse/v20210601:IntegrationRuntimeCustomerVirtualNetwork"
+    description: The name of virtual network to which Azure-SSIS integration runtime will join
+  description:
+    type: string
+    description: Integration runtime description.
+  id:
+    type: string
+    description: The id of the managed virtual network.
+  referenceName:
+    type: string
+    description: The reference name of the managed virtual network
+  ssisProperties:
+    type: object
+    $ref: "#/types/azure-native:synapse/v20210601:IntegrationRuntimeSsisProperties"
+    description: SSIS properties for managed integration runtime.
+  type:
+    type: string
+    description: |-
+      The type of integration runtime.
+      Expected value is 'Managed'.
+    const: Managed
+type: object
+required:
+  - type

@@ -1,0 +1,55 @@
+$token: azure-native:streamanalytics:Output
+description: An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
+properties:
+  datasource:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics:AzureDataLakeStoreOutputDataSource"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics:AzureSqlDatabaseOutputDataSource"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics:AzureTableOutputDataSource"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics:BlobOutputDataSource"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics:DocumentDbOutputDataSource"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics:EventHubOutputDataSource"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics:PowerBIOutputDataSource"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics:ServiceBusQueueOutputDataSource"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics:ServiceBusTopicOutputDataSource"
+    discriminator:
+      propertyName: type
+      mapping:
+        Microsoft.DataLake/Accounts: "#/types/azure-native:streamanalytics:AzureDataLakeStoreOutputDataSource"
+        Microsoft.ServiceBus/EventHub: "#/types/azure-native:streamanalytics:EventHubOutputDataSource"
+        Microsoft.ServiceBus/Queue: "#/types/azure-native:streamanalytics:ServiceBusQueueOutputDataSource"
+        Microsoft.ServiceBus/Topic: "#/types/azure-native:streamanalytics:ServiceBusTopicOutputDataSource"
+        Microsoft.Sql/Server/Database: "#/types/azure-native:streamanalytics:AzureSqlDatabaseOutputDataSource"
+        Microsoft.Storage/Blob: "#/types/azure-native:streamanalytics:BlobOutputDataSource"
+        Microsoft.Storage/DocumentDB: "#/types/azure-native:streamanalytics:DocumentDbOutputDataSource"
+        Microsoft.Storage/Table: "#/types/azure-native:streamanalytics:AzureTableOutputDataSource"
+        PowerBI: "#/types/azure-native:streamanalytics:PowerBIOutputDataSource"
+    description: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+  name:
+    type: string
+    description: Resource name
+  serialization:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics:AvroSerialization"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics:CsvSerialization"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics:JsonSerialization"
+    discriminator:
+      propertyName: type
+      mapping:
+        Avro: "#/types/azure-native:streamanalytics:AvroSerialization"
+        Csv: "#/types/azure-native:streamanalytics:CsvSerialization"
+        Json: "#/types/azure-native:streamanalytics:JsonSerialization"
+    description: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+type: object

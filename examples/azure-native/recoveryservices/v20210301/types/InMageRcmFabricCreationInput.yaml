@@ -1,0 +1,23 @@
+$token: azure-native:recoveryservices/v20210301:InMageRcmFabricCreationInput
+description: InMageRcm fabric provider specific settings.
+properties:
+  authCertificate:
+    type: string
+    description: The certificate to be used for AAD authentication.
+  instanceType:
+    type: string
+    description: |-
+      Gets the class type.
+      Expected value is 'InMageRcm'.
+    const: InMageRcm
+  physicalSiteId:
+    type: string
+    description: The ARM Id of the physical site.
+  sourceAgentIdentity:
+    type: object
+    $ref: "#/types/azure-native:recoveryservices/v20210301:IdentityProviderInput"
+    description: The identity provider input for source agent authentication.
+  vmwareSiteId:
+    type: string
+    description: The ARM Id of the VMware site.
+type: object

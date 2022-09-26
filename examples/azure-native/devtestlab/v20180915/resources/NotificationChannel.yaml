@@ -1,0 +1,93 @@
+$token: azure-native:devtestlab/v20180915:NotificationChannel
+description: A notification.
+properties:
+  createdDate:
+    type: string
+    description: The creation date of the notification channel.
+  description:
+    type: string
+    description: Description of notification.
+  emailRecipient:
+    type: string
+    description: The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
+  events:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:devtestlab/v20180915:EventResponse"
+    description: The list of event for which this notification is enabled.
+  location:
+    type: string
+    description: The location of the resource.
+  name:
+    type: string
+    description: The name of the resource.
+  notificationLocale:
+    type: string
+    description: The locale to use when sending a notification (fallback for unsupported languages is EN).
+  provisioningState:
+    type: string
+    description: The provisioning status of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+  type:
+    type: string
+    description: The type of the resource.
+  uniqueIdentifier:
+    type: string
+    description: The unique immutable identifier of a resource (Guid).
+  webHookUrl:
+    type: string
+    description: The webhook URL to send notifications to.
+type: object
+required:
+  - createdDate
+  - name
+  - provisioningState
+  - type
+  - uniqueIdentifier
+inputProperties:
+  description:
+    type: string
+    description: Description of notification.
+  emailRecipient:
+    type: string
+    description: The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
+  events:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:devtestlab/v20180915:Event"
+    description: The list of event for which this notification is enabled.
+  labName:
+    type: string
+    description: The name of the lab.
+  location:
+    type: string
+    description: The location of the resource.
+  name:
+    type: string
+    description: The name of the notification channel.
+  notificationLocale:
+    type: string
+    description: The locale to use when sending a notification (fallback for unsupported languages is EN).
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+  webHookUrl:
+    type: string
+    description: The webhook URL to send notifications to.
+requiredInputs:
+  - labName
+  - resourceGroupName
+aliases:
+  - type: azure-native:devtestlab:NotificationChannel
+  - type: azure-native:devtestlab/v20160515:NotificationChannel

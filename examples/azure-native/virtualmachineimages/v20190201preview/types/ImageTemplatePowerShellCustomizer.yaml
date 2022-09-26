@@ -1,0 +1,28 @@
+$token: azure-native:virtualmachineimages/v20190201preview:ImageTemplatePowerShellCustomizer
+description: Runs the specified PowerShell on the VM (Windows). Corresponds to Packer powershell provisioner. Exactly one of 'script' or 'inline' can be specified.
+properties:
+  inline:
+    type: array
+    items:
+      type: string
+    description: Array of PowerShell commands to execute
+  name:
+    type: string
+    description: Friendly Name to provide context on what this customization step does
+  script:
+    type: string
+    description: The PowerShell script to be run for customizing. It can be a github link, SAS URI for Azure Storage, etc
+  type:
+    type: string
+    description: |-
+      The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
+      Expected value is 'PowerShell'.
+    const: PowerShell
+  validExitCodes:
+    type: array
+    items:
+      type: integer
+    description: "Valid exit codes for the PowerShell script. [Default: 0]"
+type: object
+required:
+  - type

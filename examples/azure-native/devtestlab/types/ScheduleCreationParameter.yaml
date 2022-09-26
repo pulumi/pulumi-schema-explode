@@ -1,0 +1,43 @@
+$token: azure-native:devtestlab:ScheduleCreationParameter
+description: Properties for creating a schedule.
+properties:
+  dailyRecurrence:
+    type: object
+    $ref: "#/types/azure-native:devtestlab:DayDetails"
+    description: If the schedule will occur once each day of the week, specify the daily recurrence.
+  hourlyRecurrence:
+    type: object
+    $ref: "#/types/azure-native:devtestlab:HourDetails"
+    description: If the schedule will occur multiple times a day, specify the hourly recurrence.
+  name:
+    type: string
+    description: The name of the virtual machine or environment
+  notificationSettings:
+    type: object
+    $ref: "#/types/azure-native:devtestlab:NotificationSettings"
+    description: Notification settings.
+  status:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:devtestlab:EnableStatus"
+    description: The status of the schedule (i.e. Enabled, Disabled)
+    default: Disabled
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+  targetResourceId:
+    type: string
+    description: The resource ID to which the schedule belongs
+  taskType:
+    type: string
+    description: The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
+  timeZoneId:
+    type: string
+    description: The time zone ID (e.g. Pacific Standard time).
+  weeklyRecurrence:
+    type: object
+    $ref: "#/types/azure-native:devtestlab:WeekDetails"
+    description: If the schedule will occur only some days of the week, specify the weekly recurrence.
+type: object

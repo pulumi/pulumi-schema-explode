@@ -1,0 +1,25 @@
+$token: azure-native:keyvault/v20150601:Permissions
+description: Permissions the identity has for keys, secrets and certificates.
+properties:
+  certificates:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:keyvault/v20150601:CertificatePermissions"
+    description: Permissions to certificates
+  keys:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:keyvault/v20150601:KeyPermissions"
+    description: Permissions to keys
+  secrets:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:keyvault/v20150601:SecretPermissions"
+    description: Permissions to secrets
+type: object

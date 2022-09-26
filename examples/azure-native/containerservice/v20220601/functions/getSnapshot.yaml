@@ -1,0 +1,76 @@
+$token: azure-native:containerservice/v20220601:getSnapshot
+description: A node pool snapshot resource.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    resourceName:
+      type: string
+      description: The name of the managed cluster resource.
+  type: object
+  required:
+    - resourceGroupName
+    - resourceName
+outputs:
+  description: A node pool snapshot resource.
+  properties:
+    creationData:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20220601:CreationDataResponse"
+      description: CreationData to be used to specify the source agent pool resource ID to create this snapshot.
+    enableFIPS:
+      type: boolean
+      description: Whether to use a FIPS-enabled OS.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    kubernetesVersion:
+      type: string
+      description: The version of Kubernetes.
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    name:
+      type: string
+      description: The name of the resource
+    nodeImageVersion:
+      type: string
+      description: The version of node image.
+    osSku:
+      type: string
+      description: Specifies an OS SKU. This value must not be specified if OSType is Windows.
+    osType:
+      type: string
+      description: The operating system type. The default is Linux.
+    snapshotType:
+      type: string
+      description: The type of a snapshot. The default is NodePool.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20220601:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+    vmSize:
+      type: string
+      description: The size of the VM.
+  type: object
+  required:
+    - enableFIPS
+    - id
+    - kubernetesVersion
+    - location
+    - name
+    - nodeImageVersion
+    - osSku
+    - osType
+    - systemData
+    - type
+    - vmSize

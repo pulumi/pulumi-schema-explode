@@ -1,0 +1,63 @@
+$token: azure-native:apimanagement/v20211201preview:getApiIssue
+description: Issue Contract details.
+inputs:
+  properties:
+    apiId:
+      type: string
+      description: API identifier. Must be unique in the current API Management service instance.
+    expandCommentsAttachments:
+      type: boolean
+      description: "Expand the comment attachments. "
+    issueId:
+      type: string
+      description: Issue identifier. Must be unique in the current API Management service instance.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    serviceName:
+      type: string
+      description: The name of the API Management service.
+  type: object
+  required:
+    - apiId
+    - issueId
+    - resourceGroupName
+    - serviceName
+outputs:
+  description: Issue Contract details.
+  properties:
+    apiId:
+      type: string
+      description: A resource identifier for the API the issue was created for.
+    createdDate:
+      type: string
+      description: Date and time when the issue was created.
+    description:
+      type: string
+      description: Text describing the issue.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    name:
+      type: string
+      description: The name of the resource
+    state:
+      type: string
+      description: Status of the issue.
+    title:
+      type: string
+      description: The issue title.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+    userId:
+      type: string
+      description: A resource identifier for the user created the issue.
+  type: object
+  required:
+    - description
+    - id
+    - name
+    - title
+    - type
+    - userId

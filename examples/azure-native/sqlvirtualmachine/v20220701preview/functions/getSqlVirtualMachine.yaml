@@ -1,0 +1,111 @@
+$token: azure-native:sqlvirtualmachine/v20220701preview:getSqlVirtualMachine
+description: A SQL virtual machine.
+inputs:
+  properties:
+    expand:
+      type: string
+      description: The child resources to include in the response.
+    resourceGroupName:
+      type: string
+      description: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    sqlVirtualMachineName:
+      type: string
+      description: Name of the SQL virtual machine.
+  type: object
+  required:
+    - resourceGroupName
+    - sqlVirtualMachineName
+outputs:
+  description: A SQL virtual machine.
+  properties:
+    assessmentSettings:
+      type: object
+      $ref: "#/types/azure-native:sqlvirtualmachine/v20220701preview:AssessmentSettingsResponse"
+      description: Assessment Settings.
+    autoBackupSettings:
+      type: object
+      $ref: "#/types/azure-native:sqlvirtualmachine/v20220701preview:AutoBackupSettingsResponse"
+      description: Auto backup settings for SQL Server.
+    autoPatchingSettings:
+      type: object
+      $ref: "#/types/azure-native:sqlvirtualmachine/v20220701preview:AutoPatchingSettingsResponse"
+      description: Auto patching settings for applying critical security updates to SQL virtual machine.
+    enableAutomaticUpgrade:
+      type: boolean
+      description: Enable automatic upgrade of Sql IaaS extension Agent.
+    id:
+      type: string
+      description: Resource ID.
+    identity:
+      type: object
+      $ref: "#/types/azure-native:sqlvirtualmachine/v20220701preview:ResourceIdentityResponse"
+      description: Azure Active Directory identity of the server.
+    keyVaultCredentialSettings:
+      type: object
+      $ref: "#/types/azure-native:sqlvirtualmachine/v20220701preview:KeyVaultCredentialSettingsResponse"
+      description: Key vault credential settings.
+    leastPrivilegeMode:
+      type: string
+      description: SQL IaaS Agent least privilege mode.
+    location:
+      type: string
+      description: Resource location.
+    name:
+      type: string
+      description: Resource name.
+    provisioningState:
+      type: string
+      description: Provisioning state to track the async operation status.
+    serverConfigurationsManagementSettings:
+      type: object
+      $ref: "#/types/azure-native:sqlvirtualmachine/v20220701preview:ServerConfigurationsManagementSettingsResponse"
+      description: SQL Server configuration management settings.
+    sqlImageOffer:
+      type: string
+      description: SQL image offer. Examples include SQL2016-WS2016, SQL2017-WS2016.
+    sqlImageSku:
+      type: string
+      description: SQL Server edition type.
+    sqlManagement:
+      type: string
+      description: SQL Server Management type.
+    sqlServerLicenseType:
+      type: string
+      description: SQL Server license type.
+    sqlVirtualMachineGroupResourceId:
+      type: string
+      description: ARM resource id of the SQL virtual machine group this SQL virtual machine is or will be part of.
+    storageConfigurationSettings:
+      type: object
+      $ref: "#/types/azure-native:sqlvirtualmachine/v20220701preview:StorageConfigurationSettingsResponse"
+      description: Storage Configuration Settings.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:sqlvirtualmachine/v20220701preview:SystemDataResponse"
+      description: Metadata pertaining to creation and last modification of the resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: Resource type.
+    virtualMachineResourceId:
+      type: string
+      description: ARM Resource id of underlying virtual machine created from SQL marketplace image.
+    wsfcDomainCredentials:
+      type: object
+      $ref: "#/types/azure-native:sqlvirtualmachine/v20220701preview:WsfcDomainCredentialsResponse"
+      description: Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
+    wsfcStaticIp:
+      type: string
+      description: Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - provisioningState
+    - systemData
+    - type

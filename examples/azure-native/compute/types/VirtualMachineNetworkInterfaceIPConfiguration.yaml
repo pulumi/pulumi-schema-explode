@@ -1,0 +1,43 @@
+$token: azure-native:compute:VirtualMachineNetworkInterfaceIPConfiguration
+description: Describes a virtual machine network profile's IP configuration.
+properties:
+  applicationGatewayBackendAddressPools:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:compute:SubResource"
+    description: Specifies an array of references to backend address pools of application gateways. A virtual machine can reference backend address pools of multiple application gateways. Multiple virtual machines cannot use the same application gateway.
+  applicationSecurityGroups:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:compute:SubResource"
+    description: Specifies an array of references to application security group.
+  loadBalancerBackendAddressPools:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:compute:SubResource"
+    description: Specifies an array of references to backend address pools of load balancers. A virtual machine can reference backend address pools of one public and one internal load balancer. [Multiple virtual machines cannot use the same basic sku load balancer].
+  name:
+    type: string
+    description: The IP configuration name.
+  primary:
+    type: boolean
+    description: Specifies the primary network interface in case the virtual machine has more than 1 network interface.
+  privateIPAddressVersion:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:compute:IPVersions"
+    description: "Available from Api-Version 2017-03-30 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.  Possible values are: 'IPv4' and 'IPv6'."
+  publicIPAddressConfiguration:
+    type: object
+    $ref: "#/types/azure-native:compute:VirtualMachinePublicIPAddressConfiguration"
+    description: The publicIPAddressConfiguration.
+  subnet:
+    type: object
+    $ref: "#/types/azure-native:compute:SubResource"
+    description: Specifies the identifier of the subnet.
+type: object
+required:
+  - name

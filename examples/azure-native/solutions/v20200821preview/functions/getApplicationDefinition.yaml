@@ -1,0 +1,105 @@
+$token: azure-native:solutions/v20200821preview:getApplicationDefinition
+description: Information about managed application definition.
+inputs:
+  properties:
+    applicationDefinitionName:
+      type: string
+      description: The name of the managed application definition.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+  type: object
+  required:
+    - applicationDefinitionName
+    - resourceGroupName
+outputs:
+  description: Information about managed application definition.
+  properties:
+    artifacts:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:solutions/v20200821preview:ApplicationDefinitionArtifactResponse"
+      description: The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
+    authorizations:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:solutions/v20200821preview:ApplicationAuthorizationResponse"
+      description: The managed application provider authorizations.
+    createUiDefinition:
+      $ref: pulumi.json#/Any
+      description: The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
+    deploymentPolicy:
+      type: object
+      $ref: "#/types/azure-native:solutions/v20200821preview:ApplicationDeploymentPolicyResponse"
+      description: The managed application deployment policy.
+    description:
+      type: string
+      description: The managed application definition description.
+    displayName:
+      type: string
+      description: The managed application definition display name.
+    id:
+      type: string
+      description: Resource ID
+    isEnabled:
+      type: boolean
+      description: A value indicating whether the package is enabled or not.
+    location:
+      type: string
+      description: Resource location
+    lockLevel:
+      type: string
+      description: The managed application lock level.
+    lockingPolicy:
+      type: object
+      $ref: "#/types/azure-native:solutions/v20200821preview:ApplicationPackageLockingPolicyDefinitionResponse"
+      description: The managed application locking policy.
+    mainTemplate:
+      $ref: pulumi.json#/Any
+      description: The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
+    managedBy:
+      type: string
+      description: ID of the resource that manages this resource.
+    managementPolicy:
+      type: object
+      $ref: "#/types/azure-native:solutions/v20200821preview:ApplicationManagementPolicyResponse"
+      description: The managed application management policy that determines publisher's access to the managed resource group.
+    name:
+      type: string
+      description: Resource name
+    notificationPolicy:
+      type: object
+      $ref: "#/types/azure-native:solutions/v20200821preview:ApplicationNotificationPolicyResponse"
+      description: The managed application notification policy.
+    packageFileUri:
+      type: string
+      description: The managed application definition package file Uri. Use this element
+    policies:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:solutions/v20200821preview:ApplicationPolicyResponse"
+      description: The managed application provider policies.
+    sku:
+      type: object
+      $ref: "#/types/azure-native:solutions/v20200821preview:SkuResponse"
+      description: The SKU of the resource.
+    storageAccountId:
+      type: string
+      description: The storage account id for bring your own storage scenario.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    type:
+      type: string
+      description: Resource type
+  type: object
+  required:
+    - id
+    - lockLevel
+    - name
+    - type

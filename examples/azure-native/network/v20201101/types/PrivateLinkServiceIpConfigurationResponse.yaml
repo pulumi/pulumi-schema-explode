@@ -1,0 +1,39 @@
+$token: azure-native:network/v20201101:PrivateLinkServiceIpConfigurationResponse
+description: The private link service ip configuration.
+properties:
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  id:
+    type: string
+    description: Resource ID.
+  name:
+    type: string
+    description: The name of private link service ip configuration.
+  primary:
+    type: boolean
+    description: Whether the ip configuration is primary or not.
+  privateIPAddress:
+    type: string
+    description: The private IP address of the IP configuration.
+  privateIPAddressVersion:
+    type: string
+    description: Whether the specific IP configuration is IPv4 or IPv6. Default is IPv4.
+  privateIPAllocationMethod:
+    type: string
+    description: The private IP address allocation method.
+  provisioningState:
+    type: string
+    description: The provisioning state of the private link service IP configuration resource.
+  subnet:
+    type: object
+    $ref: "#/types/azure-native:network/v20201101:SubnetResponse"
+    description: The reference to the subnet resource.
+  type:
+    type: string
+    description: The resource type.
+type: object
+required:
+  - etag
+  - provisioningState
+  - type

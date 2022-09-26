@@ -1,0 +1,54 @@
+$token: azure-native:eventgrid/v20220615:getPartnerRegistration
+description: Information about a partner registration.
+inputs:
+  properties:
+    partnerRegistrationName:
+      type: string
+      description: Name of the partner registration.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group within the user's subscription.
+  type: object
+  required:
+    - partnerRegistrationName
+    - resourceGroupName
+outputs:
+  description: Information about a partner registration.
+  properties:
+    id:
+      type: string
+      description: Fully qualified identifier of the resource.
+    location:
+      type: string
+      description: Location of the resource.
+    name:
+      type: string
+      description: Name of the resource.
+    partnerRegistrationImmutableId:
+      type: string
+      description: "The immutableId of the corresponding partner registration.\r
+
+        Note: This property is marked for deprecation and is not supported in any future GA API version"
+    provisioningState:
+      type: string
+      description: Provisioning state of the partner registration.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:eventgrid/v20220615:SystemDataResponse"
+      description: The system metadata relating to Partner Registration resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Tags of the resource.
+    type:
+      type: string
+      description: Type of the resource.
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - provisioningState
+    - systemData
+    - type

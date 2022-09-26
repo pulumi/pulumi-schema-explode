@@ -1,0 +1,67 @@
+$token: azure-native:resources/v20210301preview:getTemplateSpecVersion
+description: Template Spec Version object.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    templateSpecName:
+      type: string
+      description: Name of the Template Spec.
+    templateSpecVersion:
+      type: string
+      description: The version of the Template Spec.
+  type: object
+  required:
+    - resourceGroupName
+    - templateSpecName
+    - templateSpecVersion
+outputs:
+  description: Template Spec Version object.
+  properties:
+    description:
+      type: string
+      description: Template Spec version description.
+    id:
+      type: string
+      description: String Id used to locate any resource on Azure.
+    linkedTemplates:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:resources/v20210301preview:LinkedTemplateArtifactResponse"
+      description: An array of linked template artifacts.
+    location:
+      type: string
+      description: The location of the Template Spec Version. It must match the location of the parent Template Spec.
+    mainTemplate:
+      $ref: pulumi.json#/Any
+      description: The main Azure Resource Manager template content.
+    metadata:
+      $ref: pulumi.json#/Any
+      description: The version metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
+    name:
+      type: string
+      description: Name of this resource.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:resources/v20210301preview:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: Type of this resource.
+    uiFormDefinition:
+      $ref: pulumi.json#/Any
+      description: The Azure Resource Manager template UI definition content.
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - systemData
+    - type

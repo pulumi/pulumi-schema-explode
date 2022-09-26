@@ -1,0 +1,38 @@
+$token: azure-native:scheduler/v20160301:getJob
+inputs:
+  properties:
+    jobCollectionName:
+      type: string
+      description: The job collection name.
+    jobName:
+      type: string
+      description: The job name.
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+  type: object
+  required:
+    - jobCollectionName
+    - jobName
+    - resourceGroupName
+outputs:
+  properties:
+    id:
+      type: string
+      description: Gets the job resource identifier.
+    name:
+      type: string
+      description: Gets the job resource name.
+    properties:
+      type: object
+      $ref: "#/types/azure-native:scheduler/v20160301:JobPropertiesResponse"
+      description: Gets or sets the job properties.
+    type:
+      type: string
+      description: Gets the job resource type.
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - type

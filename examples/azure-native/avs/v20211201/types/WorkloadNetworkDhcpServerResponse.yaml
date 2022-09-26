@@ -1,0 +1,34 @@
+$token: azure-native:avs/v20211201:WorkloadNetworkDhcpServerResponse
+description: NSX DHCP Server
+properties:
+  dhcpType:
+    type: string
+    description: |-
+      Type of DHCP: SERVER or RELAY.
+      Expected value is 'SERVER'.
+    const: SERVER
+  displayName:
+    type: string
+    description: Display name of the DHCP entity.
+  leaseTime:
+    type: number
+    description: DHCP Server Lease Time.
+  provisioningState:
+    type: string
+    description: The provisioning state
+  revision:
+    type: number
+    description: NSX revision number.
+  segments:
+    type: array
+    items:
+      type: string
+    description: NSX Segments consuming DHCP.
+  serverAddress:
+    type: string
+    description: DHCP Server Address.
+type: object
+required:
+  - dhcpType
+  - provisioningState
+  - segments

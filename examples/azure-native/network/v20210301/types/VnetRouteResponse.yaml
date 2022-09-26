@@ -1,0 +1,18 @@
+$token: azure-native:network/v20210301:VnetRouteResponse
+description: List of routes that control routing from VirtualHub into a virtual network connection.
+properties:
+  bgpConnections:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210301:SubResourceResponse"
+    description: The list of references to HubBgpConnection objects.
+  staticRoutes:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210301:StaticRouteResponse"
+    description: List of all Static Routes.
+type: object
+required:
+  - bgpConnections

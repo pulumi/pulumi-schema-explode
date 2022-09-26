@@ -1,0 +1,18 @@
+$token: azure-native:deviceupdate:DiagnosticStorageProperties
+description: Customer-initiated diagnostic log collection storage properties
+properties:
+  authenticationType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:deviceupdate:AuthenticationType"
+    description: Authentication Type
+  connectionString:
+    type: string
+    description: ConnectionString of the diagnostic storage account
+  resourceId:
+    type: string
+    description: ResourceId of the diagnostic storage account
+type: object
+required:
+  - authenticationType
+  - resourceId

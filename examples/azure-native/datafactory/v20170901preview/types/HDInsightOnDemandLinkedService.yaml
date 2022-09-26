@@ -1,0 +1,159 @@
+$token: azure-native:datafactory/v20170901preview:HDInsightOnDemandLinkedService
+description: HDInsight ondemand linked service.
+properties:
+  additionalLinkedServiceNames:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20170901preview:LinkedServiceReference"
+    description: Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf.
+  annotations:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: List of tags that can be used for describing the Dataset.
+  clusterNamePrefix:
+    $ref: pulumi.json#/Any
+    description: "The prefix of cluster name, postfix will be distinct with timestamp. Type: string (or Expression with resultType string)."
+  clusterPassword:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:AzureKeyVaultSecretReference"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:SecureString"
+    discriminator:
+      propertyName: type
+      mapping:
+        AzureKeyVaultSecret: "#/types/azure-native:datafactory/v20170901preview:AzureKeyVaultSecretReference"
+        SecureString: "#/types/azure-native:datafactory/v20170901preview:SecureString"
+    description: The password to access the cluster.
+  clusterResourceGroup:
+    $ref: pulumi.json#/Any
+    description: "The resource group where the cluster belongs. Type: string (or Expression with resultType string)."
+  clusterSize:
+    $ref: pulumi.json#/Any
+    description: "Number of worker/data nodes in the cluster. Suggestion value: 4. Type: string (or Expression with resultType string)."
+  clusterSshPassword:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:AzureKeyVaultSecretReference"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:SecureString"
+    discriminator:
+      propertyName: type
+      mapping:
+        AzureKeyVaultSecret: "#/types/azure-native:datafactory/v20170901preview:AzureKeyVaultSecretReference"
+        SecureString: "#/types/azure-native:datafactory/v20170901preview:SecureString"
+    description: The password to SSH remotely connect cluster’s node (for Linux).
+  clusterSshUserName:
+    $ref: pulumi.json#/Any
+    description: "The username to SSH remotely connect to cluster’s node (for Linux). Type: string (or Expression with resultType string)."
+  clusterType:
+    $ref: pulumi.json#/Any
+    description: "The cluster type. Type: string (or Expression with resultType string)."
+  clusterUserName:
+    $ref: pulumi.json#/Any
+    description: "The username to access the cluster. Type: string (or Expression with resultType string)."
+  connectVia:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20170901preview:IntegrationRuntimeReference"
+    description: The integration runtime reference.
+  coreConfiguration:
+    $ref: pulumi.json#/Any
+    description: Specifies the core configuration parameters (as in core-site.xml) for the HDInsight cluster to be created.
+  dataNodeSize:
+    $ref: pulumi.json#/Any
+    description: Specifies the size of the data node for the HDInsight cluster.
+  description:
+    type: string
+    description: Linked service description.
+  encryptedCredential:
+    $ref: pulumi.json#/Any
+    description: "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string)."
+  hBaseConfiguration:
+    $ref: pulumi.json#/Any
+    description: Specifies the HBase configuration parameters (hbase-site.xml) for the HDInsight cluster.
+  hcatalogLinkedServiceName:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20170901preview:LinkedServiceReference"
+    description: The name of Azure SQL linked service that point to the HCatalog database. The on-demand HDInsight cluster is created by using the Azure SQL database as the metastore.
+  hdfsConfiguration:
+    $ref: pulumi.json#/Any
+    description: Specifies the HDFS configuration parameters (hdfs-site.xml) for the HDInsight cluster.
+  headNodeSize:
+    $ref: pulumi.json#/Any
+    description: Specifies the size of the head node for the HDInsight cluster.
+  hiveConfiguration:
+    $ref: pulumi.json#/Any
+    description: Specifies the hive configuration parameters (hive-site.xml) for the HDInsight cluster.
+  hostSubscriptionId:
+    $ref: pulumi.json#/Any
+    description: "The customer’s subscription to host the cluster. Type: string (or Expression with resultType string)."
+  linkedServiceName:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20170901preview:LinkedServiceReference"
+    description: Azure Storage linked service to be used by the on-demand cluster for storing and processing data.
+  mapReduceConfiguration:
+    $ref: pulumi.json#/Any
+    description: Specifies the MapReduce configuration parameters (mapred-site.xml) for the HDInsight cluster.
+  oozieConfiguration:
+    $ref: pulumi.json#/Any
+    description: Specifies the Oozie configuration parameters (oozie-site.xml) for the HDInsight cluster.
+  parameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20170901preview:ParameterSpecification"
+    description: Parameters for linked service.
+  servicePrincipalId:
+    $ref: pulumi.json#/Any
+    description: "The service principal id for the hostSubscriptionId. Type: string (or Expression with resultType string)."
+  servicePrincipalKey:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:AzureKeyVaultSecretReference"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:SecureString"
+    discriminator:
+      propertyName: type
+      mapping:
+        AzureKeyVaultSecret: "#/types/azure-native:datafactory/v20170901preview:AzureKeyVaultSecretReference"
+        SecureString: "#/types/azure-native:datafactory/v20170901preview:SecureString"
+    description: The key for the service principal id.
+  sparkVersion:
+    $ref: pulumi.json#/Any
+    description: "The version of spark if the cluster type is 'spark'. Type: string (or Expression with resultType string)."
+  stormConfiguration:
+    $ref: pulumi.json#/Any
+    description: Specifies the Storm configuration parameters (storm-site.xml) for the HDInsight cluster.
+  tenant:
+    $ref: pulumi.json#/Any
+    description: "The Tenant id/name to which the service principal belongs. Type: string (or Expression with resultType string)."
+  timeToLive:
+    $ref: pulumi.json#/Any
+    description: "The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster stays alive after completion of an activity run if there are no other active jobs in the cluster. The minimum value is 5 mins. Type: string (or Expression with resultType string)."
+  type:
+    type: string
+    description: |-
+      Type of linked service.
+      Expected value is 'HDInsightOnDemand'.
+    const: HDInsightOnDemand
+  version:
+    $ref: pulumi.json#/Any
+    description: "Version of the HDInsight cluster.  Type: string (or Expression with resultType string)."
+  yarnConfiguration:
+    $ref: pulumi.json#/Any
+    description: Specifies the Yarn configuration parameters (yarn-site.xml) for the HDInsight cluster.
+  zookeeperNodeSize:
+    $ref: pulumi.json#/Any
+    description: Specifies the size of the Zoo Keeper node for the HDInsight cluster.
+type: object
+required:
+  - clusterResourceGroup
+  - clusterSize
+  - hostSubscriptionId
+  - linkedServiceName
+  - tenant
+  - timeToLive
+  - type
+  - version

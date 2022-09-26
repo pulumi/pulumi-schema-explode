@@ -1,0 +1,20 @@
+$token: azure-native:media:TrackPropertyCondition
+description: Class to specify one track property condition
+properties:
+  operation:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:media:TrackPropertyCompareOperation"
+    description: Track property condition operation
+  property:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:media:TrackPropertyType"
+    description: Track property type
+  value:
+    type: string
+    description: Track property value
+type: object
+required:
+  - operation
+  - property

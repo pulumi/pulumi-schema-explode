@@ -1,0 +1,68 @@
+$token: azure-native:blockchain/v20180601preview:TransactionNode
+description: Payload of the transaction node which is the request/response of the resource provider.
+properties:
+  dns:
+    type: string
+    description: Gets or sets the transaction node dns endpoint.
+  firewallRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:blockchain/v20180601preview:FirewallRuleResponse"
+    description: Gets or sets the firewall rules.
+  location:
+    type: string
+    description: Gets or sets the transaction node location.
+  name:
+    type: string
+    description: The name of the resource.
+  password:
+    type: string
+    description: Sets the transaction node dns endpoint basic auth password.
+  provisioningState:
+    type: string
+    description: Gets or sets the blockchain member provision state.
+  publicKey:
+    type: string
+    description: Gets or sets the transaction node public key.
+  type:
+    type: string
+    description: The type of the service - e.g. "Microsoft.Blockchain"
+  userName:
+    type: string
+    description: Gets or sets the transaction node dns endpoint basic auth user name.
+type: object
+required:
+  - dns
+  - name
+  - provisioningState
+  - publicKey
+  - type
+  - userName
+inputProperties:
+  blockchainMemberName:
+    type: string
+    description: Blockchain member name.
+  firewallRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:blockchain/v20180601preview:FirewallRule"
+    description: Gets or sets the firewall rules.
+  location:
+    type: string
+    description: Gets or sets the transaction node location.
+  password:
+    type: string
+    description: Sets the transaction node dns endpoint basic auth password.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  transactionNodeName:
+    type: string
+    description: Transaction node name.
+requiredInputs:
+  - blockchainMemberName
+  - resourceGroupName
+aliases:
+  - type: azure-native:blockchain:TransactionNode

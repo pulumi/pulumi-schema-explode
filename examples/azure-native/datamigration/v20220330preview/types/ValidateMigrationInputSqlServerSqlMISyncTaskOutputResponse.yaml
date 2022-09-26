@@ -1,0 +1,20 @@
+$token: azure-native:datamigration/v20220330preview:ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponse
+description: Output for task that validates migration input for Azure SQL Database Managed Instance online migration
+properties:
+  id:
+    type: string
+    description: Database identifier
+  name:
+    type: string
+    description: Name of database
+  validationErrors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration/v20220330preview:ReportableExceptionResponse"
+    description: Errors associated with a selected database object
+type: object
+required:
+  - id
+  - name
+  - validationErrors

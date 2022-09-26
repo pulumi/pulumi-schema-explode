@@ -1,0 +1,39 @@
+$token: azure-native:containerregistry/v20180201preview:listBuildTaskSourceRepositoryProperties
+description: The properties of the source code repository.
+inputs:
+  properties:
+    buildTaskName:
+      type: string
+      description: The name of the container registry build task.
+    registryName:
+      type: string
+      description: The name of the container registry.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group to which the container registry belongs.
+  type: object
+  required:
+    - buildTaskName
+    - registryName
+    - resourceGroupName
+outputs:
+  description: The properties of the source code repository.
+  properties:
+    isCommitTriggerEnabled:
+      type: boolean
+      description: The value of this property indicates whether the source control commit trigger is enabled or not.
+      default: false
+    repositoryUrl:
+      type: string
+      description: The full URL to the source code repository
+    sourceControlAuthProperties:
+      type: object
+      $ref: "#/types/azure-native:containerregistry/v20180201preview:SourceControlAuthInfoResponse"
+      description: The authorization properties for accessing the source code repository.
+    sourceControlType:
+      type: string
+      description: The type of source control service.
+  type: object
+  required:
+    - repositoryUrl
+    - sourceControlType

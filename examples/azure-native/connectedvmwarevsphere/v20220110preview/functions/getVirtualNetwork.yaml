@@ -1,0 +1,84 @@
+$token: azure-native:connectedvmwarevsphere/v20220110preview:getVirtualNetwork
+description: Define the virtualNetwork.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The Resource Group Name.
+    virtualNetworkName:
+      type: string
+      description: Name of the virtual network resource.
+  type: object
+  required:
+    - resourceGroupName
+    - virtualNetworkName
+outputs:
+  description: Define the virtualNetwork.
+  properties:
+    customResourceName:
+      type: string
+      description: Gets the name of the corresponding resource in Kubernetes.
+    extendedLocation:
+      type: object
+      $ref: "#/types/azure-native:connectedvmwarevsphere/v20220110preview:ExtendedLocationResponse"
+      description: Gets or sets the extended location.
+    id:
+      type: string
+      description: Gets or sets the Id.
+    inventoryItemId:
+      type: string
+      description: Gets or sets the inventory Item ID for the virtual network.
+    kind:
+      type: string
+      description: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+    location:
+      type: string
+      description: Gets or sets the location.
+    moName:
+      type: string
+      description: Gets or sets the vCenter Managed Object name for the virtual network.
+    moRefId:
+      type: string
+      description: Gets or sets the vCenter MoRef (Managed Object Reference) ID for the virtual network.
+    name:
+      type: string
+      description: Gets or sets the name.
+    provisioningState:
+      type: string
+      description: Gets or sets the provisioning state.
+    statuses:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:connectedvmwarevsphere/v20220110preview:ResourceStatusResponse"
+      description: The resource status information.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:connectedvmwarevsphere/v20220110preview:SystemDataResponse"
+      description: The system data.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Gets or sets the Resource tags.
+    type:
+      type: string
+      description: Gets or sets the type of the resource.
+    uuid:
+      type: string
+      description: Gets or sets a unique identifier for this resource.
+    vCenterId:
+      type: string
+      description: Gets or sets the ARM Id of the vCenter resource in which this template resides.
+  type: object
+  required:
+    - customResourceName
+    - id
+    - location
+    - moName
+    - name
+    - provisioningState
+    - statuses
+    - systemData
+    - type
+    - uuid

@@ -1,0 +1,23 @@
+$token: azure-native:devtestlab:SubnetOverrideResponse
+description: Property overrides on a subnet of a virtual network.
+properties:
+  labSubnetName:
+    type: string
+    description: The name given to the subnet within the lab.
+  resourceId:
+    type: string
+    description: The resource ID of the subnet.
+  sharedPublicIpAddressConfiguration:
+    type: object
+    $ref: "#/types/azure-native:devtestlab:SubnetSharedPublicIpAddressConfigurationResponse"
+    description: Properties that virtual machines on this subnet will share.
+  useInVmCreationPermission:
+    type: string
+    description: Indicates whether this subnet can be used during virtual machine creation (i.e. Allow, Deny).
+  usePublicIpAddressPermission:
+    type: string
+    description: Indicates whether public IP addresses can be assigned to virtual machines on this subnet (i.e. Allow, Deny).
+  virtualNetworkPoolName:
+    type: string
+    description: The virtual network pool associated with this subnet.
+type: object

@@ -1,0 +1,71 @@
+$token: azure-native:network/v20160901:getPublicIPAddress
+description: Public IP address resource.
+inputs:
+  properties:
+    expand:
+      type: string
+      description: Expands referenced resources.
+    publicIpAddressName:
+      type: string
+      description: The name of the subnet.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - publicIpAddressName
+    - resourceGroupName
+outputs:
+  description: Public IP address resource.
+  properties:
+    dnsSettings:
+      type: object
+      $ref: "#/types/azure-native:network/v20160901:PublicIPAddressDnsSettingsResponse"
+      description: The FQDN of the DNS record associated with the public IP address.
+    etag:
+      type: string
+      description: A unique read-only string that changes whenever the resource is updated.
+    id:
+      type: string
+      description: Resource ID.
+    idleTimeoutInMinutes:
+      type: integer
+      description: The idle timeout of the public IP address.
+    ipAddress:
+      type: string
+    ipConfiguration:
+      type: object
+      $ref: "#/types/azure-native:network/v20160901:IPConfigurationResponse"
+      description: IPConfiguration
+    location:
+      type: string
+      description: Resource location.
+    name:
+      type: string
+      description: Resource name.
+    provisioningState:
+      type: string
+      description: "The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'."
+    publicIPAddressVersion:
+      type: string
+      description: "The public IP address version. Possible values are: 'IPv4' and 'IPv6'."
+    publicIPAllocationMethod:
+      type: string
+      description: "The public IP allocation method. Possible values are: 'Static' and 'Dynamic'."
+    resourceGuid:
+      type: string
+      description: The resource GUID property of the public IP resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - ipConfiguration
+    - name
+    - type
+deprecationMessage: Version 2016-09-01 will be removed in v2 of the provider.

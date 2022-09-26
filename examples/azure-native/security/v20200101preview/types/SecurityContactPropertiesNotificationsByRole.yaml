@@ -1,0 +1,16 @@
+$token: azure-native:security/v20200101preview:SecurityContactPropertiesNotificationsByRole
+description: Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
+properties:
+  roles:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:security/v20200101preview:Roles"
+    description: "Defines which RBAC roles will get email notifications from Microsoft Defender for Cloud. List of allowed RBAC roles: "
+  state:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:security/v20200101preview:State"
+    description: Defines whether to send email notifications from AMicrosoft Defender for Cloud to persons with specific RBAC roles on the subscription.
+type: object

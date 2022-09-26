@@ -1,0 +1,23 @@
+$token: azure-native:synapse/v20210501:ManagedIntegrationRuntime
+description: Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
+properties:
+  computeProperties:
+    type: object
+    $ref: "#/types/azure-native:synapse/v20210501:IntegrationRuntimeComputeProperties"
+    description: The compute resource for managed integration runtime.
+  description:
+    type: string
+    description: Integration runtime description.
+  ssisProperties:
+    type: object
+    $ref: "#/types/azure-native:synapse/v20210501:IntegrationRuntimeSsisProperties"
+    description: SSIS properties for managed integration runtime.
+  type:
+    type: string
+    description: |-
+      The type of integration runtime.
+      Expected value is 'Managed'.
+    const: Managed
+type: object
+required:
+  - type

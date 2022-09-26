@@ -1,0 +1,115 @@
+$token: azure-native:media/v20180330preview:Job
+description: A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
+properties:
+  created:
+    type: string
+    description: The UTC date and time when the Job was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
+  description:
+    type: string
+    description: Optional customer supplied description of the Job.
+  input:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:media/v20180330preview:JobInputAssetResponse"
+      - type: object
+        $ref: "#/types/azure-native:media/v20180330preview:JobInputClipResponse"
+      - type: object
+        $ref: "#/types/azure-native:media/v20180330preview:JobInputHttpResponse"
+      - type: object
+        $ref: "#/types/azure-native:media/v20180330preview:JobInputsResponse"
+    discriminator:
+      propertyName: odataType
+      mapping:
+        "#Microsoft.Media.JobInputAsset": "#/types/azure-native:media/v20180330preview:JobInputAssetResponse"
+        "#Microsoft.Media.JobInputClip": "#/types/azure-native:media/v20180330preview:JobInputClipResponse"
+        "#Microsoft.Media.JobInputHttp": "#/types/azure-native:media/v20180330preview:JobInputHttpResponse"
+        "#Microsoft.Media.JobInputs": "#/types/azure-native:media/v20180330preview:JobInputsResponse"
+    description: The inputs for the Job.
+  lastModified:
+    type: string
+    description: The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
+  name:
+    type: string
+    description: The name of the resource.
+  outputs:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:media/v20180330preview:JobOutputAssetResponse"
+    description: The outputs for the Job.
+  priority:
+    type: string
+    description: Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
+  state:
+    type: string
+    description: The current state of the job.
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - created
+  - input
+  - lastModified
+  - name
+  - outputs
+  - state
+  - type
+inputProperties:
+  accountName:
+    type: string
+    description: The Media Services account name.
+  description:
+    type: string
+    description: Optional customer supplied description of the Job.
+  input:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:media/v20180330preview:JobInputAsset"
+      - type: object
+        $ref: "#/types/azure-native:media/v20180330preview:JobInputClip"
+      - type: object
+        $ref: "#/types/azure-native:media/v20180330preview:JobInputHttp"
+      - type: object
+        $ref: "#/types/azure-native:media/v20180330preview:JobInputs"
+    discriminator:
+      propertyName: odataType
+      mapping:
+        "#Microsoft.Media.JobInputAsset": "#/types/azure-native:media/v20180330preview:JobInputAsset"
+        "#Microsoft.Media.JobInputClip": "#/types/azure-native:media/v20180330preview:JobInputClip"
+        "#Microsoft.Media.JobInputHttp": "#/types/azure-native:media/v20180330preview:JobInputHttp"
+        "#Microsoft.Media.JobInputs": "#/types/azure-native:media/v20180330preview:JobInputs"
+    description: The inputs for the Job.
+  jobName:
+    type: string
+    description: The Job name.
+  outputs:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:media/v20180330preview:JobOutputAsset"
+    description: The outputs for the Job.
+  priority:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:media/v20180330preview:Priority"
+    description: Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group within the Azure subscription.
+  transformName:
+    type: string
+    description: The Transform name.
+requiredInputs:
+  - accountName
+  - input
+  - outputs
+  - resourceGroupName
+  - transformName
+aliases:
+  - type: azure-native:media:Job
+  - type: azure-native:media/v20180601preview:Job
+  - type: azure-native:media/v20180701:Job
+  - type: azure-native:media/v20200501:Job
+  - type: azure-native:media/v20210601:Job
+  - type: azure-native:media/v20211101:Job

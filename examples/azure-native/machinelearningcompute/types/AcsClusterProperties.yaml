@@ -1,0 +1,35 @@
+$token: azure-native:machinelearningcompute:AcsClusterProperties
+description: Information about the container service backing the cluster
+properties:
+  agentCount:
+    type: integer
+    description: The number of agent nodes in the Container Service. This can be changed to scale the cluster.
+    default: 2
+  agentVmSize:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearningcompute:AgentVMSizeTypes"
+    description: The Azure VM size of the agent VM nodes. This cannot be changed once the cluster is created. This list is non exhaustive; refer to https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes for the possible VM sizes.
+    default: Standard_D3_v2
+  masterCount:
+    type: integer
+    description: The number of master nodes in the container service.
+    default: 1
+  orchestratorProperties:
+    type: object
+    $ref: "#/types/azure-native:machinelearningcompute:KubernetesClusterProperties"
+    description: Orchestrator specific properties
+  orchestratorType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearningcompute:OrchestratorType"
+    description: Type of orchestrator. It cannot be changed once the cluster is created.
+  systemServices:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:machinelearningcompute:SystemService"
+    description: The system services deployed to the cluster
+type: object
+required:
+  - orchestratorType

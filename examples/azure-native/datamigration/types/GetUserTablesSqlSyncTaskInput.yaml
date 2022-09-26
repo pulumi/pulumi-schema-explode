@@ -1,0 +1,27 @@
+$token: azure-native:datamigration:GetUserTablesSqlSyncTaskInput
+description: Input for the task that collects user tables for the given list of databases
+properties:
+  selectedSourceDatabases:
+    type: array
+    items:
+      type: string
+    description: List of source database names to collect tables for
+  selectedTargetDatabases:
+    type: array
+    items:
+      type: string
+    description: List of target database names to collect tables for
+  sourceConnectionInfo:
+    type: object
+    $ref: "#/types/azure-native:datamigration:SqlConnectionInfo"
+    description: Connection information for SQL Server
+  targetConnectionInfo:
+    type: object
+    $ref: "#/types/azure-native:datamigration:SqlConnectionInfo"
+    description: Connection information for SQL DB
+type: object
+required:
+  - selectedSourceDatabases
+  - selectedTargetDatabases
+  - sourceConnectionInfo
+  - targetConnectionInfo

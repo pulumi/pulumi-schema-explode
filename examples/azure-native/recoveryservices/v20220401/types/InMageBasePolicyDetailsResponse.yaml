@@ -1,0 +1,24 @@
+$token: azure-native:recoveryservices/v20220401:InMageBasePolicyDetailsResponse
+description: Base class for the policies of providers using InMage replication.
+properties:
+  appConsistentFrequencyInMinutes:
+    type: integer
+    description: The app consistent snapshot frequency in minutes.
+  instanceType:
+    type: string
+    description: |-
+      Gets the class type. Overridden in derived classes.
+      Expected value is 'InMageBasePolicyDetails'.
+    const: InMageBasePolicyDetails
+  multiVmSyncStatus:
+    type: string
+    description: A value indicating whether multi-VM sync has to be enabled.
+  recoveryPointHistory:
+    type: integer
+    description: The duration in minutes until which the recovery points need to be stored.
+  recoveryPointThresholdInMinutes:
+    type: integer
+    description: The recovery point threshold in minutes.
+type: object
+required:
+  - instanceType

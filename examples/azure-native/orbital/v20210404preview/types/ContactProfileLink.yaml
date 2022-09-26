@@ -1,0 +1,30 @@
+$token: azure-native:orbital/v20210404preview:ContactProfileLink
+description: Contact Profile link
+properties:
+  channels:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:orbital/v20210404preview:ContactProfileLinkChannel"
+    description: Contact Profile Link Channel
+  direction:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:orbital/v20210404preview:Direction"
+    description: Direction (uplink or downlink)
+  eirpdBW:
+    type: number
+    description: Effective Isotropic Radiated Power (EIRP) in dBW.
+  gainOverTemperature:
+    type: number
+    description: Gain To Noise Temperature in db/K.
+  polarization:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:orbital/v20210404preview:Polarization"
+    description: polarization. eg (RHCP, LHCP)
+type: object
+required:
+  - channels
+  - direction
+  - polarization

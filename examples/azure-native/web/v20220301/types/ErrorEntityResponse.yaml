@@ -1,0 +1,36 @@
+$token: azure-native:web/v20220301:ErrorEntityResponse
+description: Body of the error response returned from the API.
+properties:
+  code:
+    type: string
+    description: Basic error code.
+  details:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:web/v20220301:ErrorEntityResponse"
+    description: Error Details.
+  extendedCode:
+    type: string
+    description: Type of error.
+  innerErrors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:web/v20220301:ErrorEntityResponse"
+    description: Inner errors.
+  message:
+    type: string
+    description: Any details of the error.
+  messageTemplate:
+    type: string
+    description: Message template.
+  parameters:
+    type: array
+    items:
+      type: string
+    description: Parameters for the template.
+  target:
+    type: string
+    description: The error target.
+type: object

@@ -1,0 +1,78 @@
+$token: azure-native:cdn/v20161002:CustomDomain
+description: Customer provided domain for branding purposes, e.g. www.contoso.com.
+properties:
+  customHttpsProvisioningState:
+    type: string
+    description: Provisioning state of Custom Https of the custom domain.
+  hostName:
+    type: string
+    description: The host name of the custom domain. Must be a domain name.
+  location:
+    type: string
+    description: Resource location.
+  name:
+    type: string
+    description: Resource name.
+  provisioningState:
+    type: string
+    description: Provisioning status of the custom domain.
+  resourceState:
+    type: string
+    description: Resource status of the custom domain.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: Resource type.
+  validationData:
+    type: string
+    description: Special validation or data may be required when delivering CDN to some regions due to local compliance reasons. E.g. ICP license number of a custom domain is required to deliver content in China.
+type: object
+required:
+  - customHttpsProvisioningState
+  - hostName
+  - location
+  - name
+  - provisioningState
+  - resourceState
+  - type
+inputProperties:
+  customDomainName:
+    type: string
+    description: Name of the custom domain within an endpoint.
+  endpointName:
+    type: string
+    description: Name of the endpoint under the profile which is unique globally.
+  hostName:
+    type: string
+    description: The host name of the custom domain. Must be a domain name.
+  profileName:
+    type: string
+    description: Name of the CDN profile which is unique within the resource group.
+  resourceGroupName:
+    type: string
+    description: Name of the Resource group within the Azure subscription.
+requiredInputs:
+  - endpointName
+  - hostName
+  - profileName
+  - resourceGroupName
+aliases:
+  - type: azure-native:cdn:CustomDomain
+  - type: azure-native:cdn/v20150601:CustomDomain
+  - type: azure-native:cdn/v20160402:CustomDomain
+  - type: azure-native:cdn/v20170402:CustomDomain
+  - type: azure-native:cdn/v20171012:CustomDomain
+  - type: azure-native:cdn/v20190415:CustomDomain
+  - type: azure-native:cdn/v20190615:CustomDomain
+  - type: azure-native:cdn/v20190615preview:CustomDomain
+  - type: azure-native:cdn/v20191231:CustomDomain
+  - type: azure-native:cdn/v20200331:CustomDomain
+  - type: azure-native:cdn/v20200415:CustomDomain
+  - type: azure-native:cdn/v20200901:CustomDomain
+  - type: azure-native:cdn/v20210601:CustomDomain
+  - type: azure-native:cdn/v20220501preview:CustomDomain
+deprecationMessage: Version 2016-10-02 will be removed in v2 of the provider.

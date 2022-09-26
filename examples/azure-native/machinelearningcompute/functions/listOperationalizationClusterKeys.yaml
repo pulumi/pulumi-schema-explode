@@ -1,0 +1,44 @@
+$token: azure-native:machinelearningcompute:listOperationalizationClusterKeys
+description: |-
+  Credentials to resources in the cluster.
+  API Version: 2017-08-01-preview.
+inputs:
+  properties:
+    clusterName:
+      type: string
+      description: The name of the cluster.
+    resourceGroupName:
+      type: string
+      description: Name of the resource group in which the cluster is located.
+  type: object
+  required:
+    - clusterName
+    - resourceGroupName
+outputs:
+  description: Credentials to resources in the cluster.
+  properties:
+    appInsights:
+      type: object
+      $ref: "#/types/azure-native:machinelearningcompute:AppInsightsCredentialsResponse"
+      description: Credentials for Azure AppInsights.
+    containerRegistry:
+      type: object
+      $ref: "#/types/azure-native:machinelearningcompute:ContainerRegistryCredentialsResponse"
+      description: Credentials for Azure Container Registry.
+    containerService:
+      type: object
+      $ref: "#/types/azure-native:machinelearningcompute:ContainerServiceCredentialsResponse"
+      description: Credentials for Azure Container Service.
+    serviceAuthConfiguration:
+      type: object
+      $ref: "#/types/azure-native:machinelearningcompute:ServiceAuthConfigurationResponse"
+      description: Global authorization keys for all user services deployed in cluster. These are used if the service does not have auth keys.
+    sslConfiguration:
+      type: object
+      $ref: "#/types/azure-native:machinelearningcompute:SslConfigurationResponse"
+      description: The SSL configuration for the services.
+    storageAccount:
+      type: object
+      $ref: "#/types/azure-native:machinelearningcompute:StorageAccountCredentialsResponse"
+      description: Credentials for the Storage Account.
+  type: object

@@ -1,0 +1,73 @@
+$token: azure-native:delegatednetwork/v20200808preview:getOrchestratorInstanceServiceDetails
+description: Represents an instance of a orchestrator.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    resourceName:
+      type: string
+      description: The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
+  type: object
+  required:
+    - resourceGroupName
+    - resourceName
+outputs:
+  description: Represents an instance of a orchestrator.
+  properties:
+    apiServerEndpoint:
+      type: string
+      description: K8s APIServer url
+    clusterRootCA:
+      type: string
+      description: RootCA certificate of kubernetes cluster base64 encoded
+    controllerDetails:
+      type: object
+      $ref: "#/types/azure-native:delegatednetwork/v20200808preview:ControllerDetailsResponse"
+      description: Properties of the controller.
+    id:
+      type: string
+      description: An identifier that represents the resource.
+    identity:
+      type: object
+      $ref: "#/types/azure-native:delegatednetwork/v20200808preview:OrchestratorIdentityResponse"
+      description: The identity of the orchestrator
+    kind:
+      type: string
+      description: The kind of workbook. Choices are user and shared.
+    location:
+      type: string
+      description: Location of the resource.
+    name:
+      type: string
+      description: The name of the resource.
+    orchestratorAppId:
+      type: string
+      description: AAD ID used with apiserver
+    orchestratorTenantId:
+      type: string
+      description: TenantID of server App ID
+    provisioningState:
+      type: string
+      description: The current state of orchestratorInstance resource.
+    resourceGuid:
+      type: string
+      description: Resource guid.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: The resource tags.
+    type:
+      type: string
+      description: The type of resource.
+  type: object
+  required:
+    - controllerDetails
+    - id
+    - kind
+    - name
+    - provisioningState
+    - resourceGuid
+    - type
+deprecationMessage: Version 2020-08-08-preview will be removed in v2 of the provider.

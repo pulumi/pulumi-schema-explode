@@ -1,0 +1,100 @@
+$token: azure-native:intune:getIoMAMPolicyByName
+description: |-
+  iOS Policy entity for Intune MAM.
+  API Version: 2015-01-14-preview.
+inputs:
+  properties:
+    hostName:
+      type: string
+      description: Location hostName for the tenant
+    policyName:
+      type: string
+      description: Unique name for the policy
+    select:
+      type: string
+      description: select specific fields in entity.
+  type: object
+  required:
+    - hostName
+    - policyName
+outputs:
+  description: iOS Policy entity for Intune MAM.
+  properties:
+    accessRecheckOfflineTimeout:
+      type: string
+    accessRecheckOnlineTimeout:
+      type: string
+    appSharingFromLevel:
+      type: string
+      default: none
+    appSharingToLevel:
+      type: string
+      default: none
+    authentication:
+      type: string
+      default: required
+    clipboardSharingLevel:
+      type: string
+      default: blocked
+    dataBackup:
+      type: string
+      default: allow
+    description:
+      type: string
+    deviceCompliance:
+      type: string
+      default: enable
+    fileEncryptionLevel:
+      type: string
+      default: deviceLocked
+    fileSharingSaveAs:
+      type: string
+      default: allow
+    friendlyName:
+      type: string
+    groupStatus:
+      type: string
+      default: notTargeted
+    id:
+      type: string
+      description: Resource Id
+    lastModifiedTime:
+      type: string
+    location:
+      type: string
+      description: Resource Location
+    managedBrowser:
+      type: string
+      default: required
+    name:
+      type: string
+      description: Resource name
+    numOfApps:
+      type: integer
+    offlineWipeTimeout:
+      type: string
+    pin:
+      type: string
+      default: required
+    pinNumRetry:
+      type: integer
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource Tags
+    touchId:
+      type: string
+      default: enable
+    type:
+      type: string
+      description: Resource type
+  type: object
+  required:
+    - friendlyName
+    - groupStatus
+    - id
+    - lastModifiedTime
+    - name
+    - numOfApps
+    - type

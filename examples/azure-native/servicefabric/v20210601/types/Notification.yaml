@@ -1,0 +1,28 @@
+$token: azure-native:servicefabric/v20210601:Notification
+description: Describes the notification channel for cluster events.
+properties:
+  isEnabled:
+    type: boolean
+    description: Indicates if the notification is enabled.
+  notificationCategory:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:servicefabric/v20210601:NotificationCategory"
+    description: The category of notification.
+  notificationLevel:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:servicefabric/v20210601:NotificationLevel"
+    description: The level of notification.
+  notificationTargets:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:servicefabric/v20210601:NotificationTarget"
+    description: List of targets that subscribe to the notification.
+type: object
+required:
+  - isEnabled
+  - notificationCategory
+  - notificationLevel
+  - notificationTargets

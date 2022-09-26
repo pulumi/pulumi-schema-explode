@@ -1,0 +1,195 @@
+$token: azure-native:network/v20210201:LoadBalancer
+description: LoadBalancer resource.
+properties:
+  backendAddressPools:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210201:BackendAddressPoolResponse"
+    description: Collection of backend address pools used by a load balancer.
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  extendedLocation:
+    type: object
+    $ref: "#/types/azure-native:network/v20210201:ExtendedLocationResponse"
+    description: The extended location of the load balancer.
+  frontendIPConfigurations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210201:FrontendIPConfigurationResponse"
+    description: Object representing the frontend IPs to be used for the load balancer.
+  inboundNatPools:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210201:InboundNatPoolResponse"
+    description: Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound Nat rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
+  inboundNatRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210201:InboundNatRuleResponse"
+    description: Collection of inbound NAT Rules used by a load balancer. Defining inbound NAT rules on your load balancer is mutually exclusive with defining an inbound NAT pool. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an Inbound NAT pool. They have to reference individual inbound NAT rules.
+  loadBalancingRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210201:LoadBalancingRuleResponse"
+    description: Object collection representing the load balancing rules Gets the provisioning.
+  location:
+    type: string
+    description: Resource location.
+  name:
+    type: string
+    description: Resource name.
+  outboundRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210201:OutboundRuleResponse"
+    description: The outbound rules.
+  probes:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210201:ProbeResponse"
+    description: Collection of probe objects used in the load balancer.
+  provisioningState:
+    type: string
+    description: The provisioning state of the load balancer resource.
+  resourceGuid:
+    type: string
+    description: The resource GUID property of the load balancer resource.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:network/v20210201:LoadBalancerSkuResponse"
+    description: The load balancer SKU.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - etag
+  - name
+  - provisioningState
+  - resourceGuid
+  - type
+inputProperties:
+  backendAddressPools:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210201:BackendAddressPool"
+    description: Collection of backend address pools used by a load balancer.
+  extendedLocation:
+    type: object
+    $ref: "#/types/azure-native:network/v20210201:ExtendedLocation"
+    description: The extended location of the load balancer.
+  frontendIPConfigurations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210201:FrontendIPConfiguration"
+    description: Object representing the frontend IPs to be used for the load balancer.
+  id:
+    type: string
+    description: Resource ID.
+  inboundNatPools:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210201:InboundNatPool"
+    description: Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound Nat rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
+  inboundNatRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210201:InboundNatRule"
+    description: Collection of inbound NAT Rules used by a load balancer. Defining inbound NAT rules on your load balancer is mutually exclusive with defining an inbound NAT pool. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an Inbound NAT pool. They have to reference individual inbound NAT rules.
+  loadBalancerName:
+    type: string
+    description: The name of the load balancer.
+  loadBalancingRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210201:LoadBalancingRule"
+    description: Object collection representing the load balancing rules Gets the provisioning.
+  location:
+    type: string
+    description: Resource location.
+  outboundRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210201:OutboundRule"
+    description: The outbound rules.
+  probes:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210201:Probe"
+    description: Collection of probe objects used in the load balancer.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:network/v20210201:LoadBalancerSku"
+    description: The load balancer SKU.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:network:LoadBalancer
+  - type: azure-native:network/v20150501preview:LoadBalancer
+  - type: azure-native:network/v20150615:LoadBalancer
+  - type: azure-native:network/v20160330:LoadBalancer
+  - type: azure-native:network/v20160601:LoadBalancer
+  - type: azure-native:network/v20160901:LoadBalancer
+  - type: azure-native:network/v20161201:LoadBalancer
+  - type: azure-native:network/v20170301:LoadBalancer
+  - type: azure-native:network/v20170601:LoadBalancer
+  - type: azure-native:network/v20170801:LoadBalancer
+  - type: azure-native:network/v20170901:LoadBalancer
+  - type: azure-native:network/v20171001:LoadBalancer
+  - type: azure-native:network/v20171101:LoadBalancer
+  - type: azure-native:network/v20180101:LoadBalancer
+  - type: azure-native:network/v20180201:LoadBalancer
+  - type: azure-native:network/v20180401:LoadBalancer
+  - type: azure-native:network/v20180601:LoadBalancer
+  - type: azure-native:network/v20180701:LoadBalancer
+  - type: azure-native:network/v20180801:LoadBalancer
+  - type: azure-native:network/v20181001:LoadBalancer
+  - type: azure-native:network/v20181101:LoadBalancer
+  - type: azure-native:network/v20181201:LoadBalancer
+  - type: azure-native:network/v20190201:LoadBalancer
+  - type: azure-native:network/v20190401:LoadBalancer
+  - type: azure-native:network/v20190601:LoadBalancer
+  - type: azure-native:network/v20190701:LoadBalancer
+  - type: azure-native:network/v20190801:LoadBalancer
+  - type: azure-native:network/v20190901:LoadBalancer
+  - type: azure-native:network/v20191101:LoadBalancer
+  - type: azure-native:network/v20191201:LoadBalancer
+  - type: azure-native:network/v20200301:LoadBalancer
+  - type: azure-native:network/v20200401:LoadBalancer
+  - type: azure-native:network/v20200501:LoadBalancer
+  - type: azure-native:network/v20200601:LoadBalancer
+  - type: azure-native:network/v20200701:LoadBalancer
+  - type: azure-native:network/v20200801:LoadBalancer
+  - type: azure-native:network/v20201101:LoadBalancer
+  - type: azure-native:network/v20210301:LoadBalancer
+  - type: azure-native:network/v20210501:LoadBalancer
+  - type: azure-native:network/v20210801:LoadBalancer
+  - type: azure-native:network/v20220101:LoadBalancer

@@ -1,0 +1,21 @@
+$token: azure-native:containerregistry:PlatformProperties
+description: The platform properties against which the run has to happen.
+properties:
+  architecture:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:containerregistry:Architecture"
+    description: The OS architecture.
+  os:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:containerregistry:OS"
+    description: The operating system type required for the run.
+  variant:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:containerregistry:Variant"
+    description: Variant of the CPU.
+type: object
+required:
+  - os

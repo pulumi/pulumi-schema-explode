@@ -1,0 +1,69 @@
+$token: azure-native:servicefabricmesh/v20180701preview:Network
+description: This type describes a network resource.
+properties:
+  addressPrefix:
+    type: string
+    description: the address prefix for this network.
+  description:
+    type: string
+    description: User readable description of the network.
+  ingressConfig:
+    type: object
+    $ref: "#/types/azure-native:servicefabricmesh/v20180701preview:IngressConfigResponse"
+    description: Configuration for public connectivity for this network.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  name:
+    type: string
+    description: The name of the resource
+  provisioningState:
+    type: string
+    description: State of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+type: object
+required:
+  - addressPrefix
+  - location
+  - name
+  - provisioningState
+  - type
+inputProperties:
+  addressPrefix:
+    type: string
+    description: the address prefix for this network.
+  description:
+    type: string
+    description: User readable description of the network.
+  ingressConfig:
+    type: object
+    $ref: "#/types/azure-native:servicefabricmesh/v20180701preview:IngressConfig"
+    description: Configuration for public connectivity for this network.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  networkName:
+    type: string
+    description: The identity of the network.
+  resourceGroupName:
+    type: string
+    description: Azure resource group name
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - addressPrefix
+  - resourceGroupName
+aliases:
+  - type: azure-native:servicefabricmesh:Network
+  - type: azure-native:servicefabricmesh/v20180901preview:Network
+deprecationMessage: Version 2018-07-01-preview will be removed in v2 of the provider.

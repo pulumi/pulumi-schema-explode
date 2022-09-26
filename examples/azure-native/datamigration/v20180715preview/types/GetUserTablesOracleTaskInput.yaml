@@ -1,0 +1,16 @@
+$token: azure-native:datamigration/v20180715preview:GetUserTablesOracleTaskInput
+description: Input for the task that gets the list of tables contained within a provided list of Oracle schemas.
+properties:
+  connectionInfo:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20180715preview:OracleConnectionInfo"
+    description: Information for connecting to Oracle source
+  selectedSchemas:
+    type: array
+    items:
+      type: string
+    description: List of Oracle schemas for which to collect tables
+type: object
+required:
+  - connectionInfo
+  - selectedSchemas

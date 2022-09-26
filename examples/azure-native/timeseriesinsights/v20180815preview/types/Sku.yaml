@@ -1,0 +1,15 @@
+$token: azure-native:timeseriesinsights/v20180815preview:Sku
+description: The sku determines the type of environment, either standard (S1 or S2) or long-term (L1). For standard environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
+properties:
+  capacity:
+    type: integer
+    description: The capacity of the sku. For standard environments, this value can be changed to support scale out of environments after they have been created.
+  name:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:timeseriesinsights/v20180815preview:SkuName"
+    description: The name of this SKU.
+type: object
+required:
+  - capacity
+  - name

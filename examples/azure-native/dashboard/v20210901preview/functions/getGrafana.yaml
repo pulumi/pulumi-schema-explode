@@ -1,0 +1,57 @@
+$token: azure-native:dashboard/v20210901preview:getGrafana
+description: The grafana resource type.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    workspaceName:
+      type: string
+      description: The workspace name of Azure Managed Grafana.
+  type: object
+  required:
+    - resourceGroupName
+    - workspaceName
+outputs:
+  description: The grafana resource type.
+  properties:
+    id:
+      type: string
+      description: ARM id of the grafana resource
+    identity:
+      type: object
+      $ref: "#/types/azure-native:dashboard/v20210901preview:ManagedIdentityResponse"
+      description: The managed identity of the grafana resource.
+    location:
+      type: string
+      description: The geo-location where the grafana resource lives
+    name:
+      type: string
+      description: Name of the grafana resource.
+    properties:
+      type: object
+      $ref: "#/types/azure-native:dashboard/v20210901preview:ManagedGrafanaPropertiesResponse"
+      description: Properties specific to the grafana resource.
+    sku:
+      type: object
+      $ref: "#/types/azure-native:dashboard/v20210901preview:ResourceSkuResponse"
+      description: The Sku of the grafana resource.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:dashboard/v20210901preview:SystemDataResponse"
+      description: The system meta data relating to this grafana resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: The tags for grafana resource.
+    type:
+      type: string
+      description: The type of the grafana resource.
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - systemData
+    - type

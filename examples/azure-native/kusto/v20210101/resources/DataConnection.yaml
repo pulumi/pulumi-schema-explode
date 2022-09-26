@@ -1,0 +1,58 @@
+$token: azure-native:kusto/v20210101:DataConnection
+description: Class representing an data connection.
+properties:
+  kind:
+    type: string
+    description: Kind of the endpoint for the data connection
+  location:
+    type: string
+    description: Resource location.
+  name:
+    type: string
+    description: The name of the resource
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - kind
+  - name
+  - type
+inputProperties:
+  clusterName:
+    type: string
+    description: The name of the Kusto cluster.
+  dataConnectionName:
+    type: string
+    description: The name of the data connection.
+  databaseName:
+    type: string
+    description: The name of the database in the Kusto cluster.
+  kind:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:kusto/v20210101:DataConnectionKind"
+    description: Kind of the endpoint for the data connection
+  location:
+    type: string
+    description: Resource location.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group containing the Kusto cluster.
+requiredInputs:
+  - clusterName
+  - databaseName
+  - kind
+  - resourceGroupName
+aliases:
+  - type: azure-native:kusto:DataConnection
+  - type: azure-native:kusto/v20190121:DataConnection
+  - type: azure-native:kusto/v20190515:DataConnection
+  - type: azure-native:kusto/v20190907:DataConnection
+  - type: azure-native:kusto/v20191109:DataConnection
+  - type: azure-native:kusto/v20200215:DataConnection
+  - type: azure-native:kusto/v20200614:DataConnection
+  - type: azure-native:kusto/v20200918:DataConnection
+  - type: azure-native:kusto/v20210827:DataConnection
+  - type: azure-native:kusto/v20220201:DataConnection
+deprecationMessage: "Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection."

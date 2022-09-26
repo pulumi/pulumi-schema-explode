@@ -1,0 +1,14 @@
+$token: azure-native:containerregistry/v20180201preview:PlatformProperties
+description: The platform properties against which the build has to happen.
+properties:
+  cpu:
+    type: integer
+    description: The CPU configuration in terms of number of cores required for the build.
+  osType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:containerregistry/v20180201preview:OsType"
+    description: The operating system type required for the build.
+type: object
+required:
+  - osType

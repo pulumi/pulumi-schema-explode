@@ -1,0 +1,94 @@
+$token: azure-native:datafactory:HDInsightStreamingActivity
+description: HDInsight streaming activity type.
+properties:
+  arguments:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: User specified arguments to HDInsightActivity.
+  combiner:
+    $ref: pulumi.json#/Any
+    description: "Combiner executable name. Type: string (or Expression with resultType string)."
+  commandEnvironment:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: Command line environment values.
+  defines:
+    type: object
+    additionalProperties:
+      $ref: pulumi.json#/Any
+    description: Allows user to specify defines for streaming job request.
+  dependsOn:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory:ActivityDependency"
+    description: Activity depends on condition.
+  description:
+    type: string
+    description: Activity description.
+  fileLinkedService:
+    type: object
+    $ref: "#/types/azure-native:datafactory:LinkedServiceReference"
+    description: Linked service reference where the files are located.
+  filePaths:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: Paths to streaming job files. Can be directories.
+  getDebugInfo:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:datafactory:HDInsightActivityDebugInfoOption"
+    description: Debug info option.
+  input:
+    $ref: pulumi.json#/Any
+    description: "Input blob path. Type: string (or Expression with resultType string)."
+  linkedServiceName:
+    type: object
+    $ref: "#/types/azure-native:datafactory:LinkedServiceReference"
+    description: Linked service reference.
+  mapper:
+    $ref: pulumi.json#/Any
+    description: "Mapper executable name. Type: string (or Expression with resultType string)."
+  name:
+    type: string
+    description: Activity name.
+  output:
+    $ref: pulumi.json#/Any
+    description: "Output blob path. Type: string (or Expression with resultType string)."
+  policy:
+    type: object
+    $ref: "#/types/azure-native:datafactory:ActivityPolicy"
+    description: Activity policy.
+  reducer:
+    $ref: pulumi.json#/Any
+    description: "Reducer executable name. Type: string (or Expression with resultType string)."
+  storageLinkedServices:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory:LinkedServiceReference"
+    description: Storage linked service references.
+  type:
+    type: string
+    description: |-
+      Type of activity.
+      Expected value is 'HDInsightStreaming'.
+    const: HDInsightStreaming
+  userProperties:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory:UserProperty"
+    description: Activity user properties.
+type: object
+required:
+  - filePaths
+  - input
+  - mapper
+  - name
+  - output
+  - reducer
+  - type

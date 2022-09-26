@@ -1,0 +1,48 @@
+$token: azure-native:machinelearning/v20160501preview:CommitmentPlanPropertiesResponse
+description: Properties of an Azure ML commitment plan.
+properties:
+  chargeForOverage:
+    type: boolean
+    description: Indicates whether usage beyond the commitment plan's included quantities will be charged.
+  chargeForPlan:
+    type: boolean
+    description: Indicates whether the commitment plan will incur a charge.
+  creationDate:
+    type: string
+    description: The date at which this commitment plan was created, in ISO 8601 format.
+  includedQuantities:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:machinelearning/v20160501preview:PlanQuantityResponse"
+    description: The included resource quantities this plan gives you.
+  maxAssociationLimit:
+    type: integer
+    description: The maximum number of commitment associations that can be children of this commitment plan.
+  maxCapacityLimit:
+    type: integer
+    description: The maximum scale-out capacity for this commitment plan.
+  minCapacityLimit:
+    type: integer
+    description: The minimum scale-out capacity for this commitment plan.
+  planMeter:
+    type: string
+    description: The Azure meter which will be used to charge for this commitment plan.
+  refillFrequencyInDays:
+    type: integer
+    description: The frequency at which this commitment plan's included quantities are refilled.
+  suspendPlanOnOverage:
+    type: boolean
+    description: Indicates whether this commitment plan will be moved into a suspended state if usage goes beyond the commitment plan's included quantities.
+type: object
+required:
+  - chargeForOverage
+  - chargeForPlan
+  - creationDate
+  - includedQuantities
+  - maxAssociationLimit
+  - maxCapacityLimit
+  - minCapacityLimit
+  - planMeter
+  - refillFrequencyInDays
+  - suspendPlanOnOverage

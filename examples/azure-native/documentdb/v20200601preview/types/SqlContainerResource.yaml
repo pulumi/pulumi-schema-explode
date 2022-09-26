@@ -1,0 +1,28 @@
+$token: azure-native:documentdb/v20200601preview:SqlContainerResource
+description: Cosmos DB SQL container resource object
+properties:
+  conflictResolutionPolicy:
+    type: object
+    $ref: "#/types/azure-native:documentdb/v20200601preview:ConflictResolutionPolicy"
+    description: The conflict resolution policy for the container.
+  defaultTtl:
+    type: integer
+    description: Default time to live
+  id:
+    type: string
+    description: Name of the Cosmos DB SQL container
+  indexingPolicy:
+    type: object
+    $ref: "#/types/azure-native:documentdb/v20200601preview:IndexingPolicy"
+    description: The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
+  partitionKey:
+    type: object
+    $ref: "#/types/azure-native:documentdb/v20200601preview:ContainerPartitionKey"
+    description: The configuration of the partition key to be used for partitioning data into multiple partitions
+  uniqueKeyPolicy:
+    type: object
+    $ref: "#/types/azure-native:documentdb/v20200601preview:UniqueKeyPolicy"
+    description: The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+type: object
+required:
+  - id

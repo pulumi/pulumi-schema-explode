@@ -1,0 +1,33 @@
+$token: azure-native:network/v20210801:getBastionShareableLink
+description: Response for all the Bastion Shareable Link endpoints.
+inputs:
+  properties:
+    bastionHostName:
+      type: string
+      description: The name of the Bastion Host.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    vms:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20210801:BastionShareableLink"
+      description: List of VM references.
+  type: object
+  required:
+    - bastionHostName
+    - resourceGroupName
+outputs:
+  description: Response for all the Bastion Shareable Link endpoints.
+  properties:
+    nextLink:
+      type: string
+      description: The URL to get the next set of results.
+    value:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20210801:BastionShareableLinkResponse"
+      description: List of Bastion Shareable Links for the request.
+  type: object

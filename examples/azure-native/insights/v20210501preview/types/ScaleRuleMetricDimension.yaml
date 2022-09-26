@@ -1,0 +1,21 @@
+$token: azure-native:insights/v20210501preview:ScaleRuleMetricDimension
+description: Specifies an auto scale rule metric dimension.
+properties:
+  dimensionName:
+    type: string
+    description: Name of the dimension.
+  operator:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:insights/v20210501preview:ScaleRuleMetricDimensionOperationType"
+    description: the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
+  values:
+    type: array
+    items:
+      type: string
+    description: 'list of dimension values. For example: ["App1","App2"].'
+type: object
+required:
+  - dimensionName
+  - operator
+  - values

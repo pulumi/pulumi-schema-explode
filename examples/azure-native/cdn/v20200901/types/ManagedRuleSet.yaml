@@ -1,0 +1,22 @@
+$token: azure-native:cdn/v20200901:ManagedRuleSet
+description: Defines a managed rule set.
+properties:
+  anomalyScore:
+    type: integer
+    description: "Verizon only : If the rule set supports anomaly detection mode, this describes the threshold for blocking requests."
+  ruleGroupOverrides:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:cdn/v20200901:ManagedRuleGroupOverride"
+    description: Defines the rule overrides to apply to the rule set.
+  ruleSetType:
+    type: string
+    description: Defines the rule set type to use.
+  ruleSetVersion:
+    type: string
+    description: Defines the version of the rule set to use.
+type: object
+required:
+  - ruleSetType
+  - ruleSetVersion

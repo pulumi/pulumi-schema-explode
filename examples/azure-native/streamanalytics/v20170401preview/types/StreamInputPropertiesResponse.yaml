@@ -1,0 +1,70 @@
+$token: azure-native:streamanalytics/v20170401preview:StreamInputPropertiesResponse
+description: The properties that are associated with an input containing stream data.
+properties:
+  compression:
+    type: object
+    $ref: "#/types/azure-native:streamanalytics/v20170401preview:CompressionResponse"
+    description: Describes how input data is compressed
+  datasource:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20170401preview:BlobStreamInputDataSourceResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20170401preview:EventHubStreamInputDataSourceResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20170401preview:EventHubV2StreamInputDataSourceResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20170401preview:IoTHubStreamInputDataSourceResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20170401preview:RawStreamInputDataSourceResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        Microsoft.Devices/IotHubs: "#/types/azure-native:streamanalytics/v20170401preview:IoTHubStreamInputDataSourceResponse"
+        Microsoft.EventHub/EventHub: "#/types/azure-native:streamanalytics/v20170401preview:EventHubV2StreamInputDataSourceResponse"
+        Microsoft.ServiceBus/EventHub: "#/types/azure-native:streamanalytics/v20170401preview:EventHubStreamInputDataSourceResponse"
+        Microsoft.Storage/Blob: "#/types/azure-native:streamanalytics/v20170401preview:BlobStreamInputDataSourceResponse"
+        Raw: "#/types/azure-native:streamanalytics/v20170401preview:RawStreamInputDataSourceResponse"
+    description: Describes an input data source that contains stream data. Required on PUT (CreateOrReplace) requests.
+  diagnostics:
+    type: object
+    $ref: "#/types/azure-native:streamanalytics/v20170401preview:DiagnosticsResponse"
+    description: Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+  etag:
+    type: string
+    description: The current entity tag for the input. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+  partitionKey:
+    type: string
+    description: partitionKey Describes a key in the input data which is used for partitioning the input data
+  serialization:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20170401preview:AvroSerializationResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20170401preview:CsvSerializationResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20170401preview:CustomClrSerializationResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20170401preview:JsonSerializationResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20170401preview:ParquetSerializationResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        Avro: "#/types/azure-native:streamanalytics/v20170401preview:AvroSerializationResponse"
+        Csv: "#/types/azure-native:streamanalytics/v20170401preview:CsvSerializationResponse"
+        CustomClr: "#/types/azure-native:streamanalytics/v20170401preview:CustomClrSerializationResponse"
+        Json: "#/types/azure-native:streamanalytics/v20170401preview:JsonSerializationResponse"
+        Parquet: "#/types/azure-native:streamanalytics/v20170401preview:ParquetSerializationResponse"
+    description: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+  type:
+    type: string
+    description: |-
+      Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
+      Expected value is 'Stream'.
+    const: Stream
+type: object
+required:
+  - diagnostics
+  - etag
+  - type

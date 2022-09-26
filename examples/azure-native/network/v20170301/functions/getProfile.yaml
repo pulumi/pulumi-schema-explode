@@ -1,0 +1,60 @@
+$token: azure-native:network/v20170301:getProfile
+description: Class representing a Traffic Manager profile.
+inputs:
+  properties:
+    profileName:
+      type: string
+      description: The name of the Traffic Manager profile.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group containing the Traffic Manager profile.
+  type: object
+  required:
+    - profileName
+    - resourceGroupName
+outputs:
+  description: Class representing a Traffic Manager profile.
+  properties:
+    dnsConfig:
+      type: object
+      $ref: "#/types/azure-native:network/v20170301:DnsConfigResponse"
+      description: Gets or sets the DNS settings of the Traffic Manager profile.
+    endpoints:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20170301:EndpointResponse"
+      description: Gets or sets the list of endpoints in the Traffic Manager profile.
+    id:
+      type: string
+      description: Resource Id
+    location:
+      type: string
+      description: Resource location
+    monitorConfig:
+      type: object
+      $ref: "#/types/azure-native:network/v20170301:MonitorConfigResponse"
+      description: Gets or sets the endpoint monitoring settings of the Traffic Manager profile.
+    name:
+      type: string
+      description: Resource name
+    profileStatus:
+      type: string
+      description: Gets or sets the status of the Traffic Manager profile.  Possible values are 'Enabled' and 'Disabled'.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    trafficRoutingMethod:
+      type: string
+      description: Gets or sets the traffic routing method of the Traffic Manager profile.  Possible values are 'Performance', 'Weighted', 'Priority' or 'Geographic'.
+    type:
+      type: string
+      description: Resource type
+  type: object
+  required:
+    - id
+    - name
+    - type
+deprecationMessage: Version 2017-03-01 will be removed in v2 of the provider.

@@ -1,0 +1,41 @@
+$token: azure-native:containerinstance/v20180201preview:Container
+description: A container instance.
+properties:
+  command:
+    type: array
+    items:
+      type: string
+    description: The commands to execute within the container instance in exec form.
+  environmentVariables:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:containerinstance/v20180201preview:EnvironmentVariable"
+    description: The environment variables to set in the container instance.
+  image:
+    type: string
+    description: The name of the image used to create the container instance.
+  name:
+    type: string
+    description: The user-provided name of the container instance.
+  ports:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:containerinstance/v20180201preview:ContainerPort"
+    description: The exposed ports on the container instance.
+  resources:
+    type: object
+    $ref: "#/types/azure-native:containerinstance/v20180201preview:ResourceRequirements"
+    description: The resource requirements of the container instance.
+  volumeMounts:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:containerinstance/v20180201preview:VolumeMount"
+    description: The volume mounts available to the container instance.
+type: object
+required:
+  - image
+  - name
+  - resources

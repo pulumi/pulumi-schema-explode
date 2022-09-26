@@ -1,0 +1,17 @@
+$token: azure-native:databoxedge:IoTEdgeAgentInfo
+description: IoT edge agent details is optional, this will be used for download system Agent module while bootstrapping IoT Role if specified.
+properties:
+  imageName:
+    type: string
+    description: Name of the IoT edge agent image.
+  imageRepository:
+    type: object
+    $ref: "#/types/azure-native:databoxedge:ImageRepositoryCredential"
+    description: Image repository details.
+  tag:
+    type: string
+    description: Image Tag.
+type: object
+required:
+  - imageName
+  - tag

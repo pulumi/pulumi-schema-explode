@@ -1,0 +1,186 @@
+$token: azure-native:insights/v20190301:ActionGroup
+description: An action group resource.
+properties:
+  armRoleReceivers:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:insights/v20190301:ArmRoleReceiverResponse"
+    description: The list of ARM role receivers that are part of this action group. Roles are Azure RBAC roles and only built-in roles are supported.
+  automationRunbookReceivers:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:insights/v20190301:AutomationRunbookReceiverResponse"
+    description: The list of AutomationRunbook receivers that are part of this action group.
+  azureAppPushReceivers:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:insights/v20190301:AzureAppPushReceiverResponse"
+    description: The list of AzureAppPush receivers that are part of this action group.
+  azureFunctionReceivers:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:insights/v20190301:AzureFunctionReceiverResponse"
+    description: The list of azure function receivers that are part of this action group.
+  emailReceivers:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:insights/v20190301:EmailReceiverResponse"
+    description: The list of email receivers that are part of this action group.
+  enabled:
+    type: boolean
+    description: Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
+    default: true
+  groupShortName:
+    type: string
+    description: The short name of the action group. This will be used in SMS messages.
+  itsmReceivers:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:insights/v20190301:ItsmReceiverResponse"
+    description: The list of ITSM receivers that are part of this action group.
+  location:
+    type: string
+    description: Resource location
+  logicAppReceivers:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:insights/v20190301:LogicAppReceiverResponse"
+    description: The list of logic app receivers that are part of this action group.
+  name:
+    type: string
+    description: Azure resource name
+  smsReceivers:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:insights/v20190301:SmsReceiverResponse"
+    description: The list of SMS receivers that are part of this action group.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  type:
+    type: string
+    description: Azure resource type
+  voiceReceivers:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:insights/v20190301:VoiceReceiverResponse"
+    description: The list of voice receivers that are part of this action group.
+  webhookReceivers:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:insights/v20190301:WebhookReceiverResponse"
+    description: The list of webhook receivers that are part of this action group.
+type: object
+required:
+  - enabled
+  - groupShortName
+  - location
+  - name
+  - type
+inputProperties:
+  actionGroupName:
+    type: string
+    description: The name of the action group.
+  armRoleReceivers:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:insights/v20190301:ArmRoleReceiver"
+    description: The list of ARM role receivers that are part of this action group. Roles are Azure RBAC roles and only built-in roles are supported.
+  automationRunbookReceivers:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:insights/v20190301:AutomationRunbookReceiver"
+    description: The list of AutomationRunbook receivers that are part of this action group.
+  azureAppPushReceivers:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:insights/v20190301:AzureAppPushReceiver"
+    description: The list of AzureAppPush receivers that are part of this action group.
+  azureFunctionReceivers:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:insights/v20190301:AzureFunctionReceiver"
+    description: The list of azure function receivers that are part of this action group.
+  emailReceivers:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:insights/v20190301:EmailReceiver"
+    description: The list of email receivers that are part of this action group.
+  enabled:
+    type: boolean
+    description: Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
+    default: true
+  groupShortName:
+    type: string
+    description: The short name of the action group. This will be used in SMS messages.
+  itsmReceivers:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:insights/v20190301:ItsmReceiver"
+    description: The list of ITSM receivers that are part of this action group.
+  location:
+    type: string
+    description: Resource location
+  logicAppReceivers:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:insights/v20190301:LogicAppReceiver"
+    description: The list of logic app receivers that are part of this action group.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  smsReceivers:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:insights/v20190301:SmsReceiver"
+    description: The list of SMS receivers that are part of this action group.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  voiceReceivers:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:insights/v20190301:VoiceReceiver"
+    description: The list of voice receivers that are part of this action group.
+  webhookReceivers:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:insights/v20190301:WebhookReceiver"
+    description: The list of webhook receivers that are part of this action group.
+requiredInputs:
+  - enabled
+  - groupShortName
+  - resourceGroupName
+aliases:
+  - type: azure-native:insights:ActionGroup
+  - type: azure-native:insights/v20170401:ActionGroup
+  - type: azure-native:insights/v20180301:ActionGroup
+  - type: azure-native:insights/v20180901:ActionGroup
+  - type: azure-native:insights/v20190601:ActionGroup
+  - type: azure-native:insights/v20210901:ActionGroup
+  - type: azure-native:insights/v20220401:ActionGroup
+  - type: azure-native:insights/v20220601:ActionGroup

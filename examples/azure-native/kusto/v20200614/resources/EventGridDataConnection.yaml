@@ -1,0 +1,119 @@
+$token: azure-native:kusto/v20200614:EventGridDataConnection
+description: Class representing an Event Grid data connection.
+properties:
+  blobStorageEventType:
+    type: string
+    description: The name of blob storage event type to process.
+  consumerGroup:
+    type: string
+    description: The event hub consumer group.
+  dataFormat:
+    type: string
+    description: The data format of the message. Optionally the data format can be added to each message.
+  eventHubResourceId:
+    type: string
+    description: The resource ID where the event grid is configured to send events.
+  ignoreFirstRecord:
+    type: boolean
+    description: A Boolean value that, if set to true, indicates that ingestion should ignore the first record of every file
+  kind:
+    type: string
+    description: |-
+      Kind of the endpoint for the data connection
+      Expected value is 'EventGrid'.
+    const: EventGrid
+  location:
+    type: string
+    description: Resource location.
+  mappingRuleName:
+    type: string
+    description: The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
+  name:
+    type: string
+    description: The name of the resource
+  storageAccountResourceId:
+    type: string
+    description: The resource ID of the storage account where the data resides.
+  tableName:
+    type: string
+    description: The table where the data should be ingested. Optionally the table information can be added to each message.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - consumerGroup
+  - eventHubResourceId
+  - kind
+  - name
+  - storageAccountResourceId
+  - type
+inputProperties:
+  blobStorageEventType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:kusto/v20200614:BlobStorageEventType"
+    description: The name of blob storage event type to process.
+  clusterName:
+    type: string
+    description: The name of the Kusto cluster.
+  consumerGroup:
+    type: string
+    description: The event hub consumer group.
+  dataConnectionName:
+    type: string
+    description: The name of the data connection.
+  dataFormat:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:kusto/v20200614:EventGridDataFormat"
+    description: The data format of the message. Optionally the data format can be added to each message.
+  databaseName:
+    type: string
+    description: The name of the database in the Kusto cluster.
+  eventHubResourceId:
+    type: string
+    description: The resource ID where the event grid is configured to send events.
+  ignoreFirstRecord:
+    type: boolean
+    description: A Boolean value that, if set to true, indicates that ingestion should ignore the first record of every file
+  kind:
+    type: string
+    description: |-
+      Kind of the endpoint for the data connection
+      Expected value is 'EventGrid'.
+    const: EventGrid
+  location:
+    type: string
+    description: Resource location.
+  mappingRuleName:
+    type: string
+    description: The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group containing the Kusto cluster.
+  storageAccountResourceId:
+    type: string
+    description: The resource ID of the storage account where the data resides.
+  tableName:
+    type: string
+    description: The table where the data should be ingested. Optionally the table information can be added to each message.
+requiredInputs:
+  - clusterName
+  - consumerGroup
+  - databaseName
+  - eventHubResourceId
+  - kind
+  - resourceGroupName
+  - storageAccountResourceId
+aliases:
+  - type: azure-native:kusto:EventGridDataConnection
+  - type: azure-native:kusto/v20190121:EventGridDataConnection
+  - type: azure-native:kusto/v20190515:EventGridDataConnection
+  - type: azure-native:kusto/v20190907:EventGridDataConnection
+  - type: azure-native:kusto/v20191109:EventGridDataConnection
+  - type: azure-native:kusto/v20200215:EventGridDataConnection
+  - type: azure-native:kusto/v20200918:EventGridDataConnection
+  - type: azure-native:kusto/v20210101:EventGridDataConnection
+  - type: azure-native:kusto/v20210827:EventGridDataConnection
+  - type: azure-native:kusto/v20220201:EventGridDataConnection

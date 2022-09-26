@@ -1,0 +1,47 @@
+$token: azure-native:dbforpostgresql:ServerPropertiesForDefaultCreate
+description: The properties used to create a new server.
+properties:
+  administratorLogin:
+    type: string
+    description: The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+  administratorLoginPassword:
+    type: string
+    description: The password of the administrator login.
+  createMode:
+    type: string
+    description: |-
+      The mode to create a new server.
+      Expected value is 'Default'.
+    const: Default
+  infrastructureEncryption:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:dbforpostgresql:InfrastructureEncryption"
+    description: Status showing whether the server enabled infrastructure encryption.
+  minimalTlsVersion:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:dbforpostgresql:MinimalTlsVersionEnum"
+    description: Enforce a minimal Tls version for the server.
+  publicNetworkAccess:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:dbforpostgresql:PublicNetworkAccessEnum"
+    description: Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+  sslEnforcement:
+    $ref: "#/types/azure-native:dbforpostgresql:SslEnforcementEnum"
+    description: Enable ssl enforcement or not when connect to server.
+  storageProfile:
+    type: object
+    $ref: "#/types/azure-native:dbforpostgresql:StorageProfile"
+    description: Storage profile of a server.
+  version:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:dbforpostgresql:ServerVersion"
+    description: Server version.
+type: object
+required:
+  - administratorLogin
+  - administratorLoginPassword
+  - createMode

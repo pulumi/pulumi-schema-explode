@@ -1,0 +1,92 @@
+$token: azure-native:insights/v20191017preview:WorkbookTemplate
+description: An Application Insights workbook template definition.
+properties:
+  author:
+    type: string
+    description: Information about the author of the workbook template.
+  galleries:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:insights/v20191017preview:WorkbookTemplateGalleryResponse"
+    description: Workbook galleries supported by the template.
+  localized:
+    type: object
+    additionalProperties:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:insights/v20191017preview:WorkbookTemplateLocalizedGalleryResponse"
+    description: Key value pair of localized gallery. Each key is the locale code of languages supported by the Azure portal.
+  location:
+    type: string
+    description: Resource location
+  name:
+    type: string
+    description: Azure resource name.
+  priority:
+    type: integer
+    description: Priority of the template. Determines which template to open when a workbook gallery is opened in viewer mode.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  templateData:
+    $ref: pulumi.json#/Any
+    description: Valid JSON object containing workbook template payload.
+  type:
+    type: string
+    description: Azure resource type
+type: object
+required:
+  - galleries
+  - location
+  - name
+  - templateData
+  - type
+inputProperties:
+  author:
+    type: string
+    description: Information about the author of the workbook template.
+  galleries:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:insights/v20191017preview:WorkbookTemplateGallery"
+    description: Workbook galleries supported by the template.
+  localized:
+    type: object
+    additionalProperties:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:insights/v20191017preview:WorkbookTemplateLocalizedGallery"
+    description: Key value pair of localized gallery. Each key is the locale code of languages supported by the Azure portal.
+  location:
+    type: string
+    description: Resource location
+  priority:
+    type: integer
+    description: Priority of the template. Determines which template to open when a workbook gallery is opened in viewer mode.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  resourceName:
+    type: string
+    description: The name of the Application Insights component resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  templateData:
+    $ref: pulumi.json#/Any
+    description: Valid JSON object containing workbook template payload.
+requiredInputs:
+  - galleries
+  - resourceGroupName
+  - templateData
+aliases:
+  - type: azure-native:insights:WorkbookTemplate
+  - type: azure-native:insights/v20201120:WorkbookTemplate

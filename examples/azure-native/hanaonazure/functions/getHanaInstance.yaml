@@ -1,0 +1,80 @@
+$token: azure-native:hanaonazure:getHanaInstance
+description: |-
+  HANA instance info on Azure (ARM properties and HANA properties)
+  API Version: 2017-11-03-preview.
+inputs:
+  properties:
+    hanaInstanceName:
+      type: string
+      description: Name of the SAP HANA on Azure instance.
+    resourceGroupName:
+      type: string
+      description: Name of the resource group.
+  type: object
+  required:
+    - hanaInstanceName
+    - resourceGroupName
+outputs:
+  description: HANA instance info on Azure (ARM properties and HANA properties)
+  properties:
+    hanaInstanceId:
+      type: string
+      description: Specifies the HANA instance unique ID.
+    hardwareProfile:
+      type: object
+      $ref: "#/types/azure-native:hanaonazure:HardwareProfileResponse"
+      description: Specifies the hardware settings for the HANA instance.
+    hwRevision:
+      type: string
+      description: Hardware revision of a HANA instance
+    id:
+      type: string
+      description: Resource ID
+    location:
+      type: string
+      description: Resource location
+    name:
+      type: string
+      description: Resource name
+    networkProfile:
+      type: object
+      $ref: "#/types/azure-native:hanaonazure:NetworkProfileResponse"
+      description: Specifies the network settings for the HANA instance.
+    osProfile:
+      type: object
+      $ref: "#/types/azure-native:hanaonazure:OSProfileResponse"
+      description: Specifies the operating system settings for the HANA instance.
+    partnerNodeId:
+      type: string
+      description: ARM ID of another HanaInstance that will share a network with this HanaInstance
+    powerState:
+      type: string
+      description: Resource power state
+    provisioningState:
+      type: string
+      description: State of provisioning of the HanaInstance
+    proximityPlacementGroup:
+      type: string
+      description: Resource proximity placement group
+    storageProfile:
+      type: object
+      $ref: "#/types/azure-native:hanaonazure:StorageProfileResponse"
+      description: Specifies the storage settings for the HANA instance disks.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    type:
+      type: string
+      description: Resource type
+  type: object
+  required:
+    - hanaInstanceId
+    - hwRevision
+    - id
+    - name
+    - powerState
+    - provisioningState
+    - proximityPlacementGroup
+    - type

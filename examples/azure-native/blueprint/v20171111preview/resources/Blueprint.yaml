@@ -1,0 +1,86 @@
+$token: azure-native:blueprint/v20171111preview:Blueprint
+description: Represents a Blueprint definition.
+properties:
+  description:
+    type: string
+    description: Multi-line explain this resource.
+  displayName:
+    type: string
+    description: One-liner string explain this resource.
+  layout:
+    $ref: pulumi.json#/Any
+    description: Layout view of the blueprint, for UI reference.
+  name:
+    type: string
+    description: Name of this resource.
+  parameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:blueprint/v20171111preview:ParameterDefinitionResponse"
+    description: Parameters required by this Blueprint definition.
+  resourceGroups:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:blueprint/v20171111preview:ResourceGroupDefinitionResponse"
+    description: Resource group placeholders defined by this Blueprint definition.
+  status:
+    type: object
+    $ref: "#/types/azure-native:blueprint/v20171111preview:BlueprintStatusResponse"
+    description: Status of the Blueprint. This field is readonly.
+  targetScope:
+    type: string
+    description: The scope where this Blueprint can be applied.
+  type:
+    type: string
+    description: Type of this resource.
+  versions:
+    $ref: pulumi.json#/Any
+    description: Published versions of this blueprint.
+type: object
+required:
+  - name
+  - status
+  - targetScope
+  - type
+inputProperties:
+  blueprintName:
+    type: string
+    description: name of the blueprint.
+  description:
+    type: string
+    description: Multi-line explain this resource.
+  displayName:
+    type: string
+    description: One-liner string explain this resource.
+  layout:
+    $ref: pulumi.json#/Any
+    description: Layout view of the blueprint, for UI reference.
+  managementGroupName:
+    type: string
+    description: ManagementGroup where blueprint stores.
+  parameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:blueprint/v20171111preview:ParameterDefinition"
+    description: Parameters required by this Blueprint definition.
+  resourceGroups:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:blueprint/v20171111preview:ResourceGroupDefinition"
+    description: Resource group placeholders defined by this Blueprint definition.
+  targetScope:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:blueprint/v20171111preview:BlueprintTargetScope"
+    description: The scope where this Blueprint can be applied.
+  versions:
+    $ref: pulumi.json#/Any
+    description: Published versions of this blueprint.
+requiredInputs:
+  - managementGroupName
+  - targetScope
+deprecationMessage: Version 2017-11-11-preview will be removed in v2 of the provider.

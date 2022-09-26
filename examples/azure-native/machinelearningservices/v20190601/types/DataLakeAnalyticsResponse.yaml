@@ -1,0 +1,47 @@
+$token: azure-native:machinelearningservices/v20190601:DataLakeAnalyticsResponse
+description: A DataLakeAnalytics compute.
+properties:
+  computeLocation:
+    type: string
+    description: Location for the underlying compute
+  computeType:
+    type: string
+    description: |-
+      The type of compute
+      Expected value is 'DataLakeAnalytics'.
+    const: DataLakeAnalytics
+  createdOn:
+    type: string
+    description: The date and time when the compute was created.
+  description:
+    type: string
+    description: The description of the Machine Learning compute.
+  isAttachedCompute:
+    type: boolean
+    description: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
+  modifiedOn:
+    type: string
+    description: The date and time when the compute was last modified.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20190601:DataLakeAnalyticsResponseProperties"
+  provisioningErrors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20190601:MachineLearningServiceErrorResponse"
+    description: Errors during provisioning
+  provisioningState:
+    type: string
+    description: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
+  resourceId:
+    type: string
+    description: ARM resource id of the underlying compute
+type: object
+required:
+  - computeType
+  - createdOn
+  - isAttachedCompute
+  - modifiedOn
+  - provisioningErrors
+  - provisioningState

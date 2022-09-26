@@ -1,0 +1,81 @@
+$token: azure-native:scvmm:getCloud
+description: |-
+  The Clouds resource definition.
+  API Version: 2020-06-05-preview.
+inputs:
+  properties:
+    cloudName:
+      type: string
+      description: Name of the Cloud.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - cloudName
+    - resourceGroupName
+outputs:
+  description: The Clouds resource definition.
+  properties:
+    cloudCapacity:
+      type: object
+      $ref: "#/types/azure-native:scvmm:CloudCapacityResponse"
+      description: Capacity of the cloud.
+    cloudName:
+      type: string
+      description: Name of the cloud in VMMServer.
+    extendedLocation:
+      type: object
+      $ref: "#/types/azure-native:scvmm:ExtendedLocationResponse"
+      description: The extended location.
+    id:
+      type: string
+      description: Resource Id
+    inventoryItemId:
+      type: string
+      description: Gets or sets the inventory Item ID for the resource.
+    location:
+      type: string
+      description: Gets or sets the location.
+    name:
+      type: string
+      description: Resource Name
+    provisioningState:
+      type: string
+      description: Gets or sets the provisioning state.
+    storageQoSPolicies:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:scvmm:StorageQoSPolicyResponse"
+      description: List of QoS policies available for the cloud.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:scvmm:SystemDataResponse"
+      description: The system data.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    type:
+      type: string
+      description: Resource Type
+    uuid:
+      type: string
+      description: Unique ID of the cloud.
+    vmmServerId:
+      type: string
+      description: ARM Id of the vmmServer resource in which this resource resides.
+  type: object
+  required:
+    - cloudCapacity
+    - cloudName
+    - extendedLocation
+    - id
+    - location
+    - name
+    - provisioningState
+    - storageQoSPolicies
+    - systemData
+    - type

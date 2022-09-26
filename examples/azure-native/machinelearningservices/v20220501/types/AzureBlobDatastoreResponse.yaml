@@ -1,0 +1,67 @@
+$token: azure-native:machinelearningservices/v20220501:AzureBlobDatastoreResponse
+description: Azure Blob datastore configuration.
+properties:
+  accountName:
+    type: string
+    description: Storage account name.
+  containerName:
+    type: string
+    description: Storage account container name.
+  credentials:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220501:AccountKeyDatastoreCredentialsResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220501:CertificateDatastoreCredentialsResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220501:NoneDatastoreCredentialsResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220501:SasDatastoreCredentialsResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220501:ServicePrincipalDatastoreCredentialsResponse"
+    discriminator:
+      propertyName: credentialsType
+      mapping:
+        AccountKey: "#/types/azure-native:machinelearningservices/v20220501:AccountKeyDatastoreCredentialsResponse"
+        Certificate: "#/types/azure-native:machinelearningservices/v20220501:CertificateDatastoreCredentialsResponse"
+        None: "#/types/azure-native:machinelearningservices/v20220501:NoneDatastoreCredentialsResponse"
+        Sas: "#/types/azure-native:machinelearningservices/v20220501:SasDatastoreCredentialsResponse"
+        ServicePrincipal: "#/types/azure-native:machinelearningservices/v20220501:ServicePrincipalDatastoreCredentialsResponse"
+    description: "[Required] Account credentials."
+  datastoreType:
+    type: string
+    description: |-
+      Enum to determine the datastore contents type.
+      Expected value is 'AzureBlob'.
+    const: AzureBlob
+  description:
+    type: string
+    description: The asset description text.
+  endpoint:
+    type: string
+    description: Azure cloud endpoint for the storage account.
+  isDefault:
+    type: boolean
+    description: Readonly property to indicate if datastore is the workspace default datastore
+  properties:
+    type: object
+    additionalProperties:
+      type: string
+    description: The asset property dictionary.
+  protocol:
+    type: string
+    description: Protocol used to communicate with the storage account.
+  serviceDataAccessAuthIdentity:
+    type: string
+    description: Indicates which identity to use to authenticate service data access to customer's storage.
+    default: None
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Tag dictionary. Tags can be added, removed, and updated.
+type: object
+required:
+  - credentials
+  - datastoreType
+  - isDefault

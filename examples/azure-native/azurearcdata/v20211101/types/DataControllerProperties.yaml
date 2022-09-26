@@ -1,0 +1,48 @@
+$token: azure-native:azurearcdata/v20211101:DataControllerProperties
+description: The data controller properties.
+properties:
+  basicLoginInformation:
+    type: object
+    $ref: "#/types/azure-native:azurearcdata/v20211101:BasicLoginInformation"
+    description: Deprecated. Azure Arc Data Services data controller no longer expose any endpoint. All traffic are exposed through Kubernetes native API.
+  clusterId:
+    type: string
+    description: If a CustomLocation is provided, this contains the ARM id of the connected cluster the custom location belongs to.
+  extensionId:
+    type: string
+    description: If a CustomLocation is provided, this contains the ARM id of the extension the custom location belongs to.
+  infrastructure:
+    $ref: "#/types/azure-native:azurearcdata/v20211101:Infrastructure"
+    description: The infrastructure the data controller is running on.
+    default: other
+  k8sRaw:
+    $ref: pulumi.json#/Any
+    description: The raw kubernetes information
+  lastUploadedDate:
+    type: string
+    description: Last uploaded date from Kubernetes cluster. Defaults to current date time
+  logAnalyticsWorkspaceConfig:
+    type: object
+    $ref: "#/types/azure-native:azurearcdata/v20211101:LogAnalyticsWorkspaceConfig"
+    description: Log analytics workspace id and primary key
+  logsDashboardCredential:
+    type: object
+    $ref: "#/types/azure-native:azurearcdata/v20211101:BasicLoginInformation"
+    description: Login credential for logs dashboard on the Kubernetes cluster.
+  metricsDashboardCredential:
+    type: object
+    $ref: "#/types/azure-native:azurearcdata/v20211101:BasicLoginInformation"
+    description: Login credential for metrics dashboard on the Kubernetes cluster.
+  onPremiseProperty:
+    type: object
+    $ref: "#/types/azure-native:azurearcdata/v20211101:OnPremiseProperty"
+    description: Properties from the Kubernetes data controller
+  uploadServicePrincipal:
+    type: object
+    $ref: "#/types/azure-native:azurearcdata/v20211101:UploadServicePrincipal"
+    description: Deprecated. Service principal is deprecated in favor of Arc Kubernetes service extension managed identity.
+  uploadWatermark:
+    type: object
+    $ref: "#/types/azure-native:azurearcdata/v20211101:UploadWatermark"
+    description: Properties on upload watermark.  Mostly timestamp for each upload data type
+type: object

@@ -1,0 +1,21 @@
+$token: azure-native:datamigration/v20180715preview:GetTdeCertificatesSqlTaskProperties
+description: Properties for the task that gets TDE certificates in Base64 encoded format.
+properties:
+  clientData:
+    type: object
+    additionalProperties:
+      type: string
+    description: Key value pairs of client data to attach meta data information to task
+  input:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20180715preview:GetTdeCertificatesSqlTaskInput"
+    description: Task input
+  taskType:
+    type: string
+    description: |-
+      Task type.
+      Expected value is 'GetTDECertificates.Sql'.
+    const: GetTDECertificates.Sql
+type: object
+required:
+  - taskType

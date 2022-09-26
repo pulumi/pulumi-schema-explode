@@ -1,0 +1,23 @@
+$token: azure-native:datafactory/v20170901preview:WebActivityAuthenticationResponse
+description: Web activity authentication properties.
+properties:
+  password:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20170901preview:SecureStringResponse"
+    description: Password for the PFX file or basic authentication.
+  pfx:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20170901preview:SecureStringResponse"
+    description: Base64-encoded contents of a PFX file.
+  resource:
+    type: string
+    description: Resource for which Azure Auth token will be requested when using MSI Authentication.
+  type:
+    type: string
+    description: Web activity authentication (Basic/ClientCertificate/MSI)
+  username:
+    type: string
+    description: Web activity authentication user name for basic authentication.
+type: object
+required:
+  - type

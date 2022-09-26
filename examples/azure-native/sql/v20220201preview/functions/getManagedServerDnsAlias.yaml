@@ -1,0 +1,42 @@
+$token: azure-native:sql/v20220201preview:getManagedServerDnsAlias
+description: A managed server DNS alias.
+inputs:
+  properties:
+    dnsAliasName:
+      type: string
+    managedInstanceName:
+      type: string
+      description: The name of the managed instance.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  type: object
+  required:
+    - dnsAliasName
+    - managedInstanceName
+    - resourceGroupName
+outputs:
+  description: A managed server DNS alias.
+  properties:
+    azureDnsRecord:
+      type: string
+      description: The fully qualified DNS record for managed server alias
+    id:
+      type: string
+      description: Resource ID.
+    name:
+      type: string
+      description: Resource name.
+    publicAzureDnsRecord:
+      type: string
+      description: The fully qualified public DNS record for managed server alias
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - azureDnsRecord
+    - id
+    - name
+    - publicAzureDnsRecord
+    - type

@@ -1,0 +1,26 @@
+$token: azure-native:storage:BlobInventoryPolicySchema
+description: The storage account blob inventory policy rules.
+properties:
+  destination:
+    type: string
+    description: Container name where blob inventory files are stored. Must be pre-created.
+  enabled:
+    type: boolean
+    description: Policy is enabled if set to true.
+  rules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:storage:BlobInventoryPolicyRule"
+    description: The storage account blob inventory policy rules. The rule is applied when it is enabled.
+  type:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:storage:InventoryRuleType"
+    description: The valid value is Inventory
+type: object
+required:
+  - destination
+  - enabled
+  - rules
+  - type

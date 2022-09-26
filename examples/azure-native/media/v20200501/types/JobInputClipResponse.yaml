@@ -1,0 +1,61 @@
+$token: azure-native:media/v20200501:JobInputClipResponse
+description: Represents input files for a Job.
+properties:
+  end:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:media/v20200501:AbsoluteClipTimeResponse"
+      - type: object
+        $ref: "#/types/azure-native:media/v20200501:UtcClipTimeResponse"
+    discriminator:
+      propertyName: odataType
+      mapping:
+        "#Microsoft.Media.AbsoluteClipTime": "#/types/azure-native:media/v20200501:AbsoluteClipTimeResponse"
+        "#Microsoft.Media.UtcClipTime": "#/types/azure-native:media/v20200501:UtcClipTimeResponse"
+    description: Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
+  files:
+    type: array
+    items:
+      type: string
+    description: List of files. Required for JobInputHttp. Maximum of 4000 characters each.
+  inputDefinitions:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:media/v20200501:FromAllInputFileResponse"
+        - type: object
+          $ref: "#/types/azure-native:media/v20200501:FromEachInputFileResponse"
+        - type: object
+          $ref: "#/types/azure-native:media/v20200501:InputFileResponse"
+      discriminator:
+        propertyName: odataType
+        mapping:
+          "#Microsoft.Media.FromAllInputFile": "#/types/azure-native:media/v20200501:FromAllInputFileResponse"
+          "#Microsoft.Media.FromEachInputFile": "#/types/azure-native:media/v20200501:FromEachInputFileResponse"
+          "#Microsoft.Media.InputFile": "#/types/azure-native:media/v20200501:InputFileResponse"
+    description: Defines a list of InputDefinitions. For each InputDefinition, it defines a list of track selections and related metadata.
+  label:
+    type: string
+    description: A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+  odataType:
+    type: string
+    description: |-
+      The discriminator for derived types.
+      Expected value is '#Microsoft.Media.JobInputClip'.
+    const: "#Microsoft.Media.JobInputClip"
+  start:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:media/v20200501:AbsoluteClipTimeResponse"
+      - type: object
+        $ref: "#/types/azure-native:media/v20200501:UtcClipTimeResponse"
+    discriminator:
+      propertyName: odataType
+      mapping:
+        "#Microsoft.Media.AbsoluteClipTime": "#/types/azure-native:media/v20200501:AbsoluteClipTimeResponse"
+        "#Microsoft.Media.UtcClipTime": "#/types/azure-native:media/v20200501:UtcClipTimeResponse"
+    description: Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
+type: object
+required:
+  - odataType

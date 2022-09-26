@@ -1,0 +1,16 @@
+$token: azure-native:healthcareapis/v20220601:ResourceVersionPolicyConfiguration
+description: The settings for history tracking for FHIR resources.
+properties:
+  default:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:healthcareapis/v20220601:FhirResourceVersionPolicy"
+    description: The default value for tracking history across all resources.
+  resourceTypeOverrides:
+    type: object
+    additionalProperties:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:healthcareapis/v20220601:FhirResourceVersionPolicy"
+    description: A list of FHIR Resources and their version policy overrides.
+type: object

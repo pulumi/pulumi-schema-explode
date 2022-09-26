@@ -1,0 +1,23 @@
+$token: azure-native:datamigration/v20220130preview:GetUserTablesPostgreSqlTaskOutputResponse
+description: Output for the task that gets the list of tables for a provided list of PostgreSQL databases.
+properties:
+  databaseName:
+    type: string
+    description: The database this result is for
+  tables:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration/v20220130preview:DatabaseTableResponse"
+    description: List of valid tables found for this database
+  validationErrors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration/v20220130preview:ReportableExceptionResponse"
+    description: Validation errors associated with the task
+type: object
+required:
+  - databaseName
+  - tables
+  - validationErrors

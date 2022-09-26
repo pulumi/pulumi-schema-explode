@@ -1,0 +1,22 @@
+$token: azure-native:datafactory/v20180601:SnowflakeExportCopyCommandResponse
+description: Snowflake export command settings.
+properties:
+  additionalCopyOptions:
+    type: object
+    additionalProperties:
+      $ref: pulumi.json#/Any
+    description: "Additional copy options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: \"additionalCopyOptions\": { \"DATE_FORMAT\": \"MM/DD/YYYY\", \"TIME_FORMAT\": \"'HH24:MI:SS.FF'\" }"
+  additionalFormatOptions:
+    type: object
+    additionalProperties:
+      $ref: pulumi.json#/Any
+    description: "Additional format options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: \"additionalFormatOptions\": { \"OVERWRITE\": \"TRUE\", \"MAX_FILE_SIZE\": \"'FALSE'\" }"
+  type:
+    type: string
+    description: |-
+      The export setting type.
+      Expected value is 'SnowflakeExportCopyCommand'.
+    const: SnowflakeExportCopyCommand
+type: object
+required:
+  - type

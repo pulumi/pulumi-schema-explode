@@ -1,0 +1,38 @@
+$token: azure-native:media/v20211101:FromAllInputFile
+description: An InputDefinition that looks across all of the files provided to select tracks specified by the IncludedTracks property. Generally used with the AudioTrackByAttribute and VideoTrackByAttribute to allow selection of a single track across a set of input files.
+properties:
+  includedTracks:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:media/v20211101:AudioTrackDescriptor"
+        - type: object
+          $ref: "#/types/azure-native:media/v20211101:SelectAudioTrackByAttribute"
+        - type: object
+          $ref: "#/types/azure-native:media/v20211101:SelectAudioTrackById"
+        - type: object
+          $ref: "#/types/azure-native:media/v20211101:SelectVideoTrackByAttribute"
+        - type: object
+          $ref: "#/types/azure-native:media/v20211101:SelectVideoTrackById"
+        - type: object
+          $ref: "#/types/azure-native:media/v20211101:VideoTrackDescriptor"
+      discriminator:
+        propertyName: odataType
+        mapping:
+          "#Microsoft.Media.AudioTrackDescriptor": "#/types/azure-native:media/v20211101:AudioTrackDescriptor"
+          "#Microsoft.Media.SelectAudioTrackByAttribute": "#/types/azure-native:media/v20211101:SelectAudioTrackByAttribute"
+          "#Microsoft.Media.SelectAudioTrackById": "#/types/azure-native:media/v20211101:SelectAudioTrackById"
+          "#Microsoft.Media.SelectVideoTrackByAttribute": "#/types/azure-native:media/v20211101:SelectVideoTrackByAttribute"
+          "#Microsoft.Media.SelectVideoTrackById": "#/types/azure-native:media/v20211101:SelectVideoTrackById"
+          "#Microsoft.Media.VideoTrackDescriptor": "#/types/azure-native:media/v20211101:VideoTrackDescriptor"
+    description: The list of TrackDescriptors which define the metadata and selection of tracks in the input.
+  odataType:
+    type: string
+    description: |-
+      The discriminator for derived types.
+      Expected value is '#Microsoft.Media.FromAllInputFile'.
+    const: "#Microsoft.Media.FromAllInputFile"
+type: object
+required:
+  - odataType

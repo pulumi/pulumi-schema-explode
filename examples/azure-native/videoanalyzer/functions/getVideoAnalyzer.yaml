@@ -1,0 +1,70 @@
+$token: azure-native:videoanalyzer:getVideoAnalyzer
+description: |-
+  A Video Analyzer account.
+  API Version: 2021-05-01-preview.
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: The Video Analyzer account name.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+  type: object
+  required:
+    - accountName
+    - resourceGroupName
+outputs:
+  description: A Video Analyzer account.
+  properties:
+    encryption:
+      type: object
+      $ref: "#/types/azure-native:videoanalyzer:AccountEncryptionResponse"
+      description: The account encryption properties.
+    endpoints:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:videoanalyzer:EndpointResponse"
+      description: The list of endpoints associated with this resource.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    identity:
+      type: object
+      $ref: "#/types/azure-native:videoanalyzer:VideoAnalyzerIdentityResponse"
+      description: The set of managed identities associated with the Video Analyzer resource.
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    name:
+      type: string
+      description: The name of the resource
+    storageAccounts:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:videoanalyzer:StorageAccountResponse"
+      description: The storage accounts for this resource.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:videoanalyzer:SystemDataResponse"
+      description: The system data of the Video Analyzer account.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - encryption
+    - endpoints
+    - id
+    - location
+    - name
+    - storageAccounts
+    - systemData
+    - type

@@ -1,0 +1,44 @@
+$token: azure-native:workloads/v20211201preview:SapNetWeaverProviderInstanceProperties
+description: Gets or sets the provider properties.
+properties:
+  providerType:
+    type: string
+    description: |-
+      The provider type. For example, the value can be SapHana.
+      Expected value is 'SapNetWeaver'.
+    const: SapNetWeaver
+  sapClientId:
+    type: string
+    description: Gets or sets the SAP Client ID.
+  sapHostFileEntries:
+    type: array
+    items:
+      type: string
+    description: Gets or sets the list of HostFile Entries
+  sapHostname:
+    type: string
+    description: Gets or sets the target virtual machine IP Address/FQDN.
+  sapInstanceNr:
+    type: string
+    description: Gets or sets the instance number of SAP NetWeaver.
+  sapPassword:
+    type: string
+    description: Sets the SAP password.
+  sapPasswordUri:
+    type: string
+    description: Gets or sets the key vault URI to secret with the SAP password.
+  sapPortNumber:
+    type: string
+    description: Gets or sets the SAP HTTP port number.
+  sapSid:
+    type: string
+    description: Gets or sets the SAP System Identifier
+  sapSslCertificateUri:
+    type: string
+    description: Gets or sets the blob URI to SSL certificate for the SAP system.
+  sapUsername:
+    type: string
+    description: Gets or sets the SAP user name.
+type: object
+required:
+  - providerType

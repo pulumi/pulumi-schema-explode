@@ -1,0 +1,26 @@
+$token: azure-native:databox/v20210801preview:DatacenterAddressInstructionResponseResponse
+description: Datacenter instruction for given storage location.
+properties:
+  communicationInstruction:
+    type: string
+    description: Data center communication instruction
+  dataCenterAzureLocation:
+    type: string
+    description: Azure Location where the Data Center serves primarily.
+  datacenterAddressType:
+    type: string
+    description: |-
+      Data center address type
+      Expected value is 'DatacenterAddressInstruction'.
+    const: DatacenterAddressInstruction
+  supportedCarriersForReturnShipment:
+    type: array
+    items:
+      type: string
+    description: List of supported carriers for return shipment.
+type: object
+required:
+  - communicationInstruction
+  - dataCenterAzureLocation
+  - datacenterAddressType
+  - supportedCarriersForReturnShipment

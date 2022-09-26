@@ -1,0 +1,22 @@
+$token: azure-native:devices/v20210701preview:NetworkRuleSetProperties
+description: Network Rule Set Properties of IotHub
+properties:
+  applyToBuiltInEventHubEndpoint:
+    type: boolean
+    description: If True, then Network Rule Set is also applied to BuiltIn EventHub EndPoint of IotHub
+  defaultAction:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:devices/v20210701preview:DefaultAction"
+    description: Default Action for Network Rule Set
+    default: Deny
+  ipRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:devices/v20210701preview:NetworkRuleSetIpRule"
+    description: List of IP Rules
+type: object
+required:
+  - applyToBuiltInEventHubEndpoint
+  - ipRules

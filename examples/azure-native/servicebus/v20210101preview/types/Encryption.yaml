@@ -1,0 +1,17 @@
+$token: azure-native:servicebus/v20210101preview:Encryption
+description: Properties to configure Encryption
+properties:
+  keySource:
+    $ref: "#/types/azure-native:servicebus/v20210101preview:KeySource"
+    description: Enumerates the possible value of keySource for Encryption
+    default: Microsoft.KeyVault
+  keyVaultProperties:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:servicebus/v20210101preview:KeyVaultProperties"
+    description: Properties of KeyVault
+  requireInfrastructureEncryption:
+    type: boolean
+    description: Enable Infrastructure Encryption (Double Encryption)
+type: object

@@ -1,0 +1,45 @@
+$token: azure-native:changeanalysis:getConfigurationProfile
+description: |-
+  A profile object that contains change analysis configuration, such as notification settings, for this subscription
+  API Version: 2020-04-01-preview.
+inputs:
+  properties:
+    profileName:
+      type: string
+      description: The name of the configuration profile. The profile name should be set to 'default', all other names will be overwritten.
+  type: object
+  required:
+    - profileName
+outputs:
+  description: A profile object that contains change analysis configuration, such as notification settings, for this subscription
+  properties:
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    identity:
+      type: object
+      $ref: "#/types/azure-native:changeanalysis:ResourceIdentityResponse"
+      description: The identity block returned by ARM resource that supports managed identity.
+    location:
+      type: string
+      description: The location where the resource is to be deployed.
+    name:
+      type: string
+      description: The name of the resource
+    properties:
+      type: object
+      $ref: "#/types/azure-native:changeanalysis:ConfigurationProfileResourcePropertiesResponse"
+      description: The properties of a configuration profile.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:changeanalysis:SystemDataResponse"
+      description: Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - type

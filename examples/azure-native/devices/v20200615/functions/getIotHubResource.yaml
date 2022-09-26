@@ -1,0 +1,53 @@
+$token: azure-native:devices/v20200615:getIotHubResource
+description: The description of the IoT hub.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the IoT hub.
+    resourceName:
+      type: string
+      description: The name of the IoT hub.
+  type: object
+  required:
+    - resourceGroupName
+    - resourceName
+outputs:
+  description: The description of the IoT hub.
+  properties:
+    etag:
+      type: string
+      description: The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
+    id:
+      type: string
+      description: The resource identifier.
+    location:
+      type: string
+      description: The resource location.
+    name:
+      type: string
+      description: The resource name.
+    properties:
+      type: object
+      $ref: "#/types/azure-native:devices/v20200615:IotHubPropertiesResponse"
+      description: IotHub properties
+    sku:
+      type: object
+      $ref: "#/types/azure-native:devices/v20200615:IotHubSkuInfoResponse"
+      description: IotHub SKU info
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: The resource tags.
+    type:
+      type: string
+      description: The resource type.
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - properties
+    - sku
+    - type

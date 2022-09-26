@@ -1,0 +1,32 @@
+$token: azure-native:recoveryservices/v20220101:AzureSqlProtectionPolicy
+description: Azure SQL workload-specific backup policy.
+properties:
+  backupManagementType:
+    type: string
+    description: |-
+      This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+      Expected value is 'AzureSql'.
+    const: AzureSql
+  protectedItemsCount:
+    type: integer
+    description: Number of items associated with this policy.
+  resourceGuardOperationRequests:
+    type: array
+    items:
+      type: string
+    description: ResourceGuard Operation Requests
+  retentionPolicy:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20220101:LongTermRetentionPolicy"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20220101:SimpleRetentionPolicy"
+    discriminator:
+      propertyName: retentionPolicyType
+      mapping:
+        LongTermRetentionPolicy: "#/types/azure-native:recoveryservices/v20220101:LongTermRetentionPolicy"
+        SimpleRetentionPolicy: "#/types/azure-native:recoveryservices/v20220101:SimpleRetentionPolicy"
+    description: Retention policy details.
+type: object
+required:
+  - backupManagementType

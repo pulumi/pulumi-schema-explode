@@ -1,0 +1,17 @@
+$token: azure-native:recoveryservices:VaultPropertiesEncryption
+description: Customer Managed Key details of the resource.
+properties:
+  infrastructureEncryption:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:recoveryservices:InfrastructureEncryptionState"
+    description: Enabling/Disabling the Double Encryption state
+  kekIdentity:
+    type: object
+    $ref: "#/types/azure-native:recoveryservices:CmkKekIdentity"
+    description: The details of the identity used for CMK
+  keyVaultProperties:
+    type: object
+    $ref: "#/types/azure-native:recoveryservices:CmkKeyVaultProperties"
+    description: The properties of the Key Vault which hosts CMK
+type: object

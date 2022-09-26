@@ -1,0 +1,89 @@
+$token: azure-native:documentdb/v20200901:SqlResourceSqlContainer
+description: An Azure Cosmos DB container.
+properties:
+  location:
+    type: string
+    description: The location of the resource group to which the resource belongs.
+  name:
+    type: string
+    description: The name of the ARM resource.
+  options:
+    type: object
+    $ref: "#/types/azure-native:documentdb/v20200901:SqlContainerGetPropertiesResponseOptions"
+  resource:
+    type: object
+    $ref: "#/types/azure-native:documentdb/v20200901:SqlContainerGetPropertiesResponseResource"
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: 'Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".'
+  type:
+    type: string
+    description: The type of Azure resource.
+type: object
+required:
+  - name
+  - type
+inputProperties:
+  accountName:
+    type: string
+    description: Cosmos DB database account name.
+  containerName:
+    type: string
+    description: Cosmos DB container name.
+  databaseName:
+    type: string
+    description: Cosmos DB database name.
+  location:
+    type: string
+    description: The location of the resource group to which the resource belongs.
+  options:
+    type: object
+    $ref: "#/types/azure-native:documentdb/v20200901:CreateUpdateOptions"
+    description: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+  resource:
+    type: object
+    $ref: "#/types/azure-native:documentdb/v20200901:SqlContainerResource"
+    description: The standard JSON format of a container
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: 'Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".'
+requiredInputs:
+  - accountName
+  - databaseName
+  - resource
+  - resourceGroupName
+aliases:
+  - type: azure-native:documentdb:SqlResourceSqlContainer
+  - type: azure-native:documentdb/v20150401:SqlResourceSqlContainer
+  - type: azure-native:documentdb/v20150408:SqlResourceSqlContainer
+  - type: azure-native:documentdb/v20151106:SqlResourceSqlContainer
+  - type: azure-native:documentdb/v20160319:SqlResourceSqlContainer
+  - type: azure-native:documentdb/v20160331:SqlResourceSqlContainer
+  - type: azure-native:documentdb/v20190801:SqlResourceSqlContainer
+  - type: azure-native:documentdb/v20191212:SqlResourceSqlContainer
+  - type: azure-native:documentdb/v20200301:SqlResourceSqlContainer
+  - type: azure-native:documentdb/v20200401:SqlResourceSqlContainer
+  - type: azure-native:documentdb/v20200601preview:SqlResourceSqlContainer
+  - type: azure-native:documentdb/v20210115:SqlResourceSqlContainer
+  - type: azure-native:documentdb/v20210301preview:SqlResourceSqlContainer
+  - type: azure-native:documentdb/v20210315:SqlResourceSqlContainer
+  - type: azure-native:documentdb/v20210401preview:SqlResourceSqlContainer
+  - type: azure-native:documentdb/v20210415:SqlResourceSqlContainer
+  - type: azure-native:documentdb/v20210515:SqlResourceSqlContainer
+  - type: azure-native:documentdb/v20210615:SqlResourceSqlContainer
+  - type: azure-native:documentdb/v20210701preview:SqlResourceSqlContainer
+  - type: azure-native:documentdb/v20211015:SqlResourceSqlContainer
+  - type: azure-native:documentdb/v20211015preview:SqlResourceSqlContainer
+  - type: azure-native:documentdb/v20211115preview:SqlResourceSqlContainer
+  - type: azure-native:documentdb/v20220215preview:SqlResourceSqlContainer
+  - type: azure-native:documentdb/v20220515:SqlResourceSqlContainer
+  - type: azure-native:documentdb/v20220515preview:SqlResourceSqlContainer
+  - type: azure-native:documentdb/v20220815:SqlResourceSqlContainer
+deprecationMessage: Version 2020-09-01 will be removed in v2 of the provider.

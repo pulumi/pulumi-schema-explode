@@ -1,0 +1,23 @@
+$token: azure-native:network/v20200801:Ipv6ExpressRouteCircuitPeeringConfig
+description: Contains IPv6 peering config.
+properties:
+  microsoftPeeringConfig:
+    type: object
+    $ref: "#/types/azure-native:network/v20200801:ExpressRouteCircuitPeeringConfig"
+    description: The Microsoft peering configuration.
+  primaryPeerAddressPrefix:
+    type: string
+    description: The primary address prefix.
+  routeFilter:
+    type: object
+    $ref: "#/types/azure-native:network/v20200801:SubResource"
+    description: The reference to the RouteFilter resource.
+  secondaryPeerAddressPrefix:
+    type: string
+    description: The secondary address prefix.
+  state:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20200801:ExpressRouteCircuitPeeringState"
+    description: The state of peering.
+type: object

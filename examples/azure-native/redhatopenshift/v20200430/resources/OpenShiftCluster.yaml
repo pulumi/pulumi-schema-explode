@@ -1,0 +1,121 @@
+$token: azure-native:redhatopenshift/v20200430:OpenShiftCluster
+description: OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
+properties:
+  apiserverProfile:
+    type: object
+    $ref: "#/types/azure-native:redhatopenshift/v20200430:APIServerProfileResponse"
+    description: The cluster API server profile.
+  clusterProfile:
+    type: object
+    $ref: "#/types/azure-native:redhatopenshift/v20200430:ClusterProfileResponse"
+    description: The cluster profile.
+  consoleProfile:
+    type: object
+    $ref: "#/types/azure-native:redhatopenshift/v20200430:ConsoleProfileResponse"
+    description: The console profile.
+  ingressProfiles:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:redhatopenshift/v20200430:IngressProfileResponse"
+    description: The cluster ingress profiles.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  masterProfile:
+    type: object
+    $ref: "#/types/azure-native:redhatopenshift/v20200430:MasterProfileResponse"
+    description: The cluster master profile.
+  name:
+    type: string
+    description: The name of the resource
+  networkProfile:
+    type: object
+    $ref: "#/types/azure-native:redhatopenshift/v20200430:NetworkProfileResponse"
+    description: The cluster network profile.
+  provisioningState:
+    type: string
+    description: The cluster provisioning state (immutable).
+  servicePrincipalProfile:
+    type: object
+    $ref: "#/types/azure-native:redhatopenshift/v20200430:ServicePrincipalProfileResponse"
+    description: The cluster service principal profile.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  workerProfiles:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:redhatopenshift/v20200430:WorkerProfileResponse"
+    description: The cluster worker profiles.
+type: object
+required:
+  - location
+  - name
+  - type
+inputProperties:
+  apiserverProfile:
+    type: object
+    $ref: "#/types/azure-native:redhatopenshift/v20200430:APIServerProfile"
+    description: The cluster API server profile.
+  clusterProfile:
+    type: object
+    $ref: "#/types/azure-native:redhatopenshift/v20200430:ClusterProfile"
+    description: The cluster profile.
+  consoleProfile:
+    type: object
+    $ref: "#/types/azure-native:redhatopenshift/v20200430:ConsoleProfile"
+    description: The console profile.
+  ingressProfiles:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:redhatopenshift/v20200430:IngressProfile"
+    description: The cluster ingress profiles.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  masterProfile:
+    type: object
+    $ref: "#/types/azure-native:redhatopenshift/v20200430:MasterProfile"
+    description: The cluster master profile.
+  networkProfile:
+    type: object
+    $ref: "#/types/azure-native:redhatopenshift/v20200430:NetworkProfile"
+    description: The cluster network profile.
+  provisioningState:
+    type: string
+    description: The cluster provisioning state (immutable).
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  resourceName:
+    type: string
+    description: The name of the OpenShift cluster resource.
+  servicePrincipalProfile:
+    type: object
+    $ref: "#/types/azure-native:redhatopenshift/v20200430:ServicePrincipalProfile"
+    description: The cluster service principal profile.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  workerProfiles:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:redhatopenshift/v20200430:WorkerProfile"
+    description: The cluster worker profiles.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:redhatopenshift:OpenShiftCluster
+  - type: azure-native:redhatopenshift/v20210901preview:OpenShiftCluster
+  - type: azure-native:redhatopenshift/v20220401:OpenShiftCluster

@@ -1,0 +1,74 @@
+$token: azure-native:storagecache/v20210501:getStorageTarget
+description: Type of the Storage Target.
+inputs:
+  properties:
+    cacheName:
+      type: string
+      description: Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+    resourceGroupName:
+      type: string
+      description: Target resource group.
+    storageTargetName:
+      type: string
+      description: Name of Storage Target.
+  type: object
+  required:
+    - cacheName
+    - resourceGroupName
+    - storageTargetName
+outputs:
+  description: Type of the Storage Target.
+  properties:
+    blobNfs:
+      type: object
+      $ref: "#/types/azure-native:storagecache/v20210501:BlobNfsTargetResponse"
+      description: Properties when targetType is blobNfs.
+    clfs:
+      type: object
+      $ref: "#/types/azure-native:storagecache/v20210501:ClfsTargetResponse"
+      description: Properties when targetType is clfs.
+    id:
+      type: string
+      description: Resource ID of the Storage Target.
+    junctions:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:storagecache/v20210501:NamespaceJunctionResponse"
+      description: List of Cache namespace junctions to target for namespace associations.
+    location:
+      type: string
+      description: Region name string.
+    name:
+      type: string
+      description: Name of the Storage Target.
+    nfs3:
+      type: object
+      $ref: "#/types/azure-native:storagecache/v20210501:Nfs3TargetResponse"
+      description: Properties when targetType is nfs3.
+    provisioningState:
+      type: string
+      description: ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:storagecache/v20210501:SystemDataResponse"
+      description: The system meta data relating to this resource.
+    targetType:
+      type: string
+      description: Type of the Storage Target.
+    type:
+      type: string
+      description: Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
+    unknown:
+      type: object
+      $ref: "#/types/azure-native:storagecache/v20210501:UnknownTargetResponse"
+      description: Properties when targetType is unknown.
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - provisioningState
+    - systemData
+    - targetType
+    - type

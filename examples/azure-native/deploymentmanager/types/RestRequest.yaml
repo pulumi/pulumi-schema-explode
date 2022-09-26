@@ -1,0 +1,26 @@
+$token: azure-native:deploymentmanager:RestRequest
+description: The properties that make up a REST request
+properties:
+  authentication:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:deploymentmanager:ApiKeyAuthentication"
+      - type: object
+        $ref: "#/types/azure-native:deploymentmanager:RolloutIdentityAuthentication"
+    discriminator:
+      propertyName: type
+      mapping:
+        ApiKey: "#/types/azure-native:deploymentmanager:ApiKeyAuthentication"
+        RolloutIdentity: "#/types/azure-native:deploymentmanager:RolloutIdentityAuthentication"
+    description: The authentication information required in the request to the health provider.
+  method:
+    $ref: "#/types/azure-native:deploymentmanager:RestRequestMethod"
+    description: The HTTP method to use for the request.
+  uri:
+    type: string
+    description: The HTTP URI to use for the request.
+type: object
+required:
+  - authentication
+  - method
+  - uri

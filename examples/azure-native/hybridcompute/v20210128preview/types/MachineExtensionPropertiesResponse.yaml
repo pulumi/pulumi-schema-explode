@@ -1,0 +1,34 @@
+$token: azure-native:hybridcompute/v20210128preview:MachineExtensionPropertiesResponse
+description: Describes the properties of a Machine Extension.
+properties:
+  autoUpgradeMinorVersion:
+    type: boolean
+    description: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+  forceUpdateTag:
+    type: string
+    description: How the extension handler should be forced to update even if the extension configuration has not changed.
+  instanceView:
+    type: object
+    $ref: "#/types/azure-native:hybridcompute/v20210128preview:MachineExtensionInstanceViewResponse"
+    description: The machine extension instance view.
+  protectedSettings:
+    $ref: pulumi.json#/Any
+    description: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+  provisioningState:
+    type: string
+    description: The provisioning state, which only appears in the response.
+  publisher:
+    type: string
+    description: The name of the extension handler publisher.
+  settings:
+    $ref: pulumi.json#/Any
+    description: Json formatted public settings for the extension.
+  type:
+    type: string
+    description: Specifies the type of the extension; an example is "CustomScriptExtension".
+  typeHandlerVersion:
+    type: string
+    description: Specifies the version of the script handler.
+type: object
+required:
+  - provisioningState

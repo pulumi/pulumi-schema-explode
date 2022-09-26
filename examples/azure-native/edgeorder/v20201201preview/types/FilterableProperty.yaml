@@ -1,0 +1,17 @@
+$token: azure-native:edgeorder/v20201201preview:FilterableProperty
+description: Different types of filters supported and its values.
+properties:
+  supportedValues:
+    type: array
+    items:
+      type: string
+    description: Values to be filtered.
+  type:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:edgeorder/v20201201preview:SupportedFilterTypes"
+    description: Type of product filter.
+type: object
+required:
+  - supportedValues
+  - type

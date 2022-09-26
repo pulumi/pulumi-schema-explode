@@ -1,0 +1,56 @@
+$token: azure-native:avs/v20211201:WorkloadNetworkDhcp
+description: NSX DHCP
+properties:
+  name:
+    type: string
+    description: Resource name.
+  properties:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:avs/v20211201:WorkloadNetworkDhcpRelayResponse"
+      - type: object
+        $ref: "#/types/azure-native:avs/v20211201:WorkloadNetworkDhcpServerResponse"
+    discriminator:
+      propertyName: dhcpType
+      mapping:
+        RELAY: "#/types/azure-native:avs/v20211201:WorkloadNetworkDhcpRelayResponse"
+        SERVER: "#/types/azure-native:avs/v20211201:WorkloadNetworkDhcpServerResponse"
+    description: DHCP properties.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - name
+  - properties
+  - type
+inputProperties:
+  dhcpId:
+    type: string
+    description: NSX DHCP identifier. Generally the same as the DHCP display name
+  privateCloudName:
+    type: string
+    description: Name of the private cloud
+  properties:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:avs/v20211201:WorkloadNetworkDhcpRelay"
+      - type: object
+        $ref: "#/types/azure-native:avs/v20211201:WorkloadNetworkDhcpServer"
+    discriminator:
+      propertyName: dhcpType
+      mapping:
+        RELAY: "#/types/azure-native:avs/v20211201:WorkloadNetworkDhcpRelay"
+        SERVER: "#/types/azure-native:avs/v20211201:WorkloadNetworkDhcpServer"
+    description: DHCP properties.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+requiredInputs:
+  - privateCloudName
+  - resourceGroupName
+aliases:
+  - type: azure-native:avs:WorkloadNetworkDhcp
+  - type: azure-native:avs/v20200717preview:WorkloadNetworkDhcp
+  - type: azure-native:avs/v20210101preview:WorkloadNetworkDhcp
+  - type: azure-native:avs/v20210601:WorkloadNetworkDhcp

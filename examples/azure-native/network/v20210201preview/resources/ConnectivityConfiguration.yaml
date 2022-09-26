@@ -1,0 +1,107 @@
+$token: azure-native:network/v20210201preview:ConnectivityConfiguration
+description: The network manager connectivity configuration resource
+properties:
+  appliesToGroups:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210201preview:ConnectivityGroupItemResponse"
+    description: Groups for configuration
+  connectivityTopology:
+    type: string
+    description: Connectivity topology type.
+  deleteExistingPeering:
+    type: string
+    description: Flag if need to remove current existing peerings.
+  description:
+    type: string
+    description: A description of the connectivity configuration.
+  displayName:
+    type: string
+    description: A friendly name for the resource.
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  hubs:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210201preview:HubResponse"
+    description: List of hubItems
+  isGlobal:
+    type: string
+    description: Flag if global mesh is supported.
+  name:
+    type: string
+    description: Resource name.
+  provisioningState:
+    type: string
+    description: The provisioning state of the connectivity configuration resource.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:network/v20210201preview:SystemDataResponse"
+    description: The system metadata related to this resource.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - connectivityTopology
+  - etag
+  - name
+  - provisioningState
+  - systemData
+  - type
+inputProperties:
+  appliesToGroups:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210201preview:ConnectivityGroupItem"
+    description: Groups for configuration
+  configurationName:
+    type: string
+    description: The name of the network manager connectivity configuration.
+  connectivityTopology:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20210201preview:ConnectivityTopology"
+    description: Connectivity topology type.
+  deleteExistingPeering:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20210201preview:DeleteExistingPeering"
+    description: Flag if need to remove current existing peerings.
+  description:
+    type: string
+    description: A description of the connectivity configuration.
+  displayName:
+    type: string
+    description: A friendly name for the resource.
+  hubs:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210201preview:Hub"
+    description: List of hubItems
+  isGlobal:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20210201preview:IsGlobal"
+    description: Flag if global mesh is supported.
+  networkManagerName:
+    type: string
+    description: The name of the network manager.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+requiredInputs:
+  - connectivityTopology
+  - networkManagerName
+  - resourceGroupName
+aliases:
+  - type: azure-native:network:ConnectivityConfiguration
+  - type: azure-native:network/v20210501preview:ConnectivityConfiguration
+  - type: azure-native:network/v20220101:ConnectivityConfiguration
+  - type: azure-native:network/v20220201preview:ConnectivityConfiguration
+  - type: azure-native:network/v20220401preview:ConnectivityConfiguration

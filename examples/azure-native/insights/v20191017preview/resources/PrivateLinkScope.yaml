@@ -1,0 +1,53 @@
+$token: azure-native:insights/v20191017preview:PrivateLinkScope
+description: An Azure Monitor PrivateLinkScope definition.
+properties:
+  location:
+    type: string
+    description: Resource location
+  name:
+    type: string
+    description: Azure resource name
+  privateEndpointConnections:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:insights/v20191017preview:PrivateEndpointConnectionResponse"
+    description: List of private endpoint connections.
+  provisioningState:
+    type: string
+    description: "Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed."
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  type:
+    type: string
+    description: Azure resource type
+type: object
+required:
+  - location
+  - name
+  - privateEndpointConnections
+  - provisioningState
+  - type
+inputProperties:
+  location:
+    type: string
+    description: Resource location
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  scopeName:
+    type: string
+    description: The name of the Azure Monitor PrivateLinkScope resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:insights:PrivateLinkScope
+  - type: azure-native:insights/v20210701preview:PrivateLinkScope

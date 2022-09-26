@@ -1,0 +1,85 @@
+$token: azure-native:quantum/v20220110preview:Workspace
+description: The resource proxy definition object for quantum workspace.
+properties:
+  endpointUri:
+    type: string
+    description: The URI of the workspace endpoint.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:quantum/v20220110preview:QuantumWorkspaceResponseIdentity"
+    description: Managed Identity information.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  name:
+    type: string
+    description: The name of the resource
+  providers:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:quantum/v20220110preview:ProviderResponse"
+    description: List of Providers selected for this Workspace
+  provisioningState:
+    type: string
+    description: Provisioning status field
+  storageAccount:
+    type: string
+    description: ARM Resource Id of the storage account associated with this workspace.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:quantum/v20220110preview:SystemDataResponse"
+    description: System metadata
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  usable:
+    type: string
+    description: Whether the current workspace is ready to accept Jobs.
+type: object
+required:
+  - endpointUri
+  - location
+  - name
+  - provisioningState
+  - systemData
+  - type
+  - usable
+inputProperties:
+  identity:
+    type: object
+    $ref: "#/types/azure-native:quantum/v20220110preview:QuantumWorkspaceIdentity"
+    description: Managed Identity information.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  providers:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:quantum/v20220110preview:Provider"
+    description: List of Providers selected for this Workspace
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  storageAccount:
+    type: string
+    description: ARM Resource Id of the storage account associated with this workspace.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  workspaceName:
+    type: string
+    description: The name of the quantum workspace resource.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:quantum:Workspace
+  - type: azure-native:quantum/v20191104preview:Workspace

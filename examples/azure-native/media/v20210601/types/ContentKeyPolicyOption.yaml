@@ -1,0 +1,46 @@
+$token: azure-native:media/v20210601:ContentKeyPolicyOption
+description: Represents a policy option.
+properties:
+  configuration:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:media/v20210601:ContentKeyPolicyClearKeyConfiguration"
+      - type: object
+        $ref: "#/types/azure-native:media/v20210601:ContentKeyPolicyFairPlayConfiguration"
+      - type: object
+        $ref: "#/types/azure-native:media/v20210601:ContentKeyPolicyPlayReadyConfiguration"
+      - type: object
+        $ref: "#/types/azure-native:media/v20210601:ContentKeyPolicyUnknownConfiguration"
+      - type: object
+        $ref: "#/types/azure-native:media/v20210601:ContentKeyPolicyWidevineConfiguration"
+    discriminator:
+      propertyName: odataType
+      mapping:
+        "#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration": "#/types/azure-native:media/v20210601:ContentKeyPolicyClearKeyConfiguration"
+        "#Microsoft.Media.ContentKeyPolicyFairPlayConfiguration": "#/types/azure-native:media/v20210601:ContentKeyPolicyFairPlayConfiguration"
+        "#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration": "#/types/azure-native:media/v20210601:ContentKeyPolicyPlayReadyConfiguration"
+        "#Microsoft.Media.ContentKeyPolicyUnknownConfiguration": "#/types/azure-native:media/v20210601:ContentKeyPolicyUnknownConfiguration"
+        "#Microsoft.Media.ContentKeyPolicyWidevineConfiguration": "#/types/azure-native:media/v20210601:ContentKeyPolicyWidevineConfiguration"
+    description: The key delivery configuration.
+  name:
+    type: string
+    description: The Policy Option description.
+  restriction:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:media/v20210601:ContentKeyPolicyOpenRestriction"
+      - type: object
+        $ref: "#/types/azure-native:media/v20210601:ContentKeyPolicyTokenRestriction"
+      - type: object
+        $ref: "#/types/azure-native:media/v20210601:ContentKeyPolicyUnknownRestriction"
+    discriminator:
+      propertyName: odataType
+      mapping:
+        "#Microsoft.Media.ContentKeyPolicyOpenRestriction": "#/types/azure-native:media/v20210601:ContentKeyPolicyOpenRestriction"
+        "#Microsoft.Media.ContentKeyPolicyTokenRestriction": "#/types/azure-native:media/v20210601:ContentKeyPolicyTokenRestriction"
+        "#Microsoft.Media.ContentKeyPolicyUnknownRestriction": "#/types/azure-native:media/v20210601:ContentKeyPolicyUnknownRestriction"
+    description: The requirements that must be met to deliver keys with this configuration
+type: object
+required:
+  - configuration
+  - restriction

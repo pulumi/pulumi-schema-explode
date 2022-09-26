@@ -1,0 +1,164 @@
+$token: azure-native:security/v20211201preview:SecurityConnector
+description: The security connector resource.
+properties:
+  environmentData:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:security/v20211201preview:AWSEnvironmentDataResponse"
+      - type: object
+        $ref: "#/types/azure-native:security/v20211201preview:GcpProjectEnvironmentDataResponse"
+      - type: object
+        $ref: "#/types/azure-native:security/v20211201preview:GithubScopeEnvironmentDataResponse"
+    discriminator:
+      propertyName: environmentType
+      mapping:
+        AwsAccount: "#/types/azure-native:security/v20211201preview:AWSEnvironmentDataResponse"
+        GcpProject: "#/types/azure-native:security/v20211201preview:GcpProjectEnvironmentDataResponse"
+        GithubScope: "#/types/azure-native:security/v20211201preview:GithubScopeEnvironmentDataResponse"
+    description: The security connector environment data.
+  environmentName:
+    type: string
+    description: The multi cloud resource's cloud name.
+  etag:
+    type: string
+    description: Entity tag is used for comparing two or more entities from the same requested resource.
+  hierarchyIdentifier:
+    type: string
+    description: The multi cloud resource identifier (account id in case of AWS connector, project number in case of GCP connector).
+  kind:
+    type: string
+    description: Kind of the resource
+  location:
+    type: string
+    description: Location where the resource is stored
+  name:
+    type: string
+    description: Resource name
+  offerings:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:security/v20211201preview:CspmMonitorAwsOfferingResponse"
+        - type: object
+          $ref: "#/types/azure-native:security/v20211201preview:CspmMonitorGcpOfferingResponse"
+        - type: object
+          $ref: "#/types/azure-native:security/v20211201preview:CspmMonitorGithubOfferingResponse"
+        - type: object
+          $ref: "#/types/azure-native:security/v20211201preview:DefenderForContainersAwsOfferingResponse"
+        - type: object
+          $ref: "#/types/azure-native:security/v20211201preview:DefenderForContainersGcpOfferingResponse"
+        - type: object
+          $ref: "#/types/azure-native:security/v20211201preview:DefenderForServersAwsOfferingResponse"
+        - type: object
+          $ref: "#/types/azure-native:security/v20211201preview:DefenderForServersGcpOfferingResponse"
+        - type: object
+          $ref: "#/types/azure-native:security/v20211201preview:InformationProtectionAwsOfferingResponse"
+      discriminator:
+        propertyName: offeringType
+        mapping:
+          CspmMonitorAws: "#/types/azure-native:security/v20211201preview:CspmMonitorAwsOfferingResponse"
+          CspmMonitorGcp: "#/types/azure-native:security/v20211201preview:CspmMonitorGcpOfferingResponse"
+          CspmMonitorGithub: "#/types/azure-native:security/v20211201preview:CspmMonitorGithubOfferingResponse"
+          DefenderForContainersAws: "#/types/azure-native:security/v20211201preview:DefenderForContainersAwsOfferingResponse"
+          DefenderForContainersGcp: "#/types/azure-native:security/v20211201preview:DefenderForContainersGcpOfferingResponse"
+          DefenderForServersAws: "#/types/azure-native:security/v20211201preview:DefenderForServersAwsOfferingResponse"
+          DefenderForServersGcp: "#/types/azure-native:security/v20211201preview:DefenderForServersGcpOfferingResponse"
+          InformationProtectionAws: "#/types/azure-native:security/v20211201preview:InformationProtectionAwsOfferingResponse"
+    description: A collection of offerings for the security connector.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:security/v20211201preview:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: A list of key value pairs that describe the resource.
+  type:
+    type: string
+    description: Resource type
+type: object
+required:
+  - name
+  - systemData
+  - type
+inputProperties:
+  environmentData:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:security/v20211201preview:AWSEnvironmentData"
+      - type: object
+        $ref: "#/types/azure-native:security/v20211201preview:GcpProjectEnvironmentData"
+      - type: object
+        $ref: "#/types/azure-native:security/v20211201preview:GithubScopeEnvironmentData"
+    discriminator:
+      propertyName: environmentType
+      mapping:
+        AwsAccount: "#/types/azure-native:security/v20211201preview:AWSEnvironmentData"
+        GcpProject: "#/types/azure-native:security/v20211201preview:GcpProjectEnvironmentData"
+        GithubScope: "#/types/azure-native:security/v20211201preview:GithubScopeEnvironmentData"
+    description: The security connector environment data.
+  environmentName:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:security/v20211201preview:CloudName"
+    description: The multi cloud resource's cloud name.
+  hierarchyIdentifier:
+    type: string
+    description: The multi cloud resource identifier (account id in case of AWS connector, project number in case of GCP connector).
+  kind:
+    type: string
+    description: Kind of the resource
+  location:
+    type: string
+    description: Location where the resource is stored
+  offerings:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:security/v20211201preview:CspmMonitorAwsOffering"
+        - type: object
+          $ref: "#/types/azure-native:security/v20211201preview:CspmMonitorGcpOffering"
+        - type: object
+          $ref: "#/types/azure-native:security/v20211201preview:CspmMonitorGithubOffering"
+        - type: object
+          $ref: "#/types/azure-native:security/v20211201preview:DefenderForContainersAwsOffering"
+        - type: object
+          $ref: "#/types/azure-native:security/v20211201preview:DefenderForContainersGcpOffering"
+        - type: object
+          $ref: "#/types/azure-native:security/v20211201preview:DefenderForServersAwsOffering"
+        - type: object
+          $ref: "#/types/azure-native:security/v20211201preview:DefenderForServersGcpOffering"
+        - type: object
+          $ref: "#/types/azure-native:security/v20211201preview:InformationProtectionAwsOffering"
+      discriminator:
+        propertyName: offeringType
+        mapping:
+          CspmMonitorAws: "#/types/azure-native:security/v20211201preview:CspmMonitorAwsOffering"
+          CspmMonitorGcp: "#/types/azure-native:security/v20211201preview:CspmMonitorGcpOffering"
+          CspmMonitorGithub: "#/types/azure-native:security/v20211201preview:CspmMonitorGithubOffering"
+          DefenderForContainersAws: "#/types/azure-native:security/v20211201preview:DefenderForContainersAwsOffering"
+          DefenderForContainersGcp: "#/types/azure-native:security/v20211201preview:DefenderForContainersGcpOffering"
+          DefenderForServersAws: "#/types/azure-native:security/v20211201preview:DefenderForServersAwsOffering"
+          DefenderForServersGcp: "#/types/azure-native:security/v20211201preview:DefenderForServersGcpOffering"
+          InformationProtectionAws: "#/types/azure-native:security/v20211201preview:InformationProtectionAwsOffering"
+    description: A collection of offerings for the security connector.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group within the user's subscription. The name is case insensitive.
+  securityConnectorName:
+    type: string
+    description: The security connector name.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: A list of key value pairs that describe the resource.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:security:SecurityConnector
+  - type: azure-native:security/v20210701preview:SecurityConnector
+  - type: azure-native:security/v20220501preview:SecurityConnector

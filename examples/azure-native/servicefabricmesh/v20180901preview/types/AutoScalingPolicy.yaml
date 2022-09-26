@@ -1,0 +1,19 @@
+$token: azure-native:servicefabricmesh/v20180901preview:AutoScalingPolicy
+description: Describes the auto scaling policy
+properties:
+  mechanism:
+    type: object
+    $ref: "#/types/azure-native:servicefabricmesh/v20180901preview:AddRemoveReplicaScalingMechanism"
+    description: The mechanism that is used to scale when auto scaling operation is invoked.
+  name:
+    type: string
+    description: The name of the auto scaling policy.
+  trigger:
+    type: object
+    $ref: "#/types/azure-native:servicefabricmesh/v20180901preview:AverageLoadScalingTrigger"
+    description: Determines when auto scaling operation will be invoked.
+type: object
+required:
+  - mechanism
+  - name
+  - trigger

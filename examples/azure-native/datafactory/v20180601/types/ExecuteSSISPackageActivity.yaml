@@ -1,0 +1,100 @@
+$token: azure-native:datafactory/v20180601:ExecuteSSISPackageActivity
+description: Execute SSIS package activity.
+properties:
+  connectVia:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20180601:IntegrationRuntimeReference"
+    description: The integration runtime reference.
+  dependsOn:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20180601:ActivityDependency"
+    description: Activity depends on condition.
+  description:
+    type: string
+    description: Activity description.
+  environmentPath:
+    $ref: pulumi.json#/Any
+    description: "The environment path to execute the SSIS package. Type: string (or Expression with resultType string)."
+  executionCredential:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20180601:SSISExecutionCredential"
+    description: The package execution credential.
+  linkedServiceName:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20180601:LinkedServiceReference"
+    description: Linked service reference.
+  logLocation:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20180601:SSISLogLocation"
+    description: SSIS package execution log location.
+  loggingLevel:
+    $ref: pulumi.json#/Any
+    description: "The logging level of SSIS package execution. Type: string (or Expression with resultType string)."
+  name:
+    type: string
+    description: Activity name.
+  packageConnectionManagers:
+    type: object
+    additionalProperties:
+      type: object
+      additionalProperties:
+        type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:SSISExecutionParameter"
+    description: The package level connection managers to execute the SSIS package.
+  packageLocation:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20180601:SSISPackageLocation"
+    description: SSIS package location.
+  packageParameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20180601:SSISExecutionParameter"
+    description: The package level parameters to execute the SSIS package.
+  policy:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20180601:ActivityPolicy"
+    description: Activity policy.
+  projectConnectionManagers:
+    type: object
+    additionalProperties:
+      type: object
+      additionalProperties:
+        type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:SSISExecutionParameter"
+    description: The project level connection managers to execute the SSIS package.
+  projectParameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20180601:SSISExecutionParameter"
+    description: The project level parameters to execute the SSIS package.
+  propertyOverrides:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20180601:SSISPropertyOverride"
+    description: The property overrides to execute the SSIS package.
+  runtime:
+    $ref: pulumi.json#/Any
+    description: 'Specifies the runtime to execute SSIS package. The value should be "x86" or "x64". Type: string (or Expression with resultType string).'
+  type:
+    type: string
+    description: |-
+      Type of activity.
+      Expected value is 'ExecuteSSISPackage'.
+    const: ExecuteSSISPackage
+  userProperties:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20180601:UserProperty"
+    description: Activity user properties.
+type: object
+required:
+  - connectVia
+  - name
+  - packageLocation
+  - type

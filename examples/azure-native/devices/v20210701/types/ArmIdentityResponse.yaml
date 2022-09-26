@@ -1,0 +1,20 @@
+$token: azure-native:devices/v20210701:ArmIdentityResponse
+properties:
+  principalId:
+    type: string
+    description: Principal Id
+  tenantId:
+    type: string
+    description: Tenant Id
+  type:
+    type: string
+    description: The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+  userAssignedIdentities:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:devices/v20210701:ArmUserIdentityResponse"
+type: object
+required:
+  - principalId
+  - tenantId

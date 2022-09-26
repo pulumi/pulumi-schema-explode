@@ -1,0 +1,64 @@
+$token: azure-native:network/v20180201:ApplicationGatewayBackendHttpSettings
+description: Backend address pool settings of an application gateway.
+properties:
+  affinityCookieName:
+    type: string
+    description: Cookie name to use for the affinity cookie.
+  authenticationCertificates:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20180201:SubResource"
+    description: Array of references to application gateway authentication certificates.
+  connectionDraining:
+    type: object
+    $ref: "#/types/azure-native:network/v20180201:ApplicationGatewayConnectionDraining"
+    description: Connection draining of the backend http settings resource.
+  cookieBasedAffinity:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20180201:ApplicationGatewayCookieBasedAffinity"
+    description: Cookie based affinity.
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  hostName:
+    type: string
+    description: Host header to be sent to the backend servers.
+  id:
+    type: string
+    description: Resource ID.
+  name:
+    type: string
+    description: Name of the resource that is unique within a resource group. This name can be used to access the resource.
+  path:
+    type: string
+    description: Path which should be used as a prefix for all HTTP requests. Null means no path will be prefixed. Default value is null.
+  pickHostNameFromBackendAddress:
+    type: boolean
+    description: Whether to pick host header should be picked from the host name of the backend server. Default value is false.
+  port:
+    type: integer
+    description: Port
+  probe:
+    type: object
+    $ref: "#/types/azure-native:network/v20180201:SubResource"
+    description: Probe resource of an application gateway.
+  probeEnabled:
+    type: boolean
+    description: Whether the probe is enabled. Default value is false.
+  protocol:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20180201:ApplicationGatewayProtocol"
+    description: Protocol.
+  provisioningState:
+    type: string
+    description: "Provisioning state of the backend http settings resource. Possible values are: 'Updating', 'Deleting', and 'Failed'."
+  requestTimeout:
+    type: integer
+    description: Request timeout in seconds. Application Gateway will fail the request if response is not received within RequestTimeout. Acceptable values are from 1 second to 86400 seconds.
+  type:
+    type: string
+    description: Type of the resource.
+type: object

@@ -1,0 +1,65 @@
+$token: azure-native:media/v20220801:AccountFilter
+description: An Account Filter.
+properties:
+  firstQuality:
+    type: object
+    $ref: "#/types/azure-native:media/v20220801:FirstQualityResponse"
+    description: The first quality.
+  name:
+    type: string
+    description: The name of the resource
+  presentationTimeRange:
+    type: object
+    $ref: "#/types/azure-native:media/v20220801:PresentationTimeRangeResponse"
+    description: The presentation time range.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:media/v20220801:SystemDataResponse"
+    description: The system metadata relating to this resource.
+  tracks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:media/v20220801:FilterTrackSelectionResponse"
+    description: The tracks selection conditions.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - name
+  - systemData
+  - type
+inputProperties:
+  accountName:
+    type: string
+    description: The Media Services account name.
+  filterName:
+    type: string
+    description: The Account Filter name
+  firstQuality:
+    type: object
+    $ref: "#/types/azure-native:media/v20220801:FirstQuality"
+    description: The first quality.
+  presentationTimeRange:
+    type: object
+    $ref: "#/types/azure-native:media/v20220801:PresentationTimeRange"
+    description: The presentation time range.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group within the Azure subscription.
+  tracks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:media/v20220801:FilterTrackSelection"
+    description: The tracks selection conditions.
+requiredInputs:
+  - accountName
+  - resourceGroupName
+aliases:
+  - type: azure-native:media:AccountFilter
+  - type: azure-native:media/v20180701:AccountFilter
+  - type: azure-native:media/v20200501:AccountFilter
+  - type: azure-native:media/v20210601:AccountFilter
+  - type: azure-native:media/v20211101:AccountFilter

@@ -1,0 +1,46 @@
+$token: azure-native:azurestack/v20200601preview:getCustomerSubscription
+description: Customer subscription.
+inputs:
+  properties:
+    customerSubscriptionName:
+      type: string
+      description: Name of the product.
+    registrationName:
+      type: string
+      description: Name of the Azure Stack registration.
+    resourceGroup:
+      type: string
+      description: Name of the resource group.
+  type: object
+  required:
+    - customerSubscriptionName
+    - registrationName
+    - resourceGroup
+outputs:
+  description: Customer subscription.
+  properties:
+    etag:
+      type: string
+      description: The entity tag used for optimistic concurrency when modifying the resource.
+    id:
+      type: string
+      description: ID of the resource.
+    name:
+      type: string
+      description: Name of the resource.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:azurestack/v20200601preview:SystemDataResponse"
+      description: Metadata pertaining to creation and last modification of the resource.
+    tenantId:
+      type: string
+      description: Tenant Id.
+    type:
+      type: string
+      description: Type of Resource.
+  type: object
+  required:
+    - id
+    - name
+    - systemData
+    - type

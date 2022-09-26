@@ -1,0 +1,29 @@
+$token: azure-native:containerinstance:InitContainerDefinition
+description: The init container definition.
+properties:
+  command:
+    type: array
+    items:
+      type: string
+    description: The command to execute within the init container in exec form.
+  environmentVariables:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:containerinstance:EnvironmentVariable"
+    description: The environment variables to set in the init container.
+  image:
+    type: string
+    description: The image of the init container.
+  name:
+    type: string
+    description: The name for the init container.
+  volumeMounts:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:containerinstance:VolumeMount"
+    description: The volume mounts available to the init container.
+type: object
+required:
+  - name

@@ -1,0 +1,120 @@
+$token: azure-native:security:SecurityConnector
+description: |-
+  The security connector resource.
+  API Version: 2021-07-01-preview.
+properties:
+  cloudName:
+    type: string
+    description: The multi cloud resource's cloud name.
+  etag:
+    type: string
+    description: Entity tag is used for comparing two or more entities from the same requested resource.
+  hierarchyIdentifier:
+    type: string
+    description: The multi cloud resource identifier (account id in case of AWS connector).
+  kind:
+    type: string
+    description: Kind of the resource
+  location:
+    type: string
+    description: Location where the resource is stored
+  name:
+    type: string
+    description: Resource name
+  offerings:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:security:CspmMonitorAwsOfferingResponse"
+        - type: object
+          $ref: "#/types/azure-native:security:DefenderForContainersAwsOfferingResponse"
+        - type: object
+          $ref: "#/types/azure-native:security:DefenderForServersAwsOfferingResponse"
+        - type: object
+          $ref: "#/types/azure-native:security:InformationProtectionAwsOfferingResponse"
+      discriminator:
+        propertyName: offeringType
+        mapping:
+          CspmMonitorAws: "#/types/azure-native:security:CspmMonitorAwsOfferingResponse"
+          DefenderForContainersAws: "#/types/azure-native:security:DefenderForContainersAwsOfferingResponse"
+          DefenderForServersAws: "#/types/azure-native:security:DefenderForServersAwsOfferingResponse"
+          InformationProtectionAws: "#/types/azure-native:security:InformationProtectionAwsOfferingResponse"
+    description: A collection of offerings for the security connector.
+  organizationalData:
+    type: object
+    $ref: "#/types/azure-native:security:SecurityConnectorPropertiesResponseOrganizationalData"
+    description: The multi cloud account's organizational data
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:security:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: A list of key value pairs that describe the resource.
+  type:
+    type: string
+    description: Resource type
+type: object
+required:
+  - name
+  - systemData
+  - type
+inputProperties:
+  cloudName:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:security:CloudName"
+    description: The multi cloud resource's cloud name.
+  hierarchyIdentifier:
+    type: string
+    description: The multi cloud resource identifier (account id in case of AWS connector).
+  kind:
+    type: string
+    description: Kind of the resource
+  location:
+    type: string
+    description: Location where the resource is stored
+  offerings:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:security:CspmMonitorAwsOffering"
+        - type: object
+          $ref: "#/types/azure-native:security:DefenderForContainersAwsOffering"
+        - type: object
+          $ref: "#/types/azure-native:security:DefenderForServersAwsOffering"
+        - type: object
+          $ref: "#/types/azure-native:security:InformationProtectionAwsOffering"
+      discriminator:
+        propertyName: offeringType
+        mapping:
+          CspmMonitorAws: "#/types/azure-native:security:CspmMonitorAwsOffering"
+          DefenderForContainersAws: "#/types/azure-native:security:DefenderForContainersAwsOffering"
+          DefenderForServersAws: "#/types/azure-native:security:DefenderForServersAwsOffering"
+          InformationProtectionAws: "#/types/azure-native:security:InformationProtectionAwsOffering"
+    description: A collection of offerings for the security connector.
+  organizationalData:
+    type: object
+    $ref: "#/types/azure-native:security:SecurityConnectorPropertiesOrganizationalData"
+    description: The multi cloud account's organizational data
+  resourceGroupName:
+    type: string
+    description: The name of the resource group within the user's subscription. The name is case insensitive.
+  securityConnectorName:
+    type: string
+    description: The security connector name.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: A list of key value pairs that describe the resource.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:security/v20210701preview:SecurityConnector
+  - type: azure-native:security/v20211201preview:SecurityConnector
+  - type: azure-native:security/v20220501preview:SecurityConnector

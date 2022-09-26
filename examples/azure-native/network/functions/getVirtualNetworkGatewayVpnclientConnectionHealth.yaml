@@ -1,0 +1,26 @@
+$token: azure-native:network:getVirtualNetworkGatewayVpnclientConnectionHealth
+description: |-
+  List of virtual network gateway vpn client connection health.
+  API Version: 2020-11-01.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    virtualNetworkGatewayName:
+      type: string
+      description: The name of the virtual network gateway.
+  type: object
+  required:
+    - resourceGroupName
+    - virtualNetworkGatewayName
+outputs:
+  description: List of virtual network gateway vpn client connection health.
+  properties:
+    value:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network:VpnClientConnectionHealthDetailResponse"
+      description: List of vpn client connection health.
+  type: object

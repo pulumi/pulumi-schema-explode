@@ -1,0 +1,49 @@
+$token: azure-native:avs/v20210601:WorkloadNetworkPublicIP
+description: NSX Public IP Block
+properties:
+  displayName:
+    type: string
+    description: Display name of the Public IP Block.
+  name:
+    type: string
+    description: Resource name.
+  numberOfPublicIPs:
+    type: number
+    description: Number of Public IPs requested.
+  provisioningState:
+    type: string
+    description: The provisioning state
+  publicIPBlock:
+    type: string
+    description: CIDR Block of the Public IP Block.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - name
+  - provisioningState
+  - publicIPBlock
+  - type
+inputProperties:
+  displayName:
+    type: string
+    description: Display name of the Public IP Block.
+  numberOfPublicIPs:
+    type: number
+    description: Number of Public IPs requested.
+  privateCloudName:
+    type: string
+    description: Name of the private cloud
+  publicIPId:
+    type: string
+    description: NSX Public IP Block identifier. Generally the same as the Public IP Block's display name
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+requiredInputs:
+  - privateCloudName
+  - resourceGroupName
+aliases:
+  - type: azure-native:avs:WorkloadNetworkPublicIP
+  - type: azure-native:avs/v20211201:WorkloadNetworkPublicIP

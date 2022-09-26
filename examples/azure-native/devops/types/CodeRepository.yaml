@@ -1,0 +1,28 @@
+$token: azure-native:devops:CodeRepository
+description: Repository containing the source code for a pipeline.
+properties:
+  authorization:
+    type: object
+    $ref: "#/types/azure-native:devops:Authorization"
+    description: Authorization info to access the code repository.
+  defaultBranch:
+    type: string
+    description: Default branch used to configure Continuous Integration (CI) in the pipeline.
+  id:
+    type: string
+    description: Unique immutable identifier of the code repository.
+  properties:
+    type: object
+    additionalProperties:
+      type: string
+    description: Repository-specific properties.
+  repositoryType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:devops:CodeRepositoryType"
+    description: Type of code repository.
+type: object
+required:
+  - defaultBranch
+  - id
+  - repositoryType

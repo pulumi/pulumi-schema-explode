@@ -1,0 +1,54 @@
+$token: azure-native:synapse:getIntegrationRuntime
+description: |-
+  Integration runtime resource type.
+  API Version: 2021-03-01.
+inputs:
+  properties:
+    integrationRuntimeName:
+      type: string
+      description: Integration runtime name
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    workspaceName:
+      type: string
+      description: The name of the workspace.
+  type: object
+  required:
+    - integrationRuntimeName
+    - resourceGroupName
+    - workspaceName
+outputs:
+  description: Integration runtime resource type.
+  properties:
+    etag:
+      type: string
+      description: Resource Etag.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    name:
+      type: string
+      description: The name of the resource
+    properties:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:synapse:ManagedIntegrationRuntimeResponse"
+        - type: object
+          $ref: "#/types/azure-native:synapse:SelfHostedIntegrationRuntimeResponse"
+      discriminator:
+        propertyName: type
+        mapping:
+          Managed: "#/types/azure-native:synapse:ManagedIntegrationRuntimeResponse"
+          SelfHosted: "#/types/azure-native:synapse:SelfHostedIntegrationRuntimeResponse"
+      description: Integration runtime properties.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - etag
+    - id
+    - name
+    - properties
+    - type

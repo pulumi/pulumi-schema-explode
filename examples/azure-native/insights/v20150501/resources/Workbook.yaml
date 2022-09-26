@@ -1,0 +1,117 @@
+$token: azure-native:insights/v20150501:Workbook
+description: An Application Insights workbook definition.
+properties:
+  category:
+    type: string
+    description: Workbook category, as defined by the user at creation time.
+  kind:
+    type: string
+    description: The kind of workbook. Choices are user and shared.
+  location:
+    type: string
+    description: Resource location
+  name:
+    type: string
+    description: Azure resource name
+  serializedData:
+    type: string
+    description: Configuration of this particular workbook. Configuration data is a string containing valid JSON
+  sharedTypeKind:
+    type: string
+    description: Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+    default: shared
+  sourceResourceId:
+    type: string
+    description: Optional resourceId for a source resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  timeModified:
+    type: string
+    description: Date and time in UTC of the last modification that was made to this workbook definition.
+  type:
+    type: string
+    description: Azure resource type
+  userId:
+    type: string
+    description: Unique user id of the specific user that owns this workbook.
+  version:
+    type: string
+    description: This instance's version of the data model. This can change as new features are added that can be marked workbook.
+  workbookId:
+    type: string
+    description: Internally assigned unique id of the workbook definition.
+type: object
+required:
+  - category
+  - name
+  - serializedData
+  - sharedTypeKind
+  - timeModified
+  - type
+  - userId
+  - workbookId
+inputProperties:
+  category:
+    type: string
+    description: Workbook category, as defined by the user at creation time.
+  kind:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:insights/v20150501:SharedTypeKind"
+    description: The kind of workbook. Choices are user and shared.
+  location:
+    type: string
+    description: Resource location
+  name:
+    type: string
+    description: The user-defined name of the workbook.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  resourceName:
+    type: string
+    description: The name of the Application Insights component resource.
+  serializedData:
+    type: string
+    description: Configuration of this particular workbook. Configuration data is a string containing valid JSON
+  sharedTypeKind:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:insights/v20150501:SharedTypeKind"
+    description: Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+    default: shared
+  sourceResourceId:
+    type: string
+    description: Optional resourceId for a source resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  userId:
+    type: string
+    description: Unique user id of the specific user that owns this workbook.
+  version:
+    type: string
+    description: This instance's version of the data model. This can change as new features are added that can be marked workbook.
+  workbookId:
+    type: string
+    description: Internally assigned unique id of the workbook definition.
+requiredInputs:
+  - category
+  - name
+  - resourceGroupName
+  - serializedData
+  - sharedTypeKind
+  - userId
+  - workbookId
+aliases:
+  - type: azure-native:insights:Workbook
+  - type: azure-native:insights/v20180617preview:Workbook
+  - type: azure-native:insights/v20201020:Workbook
+  - type: azure-native:insights/v20210308:Workbook
+  - type: azure-native:insights/v20210801:Workbook
+  - type: azure-native:insights/v20220401:Workbook

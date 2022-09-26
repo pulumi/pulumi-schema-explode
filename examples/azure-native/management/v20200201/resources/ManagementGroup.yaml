@@ -1,0 +1,64 @@
+$token: azure-native:management/v20200201:ManagementGroup
+description: The management group details.
+properties:
+  children:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:management/v20200201:ManagementGroupChildInfoResponse"
+    description: The list of children.
+  details:
+    type: object
+    $ref: "#/types/azure-native:management/v20200201:ManagementGroupDetailsResponse"
+    description: The details of a management group.
+  displayName:
+    type: string
+    description: The friendly name of the management group.
+  name:
+    type: string
+    description: The name of the management group. For example, 00000000-0000-0000-0000-000000000000
+  path:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:management/v20200201:ManagementGroupPathElementResponse"
+    description: The path from the root to the current group.
+  roles:
+    type: array
+    items:
+      type: string
+    description: The role definitions associated with the management group.
+  tenantId:
+    type: string
+    description: The AAD Tenant ID associated with the management group. For example, 00000000-0000-0000-0000-000000000000
+  type:
+    type: string
+    description: The type of the resource.  For example, Microsoft.Management/managementGroups
+type: object
+required:
+  - name
+  - type
+inputProperties:
+  details:
+    type: object
+    $ref: "#/types/azure-native:management/v20200201:CreateManagementGroupDetails"
+    description: The details of a management group used during creation.
+  displayName:
+    type: string
+    description: The friendly name of the management group. If no value is passed then this  field will be set to the groupId.
+  groupId:
+    type: string
+    description: Management Group ID.
+  name:
+    type: string
+    description: The name of the management group. For example, 00000000-0000-0000-0000-000000000000
+aliases:
+  - type: azure-native:management:ManagementGroup
+  - type: azure-native:management/v20171101preview:ManagementGroup
+  - type: azure-native:management/v20180101preview:ManagementGroup
+  - type: azure-native:management/v20180301preview:ManagementGroup
+  - type: azure-native:management/v20191101:ManagementGroup
+  - type: azure-native:management/v20200501:ManagementGroup
+  - type: azure-native:management/v20201001:ManagementGroup
+  - type: azure-native:management/v20210401:ManagementGroup
+deprecationMessage: Version 2020-02-01 will be removed in v2 of the provider.

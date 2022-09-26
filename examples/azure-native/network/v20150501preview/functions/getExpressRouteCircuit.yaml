@@ -1,0 +1,79 @@
+$token: azure-native:network/v20150501preview:getExpressRouteCircuit
+description: ExpressRouteCircuit resource
+inputs:
+  properties:
+    circuitName:
+      type: string
+      description: The name of the circuit.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - circuitName
+    - resourceGroupName
+outputs:
+  description: ExpressRouteCircuit resource
+  properties:
+    authorizations:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20150501preview:ExpressRouteCircuitAuthorizationResponse"
+      description: Gets or sets list of authorizations
+    circuitProvisioningState:
+      type: string
+      description: "Gets or sets CircuitProvisioningState state of the resource "
+    etag:
+      type: string
+      description: Gets a unique read-only string that changes whenever the resource is updated
+    id:
+      type: string
+      description: Resource Id
+    location:
+      type: string
+      description: Resource location
+    name:
+      type: string
+      description: Resource name
+    peerings:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20150501preview:ExpressRouteCircuitPeeringResponse"
+      description: Gets or sets list of peerings
+    provisioningState:
+      type: string
+      description: Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+    serviceKey:
+      type: string
+      description: Gets or sets ServiceKey
+    serviceProviderNotes:
+      type: string
+      description: Gets or sets ServiceProviderNotes
+    serviceProviderProperties:
+      type: object
+      $ref: "#/types/azure-native:network/v20150501preview:ExpressRouteCircuitServiceProviderPropertiesResponse"
+      description: Gets or sets ServiceProviderProperties
+    serviceProviderProvisioningState:
+      type: string
+      description: "Gets or sets ServiceProviderProvisioningState state of the resource "
+    sku:
+      type: object
+      $ref: "#/types/azure-native:network/v20150501preview:ExpressRouteCircuitSkuResponse"
+      description: Gets or sets sku
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    type:
+      type: string
+      description: Resource type
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - type
+deprecationMessage: Version 2015-05-01-preview will be removed in v2 of the provider.

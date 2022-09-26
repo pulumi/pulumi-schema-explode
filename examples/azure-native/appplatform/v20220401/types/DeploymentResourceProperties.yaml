@@ -1,0 +1,32 @@
+$token: azure-native:appplatform/v20220401:DeploymentResourceProperties
+description: Deployment resource properties payload
+properties:
+  active:
+    type: boolean
+    description: Indicates whether the Deployment is active
+  deploymentSettings:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20220401:DeploymentSettings"
+    description: Deployment settings of the Deployment
+  source:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:appplatform/v20220401:BuildResultUserSourceInfo"
+      - type: object
+        $ref: "#/types/azure-native:appplatform/v20220401:JarUploadedUserSourceInfo"
+      - type: object
+        $ref: "#/types/azure-native:appplatform/v20220401:NetCoreZipUploadedUserSourceInfo"
+      - type: object
+        $ref: "#/types/azure-native:appplatform/v20220401:SourceUploadedUserSourceInfo"
+      - type: object
+        $ref: "#/types/azure-native:appplatform/v20220401:UploadedUserSourceInfo"
+    discriminator:
+      propertyName: type
+      mapping:
+        BuildResult: "#/types/azure-native:appplatform/v20220401:BuildResultUserSourceInfo"
+        Jar: "#/types/azure-native:appplatform/v20220401:JarUploadedUserSourceInfo"
+        NetCoreZip: "#/types/azure-native:appplatform/v20220401:NetCoreZipUploadedUserSourceInfo"
+        Source: "#/types/azure-native:appplatform/v20220401:SourceUploadedUserSourceInfo"
+        UploadedUserSourceInfo: "#/types/azure-native:appplatform/v20220401:UploadedUserSourceInfo"
+    description: Uploaded source information of the deployment.
+type: object

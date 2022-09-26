@@ -1,0 +1,29 @@
+$token: azure-native:recoveryservices/v20211101:AddRecoveryServicesProviderInputProperties
+description: The properties of an add provider request.
+properties:
+  authenticationIdentityInput:
+    type: object
+    $ref: "#/types/azure-native:recoveryservices/v20211101:IdentityProviderInput"
+    description: The identity provider input for DRA authentication.
+  biosId:
+    type: string
+    description: The Bios Id of the machine.
+  dataPlaneAuthenticationIdentityInput:
+    type: object
+    $ref: "#/types/azure-native:recoveryservices/v20211101:IdentityProviderInput"
+    description: The identity provider input for data plane authentication.
+  machineId:
+    type: string
+    description: The Id of the machine where the provider is getting added.
+  machineName:
+    type: string
+    description: The name of the machine where the provider is getting added.
+  resourceAccessIdentityInput:
+    type: object
+    $ref: "#/types/azure-native:recoveryservices/v20211101:IdentityProviderInput"
+    description: The identity provider input for resource access.
+type: object
+required:
+  - authenticationIdentityInput
+  - machineName
+  - resourceAccessIdentityInput

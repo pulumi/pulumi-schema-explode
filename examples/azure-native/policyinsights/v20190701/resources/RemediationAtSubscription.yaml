@@ -1,0 +1,66 @@
+$token: azure-native:policyinsights/v20190701:RemediationAtSubscription
+description: The remediation definition.
+properties:
+  createdOn:
+    type: string
+    description: The time at which the remediation was created.
+  deploymentStatus:
+    type: object
+    $ref: "#/types/azure-native:policyinsights/v20190701:RemediationDeploymentSummaryResponse"
+    description: The deployment status summary for all deployments created by the remediation.
+  filters:
+    type: object
+    $ref: "#/types/azure-native:policyinsights/v20190701:RemediationFiltersResponse"
+    description: The filters that will be applied to determine which resources to remediate.
+  lastUpdatedOn:
+    type: string
+    description: The time at which the remediation was last updated.
+  name:
+    type: string
+    description: The name of the remediation.
+  policyAssignmentId:
+    type: string
+    description: The resource ID of the policy assignment that should be remediated.
+  policyDefinitionReferenceId:
+    type: string
+    description: The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+  provisioningState:
+    type: string
+    description: The status of the remediation.
+  resourceDiscoveryMode:
+    type: string
+    description: The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
+  type:
+    type: string
+    description: The type of the remediation.
+type: object
+required:
+  - createdOn
+  - deploymentStatus
+  - lastUpdatedOn
+  - name
+  - provisioningState
+  - type
+inputProperties:
+  filters:
+    type: object
+    $ref: "#/types/azure-native:policyinsights/v20190701:RemediationFilters"
+    description: The filters that will be applied to determine which resources to remediate.
+  policyAssignmentId:
+    type: string
+    description: The resource ID of the policy assignment that should be remediated.
+  policyDefinitionReferenceId:
+    type: string
+    description: The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+  remediationName:
+    type: string
+    description: The name of the remediation.
+  resourceDiscoveryMode:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:policyinsights/v20190701:ResourceDiscoveryMode"
+    description: The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
+aliases:
+  - type: azure-native:policyinsights:RemediationAtSubscription
+  - type: azure-native:policyinsights/v20180701preview:RemediationAtSubscription
+  - type: azure-native:policyinsights/v20211001:RemediationAtSubscription

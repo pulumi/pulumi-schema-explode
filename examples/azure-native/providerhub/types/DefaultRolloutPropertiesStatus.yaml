@@ -1,0 +1,22 @@
+$token: azure-native:providerhub:DefaultRolloutPropertiesStatus
+properties:
+  completedRegions:
+    type: array
+    items:
+      type: string
+  failedOrSkippedRegions:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:providerhub:ExtendedErrorInfo"
+  nextTrafficRegion:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:providerhub:TrafficRegionCategory"
+  nextTrafficRegionScheduledTime:
+    type: string
+  subscriptionReregistrationResult:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:providerhub:SubscriptionReregistrationResult"
+type: object

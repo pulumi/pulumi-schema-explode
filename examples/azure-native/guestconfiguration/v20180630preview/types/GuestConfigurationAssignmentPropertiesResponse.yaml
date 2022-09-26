@@ -1,0 +1,32 @@
+$token: azure-native:guestconfiguration/v20180630preview:GuestConfigurationAssignmentPropertiesResponse
+description: Guest configuration assignment properties.
+properties:
+  assignmentHash:
+    type: string
+    description: Combined hash of the configuration package and parameters.
+  complianceStatus:
+    type: string
+    description: A value indicating compliance status of the virtual machine for the assigned guest configuration.
+  context:
+    type: string
+    description: "The source which initiated the guest configuration assignment. Ex: Azure Policy"
+  guestConfiguration:
+    type: object
+    $ref: "#/types/azure-native:guestconfiguration/v20180630preview:GuestConfigurationNavigationResponse"
+    description: The guest configuration to assign.
+  lastComplianceStatusChecked:
+    type: string
+    description: Date and time when last compliance status was checked.
+  latestReportId:
+    type: string
+    description: "Id of the latest report for the guest configuration assignment. "
+  provisioningState:
+    type: string
+    description: The provisioning state, which only appears in the response.
+type: object
+required:
+  - assignmentHash
+  - complianceStatus
+  - lastComplianceStatusChecked
+  - latestReportId
+  - provisioningState

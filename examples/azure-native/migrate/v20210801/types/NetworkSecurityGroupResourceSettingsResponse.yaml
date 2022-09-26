@@ -1,0 +1,27 @@
+$token: azure-native:migrate/v20210801:NetworkSecurityGroupResourceSettingsResponse
+description: Defines the NSG resource settings.
+properties:
+  resourceType:
+    type: string
+    description: |-
+      The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+      Expected value is 'Microsoft.Network/networkSecurityGroups'.
+    const: Microsoft.Network/networkSecurityGroups
+  securityRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:migrate/v20210801:NsgSecurityRuleResponse"
+    description: Gets or sets Security rules of network security group.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Gets or sets the Resource tags.
+  targetResourceName:
+    type: string
+    description: Gets or sets the target Resource name.
+type: object
+required:
+  - resourceType
+  - targetResourceName

@@ -1,0 +1,46 @@
+$token: azure-native:recoveryservices/v20180710:PolicyPropertiesResponse
+description: Protection profile custom data details.
+properties:
+  friendlyName:
+    type: string
+    description: The FriendlyName.
+  providerSpecificDetails:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20180710:A2APolicyDetailsResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20180710:HyperVReplicaAzurePolicyDetailsResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20180710:HyperVReplicaBasePolicyDetailsResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20180710:HyperVReplicaBluePolicyDetailsResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20180710:HyperVReplicaPolicyDetailsResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20180710:InMageAzureV2PolicyDetailsResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20180710:InMageBasePolicyDetailsResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20180710:InMagePolicyDetailsResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20180710:InMageRcmPolicyDetailsResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20180710:RcmAzureMigrationPolicyDetailsResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20180710:VmwareCbtPolicyDetailsResponse"
+    discriminator:
+      propertyName: instanceType
+      mapping:
+        A2A: "#/types/azure-native:recoveryservices/v20180710:A2APolicyDetailsResponse"
+        HyperVReplica2012: "#/types/azure-native:recoveryservices/v20180710:HyperVReplicaPolicyDetailsResponse"
+        HyperVReplica2012R2: "#/types/azure-native:recoveryservices/v20180710:HyperVReplicaBluePolicyDetailsResponse"
+        HyperVReplicaAzure: "#/types/azure-native:recoveryservices/v20180710:HyperVReplicaAzurePolicyDetailsResponse"
+        HyperVReplicaBasePolicyDetails: "#/types/azure-native:recoveryservices/v20180710:HyperVReplicaBasePolicyDetailsResponse"
+        InMage: "#/types/azure-native:recoveryservices/v20180710:InMagePolicyDetailsResponse"
+        InMageAzureV2: "#/types/azure-native:recoveryservices/v20180710:InMageAzureV2PolicyDetailsResponse"
+        InMageBasePolicyDetails: "#/types/azure-native:recoveryservices/v20180710:InMageBasePolicyDetailsResponse"
+        InMageRcm: "#/types/azure-native:recoveryservices/v20180710:InMageRcmPolicyDetailsResponse"
+        RcmAzureMigration: "#/types/azure-native:recoveryservices/v20180710:RcmAzureMigrationPolicyDetailsResponse"
+        VMwareCbt: "#/types/azure-native:recoveryservices/v20180710:VmwareCbtPolicyDetailsResponse"
+    description: The ReplicationChannelSetting.
+type: object

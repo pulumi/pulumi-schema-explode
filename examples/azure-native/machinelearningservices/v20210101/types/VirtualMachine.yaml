@@ -1,0 +1,24 @@
+$token: azure-native:machinelearningservices/v20210101:VirtualMachine
+description: A Machine Learning compute based on Azure Virtual Machines.
+properties:
+  computeLocation:
+    type: string
+    description: Location for the underlying compute
+  computeType:
+    type: string
+    description: |-
+      The type of compute
+      Expected value is 'VirtualMachine'.
+    const: VirtualMachine
+  description:
+    type: string
+    description: The description of the Machine Learning compute.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20210101:VirtualMachineProperties"
+  resourceId:
+    type: string
+    description: ARM resource id of the underlying compute
+type: object
+required:
+  - computeType

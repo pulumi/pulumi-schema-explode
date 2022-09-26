@@ -1,0 +1,30 @@
+$token: azure-native:containerregistry:TaskRunRequestResponse
+description: The parameters for a task run request.
+properties:
+  agentPoolName:
+    type: string
+    description: The dedicated agent pool for the run.
+  isArchiveEnabled:
+    type: boolean
+    description: The value that indicates whether archiving is enabled for the run or not.
+    default: false
+  logTemplate:
+    type: string
+    description: The template that describes the repository and tag information for run log artifact.
+  overrideTaskStepProperties:
+    type: object
+    $ref: "#/types/azure-native:containerregistry:OverrideTaskStepPropertiesResponse"
+    description: Set of overridable parameters that can be passed when running a Task.
+  taskId:
+    type: string
+    description: The resource ID of task against which run has to be queued.
+  type:
+    type: string
+    description: |-
+      The type of the run request.
+      Expected value is 'TaskRunRequest'.
+    const: TaskRunRequest
+type: object
+required:
+  - taskId
+  - type

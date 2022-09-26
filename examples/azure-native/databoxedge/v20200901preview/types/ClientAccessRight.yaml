@@ -1,0 +1,15 @@
+$token: azure-native:databoxedge/v20200901preview:ClientAccessRight
+description: The mapping between a particular client IP and the type of access client has on the NFS share.
+properties:
+  accessPermission:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:databoxedge/v20200901preview:ClientPermissionType"
+    description: Type of access to be allowed for the client.
+  client:
+    type: string
+    description: IP of the client.
+type: object
+required:
+  - accessPermission
+  - client

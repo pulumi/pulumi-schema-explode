@@ -1,0 +1,53 @@
+$token: azure-native:network:RoutingRule
+description: A routing rule represents a specification for traffic to treat and where to send it, along with health probe information.
+properties:
+  acceptedProtocols:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:network:FrontDoorProtocol"
+    description: Protocol schemes to match for this rule
+  enabledState:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network:RoutingRuleEnabledState"
+    description: Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
+  frontendEndpoints:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network:SubResource"
+    description: Frontend endpoints associated with this rule
+  id:
+    type: string
+    description: Resource ID.
+  name:
+    type: string
+    description: Resource name.
+  patternsToMatch:
+    type: array
+    items:
+      type: string
+    description: The route patterns of the rule.
+  routeConfiguration:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:network:ForwardingConfiguration"
+      - type: object
+        $ref: "#/types/azure-native:network:RedirectConfiguration"
+    discriminator:
+      propertyName: odataType
+      mapping:
+        "#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration": "#/types/azure-native:network:ForwardingConfiguration"
+        "#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration": "#/types/azure-native:network:RedirectConfiguration"
+    description: A reference to the routing configuration.
+  rulesEngine:
+    type: object
+    $ref: "#/types/azure-native:network:SubResource"
+    description: A reference to a specific Rules Engine Configuration to apply to this route.
+  webApplicationFirewallPolicyLink:
+    type: object
+    $ref: "#/types/azure-native:network:RoutingRuleUpdateParametersWebApplicationFirewallPolicyLink"
+    description: Defines the Web Application Firewall policy for each routing rule (if applicable)
+type: object

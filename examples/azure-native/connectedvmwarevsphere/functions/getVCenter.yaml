@@ -1,0 +1,96 @@
+$token: azure-native:connectedvmwarevsphere:getVCenter
+description: |-
+  Defines the vCenter.
+  API Version: 2020-10-01-preview.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The Resource Group Name.
+    vcenterName:
+      type: string
+      description: Name of the vCenter.
+  type: object
+  required:
+    - resourceGroupName
+    - vcenterName
+outputs:
+  description: Defines the vCenter.
+  properties:
+    connectionStatus:
+      type: string
+      description: Gets or sets the connection status to the vCenter.
+    credentials:
+      type: object
+      $ref: "#/types/azure-native:connectedvmwarevsphere:VICredentialResponse"
+      description: Username / Password Credentials to connect to vcenter.
+    customResourceName:
+      type: string
+      description: Gets the name of the corresponding resource in Kubernetes.
+    extendedLocation:
+      type: object
+      $ref: "#/types/azure-native:connectedvmwarevsphere:ExtendedLocationResponse"
+      description: Gets or sets the extended location.
+    fqdn:
+      type: string
+      description: Gets or sets the FQDN/IPAddress of the vCenter.
+    id:
+      type: string
+      description: Gets or sets the Id.
+    instanceUuid:
+      type: string
+      description: Gets or sets the instance UUID of the vCenter.
+    kind:
+      type: string
+      description: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+    location:
+      type: string
+      description: Gets or sets the location.
+    name:
+      type: string
+      description: Gets or sets the name.
+    port:
+      type: integer
+      description: Gets or sets the port of the vCenter.
+    provisioningState:
+      type: string
+      description: Gets or sets the provisioning state.
+    statuses:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:connectedvmwarevsphere:ResourceStatusResponse"
+      description: The resource status information.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:connectedvmwarevsphere:SystemDataResponse"
+      description: The system data.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Gets or sets the Resource tags.
+    type:
+      type: string
+      description: Gets or sets the type of the resource.
+    uuid:
+      type: string
+      description: Gets or sets a unique identifier for this resource.
+    version:
+      type: string
+      description: Gets or sets the version of the vCenter.
+  type: object
+  required:
+    - connectionStatus
+    - customResourceName
+    - fqdn
+    - id
+    - instanceUuid
+    - location
+    - name
+    - provisioningState
+    - statuses
+    - systemData
+    - type
+    - uuid
+    - version

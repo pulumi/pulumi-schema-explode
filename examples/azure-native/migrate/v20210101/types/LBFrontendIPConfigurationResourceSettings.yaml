@@ -1,0 +1,22 @@
+$token: azure-native:migrate/v20210101:LBFrontendIPConfigurationResourceSettings
+description: Defines load balancer frontend IP configuration properties.
+properties:
+  name:
+    type: string
+    description: Gets or sets the frontend IP configuration name.
+  privateIpAddress:
+    type: string
+    description: "Gets or sets the IP address of the Load Balancer.This is only specified if a specific\r
+
+      private IP address shall be allocated from the subnet specified in subnetRef."
+  privateIpAllocationMethod:
+    type: string
+    description: Gets or sets PrivateIP allocation method (Static/Dynamic).
+  subnet:
+    type: object
+    $ref: "#/types/azure-native:migrate/v20210101:SubnetReference"
+    description: Defines reference to subnet.
+  zones:
+    type: string
+    description: Gets or sets the csv list of zones.
+type: object

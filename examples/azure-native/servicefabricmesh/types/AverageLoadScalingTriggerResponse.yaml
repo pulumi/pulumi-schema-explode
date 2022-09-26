@@ -1,0 +1,29 @@
+$token: azure-native:servicefabricmesh:AverageLoadScalingTriggerResponse
+description: Describes the average load trigger used for auto scaling.
+properties:
+  kind:
+    type: string
+    description: |-
+      Enumerates the triggers for auto scaling.
+      Expected value is 'AverageLoad'.
+    const: AverageLoad
+  lowerLoadThreshold:
+    type: number
+    description: Lower load threshold (if average load is below this threshold, service will scale down).
+  metric:
+    type: object
+    $ref: "#/types/azure-native:servicefabricmesh:AutoScalingResourceMetricResponse"
+    description: Description of the metric that is used for scaling.
+  scaleIntervalInSeconds:
+    type: integer
+    description: Scale interval that indicates how often will this trigger be checked.
+  upperLoadThreshold:
+    type: number
+    description: Upper load threshold (if average load is above this threshold, service will scale up).
+type: object
+required:
+  - kind
+  - lowerLoadThreshold
+  - metric
+  - scaleIntervalInSeconds
+  - upperLoadThreshold

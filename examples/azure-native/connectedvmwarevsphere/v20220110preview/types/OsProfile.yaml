@@ -1,0 +1,29 @@
+$token: azure-native:connectedvmwarevsphere/v20220110preview:OsProfile
+description: Defines the resource properties.
+properties:
+  adminPassword:
+    type: string
+    description: Gets or sets administrator password.
+  adminUsername:
+    type: string
+    description: Gets or sets administrator username.
+  computerName:
+    type: string
+    description: Gets or sets computer name.
+  guestId:
+    type: string
+    description: Gets or sets the guestId.
+  linuxConfiguration:
+    type: object
+    $ref: "#/types/azure-native:connectedvmwarevsphere/v20220110preview:OsProfileLinuxConfiguration"
+    description: Specifies the linux configuration for update management.
+  osType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:connectedvmwarevsphere/v20220110preview:OsType"
+    description: Gets or sets the type of the os.
+  windowsConfiguration:
+    type: object
+    $ref: "#/types/azure-native:connectedvmwarevsphere/v20220110preview:OsProfileWindowsConfiguration"
+    description: Specifies the windows configuration for update management.
+type: object

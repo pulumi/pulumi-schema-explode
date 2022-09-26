@@ -1,0 +1,90 @@
+$token: azure-native:desktopvirtualization/v20201102preview:ApplicationGroup
+description: Represents a ApplicationGroup definition.
+properties:
+  applicationGroupType:
+    type: string
+    description: Resource Type of ApplicationGroup.
+  description:
+    type: string
+    description: Description of ApplicationGroup.
+  friendlyName:
+    type: string
+    description: Friendly name of ApplicationGroup.
+  hostPoolArmPath:
+    type: string
+    description: HostPool arm path of ApplicationGroup.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  name:
+    type: string
+    description: The name of the resource
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  workspaceArmPath:
+    type: string
+    description: Workspace arm path of ApplicationGroup.
+type: object
+required:
+  - applicationGroupType
+  - hostPoolArmPath
+  - location
+  - name
+  - type
+  - workspaceArmPath
+inputProperties:
+  applicationGroupName:
+    type: string
+    description: The name of the application group
+  applicationGroupType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:desktopvirtualization/v20201102preview:ApplicationGroupType"
+    description: Resource Type of ApplicationGroup.
+  description:
+    type: string
+    description: Description of ApplicationGroup.
+  friendlyName:
+    type: string
+    description: Friendly name of ApplicationGroup.
+  hostPoolArmPath:
+    type: string
+    description: HostPool arm path of ApplicationGroup.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - applicationGroupType
+  - hostPoolArmPath
+  - resourceGroupName
+aliases:
+  - type: azure-native:desktopvirtualization:ApplicationGroup
+  - type: azure-native:desktopvirtualization/v20190123preview:ApplicationGroup
+  - type: azure-native:desktopvirtualization/v20190924preview:ApplicationGroup
+  - type: azure-native:desktopvirtualization/v20191210preview:ApplicationGroup
+  - type: azure-native:desktopvirtualization/v20200921preview:ApplicationGroup
+  - type: azure-native:desktopvirtualization/v20201019preview:ApplicationGroup
+  - type: azure-native:desktopvirtualization/v20201110preview:ApplicationGroup
+  - type: azure-native:desktopvirtualization/v20210114preview:ApplicationGroup
+  - type: azure-native:desktopvirtualization/v20210201preview:ApplicationGroup
+  - type: azure-native:desktopvirtualization/v20210309preview:ApplicationGroup
+  - type: azure-native:desktopvirtualization/v20210401preview:ApplicationGroup
+  - type: azure-native:desktopvirtualization/v20210712:ApplicationGroup
+  - type: azure-native:desktopvirtualization/v20210903preview:ApplicationGroup
+  - type: azure-native:desktopvirtualization/v20220210preview:ApplicationGroup
+  - type: azure-native:desktopvirtualization/v20220401preview:ApplicationGroup
+deprecationMessage: Version 2020-11-02-preview will be removed in v2 of the provider.

@@ -1,0 +1,84 @@
+$token: azure-native:kusto/v20210827:DatabasePrincipalAssignment
+description: Class representing a database principal assignment.
+properties:
+  name:
+    type: string
+    description: The name of the resource
+  principalId:
+    type: string
+    description: The principal ID assigned to the database principal. It can be a user email, application ID, or security group name.
+  principalName:
+    type: string
+    description: The principal name
+  principalType:
+    type: string
+    description: Principal type.
+  provisioningState:
+    type: string
+    description: The provisioned state of the resource.
+  role:
+    type: string
+    description: Database principal role.
+  tenantId:
+    type: string
+    description: The tenant id of the principal
+  tenantName:
+    type: string
+    description: The tenant name of the principal
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - name
+  - principalId
+  - principalName
+  - principalType
+  - provisioningState
+  - role
+  - tenantName
+  - type
+inputProperties:
+  clusterName:
+    type: string
+    description: The name of the Kusto cluster.
+  databaseName:
+    type: string
+    description: The name of the database in the Kusto cluster.
+  principalAssignmentName:
+    type: string
+    description: The name of the Kusto principalAssignment.
+  principalId:
+    type: string
+    description: The principal ID assigned to the database principal. It can be a user email, application ID, or security group name.
+  principalType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:kusto/v20210827:PrincipalType"
+    description: Principal type.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group containing the Kusto cluster.
+  role:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:kusto/v20210827:DatabasePrincipalRole"
+    description: Database principal role.
+  tenantId:
+    type: string
+    description: The tenant id of the principal
+requiredInputs:
+  - clusterName
+  - databaseName
+  - principalId
+  - principalType
+  - resourceGroupName
+  - role
+aliases:
+  - type: azure-native:kusto:DatabasePrincipalAssignment
+  - type: azure-native:kusto/v20191109:DatabasePrincipalAssignment
+  - type: azure-native:kusto/v20200215:DatabasePrincipalAssignment
+  - type: azure-native:kusto/v20200614:DatabasePrincipalAssignment
+  - type: azure-native:kusto/v20200918:DatabasePrincipalAssignment
+  - type: azure-native:kusto/v20210101:DatabasePrincipalAssignment
+  - type: azure-native:kusto/v20220201:DatabasePrincipalAssignment

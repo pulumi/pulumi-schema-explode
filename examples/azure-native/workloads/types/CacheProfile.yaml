@@ -1,0 +1,22 @@
+$token: azure-native:workloads:CacheProfile
+description: Cache profile
+properties:
+  capacity:
+    type: number
+    description: Cache capacity
+  family:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:workloads:RedisCacheFamily"
+    description: Cache family
+  name:
+    type: string
+    description: Cache name
+  skuName:
+    type: string
+    description: Cache SKU name
+type: object
+required:
+  - capacity
+  - family
+  - skuName

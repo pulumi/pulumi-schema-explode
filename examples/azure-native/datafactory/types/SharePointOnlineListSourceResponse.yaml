@@ -1,0 +1,30 @@
+$token: azure-native:datafactory:SharePointOnlineListSourceResponse
+description: A copy activity source for sharePoint online list source.
+properties:
+  disableMetricsCollection:
+    $ref: pulumi.json#/Any
+    description: "If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean)."
+  httpRequestTimeout:
+    $ref: pulumi.json#/Any
+    description: "The wait time to get a response from SharePoint Online. Default value is 5 minutes (00:05:00). Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9]))."
+  maxConcurrentConnections:
+    $ref: pulumi.json#/Any
+    description: "The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer)."
+  query:
+    $ref: pulumi.json#/Any
+    description: 'The OData query to filter the data in SharePoint Online list. For example, "$top=1". Type: string (or Expression with resultType string).'
+  sourceRetryCount:
+    $ref: pulumi.json#/Any
+    description: "Source retry count. Type: integer (or Expression with resultType integer)."
+  sourceRetryWait:
+    $ref: pulumi.json#/Any
+    description: "Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9]))."
+  type:
+    type: string
+    description: |-
+      Copy source type.
+      Expected value is 'SharePointOnlineListSource'.
+    const: SharePointOnlineListSource
+type: object
+required:
+  - type

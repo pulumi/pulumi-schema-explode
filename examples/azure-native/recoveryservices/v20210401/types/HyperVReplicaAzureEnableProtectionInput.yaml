@@ -1,0 +1,113 @@
+$token: azure-native:recoveryservices/v20210401:HyperVReplicaAzureEnableProtectionInput
+description: HyperVReplicaAzure specific enable protection input.
+properties:
+  diskEncryptionSetId:
+    type: string
+    description: The DiskEncryptionSet ARM Id.
+  diskType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:recoveryservices/v20210401:DiskAccountType"
+    description: The DiskType.
+  disksToInclude:
+    type: array
+    items:
+      type: string
+    description: The list of VHD Ids of disks to be protected.
+  disksToIncludeForManagedDisks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:recoveryservices/v20210401:HyperVReplicaAzureDiskInputDetails"
+    description: The disks to include list for managed disks.
+  enableRdpOnTargetOption:
+    type: string
+    description: The selected option to enable RDP\SSH on target vm after failover. String value of SrsDataContract.EnableRDPOnTargetOption enum.
+  hvHostVmId:
+    type: string
+    description: The Hyper-V host VM Id.
+  instanceType:
+    type: string
+    description: |-
+      The class type.
+      Expected value is 'HyperVReplicaAzure'.
+    const: HyperVReplicaAzure
+  licenseType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:recoveryservices/v20210401:LicenseType"
+    description: License type.
+  logStorageAccountId:
+    type: string
+    description: The storage account to be used for logging during replication.
+  osType:
+    type: string
+    description: The OS type associated with VM.
+  seedManagedDiskTags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags for the seed managed disks.
+  sqlServerLicenseType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:recoveryservices/v20210401:SqlServerLicenseType"
+    description: The SQL Server license type.
+  targetAvailabilitySetId:
+    type: string
+    description: The target availability set ARM Id for resource manager deployment.
+  targetAvailabilityZone:
+    type: string
+    description: The target availability zone.
+  targetAzureNetworkId:
+    type: string
+    description: The selected target Azure network Id.
+  targetAzureSubnetId:
+    type: string
+    description: The selected target Azure subnet Id.
+  targetAzureV1ResourceGroupId:
+    type: string
+    description: The Id of the target resource group (for classic deployment) in which the failover VM is to be created.
+  targetAzureV2ResourceGroupId:
+    type: string
+    description: The Id of the target resource group (for resource manager deployment) in which the failover VM is to be created.
+  targetAzureVmName:
+    type: string
+    description: The target azure VM Name.
+  targetManagedDiskTags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags for the target managed disks.
+  targetNicTags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags for the target NICs.
+  targetProximityPlacementGroupId:
+    type: string
+    description: The proximity placement group ARM Id.
+  targetStorageAccountId:
+    type: string
+    description: The storage account Id.
+  targetVmSize:
+    type: string
+    description: The target VM size.
+  targetVmTags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The target VM tags.
+  useManagedDisks:
+    type: string
+    description: A value indicating whether managed disks should be used during failover.
+  useManagedDisksForReplication:
+    type: string
+    description: A value indicating whether managed disks should be used during replication.
+  vhdId:
+    type: string
+    description: The OS disk VHD id associated with VM.
+  vmName:
+    type: string
+    description: The VM Name.
+type: object

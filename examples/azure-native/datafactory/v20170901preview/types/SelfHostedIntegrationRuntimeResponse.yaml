@@ -1,0 +1,27 @@
+$token: azure-native:datafactory/v20170901preview:SelfHostedIntegrationRuntimeResponse
+description: Self-hosted integration runtime.
+properties:
+  description:
+    type: string
+    description: Integration runtime description.
+  linkedInfo:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:LinkedIntegrationRuntimeKeyResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:LinkedIntegrationRuntimeRbacResponse"
+    discriminator:
+      propertyName: authorizationType
+      mapping:
+        Key: "#/types/azure-native:datafactory/v20170901preview:LinkedIntegrationRuntimeKeyResponse"
+        RBAC: "#/types/azure-native:datafactory/v20170901preview:LinkedIntegrationRuntimeRbacResponse"
+    description: The base definition of a secret type.
+  type:
+    type: string
+    description: |-
+      The type of integration runtime.
+      Expected value is 'SelfHosted'.
+    const: SelfHosted
+type: object
+required:
+  - type

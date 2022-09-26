@@ -1,0 +1,27 @@
+$token: azure-native:media/v20200501:SelectVideoTrackByAttribute
+description: Select video tracks from the input by specifying an attribute and an attribute filter.
+properties:
+  attribute:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:media/v20200501:TrackAttribute"
+    description: The TrackAttribute to filter the tracks by.
+  filter:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:media/v20200501:AttributeFilter"
+    description: The type of AttributeFilter to apply to the TrackAttribute in order to select the tracks.
+  filterValue:
+    type: string
+    description: "The value to filter the tracks by.  Only used when AttributeFilter.ValueEquals is specified for the Filter property. For TrackAttribute.Bitrate, this should be an integer value in bits per second (e.g: '1500000').  The TrackAttribute.Language is not supported for video tracks."
+  odataType:
+    type: string
+    description: |-
+      The discriminator for derived types.
+      Expected value is '#Microsoft.Media.SelectVideoTrackByAttribute'.
+    const: "#Microsoft.Media.SelectVideoTrackByAttribute"
+type: object
+required:
+  - attribute
+  - filter
+  - odataType

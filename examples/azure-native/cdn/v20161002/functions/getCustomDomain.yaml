@@ -1,0 +1,68 @@
+$token: azure-native:cdn/v20161002:getCustomDomain
+description: Customer provided domain for branding purposes, e.g. www.contoso.com.
+inputs:
+  properties:
+    customDomainName:
+      type: string
+      description: Name of the custom domain within an endpoint.
+    endpointName:
+      type: string
+      description: Name of the endpoint under the profile which is unique globally.
+    profileName:
+      type: string
+      description: Name of the CDN profile which is unique within the resource group.
+    resourceGroupName:
+      type: string
+      description: Name of the Resource group within the Azure subscription.
+  type: object
+  required:
+    - customDomainName
+    - endpointName
+    - profileName
+    - resourceGroupName
+outputs:
+  description: Customer provided domain for branding purposes, e.g. www.contoso.com.
+  properties:
+    customHttpsProvisioningState:
+      type: string
+      description: Provisioning state of Custom Https of the custom domain.
+    hostName:
+      type: string
+      description: The host name of the custom domain. Must be a domain name.
+    id:
+      type: string
+      description: Resource ID.
+    location:
+      type: string
+      description: Resource location.
+    name:
+      type: string
+      description: Resource name.
+    provisioningState:
+      type: string
+      description: Provisioning status of the custom domain.
+    resourceState:
+      type: string
+      description: Resource status of the custom domain.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: Resource type.
+    validationData:
+      type: string
+      description: Special validation or data may be required when delivering CDN to some regions due to local compliance reasons. E.g. ICP license number of a custom domain is required to deliver content in China.
+  type: object
+  required:
+    - customHttpsProvisioningState
+    - hostName
+    - id
+    - location
+    - name
+    - provisioningState
+    - resourceState
+    - type
+deprecationMessage: Version 2016-10-02 will be removed in v2 of the provider.

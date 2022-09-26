@@ -1,0 +1,173 @@
+$token: azure-native:datalakestore/v20161101:Account
+description: Data Lake Store account information.
+properties:
+  accountId:
+    type: string
+    description: The unique identifier associated with this Data Lake Store account.
+  creationTime:
+    type: string
+    description: The account creation time.
+  currentTier:
+    type: string
+    description: The commitment tier in use for the current month.
+  defaultGroup:
+    type: string
+    description: The default owner group for all new folders and files created in the Data Lake Store account.
+  encryptionConfig:
+    type: object
+    $ref: "#/types/azure-native:datalakestore/v20161101:EncryptionConfigResponse"
+    description: The Key Vault encryption configuration.
+  encryptionProvisioningState:
+    type: string
+    description: The current state of encryption provisioning for this Data Lake Store account.
+  encryptionState:
+    type: string
+    description: The current state of encryption for this Data Lake Store account.
+  endpoint:
+    type: string
+    description: The full CName endpoint for this account.
+  firewallAllowAzureIps:
+    type: string
+    description: The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
+  firewallRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datalakestore/v20161101:FirewallRuleResponse"
+    description: The list of firewall rules associated with this Data Lake Store account.
+  firewallState:
+    type: string
+    description: The current state of the IP address firewall for this Data Lake Store account.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:datalakestore/v20161101:EncryptionIdentityResponse"
+    description: The Key Vault encryption identity, if any.
+  lastModifiedTime:
+    type: string
+    description: The account last modified time.
+  location:
+    type: string
+    description: The resource location.
+  name:
+    type: string
+    description: The resource name.
+  newTier:
+    type: string
+    description: The commitment tier to use for next month.
+  provisioningState:
+    type: string
+    description: The provisioning status of the Data Lake Store account.
+  state:
+    type: string
+    description: The state of the Data Lake Store account.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The resource tags.
+  trustedIdProviderState:
+    type: string
+    description: The current state of the trusted identity provider feature for this Data Lake Store account.
+  trustedIdProviders:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datalakestore/v20161101:TrustedIdProviderResponse"
+    description: The list of trusted identity providers associated with this Data Lake Store account.
+  type:
+    type: string
+    description: The resource type.
+  virtualNetworkRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datalakestore/v20161101:VirtualNetworkRuleResponse"
+    description: The list of virtual network rules associated with this Data Lake Store account.
+type: object
+required:
+  - accountId
+  - creationTime
+  - currentTier
+  - defaultGroup
+  - encryptionConfig
+  - encryptionProvisioningState
+  - encryptionState
+  - endpoint
+  - firewallAllowAzureIps
+  - firewallRules
+  - firewallState
+  - identity
+  - lastModifiedTime
+  - location
+  - name
+  - newTier
+  - provisioningState
+  - state
+  - tags
+  - trustedIdProviderState
+  - trustedIdProviders
+  - type
+  - virtualNetworkRules
+inputProperties:
+  accountName:
+    type: string
+    description: The name of the Data Lake Store account.
+  defaultGroup:
+    type: string
+    description: The default owner group for all new folders and files created in the Data Lake Store account.
+  encryptionConfig:
+    type: object
+    $ref: "#/types/azure-native:datalakestore/v20161101:EncryptionConfig"
+    description: The Key Vault encryption configuration.
+  encryptionState:
+    $ref: "#/types/azure-native:datalakestore/v20161101:EncryptionState"
+    description: The current state of encryption for this Data Lake Store account.
+  firewallAllowAzureIps:
+    $ref: "#/types/azure-native:datalakestore/v20161101:FirewallAllowAzureIpsState"
+    description: The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
+  firewallRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datalakestore/v20161101:CreateFirewallRuleWithAccountParameters"
+    description: The list of firewall rules associated with this Data Lake Store account.
+  firewallState:
+    $ref: "#/types/azure-native:datalakestore/v20161101:FirewallState"
+    description: The current state of the IP address firewall for this Data Lake Store account.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:datalakestore/v20161101:EncryptionIdentity"
+    description: The Key Vault encryption identity, if any.
+  location:
+    type: string
+    description: The resource location.
+  newTier:
+    $ref: "#/types/azure-native:datalakestore/v20161101:TierType"
+    description: The commitment tier to use for next month.
+  resourceGroupName:
+    type: string
+    description: The name of the Azure resource group.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The resource tags.
+  trustedIdProviderState:
+    $ref: "#/types/azure-native:datalakestore/v20161101:TrustedIdProviderState"
+    description: The current state of the trusted identity provider feature for this Data Lake Store account.
+  trustedIdProviders:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datalakestore/v20161101:CreateTrustedIdProviderWithAccountParameters"
+    description: The list of trusted identity providers associated with this Data Lake Store account.
+  virtualNetworkRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datalakestore/v20161101:CreateVirtualNetworkRuleWithAccountParameters"
+    description: The list of virtual network rules associated with this Data Lake Store account.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:datalakestore:Account

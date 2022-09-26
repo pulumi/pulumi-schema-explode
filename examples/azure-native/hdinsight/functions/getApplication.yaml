@@ -1,0 +1,50 @@
+$token: azure-native:hdinsight:getApplication
+description: |-
+  The HDInsight cluster application
+  API Version: 2018-06-01-preview.
+inputs:
+  properties:
+    applicationName:
+      type: string
+      description: The constant value for the application name.
+    clusterName:
+      type: string
+      description: The name of the cluster.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - applicationName
+    - clusterName
+    - resourceGroupName
+outputs:
+  description: The HDInsight cluster application
+  properties:
+    etag:
+      type: string
+      description: The ETag for the application
+    id:
+      type: string
+      description: Fully qualified resource Id for the resource.
+    name:
+      type: string
+      description: The name of the resource
+    properties:
+      type: object
+      $ref: "#/types/azure-native:hdinsight:ApplicationPropertiesResponse"
+      description: The properties of the application.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: The tags for the application.
+    type:
+      type: string
+      description: The type of the resource.
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - type

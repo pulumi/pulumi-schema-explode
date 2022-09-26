@@ -1,0 +1,27 @@
+$token: azure-native:machinelearningservices/v20210301preview:ComputeStartStopSchedule
+description: Compute start stop schedule properties
+properties:
+  action:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearningservices/v20210301preview:ComputePowerAction"
+    description: The compute power action.
+  cron:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20210301preview:Cron"
+    description: The workflow trigger cron for ComputeStartStop schedule type.
+  recurrence:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20210301preview:Recurrence"
+    description: The workflow trigger recurrence for ComputeStartStop schedule type.
+  status:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearningservices/v20210301preview:ScheduleStatus"
+    description: The schedule status.
+  triggerType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearningservices/v20210301preview:TriggerType"
+    description: The schedule trigger type.
+type: object

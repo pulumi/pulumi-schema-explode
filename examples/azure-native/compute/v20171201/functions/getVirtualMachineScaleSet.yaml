@@ -1,0 +1,86 @@
+$token: azure-native:compute/v20171201:getVirtualMachineScaleSet
+description: Describes a Virtual Machine Scale Set.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    vmScaleSetName:
+      type: string
+      description: The name of the VM scale set.
+  type: object
+  required:
+    - resourceGroupName
+    - vmScaleSetName
+outputs:
+  description: Describes a Virtual Machine Scale Set.
+  properties:
+    id:
+      type: string
+      description: Resource Id
+    identity:
+      type: object
+      $ref: "#/types/azure-native:compute/v20171201:VirtualMachineScaleSetIdentityResponse"
+      description: The identity of the virtual machine scale set, if configured.
+    location:
+      type: string
+      description: Resource location
+    name:
+      type: string
+      description: Resource name
+    overprovision:
+      type: boolean
+      description: Specifies whether the Virtual Machine Scale Set should be overprovisioned.
+    plan:
+      type: object
+      $ref: "#/types/azure-native:compute/v20171201:PlanResponse"
+      description: Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
+    platformFaultDomainCount:
+      type: integer
+      description: Fault Domain count for each placement group.
+    provisioningState:
+      type: string
+      description: The provisioning state, which only appears in the response.
+    singlePlacementGroup:
+      type: boolean
+      description: When true this limits the scale set to a single placement group, of max size 100 virtual machines.
+    sku:
+      type: object
+      $ref: "#/types/azure-native:compute/v20171201:SkuResponse"
+      description: The virtual machine scale set sku.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    type:
+      type: string
+      description: Resource type
+    uniqueId:
+      type: string
+      description: Specifies the ID which uniquely identifies a Virtual Machine Scale Set.
+    upgradePolicy:
+      type: object
+      $ref: "#/types/azure-native:compute/v20171201:UpgradePolicyResponse"
+      description: The upgrade policy.
+    virtualMachineProfile:
+      type: object
+      $ref: "#/types/azure-native:compute/v20171201:VirtualMachineScaleSetVMProfileResponse"
+      description: The virtual machine profile.
+    zoneBalance:
+      type: boolean
+      description: Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
+    zones:
+      type: array
+      items:
+        type: string
+      description: "The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set."
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - provisioningState
+    - type
+    - uniqueId
+deprecationMessage: Version 2017-12-01 will be removed in v2 of the provider.

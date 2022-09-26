@@ -1,0 +1,75 @@
+$token: azure-native:storsimple/v20161001:getFileShare
+description: The File Share.
+inputs:
+  properties:
+    deviceName:
+      type: string
+      description: The device name.
+    fileServerName:
+      type: string
+      description: The file server name.
+    managerName:
+      type: string
+      description: The manager name
+    resourceGroupName:
+      type: string
+      description: The resource group name
+    shareName:
+      type: string
+      description: The file share name.
+  type: object
+  required:
+    - deviceName
+    - fileServerName
+    - managerName
+    - resourceGroupName
+    - shareName
+outputs:
+  description: The File Share.
+  properties:
+    adminUser:
+      type: string
+      description: "The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\\xyz."
+    dataPolicy:
+      type: string
+      description: The data policy
+    description:
+      type: string
+      description: Description for file share
+    id:
+      type: string
+      description: The identifier.
+    localUsedCapacityInBytes:
+      type: number
+      description: The local used capacity in Bytes.
+    monitoringStatus:
+      type: string
+      description: The monitoring status
+    name:
+      type: string
+      description: The name.
+    provisionedCapacityInBytes:
+      type: number
+      description: The total provisioned capacity in Bytes
+    shareStatus:
+      type: string
+      description: The Share Status
+    type:
+      type: string
+      description: The type.
+    usedCapacityInBytes:
+      type: number
+      description: The used capacity in Bytes.
+  type: object
+  required:
+    - adminUser
+    - dataPolicy
+    - id
+    - localUsedCapacityInBytes
+    - monitoringStatus
+    - name
+    - provisionedCapacityInBytes
+    - shareStatus
+    - type
+    - usedCapacityInBytes
+deprecationMessage: Version 2016-10-01 will be removed in v2 of the provider.

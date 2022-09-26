@@ -1,0 +1,62 @@
+$token: azure-native:maps/v20180501:Account
+description: An Azure resource which represents access to a suite of Maps REST APIs.
+properties:
+  location:
+    type: string
+    description: The location of the resource.
+  name:
+    type: string
+    description: The name of the Maps Account, which is unique within a Resource Group.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:maps/v20180501:MapsAccountPropertiesResponse"
+    description: The map account properties.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:maps/v20180501:SkuResponse"
+    description: The SKU of this account.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Gets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
+  type:
+    type: string
+    description: Azure resource type.
+type: object
+required:
+  - location
+  - name
+  - properties
+  - sku
+  - tags
+  - type
+inputProperties:
+  accountName:
+    type: string
+    description: The name of the Maps Account.
+  location:
+    type: string
+    description: The location of the resource.
+  resourceGroupName:
+    type: string
+    description: The name of the Azure Resource Group.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:maps/v20180501:Sku"
+    description: The SKU of this account.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
+requiredInputs:
+  - resourceGroupName
+  - sku
+aliases:
+  - type: azure-native:maps:Account
+  - type: azure-native:maps/v20170101preview:Account
+  - type: azure-native:maps/v20200201preview:Account
+  - type: azure-native:maps/v20210201:Account
+  - type: azure-native:maps/v20210701preview:Account
+  - type: azure-native:maps/v20211201preview:Account

@@ -1,0 +1,18 @@
+$token: azure-native:containerservice/v20211101preview:ManagedClusterNATGatewayProfileResponse
+description: Profile of the managed cluster NAT gateway.
+properties:
+  effectiveOutboundIPs:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20211101preview:ResourceReferenceResponse"
+    description: The effective outbound IP resources of the cluster NAT gateway.
+  idleTimeoutInMinutes:
+    type: integer
+    description: Desired outbound flow idle timeout in minutes. Allowed values are in the range of 4 to 120 (inclusive). The default value is 4 minutes.
+    default: 4
+  managedOutboundIPProfile:
+    type: object
+    $ref: "#/types/azure-native:containerservice/v20211101preview:ManagedClusterManagedOutboundIPProfileResponse"
+    description: Profile of the managed outbound IP resources of the cluster NAT gateway.
+type: object

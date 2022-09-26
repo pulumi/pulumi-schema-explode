@@ -1,0 +1,37 @@
+$token: azure-native:notificationhubs/v20170401:listNamespaceKeys
+description: Namespace/NotificationHub Connection String
+inputs:
+  properties:
+    authorizationRuleName:
+      type: string
+      description: The connection string of the namespace for the specified authorizationRule.
+    namespaceName:
+      type: string
+      description: The namespace name.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - authorizationRuleName
+    - namespaceName
+    - resourceGroupName
+outputs:
+  description: Namespace/NotificationHub Connection String
+  properties:
+    keyName:
+      type: string
+      description: KeyName of the created AuthorizationRule
+    primaryConnectionString:
+      type: string
+      description: PrimaryConnectionString of the AuthorizationRule.
+    primaryKey:
+      type: string
+      description: PrimaryKey of the created AuthorizationRule.
+    secondaryConnectionString:
+      type: string
+      description: SecondaryConnectionString of the created AuthorizationRule
+    secondaryKey:
+      type: string
+      description: SecondaryKey of the created AuthorizationRule
+  type: object

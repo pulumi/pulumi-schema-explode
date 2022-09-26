@@ -1,0 +1,46 @@
+$token: azure-native:serialconsole/v20180501:getSerialPort
+description: Represents the serial port of the parent resource.
+inputs:
+  properties:
+    parentResource:
+      type: string
+      description: "The resource name, or subordinate path, for the parent of the serial port. For example: the name of the virtual machine."
+    parentResourceType:
+      type: string
+      description: "The resource type of the parent resource.  For example: 'virtualMachines' or 'virtualMachineScaleSets'"
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    resourceProviderNamespace:
+      type: string
+      description: The namespace of the resource provider.
+    serialPort:
+      type: string
+      description: The name of the serial port to connect to.
+  type: object
+  required:
+    - parentResource
+    - parentResourceType
+    - resourceGroupName
+    - resourceProviderNamespace
+    - serialPort
+outputs:
+  description: Represents the serial port of the parent resource.
+  properties:
+    id:
+      type: string
+      description: Resource Id
+    name:
+      type: string
+      description: Resource name
+    state:
+      type: string
+      description: Specifies whether the port is enabled for a serial console connection.
+    type:
+      type: string
+      description: Resource type
+  type: object
+  required:
+    - id
+    - name
+    - type

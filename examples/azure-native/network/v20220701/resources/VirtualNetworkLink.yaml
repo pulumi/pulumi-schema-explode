@@ -1,0 +1,61 @@
+$token: azure-native:network/v20220701:VirtualNetworkLink
+description: Describes a virtual network link.
+properties:
+  etag:
+    type: string
+    description: ETag of the virtual network link.
+  metadata:
+    type: object
+    additionalProperties:
+      type: string
+    description: Metadata attached to the virtual network link.
+  name:
+    type: string
+    description: The name of the resource
+  provisioningState:
+    type: string
+    description: The current provisioning state of the virtual network link. This is a read-only property and any attempt to set this value will be ignored.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:network/v20220701:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  virtualNetwork:
+    type: object
+    $ref: "#/types/azure-native:network/v20220701:SubResourceResponse"
+    description: The reference to the virtual network. This cannot be changed after creation.
+type: object
+required:
+  - etag
+  - name
+  - provisioningState
+  - systemData
+  - type
+  - virtualNetwork
+inputProperties:
+  dnsForwardingRulesetName:
+    type: string
+    description: The name of the DNS forwarding ruleset.
+  metadata:
+    type: object
+    additionalProperties:
+      type: string
+    description: Metadata attached to the virtual network link.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  virtualNetwork:
+    type: object
+    $ref: "#/types/azure-native:network/v20220701:SubResource"
+    description: The reference to the virtual network. This cannot be changed after creation.
+  virtualNetworkLinkName:
+    type: string
+    description: The name of the virtual network link.
+requiredInputs:
+  - dnsForwardingRulesetName
+  - resourceGroupName
+  - virtualNetwork
+aliases:
+  - type: azure-native:network/v20200401preview:VirtualNetworkLink

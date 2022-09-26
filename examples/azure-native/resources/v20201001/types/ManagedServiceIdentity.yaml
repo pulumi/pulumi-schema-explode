@@ -1,0 +1,14 @@
+$token: azure-native:resources/v20201001:ManagedServiceIdentity
+description: Managed identity generic object.
+properties:
+  type:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:resources/v20201001:ManagedServiceIdentityType"
+    description: Type of the managed identity.
+  userAssignedIdentities:
+    type: object
+    additionalProperties:
+      $ref: pulumi.json#/Any
+    description: The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
+type: object

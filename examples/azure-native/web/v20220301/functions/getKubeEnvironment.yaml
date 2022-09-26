@@ -1,0 +1,88 @@
+$token: azure-native:web/v20220301:getKubeEnvironment
+description: A Kubernetes cluster specialized for web workloads by Azure App Service
+inputs:
+  properties:
+    name:
+      type: string
+      description: Name of the Kubernetes Environment.
+    resourceGroupName:
+      type: string
+      description: Name of the resource group to which the resource belongs.
+  type: object
+  required:
+    - name
+    - resourceGroupName
+outputs:
+  description: A Kubernetes cluster specialized for web workloads by Azure App Service
+  properties:
+    aksResourceID:
+      type: string
+    appLogsConfiguration:
+      type: object
+      $ref: "#/types/azure-native:web/v20220301:AppLogsConfigurationResponse"
+      description: |-
+        Cluster configuration which enables the log daemon to export
+        app logs to a destination. Currently only "log-analytics" is
+        supported
+    arcConfiguration:
+      type: object
+      $ref: "#/types/azure-native:web/v20220301:ArcConfigurationResponse"
+      description: |-
+        Cluster configuration which determines the ARC cluster
+        components types. Eg: Choosing between BuildService kind,
+        FrontEnd Service ArtifactsStorageType etc.
+    containerAppsConfiguration:
+      type: object
+      $ref: "#/types/azure-native:web/v20220301:ContainerAppsConfigurationResponse"
+      description: Cluster configuration for Container Apps Environments to configure Dapr Instrumentation Key and VNET Configuration
+    defaultDomain:
+      type: string
+      description: Default Domain Name for the cluster
+    deploymentErrors:
+      type: string
+      description: Any errors that occurred during deployment or deployment validation
+    environmentType:
+      type: string
+      description: Type of Kubernetes Environment. Only supported for Container App Environments with value as Managed
+    extendedLocation:
+      type: object
+      $ref: "#/types/azure-native:web/v20220301:ExtendedLocationResponse"
+      description: Extended Location.
+    id:
+      type: string
+      description: Resource Id.
+    internalLoadBalancerEnabled:
+      type: boolean
+      description: Only visible within Vnet/Subnet
+    kind:
+      type: string
+      description: Kind of resource.
+    location:
+      type: string
+      description: Resource Location.
+    name:
+      type: string
+      description: Resource Name.
+    provisioningState:
+      type: string
+      description: Provisioning state of the Kubernetes Environment.
+    staticIp:
+      type: string
+      description: Static IP of the KubeEnvironment
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - defaultDomain
+    - deploymentErrors
+    - id
+    - location
+    - name
+    - provisioningState
+    - type

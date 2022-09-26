@@ -1,0 +1,92 @@
+$token: azure-native:storagepool/v20210401preview:IscsiTarget
+description: Response for iSCSI Target requests.
+properties:
+  aclMode:
+    type: string
+    description: Mode for Target connectivity.
+  endpoints:
+    type: array
+    items:
+      type: string
+    description: List of private IPv4 addresses to connect to the iSCSI Target.
+  luns:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:storagepool/v20210401preview:IscsiLunResponse"
+    description: List of LUNs to be exposed through iSCSI Target.
+  name:
+    type: string
+    description: The name of the resource
+  port:
+    type: integer
+    description: The port used by iSCSI Target portal group.
+  provisioningState:
+    type: string
+    description: State of the operation on the resource.
+  staticAcls:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:storagepool/v20210401preview:AclResponse"
+    description: Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
+  status:
+    type: string
+    description: Operational status of the iSCSI Target.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:storagepool/v20210401preview:SystemMetadataResponse"
+    description: Resource metadata required by ARM RPC
+  targetIqn:
+    type: string
+    description: 'iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".'
+  type:
+    type: string
+    description: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+type: object
+required:
+  - aclMode
+  - name
+  - provisioningState
+  - status
+  - systemData
+  - targetIqn
+  - type
+inputProperties:
+  aclMode:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:storagepool/v20210401preview:IscsiTargetAclMode"
+    description: Mode for Target connectivity.
+  diskPoolName:
+    type: string
+    description: The name of the Disk Pool.
+  iscsiTargetName:
+    type: string
+    description: The name of the iSCSI Target.
+  luns:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:storagepool/v20210401preview:IscsiLun"
+    description: List of LUNs to be exposed through iSCSI Target.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  staticAcls:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:storagepool/v20210401preview:Acl"
+    description: Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
+  targetIqn:
+    type: string
+    description: 'iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".'
+requiredInputs:
+  - aclMode
+  - diskPoolName
+  - resourceGroupName
+aliases:
+  - type: azure-native:storagepool:IscsiTarget
+  - type: azure-native:storagepool/v20200315preview:IscsiTarget
+  - type: azure-native:storagepool/v20210801:IscsiTarget

@@ -1,0 +1,84 @@
+$token: azure-native:servicefabricmesh:getApplication
+description: |-
+  This type describes an application resource.
+  API Version: 2018-09-01-preview.
+inputs:
+  properties:
+    applicationResourceName:
+      type: string
+      description: The identity of the application.
+    resourceGroupName:
+      type: string
+      description: Azure resource group name
+  type: object
+  required:
+    - applicationResourceName
+    - resourceGroupName
+outputs:
+  description: This type describes an application resource.
+  properties:
+    debugParams:
+      type: string
+      description: Internal - used by Visual Studio to setup the debugging session on the local development environment.
+    description:
+      type: string
+      description: User readable description of the application.
+    diagnostics:
+      type: object
+      $ref: "#/types/azure-native:servicefabricmesh:DiagnosticsDescriptionResponse"
+      description: Describes the diagnostics definition and usage for an application resource.
+    healthState:
+      type: string
+      description: Describes the health state of an application resource.
+    id:
+      type: string
+      description: Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    name:
+      type: string
+      description: The name of the resource
+    provisioningState:
+      type: string
+      description: State of the resource.
+    serviceNames:
+      type: array
+      items:
+        type: string
+      description: Names of the services in the application.
+    services:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:servicefabricmesh:ServiceResourceDescriptionResponse"
+      description: Describes the services in the application. This property is used to create or modify services of the application. On get only the name of the service is returned. The service description can be obtained by querying for the service resource.
+    status:
+      type: string
+      description: Status of the application.
+    statusDetails:
+      type: string
+      description: Gives additional information about the current status of the application.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+    unhealthyEvaluation:
+      type: string
+      description: When the application's health state is not 'Ok', this additional details from service fabric Health Manager for the user to know why the application is marked unhealthy.
+  type: object
+  required:
+    - healthState
+    - id
+    - location
+    - name
+    - provisioningState
+    - serviceNames
+    - status
+    - statusDetails
+    - type
+    - unhealthyEvaluation

@@ -1,0 +1,15 @@
+$token: azure-native:apimanagement/v20210801:ApiManagementServiceSkuProperties
+description: API Management service resource SKU properties.
+properties:
+  capacity:
+    type: integer
+    description: Capacity of the SKU (number of deployed units of the SKU). For Consumption SKU capacity must be specified as 0.
+  name:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:apimanagement/v20210801:SkuType"
+    description: Name of the Sku.
+type: object
+required:
+  - capacity
+  - name

@@ -1,0 +1,54 @@
+$token: azure-native:devices/v20171115:getIotDpsResource
+description: The description of the provisioning service.
+inputs:
+  properties:
+    provisioningServiceName:
+      type: string
+      description: Name of the provisioning service to retrieve.
+    resourceGroupName:
+      type: string
+      description: Resource group name.
+  type: object
+  required:
+    - provisioningServiceName
+    - resourceGroupName
+outputs:
+  description: The description of the provisioning service.
+  properties:
+    etag:
+      type: string
+      description: The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
+    id:
+      type: string
+      description: The resource identifier.
+    location:
+      type: string
+      description: The resource location.
+    name:
+      type: string
+      description: The resource name.
+    properties:
+      type: object
+      $ref: "#/types/azure-native:devices/v20171115:IotDpsPropertiesDescriptionResponse"
+      description: Service specific properties for a provisioning service
+    sku:
+      type: object
+      $ref: "#/types/azure-native:devices/v20171115:IotDpsSkuInfoResponse"
+      description: SKU info for a provisioning service.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: The resource tags.
+    type:
+      type: string
+      description: The resource type.
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - properties
+    - sku
+    - type
+deprecationMessage: Version 2017-11-15 will be removed in v2 of the provider.

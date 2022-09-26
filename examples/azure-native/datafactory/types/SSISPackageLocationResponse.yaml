@@ -1,0 +1,48 @@
+$token: azure-native:datafactory:SSISPackageLocationResponse
+description: SSIS package location.
+properties:
+  accessCredential:
+    type: object
+    $ref: "#/types/azure-native:datafactory:SSISAccessCredentialResponse"
+    description: The package access credential.
+  childPackages:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory:SSISChildPackageResponse"
+    description: The embedded child package list.
+  configurationAccessCredential:
+    type: object
+    $ref: "#/types/azure-native:datafactory:SSISAccessCredentialResponse"
+    description: The configuration file access credential.
+  configurationPath:
+    $ref: pulumi.json#/Any
+    description: "The configuration file of the package execution. Type: string (or Expression with resultType string)."
+  packageContent:
+    $ref: pulumi.json#/Any
+    description: "The embedded package content. Type: string (or Expression with resultType string)."
+  packageLastModifiedDate:
+    type: string
+    description: The embedded package last modified date.
+  packageName:
+    type: string
+    description: The package name.
+  packagePassword:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureKeyVaultSecretReferenceResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SecureStringResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        AzureKeyVaultSecret: "#/types/azure-native:datafactory:AzureKeyVaultSecretReferenceResponse"
+        SecureString: "#/types/azure-native:datafactory:SecureStringResponse"
+    description: Password of the package.
+  packagePath:
+    $ref: pulumi.json#/Any
+    description: "The SSIS package path. Type: string (or Expression with resultType string)."
+  type:
+    type: string
+    description: The type of SSIS package location.
+type: object

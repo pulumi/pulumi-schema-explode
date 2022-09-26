@@ -1,0 +1,41 @@
+$token: azure-native:machinelearningservices/v20210101:listMachineLearningComputeNodes
+description: Compute node information related to a AmlCompute.
+inputs:
+  properties:
+    computeName:
+      type: string
+      description: Name of the Azure Machine Learning compute.
+    resourceGroupName:
+      type: string
+      description: Name of the resource group in which workspace is located.
+    workspaceName:
+      type: string
+      description: Name of Azure Machine Learning workspace.
+  type: object
+  required:
+    - computeName
+    - resourceGroupName
+    - workspaceName
+outputs:
+  description: Compute node information related to a AmlCompute.
+  properties:
+    computeType:
+      type: string
+      description: |-
+        The type of compute
+        Expected value is 'AmlCompute'.
+      const: AmlCompute
+    nextLink:
+      type: string
+      description: The continuation token.
+    nodes:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210101:AmlComputeNodeInformationResponse"
+      description: The collection of returned AmlCompute nodes details.
+  type: object
+  required:
+    - computeType
+    - nextLink
+    - nodes

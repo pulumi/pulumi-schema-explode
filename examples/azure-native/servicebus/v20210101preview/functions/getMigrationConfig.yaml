@@ -1,0 +1,60 @@
+$token: azure-native:servicebus/v20210101preview:getMigrationConfig
+description: Single item in List or Get Migration Config operation
+inputs:
+  properties:
+    configName:
+      type: string
+      description: The configuration name. Should always be "$default".
+    namespaceName:
+      type: string
+      description: The namespace name
+    resourceGroupName:
+      type: string
+      description: Name of the Resource group within the Azure subscription.
+  type: object
+  required:
+    - configName
+    - namespaceName
+    - resourceGroupName
+outputs:
+  description: Single item in List or Get Migration Config operation
+  properties:
+    id:
+      type: string
+      description: Resource Id
+    migrationState:
+      type: string
+      description: "State in which Standard to Premium Migration is, possible values : Unknown, Reverting, Completing, Initiating, Syncing, Active"
+    name:
+      type: string
+      description: Resource name
+    pendingReplicationOperationsCount:
+      type: number
+      description: Number of entities pending to be replicated.
+    postMigrationName:
+      type: string
+      description: Name to access Standard Namespace after migration
+    provisioningState:
+      type: string
+      description: "Provisioning state of Migration Configuration "
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:servicebus/v20210101preview:SystemDataResponse"
+      description: The system meta data relating to this resource.
+    targetNamespace:
+      type: string
+      description: Existing premium Namespace ARM Id name which has no entities, will be used for migration
+    type:
+      type: string
+      description: Resource type
+  type: object
+  required:
+    - id
+    - migrationState
+    - name
+    - pendingReplicationOperationsCount
+    - postMigrationName
+    - provisioningState
+    - systemData
+    - targetNamespace
+    - type

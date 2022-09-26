@@ -1,0 +1,63 @@
+$token: azure-native:hdinsight/v20210601:ClusterCreateProperties
+description: The cluster create parameters.
+properties:
+  clusterDefinition:
+    type: object
+    $ref: "#/types/azure-native:hdinsight/v20210601:ClusterDefinition"
+    description: The cluster definition.
+  clusterVersion:
+    type: string
+    description: The version of the cluster.
+  computeIsolationProperties:
+    type: object
+    $ref: "#/types/azure-native:hdinsight/v20210601:ComputeIsolationProperties"
+    description: The compute isolation properties.
+  computeProfile:
+    type: object
+    $ref: "#/types/azure-native:hdinsight/v20210601:ComputeProfile"
+    description: The compute profile.
+  diskEncryptionProperties:
+    type: object
+    $ref: "#/types/azure-native:hdinsight/v20210601:DiskEncryptionProperties"
+    description: The disk encryption properties.
+  encryptionInTransitProperties:
+    type: object
+    $ref: "#/types/azure-native:hdinsight/v20210601:EncryptionInTransitProperties"
+    description: The encryption-in-transit properties.
+  kafkaRestProperties:
+    type: object
+    $ref: "#/types/azure-native:hdinsight/v20210601:KafkaRestProperties"
+    description: The cluster kafka rest proxy configuration.
+  minSupportedTlsVersion:
+    type: string
+    description: The minimal supported tls version.
+  networkProperties:
+    type: object
+    $ref: "#/types/azure-native:hdinsight/v20210601:NetworkProperties"
+    description: The network properties.
+  osType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:hdinsight/v20210601:OSType"
+    description: The type of operating system.
+  privateLinkConfigurations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:hdinsight/v20210601:PrivateLinkConfiguration"
+    description: The private link configurations.
+  securityProfile:
+    type: object
+    $ref: "#/types/azure-native:hdinsight/v20210601:SecurityProfile"
+    description: The security profile.
+  storageProfile:
+    type: object
+    $ref: "#/types/azure-native:hdinsight/v20210601:StorageProfile"
+    description: The storage profile.
+  tier:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:hdinsight/v20210601:Tier"
+    description: The cluster tier.
+    default: Standard
+type: object

@@ -1,0 +1,15 @@
+$token: azure-native:hybridnetwork/v20210501:DataDisk
+description: Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+properties:
+  createOption:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:hybridnetwork/v20210501:DiskCreateOptionTypes"
+    description: Specifies how the virtual machine should be created.
+  diskSizeGB:
+    type: integer
+    description: Specifies the size of an empty disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image.
+  name:
+    type: string
+    description: The name of data disk.
+type: object

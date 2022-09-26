@@ -1,0 +1,67 @@
+$token: azure-native:network:NetworkInterfaceIPConfiguration
+description: IPConfiguration in a network interface.
+properties:
+  applicationGatewayBackendAddressPools:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network:ApplicationGatewayBackendAddressPool"
+    description: The reference to ApplicationGatewayBackendAddressPool resource.
+  applicationSecurityGroups:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network:ApplicationSecurityGroup"
+    description: Application security groups in which the IP configuration is included.
+  id:
+    type: string
+    description: Resource ID.
+  loadBalancerBackendAddressPools:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network:BackendAddressPool"
+    description: The reference to LoadBalancerBackendAddressPool resource.
+  loadBalancerInboundNatRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network:InboundNatRule"
+    description: A list of references of LoadBalancerInboundNatRules.
+  name:
+    type: string
+    description: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+  primary:
+    type: boolean
+    description: Whether this is a primary customer address on the network interface.
+  privateIPAddress:
+    type: string
+    description: Private IP address of the IP configuration.
+  privateIPAddressVersion:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network:IPVersion"
+    description: Whether the specific IP configuration is IPv4 or IPv6. Default is IPv4.
+  privateIPAllocationMethod:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network:IPAllocationMethod"
+    description: The private IP address allocation method.
+  publicIPAddress:
+    type: object
+    $ref: "#/types/azure-native:network:PublicIPAddress"
+    description: Public IP address bound to the IP configuration.
+  subnet:
+    type: object
+    $ref: "#/types/azure-native:network:Subnet"
+    description: Subnet bound to the IP configuration.
+  type:
+    type: string
+    description: Resource type.
+  virtualNetworkTaps:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network:VirtualNetworkTap"
+    description: The reference to Virtual Network Taps.
+type: object

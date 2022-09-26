@@ -1,0 +1,102 @@
+$token: azure-native:containerregistry:RunResponse
+description: Run resource properties
+properties:
+  agentConfiguration:
+    type: object
+    $ref: "#/types/azure-native:containerregistry:AgentPropertiesResponse"
+    description: The machine configuration of the run agent.
+  agentPoolName:
+    type: string
+    description: The dedicated agent pool for the run.
+  createTime:
+    type: string
+    description: The time the run was scheduled.
+  customRegistries:
+    type: array
+    items:
+      type: string
+    description: The list of custom registries that were logged in during this run.
+  finishTime:
+    type: string
+    description: The time the run finished.
+  id:
+    type: string
+    description: The resource ID.
+  imageUpdateTrigger:
+    type: object
+    $ref: "#/types/azure-native:containerregistry:ImageUpdateTriggerResponse"
+    description: The image update trigger that caused the run. This is applicable if the task has base image trigger configured.
+  isArchiveEnabled:
+    type: boolean
+    description: The value that indicates whether archiving is enabled or not.
+    default: false
+  lastUpdatedTime:
+    type: string
+    description: The last updated time for the run.
+  logArtifact:
+    type: object
+    $ref: "#/types/azure-native:containerregistry:ImageDescriptorResponse"
+    description: The image description for the log artifact.
+  name:
+    type: string
+    description: The name of the resource.
+  outputImages:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:containerregistry:ImageDescriptorResponse"
+    description: The list of all images that were generated from the run. This is applicable if the run generates base image dependencies.
+  platform:
+    type: object
+    $ref: "#/types/azure-native:containerregistry:PlatformPropertiesResponse"
+    description: The platform properties against which the run will happen.
+  provisioningState:
+    type: string
+    description: The provisioning state of a run.
+  runErrorMessage:
+    type: string
+    description: The error message received from backend systems after the run is scheduled.
+  runId:
+    type: string
+    description: The unique identifier for the run.
+  runType:
+    type: string
+    description: The type of run.
+  sourceRegistryAuth:
+    type: string
+    description: The scope of the credentials that were used to login to the source registry during this run.
+  sourceTrigger:
+    type: object
+    $ref: "#/types/azure-native:containerregistry:SourceTriggerDescriptorResponse"
+    description: The source trigger that caused the run.
+  startTime:
+    type: string
+    description: The time the run started.
+  status:
+    type: string
+    description: The current status of the run.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:containerregistry:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  task:
+    type: string
+    description: The task against which run was scheduled.
+  timerTrigger:
+    type: object
+    $ref: "#/types/azure-native:containerregistry:TimerTriggerDescriptorResponse"
+    description: The timer trigger that caused the run.
+  type:
+    type: string
+    description: The type of the resource.
+  updateTriggerToken:
+    type: string
+    description: The update trigger token passed for the Run.
+type: object
+required:
+  - id
+  - logArtifact
+  - name
+  - runErrorMessage
+  - systemData
+  - type

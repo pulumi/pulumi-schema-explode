@@ -1,0 +1,190 @@
+$token: azure-native:documentdb/v20150408:DatabaseAccount
+description: An Azure Cosmos DB database account.
+properties:
+  capabilities:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:documentdb/v20150408:CapabilityResponse"
+    description: List of Cosmos DB capabilities for the account
+  connectorOffer:
+    type: string
+    description: The cassandra connector offer type for the Cosmos DB database C* account.
+  consistencyPolicy:
+    type: object
+    $ref: "#/types/azure-native:documentdb/v20150408:ConsistencyPolicyResponse"
+    description: The consistency policy for the Cosmos DB database account.
+  databaseAccountOfferType:
+    type: string
+    description: "The offer type for the Cosmos DB database account. Default value: Standard."
+  documentEndpoint:
+    type: string
+    description: The connection endpoint for the Cosmos DB database account.
+  enableAutomaticFailover:
+    type: boolean
+    description: Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
+  enableCassandraConnector:
+    type: boolean
+    description: Enables the cassandra connector on the Cosmos DB C* account
+  enableMultipleWriteLocations:
+    type: boolean
+    description: Enables the account to write in multiple locations
+  failoverPolicies:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:documentdb/v20150408:FailoverPolicyResponse"
+    description: An array that contains the regions ordered by their failover priorities.
+  ipRangeFilter:
+    type: string
+    description: "Cosmos DB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces."
+  isVirtualNetworkFilterEnabled:
+    type: boolean
+    description: Flag to indicate whether to enable/disable Virtual Network ACL rules.
+  kind:
+    type: string
+    description: Indicates the type of database account. This can only be set at database account creation.
+    default: GlobalDocumentDB
+  location:
+    type: string
+    description: The location of the resource group to which the resource belongs.
+  name:
+    type: string
+    description: The name of the database account.
+  provisioningState:
+    type: string
+    description: The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'Offline' - the Cosmos DB account is not active. 'DeletionFailed' – the Cosmos DB account deletion failed.
+  readLocations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:documentdb/v20150408:LocationResponse"
+    description: An array that contains of the read locations enabled for the Cosmos DB account.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: 'Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".'
+  type:
+    type: string
+    description: The type of Azure resource.
+  virtualNetworkRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:documentdb/v20150408:VirtualNetworkRuleResponse"
+    description: List of Virtual Network ACL rules configured for the Cosmos DB account.
+  writeLocations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:documentdb/v20150408:LocationResponse"
+    description: An array that contains the write location for the Cosmos DB account.
+type: object
+required:
+  - databaseAccountOfferType
+  - documentEndpoint
+  - failoverPolicies
+  - name
+  - provisioningState
+  - readLocations
+  - type
+  - writeLocations
+inputProperties:
+  accountName:
+    type: string
+    description: Cosmos DB database account name.
+  capabilities:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:documentdb/v20150408:Capability"
+    description: List of Cosmos DB capabilities for the account
+  connectorOffer:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:documentdb/v20150408:ConnectorOffer"
+    description: The cassandra connector offer type for the Cosmos DB database C* account.
+  consistencyPolicy:
+    type: object
+    $ref: "#/types/azure-native:documentdb/v20150408:ConsistencyPolicy"
+    description: The consistency policy for the Cosmos DB account.
+  databaseAccountOfferType:
+    $ref: "#/types/azure-native:documentdb/v20150408:DatabaseAccountOfferType"
+    description: The offer type for the database
+  enableAutomaticFailover:
+    type: boolean
+    description: Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
+  enableCassandraConnector:
+    type: boolean
+    description: Enables the cassandra connector on the Cosmos DB C* account
+  enableMultipleWriteLocations:
+    type: boolean
+    description: Enables the account to write in multiple locations
+  ipRangeFilter:
+    type: string
+    description: "Cosmos DB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces."
+  isVirtualNetworkFilterEnabled:
+    type: boolean
+    description: Flag to indicate whether to enable/disable Virtual Network ACL rules.
+  kind:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:documentdb/v20150408:DatabaseAccountKind"
+    description: Indicates the type of database account. This can only be set at database account creation.
+    default: GlobalDocumentDB
+  location:
+    type: string
+    description: The location of the resource group to which the resource belongs.
+  locations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:documentdb/v20150408:Location"
+    description: An array that contains the georeplication locations enabled for the Cosmos DB account.
+  resourceGroupName:
+    type: string
+    description: Name of an Azure resource group.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: 'Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".'
+  virtualNetworkRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:documentdb/v20150408:VirtualNetworkRule"
+    description: List of Virtual Network ACL rules configured for the Cosmos DB account.
+requiredInputs:
+  - databaseAccountOfferType
+  - locations
+  - resourceGroupName
+aliases:
+  - type: azure-native:documentdb:DatabaseAccount
+  - type: azure-native:documentdb/v20150401:DatabaseAccount
+  - type: azure-native:documentdb/v20151106:DatabaseAccount
+  - type: azure-native:documentdb/v20160319:DatabaseAccount
+  - type: azure-native:documentdb/v20160331:DatabaseAccount
+  - type: azure-native:documentdb/v20190801:DatabaseAccount
+  - type: azure-native:documentdb/v20191212:DatabaseAccount
+  - type: azure-native:documentdb/v20200301:DatabaseAccount
+  - type: azure-native:documentdb/v20200401:DatabaseAccount
+  - type: azure-native:documentdb/v20200601preview:DatabaseAccount
+  - type: azure-native:documentdb/v20200901:DatabaseAccount
+  - type: azure-native:documentdb/v20210115:DatabaseAccount
+  - type: azure-native:documentdb/v20210301preview:DatabaseAccount
+  - type: azure-native:documentdb/v20210315:DatabaseAccount
+  - type: azure-native:documentdb/v20210401preview:DatabaseAccount
+  - type: azure-native:documentdb/v20210415:DatabaseAccount
+  - type: azure-native:documentdb/v20210515:DatabaseAccount
+  - type: azure-native:documentdb/v20210615:DatabaseAccount
+  - type: azure-native:documentdb/v20210701preview:DatabaseAccount
+  - type: azure-native:documentdb/v20211015:DatabaseAccount
+  - type: azure-native:documentdb/v20211015preview:DatabaseAccount
+  - type: azure-native:documentdb/v20211115preview:DatabaseAccount
+  - type: azure-native:documentdb/v20220215preview:DatabaseAccount
+  - type: azure-native:documentdb/v20220515:DatabaseAccount
+  - type: azure-native:documentdb/v20220515preview:DatabaseAccount
+  - type: azure-native:documentdb/v20220815:DatabaseAccount
+deprecationMessage: Version 2015-04-08 will be removed in v2 of the provider.

@@ -1,0 +1,41 @@
+$token: azure-native:network/v20160601:SubnetResponse
+description: Subnet in a VirtualNetwork resource
+properties:
+  addressPrefix:
+    type: string
+    description: Gets or sets Address prefix for the subnet.
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated
+  id:
+    type: string
+    description: Resource Id
+  ipConfigurations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20160601:IPConfigurationResponse"
+    description: Gets array of references to the network interface IP configurations using subnet
+  name:
+    type: string
+    description: Gets or sets the name of the resource that is unique within a resource group. This name can be used to access the resource
+  networkSecurityGroup:
+    type: object
+    $ref: "#/types/azure-native:network/v20160601:NetworkSecurityGroupResponse"
+    description: Gets or sets the reference of the NetworkSecurityGroup resource
+  provisioningState:
+    type: string
+    description: Gets provisioning state of the resource
+  resourceNavigationLinks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20160601:ResourceNavigationLinkResponse"
+    description: Gets array of references to the external resources using subnet
+  routeTable:
+    type: object
+    $ref: "#/types/azure-native:network/v20160601:RouteTableResponse"
+    description: Gets or sets the reference of the RouteTable resource
+type: object
+required:
+  - ipConfigurations

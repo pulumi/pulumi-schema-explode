@@ -1,0 +1,128 @@
+$token: azure-native:media/v20180701:LiveEvent
+description: The Live Event.
+properties:
+  created:
+    type: string
+    description: The exact time the Live Event was created.
+  crossSiteAccessPolicies:
+    type: object
+    $ref: "#/types/azure-native:media/v20180701:CrossSiteAccessPoliciesResponse"
+    description: The Live Event access policies.
+  description:
+    type: string
+    description: The Live Event description.
+  encoding:
+    type: object
+    $ref: "#/types/azure-native:media/v20180701:LiveEventEncodingResponse"
+    description: The Live Event encoding.
+  input:
+    type: object
+    $ref: "#/types/azure-native:media/v20180701:LiveEventInputResponse"
+    description: The Live Event input.
+  lastModified:
+    type: string
+    description: The exact time the Live Event was last modified.
+  location:
+    type: string
+    description: The Azure Region of the resource.
+  name:
+    type: string
+    description: The name of the resource.
+  preview:
+    type: object
+    $ref: "#/types/azure-native:media/v20180701:LiveEventPreviewResponse"
+    description: The Live Event preview.
+  provisioningState:
+    type: string
+    description: The provisioning state of the Live Event.
+  resourceState:
+    type: string
+    description: The resource state of the Live Event.
+  streamOptions:
+    type: array
+    items:
+      type: string
+    description: The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource.
+  vanityUrl:
+    type: boolean
+    description: Specifies whether to use a vanity url with the Live Event.  This value is specified at creation time and cannot be updated.
+type: object
+required:
+  - created
+  - input
+  - lastModified
+  - name
+  - provisioningState
+  - resourceState
+  - type
+inputProperties:
+  accountName:
+    type: string
+    description: The Media Services account name.
+  autoStart:
+    type: boolean
+    description: The flag indicates if the resource should be automatically started on creation.
+  crossSiteAccessPolicies:
+    type: object
+    $ref: "#/types/azure-native:media/v20180701:CrossSiteAccessPolicies"
+    description: The Live Event access policies.
+  description:
+    type: string
+    description: The Live Event description.
+  encoding:
+    type: object
+    $ref: "#/types/azure-native:media/v20180701:LiveEventEncoding"
+    description: The Live Event encoding.
+  input:
+    type: object
+    $ref: "#/types/azure-native:media/v20180701:LiveEventInput"
+    description: The Live Event input.
+  liveEventName:
+    type: string
+    description: The name of the Live Event.
+  location:
+    type: string
+    description: The Azure Region of the resource.
+  preview:
+    type: object
+    $ref: "#/types/azure-native:media/v20180701:LiveEventPreview"
+    description: The Live Event preview.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group within the Azure subscription.
+  streamOptions:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:media/v20180701:StreamOptionsFlag"
+    description: The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  vanityUrl:
+    type: boolean
+    description: Specifies whether to use a vanity url with the Live Event.  This value is specified at creation time and cannot be updated.
+requiredInputs:
+  - accountName
+  - input
+  - resourceGroupName
+aliases:
+  - type: azure-native:media:LiveEvent
+  - type: azure-native:media/v20180330preview:LiveEvent
+  - type: azure-native:media/v20180601preview:LiveEvent
+  - type: azure-native:media/v20190501preview:LiveEvent
+  - type: azure-native:media/v20200501:LiveEvent
+  - type: azure-native:media/v20210601:LiveEvent
+  - type: azure-native:media/v20211101:LiveEvent
+  - type: azure-native:media/v20220801:LiveEvent

@@ -1,0 +1,36 @@
+$token: azure-native:network/v20191001:CustomRuleResponse
+description: Defines contents of a web application rule
+properties:
+  action:
+    type: string
+    description: Describes what action to be applied when rule matches.
+  enabledState:
+    type: string
+    description: Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
+  matchConditions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20191001:FrontDoorMatchConditionResponse"
+    description: List of match conditions.
+  name:
+    type: string
+    description: Describes the name of the rule.
+  priority:
+    type: integer
+    description: Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
+  rateLimitDurationInMinutes:
+    type: integer
+    description: Time window for resetting the rate limit count. Default is 1 minute.
+  rateLimitThreshold:
+    type: integer
+    description: Number of allowed requests per client within the time window.
+  ruleType:
+    type: string
+    description: Describes type of rule.
+type: object
+required:
+  - action
+  - matchConditions
+  - priority
+  - ruleType

@@ -1,0 +1,33 @@
+$token: azure-native:videoanalyzer:TlsEndpoint
+description: TLS endpoint describes an endpoint that the pipeline can connect to over TLS transport (data is encrypted in transit).
+properties:
+  credentials:
+    type: object
+    $ref: "#/types/azure-native:videoanalyzer:UsernamePasswordCredentials"
+    description: Credentials to be presented to the endpoint.
+  trustedCertificates:
+    type: object
+    $ref: "#/types/azure-native:videoanalyzer:PemCertificateList"
+    description: List of trusted certificate authorities when authenticating a TLS connection. A null list designates that Azure Video Analyzer's list of trusted authorities should be used.
+  tunnel:
+    type: object
+    $ref: "#/types/azure-native:videoanalyzer:SecureIotDeviceRemoteTunnel"
+    description: Describes the tunnel through which Video Analyzer can connect to the endpoint URL. This is an optional property, typically used when the endpoint is behind a firewall.
+  type:
+    type: string
+    description: |-
+      The discriminator for derived types.
+      Expected value is '#Microsoft.VideoAnalyzer.TlsEndpoint'.
+    const: "#Microsoft.VideoAnalyzer.TlsEndpoint"
+  url:
+    type: string
+    description: The endpoint URL for Video Analyzer to connect to.
+  validationOptions:
+    type: object
+    $ref: "#/types/azure-native:videoanalyzer:TlsValidationOptions"
+    description: Validation options to use when authenticating a TLS connection. By default, strict validation is used.
+type: object
+required:
+  - credentials
+  - type
+  - url

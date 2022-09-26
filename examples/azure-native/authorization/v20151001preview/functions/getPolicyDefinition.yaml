@@ -1,0 +1,35 @@
+$token: azure-native:authorization/v20151001preview:getPolicyDefinition
+description: The policy definition.
+inputs:
+  properties:
+    policyDefinitionName:
+      type: string
+      description: The name of the policy definition to get.
+  type: object
+  required:
+    - policyDefinitionName
+outputs:
+  description: The policy definition.
+  properties:
+    description:
+      type: string
+      description: The policy definition description.
+    displayName:
+      type: string
+      description: The display name of the policy definition.
+    id:
+      type: string
+      description: The ID of the policy definition.
+    name:
+      type: string
+      description: The name of the policy definition. If you do not specify a value for name, the value is inferred from the name value in the request URI.
+    policyRule:
+      $ref: pulumi.json#/Any
+      description: The policy rule.
+    policyType:
+      type: string
+      description: The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+  type: object
+  required:
+    - id
+deprecationMessage: Version 2015-10-01-preview will be removed in v2 of the provider.

@@ -1,0 +1,76 @@
+$token: azure-native:insights:getDataCollectionRule
+description: |-
+  Definition of ARM tracked top level resource.
+  API Version: 2019-11-01-preview.
+inputs:
+  properties:
+    dataCollectionRuleName:
+      type: string
+      description: The name of the data collection rule. The name is case insensitive.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+  type: object
+  required:
+    - dataCollectionRuleName
+    - resourceGroupName
+outputs:
+  description: Definition of ARM tracked top level resource.
+  properties:
+    dataFlows:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:insights:DataFlowResponse"
+      description: The specification of data flows.
+    dataSources:
+      type: object
+      $ref: "#/types/azure-native:insights:DataCollectionRuleResponseDataSources"
+      description: "The specification of data sources. \r
+
+        This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint."
+    description:
+      type: string
+      description: Description of the data collection rule.
+    destinations:
+      type: object
+      $ref: "#/types/azure-native:insights:DataCollectionRuleResponseDestinations"
+      description: The specification of destinations.
+    etag:
+      type: string
+      description: Resource entity tag (ETag).
+    id:
+      type: string
+      description: Fully qualified ID of the resource.
+    immutableId:
+      type: string
+      description: The immutable ID of this data collection rule. This property is READ-ONLY.
+    kind:
+      type: string
+      description: The kind of the resource.
+    location:
+      type: string
+      description: The geo-location where the resource lives.
+    name:
+      type: string
+      description: The name of the resource.
+    provisioningState:
+      type: string
+      description: The resource provisioning state.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource.
+  type: object
+  required:
+    - etag
+    - id
+    - immutableId
+    - location
+    - name
+    - provisioningState
+    - type

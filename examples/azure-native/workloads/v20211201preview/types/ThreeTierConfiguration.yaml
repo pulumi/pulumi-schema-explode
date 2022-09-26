@@ -1,0 +1,39 @@
+$token: azure-native:workloads/v20211201preview:ThreeTierConfiguration
+description: Gets or sets the three tier SAP configuration.
+properties:
+  appResourceGroup:
+    type: string
+    description: The application resource group where SAP system resources will be deployed.
+  applicationServer:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:ApplicationServerConfiguration"
+    description: The application server configuration.
+  centralServer:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:CentralServerConfiguration"
+    description: The central server configuration.
+  databaseServer:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:DatabaseConfiguration"
+    description: The database configuration.
+  deploymentType:
+    type: string
+    description: |-
+      The type of SAP deployment, single server or Three tier.
+      Expected value is 'ThreeTier'.
+    const: ThreeTier
+  highAvailabilityConfig:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:HighAvailabilityConfiguration"
+    description: The high availability configuration.
+  networkConfiguration:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:NetworkConfiguration"
+    description: Network configuration common to all servers
+type: object
+required:
+  - appResourceGroup
+  - applicationServer
+  - centralServer
+  - databaseServer
+  - deploymentType

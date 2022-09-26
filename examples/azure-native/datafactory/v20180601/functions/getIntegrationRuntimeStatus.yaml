@@ -1,0 +1,40 @@
+$token: azure-native:datafactory/v20180601:getIntegrationRuntimeStatus
+description: Integration runtime status response.
+inputs:
+  properties:
+    factoryName:
+      type: string
+      description: The factory name.
+    integrationRuntimeName:
+      type: string
+      description: The integration runtime name.
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+  type: object
+  required:
+    - factoryName
+    - integrationRuntimeName
+    - resourceGroupName
+outputs:
+  description: Integration runtime status response.
+  properties:
+    name:
+      type: string
+      description: The integration runtime name.
+    properties:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:datafactory/v20180601:ManagedIntegrationRuntimeStatusResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory/v20180601:SelfHostedIntegrationRuntimeStatusResponse"
+      discriminator:
+        propertyName: type
+        mapping:
+          Managed: "#/types/azure-native:datafactory/v20180601:ManagedIntegrationRuntimeStatusResponse"
+          SelfHosted: "#/types/azure-native:datafactory/v20180601:SelfHostedIntegrationRuntimeStatusResponse"
+      description: Integration runtime properties.
+  type: object
+  required:
+    - name
+    - properties

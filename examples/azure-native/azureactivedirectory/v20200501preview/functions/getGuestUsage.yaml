@@ -1,0 +1,42 @@
+$token: azure-native:azureactivedirectory/v20200501preview:getGuestUsage
+description: Guest Usages Resource
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    resourceName:
+      type: string
+      description: The initial domain name of the AAD tenant.
+  type: object
+  required:
+    - resourceGroupName
+    - resourceName
+outputs:
+  description: Guest Usages Resource
+  properties:
+    id:
+      type: string
+      description: An identifier that represents the Guest Usages resource.
+    location:
+      type: string
+      description: Location of the Guest Usages resource.
+    name:
+      type: string
+      description: The name of the Guest Usages resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Key-value pairs of additional resource provisioning properties.
+    tenantId:
+      type: string
+      description: An identifier for the tenant for which the resource is being created
+    type:
+      type: string
+      description: The type of the Guest Usages resource.
+  type: object
+  required:
+    - id
+    - name
+    - type

@@ -1,0 +1,33 @@
+$token: azure-native:containerservice/v20220702preview:ManagedClusterLoadBalancerProfile
+description: Profile of the managed cluster load balancer.
+properties:
+  allocatedOutboundPorts:
+    type: integer
+    description: The desired number of allocated SNAT ports per VM. Allowed values are in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
+    default: 0
+  effectiveOutboundIPs:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20220702preview:ResourceReference"
+    description: The effective outbound IP resources of the cluster load balancer.
+  enableMultipleStandardLoadBalancers:
+    type: boolean
+    description: Enable multiple standard load balancers per AKS cluster or not.
+  idleTimeoutInMinutes:
+    type: integer
+    description: Desired outbound flow idle timeout in minutes. Allowed values are in the range of 4 to 120 (inclusive). The default value is 30 minutes.
+    default: 30
+  managedOutboundIPs:
+    type: object
+    $ref: "#/types/azure-native:containerservice/v20220702preview:ManagedClusterLoadBalancerProfileManagedOutboundIPs"
+    description: Desired managed outbound IPs for the cluster load balancer.
+  outboundIPPrefixes:
+    type: object
+    $ref: "#/types/azure-native:containerservice/v20220702preview:ManagedClusterLoadBalancerProfileOutboundIPPrefixes"
+    description: Desired outbound IP Prefix resources for the cluster load balancer.
+  outboundIPs:
+    type: object
+    $ref: "#/types/azure-native:containerservice/v20220702preview:ManagedClusterLoadBalancerProfileOutboundIPs"
+    description: Desired outbound IP resources for the cluster load balancer.
+type: object

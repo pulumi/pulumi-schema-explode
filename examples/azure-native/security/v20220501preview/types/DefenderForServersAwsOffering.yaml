@@ -1,0 +1,36 @@
+$token: azure-native:security/v20220501preview:DefenderForServersAwsOffering
+description: The Defender for Servers AWS offering
+properties:
+  arcAutoProvisioning:
+    type: object
+    $ref: "#/types/azure-native:security/v20220501preview:DefenderForServersAwsOfferingArcAutoProvisioning"
+    description: The ARC autoprovisioning configuration
+  defenderForServers:
+    type: object
+    $ref: "#/types/azure-native:security/v20220501preview:DefenderForServersAwsOfferingDefenderForServers"
+    description: The Defender for servers connection configuration
+  mdeAutoProvisioning:
+    type: object
+    $ref: "#/types/azure-native:security/v20220501preview:DefenderForServersAwsOfferingMdeAutoProvisioning"
+    description: The Microsoft Defender for Endpoint autoprovisioning configuration
+  offeringType:
+    type: string
+    description: |-
+      The type of the security offering.
+      Expected value is 'DefenderForServersAws'.
+    const: DefenderForServersAws
+  subPlan:
+    type: object
+    $ref: "#/types/azure-native:security/v20220501preview:DefenderForServersAwsOfferingSubPlan"
+    description: configuration for the servers offering subPlan
+  vaAutoProvisioning:
+    type: object
+    $ref: "#/types/azure-native:security/v20220501preview:DefenderForServersAwsOfferingVaAutoProvisioning"
+    description: The Vulnerability Assessment autoprovisioning configuration
+  vmScanners:
+    type: object
+    $ref: "#/types/azure-native:security/v20220501preview:DefenderForServersAwsOfferingVmScanners"
+    description: The Microsoft Defender for Server VM scanning configuration
+type: object
+required:
+  - offeringType

@@ -1,0 +1,14 @@
+$token: azure-native:servicefabric/v20210601:ManagedIdentity
+description: Describes the managed identities for an Azure resource.
+properties:
+  type:
+    $ref: "#/types/azure-native:servicefabric/v20210601:ManagedIdentityType"
+    description: The type of managed identity for the resource.
+  userAssignedIdentities:
+    type: object
+    additionalProperties:
+      $ref: pulumi.json#/Any
+    description: |
+      The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
+      '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+type: object

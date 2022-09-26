@@ -1,0 +1,21 @@
+$token: azure-native:media/v20180330preview:Mp4FormatResponse
+description: Describes the properties for an output ISO MP4 file.
+properties:
+  filenamePattern:
+    type: string
+    description: "The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename."
+  odataType:
+    type: string
+    description: |-
+      The discriminator for derived types.
+      Expected value is '#Microsoft.Media.Mp4Format'.
+    const: "#Microsoft.Media.Mp4Format"
+  outputFiles:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:media/v20180330preview:OutputFileResponse"
+    description: The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
+type: object
+required:
+  - odataType

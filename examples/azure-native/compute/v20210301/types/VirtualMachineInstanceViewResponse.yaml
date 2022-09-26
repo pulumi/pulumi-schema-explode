@@ -1,0 +1,69 @@
+$token: azure-native:compute/v20210301:VirtualMachineInstanceViewResponse
+description: The instance view of a virtual machine.
+properties:
+  assignedHost:
+    type: string
+    description: "Resource id of the dedicated host, on which the virtual machine is allocated through automatic placement, when the virtual machine is associated with a dedicated host group that has automatic placement enabled. <br><br>Minimum api-version: 2020-06-01."
+  bootDiagnostics:
+    type: object
+    $ref: "#/types/azure-native:compute/v20210301:BootDiagnosticsInstanceViewResponse"
+    description: Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
+  computerName:
+    type: string
+    description: The computer name assigned to the virtual machine.
+  disks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:compute/v20210301:DiskInstanceViewResponse"
+    description: The virtual machine disk information.
+  extensions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:compute/v20210301:VirtualMachineExtensionInstanceViewResponse"
+    description: The extensions information.
+  hyperVGeneration:
+    type: string
+    description: Specifies the HyperVGeneration Type associated with a resource
+  maintenanceRedeployStatus:
+    type: object
+    $ref: "#/types/azure-native:compute/v20210301:MaintenanceRedeployStatusResponse"
+    description: The Maintenance Operation status on the virtual machine.
+  osName:
+    type: string
+    description: The Operating System running on the virtual machine.
+  osVersion:
+    type: string
+    description: The version of Operating System running on the virtual machine.
+  patchStatus:
+    type: object
+    $ref: "#/types/azure-native:compute/v20210301:VirtualMachinePatchStatusResponse"
+    description: "[Preview Feature] The status of virtual machine patch operations."
+  platformFaultDomain:
+    type: integer
+    description: Specifies the fault domain of the virtual machine.
+  platformUpdateDomain:
+    type: integer
+    description: Specifies the update domain of the virtual machine.
+  rdpThumbPrint:
+    type: string
+    description: The Remote desktop certificate thumbprint.
+  statuses:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:compute/v20210301:InstanceViewStatusResponse"
+    description: The resource status information.
+  vmAgent:
+    type: object
+    $ref: "#/types/azure-native:compute/v20210301:VirtualMachineAgentInstanceViewResponse"
+    description: The VM Agent running on the virtual machine.
+  vmHealth:
+    type: object
+    $ref: "#/types/azure-native:compute/v20210301:VirtualMachineHealthStatusResponse"
+    description: The health status for the VM.
+type: object
+required:
+  - assignedHost
+  - vmHealth

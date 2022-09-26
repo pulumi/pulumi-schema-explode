@@ -1,0 +1,40 @@
+$token: azure-native:app:IdentityProviders
+description: The configuration settings of each of the identity providers used to configure ContainerApp Service Authentication/Authorization.
+properties:
+  apple:
+    type: object
+    $ref: "#/types/azure-native:app:Apple"
+    description: The configuration settings of the Apple provider.
+  azureActiveDirectory:
+    type: object
+    $ref: "#/types/azure-native:app:AzureActiveDirectory"
+    description: The configuration settings of the Azure Active directory provider.
+  azureStaticWebApps:
+    type: object
+    $ref: "#/types/azure-native:app:AzureStaticWebApps"
+    description: The configuration settings of the Azure Static Web Apps provider.
+  customOpenIdConnectProviders:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:app:CustomOpenIdConnectProvider"
+    description: |-
+      The map of the name of the alias of each custom Open ID Connect provider to the
+      configuration settings of the custom Open ID Connect provider.
+  facebook:
+    type: object
+    $ref: "#/types/azure-native:app:Facebook"
+    description: The configuration settings of the Facebook provider.
+  gitHub:
+    type: object
+    $ref: "#/types/azure-native:app:GitHub"
+    description: The configuration settings of the GitHub provider.
+  google:
+    type: object
+    $ref: "#/types/azure-native:app:Google"
+    description: The configuration settings of the Google provider.
+  twitter:
+    type: object
+    $ref: "#/types/azure-native:app:Twitter"
+    description: The configuration settings of the Twitter provider.
+type: object

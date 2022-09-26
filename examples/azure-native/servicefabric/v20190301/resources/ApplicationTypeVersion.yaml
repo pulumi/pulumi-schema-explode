@@ -1,0 +1,78 @@
+$token: azure-native:servicefabric/v20190301:ApplicationTypeVersion
+description: An application type version resource for the specified application type name resource.
+properties:
+  appPackageUrl:
+    type: string
+    description: The URL to the application package
+  defaultParameterList:
+    type: object
+    additionalProperties:
+      type: string
+    description: List of application type parameters that can be overridden when creating or updating the application.
+  etag:
+    type: string
+    description: Azure resource etag.
+  location:
+    type: string
+    description: It will be deprecated in New API, resource location depends on the parent resource.
+  name:
+    type: string
+    description: Azure resource name.
+  provisioningState:
+    type: string
+    description: The current deployment or provisioning state, which only appears in the response
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Azure resource tags.
+  type:
+    type: string
+    description: Azure resource type.
+type: object
+required:
+  - appPackageUrl
+  - defaultParameterList
+  - etag
+  - name
+  - provisioningState
+  - type
+inputProperties:
+  appPackageUrl:
+    type: string
+    description: The URL to the application package
+  applicationTypeName:
+    type: string
+    description: The name of the application type name resource.
+  clusterName:
+    type: string
+    description: The name of the cluster resource.
+  location:
+    type: string
+    description: It will be deprecated in New API, resource location depends on the parent resource.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Azure resource tags.
+  version:
+    type: string
+    description: The application type version.
+requiredInputs:
+  - appPackageUrl
+  - applicationTypeName
+  - clusterName
+  - resourceGroupName
+aliases:
+  - type: azure-native:servicefabric:ApplicationTypeVersion
+  - type: azure-native:servicefabric/v20170701preview:ApplicationTypeVersion
+  - type: azure-native:servicefabric/v20190301preview:ApplicationTypeVersion
+  - type: azure-native:servicefabric/v20190601preview:ApplicationTypeVersion
+  - type: azure-native:servicefabric/v20191101preview:ApplicationTypeVersion
+  - type: azure-native:servicefabric/v20200301:ApplicationTypeVersion
+  - type: azure-native:servicefabric/v20201201preview:ApplicationTypeVersion
+  - type: azure-native:servicefabric/v20210601:ApplicationTypeVersion
+deprecationMessage: Version 2019-03-01 will be removed in v2 of the provider.

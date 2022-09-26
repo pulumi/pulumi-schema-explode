@@ -1,0 +1,50 @@
+$token: azure-native:operationsmanagement:getSolution
+description: |-
+  The container for solution.
+  API Version: 2015-11-01-preview.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group to get. The name is case insensitive.
+    solutionName:
+      type: string
+      description: User Solution Name.
+  type: object
+  required:
+    - resourceGroupName
+    - solutionName
+outputs:
+  description: The container for solution.
+  properties:
+    id:
+      type: string
+      description: Resource ID.
+    location:
+      type: string
+      description: Resource location
+    name:
+      type: string
+      description: Resource name.
+    plan:
+      type: object
+      $ref: "#/types/azure-native:operationsmanagement:SolutionPlanResponse"
+      description: Plan for solution object supported by the OperationsManagement resource provider.
+    properties:
+      type: object
+      $ref: "#/types/azure-native:operationsmanagement:SolutionPropertiesResponse"
+      description: Properties for solution object supported by the OperationsManagement resource provider.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - type

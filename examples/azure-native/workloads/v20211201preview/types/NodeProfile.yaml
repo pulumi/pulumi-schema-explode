@@ -1,0 +1,28 @@
+$token: azure-native:workloads/v20211201preview:NodeProfile
+description: VM or VMSS node profile
+properties:
+  dataDisks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:workloads/v20211201preview:DiskInfo"
+    description: Data disks details. This property is not in use right now
+  name:
+    type: string
+    description: VM or VMSS name
+  nodeSku:
+    type: string
+    description: VM SKU for node(s)
+  osDisk:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:DiskInfo"
+    description: OS disk details
+  osImage:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:OsImageProfile"
+    description: OS image used for creating the nodes
+type: object
+required:
+  - nodeSku
+  - osDisk
+  - osImage

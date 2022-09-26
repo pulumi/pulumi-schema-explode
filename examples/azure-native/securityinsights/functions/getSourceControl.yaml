@@ -1,0 +1,89 @@
+$token: azure-native:securityinsights:getSourceControl
+description: |-
+  Represents a SourceControl in Azure Security Insights.
+  API Version: 2021-03-01-preview.
+inputs:
+  properties:
+    operationalInsightsResourceProvider:
+      type: string
+      description: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    sourceControlId:
+      type: string
+      description: Source control Id
+    workspaceName:
+      type: string
+      description: The name of the workspace.
+  type: object
+  required:
+    - operationalInsightsResourceProvider
+    - resourceGroupName
+    - sourceControlId
+    - workspaceName
+outputs:
+  description: Represents a SourceControl in Azure Security Insights.
+  properties:
+    contentTypes:
+      type: array
+      items:
+        type: string
+      description: Array of source control content types.
+    createdAt:
+      type: string
+      description: The timestamp of resource creation (UTC).
+    createdBy:
+      type: string
+      description: The identity that created the resource.
+    createdByType:
+      type: string
+      description: The type of identity that created the resource.
+    description:
+      type: string
+      description: A description of the source control
+    displayName:
+      type: string
+      description: The display name of the source control
+    etag:
+      type: string
+      description: Etag of the azure resource
+    id:
+      type: string
+      description: Azure resource Id
+    lastModifiedAt:
+      type: string
+      description: The timestamp of resource last modification (UTC)
+    lastModifiedBy:
+      type: string
+      description: The identity that last modified the resource.
+    lastModifiedByType:
+      type: string
+      description: The type of identity that last modified the resource.
+    name:
+      type: string
+      description: Azure resource name
+    repoType:
+      type: string
+      description: The repository type of the source control
+    repository:
+      type: object
+      $ref: "#/types/azure-native:securityinsights:RepositoryResponse"
+      description: Repository metadata.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:securityinsights:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    type:
+      type: string
+      description: Azure resource type
+  type: object
+  required:
+    - contentTypes
+    - displayName
+    - id
+    - name
+    - repoType
+    - repository
+    - systemData
+    - type

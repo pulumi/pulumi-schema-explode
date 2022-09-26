@@ -1,0 +1,44 @@
+$token: azure-native:avs/v20210601:Authorization
+description: ExpressRoute Circuit Authorization
+properties:
+  expressRouteAuthorizationId:
+    type: string
+    description: The ID of the ExpressRoute Circuit Authorization
+  expressRouteAuthorizationKey:
+    type: string
+    description: The key of the ExpressRoute Circuit Authorization
+  name:
+    type: string
+    description: Resource name.
+  provisioningState:
+    type: string
+    description: The state of the  ExpressRoute Circuit Authorization provisioning
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - expressRouteAuthorizationId
+  - expressRouteAuthorizationKey
+  - name
+  - provisioningState
+  - type
+inputProperties:
+  authorizationName:
+    type: string
+    description: Name of the ExpressRoute Circuit Authorization in the private cloud
+  privateCloudName:
+    type: string
+    description: The name of the private cloud.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+requiredInputs:
+  - privateCloudName
+  - resourceGroupName
+aliases:
+  - type: azure-native:avs:Authorization
+  - type: azure-native:avs/v20200320:Authorization
+  - type: azure-native:avs/v20200717preview:Authorization
+  - type: azure-native:avs/v20210101preview:Authorization
+  - type: azure-native:avs/v20211201:Authorization

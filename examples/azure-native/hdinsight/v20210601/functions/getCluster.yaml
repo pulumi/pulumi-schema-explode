@@ -1,0 +1,62 @@
+$token: azure-native:hdinsight/v20210601:getCluster
+description: The HDInsight cluster.
+inputs:
+  properties:
+    clusterName:
+      type: string
+      description: The name of the cluster.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - clusterName
+    - resourceGroupName
+outputs:
+  description: The HDInsight cluster.
+  properties:
+    etag:
+      type: string
+      description: The ETag for the resource
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    identity:
+      type: object
+      $ref: "#/types/azure-native:hdinsight/v20210601:ClusterIdentityResponse"
+      description: The identity of the cluster, if configured.
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    name:
+      type: string
+      description: The name of the resource
+    properties:
+      type: object
+      $ref: "#/types/azure-native:hdinsight/v20210601:ClusterGetPropertiesResponse"
+      description: The properties of the cluster.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:hdinsight/v20210601:SystemDataResponse"
+      description: Metadata pertaining to creation and last modification of the resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+    zones:
+      type: array
+      items:
+        type: string
+      description: The availability zones.
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - properties
+    - systemData
+    - type

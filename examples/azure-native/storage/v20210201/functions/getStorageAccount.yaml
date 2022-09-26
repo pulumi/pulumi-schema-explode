@@ -1,0 +1,182 @@
+$token: azure-native:storage/v20210201:getStorageAccount
+description: The storage account.
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+    expand:
+      type: string
+      description: May be used to expand the properties within account's properties. By default, data is not included when fetching properties. Currently we only support geoReplicationStats and blobRestoreStatus.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group within the user's subscription. The name is case insensitive.
+  type: object
+  required:
+    - accountName
+    - resourceGroupName
+outputs:
+  description: The storage account.
+  properties:
+    accessTier:
+      type: string
+      description: Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+    allowBlobPublicAccess:
+      type: boolean
+      description: Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
+    allowSharedKeyAccess:
+      type: boolean
+      description: Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.
+    azureFilesIdentityBasedAuthentication:
+      type: object
+      $ref: "#/types/azure-native:storage/v20210201:AzureFilesIdentityBasedAuthenticationResponse"
+      description: Provides the identity based authentication settings for Azure Files.
+    blobRestoreStatus:
+      type: object
+      $ref: "#/types/azure-native:storage/v20210201:BlobRestoreStatusResponse"
+      description: Blob restore status
+    creationTime:
+      type: string
+      description: Gets the creation date and time of the storage account in UTC.
+    customDomain:
+      type: object
+      $ref: "#/types/azure-native:storage/v20210201:CustomDomainResponse"
+      description: Gets the custom domain the user assigned to this storage account.
+    enableHttpsTrafficOnly:
+      type: boolean
+      description: Allows https traffic only to storage service if sets to true.
+    enableNfsV3:
+      type: boolean
+      description: NFS 3.0 protocol support enabled if set to true.
+    encryption:
+      type: object
+      $ref: "#/types/azure-native:storage/v20210201:EncryptionResponse"
+      description: Gets the encryption settings on the account. If unspecified, the account is unencrypted.
+    extendedLocation:
+      type: object
+      $ref: "#/types/azure-native:storage/v20210201:ExtendedLocationResponse"
+      description: The extendedLocation of the resource.
+    failoverInProgress:
+      type: boolean
+      description: If the failover is in progress, the value will be true, otherwise, it will be null.
+    geoReplicationStats:
+      type: object
+      $ref: "#/types/azure-native:storage/v20210201:GeoReplicationStatsResponse"
+      description: Geo Replication Stats
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    identity:
+      type: object
+      $ref: "#/types/azure-native:storage/v20210201:IdentityResponse"
+      description: The identity of the resource.
+    isHnsEnabled:
+      type: boolean
+      description: Account HierarchicalNamespace enabled if sets to true.
+    keyCreationTime:
+      type: object
+      $ref: "#/types/azure-native:storage/v20210201:KeyCreationTimeResponse"
+      description: Storage account keys creation time.
+    keyPolicy:
+      type: object
+      $ref: "#/types/azure-native:storage/v20210201:KeyPolicyResponse"
+      description: KeyPolicy assigned to the storage account.
+    kind:
+      type: string
+      description: Gets the Kind.
+    largeFileSharesState:
+      type: string
+      description: Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
+    lastGeoFailoverTime:
+      type: string
+      description: Gets the timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    minimumTlsVersion:
+      type: string
+      description: Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
+    name:
+      type: string
+      description: The name of the resource
+    networkRuleSet:
+      type: object
+      $ref: "#/types/azure-native:storage/v20210201:NetworkRuleSetResponse"
+      description: Network rule set
+    primaryEndpoints:
+      type: object
+      $ref: "#/types/azure-native:storage/v20210201:EndpointsResponse"
+      description: Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
+    primaryLocation:
+      type: string
+      description: Gets the location of the primary data center for the storage account.
+    privateEndpointConnections:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:storage/v20210201:PrivateEndpointConnectionResponse"
+      description: List of private endpoint connection associated with the specified storage account
+    provisioningState:
+      type: string
+      description: Gets the status of the storage account at the time the operation was called.
+    routingPreference:
+      type: object
+      $ref: "#/types/azure-native:storage/v20210201:RoutingPreferenceResponse"
+      description: Maintains information about the network routing choice opted by the user for data transfer
+    sasPolicy:
+      type: object
+      $ref: "#/types/azure-native:storage/v20210201:SasPolicyResponse"
+      description: SasPolicy assigned to the storage account.
+    secondaryEndpoints:
+      type: object
+      $ref: "#/types/azure-native:storage/v20210201:EndpointsResponse"
+      description: Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
+    secondaryLocation:
+      type: string
+      description: Gets the location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
+    sku:
+      type: object
+      $ref: "#/types/azure-native:storage/v20210201:SkuResponse"
+      description: Gets the SKU.
+    statusOfPrimary:
+      type: string
+      description: Gets the status indicating whether the primary location of the storage account is available or unavailable.
+    statusOfSecondary:
+      type: string
+      description: Gets the status indicating whether the secondary location of the storage account is available or unavailable. Only available if the SKU name is Standard_GRS or Standard_RAGRS.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - accessTier
+    - blobRestoreStatus
+    - creationTime
+    - customDomain
+    - encryption
+    - failoverInProgress
+    - geoReplicationStats
+    - id
+    - keyCreationTime
+    - keyPolicy
+    - kind
+    - lastGeoFailoverTime
+    - location
+    - name
+    - networkRuleSet
+    - primaryEndpoints
+    - primaryLocation
+    - privateEndpointConnections
+    - provisioningState
+    - sasPolicy
+    - secondaryEndpoints
+    - secondaryLocation
+    - sku
+    - statusOfPrimary
+    - statusOfSecondary
+    - type

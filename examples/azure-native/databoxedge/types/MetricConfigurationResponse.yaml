@@ -1,0 +1,22 @@
+$token: azure-native:databoxedge:MetricConfigurationResponse
+description: Metric configuration.
+properties:
+  counterSets:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:databoxedge:MetricCounterSetResponse"
+    description: Host name for the IoT hub associated to the device.
+  mdmAccount:
+    type: string
+    description: The MDM account to which the counters should be pushed.
+  metricNameSpace:
+    type: string
+    description: The MDM namespace to which the counters should be pushed. This is required if MDMAccount is specified
+  resourceId:
+    type: string
+    description: The Resource ID on which the metrics should be pushed.
+type: object
+required:
+  - counterSets
+  - resourceId

@@ -1,0 +1,32 @@
+$token: azure-native:scheduler/v20160301:HttpRequestResponse
+properties:
+  authentication:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:scheduler/v20160301:BasicAuthenticationResponse"
+      - type: object
+        $ref: "#/types/azure-native:scheduler/v20160301:ClientCertAuthenticationResponse"
+      - type: object
+        $ref: "#/types/azure-native:scheduler/v20160301:OAuthAuthenticationResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        ActiveDirectoryOAuth: "#/types/azure-native:scheduler/v20160301:OAuthAuthenticationResponse"
+        Basic: "#/types/azure-native:scheduler/v20160301:BasicAuthenticationResponse"
+        ClientCertificate: "#/types/azure-native:scheduler/v20160301:ClientCertAuthenticationResponse"
+    description: Gets or sets the authentication method of the request.
+  body:
+    type: string
+    description: Gets or sets the request body.
+  headers:
+    type: object
+    additionalProperties:
+      type: string
+    description: Gets or sets the headers.
+  method:
+    type: string
+    description: Gets or sets the method of the request.
+  uri:
+    type: string
+    description: Gets or sets the URI of the request.
+type: object

@@ -1,0 +1,135 @@
+$token: azure-native:machinelearningservices/v20200901preview:ACIService
+description: Machine Learning service object wrapped into ARM resource envelope.
+properties:
+  identity:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20200901preview:IdentityResponse"
+    description: The identity of the resource.
+  location:
+    type: string
+    description: Specifies the location of the resource.
+  name:
+    type: string
+    description: Specifies the name of the resource.
+  properties:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20200901preview:ACIServiceResponseResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20200901preview:AKSServiceResponseResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20200901preview:AKSVariantResponseResponse"
+    discriminator:
+      propertyName: computeType
+      mapping:
+        ACI: "#/types/azure-native:machinelearningservices/v20200901preview:ACIServiceResponseResponse"
+        AKS: "#/types/azure-native:machinelearningservices/v20200901preview:AKSServiceResponseResponse"
+        Custom: "#/types/azure-native:machinelearningservices/v20200901preview:AKSVariantResponseResponse"
+    description: Service properties
+  sku:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20200901preview:SkuResponse"
+    description: The sku of the workspace.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Contains resource tags defined as key/value pairs.
+  type:
+    type: string
+    description: Specifies the type of the resource.
+type: object
+required:
+  - name
+  - properties
+  - type
+inputProperties:
+  appInsightsEnabled:
+    type: boolean
+    description: Whether or not Application Insights is enabled.
+    default: false
+  authEnabled:
+    type: boolean
+    description: Whether or not authentication is enabled on the service.
+    default: false
+  cname:
+    type: string
+    description: The CName for the service.
+  computeType:
+    type: string
+    description: |-
+      The compute environment type for the service.
+      Expected value is 'ACI'.
+    const: ACI
+  containerResourceRequirements:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20200901preview:ContainerResourceRequirements"
+    description: The container resource requirements.
+  dataCollection:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20200901preview:ACIServiceCreateRequestDataCollection"
+    description: Details of the data collection options specified.
+  description:
+    type: string
+    description: The description of the service.
+  dnsNameLabel:
+    type: string
+    description: The Dns label for the service.
+  encryptionProperties:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20200901preview:ACIServiceCreateRequestEncryptionProperties"
+    description: The encryption properties.
+  environmentImageRequest:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20200901preview:CreateServiceRequestEnvironmentImageRequest"
+    description: The Environment, models and assets needed for inferencing.
+  keys:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20200901preview:CreateServiceRequestKeys"
+    description: The authentication keys.
+  kvTags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The service tag dictionary. Tags are mutable.
+  location:
+    type: string
+    description: The name of the Azure location/region.
+  properties:
+    type: object
+    additionalProperties:
+      type: string
+    description: The service properties dictionary. Properties are immutable.
+  resourceGroupName:
+    type: string
+    description: Name of the resource group in which workspace is located.
+  serviceName:
+    type: string
+    description: Name of the Azure Machine Learning service.
+  sslCertificate:
+    type: string
+    description: The public SSL certificate in PEM format to use if SSL is enabled.
+  sslEnabled:
+    type: boolean
+    description: Whether or not SSL is enabled.
+    default: false
+  sslKey:
+    type: string
+    description: The public SSL key in PEM format for the certificate.
+  vnetConfiguration:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20200901preview:ACIServiceCreateRequestVnetConfiguration"
+    description: The virtual network configuration.
+  workspaceName:
+    type: string
+    description: Name of Azure Machine Learning workspace.
+requiredInputs:
+  - computeType
+  - resourceGroupName
+  - workspaceName
+aliases:
+  - type: azure-native:machinelearningservices:ACIService
+  - type: azure-native:machinelearningservices/v20200501preview:ACIService
+  - type: azure-native:machinelearningservices/v20200515preview:ACIService
+  - type: azure-native:machinelearningservices/v20210101:ACIService
+  - type: azure-native:machinelearningservices/v20210401:ACIService

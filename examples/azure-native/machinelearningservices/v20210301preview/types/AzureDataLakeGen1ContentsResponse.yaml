@@ -1,0 +1,41 @@
+$token: azure-native:machinelearningservices/v20210301preview:AzureDataLakeGen1ContentsResponse
+description: Azure Data Lake Gen1 datastore configuration.
+properties:
+  contentsType:
+    type: string
+    description: |-
+      Enum to determine the datastore contents type.
+      Expected value is 'AzureDataLakeGen1'.
+    const: AzureDataLakeGen1
+  credentials:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:AccountKeyDatastoreCredentialsResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:CertificateDatastoreCredentialsResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:NoneDatastoreCredentialsResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:SasDatastoreCredentialsResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:ServicePrincipalDatastoreCredentialsResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:SqlAdminDatastoreCredentialsResponse"
+    discriminator:
+      propertyName: credentialsType
+      mapping:
+        AccountKey: "#/types/azure-native:machinelearningservices/v20210301preview:AccountKeyDatastoreCredentialsResponse"
+        Certificate: "#/types/azure-native:machinelearningservices/v20210301preview:CertificateDatastoreCredentialsResponse"
+        None: "#/types/azure-native:machinelearningservices/v20210301preview:NoneDatastoreCredentialsResponse"
+        Sas: "#/types/azure-native:machinelearningservices/v20210301preview:SasDatastoreCredentialsResponse"
+        ServicePrincipal: "#/types/azure-native:machinelearningservices/v20210301preview:ServicePrincipalDatastoreCredentialsResponse"
+        SqlAdmin: "#/types/azure-native:machinelearningservices/v20210301preview:SqlAdminDatastoreCredentialsResponse"
+    description: "[Required] Account credentials."
+  storeName:
+    type: string
+    description: "[Required] Azure Data Lake store name."
+type: object
+required:
+  - contentsType
+  - credentials
+  - storeName

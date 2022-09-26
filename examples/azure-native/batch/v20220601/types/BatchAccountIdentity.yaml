@@ -1,0 +1,14 @@
+$token: azure-native:batch/v20220601:BatchAccountIdentity
+description: The identity of the Batch account, if configured. This is used when the user specifies 'Microsoft.KeyVault' as their Batch account encryption configuration or when `ManagedIdentity` is selected as the auto-storage authentication mode.
+properties:
+  type:
+    $ref: "#/types/azure-native:batch/v20220601:ResourceIdentityType"
+    description: The type of identity used for the Batch account.
+  userAssignedIdentities:
+    type: object
+    additionalProperties:
+      $ref: pulumi.json#/Any
+    description: The list of user identities associated with the Batch account.
+type: object
+required:
+  - type

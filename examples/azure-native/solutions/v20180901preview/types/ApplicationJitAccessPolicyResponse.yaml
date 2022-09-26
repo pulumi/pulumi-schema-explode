@@ -1,0 +1,21 @@
+$token: azure-native:solutions/v20180901preview:ApplicationJitAccessPolicyResponse
+description: Managed application Jit access policy.
+properties:
+  jitAccessEnabled:
+    type: boolean
+    description: Whether the JIT access is enabled.
+  jitApprovalMode:
+    type: string
+    description: JIT approval mode.
+  jitApprovers:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:solutions/v20180901preview:JitApproverDefinitionResponse"
+    description: The JIT approvers
+  maximumJitAccessDuration:
+    type: string
+    description: The maximum duration JIT access is granted. This is an ISO8601 time period value.
+type: object
+required:
+  - jitAccessEnabled

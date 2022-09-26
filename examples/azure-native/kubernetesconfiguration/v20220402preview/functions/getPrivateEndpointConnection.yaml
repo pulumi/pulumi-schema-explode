@@ -1,0 +1,53 @@
+$token: azure-native:kubernetesconfiguration/v20220402preview:getPrivateEndpointConnection
+description: The Private Endpoint Connection resource.
+inputs:
+  properties:
+    privateEndpointConnectionName:
+      type: string
+      description: The name of the private endpoint connection associated with the Azure resource
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    scopeName:
+      type: string
+      description: The name of the Azure Arc PrivateLinkScope resource.
+  type: object
+  required:
+    - privateEndpointConnectionName
+    - resourceGroupName
+    - scopeName
+outputs:
+  description: The Private Endpoint Connection resource.
+  properties:
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    name:
+      type: string
+      description: The name of the resource
+    privateEndpoint:
+      type: object
+      $ref: "#/types/azure-native:kubernetesconfiguration/v20220402preview:PrivateEndpointResponse"
+      description: The resource of private end point.
+    privateLinkServiceConnectionState:
+      type: object
+      $ref: "#/types/azure-native:kubernetesconfiguration/v20220402preview:PrivateLinkServiceConnectionStateResponse"
+      description: A collection of information about the state of the connection between service consumer and provider.
+    provisioningState:
+      type: string
+      description: The provisioning state of the private endpoint connection resource.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:kubernetesconfiguration/v20220402preview:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - id
+    - name
+    - privateLinkServiceConnectionState
+    - provisioningState
+    - systemData
+    - type

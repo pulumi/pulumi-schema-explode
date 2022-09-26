@@ -1,0 +1,77 @@
+$token: azure-native:databoxedge/v20201201:MECRole
+description: MEC role.
+properties:
+  connectionString:
+    type: object
+    $ref: "#/types/azure-native:databoxedge/v20201201:AsymmetricEncryptedSecretResponse"
+    description: Activation key of the MEC.
+  kind:
+    type: string
+    description: |-
+      Role type.
+      Expected value is 'MEC'.
+    const: MEC
+  name:
+    type: string
+    description: The object name.
+  roleStatus:
+    type: string
+    description: Role status.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:databoxedge/v20201201:SystemDataResponse"
+    description: Role configured on ASE resource
+  type:
+    type: string
+    description: The hierarchical type of the object.
+type: object
+required:
+  - kind
+  - name
+  - roleStatus
+  - systemData
+  - type
+inputProperties:
+  connectionString:
+    type: object
+    $ref: "#/types/azure-native:databoxedge/v20201201:AsymmetricEncryptedSecret"
+    description: Activation key of the MEC.
+  deviceName:
+    type: string
+    description: The device name.
+  kind:
+    type: string
+    description: |-
+      Role type.
+      Expected value is 'MEC'.
+    const: MEC
+  name:
+    type: string
+    description: The role name.
+  resourceGroupName:
+    type: string
+    description: The resource group name.
+  roleStatus:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:databoxedge/v20201201:RoleStatus"
+    description: Role status.
+requiredInputs:
+  - deviceName
+  - kind
+  - resourceGroupName
+  - roleStatus
+aliases:
+  - type: azure-native:databoxedge:MECRole
+  - type: azure-native:databoxedge/v20190301:MECRole
+  - type: azure-native:databoxedge/v20190701:MECRole
+  - type: azure-native:databoxedge/v20190801:MECRole
+  - type: azure-native:databoxedge/v20200501preview:MECRole
+  - type: azure-native:databoxedge/v20200901:MECRole
+  - type: azure-native:databoxedge/v20200901preview:MECRole
+  - type: azure-native:databoxedge/v20210201:MECRole
+  - type: azure-native:databoxedge/v20210201preview:MECRole
+  - type: azure-native:databoxedge/v20210601:MECRole
+  - type: azure-native:databoxedge/v20210601preview:MECRole
+  - type: azure-native:databoxedge/v20220301:MECRole
+  - type: azure-native:databoxedge/v20220401preview:MECRole

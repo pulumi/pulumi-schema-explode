@@ -1,0 +1,53 @@
+$token: azure-native:dataprotection/v20220401:BackupPolicy
+description: BaseBackupPolicy resource
+properties:
+  name:
+    type: string
+    description: Resource name associated with the resource.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:dataprotection/v20220401:BackupPolicyResponse"
+    description: BaseBackupPolicyResource properties
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:dataprotection/v20220401:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  type:
+    type: string
+    description: Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+type: object
+required:
+  - name
+  - properties
+  - systemData
+  - type
+inputProperties:
+  backupPolicyName:
+    type: string
+    description: Name of the policy
+  properties:
+    type: object
+    $ref: "#/types/azure-native:dataprotection/v20220401:BackupPolicy"
+    description: BaseBackupPolicyResource properties
+  resourceGroupName:
+    type: string
+    description: The name of the resource group where the backup vault is present.
+  vaultName:
+    type: string
+    description: The name of the backup vault.
+requiredInputs:
+  - resourceGroupName
+  - vaultName
+aliases:
+  - type: azure-native:dataprotection:BackupPolicy
+  - type: azure-native:dataprotection/v20210101:BackupPolicy
+  - type: azure-native:dataprotection/v20210201preview:BackupPolicy
+  - type: azure-native:dataprotection/v20210601preview:BackupPolicy
+  - type: azure-native:dataprotection/v20210701:BackupPolicy
+  - type: azure-native:dataprotection/v20211001preview:BackupPolicy
+  - type: azure-native:dataprotection/v20211201preview:BackupPolicy
+  - type: azure-native:dataprotection/v20220101:BackupPolicy
+  - type: azure-native:dataprotection/v20220201preview:BackupPolicy
+  - type: azure-native:dataprotection/v20220301:BackupPolicy
+  - type: azure-native:dataprotection/v20220331preview:BackupPolicy
+  - type: azure-native:dataprotection/v20220501:BackupPolicy

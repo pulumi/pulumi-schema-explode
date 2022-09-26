@@ -1,0 +1,17 @@
+$token: azure-native:network/v20200401preview:InboundEndpointIPConfiguration
+description: IP configuration.
+properties:
+  privateIpAddress:
+    type: string
+    description: Private IP address of the IP configuration.
+  privateIpAllocationMethod:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20200401preview:IpAllocationMethod"
+    description: Private IP address allocation method.
+    default: Dynamic
+  subnet:
+    type: object
+    $ref: "#/types/azure-native:network/v20200401preview:SubResource"
+    description: The reference to the subnet bound to the IP configuration.
+type: object

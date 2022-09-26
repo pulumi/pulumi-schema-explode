@@ -1,0 +1,21 @@
+$token: azure-native:portal/v20150801preview:DashboardLens
+description: A dashboard lens.
+properties:
+  metadata:
+    type: object
+    additionalProperties:
+      $ref: pulumi.json#/Any
+    description: The dashboard len's metadata.
+  order:
+    type: integer
+    description: The lens order.
+  parts:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:portal/v20150801preview:DashboardParts"
+    description: The dashboard parts.
+type: object
+required:
+  - order
+  - parts

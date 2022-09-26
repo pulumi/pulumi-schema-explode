@@ -1,0 +1,48 @@
+$token: azure-native:securityinsights/v20220701preview:getEntityInsights
+description: The Get Insights result operation response.
+inputs:
+  properties:
+    addDefaultExtendedTimeRange:
+      type: boolean
+      description: Indicates if query time range should be extended with default time range of the query. Default value is false
+    endTime:
+      type: string
+      description: The end timeline date, so the results returned are before this date.
+    entityId:
+      type: string
+      description: entity ID
+    insightQueryIds:
+      type: array
+      items:
+        type: string
+      description: List of Insights Query Id. If empty, default value is all insights of this entity
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    startTime:
+      type: string
+      description: The start timeline date, so the results returned are after this date.
+    workspaceName:
+      type: string
+      description: The name of the workspace.
+  type: object
+  required:
+    - endTime
+    - entityId
+    - resourceGroupName
+    - startTime
+    - workspaceName
+outputs:
+  description: The Get Insights result operation response.
+  properties:
+    metaData:
+      type: object
+      $ref: "#/types/azure-native:securityinsights/v20220701preview:GetInsightsResultsMetadataResponse"
+      description: The metadata from the get insights operation results.
+    value:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:securityinsights/v20220701preview:EntityInsightItemResponse"
+      description: The insights result values.
+  type: object

@@ -1,0 +1,47 @@
+$token: azure-native:resources/v20190801:DeploymentAtScope
+description: Deployment information.
+properties:
+  location:
+    type: string
+    description: the location of the deployment.
+  name:
+    type: string
+    description: The name of the deployment.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:resources/v20190801:DeploymentPropertiesExtendedResponse"
+    description: Deployment properties.
+  type:
+    type: string
+    description: The type of the deployment.
+type: object
+required:
+  - name
+  - properties
+  - type
+inputProperties:
+  deploymentName:
+    type: string
+    description: The name of the deployment.
+  location:
+    type: string
+    description: The location to store the deployment data.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:resources/v20190801:DeploymentProperties"
+    description: The deployment properties.
+  scope:
+    type: string
+    description: The scope of a deployment.
+requiredInputs:
+  - properties
+  - scope
+aliases:
+  - type: azure-native:resources:DeploymentAtScope
+  - type: azure-native:resources/v20190701:DeploymentAtScope
+  - type: azure-native:resources/v20191001:DeploymentAtScope
+  - type: azure-native:resources/v20200601:DeploymentAtScope
+  - type: azure-native:resources/v20200801:DeploymentAtScope
+  - type: azure-native:resources/v20201001:DeploymentAtScope
+  - type: azure-native:resources/v20210101:DeploymentAtScope
+  - type: azure-native:resources/v20210401:DeploymentAtScope

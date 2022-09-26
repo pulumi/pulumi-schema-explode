@@ -1,0 +1,81 @@
+$token: azure-native:devcenter/v20220801preview:getDevBoxDefinition
+description: Represents a definition for a Developer Machine.
+inputs:
+  properties:
+    devBoxDefinitionName:
+      type: string
+      description: The name of the Dev Box definition.
+    devCenterName:
+      type: string
+      description: The name of the devcenter.
+    resourceGroupName:
+      type: string
+      description: Name of the resource group within the Azure subscription.
+  type: object
+  required:
+    - devBoxDefinitionName
+    - devCenterName
+    - resourceGroupName
+outputs:
+  description: Represents a definition for a Developer Machine.
+  properties:
+    activeImageReference:
+      type: object
+      $ref: "#/types/azure-native:devcenter/v20220801preview:ImageReferenceResponse"
+      description: Image reference information for the currently active image (only populated during updates).
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    imageReference:
+      type: object
+      $ref: "#/types/azure-native:devcenter/v20220801preview:ImageReferenceResponse"
+      description: Image reference information.
+    imageValidationErrorDetails:
+      type: object
+      $ref: "#/types/azure-native:devcenter/v20220801preview:ImageValidationErrorDetailsResponse"
+      description: Details for image validator error. Populated when the image validation is not successful.
+    imageValidationStatus:
+      type: string
+      description: Validation status of the configured image.
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    name:
+      type: string
+      description: The name of the resource
+    osStorageType:
+      type: string
+      description: The storage type used for the Operating System disk of Dev Boxes created using this definition.
+    provisioningState:
+      type: string
+      description: The provisioning state of the resource.
+    sku:
+      type: object
+      $ref: "#/types/azure-native:devcenter/v20220801preview:SkuResponse"
+      description: The SKU for Dev Boxes created using this definition.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:devcenter/v20220801preview:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - activeImageReference
+    - id
+    - imageReference
+    - imageValidationErrorDetails
+    - imageValidationStatus
+    - location
+    - name
+    - osStorageType
+    - provisioningState
+    - sku
+    - systemData
+    - type

@@ -1,0 +1,76 @@
+$token: azure-native:machinelearningservices:ManagedOnlineDeployment
+properties:
+  appInsightsEnabled:
+    type: boolean
+    description: If true, enables Application Insights logging.
+  codeConfiguration:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices:CodeConfiguration"
+    description: Code configuration for the endpoint deployment.
+  description:
+    type: string
+    description: Description of the endpoint deployment.
+  endpointComputeType:
+    type: string
+    description: |-
+      Enum to determine endpoint compute type.
+      Expected value is 'Managed'.
+    const: Managed
+  environmentId:
+    type: string
+    description: ARM resource ID of the environment specification for the endpoint deployment.
+  environmentVariables:
+    type: object
+    additionalProperties:
+      type: string
+    description: Environment variables configuration for the deployment.
+  instanceType:
+    type: string
+    description: Compute instance type.
+  livenessProbe:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices:ProbeSettings"
+    description: Deployment container liveness/readiness probe configuration.
+  model:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices:DataPathAssetReference"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices:IdAssetReference"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices:OutputPathAssetReference"
+    discriminator:
+      propertyName: referenceType
+      mapping:
+        DataPath: "#/types/azure-native:machinelearningservices:DataPathAssetReference"
+        Id: "#/types/azure-native:machinelearningservices:IdAssetReference"
+        OutputPath: "#/types/azure-native:machinelearningservices:OutputPathAssetReference"
+    description: Reference to the model asset for the endpoint deployment.
+  properties:
+    type: object
+    additionalProperties:
+      type: string
+    description: Property dictionary. Properties can be added, but not removed or altered.
+  readinessProbe:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices:ProbeSettings"
+    description: Deployment container liveness/readiness probe configuration.
+  requestSettings:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices:OnlineRequestSettings"
+    description: Online deployment scoring requests configuration.
+  scaleSettings:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices:AutoScaleSettings"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices:ManualScaleSettings"
+    discriminator:
+      propertyName: scaleType
+      mapping:
+        Auto: "#/types/azure-native:machinelearningservices:AutoScaleSettings"
+        Manual: "#/types/azure-native:machinelearningservices:ManualScaleSettings"
+    description: Online deployment scaling configuration.
+type: object
+required:
+  - endpointComputeType

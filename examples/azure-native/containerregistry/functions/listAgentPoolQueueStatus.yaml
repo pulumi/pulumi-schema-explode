@@ -1,0 +1,27 @@
+$token: azure-native:containerregistry:listAgentPoolQueueStatus
+description: |-
+  The QueueStatus of Agent Pool
+  API Version: 2019-06-01-preview.
+inputs:
+  properties:
+    agentPoolName:
+      type: string
+      description: The name of the agent pool.
+    registryName:
+      type: string
+      description: The name of the container registry.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group to which the container registry belongs.
+  type: object
+  required:
+    - agentPoolName
+    - registryName
+    - resourceGroupName
+outputs:
+  description: The QueueStatus of Agent Pool
+  properties:
+    count:
+      type: integer
+      description: The number of pending runs in the queue
+  type: object

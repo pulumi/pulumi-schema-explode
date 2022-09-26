@@ -1,0 +1,39 @@
+$token: azure-native:hybridcontainerservice:NetworkProfile
+description: NetworkProfile - Profile of network configuration.
+properties:
+  dnsServiceIP:
+    type: string
+    description: DNSServiceIP - An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
+  loadBalancerProfile:
+    type: object
+    $ref: "#/types/azure-native:hybridcontainerservice:LoadBalancerProfile"
+    description: LoadBalancerProfile - Profile of the cluster load balancer.
+  loadBalancerSku:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:hybridcontainerservice:LoadBalancerSku"
+    description: "LoadBalancerSku - The load balancer sku for the provisioned cluster. Possible values: 'unstacked-haproxy', 'stacked-kube-vip', 'stacked-metallb', 'unmanaged'. The default is 'unmanaged'."
+    default: unmanaged
+  networkPolicy:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:hybridcontainerservice:NetworkPolicy"
+    description: "NetworkPolicy - Network policy used for building Kubernetes network. Possible values include: 'calico', 'flannel'. Default is 'calico'"
+    default: calico
+  podCidr:
+    type: string
+    description: PodCidr - A CIDR notation IP range from which to assign pod IPs when kubenet is used.
+  podCidrs:
+    type: array
+    items:
+      type: string
+    description: The CIDR notation IP ranges from which to assign pod IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking.
+  serviceCidr:
+    type: string
+    description: ServiceCidr - A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
+  serviceCidrs:
+    type: array
+    items:
+      type: string
+    description: The CIDR notation IP ranges from which to assign service cluster IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking. They must not overlap with any Subnet IP ranges.
+type: object

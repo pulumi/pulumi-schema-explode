@@ -1,0 +1,90 @@
+$token: azure-native:azurestackhci/v20220301:getExtension
+description: Details of a particular extension in HCI Cluster.
+inputs:
+  properties:
+    arcSettingName:
+      type: string
+      description: The name of the proxy resource holding details of HCI ArcSetting information.
+    clusterName:
+      type: string
+      description: The name of the cluster.
+    extensionName:
+      type: string
+      description: The name of the machine extension.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+  type: object
+  required:
+    - arcSettingName
+    - clusterName
+    - extensionName
+    - resourceGroupName
+outputs:
+  description: Details of a particular extension in HCI Cluster.
+  properties:
+    aggregateState:
+      type: string
+      description: Aggregate state of Arc Extensions across the nodes in this HCI cluster.
+    autoUpgradeMinorVersion:
+      type: boolean
+      description: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+    createdAt:
+      type: string
+      description: The timestamp of resource creation (UTC).
+    createdBy:
+      type: string
+      description: The identity that created the resource.
+    createdByType:
+      type: string
+      description: The type of identity that created the resource.
+    forceUpdateTag:
+      type: string
+      description: How the extension handler should be forced to update even if the extension configuration has not changed.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    lastModifiedAt:
+      type: string
+      description: The timestamp of resource last modification (UTC)
+    lastModifiedBy:
+      type: string
+      description: The identity that last modified the resource.
+    lastModifiedByType:
+      type: string
+      description: The type of identity that last modified the resource.
+    name:
+      type: string
+      description: The name of the resource
+    perNodeExtensionDetails:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:azurestackhci/v20220301:PerNodeExtensionStateResponse"
+      description: State of Arc Extension in each of the nodes.
+    protectedSettings:
+      $ref: pulumi.json#/Any
+      description: Protected settings (may contain secrets).
+    provisioningState:
+      type: string
+      description: Provisioning state of the Extension proxy resource.
+    publisher:
+      type: string
+      description: The name of the extension handler publisher.
+    settings:
+      $ref: pulumi.json#/Any
+      description: Json formatted public settings for the extension.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+    typeHandlerVersion:
+      type: string
+      description: Specifies the version of the script handler.
+  type: object
+  required:
+    - aggregateState
+    - id
+    - name
+    - perNodeExtensionDetails
+    - provisioningState
+    - type

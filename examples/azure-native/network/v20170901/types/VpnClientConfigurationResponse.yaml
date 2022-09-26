@@ -1,0 +1,31 @@
+$token: azure-native:network/v20170901:VpnClientConfigurationResponse
+description: VpnClientConfiguration for P2S client.
+properties:
+  radiusServerAddress:
+    type: string
+    description: The radius server address property of the VirtualNetworkGateway resource for vpn client connection.
+  radiusServerSecret:
+    type: string
+    description: The radius secret property of the VirtualNetworkGateway resource for vpn client connection.
+  vpnClientAddressPool:
+    type: object
+    $ref: "#/types/azure-native:network/v20170901:AddressSpaceResponse"
+    description: The reference of the address space resource which represents Address space for P2S VpnClient.
+  vpnClientProtocols:
+    type: array
+    items:
+      type: string
+    description: VpnClientProtocols for Virtual network gateway.
+  vpnClientRevokedCertificates:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20170901:VpnClientRevokedCertificateResponse"
+    description: VpnClientRevokedCertificate for Virtual network gateway.
+  vpnClientRootCertificates:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20170901:VpnClientRootCertificateResponse"
+    description: VpnClientRootCertificate for virtual network gateway.
+type: object

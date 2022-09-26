@@ -1,0 +1,36 @@
+$token: azure-native:migrate:LoadBalancerResourceSettingsResponse
+description: Defines the load balancer resource settings.
+properties:
+  backendAddressPools:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:migrate:LBBackendAddressPoolResourceSettingsResponse"
+    description: Gets or sets the backend address pools of the load balancer.
+  frontendIPConfigurations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:migrate:LBFrontendIPConfigurationResourceSettingsResponse"
+    description: Gets or sets the frontend IP configurations of the load balancer.
+  resourceType:
+    type: string
+    description: |-
+      The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+      Expected value is 'Microsoft.Network/loadBalancers'.
+    const: Microsoft.Network/loadBalancers
+  sku:
+    type: string
+    description: Gets or sets load balancer sku (Basic/Standard).
+  targetResourceName:
+    type: string
+    description: Gets or sets the target Resource name.
+  zones:
+    type: string
+    description: "Gets or sets the csv list of zones common for all frontend IP configurations. Note this is given\r
+
+      \ precedence only if frontend IP configurations settings are not present."
+type: object
+required:
+  - resourceType
+  - targetResourceName

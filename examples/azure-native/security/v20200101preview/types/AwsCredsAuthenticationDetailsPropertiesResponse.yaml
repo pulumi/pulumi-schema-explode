@@ -1,0 +1,34 @@
+$token: azure-native:security/v20200101preview:AwsCredsAuthenticationDetailsPropertiesResponse
+description: AWS cloud account connector based credentials, the credentials is composed of access key ID and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
+properties:
+  accountId:
+    type: string
+    description: The ID of the cloud account
+  authenticationProvisioningState:
+    type: string
+    description: State of the multi-cloud connector
+  authenticationType:
+    type: string
+    description: |-
+      Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+      Expected value is 'awsCreds'.
+    const: awsCreds
+  awsAccessKeyId:
+    type: string
+    description: Public key element of the AWS credential object (write only)
+  awsSecretAccessKey:
+    type: string
+    description: Secret key element of the AWS credential object (write only)
+  grantedPermissions:
+    type: array
+    items:
+      type: string
+    description: The permissions detected in the cloud account.
+type: object
+required:
+  - accountId
+  - authenticationProvisioningState
+  - authenticationType
+  - awsAccessKeyId
+  - awsSecretAccessKey
+  - grantedPermissions

@@ -1,0 +1,48 @@
+$token: azure-native:automanage/v20220504:ConfigurationProfileAssignment
+description: Configuration profile assignment is an association between a VM and automanage profile configuration.
+properties:
+  managedBy:
+    type: string
+    description: Azure resource id. Indicates if this resource is managed by another Azure resource.
+  name:
+    type: string
+    description: The name of the resource
+  properties:
+    type: object
+    $ref: "#/types/azure-native:automanage/v20220504:ConfigurationProfileAssignmentPropertiesResponse"
+    description: Properties of the configuration profile assignment.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:automanage/v20220504:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - managedBy
+  - name
+  - properties
+  - systemData
+  - type
+inputProperties:
+  configurationProfileAssignmentName:
+    type: string
+    description: Name of the configuration profile assignment. Only default is supported.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:automanage/v20220504:ConfigurationProfileAssignmentProperties"
+    description: Properties of the configuration profile assignment.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  vmName:
+    type: string
+    description: The name of the virtual machine.
+requiredInputs:
+  - resourceGroupName
+  - vmName
+aliases:
+  - type: azure-native:automanage:ConfigurationProfileAssignment
+  - type: azure-native:automanage/v20200630preview:ConfigurationProfileAssignment
+  - type: azure-native:automanage/v20210430preview:ConfigurationProfileAssignment

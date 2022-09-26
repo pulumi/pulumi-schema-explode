@@ -1,0 +1,14 @@
+$token: azure-native:media:AccountEncryption
+properties:
+  keyVaultProperties:
+    type: object
+    $ref: "#/types/azure-native:media:KeyVaultProperties"
+    description: The properties of the key used to encrypt the account.
+  type:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:media:AccountEncryptionKeyType"
+    description: The type of key used to encrypt the Account Key.
+type: object
+required:
+  - type

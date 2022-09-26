@@ -1,0 +1,33 @@
+$token: azure-native:datafactory/v20180601:CmdkeySetupResponse
+description: The custom setup of running cmdkey commands.
+properties:
+  password:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:AzureKeyVaultSecretReferenceResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:SecureStringResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        AzureKeyVaultSecret: "#/types/azure-native:datafactory/v20180601:AzureKeyVaultSecretReferenceResponse"
+        SecureString: "#/types/azure-native:datafactory/v20180601:SecureStringResponse"
+    description: The password of data source access.
+  targetName:
+    $ref: pulumi.json#/Any
+    description: The server name of data source access.
+  type:
+    type: string
+    description: |-
+      The type of custom setup.
+      Expected value is 'CmdkeySetup'.
+    const: CmdkeySetup
+  userName:
+    $ref: pulumi.json#/Any
+    description: The user name of data source access.
+type: object
+required:
+  - password
+  - targetName
+  - type
+  - userName

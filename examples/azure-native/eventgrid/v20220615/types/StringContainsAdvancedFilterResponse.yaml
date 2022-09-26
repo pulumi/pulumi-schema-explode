@@ -1,0 +1,20 @@
+$token: azure-native:eventgrid/v20220615:StringContainsAdvancedFilterResponse
+description: StringContains Advanced Filter.
+properties:
+  key:
+    type: string
+    description: The field/property in the event based on which you want to filter.
+  operatorType:
+    type: string
+    description: |-
+      The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+      Expected value is 'StringContains'.
+    const: StringContains
+  values:
+    type: array
+    items:
+      type: string
+    description: The set of filter values.
+type: object
+required:
+  - operatorType

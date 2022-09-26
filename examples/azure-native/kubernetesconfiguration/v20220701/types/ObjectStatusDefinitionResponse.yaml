@@ -1,0 +1,30 @@
+$token: azure-native:kubernetesconfiguration/v20220701:ObjectStatusDefinitionResponse
+description: Statuses of objects deployed by the user-specified kustomizations from the git repository.
+properties:
+  appliedBy:
+    type: object
+    $ref: "#/types/azure-native:kubernetesconfiguration/v20220701:ObjectReferenceDefinitionResponse"
+    description: Object reference to the Kustomization that applied this object
+  complianceState:
+    type: string
+    description: Compliance state of the applied object showing whether the applied object has come into a ready state on the cluster.
+  helmReleaseProperties:
+    type: object
+    $ref: "#/types/azure-native:kubernetesconfiguration/v20220701:HelmReleasePropertiesDefinitionResponse"
+    description: Additional properties that are provided from objects of the HelmRelease kind
+  kind:
+    type: string
+    description: Kind of the applied object
+  name:
+    type: string
+    description: Name of the applied object
+  namespace:
+    type: string
+    description: Namespace of the applied object
+  statusConditions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:kubernetesconfiguration/v20220701:ObjectStatusConditionDefinitionResponse"
+    description: List of Kubernetes object status conditions present on the cluster
+type: object

@@ -1,0 +1,32 @@
+$token: azure-native:keyvault/v20190901:Permissions
+description: Permissions the identity has for keys, secrets, certificates and storage.
+properties:
+  certificates:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:keyvault/v20190901:CertificatePermissions"
+    description: Permissions to certificates
+  keys:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:keyvault/v20190901:KeyPermissions"
+    description: Permissions to keys
+  secrets:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:keyvault/v20190901:SecretPermissions"
+    description: Permissions to secrets
+  storage:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:keyvault/v20190901:StoragePermissions"
+    description: Permissions to storage accounts
+type: object

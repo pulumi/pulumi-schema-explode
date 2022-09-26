@@ -1,0 +1,27 @@
+$token: azure-native:labservices/v20181015:getGlobalUserEnvironment
+description: Represents the environments details
+inputs:
+  properties:
+    environmentId:
+      type: string
+      description: The resourceId of the environment
+    expand:
+      type: string
+      description: "Specify the $expand query. Example: 'properties($expand=environment)'"
+    userName:
+      type: string
+      description: The name of the user.
+  type: object
+  required:
+    - environmentId
+    - userName
+outputs:
+  description: Represents the environments details
+  properties:
+    environment:
+      type: object
+      $ref: "#/types/azure-native:labservices/v20181015:EnvironmentDetailsResponse"
+      description: Details of the environment
+  type: object
+  required:
+    - environment

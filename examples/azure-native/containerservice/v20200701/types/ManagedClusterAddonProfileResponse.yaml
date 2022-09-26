@@ -1,0 +1,19 @@
+$token: azure-native:containerservice/v20200701:ManagedClusterAddonProfileResponse
+description: A Kubernetes add-on profile for a managed cluster.
+properties:
+  config:
+    type: object
+    additionalProperties:
+      type: string
+    description: Key-value pairs for configuring an add-on.
+  enabled:
+    type: boolean
+    description: Whether the add-on is enabled or not.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:containerservice/v20200701:ManagedClusterAddonProfileResponseIdentity"
+    description: Information of user assigned identity used by this add-on.
+type: object
+required:
+  - enabled
+  - identity

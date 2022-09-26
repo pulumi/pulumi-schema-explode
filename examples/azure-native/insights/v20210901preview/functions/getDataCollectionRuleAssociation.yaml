@@ -1,0 +1,58 @@
+$token: azure-native:insights/v20210901preview:getDataCollectionRuleAssociation
+description: Definition of generic ARM proxy resource.
+inputs:
+  properties:
+    associationName:
+      type: string
+      description: The name of the association. The name is case insensitive.
+    resourceUri:
+      type: string
+      description: The identifier of the resource.
+  type: object
+  required:
+    - associationName
+    - resourceUri
+outputs:
+  description: Definition of generic ARM proxy resource.
+  properties:
+    dataCollectionEndpointId:
+      type: string
+      description: The resource ID of the data collection endpoint that is to be associated.
+    dataCollectionRuleId:
+      type: string
+      description: The resource ID of the data collection rule that is to be associated.
+    description:
+      type: string
+      description: Description of the association.
+    etag:
+      type: string
+      description: Resource entity tag (ETag).
+    id:
+      type: string
+      description: Fully qualified ID of the resource.
+    metadata:
+      type: object
+      $ref: "#/types/azure-native:insights/v20210901preview:DataCollectionRuleAssociationResponseMetadata"
+      description: Metadata about the resource
+    name:
+      type: string
+      description: The name of the resource.
+    provisioningState:
+      type: string
+      description: The resource provisioning state.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:insights/v20210901preview:DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData"
+      description: Metadata pertaining to creation and last modification of the resource.
+    type:
+      type: string
+      description: The type of the resource.
+  type: object
+  required:
+    - etag
+    - id
+    - metadata
+    - name
+    - provisioningState
+    - systemData
+    - type

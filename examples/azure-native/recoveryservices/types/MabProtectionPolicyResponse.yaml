@@ -1,0 +1,42 @@
+$token: azure-native:recoveryservices:MabProtectionPolicyResponse
+description: Mab container-specific backup policy.
+properties:
+  backupManagementType:
+    type: string
+    description: |-
+      This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+      Expected value is 'MAB'.
+    const: MAB
+  protectedItemsCount:
+    type: integer
+    description: Number of items associated with this policy.
+  retentionPolicy:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices:LongTermRetentionPolicyResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices:SimpleRetentionPolicyResponse"
+    discriminator:
+      propertyName: retentionPolicyType
+      mapping:
+        LongTermRetentionPolicy: "#/types/azure-native:recoveryservices:LongTermRetentionPolicyResponse"
+        SimpleRetentionPolicy: "#/types/azure-native:recoveryservices:SimpleRetentionPolicyResponse"
+    description: Retention policy details.
+  schedulePolicy:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices:LogSchedulePolicyResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices:LongTermSchedulePolicyResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices:SimpleSchedulePolicyResponse"
+    discriminator:
+      propertyName: schedulePolicyType
+      mapping:
+        LogSchedulePolicy: "#/types/azure-native:recoveryservices:LogSchedulePolicyResponse"
+        LongTermSchedulePolicy: "#/types/azure-native:recoveryservices:LongTermSchedulePolicyResponse"
+        SimpleSchedulePolicy: "#/types/azure-native:recoveryservices:SimpleSchedulePolicyResponse"
+    description: Backup schedule of backup policy.
+type: object
+required:
+  - backupManagementType

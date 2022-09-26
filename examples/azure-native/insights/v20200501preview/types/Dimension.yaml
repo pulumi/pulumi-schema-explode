@@ -1,0 +1,21 @@
+$token: azure-native:insights/v20200501preview:Dimension
+description: Dimension splitting and filtering definition
+properties:
+  name:
+    type: string
+    description: Name of the dimension
+  operator:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:insights/v20200501preview:DimensionOperator"
+    description: Operator for dimension values
+  values:
+    type: array
+    items:
+      type: string
+    description: List of dimension values
+type: object
+required:
+  - name
+  - operator
+  - values

@@ -1,0 +1,256 @@
+$token: azure-native:datamigration/v20220330preview:ServiceTask
+description: A task resource
+properties:
+  etag:
+    type: string
+    description: HTTP strong entity tag value. This is ignored if submitted.
+  name:
+    type: string
+    description: Resource name.
+  properties:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:ConnectToMongoDbTaskPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:ConnectToSourceMySqlTaskPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:ConnectToSourceOracleSyncTaskPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:ConnectToSourcePostgreSqlSyncTaskPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:ConnectToSourceSqlServerSyncTaskPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:ConnectToSourceSqlServerTaskPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:ConnectToTargetAzureDbForMySqlTaskPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:ConnectToTargetSqlDbTaskPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:ConnectToTargetSqlMISyncTaskPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:ConnectToTargetSqlMITaskPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:ConnectToTargetSqlSqlDbSyncTaskPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:GetTdeCertificatesSqlTaskPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:GetUserTablesMySqlTaskPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:GetUserTablesOracleTaskPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:GetUserTablesPostgreSqlTaskPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:GetUserTablesSqlSyncTaskPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:GetUserTablesSqlTaskPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:MigrateMongoDbTaskPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:MigrateSqlServerSqlDbSyncTaskPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:MigrateSqlServerSqlDbTaskPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:MigrateSqlServerSqlMISyncTaskPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:MigrateSqlServerSqlMITaskPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:MigrateSsisTaskPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:ValidateMongoDbTaskPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse"
+    discriminator:
+      propertyName: taskType
+      mapping:
+        Connect.MongoDb: "#/types/azure-native:datamigration/v20220330preview:ConnectToMongoDbTaskPropertiesResponse"
+        ConnectToSource.MySql: "#/types/azure-native:datamigration/v20220330preview:ConnectToSourceMySqlTaskPropertiesResponse"
+        ConnectToSource.Oracle.Sync: "#/types/azure-native:datamigration/v20220330preview:ConnectToSourceOracleSyncTaskPropertiesResponse"
+        ConnectToSource.PostgreSql.Sync: "#/types/azure-native:datamigration/v20220330preview:ConnectToSourcePostgreSqlSyncTaskPropertiesResponse"
+        ConnectToSource.SqlServer: "#/types/azure-native:datamigration/v20220330preview:ConnectToSourceSqlServerTaskPropertiesResponse"
+        ConnectToSource.SqlServer.Sync: "#/types/azure-native:datamigration/v20220330preview:ConnectToSourceSqlServerSyncTaskPropertiesResponse"
+        ConnectToTarget.AzureDbForMySql: "#/types/azure-native:datamigration/v20220330preview:ConnectToTargetAzureDbForMySqlTaskPropertiesResponse"
+        ConnectToTarget.AzureDbForPostgreSql.Sync: "#/types/azure-native:datamigration/v20220330preview:ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponse"
+        ConnectToTarget.AzureSqlDbMI: "#/types/azure-native:datamigration/v20220330preview:ConnectToTargetSqlMITaskPropertiesResponse"
+        ConnectToTarget.AzureSqlDbMI.Sync.LRS: "#/types/azure-native:datamigration/v20220330preview:ConnectToTargetSqlMISyncTaskPropertiesResponse"
+        ConnectToTarget.Oracle.AzureDbForPostgreSql.Sync: "#/types/azure-native:datamigration/v20220330preview:ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse"
+        ConnectToTarget.SqlDb: "#/types/azure-native:datamigration/v20220330preview:ConnectToTargetSqlDbTaskPropertiesResponse"
+        ConnectToTarget.SqlDb.Sync: "#/types/azure-native:datamigration/v20220330preview:ConnectToTargetSqlSqlDbSyncTaskPropertiesResponse"
+        GetTDECertificates.Sql: "#/types/azure-native:datamigration/v20220330preview:GetTdeCertificatesSqlTaskPropertiesResponse"
+        GetUserTables.AzureSqlDb.Sync: "#/types/azure-native:datamigration/v20220330preview:GetUserTablesSqlSyncTaskPropertiesResponse"
+        GetUserTables.Sql: "#/types/azure-native:datamigration/v20220330preview:GetUserTablesSqlTaskPropertiesResponse"
+        GetUserTablesMySql: "#/types/azure-native:datamigration/v20220330preview:GetUserTablesMySqlTaskPropertiesResponse"
+        GetUserTablesOracle: "#/types/azure-native:datamigration/v20220330preview:GetUserTablesOracleTaskPropertiesResponse"
+        GetUserTablesPostgreSql: "#/types/azure-native:datamigration/v20220330preview:GetUserTablesPostgreSqlTaskPropertiesResponse"
+        Migrate.MongoDb: "#/types/azure-native:datamigration/v20220330preview:MigrateMongoDbTaskPropertiesResponse"
+        Migrate.MySql.AzureDbForMySql: "#/types/azure-native:datamigration/v20220330preview:MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesResponse"
+        Migrate.MySql.AzureDbForMySql.Sync: "#/types/azure-native:datamigration/v20220330preview:MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponse"
+        Migrate.Oracle.AzureDbForPostgreSql.Sync: "#/types/azure-native:datamigration/v20220330preview:MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse"
+        Migrate.PostgreSql.AzureDbForPostgreSql.SyncV2: "#/types/azure-native:datamigration/v20220330preview:MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponse"
+        Migrate.SqlServer.AzureSqlDb.Sync: "#/types/azure-native:datamigration/v20220330preview:MigrateSqlServerSqlDbSyncTaskPropertiesResponse"
+        Migrate.SqlServer.AzureSqlDbMI: "#/types/azure-native:datamigration/v20220330preview:MigrateSqlServerSqlMITaskPropertiesResponse"
+        Migrate.SqlServer.AzureSqlDbMI.Sync.LRS: "#/types/azure-native:datamigration/v20220330preview:MigrateSqlServerSqlMISyncTaskPropertiesResponse"
+        Migrate.SqlServer.SqlDb: "#/types/azure-native:datamigration/v20220330preview:MigrateSqlServerSqlDbTaskPropertiesResponse"
+        Migrate.Ssis: "#/types/azure-native:datamigration/v20220330preview:MigrateSsisTaskPropertiesResponse"
+        Validate.MongoDb: "#/types/azure-native:datamigration/v20220330preview:ValidateMongoDbTaskPropertiesResponse"
+        Validate.Oracle.AzureDbPostgreSql.Sync: "#/types/azure-native:datamigration/v20220330preview:ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse"
+        ValidateMigrationInput.SqlServer.AzureSqlDbMI: "#/types/azure-native:datamigration/v20220330preview:ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse"
+        ValidateMigrationInput.SqlServer.AzureSqlDbMI.Sync.LRS: "#/types/azure-native:datamigration/v20220330preview:ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponse"
+        ValidateMigrationInput.SqlServer.SqlDb.Sync: "#/types/azure-native:datamigration/v20220330preview:ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponse"
+    description: Custom task properties
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20220330preview:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - name
+  - properties
+  - systemData
+  - type
+inputProperties:
+  groupName:
+    type: string
+    description: Name of the resource group
+  properties:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:ConnectToMongoDbTaskProperties"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:ConnectToSourceMySqlTaskProperties"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:ConnectToSourceOracleSyncTaskProperties"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:ConnectToSourcePostgreSqlSyncTaskProperties"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:ConnectToSourceSqlServerSyncTaskProperties"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:ConnectToSourceSqlServerTaskProperties"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:ConnectToTargetAzureDbForMySqlTaskProperties"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:ConnectToTargetAzureDbForPostgreSqlSyncTaskProperties"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskProperties"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:ConnectToTargetSqlDbTaskProperties"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:ConnectToTargetSqlMISyncTaskProperties"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:ConnectToTargetSqlMITaskProperties"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:ConnectToTargetSqlSqlDbSyncTaskProperties"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:GetTdeCertificatesSqlTaskProperties"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:GetUserTablesMySqlTaskProperties"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:GetUserTablesOracleTaskProperties"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:GetUserTablesPostgreSqlTaskProperties"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:GetUserTablesSqlSyncTaskProperties"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:GetUserTablesSqlTaskProperties"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:MigrateMongoDbTaskProperties"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:MigrateMySqlAzureDbForMySqlOfflineTaskProperties"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:MigrateMySqlAzureDbForMySqlSyncTaskProperties"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:MigrateOracleAzureDbForPostgreSqlSyncTaskProperties"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:MigratePostgreSqlAzureDbForPostgreSqlSyncTaskProperties"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:MigrateSqlServerSqlDbSyncTaskProperties"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:MigrateSqlServerSqlDbTaskProperties"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:MigrateSqlServerSqlMISyncTaskProperties"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:MigrateSqlServerSqlMITaskProperties"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:MigrateSsisTaskProperties"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:ValidateMigrationInputSqlServerSqlDbSyncTaskProperties"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:ValidateMigrationInputSqlServerSqlMISyncTaskProperties"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:ValidateMigrationInputSqlServerSqlMITaskProperties"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:ValidateMongoDbTaskProperties"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20220330preview:ValidateOracleAzureDbForPostgreSqlSyncTaskProperties"
+    discriminator:
+      propertyName: taskType
+      mapping:
+        Connect.MongoDb: "#/types/azure-native:datamigration/v20220330preview:ConnectToMongoDbTaskProperties"
+        ConnectToSource.MySql: "#/types/azure-native:datamigration/v20220330preview:ConnectToSourceMySqlTaskProperties"
+        ConnectToSource.Oracle.Sync: "#/types/azure-native:datamigration/v20220330preview:ConnectToSourceOracleSyncTaskProperties"
+        ConnectToSource.PostgreSql.Sync: "#/types/azure-native:datamigration/v20220330preview:ConnectToSourcePostgreSqlSyncTaskProperties"
+        ConnectToSource.SqlServer: "#/types/azure-native:datamigration/v20220330preview:ConnectToSourceSqlServerTaskProperties"
+        ConnectToSource.SqlServer.Sync: "#/types/azure-native:datamigration/v20220330preview:ConnectToSourceSqlServerSyncTaskProperties"
+        ConnectToTarget.AzureDbForMySql: "#/types/azure-native:datamigration/v20220330preview:ConnectToTargetAzureDbForMySqlTaskProperties"
+        ConnectToTarget.AzureDbForPostgreSql.Sync: "#/types/azure-native:datamigration/v20220330preview:ConnectToTargetAzureDbForPostgreSqlSyncTaskProperties"
+        ConnectToTarget.AzureSqlDbMI: "#/types/azure-native:datamigration/v20220330preview:ConnectToTargetSqlMITaskProperties"
+        ConnectToTarget.AzureSqlDbMI.Sync.LRS: "#/types/azure-native:datamigration/v20220330preview:ConnectToTargetSqlMISyncTaskProperties"
+        ConnectToTarget.Oracle.AzureDbForPostgreSql.Sync: "#/types/azure-native:datamigration/v20220330preview:ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskProperties"
+        ConnectToTarget.SqlDb: "#/types/azure-native:datamigration/v20220330preview:ConnectToTargetSqlDbTaskProperties"
+        ConnectToTarget.SqlDb.Sync: "#/types/azure-native:datamigration/v20220330preview:ConnectToTargetSqlSqlDbSyncTaskProperties"
+        GetTDECertificates.Sql: "#/types/azure-native:datamigration/v20220330preview:GetTdeCertificatesSqlTaskProperties"
+        GetUserTables.AzureSqlDb.Sync: "#/types/azure-native:datamigration/v20220330preview:GetUserTablesSqlSyncTaskProperties"
+        GetUserTables.Sql: "#/types/azure-native:datamigration/v20220330preview:GetUserTablesSqlTaskProperties"
+        GetUserTablesMySql: "#/types/azure-native:datamigration/v20220330preview:GetUserTablesMySqlTaskProperties"
+        GetUserTablesOracle: "#/types/azure-native:datamigration/v20220330preview:GetUserTablesOracleTaskProperties"
+        GetUserTablesPostgreSql: "#/types/azure-native:datamigration/v20220330preview:GetUserTablesPostgreSqlTaskProperties"
+        Migrate.MongoDb: "#/types/azure-native:datamigration/v20220330preview:MigrateMongoDbTaskProperties"
+        Migrate.MySql.AzureDbForMySql: "#/types/azure-native:datamigration/v20220330preview:MigrateMySqlAzureDbForMySqlOfflineTaskProperties"
+        Migrate.MySql.AzureDbForMySql.Sync: "#/types/azure-native:datamigration/v20220330preview:MigrateMySqlAzureDbForMySqlSyncTaskProperties"
+        Migrate.Oracle.AzureDbForPostgreSql.Sync: "#/types/azure-native:datamigration/v20220330preview:MigrateOracleAzureDbForPostgreSqlSyncTaskProperties"
+        Migrate.PostgreSql.AzureDbForPostgreSql.SyncV2: "#/types/azure-native:datamigration/v20220330preview:MigratePostgreSqlAzureDbForPostgreSqlSyncTaskProperties"
+        Migrate.SqlServer.AzureSqlDb.Sync: "#/types/azure-native:datamigration/v20220330preview:MigrateSqlServerSqlDbSyncTaskProperties"
+        Migrate.SqlServer.AzureSqlDbMI: "#/types/azure-native:datamigration/v20220330preview:MigrateSqlServerSqlMITaskProperties"
+        Migrate.SqlServer.AzureSqlDbMI.Sync.LRS: "#/types/azure-native:datamigration/v20220330preview:MigrateSqlServerSqlMISyncTaskProperties"
+        Migrate.SqlServer.SqlDb: "#/types/azure-native:datamigration/v20220330preview:MigrateSqlServerSqlDbTaskProperties"
+        Migrate.Ssis: "#/types/azure-native:datamigration/v20220330preview:MigrateSsisTaskProperties"
+        Validate.MongoDb: "#/types/azure-native:datamigration/v20220330preview:ValidateMongoDbTaskProperties"
+        Validate.Oracle.AzureDbPostgreSql.Sync: "#/types/azure-native:datamigration/v20220330preview:ValidateOracleAzureDbForPostgreSqlSyncTaskProperties"
+        ValidateMigrationInput.SqlServer.AzureSqlDbMI: "#/types/azure-native:datamigration/v20220330preview:ValidateMigrationInputSqlServerSqlMITaskProperties"
+        ValidateMigrationInput.SqlServer.AzureSqlDbMI.Sync.LRS: "#/types/azure-native:datamigration/v20220330preview:ValidateMigrationInputSqlServerSqlMISyncTaskProperties"
+        ValidateMigrationInput.SqlServer.SqlDb.Sync: "#/types/azure-native:datamigration/v20220330preview:ValidateMigrationInputSqlServerSqlDbSyncTaskProperties"
+    description: Custom task properties
+  serviceName:
+    type: string
+    description: Name of the service
+  taskName:
+    type: string
+    description: Name of the Task
+requiredInputs:
+  - groupName
+  - serviceName
+aliases:
+  - type: azure-native:datamigration/v20180715preview:ServiceTask
+  - type: azure-native:datamigration/v20210630:ServiceTask
+  - type: azure-native:datamigration/v20211030preview:ServiceTask
+  - type: azure-native:datamigration/v20220130preview:ServiceTask

@@ -1,0 +1,152 @@
+$token: azure-native:cdn/v20220501preview:Route
+description: Friendly Routes name mapping to the any Routes or secret related information.
+properties:
+  cacheConfiguration:
+    type: object
+    $ref: "#/types/azure-native:cdn/v20220501preview:AfdRouteCacheConfigurationResponse"
+    description: The caching configuration for this route. To disable caching, do not provide a cacheConfiguration object.
+  customDomains:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:cdn/v20220501preview:ActivatedResourceReferenceResponse"
+    description: Domains referenced by this endpoint.
+  deploymentStatus:
+    type: string
+  enabledState:
+    type: string
+    description: Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
+  endpointName:
+    type: string
+    description: The name of the endpoint which holds the route.
+  forwardingProtocol:
+    type: string
+    description: Protocol this rule will use when forwarding traffic to backends.
+  httpsRedirect:
+    type: string
+    description: Whether to automatically redirect HTTP traffic to HTTPS traffic. Note that this is a easy way to set up this rule and it will be the first rule that gets executed.
+  linkToDefaultDomain:
+    type: string
+    description: whether this route will be linked to the default endpoint domain.
+  name:
+    type: string
+    description: Resource name.
+  originGroup:
+    type: object
+    $ref: "#/types/azure-native:cdn/v20220501preview:ResourceReferenceResponse"
+    description: A reference to the origin group.
+  originPath:
+    type: string
+    description: A directory path on the origin that AzureFrontDoor can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
+  patternsToMatch:
+    type: array
+    items:
+      type: string
+    description: The route patterns of the rule.
+  provisioningState:
+    type: string
+    description: Provisioning status
+  ruleSets:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:cdn/v20220501preview:ResourceReferenceResponse"
+    description: rule sets referenced by this endpoint.
+  supportedProtocols:
+    type: array
+    items:
+      type: string
+    description: List of supported protocols for this route.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:cdn/v20220501preview:SystemDataResponse"
+    description: Read only system data
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - deploymentStatus
+  - endpointName
+  - name
+  - originGroup
+  - provisioningState
+  - systemData
+  - type
+inputProperties:
+  cacheConfiguration:
+    type: object
+    $ref: "#/types/azure-native:cdn/v20220501preview:AfdRouteCacheConfiguration"
+    description: The caching configuration for this route. To disable caching, do not provide a cacheConfiguration object.
+  customDomains:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:cdn/v20220501preview:ActivatedResourceReference"
+    description: Domains referenced by this endpoint.
+  enabledState:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:cdn/v20220501preview:EnabledState"
+    description: Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
+  endpointName:
+    type: string
+    description: Name of the endpoint under the profile which is unique globally.
+  forwardingProtocol:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:cdn/v20220501preview:ForwardingProtocol"
+    description: Protocol this rule will use when forwarding traffic to backends.
+  httpsRedirect:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:cdn/v20220501preview:HttpsRedirect"
+    description: Whether to automatically redirect HTTP traffic to HTTPS traffic. Note that this is a easy way to set up this rule and it will be the first rule that gets executed.
+  linkToDefaultDomain:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:cdn/v20220501preview:LinkToDefaultDomain"
+    description: whether this route will be linked to the default endpoint domain.
+  originGroup:
+    type: object
+    $ref: "#/types/azure-native:cdn/v20220501preview:ResourceReference"
+    description: A reference to the origin group.
+  originPath:
+    type: string
+    description: A directory path on the origin that AzureFrontDoor can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
+  patternsToMatch:
+    type: array
+    items:
+      type: string
+    description: The route patterns of the rule.
+  profileName:
+    type: string
+    description: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+  resourceGroupName:
+    type: string
+    description: Name of the Resource group within the Azure subscription.
+  routeName:
+    type: string
+    description: Name of the routing rule.
+  ruleSets:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:cdn/v20220501preview:ResourceReference"
+    description: rule sets referenced by this endpoint.
+  supportedProtocols:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:cdn/v20220501preview:AFDEndpointProtocols"
+    description: List of supported protocols for this route.
+requiredInputs:
+  - endpointName
+  - originGroup
+  - profileName
+  - resourceGroupName
+aliases:
+  - type: azure-native:cdn:Route
+  - type: azure-native:cdn/v20200901:Route
+  - type: azure-native:cdn/v20210601:Route

@@ -1,0 +1,67 @@
+$token: azure-native:chaos:Experiment
+description: |-
+  Model that represents a Experiment resource.
+  API Version: 2021-09-15-preview.
+properties:
+  identity:
+    type: object
+    $ref: "#/types/azure-native:chaos:ResourceIdentityResponse"
+    description: The identity of the experiment resource.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  name:
+    type: string
+    description: The name of the resource
+  properties:
+    type: object
+    $ref: "#/types/azure-native:chaos:ExperimentPropertiesResponse"
+    description: The properties of the experiment resource.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:chaos:SystemDataResponse"
+    description: The system metadata of the experiment resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - location
+  - name
+  - properties
+  - systemData
+  - type
+inputProperties:
+  experimentName:
+    type: string
+    description: String that represents a Experiment resource name.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:chaos:ResourceIdentity"
+    description: The identity of the experiment resource.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  properties:
+    type: object
+    $ref: "#/types/azure-native:chaos:ExperimentProperties"
+    description: The properties of the experiment resource.
+  resourceGroupName:
+    type: string
+    description: String that represents an Azure resource group.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - properties
+  - resourceGroupName
+aliases:
+  - type: azure-native:chaos/v20210915preview:Experiment
+  - type: azure-native:chaos/v20220701preview:Experiment

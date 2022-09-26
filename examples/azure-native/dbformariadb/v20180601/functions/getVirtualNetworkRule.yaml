@@ -1,0 +1,46 @@
+$token: azure-native:dbformariadb/v20180601:getVirtualNetworkRule
+description: A virtual network rule.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    serverName:
+      type: string
+      description: The name of the server.
+    virtualNetworkRuleName:
+      type: string
+      description: The name of the virtual network rule.
+  type: object
+  required:
+    - resourceGroupName
+    - serverName
+    - virtualNetworkRuleName
+outputs:
+  description: A virtual network rule.
+  properties:
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    ignoreMissingVnetServiceEndpoint:
+      type: boolean
+      description: Create firewall rule before the virtual network has vnet service endpoint enabled.
+    name:
+      type: string
+      description: The name of the resource
+    state:
+      type: string
+      description: Virtual Network Rule State
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+    virtualNetworkSubnetId:
+      type: string
+      description: The ARM resource id of the virtual network subnet.
+  type: object
+  required:
+    - id
+    - name
+    - state
+    - type
+    - virtualNetworkSubnetId

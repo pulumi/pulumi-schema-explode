@@ -1,0 +1,44 @@
+$token: azure-native:containerregistry/v20180201preview:getBuildStep
+description: Build step resource properties
+inputs:
+  properties:
+    buildTaskName:
+      type: string
+      description: The name of the container registry build task.
+    registryName:
+      type: string
+      description: The name of the container registry.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group to which the container registry belongs.
+    stepName:
+      type: string
+      description: The name of a build step for a container registry build task.
+  type: object
+  required:
+    - buildTaskName
+    - registryName
+    - resourceGroupName
+    - stepName
+outputs:
+  description: Build step resource properties
+  properties:
+    id:
+      type: string
+      description: The resource ID.
+    name:
+      type: string
+      description: The name of the resource.
+    properties:
+      type: object
+      $ref: "#/types/azure-native:containerregistry/v20180201preview:DockerBuildStepResponse"
+      description: The properties of a build step.
+    type:
+      type: string
+      description: The type of the resource.
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - type

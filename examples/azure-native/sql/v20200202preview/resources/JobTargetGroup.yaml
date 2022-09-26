@@ -1,0 +1,55 @@
+$token: azure-native:sql/v20200202preview:JobTargetGroup
+description: A group of job targets.
+properties:
+  members:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:sql/v20200202preview:JobTargetResponse"
+    description: Members of the target group.
+  name:
+    type: string
+    description: Resource name.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - members
+  - name
+  - type
+inputProperties:
+  jobAgentName:
+    type: string
+    description: The name of the job agent.
+  members:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:sql/v20200202preview:JobTarget"
+    description: Members of the target group.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  serverName:
+    type: string
+    description: The name of the server.
+  targetGroupName:
+    type: string
+    description: The name of the target group.
+requiredInputs:
+  - jobAgentName
+  - members
+  - resourceGroupName
+  - serverName
+aliases:
+  - type: azure-native:sql:JobTargetGroup
+  - type: azure-native:sql/v20170301preview:JobTargetGroup
+  - type: azure-native:sql/v20200801preview:JobTargetGroup
+  - type: azure-native:sql/v20201101preview:JobTargetGroup
+  - type: azure-native:sql/v20210201preview:JobTargetGroup
+  - type: azure-native:sql/v20210501preview:JobTargetGroup
+  - type: azure-native:sql/v20210801preview:JobTargetGroup
+  - type: azure-native:sql/v20211101:JobTargetGroup
+  - type: azure-native:sql/v20211101preview:JobTargetGroup
+  - type: azure-native:sql/v20220201preview:JobTargetGroup

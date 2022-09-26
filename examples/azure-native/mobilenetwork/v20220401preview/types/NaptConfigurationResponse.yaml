@@ -1,0 +1,26 @@
+$token: azure-native:mobilenetwork/v20220401preview:NaptConfigurationResponse
+description: The network address and port translation settings to use for the attached data network.
+properties:
+  enabled:
+    type: string
+    description: Whether NAPT is enabled for connections to this attached data network.
+  pinholeLimits:
+    type: integer
+    description: Maximum number of UDP and TCP pinholes that can be open simultaneously on the core interface. For 5G networks, this is the N6 interface. For 4G networks, this is the SGi interface.
+    default: 65536
+  pinholeTimeouts:
+    type: object
+    $ref: "#/types/azure-native:mobilenetwork/v20220401preview:PinholeTimeoutsResponse"
+    description: Expiry times of inactive NAPT pinholes, in seconds. All timers must be at least 1 second.
+  portRange:
+    type: object
+    $ref: "#/types/azure-native:mobilenetwork/v20220401preview:PortRangeResponse"
+    description: |-
+      Range of port numbers to use as translated ports on each translated address.
+      If not specified and NAPT is enabled, this range defaults to 1,024 - 49,999.
+      (Ports under 1,024 should not be used because these are special purpose ports reserved by IANA. Ports 50,000 and above are reserved for non-NAPT use.)
+  portReuseHoldTime:
+    type: object
+    $ref: "#/types/azure-native:mobilenetwork/v20220401preview:PortReuseHoldTimesResponse"
+    description: The minimum time (in seconds) that will pass before a port that was used by a closed pinhole can be recycled for use by another pinhole. All hold times must be minimum 1 second.
+type: object

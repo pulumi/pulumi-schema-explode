@@ -1,0 +1,57 @@
+$token: azure-native:machinelearningservices/v20210301preview:DatastorePropertiesResponse
+description: Datastore definition.
+properties:
+  contents:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:AzureBlobContentsResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:AzureDataLakeGen1ContentsResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:AzureDataLakeGen2ContentsResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:AzureFileContentsResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:AzurePostgreSqlContentsResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:AzureSqlDatabaseContentsResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:GlusterFsContentsResponse"
+    discriminator:
+      propertyName: contentsType
+      mapping:
+        AzureBlob: "#/types/azure-native:machinelearningservices/v20210301preview:AzureBlobContentsResponse"
+        AzureDataLakeGen1: "#/types/azure-native:machinelearningservices/v20210301preview:AzureDataLakeGen1ContentsResponse"
+        AzureDataLakeGen2: "#/types/azure-native:machinelearningservices/v20210301preview:AzureDataLakeGen2ContentsResponse"
+        AzureFile: "#/types/azure-native:machinelearningservices/v20210301preview:AzureFileContentsResponse"
+        AzurePostgreSql: "#/types/azure-native:machinelearningservices/v20210301preview:AzurePostgreSqlContentsResponse"
+        AzureSqlDatabase: "#/types/azure-native:machinelearningservices/v20210301preview:AzureSqlDatabaseContentsResponse"
+        GlusterFs: "#/types/azure-native:machinelearningservices/v20210301preview:GlusterFsContentsResponse"
+    description: "[Required] Reference to the datastore storage contents."
+  description:
+    type: string
+    description: The asset description text.
+  hasBeenValidated:
+    type: boolean
+    description: Whether the service has validated access to the datastore with the provided credentials.
+  isDefault:
+    type: boolean
+    description: Whether this datastore is the default for the workspace.
+  linkedInfo:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20210301preview:LinkedInfoResponse"
+    description: Information about the datastore origin, if linked.
+  properties:
+    type: object
+    additionalProperties:
+      type: string
+    description: The asset property dictionary.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Tag dictionary. Tags can be added, removed, and updated.
+type: object
+required:
+  - contents
+  - hasBeenValidated

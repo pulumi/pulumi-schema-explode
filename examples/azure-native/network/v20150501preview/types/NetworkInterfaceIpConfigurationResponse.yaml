@@ -1,0 +1,42 @@
+$token: azure-native:network/v20150501preview:NetworkInterfaceIpConfigurationResponse
+description: IPConfiguration in a NetworkInterface
+properties:
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated
+  id:
+    type: string
+    description: Resource Id
+  loadBalancerBackendAddressPools:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20150501preview:SubResourceResponse"
+    description: Gets or sets the reference of LoadBalancerBackendAddressPool resource
+  loadBalancerInboundNatRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20150501preview:SubResourceResponse"
+    description: Gets or sets list of references of LoadBalancerInboundNatRules
+  name:
+    type: string
+    description: Gets name of the resource that is unique within a resource group. This name can be used to access the resource
+  privateIPAddress:
+    type: string
+    description: Gets or sets the privateIPAddress of the Network Interface IP Configuration
+  privateIPAllocationMethod:
+    type: string
+    description: Gets or sets PrivateIP allocation method (Static/Dynamic)
+  provisioningState:
+    type: string
+    description: Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+  publicIPAddress:
+    type: object
+    $ref: "#/types/azure-native:network/v20150501preview:SubResourceResponse"
+    description: Gets or sets the reference of the PublicIP resource
+  subnet:
+    type: object
+    $ref: "#/types/azure-native:network/v20150501preview:SubResourceResponse"
+    description: Gets or sets the reference of the subnet resource
+type: object

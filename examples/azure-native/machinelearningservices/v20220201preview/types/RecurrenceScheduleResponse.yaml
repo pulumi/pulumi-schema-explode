@@ -1,0 +1,42 @@
+$token: azure-native:machinelearningservices/v20220201preview:RecurrenceScheduleResponse
+description: Recurrence schedule definition
+properties:
+  endTime:
+    type: string
+    description: "Specifies end time of schedule in ISO 8601 format.\r
+
+      If not present, the schedule will run indefinitely"
+  frequency:
+    type: string
+    description: "[Required] Specifies frequency with with which to trigger schedule"
+  interval:
+    type: integer
+    description: "[Required] Specifies schedule interval in conjunction with frequency"
+  pattern:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220201preview:RecurrencePatternResponse"
+    description: Specifies the recurrence schedule pattern
+  scheduleStatus:
+    type: string
+    description: Specifies the schedule's status
+    default: Enabled
+  scheduleType:
+    type: string
+    description: |-
+      Enum to describe type of schedule
+      Expected value is 'Recurrence'.
+    const: Recurrence
+  startTime:
+    type: string
+    description: Specifies start time of schedule in ISO 8601 format.
+  timeZone:
+    type: string
+    description: "Specifies time zone in which the schedule runs.\r
+
+      TimeZone should follow Windows time zone format."
+    default: UTC
+type: object
+required:
+  - frequency
+  - interval
+  - scheduleType

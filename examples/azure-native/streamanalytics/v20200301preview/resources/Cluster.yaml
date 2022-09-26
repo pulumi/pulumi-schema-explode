@@ -1,0 +1,58 @@
+$token: azure-native:streamanalytics/v20200301preview:Cluster
+description: A Stream Analytics Cluster object
+properties:
+  etag:
+    type: string
+    description: The current entity tag for the cluster. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  name:
+    type: string
+    description: The name of the resource
+  properties:
+    type: object
+    $ref: "#/types/azure-native:streamanalytics/v20200301preview:ClusterPropertiesResponse"
+    description: The properties associated with a Stream Analytics cluster.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:streamanalytics/v20200301preview:ClusterSkuResponse"
+    description: The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+type: object
+required:
+  - etag
+  - name
+  - properties
+  - type
+inputProperties:
+  clusterName:
+    type: string
+    description: The name of the cluster.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:streamanalytics/v20200301preview:ClusterSku"
+    description: The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:streamanalytics:Cluster
+  - type: azure-native:streamanalytics/v20200301:Cluster

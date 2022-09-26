@@ -1,0 +1,102 @@
+$token: azure-native:recoveryservices:getProtectedItem
+description: |-
+  Base class for backup items.
+  API Version: 2021-02-01.
+inputs:
+  properties:
+    containerName:
+      type: string
+      description: Container name associated with the backed up item.
+    fabricName:
+      type: string
+      description: Fabric name associated with the backed up item.
+    filter:
+      type: string
+      description: OData filter options.
+    protectedItemName:
+      type: string
+      description: Backed up item name whose details are to be fetched.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group where the recovery services vault is present.
+    vaultName:
+      type: string
+      description: The name of the recovery services vault.
+  type: object
+  required:
+    - containerName
+    - fabricName
+    - protectedItemName
+    - resourceGroupName
+    - vaultName
+outputs:
+  description: Base class for backup items.
+  properties:
+    eTag:
+      type: string
+      description: Optional ETag.
+    id:
+      type: string
+      description: Resource Id represents the complete path to the resource.
+    location:
+      type: string
+      description: Resource location.
+    name:
+      type: string
+      description: Resource name associated with the resource.
+    properties:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:recoveryservices:AzureFileshareProtectedItemResponse"
+        - type: object
+          $ref: "#/types/azure-native:recoveryservices:AzureIaaSClassicComputeVMProtectedItemResponse"
+        - type: object
+          $ref: "#/types/azure-native:recoveryservices:AzureIaaSComputeVMProtectedItemResponse"
+        - type: object
+          $ref: "#/types/azure-native:recoveryservices:AzureIaaSVMProtectedItemResponse"
+        - type: object
+          $ref: "#/types/azure-native:recoveryservices:AzureSqlProtectedItemResponse"
+        - type: object
+          $ref: "#/types/azure-native:recoveryservices:AzureVmWorkloadProtectedItemResponse"
+        - type: object
+          $ref: "#/types/azure-native:recoveryservices:AzureVmWorkloadSAPAseDatabaseProtectedItemResponse"
+        - type: object
+          $ref: "#/types/azure-native:recoveryservices:AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse"
+        - type: object
+          $ref: "#/types/azure-native:recoveryservices:AzureVmWorkloadSQLDatabaseProtectedItemResponse"
+        - type: object
+          $ref: "#/types/azure-native:recoveryservices:DPMProtectedItemResponse"
+        - type: object
+          $ref: "#/types/azure-native:recoveryservices:GenericProtectedItemResponse"
+        - type: object
+          $ref: "#/types/azure-native:recoveryservices:MabFileFolderProtectedItemResponse"
+      discriminator:
+        propertyName: protectedItemType
+        mapping:
+          AzureFileShareProtectedItem: "#/types/azure-native:recoveryservices:AzureFileshareProtectedItemResponse"
+          AzureIaaSVMProtectedItem: "#/types/azure-native:recoveryservices:AzureIaaSVMProtectedItemResponse"
+          AzureVmWorkloadProtectedItem: "#/types/azure-native:recoveryservices:AzureVmWorkloadProtectedItemResponse"
+          AzureVmWorkloadSAPAseDatabase: "#/types/azure-native:recoveryservices:AzureVmWorkloadSAPAseDatabaseProtectedItemResponse"
+          AzureVmWorkloadSAPHanaDatabase: "#/types/azure-native:recoveryservices:AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse"
+          AzureVmWorkloadSQLDatabase: "#/types/azure-native:recoveryservices:AzureVmWorkloadSQLDatabaseProtectedItemResponse"
+          DPMProtectedItem: "#/types/azure-native:recoveryservices:DPMProtectedItemResponse"
+          GenericProtectedItem: "#/types/azure-native:recoveryservices:GenericProtectedItemResponse"
+          MabFileFolderProtectedItem: "#/types/azure-native:recoveryservices:MabFileFolderProtectedItemResponse"
+          Microsoft.ClassicCompute/virtualMachines: "#/types/azure-native:recoveryservices:AzureIaaSClassicComputeVMProtectedItemResponse"
+          Microsoft.Compute/virtualMachines: "#/types/azure-native:recoveryservices:AzureIaaSComputeVMProtectedItemResponse"
+          Microsoft.Sql/servers/databases: "#/types/azure-native:recoveryservices:AzureSqlProtectedItemResponse"
+      description: ProtectedItemResource properties
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - type

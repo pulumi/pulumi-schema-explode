@@ -1,0 +1,45 @@
+$token: azure-native:datafactory/v20180601:MongoDbV2CollectionDatasetResponse
+description: The MongoDB database dataset.
+properties:
+  annotations:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: List of tags that can be used for describing the Dataset.
+  collection:
+    $ref: pulumi.json#/Any
+    description: "The collection name of the MongoDB database. Type: string (or Expression with resultType string)."
+  description:
+    type: string
+    description: Dataset description.
+  folder:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20180601:DatasetResponseFolder"
+    description: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+  linkedServiceName:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20180601:LinkedServiceReferenceResponse"
+    description: Linked service reference.
+  parameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20180601:ParameterSpecificationResponse"
+    description: Parameters for dataset.
+  schema:
+    $ref: pulumi.json#/Any
+    description: "Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement."
+  structure:
+    $ref: pulumi.json#/Any
+    description: "Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement."
+  type:
+    type: string
+    description: |-
+      Type of dataset.
+      Expected value is 'MongoDbV2Collection'.
+    const: MongoDbV2Collection
+type: object
+required:
+  - collection
+  - linkedServiceName
+  - type

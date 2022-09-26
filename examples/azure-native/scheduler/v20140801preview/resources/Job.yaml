@@ -1,0 +1,39 @@
+$token: azure-native:scheduler/v20140801preview:Job
+properties:
+  name:
+    type: string
+    description: Gets the job resource name.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:scheduler/v20140801preview:JobPropertiesResponse"
+    description: Gets or sets the job properties.
+  type:
+    type: string
+    description: Gets the job resource type.
+type: object
+required:
+  - name
+  - properties
+  - type
+inputProperties:
+  jobCollectionName:
+    type: string
+    description: The job collection name.
+  jobName:
+    type: string
+    description: The job name.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:scheduler/v20140801preview:JobProperties"
+    description: Gets or sets the job properties.
+  resourceGroupName:
+    type: string
+    description: The resource group name.
+requiredInputs:
+  - jobCollectionName
+  - resourceGroupName
+aliases:
+  - type: azure-native:scheduler:Job
+  - type: azure-native:scheduler/v20160101:Job
+  - type: azure-native:scheduler/v20160301:Job
+deprecationMessage: Version 2014-08-01-preview will be removed in v2 of the provider.

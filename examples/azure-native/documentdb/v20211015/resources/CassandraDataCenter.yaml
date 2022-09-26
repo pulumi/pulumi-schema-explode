@@ -1,0 +1,46 @@
+$token: azure-native:documentdb/v20211015:CassandraDataCenter
+description: A managed Cassandra data center.
+properties:
+  name:
+    type: string
+    description: The name of the database account.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:documentdb/v20211015:DataCenterResourceResponseProperties"
+    description: Properties of a managed Cassandra data center.
+  type:
+    type: string
+    description: The type of Azure resource.
+type: object
+required:
+  - name
+  - properties
+  - type
+inputProperties:
+  clusterName:
+    type: string
+    description: Managed Cassandra cluster name.
+  dataCenterName:
+    type: string
+    description: Data center name in a managed Cassandra cluster.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:documentdb/v20211015:DataCenterResourceProperties"
+    description: Properties of a managed Cassandra data center.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+requiredInputs:
+  - clusterName
+  - resourceGroupName
+aliases:
+  - type: azure-native:documentdb:CassandraDataCenter
+  - type: azure-native:documentdb/v20210301preview:CassandraDataCenter
+  - type: azure-native:documentdb/v20210401preview:CassandraDataCenter
+  - type: azure-native:documentdb/v20210701preview:CassandraDataCenter
+  - type: azure-native:documentdb/v20211015preview:CassandraDataCenter
+  - type: azure-native:documentdb/v20211115preview:CassandraDataCenter
+  - type: azure-native:documentdb/v20220215preview:CassandraDataCenter
+  - type: azure-native:documentdb/v20220515:CassandraDataCenter
+  - type: azure-native:documentdb/v20220515preview:CassandraDataCenter
+  - type: azure-native:documentdb/v20220815:CassandraDataCenter

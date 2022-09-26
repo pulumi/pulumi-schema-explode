@@ -1,0 +1,64 @@
+$token: azure-native:healthbot/v20201208preview:Bot
+description: HealthBot resource definition
+properties:
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  name:
+    type: string
+    description: The name of the resource
+  properties:
+    type: object
+    $ref: "#/types/azure-native:healthbot/v20201208preview:HealthBotPropertiesResponse"
+    description: The set of properties specific to healthcare bot resource.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:healthbot/v20201208preview:SkuResponse"
+    description: SKU of the HealthBot.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:healthbot/v20201208preview:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - location
+  - name
+  - properties
+  - systemData
+  - type
+inputProperties:
+  botName:
+    type: string
+    description: The name of the Bot resource.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  resourceGroupName:
+    type: string
+    description: The name of the Bot resource group in the user subscription.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:healthbot/v20201208preview:Sku"
+    description: SKU of the HealthBot.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:healthbot:Bot
+  - type: azure-native:healthbot/v20201020:Bot
+  - type: azure-native:healthbot/v20201020preview:Bot
+  - type: azure-native:healthbot/v20201208:Bot
+  - type: azure-native:healthbot/v20210610:Bot
+  - type: azure-native:healthbot/v20210824:Bot

@@ -1,0 +1,36 @@
+$token: azure-native:keyvault/v20150601:VaultPropertiesResponse
+description: Properties of the vault
+properties:
+  accessPolicies:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:keyvault/v20150601:AccessPolicyEntryResponse"
+    description: An array of 0 to 16 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
+  enableSoftDelete:
+    type: boolean
+    description: Property to specify whether the 'soft delete' functionality is enabled for this key vault.
+  enabledForDeployment:
+    type: boolean
+    description: Property to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
+  enabledForDiskEncryption:
+    type: boolean
+    description: Property to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
+  enabledForTemplateDeployment:
+    type: boolean
+    description: Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:keyvault/v20150601:SkuResponse"
+    description: SKU details
+  tenantId:
+    type: string
+    description: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+  vaultUri:
+    type: string
+    description: The URI of the vault for performing operations on keys and secrets.
+type: object
+required:
+  - accessPolicies
+  - sku
+  - tenantId

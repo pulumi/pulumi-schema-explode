@@ -1,0 +1,109 @@
+$token: azure-native:workloads:monitor
+description: |-
+  SAP monitor info on Azure (ARM properties and SAP monitor properties)
+  API Version: 2021-12-01-preview.
+properties:
+  appLocation:
+    type: string
+    description: The SAP monitor resources will be deployed in the SAP monitoring region. The subnet region should be same as the SAP monitoring region.
+  errors:
+    type: object
+    $ref: "#/types/azure-native:workloads:MonitorPropertiesResponseErrors"
+    description: Defines the SAP monitor errors.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:workloads:UserAssignedServiceIdentityResponse"
+    description: Managed service identity (user assigned identities)
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  logAnalyticsWorkspaceArmId:
+    type: string
+    description: The ARM ID of the Log Analytics Workspace that is used for SAP monitoring.
+  managedResourceGroupConfiguration:
+    type: object
+    $ref: "#/types/azure-native:workloads:ManagedRGConfigurationResponse"
+    description: Managed resource group configuration
+  monitorSubnet:
+    type: string
+    description: The subnet which the SAP monitor will be deployed in
+  msiArmId:
+    type: string
+    description: The ARM ID of the MSI used for SAP monitoring.
+  name:
+    type: string
+    description: The name of the resource
+  provisioningState:
+    type: string
+    description: State of provisioning of the SAP monitor.
+  routingPreference:
+    type: string
+    description: Sets the routing preference of the SAP monitor. By default only RFC1918 traffic is routed to the customer VNET.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:workloads:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  zoneRedundancyPreference:
+    type: string
+    description: Sets the preference for zone redundancy on resources created for the SAP monitor. By default resources will be created which do not support zone redundancy.
+type: object
+required:
+  - errors
+  - location
+  - msiArmId
+  - name
+  - provisioningState
+  - systemData
+  - type
+inputProperties:
+  appLocation:
+    type: string
+    description: The SAP monitor resources will be deployed in the SAP monitoring region. The subnet region should be same as the SAP monitoring region.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:workloads:UserAssignedServiceIdentity"
+    description: Managed service identity (user assigned identities)
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  logAnalyticsWorkspaceArmId:
+    type: string
+    description: The ARM ID of the Log Analytics Workspace that is used for SAP monitoring.
+  managedResourceGroupConfiguration:
+    type: object
+    $ref: "#/types/azure-native:workloads:ManagedRGConfiguration"
+    description: Managed resource group configuration
+  monitorName:
+    type: string
+    description: Name of the SAP monitor resource.
+  monitorSubnet:
+    type: string
+    description: The subnet which the SAP monitor will be deployed in
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  routingPreference:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:workloads:RoutingPreference"
+    description: Sets the routing preference of the SAP monitor. By default only RFC1918 traffic is routed to the customer VNET.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  zoneRedundancyPreference:
+    type: string
+    description: Sets the preference for zone redundancy on resources created for the SAP monitor. By default resources will be created which do not support zone redundancy.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:workloads/v20211201preview:monitor

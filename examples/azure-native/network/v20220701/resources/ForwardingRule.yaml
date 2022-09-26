@@ -1,0 +1,82 @@
+$token: azure-native:network/v20220701:ForwardingRule
+description: Describes a forwarding rule within a DNS forwarding ruleset.
+properties:
+  domainName:
+    type: string
+    description: The domain name for the forwarding rule.
+  etag:
+    type: string
+    description: ETag of the forwarding rule.
+  forwardingRuleState:
+    type: string
+    description: The state of forwarding rule.
+  metadata:
+    type: object
+    additionalProperties:
+      type: string
+    description: Metadata attached to the forwarding rule.
+  name:
+    type: string
+    description: The name of the resource
+  provisioningState:
+    type: string
+    description: The current provisioning state of the forwarding rule. This is a read-only property and any attempt to set this value will be ignored.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:network/v20220701:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  targetDnsServers:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20220701:TargetDnsServerResponse"
+    description: DNS servers to forward the DNS query to.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - domainName
+  - etag
+  - name
+  - provisioningState
+  - systemData
+  - targetDnsServers
+  - type
+inputProperties:
+  dnsForwardingRulesetName:
+    type: string
+    description: The name of the DNS forwarding ruleset.
+  domainName:
+    type: string
+    description: The domain name for the forwarding rule.
+  forwardingRuleName:
+    type: string
+    description: The name of the forwarding rule.
+  forwardingRuleState:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20220701:ForwardingRuleState"
+    description: The state of forwarding rule.
+  metadata:
+    type: object
+    additionalProperties:
+      type: string
+    description: Metadata attached to the forwarding rule.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  targetDnsServers:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20220701:TargetDnsServer"
+    description: DNS servers to forward the DNS query to.
+requiredInputs:
+  - dnsForwardingRulesetName
+  - domainName
+  - resourceGroupName
+  - targetDnsServers
+aliases:
+  - type: azure-native:network:ForwardingRule
+  - type: azure-native:network/v20200401preview:ForwardingRule

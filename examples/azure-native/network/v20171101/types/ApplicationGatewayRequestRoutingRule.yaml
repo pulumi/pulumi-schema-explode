@@ -1,0 +1,44 @@
+$token: azure-native:network/v20171101:ApplicationGatewayRequestRoutingRule
+description: Request routing rule of an application gateway.
+properties:
+  backendAddressPool:
+    type: object
+    $ref: "#/types/azure-native:network/v20171101:SubResource"
+    description: "Backend address pool resource of the application gateway. "
+  backendHttpSettings:
+    type: object
+    $ref: "#/types/azure-native:network/v20171101:SubResource"
+    description: Frontend port resource of the application gateway.
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  httpListener:
+    type: object
+    $ref: "#/types/azure-native:network/v20171101:SubResource"
+    description: "Http listener resource of the application gateway. "
+  id:
+    type: string
+    description: Resource ID.
+  name:
+    type: string
+    description: Name of the resource that is unique within a resource group. This name can be used to access the resource.
+  provisioningState:
+    type: string
+    description: "Provisioning state of the request routing rule resource. Possible values are: 'Updating', 'Deleting', and 'Failed'."
+  redirectConfiguration:
+    type: object
+    $ref: "#/types/azure-native:network/v20171101:SubResource"
+    description: Redirect configuration resource of the application gateway.
+  ruleType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20171101:ApplicationGatewayRequestRoutingRuleType"
+    description: Rule type.
+  type:
+    type: string
+    description: Type of the resource.
+  urlPathMap:
+    type: object
+    $ref: "#/types/azure-native:network/v20171101:SubResource"
+    description: URL path map resource of the application gateway.
+type: object

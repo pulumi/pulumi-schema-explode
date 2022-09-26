@@ -1,0 +1,15 @@
+$token: azure-native:dataprotection/v20211201preview:DataStoreInfoBase
+description: DataStoreInfo base
+properties:
+  dataStoreType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:dataprotection/v20211201preview:DataStoreTypes"
+    description: type of datastore; Operational/Vault/Archive
+  objectType:
+    type: string
+    description: Type of Datasource object, used to initialize the right inherited type
+type: object
+required:
+  - dataStoreType
+  - objectType

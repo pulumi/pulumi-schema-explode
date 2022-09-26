@@ -1,0 +1,48 @@
+$token: azure-native:hanaonazure:getProviderInstance
+description: |-
+  A provider instance associated with a SAP monitor.
+  API Version: 2020-02-07-preview.
+inputs:
+  properties:
+    providerInstanceName:
+      type: string
+      description: Name of the provider instance.
+    resourceGroupName:
+      type: string
+      description: Name of the resource group.
+    sapMonitorName:
+      type: string
+      description: Name of the SAP monitor resource.
+  type: object
+  required:
+    - providerInstanceName
+    - resourceGroupName
+    - sapMonitorName
+outputs:
+  description: A provider instance associated with a SAP monitor.
+  properties:
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    metadata:
+      type: string
+      description: A JSON string containing metadata of the provider instance.
+    name:
+      type: string
+      description: The name of the resource
+    properties:
+      type: string
+      description: A JSON string containing the properties of the provider instance.
+    provisioningState:
+      type: string
+      description: State of provisioning of the provider instance
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - provisioningState
+    - type

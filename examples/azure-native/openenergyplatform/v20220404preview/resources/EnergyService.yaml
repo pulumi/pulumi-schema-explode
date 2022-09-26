@@ -1,0 +1,53 @@
+$token: azure-native:openenergyplatform/v20220404preview:EnergyService
+properties:
+  location:
+    type: string
+    description: Geo-location where the resource lives.
+  name:
+    type: string
+    description: The name of the resource
+  properties:
+    type: object
+    $ref: "#/types/azure-native:openenergyplatform/v20220404preview:EnergyServicePropertiesResponse"
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:openenergyplatform/v20220404preview:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - location
+  - name
+  - properties
+  - systemData
+  - type
+inputProperties:
+  location:
+    type: string
+    description: Geo-location where the resource lives.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:openenergyplatform/v20220404preview:EnergyServiceProperties"
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  resourceName:
+    type: string
+    description: The resource name.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:openenergyplatform:EnergyService
+  - type: azure-native:openenergyplatform/v20210601preview:EnergyService

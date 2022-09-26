@@ -1,0 +1,45 @@
+$token: azure-native:keyvault/v20180214preview:VaultProperties
+description: Properties of the vault
+properties:
+  accessPolicies:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:keyvault/v20180214preview:AccessPolicyEntry"
+    description: An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
+  createMode:
+    $ref: "#/types/azure-native:keyvault/v20180214preview:CreateMode"
+    description: The vault's create mode to indicate whether the vault need to be recovered or not.
+  enablePurgeProtection:
+    type: boolean
+    description: Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
+  enableSoftDelete:
+    type: boolean
+    description: Property to specify whether the 'soft delete' functionality is enabled for this key vault. It does not accept false value.
+  enabledForDeployment:
+    type: boolean
+    description: Property to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
+  enabledForDiskEncryption:
+    type: boolean
+    description: Property to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
+  enabledForTemplateDeployment:
+    type: boolean
+    description: Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
+  networkAcls:
+    type: object
+    $ref: "#/types/azure-native:keyvault/v20180214preview:NetworkRuleSet"
+    description: A collection of rules governing the accessibility of the vault from specific network locations.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:keyvault/v20180214preview:Sku"
+    description: SKU details
+  tenantId:
+    type: string
+    description: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+  vaultUri:
+    type: string
+    description: The URI of the vault for performing operations on keys and secrets.
+type: object
+required:
+  - sku
+  - tenantId

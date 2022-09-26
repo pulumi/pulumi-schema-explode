@@ -1,0 +1,21 @@
+$token: azure-native:desktopvirtualization/v20220210preview:AgentUpdateProperties
+description: The preferred settings for updating the agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts.
+properties:
+  maintenanceWindowTimeZone:
+    type: string
+    description: "The time zone for updating the agent components. Valid time zones can be found here: https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=net-5.0. A time zone must be specified if useSessionHostLocalTime is false."
+  maintenanceWindows:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:desktopvirtualization/v20220210preview:MaintenanceWindowProperties"
+    description: The maintenance windows (day and time) for updating the agent components. At least 1 window must be specified. Optionally, a 2nd window can be specified.
+  type:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:desktopvirtualization/v20220210preview:SessionHostComponentUpdateType"
+    description: The preferred mechanism for updating the agent components. This is either Scheduled or Default.
+  useSessionHostLocalTime:
+    type: boolean
+    description: Boolean indicating whether to update the agent components in the local time zone of each session host in the host pool. By default, this is false.
+type: object

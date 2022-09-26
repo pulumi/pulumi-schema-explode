@@ -1,0 +1,112 @@
+$token: azure-native:testbase/v20220401preview:getPackage
+description: The Test Base Package resource.
+inputs:
+  properties:
+    packageName:
+      type: string
+      description: The resource name of the Test Base Package.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the resource.
+    testBaseAccountName:
+      type: string
+      description: The resource name of the Test Base Account.
+  type: object
+  required:
+    - packageName
+    - resourceGroupName
+    - testBaseAccountName
+outputs:
+  description: The Test Base Package resource.
+  properties:
+    applicationName:
+      type: string
+      description: Application name
+    blobPath:
+      type: string
+      description: The file path of the package.
+    etag:
+      type: string
+      description: Resource Etag.
+    flightingRing:
+      type: string
+      description: The flighting ring for feature update.
+    id:
+      type: string
+      description: Resource ID.
+    isEnabled:
+      type: boolean
+      description: Flag showing that whether the package is enabled. It doesn't schedule test for package which is not enabled.
+    lastModifiedTime:
+      type: string
+      description: The UTC timestamp when the package was last modified.
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    name:
+      type: string
+      description: Resource name.
+    packageStatus:
+      type: string
+      description: The status of the package.
+    provisioningState:
+      type: string
+      description: The provisioning state of the resource.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:testbase/v20220401preview:SystemDataResponse"
+      description: The system metadata relating to this resource
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: The tags of the resource.
+    targetOSList:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:testbase/v20220401preview:TargetOSInfoResponse"
+      description: Specifies the target OSs of specific OS Update types.
+    testTypes:
+      type: array
+      items:
+        type: string
+      description: OOB, functional or both. Mapped to the data in 'tests' property.
+    tests:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:testbase/v20220401preview:TestResponse"
+      description: The detailed test information.
+    type:
+      type: string
+      description: Resource type.
+    validationResults:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:testbase/v20220401preview:PackageValidationResultResponse"
+      description: The validation results. There's validation on package when it's created or updated.
+    version:
+      type: string
+      description: Application version
+  type: object
+  required:
+    - applicationName
+    - blobPath
+    - etag
+    - flightingRing
+    - id
+    - isEnabled
+    - lastModifiedTime
+    - location
+    - name
+    - packageStatus
+    - provisioningState
+    - systemData
+    - targetOSList
+    - testTypes
+    - tests
+    - type
+    - validationResults
+    - version

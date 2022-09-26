@@ -1,0 +1,61 @@
+$token: azure-native:maintenance/v20220701preview:ConfigurationAssignment
+description: Configuration Assignment
+properties:
+  location:
+    type: string
+    description: Location of the resource
+  maintenanceConfigurationId:
+    type: string
+    description: The maintenance configuration Id
+  name:
+    type: string
+    description: Name of the resource
+  resourceId:
+    type: string
+    description: The unique resourceId
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:maintenance/v20220701preview:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  type:
+    type: string
+    description: Type of the resource
+type: object
+required:
+  - name
+  - systemData
+  - type
+inputProperties:
+  configurationAssignmentName:
+    type: string
+    description: Configuration assignment name
+  location:
+    type: string
+    description: Location of the resource
+  maintenanceConfigurationId:
+    type: string
+    description: The maintenance configuration Id
+  providerName:
+    type: string
+    description: Resource provider name
+  resourceGroupName:
+    type: string
+    description: Resource group name
+  resourceId:
+    type: string
+    description: The unique resourceId
+  resourceName:
+    type: string
+    description: Resource identifier
+  resourceType:
+    type: string
+    description: Resource type
+requiredInputs:
+  - providerName
+  - resourceGroupName
+  - resourceName
+  - resourceType
+aliases:
+  - type: azure-native:maintenance:ConfigurationAssignment
+  - type: azure-native:maintenance/v20210401preview:ConfigurationAssignment
+  - type: azure-native:maintenance/v20210901preview:ConfigurationAssignment

@@ -1,0 +1,17 @@
+$token: azure-native:cdn/v20210601:DeliveryRuleRouteConfigurationOverrideActionResponse
+description: Defines the route configuration override action for the delivery rule. Only applicable to Frontdoor Standard/Premium Profiles.
+properties:
+  name:
+    type: string
+    description: |-
+      The name of the action for the delivery rule.
+      Expected value is 'RouteConfigurationOverride'.
+    const: RouteConfigurationOverride
+  parameters:
+    type: object
+    $ref: "#/types/azure-native:cdn/v20210601:RouteConfigurationOverrideActionParametersResponse"
+    description: Defines the parameters for the action.
+type: object
+required:
+  - name
+  - parameters

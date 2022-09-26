@@ -1,0 +1,104 @@
+$token: azure-native:synapse/v20200401preview:SqlPoolsV3
+description: A sql pool resource.
+properties:
+  autoPauseTimer:
+    type: integer
+    description: The period of inactivity in minutes before automatically pausing the sql pool.
+  autoResume:
+    type: boolean
+    description: Indicates whether the sql pool can automatically resume when connection attempts are made.
+  currentServiceObjectiveName:
+    type: string
+    description: The current service level objective name of the sql pool.
+  kind:
+    type: string
+    description: Kind of SqlPool.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  maxServiceObjectiveName:
+    type: string
+    description: The max service level objective name of the sql pool.
+  name:
+    type: string
+    description: The name of the resource
+  requestedServiceObjectiveName:
+    type: string
+    description: The requested service level objective name of the sql pool.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:synapse/v20200401preview:SkuV3Response"
+    description: The sql pool SKU. The list of SKUs may vary by region and support offer.
+  sqlPoolGuid:
+    type: string
+    description: The Guid of the sql pool.
+  status:
+    type: string
+    description: The status of the sql pool.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:synapse/v20200401preview:SystemDataResponse"
+    description: SystemData of SqlPool.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - currentServiceObjectiveName
+  - kind
+  - location
+  - name
+  - requestedServiceObjectiveName
+  - sqlPoolGuid
+  - status
+  - systemData
+  - type
+inputProperties:
+  autoPauseTimer:
+    type: integer
+    description: The period of inactivity in minutes before automatically pausing the sql pool.
+  autoResume:
+    type: boolean
+    description: Indicates whether the sql pool can automatically resume when connection attempts are made.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  maxServiceObjectiveName:
+    type: string
+    description: The max service level objective name of the sql pool.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:synapse/v20200401preview:SkuV3"
+    description: The sql pool SKU. The list of SKUs may vary by region and support offer.
+  sqlPoolName:
+    type: string
+    description: The name of the sql pool.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  workspaceName:
+    type: string
+    description: The name of the workspace.
+requiredInputs:
+  - resourceGroupName
+  - workspaceName
+aliases:
+  - type: azure-native:synapse:SqlPoolsV3
+  - type: azure-native:synapse/v20190601preview:SqlPoolsV3
+  - type: azure-native:synapse/v20201201:SqlPoolsV3
+  - type: azure-native:synapse/v20210301:SqlPoolsV3
+  - type: azure-native:synapse/v20210401preview:SqlPoolsV3
+  - type: azure-native:synapse/v20210501:SqlPoolsV3
+  - type: azure-native:synapse/v20210601:SqlPoolsV3
+  - type: azure-native:synapse/v20210601preview:SqlPoolsV3
+deprecationMessage: Version 2020-04-01-preview will be removed in v2 of the provider.

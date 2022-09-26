@@ -1,0 +1,90 @@
+$token: azure-native:datamigration/v20180419:MigrateSqlServerSqlMITaskOutputMigrationLevelResponse
+properties:
+  agentJobs:
+    type: object
+    additionalProperties:
+      type: string
+    description: Selected agent jobs as a map from name to id
+  databases:
+    type: object
+    additionalProperties:
+      type: string
+    description: Selected databases as a map from database name to database id
+  endedOn:
+    type: string
+    description: Migration end time
+  exceptionsAndWarnings:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration/v20180419:ReportableExceptionResponse"
+    description: Migration exceptions and warnings.
+  id:
+    type: string
+    description: Result identifier
+  logins:
+    type: object
+    additionalProperties:
+      type: string
+    description: Selected logins as a map from name to id
+  message:
+    type: string
+    description: Migration progress message
+  orphanedUsersInfo:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration/v20180419:OrphanedUserInfoResponse"
+    description: List of orphaned users.
+  resultType:
+    type: string
+    description: |-
+      Result type
+      Expected value is 'MigrationLevelOutput'.
+    const: MigrationLevelOutput
+  serverRoleResults:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:datamigration/v20180419:StartMigrationScenarioServerRoleResultResponse"
+    description: Map of server role migration results.
+  sourceServerBrandVersion:
+    type: string
+    description: Source server brand version
+  sourceServerVersion:
+    type: string
+    description: Source server version
+  startedOn:
+    type: string
+    description: Migration start time
+  state:
+    type: string
+    description: Current state of migration
+  status:
+    type: string
+    description: Current status of migration
+  targetServerBrandVersion:
+    type: string
+    description: Target server brand version
+  targetServerVersion:
+    type: string
+    description: Target server version
+type: object
+required:
+  - agentJobs
+  - databases
+  - endedOn
+  - exceptionsAndWarnings
+  - id
+  - logins
+  - message
+  - orphanedUsersInfo
+  - resultType
+  - serverRoleResults
+  - sourceServerBrandVersion
+  - sourceServerVersion
+  - startedOn
+  - state
+  - status
+  - targetServerBrandVersion
+  - targetServerVersion

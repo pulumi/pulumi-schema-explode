@@ -1,0 +1,48 @@
+$token: azure-native:datafactory/v20180601:getIntegrationRuntimeObjectMetadatum
+description: A list of SSIS object metadata.
+inputs:
+  properties:
+    factoryName:
+      type: string
+      description: The factory name.
+    integrationRuntimeName:
+      type: string
+      description: The integration runtime name.
+    metadataPath:
+      type: string
+      description: Metadata path.
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+  type: object
+  required:
+    - factoryName
+    - integrationRuntimeName
+    - resourceGroupName
+outputs:
+  description: A list of SSIS object metadata.
+  properties:
+    nextLink:
+      type: string
+      description: The link to the next page of results, if any remaining results exist.
+    value:
+      type: array
+      items:
+        oneOf:
+          - type: object
+            $ref: "#/types/azure-native:datafactory/v20180601:SsisEnvironmentResponse"
+          - type: object
+            $ref: "#/types/azure-native:datafactory/v20180601:SsisFolderResponse"
+          - type: object
+            $ref: "#/types/azure-native:datafactory/v20180601:SsisPackageResponse"
+          - type: object
+            $ref: "#/types/azure-native:datafactory/v20180601:SsisProjectResponse"
+        discriminator:
+          propertyName: type
+          mapping:
+            Environment: "#/types/azure-native:datafactory/v20180601:SsisEnvironmentResponse"
+            Folder: "#/types/azure-native:datafactory/v20180601:SsisFolderResponse"
+            Package: "#/types/azure-native:datafactory/v20180601:SsisPackageResponse"
+            Project: "#/types/azure-native:datafactory/v20180601:SsisProjectResponse"
+      description: List of SSIS object metadata.
+  type: object

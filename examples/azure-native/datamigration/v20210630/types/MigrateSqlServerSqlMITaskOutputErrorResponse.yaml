@@ -1,0 +1,20 @@
+$token: azure-native:datamigration/v20210630:MigrateSqlServerSqlMITaskOutputErrorResponse
+properties:
+  error:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20210630:ReportableExceptionResponse"
+    description: Migration error
+  id:
+    type: string
+    description: Result identifier
+  resultType:
+    type: string
+    description: |-
+      Result type
+      Expected value is 'ErrorOutput'.
+    const: ErrorOutput
+type: object
+required:
+  - error
+  - id
+  - resultType

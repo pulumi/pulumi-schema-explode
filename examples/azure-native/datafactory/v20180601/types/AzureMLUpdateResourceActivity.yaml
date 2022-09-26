@@ -1,0 +1,52 @@
+$token: azure-native:datafactory/v20180601:AzureMLUpdateResourceActivity
+description: Azure ML Update Resource management activity.
+properties:
+  dependsOn:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20180601:ActivityDependency"
+    description: Activity depends on condition.
+  description:
+    type: string
+    description: Activity description.
+  linkedServiceName:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20180601:LinkedServiceReference"
+    description: Linked service reference.
+  name:
+    type: string
+    description: Activity name.
+  policy:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20180601:ActivityPolicy"
+    description: Activity policy.
+  trainedModelFilePath:
+    $ref: pulumi.json#/Any
+    description: "The relative file path in trainedModelLinkedService to represent the .ilearner file that will be uploaded by the update operation.  Type: string (or Expression with resultType string)."
+  trainedModelLinkedServiceName:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20180601:LinkedServiceReference"
+    description: Name of Azure Storage linked service holding the .ilearner file that will be uploaded by the update operation.
+  trainedModelName:
+    $ref: pulumi.json#/Any
+    description: "Name of the Trained Model module in the Web Service experiment to be updated. Type: string (or Expression with resultType string)."
+  type:
+    type: string
+    description: |-
+      Type of activity.
+      Expected value is 'AzureMLUpdateResource'.
+    const: AzureMLUpdateResource
+  userProperties:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20180601:UserProperty"
+    description: Activity user properties.
+type: object
+required:
+  - name
+  - trainedModelFilePath
+  - trainedModelLinkedServiceName
+  - trainedModelName
+  - type

@@ -1,0 +1,86 @@
+$token: azure-native:web/v20150801:getServerFarm
+description: App Service Plan Model
+inputs:
+  properties:
+    name:
+      type: string
+      description: Name of App Service Plan
+    resourceGroupName:
+      type: string
+      description: Name of resource group
+  type: object
+  required:
+    - name
+    - resourceGroupName
+outputs:
+  description: App Service Plan Model
+  properties:
+    adminSiteName:
+      type: string
+      description: App Service Plan administration site
+    geoRegion:
+      type: string
+      description: Geographical location for the App Service Plan
+    hostingEnvironmentProfile:
+      type: object
+      $ref: "#/types/azure-native:web/v20150801:HostingEnvironmentProfileResponse"
+      description: Specification for the hosting environment (App Service Environment) to use for the App Service Plan
+    id:
+      type: string
+      description: Resource Id
+    kind:
+      type: string
+      description: Kind of resource
+    location:
+      type: string
+      description: Resource Location
+    maximumNumberOfWorkers:
+      type: integer
+      description: Maximum number of instances that can be assigned to this App Service Plan
+    name:
+      type: string
+      description: Resource Name
+    numberOfSites:
+      type: integer
+      description: Number of web apps assigned to this App Service Plan
+    perSiteScaling:
+      type: boolean
+      description: "If True apps assigned to this App Service Plan can be scaled independently\r
+
+        \            If False apps assigned to this App Service Plan will scale to all instances of the plan"
+    reserved:
+      type: boolean
+      description: Enables creation of a Linux App Service Plan
+    resourceGroup:
+      type: string
+      description: Resource group of the server farm
+    sku:
+      type: object
+      $ref: "#/types/azure-native:web/v20150801:SkuDescriptionResponse"
+      description: Describes a sku for a scalable resource
+    status:
+      type: string
+      description: App Service Plan Status
+    subscription:
+      type: string
+      description: App Service Plan Subscription
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    type:
+      type: string
+      description: Resource type
+    workerTierName:
+      type: string
+      description: Target worker tier assigned to the App Service Plan
+  type: object
+  required:
+    - geoRegion
+    - location
+    - numberOfSites
+    - resourceGroup
+    - status
+    - subscription
+deprecationMessage: Version 2015-08-01 will be removed in v2 of the provider.

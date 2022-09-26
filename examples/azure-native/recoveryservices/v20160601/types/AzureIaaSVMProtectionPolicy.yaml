@@ -1,0 +1,37 @@
+$token: azure-native:recoveryservices/v20160601:AzureIaaSVMProtectionPolicy
+description: Azure VM (also known as IaaS VM) workload-specific backup policy.
+properties:
+  backupManagementType:
+    type: string
+    description: |-
+      This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+      Expected value is 'AzureIaasVM'.
+    const: AzureIaasVM
+  protectedItemsCount:
+    type: integer
+    description: The number of items associated with this policy.
+  retentionPolicy:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20160601:LongTermRetentionPolicy"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20160601:SimpleRetentionPolicy"
+    discriminator:
+      propertyName: retentionPolicyType
+      mapping:
+        LongTermRetentionPolicy: "#/types/azure-native:recoveryservices/v20160601:LongTermRetentionPolicy"
+        SimpleRetentionPolicy: "#/types/azure-native:recoveryservices/v20160601:SimpleRetentionPolicy"
+    description: The retention policy with the details on backup copy retention ranges.
+  schedulePolicy:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20160601:LongTermSchedulePolicy"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20160601:SimpleSchedulePolicy"
+    discriminator:
+      propertyName: schedulePolicyType
+      mapping:
+        LongTermSchedulePolicy: "#/types/azure-native:recoveryservices/v20160601:LongTermSchedulePolicy"
+        SimpleSchedulePolicy: "#/types/azure-native:recoveryservices/v20160601:SimpleSchedulePolicy"
+    description: The backup schedule specified as part of backup policy.
+type: object

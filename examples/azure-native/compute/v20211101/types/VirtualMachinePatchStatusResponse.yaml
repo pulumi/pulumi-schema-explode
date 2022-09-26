@@ -1,0 +1,20 @@
+$token: azure-native:compute/v20211101:VirtualMachinePatchStatusResponse
+description: The status of virtual machine patch operations.
+properties:
+  availablePatchSummary:
+    type: object
+    $ref: "#/types/azure-native:compute/v20211101:AvailablePatchSummaryResponse"
+    description: The available patch summary of the latest assessment operation for the virtual machine.
+  configurationStatuses:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:compute/v20211101:InstanceViewStatusResponse"
+    description: The enablement status of the specified patchMode
+  lastPatchInstallationSummary:
+    type: object
+    $ref: "#/types/azure-native:compute/v20211101:LastPatchInstallationSummaryResponse"
+    description: The installation summary of the latest installation operation for the virtual machine.
+type: object
+required:
+  - configurationStatuses

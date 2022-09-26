@@ -1,0 +1,63 @@
+$token: azure-native:network/v20210801:P2SVpnGatewayResponse
+description: P2SVpnGateway Resource.
+properties:
+  customDnsServers:
+    type: array
+    items:
+      type: string
+    description: List of all customer specified DNS servers IP addresses.
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  id:
+    type: string
+    description: Resource ID.
+  isRoutingPreferenceInternet:
+    type: boolean
+    description: Enable Routing Preference property for the Public IP Interface of the P2SVpnGateway.
+  location:
+    type: string
+    description: Resource location.
+  name:
+    type: string
+    description: Resource name.
+  p2SConnectionConfigurations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210801:P2SConnectionConfigurationResponse"
+    description: List of all p2s connection configurations of the gateway.
+  provisioningState:
+    type: string
+    description: The provisioning state of the P2S VPN gateway resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: Resource type.
+  virtualHub:
+    type: object
+    $ref: "#/types/azure-native:network/v20210801:SubResourceResponse"
+    description: The VirtualHub to which the gateway belongs.
+  vpnClientConnectionHealth:
+    type: object
+    $ref: "#/types/azure-native:network/v20210801:VpnClientConnectionHealthResponse"
+    description: All P2S VPN clients' connection health status.
+  vpnGatewayScaleUnit:
+    type: integer
+    description: The scale unit for this p2s vpn gateway.
+  vpnServerConfiguration:
+    type: object
+    $ref: "#/types/azure-native:network/v20210801:SubResourceResponse"
+    description: The VpnServerConfiguration to which the p2sVpnGateway is attached to.
+type: object
+required:
+  - etag
+  - location
+  - name
+  - provisioningState
+  - type
+  - vpnClientConnectionHealth

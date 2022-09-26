@@ -1,0 +1,15 @@
+$token: azure-native:redhatopenshift/v20210901preview:NetworkProfile
+description: NetworkProfile represents a network profile.
+properties:
+  podCidr:
+    type: string
+    description: The CIDR used for OpenShift/Kubernetes Pods.
+  serviceCidr:
+    type: string
+    description: The CIDR used for OpenShift/Kubernetes Services.
+  softwareDefinedNetwork:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:redhatopenshift/v20210901preview:SoftwareDefinedNetwork"
+    description: The software defined network (SDN) to use when installing the cluster.
+type: object

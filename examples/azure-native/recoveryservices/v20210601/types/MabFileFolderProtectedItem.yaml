@@ -1,0 +1,79 @@
+$token: azure-native:recoveryservices/v20210601:MabFileFolderProtectedItem
+description: MAB workload-specific backup item.
+properties:
+  backupManagementType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:recoveryservices/v20210601:BackupManagementType"
+    description: Type of backup management for the backed up item.
+  backupSetName:
+    type: string
+    description: Name of the backup set the backup item belongs to
+  computerName:
+    type: string
+    description: Name of the computer associated with this backup item.
+  containerName:
+    type: string
+    description: Unique name of container
+  createMode:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:recoveryservices/v20210601:CreateMode"
+    description: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+  deferredDeleteSyncTimeInUTC:
+    type: number
+    description: Sync time for deferred deletion in UTC
+  deferredDeleteTimeInUTC:
+    type: string
+    description: Time for deferred deletion in UTC
+  deferredDeleteTimeRemaining:
+    type: string
+    description: Time remaining before the DS marked for deferred delete is permanently deleted
+  extendedInfo:
+    type: object
+    $ref: "#/types/azure-native:recoveryservices/v20210601:MabFileFolderProtectedItemExtendedInfo"
+    description: Additional information with this backup item.
+  friendlyName:
+    type: string
+    description: Friendly name of this backup item.
+  isDeferredDeleteScheduleUpcoming:
+    type: boolean
+    description: Flag to identify whether the deferred deleted DS is to be purged soon
+  isRehydrate:
+    type: boolean
+    description: Flag to identify that deferred deleted DS is to be moved into Pause state
+  isScheduledForDeferredDelete:
+    type: boolean
+    description: Flag to identify whether the DS is scheduled for deferred delete
+  lastBackupStatus:
+    type: string
+    description: Status of last backup operation.
+  lastBackupTime:
+    type: string
+    description: Timestamp of the last backup operation on this backup item.
+  lastRecoveryPoint:
+    type: string
+    description: Timestamp when the last (latest) backup copy was created for this backup item.
+  policyId:
+    type: string
+    description: ID of the backup policy with which this item is backed up.
+  protectedItemType:
+    type: string
+    description: |-
+      backup item type.
+      Expected value is 'MabFileFolderProtectedItem'.
+    const: MabFileFolderProtectedItem
+  protectionState:
+    type: string
+    description: Protected, ProtectionStopped, IRPending or ProtectionError
+  sourceResourceId:
+    type: string
+    description: ARM ID of the resource to be backed up.
+  workloadType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:recoveryservices/v20210601:DataSourceType"
+    description: Type of workload this item represents.
+type: object
+required:
+  - protectedItemType

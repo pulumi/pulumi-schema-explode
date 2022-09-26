@@ -1,0 +1,70 @@
+$token: azure-native:datafactory/v20180601:getTrigger
+description: Trigger resource type.
+inputs:
+  properties:
+    factoryName:
+      type: string
+      description: The factory name.
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+    triggerName:
+      type: string
+      description: The trigger name.
+  type: object
+  required:
+    - factoryName
+    - resourceGroupName
+    - triggerName
+outputs:
+  description: Trigger resource type.
+  properties:
+    etag:
+      type: string
+      description: Etag identifies change in the resource.
+    id:
+      type: string
+      description: The resource identifier.
+    name:
+      type: string
+      description: The resource name.
+    properties:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:datafactory/v20180601:BlobEventsTriggerResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory/v20180601:BlobTriggerResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory/v20180601:ChainingTriggerResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory/v20180601:CustomEventsTriggerResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory/v20180601:MultiplePipelineTriggerResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory/v20180601:RerunTumblingWindowTriggerResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory/v20180601:ScheduleTriggerResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory/v20180601:TumblingWindowTriggerResponse"
+      discriminator:
+        propertyName: type
+        mapping:
+          BlobEventsTrigger: "#/types/azure-native:datafactory/v20180601:BlobEventsTriggerResponse"
+          BlobTrigger: "#/types/azure-native:datafactory/v20180601:BlobTriggerResponse"
+          ChainingTrigger: "#/types/azure-native:datafactory/v20180601:ChainingTriggerResponse"
+          CustomEventsTrigger: "#/types/azure-native:datafactory/v20180601:CustomEventsTriggerResponse"
+          MultiplePipelineTrigger: "#/types/azure-native:datafactory/v20180601:MultiplePipelineTriggerResponse"
+          RerunTumblingWindowTrigger: "#/types/azure-native:datafactory/v20180601:RerunTumblingWindowTriggerResponse"
+          ScheduleTrigger: "#/types/azure-native:datafactory/v20180601:ScheduleTriggerResponse"
+          TumblingWindowTrigger: "#/types/azure-native:datafactory/v20180601:TumblingWindowTriggerResponse"
+      description: Properties of the trigger.
+    type:
+      type: string
+      description: The resource type.
+  type: object
+  required:
+    - etag
+    - id
+    - name
+    - properties
+    - type

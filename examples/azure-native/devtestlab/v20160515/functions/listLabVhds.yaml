@@ -1,0 +1,27 @@
+$token: azure-native:devtestlab/v20160515:listLabVhds
+description: The response of a list operation.
+inputs:
+  properties:
+    name:
+      type: string
+      description: The name of the lab.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - name
+    - resourceGroupName
+outputs:
+  description: The response of a list operation.
+  properties:
+    nextLink:
+      type: string
+      description: Link for next set of results.
+    value:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:devtestlab/v20160515:LabVhdResponse"
+      description: Results of the list operation.
+  type: object

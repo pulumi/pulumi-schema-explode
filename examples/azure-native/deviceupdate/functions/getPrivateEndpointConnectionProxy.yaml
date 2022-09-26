@@ -1,0 +1,57 @@
+$token: azure-native:deviceupdate:getPrivateEndpointConnectionProxy
+description: |-
+  Private endpoint connection proxy details.
+  API Version: 2020-03-01-preview.
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: Account name.
+    privateEndpointConnectionProxyId:
+      type: string
+      description: The ID of the private endpoint connection proxy object.
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+  type: object
+  required:
+    - accountName
+    - privateEndpointConnectionProxyId
+    - resourceGroupName
+outputs:
+  description: Private endpoint connection proxy details.
+  properties:
+    eTag:
+      type: string
+      description: ETag from NRP.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    name:
+      type: string
+      description: The name of the resource
+    provisioningState:
+      type: string
+      description: The provisioning state of the private endpoint connection proxy resource.
+    remotePrivateEndpoint:
+      type: object
+      $ref: "#/types/azure-native:deviceupdate:RemotePrivateEndpointResponse"
+      description: Remote private endpoint details.
+    status:
+      type: string
+      description: Operation status.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:deviceupdate:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - eTag
+    - id
+    - name
+    - provisioningState
+    - systemData
+    - type

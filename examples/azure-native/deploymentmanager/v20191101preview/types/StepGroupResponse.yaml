@@ -1,0 +1,30 @@
+$token: azure-native:deploymentmanager/v20191101preview:StepGroupResponse
+description: The properties that define a Step group in a rollout.
+properties:
+  dependsOnStepGroups:
+    type: array
+    items:
+      type: string
+    description: The list of step group names on which this step group depends on.
+  deploymentTargetId:
+    type: string
+    description: The resource Id of service unit to be deployed. The service unit should be from the service topology referenced in targetServiceTopologyId
+  name:
+    type: string
+    description: The name of the step group.
+  postDeploymentSteps:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:deploymentmanager/v20191101preview:PrePostStepResponse"
+    description: The list of steps to be run after deploying the target.
+  preDeploymentSteps:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:deploymentmanager/v20191101preview:PrePostStepResponse"
+    description: The list of steps to be run before deploying the target.
+type: object
+required:
+  - deploymentTargetId
+  - name

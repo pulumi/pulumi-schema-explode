@@ -1,0 +1,59 @@
+$token: azure-native:datafactory:AmazonRedshiftLinkedServiceResponse
+description: Linked service for Amazon Redshift.
+properties:
+  annotations:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: List of tags that can be used for describing the linked service.
+  connectVia:
+    type: object
+    $ref: "#/types/azure-native:datafactory:IntegrationRuntimeReferenceResponse"
+    description: The integration runtime reference.
+  database:
+    $ref: pulumi.json#/Any
+    description: "The database name of the Amazon Redshift source. Type: string (or Expression with resultType string)."
+  description:
+    type: string
+    description: Linked service description.
+  encryptedCredential:
+    $ref: pulumi.json#/Any
+    description: "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string)."
+  parameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:datafactory:ParameterSpecificationResponse"
+    description: Parameters for linked service.
+  password:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureKeyVaultSecretReferenceResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SecureStringResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        AzureKeyVaultSecret: "#/types/azure-native:datafactory:AzureKeyVaultSecretReferenceResponse"
+        SecureString: "#/types/azure-native:datafactory:SecureStringResponse"
+    description: The password of the Amazon Redshift source.
+  port:
+    $ref: pulumi.json#/Any
+    description: "The TCP port number that the Amazon Redshift server uses to listen for client connections. The default value is 5439. Type: integer (or Expression with resultType integer)."
+  server:
+    $ref: pulumi.json#/Any
+    description: "The name of the Amazon Redshift server. Type: string (or Expression with resultType string)."
+  type:
+    type: string
+    description: |-
+      Type of linked service.
+      Expected value is 'AmazonRedshift'.
+    const: AmazonRedshift
+  username:
+    $ref: pulumi.json#/Any
+    description: "The username of the Amazon Redshift source. Type: string (or Expression with resultType string)."
+type: object
+required:
+  - database
+  - server
+  - type

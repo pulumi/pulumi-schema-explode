@@ -1,0 +1,69 @@
+$token: azure-native:blueprint:getPolicyAssignmentArtifact
+description: |-
+  Blueprint artifact that applies a Policy assignment.
+  API Version: 2018-11-01-preview.
+inputs:
+  properties:
+    artifactName:
+      type: string
+      description: Name of the blueprint artifact.
+    blueprintName:
+      type: string
+      description: Name of the blueprint definition.
+    resourceScope:
+      type: string
+      description: "The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}')."
+  type: object
+  required:
+    - artifactName
+    - blueprintName
+    - resourceScope
+outputs:
+  description: Blueprint artifact that applies a Policy assignment.
+  properties:
+    dependsOn:
+      type: array
+      items:
+        type: string
+      description: Artifacts which need to be deployed before the specified artifact.
+    description:
+      type: string
+      description: Multi-line explain this resource.
+    displayName:
+      type: string
+      description: One-liner string explain this resource.
+    id:
+      type: string
+      description: String Id used to locate any resource on Azure.
+    kind:
+      type: string
+      description: |-
+        Specifies the kind of blueprint artifact.
+        Expected value is 'policyAssignment'.
+      const: policyAssignment
+    name:
+      type: string
+      description: Name of this resource.
+    parameters:
+      type: object
+      additionalProperties:
+        type: object
+        $ref: "#/types/azure-native:blueprint:ParameterValueResponse"
+      description: Parameter values for the policy definition.
+    policyDefinitionId:
+      type: string
+      description: Azure resource ID of the policy definition.
+    resourceGroup:
+      type: string
+      description: Name of the resource group placeholder to which the policy will be assigned.
+    type:
+      type: string
+      description: Type of this resource.
+  type: object
+  required:
+    - id
+    - kind
+    - name
+    - parameters
+    - policyDefinitionId
+    - type

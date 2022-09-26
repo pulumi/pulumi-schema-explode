@@ -1,0 +1,48 @@
+$token: azure-native:machinelearningservices/v20200601:getPrivateEndpointConnection
+description: The Private Endpoint Connection resource.
+inputs:
+  properties:
+    privateEndpointConnectionName:
+      type: string
+      description: The name of the private endpoint connection associated with the workspace
+    resourceGroupName:
+      type: string
+      description: Name of the resource group in which workspace is located.
+    workspaceName:
+      type: string
+      description: Name of Azure Machine Learning workspace.
+  type: object
+  required:
+    - privateEndpointConnectionName
+    - resourceGroupName
+    - workspaceName
+outputs:
+  description: The Private Endpoint Connection resource.
+  properties:
+    id:
+      type: string
+      description: ResourceId of the private endpoint connection.
+    name:
+      type: string
+      description: Friendly name of the private endpoint connection.
+    privateEndpoint:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20200601:PrivateEndpointResponse"
+      description: The resource of private end point.
+    privateLinkServiceConnectionState:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20200601:PrivateLinkServiceConnectionStateResponse"
+      description: A collection of information about the state of the connection between service consumer and provider.
+    provisioningState:
+      type: string
+      description: The provisioning state of the private endpoint connection resource.
+    type:
+      type: string
+      description: Resource type of private endpoint connection.
+  type: object
+  required:
+    - id
+    - name
+    - privateLinkServiceConnectionState
+    - provisioningState
+    - type

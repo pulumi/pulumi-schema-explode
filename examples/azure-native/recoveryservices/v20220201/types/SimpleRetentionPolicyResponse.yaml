@@ -1,0 +1,16 @@
+$token: azure-native:recoveryservices/v20220201:SimpleRetentionPolicyResponse
+description: Simple policy retention.
+properties:
+  retentionDuration:
+    type: object
+    $ref: "#/types/azure-native:recoveryservices/v20220201:RetentionDurationResponse"
+    description: Retention duration of the protection policy.
+  retentionPolicyType:
+    type: string
+    description: |-
+      This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+      Expected value is 'SimpleRetentionPolicy'.
+    const: SimpleRetentionPolicy
+type: object
+required:
+  - retentionPolicyType

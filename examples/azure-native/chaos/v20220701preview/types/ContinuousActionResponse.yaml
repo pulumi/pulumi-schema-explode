@@ -1,0 +1,31 @@
+$token: azure-native:chaos/v20220701preview:ContinuousActionResponse
+description: Model that represents a continuous action.
+properties:
+  duration:
+    type: string
+    description: ISO8601 formatted string that represents a duration.
+  name:
+    type: string
+    description: String that represents a Capability URN.
+  parameters:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:chaos/v20220701preview:KeyValuePairResponse"
+    description: List of key value pairs.
+  selectorId:
+    type: string
+    description: String that represents a selector.
+  type:
+    type: string
+    description: |-
+      Enum that discriminates between action models.
+      Expected value is 'continuous'.
+    const: continuous
+type: object
+required:
+  - duration
+  - name
+  - parameters
+  - selectorId
+  - type

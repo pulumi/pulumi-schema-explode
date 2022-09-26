@@ -1,0 +1,15 @@
+$token: azure-native:edgeorder/v20201201preview:NotificationPreference
+description: Notification preference for a job stage.
+properties:
+  sendNotification:
+    type: boolean
+    description: Notification is required or not.
+  stageName:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:edgeorder/v20201201preview:NotificationStageName"
+    description: Name of the stage.
+type: object
+required:
+  - sendNotification
+  - stageName

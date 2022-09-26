@@ -1,0 +1,93 @@
+$token: azure-native:machinelearningservices/v20220501:getCompute
+description: Machine Learning compute object wrapped into ARM resource envelope.
+inputs:
+  properties:
+    computeName:
+      type: string
+      description: Name of the Azure Machine Learning compute.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    workspaceName:
+      type: string
+      description: Name of Azure Machine Learning workspace.
+  type: object
+  required:
+    - computeName
+    - resourceGroupName
+    - workspaceName
+outputs:
+  description: Machine Learning compute object wrapped into ARM resource envelope.
+  properties:
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    identity:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20220501:ManagedServiceIdentityResponse"
+      description: The identity of the resource.
+    location:
+      type: string
+      description: Specifies the location of the resource.
+    name:
+      type: string
+      description: The name of the resource
+    properties:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:machinelearningservices/v20220501:AKSResponse"
+        - type: object
+          $ref: "#/types/azure-native:machinelearningservices/v20220501:AmlComputeResponse"
+        - type: object
+          $ref: "#/types/azure-native:machinelearningservices/v20220501:ComputeInstanceResponse"
+        - type: object
+          $ref: "#/types/azure-native:machinelearningservices/v20220501:DataFactoryResponse"
+        - type: object
+          $ref: "#/types/azure-native:machinelearningservices/v20220501:DataLakeAnalyticsResponse"
+        - type: object
+          $ref: "#/types/azure-native:machinelearningservices/v20220501:DatabricksResponse"
+        - type: object
+          $ref: "#/types/azure-native:machinelearningservices/v20220501:HDInsightResponse"
+        - type: object
+          $ref: "#/types/azure-native:machinelearningservices/v20220501:KubernetesResponse"
+        - type: object
+          $ref: "#/types/azure-native:machinelearningservices/v20220501:SynapseSparkResponse"
+        - type: object
+          $ref: "#/types/azure-native:machinelearningservices/v20220501:VirtualMachineResponse"
+      discriminator:
+        propertyName: computeType
+        mapping:
+          AKS: "#/types/azure-native:machinelearningservices/v20220501:AKSResponse"
+          AmlCompute: "#/types/azure-native:machinelearningservices/v20220501:AmlComputeResponse"
+          ComputeInstance: "#/types/azure-native:machinelearningservices/v20220501:ComputeInstanceResponse"
+          DataFactory: "#/types/azure-native:machinelearningservices/v20220501:DataFactoryResponse"
+          DataLakeAnalytics: "#/types/azure-native:machinelearningservices/v20220501:DataLakeAnalyticsResponse"
+          Databricks: "#/types/azure-native:machinelearningservices/v20220501:DatabricksResponse"
+          HDInsight: "#/types/azure-native:machinelearningservices/v20220501:HDInsightResponse"
+          Kubernetes: "#/types/azure-native:machinelearningservices/v20220501:KubernetesResponse"
+          SynapseSpark: "#/types/azure-native:machinelearningservices/v20220501:SynapseSparkResponse"
+          VirtualMachine: "#/types/azure-native:machinelearningservices/v20220501:VirtualMachineResponse"
+      description: Compute properties
+    sku:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20220501:SkuResponse"
+      description: The sku of the workspace.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20220501:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Contains resource tags defined as key/value pairs.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - systemData
+    - type

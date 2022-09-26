@@ -1,0 +1,15 @@
+$token: azure-native:dbformysql/v20200701preview:Sku
+description: Billing information related properties of a server.
+properties:
+  name:
+    type: string
+    description: The name of the sku, e.g. Standard_D32s_v3.
+  tier:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:dbformysql/v20200701preview:SkuTier"
+    description: The tier of the particular SKU, e.g. GeneralPurpose.
+type: object
+required:
+  - name
+  - tier

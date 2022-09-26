@@ -1,0 +1,101 @@
+$token: azure-native:network/v20190601:WebApplicationFirewallPolicy
+description: Defines web application firewall policy.
+properties:
+  applicationGateways:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20190601:ApplicationGatewayResponse"
+    description: A collection of references to application gateways.
+  customRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20190601:WebApplicationFirewallCustomRuleResponse"
+    description: Describes custom rules inside the policy.
+  etag:
+    type: string
+    description: Gets a unique read-only string that changes whenever the resource is updated.
+  location:
+    type: string
+    description: Resource location.
+  name:
+    type: string
+    description: Resource name.
+  policySettings:
+    type: object
+    $ref: "#/types/azure-native:network/v20190601:PolicySettingsResponse"
+    description: Describes policySettings for policy.
+  provisioningState:
+    type: string
+    description: Provisioning state of the WebApplicationFirewallPolicy.
+  resourceState:
+    type: string
+    description: Resource status of the policy.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - applicationGateways
+  - name
+  - provisioningState
+  - resourceState
+  - type
+inputProperties:
+  customRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20190601:WebApplicationFirewallCustomRule"
+    description: Describes custom rules inside the policy.
+  id:
+    type: string
+    description: Resource ID.
+  location:
+    type: string
+    description: Resource location.
+  policyName:
+    type: string
+    description: The name of the policy.
+  policySettings:
+    type: object
+    $ref: "#/types/azure-native:network/v20190601:PolicySettings"
+    description: Describes policySettings for policy.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:network:WebApplicationFirewallPolicy
+  - type: azure-native:network/v20181201:WebApplicationFirewallPolicy
+  - type: azure-native:network/v20190201:WebApplicationFirewallPolicy
+  - type: azure-native:network/v20190401:WebApplicationFirewallPolicy
+  - type: azure-native:network/v20190701:WebApplicationFirewallPolicy
+  - type: azure-native:network/v20190801:WebApplicationFirewallPolicy
+  - type: azure-native:network/v20190901:WebApplicationFirewallPolicy
+  - type: azure-native:network/v20191101:WebApplicationFirewallPolicy
+  - type: azure-native:network/v20191201:WebApplicationFirewallPolicy
+  - type: azure-native:network/v20200301:WebApplicationFirewallPolicy
+  - type: azure-native:network/v20200401:WebApplicationFirewallPolicy
+  - type: azure-native:network/v20200501:WebApplicationFirewallPolicy
+  - type: azure-native:network/v20200601:WebApplicationFirewallPolicy
+  - type: azure-native:network/v20200701:WebApplicationFirewallPolicy
+  - type: azure-native:network/v20200801:WebApplicationFirewallPolicy
+  - type: azure-native:network/v20201101:WebApplicationFirewallPolicy
+  - type: azure-native:network/v20210201:WebApplicationFirewallPolicy
+  - type: azure-native:network/v20210301:WebApplicationFirewallPolicy
+  - type: azure-native:network/v20210501:WebApplicationFirewallPolicy
+  - type: azure-native:network/v20210801:WebApplicationFirewallPolicy
+  - type: azure-native:network/v20220101:WebApplicationFirewallPolicy

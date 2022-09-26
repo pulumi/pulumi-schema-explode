@@ -1,0 +1,171 @@
+$token: azure-native:machinelearningservices/v20220601preview:SweepJob
+description: Sweep job definition.
+properties:
+  componentId:
+    type: string
+    description: ARM resource ID of the component resource.
+  computeId:
+    type: string
+    description: ARM resource ID of the compute resource.
+  description:
+    type: string
+    description: The asset description text.
+  displayName:
+    type: string
+    description: Display name of job.
+  earlyTermination:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220601preview:BanditPolicy"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220601preview:MedianStoppingPolicy"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220601preview:TruncationSelectionPolicy"
+    discriminator:
+      propertyName: policyType
+      mapping:
+        Bandit: "#/types/azure-native:machinelearningservices/v20220601preview:BanditPolicy"
+        MedianStopping: "#/types/azure-native:machinelearningservices/v20220601preview:MedianStoppingPolicy"
+        TruncationSelection: "#/types/azure-native:machinelearningservices/v20220601preview:TruncationSelectionPolicy"
+    description: Early termination policies enable canceling poor-performing runs before they complete
+  experimentName:
+    type: string
+    description: The name of the experiment the job belongs to. If not set, the job is placed in the "Default" experiment.
+    default: Default
+  identity:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220601preview:AmlToken"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220601preview:ManagedIdentity"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220601preview:UserIdentity"
+    discriminator:
+      propertyName: identityType
+      mapping:
+        AMLToken: "#/types/azure-native:machinelearningservices/v20220601preview:AmlToken"
+        Managed: "#/types/azure-native:machinelearningservices/v20220601preview:ManagedIdentity"
+        UserIdentity: "#/types/azure-native:machinelearningservices/v20220601preview:UserIdentity"
+    description: "Identity configuration. If set, this should be one of AmlToken, ManagedIdentity, UserIdentity or null.\r
+
+      Defaults to AmlToken if null."
+  inputs:
+    type: object
+    additionalProperties:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:machinelearningservices/v20220601preview:CustomModelJobInput"
+        - type: object
+          $ref: "#/types/azure-native:machinelearningservices/v20220601preview:LiteralJobInput"
+        - type: object
+          $ref: "#/types/azure-native:machinelearningservices/v20220601preview:MLFlowModelJobInput"
+        - type: object
+          $ref: "#/types/azure-native:machinelearningservices/v20220601preview:MLTableJobInput"
+        - type: object
+          $ref: "#/types/azure-native:machinelearningservices/v20220601preview:TritonModelJobInput"
+        - type: object
+          $ref: "#/types/azure-native:machinelearningservices/v20220601preview:UriFileJobInput"
+        - type: object
+          $ref: "#/types/azure-native:machinelearningservices/v20220601preview:UriFolderJobInput"
+      discriminator:
+        propertyName: jobInputType
+        mapping:
+          custom_model: "#/types/azure-native:machinelearningservices/v20220601preview:CustomModelJobInput"
+          literal: "#/types/azure-native:machinelearningservices/v20220601preview:LiteralJobInput"
+          mlflow_model: "#/types/azure-native:machinelearningservices/v20220601preview:MLFlowModelJobInput"
+          mltable: "#/types/azure-native:machinelearningservices/v20220601preview:MLTableJobInput"
+          triton_model: "#/types/azure-native:machinelearningservices/v20220601preview:TritonModelJobInput"
+          uri_file: "#/types/azure-native:machinelearningservices/v20220601preview:UriFileJobInput"
+          uri_folder: "#/types/azure-native:machinelearningservices/v20220601preview:UriFolderJobInput"
+    description: Mapping of input data bindings used in the job.
+  isArchived:
+    type: boolean
+    description: Is the asset archived?
+    default: false
+  jobType:
+    type: string
+    description: |-
+      Enum to determine the type of job.
+      Expected value is 'Sweep'.
+    const: Sweep
+  limits:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:SweepJobLimits"
+    description: Sweep Job limit.
+  objective:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:Objective"
+    description: "[Required] Optimization objective."
+  outputs:
+    type: object
+    additionalProperties:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:machinelearningservices/v20220601preview:CustomModelJobOutput"
+        - type: object
+          $ref: "#/types/azure-native:machinelearningservices/v20220601preview:MLFlowModelJobOutput"
+        - type: object
+          $ref: "#/types/azure-native:machinelearningservices/v20220601preview:MLTableJobOutput"
+        - type: object
+          $ref: "#/types/azure-native:machinelearningservices/v20220601preview:TritonModelJobOutput"
+        - type: object
+          $ref: "#/types/azure-native:machinelearningservices/v20220601preview:UriFileJobOutput"
+        - type: object
+          $ref: "#/types/azure-native:machinelearningservices/v20220601preview:UriFolderJobOutput"
+      discriminator:
+        propertyName: jobOutputType
+        mapping:
+          custom_model: "#/types/azure-native:machinelearningservices/v20220601preview:CustomModelJobOutput"
+          mlflow_model: "#/types/azure-native:machinelearningservices/v20220601preview:MLFlowModelJobOutput"
+          mltable: "#/types/azure-native:machinelearningservices/v20220601preview:MLTableJobOutput"
+          triton_model: "#/types/azure-native:machinelearningservices/v20220601preview:TritonModelJobOutput"
+          uri_file: "#/types/azure-native:machinelearningservices/v20220601preview:UriFileJobOutput"
+          uri_folder: "#/types/azure-native:machinelearningservices/v20220601preview:UriFolderJobOutput"
+    description: Mapping of output data bindings used in the job.
+  properties:
+    type: object
+    additionalProperties:
+      type: string
+    description: The asset property dictionary.
+  samplingAlgorithm:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220601preview:BayesianSamplingAlgorithm"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220601preview:GridSamplingAlgorithm"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220601preview:RandomSamplingAlgorithm"
+    discriminator:
+      propertyName: samplingAlgorithmType
+      mapping:
+        Bayesian: "#/types/azure-native:machinelearningservices/v20220601preview:BayesianSamplingAlgorithm"
+        Grid: "#/types/azure-native:machinelearningservices/v20220601preview:GridSamplingAlgorithm"
+        Random: "#/types/azure-native:machinelearningservices/v20220601preview:RandomSamplingAlgorithm"
+    description: "[Required] The hyperparameter sampling algorithm"
+  searchSpace:
+    $ref: pulumi.json#/Any
+    description: "[Required] A dictionary containing each parameter and its distribution. The dictionary key is the name of the parameter"
+  services:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20220601preview:JobService"
+    description: "List of JobEndpoints.\r
+
+      For local jobs, a job endpoint will have an endpoint value of FileStreamObject."
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Tag dictionary. Tags can be added, removed, and updated.
+  trial:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:TrialComponent"
+    description: "[Required] Trial component definition."
+type: object
+required:
+  - jobType
+  - objective
+  - samplingAlgorithm
+  - searchSpace
+  - trial

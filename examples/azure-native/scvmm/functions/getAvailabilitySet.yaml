@@ -1,0 +1,60 @@
+$token: azure-native:scvmm:getAvailabilitySet
+description: |-
+  The AvailabilitySets resource definition.
+  API Version: 2020-06-05-preview.
+inputs:
+  properties:
+    availabilitySetName:
+      type: string
+      description: Name of the AvailabilitySet.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - availabilitySetName
+    - resourceGroupName
+outputs:
+  description: The AvailabilitySets resource definition.
+  properties:
+    availabilitySetName:
+      type: string
+      description: Name of the availability set.
+    extendedLocation:
+      type: object
+      $ref: "#/types/azure-native:scvmm:ExtendedLocationResponse"
+      description: The extended location.
+    id:
+      type: string
+      description: Resource Id
+    location:
+      type: string
+      description: Gets or sets the location.
+    name:
+      type: string
+      description: Resource Name
+    provisioningState:
+      type: string
+      description: Gets or sets the provisioning state.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:scvmm:SystemDataResponse"
+      description: The system data.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    type:
+      type: string
+      description: Resource Type
+    vmmServerId:
+      type: string
+      description: ARM Id of the vmmServer resource in which this resource resides.
+  type: object
+  required:
+    - id
+    - name
+    - provisioningState
+    - systemData
+    - type

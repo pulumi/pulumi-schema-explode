@@ -1,0 +1,45 @@
+$token: azure-native:datafactory/v20180601:FtpReadSettingsResponse
+description: Ftp read settings.
+properties:
+  deleteFilesAfterCompletion:
+    $ref: pulumi.json#/Any
+    description: "Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean)."
+  disableChunking:
+    $ref: pulumi.json#/Any
+    description: "If true, disable parallel reading within each file. Default is false. Type: boolean (or Expression with resultType boolean)."
+  disableMetricsCollection:
+    $ref: pulumi.json#/Any
+    description: "If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean)."
+  enablePartitionDiscovery:
+    type: boolean
+    description: Indicates whether to enable partition discovery.
+  fileListPath:
+    $ref: pulumi.json#/Any
+    description: "Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string)."
+  maxConcurrentConnections:
+    $ref: pulumi.json#/Any
+    description: "The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer)."
+  partitionRootPath:
+    $ref: pulumi.json#/Any
+    description: "Specify the root path where partition discovery starts from. Type: string (or Expression with resultType string)."
+  recursive:
+    $ref: pulumi.json#/Any
+    description: "If true, files under the folder path will be read recursively. Default is true. Type: boolean (or Expression with resultType boolean)."
+  type:
+    type: string
+    description: |-
+      The read setting type.
+      Expected value is 'FtpReadSettings'.
+    const: FtpReadSettings
+  useBinaryTransfer:
+    type: boolean
+    description: Specify whether to use binary transfer mode for FTP stores.
+  wildcardFileName:
+    $ref: pulumi.json#/Any
+    description: "Ftp wildcardFileName. Type: string (or Expression with resultType string)."
+  wildcardFolderPath:
+    $ref: pulumi.json#/Any
+    description: "Ftp wildcardFolderPath. Type: string (or Expression with resultType string)."
+type: object
+required:
+  - type

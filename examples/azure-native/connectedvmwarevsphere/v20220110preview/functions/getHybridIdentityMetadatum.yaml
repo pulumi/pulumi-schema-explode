@@ -1,0 +1,55 @@
+$token: azure-native:connectedvmwarevsphere/v20220110preview:getHybridIdentityMetadatum
+description: Defines the HybridIdentityMetadata.
+inputs:
+  properties:
+    metadataName:
+      type: string
+      description: Name of the HybridIdentityMetadata.
+    resourceGroupName:
+      type: string
+      description: The Resource Group Name.
+    virtualMachineName:
+      type: string
+      description: Name of the vm.
+  type: object
+  required:
+    - metadataName
+    - resourceGroupName
+    - virtualMachineName
+outputs:
+  description: Defines the HybridIdentityMetadata.
+  properties:
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    identity:
+      type: object
+      $ref: "#/types/azure-native:connectedvmwarevsphere/v20220110preview:IdentityResponse"
+      description: The identity of the resource.
+    name:
+      type: string
+      description: The name of the resource
+    provisioningState:
+      type: string
+      description: Gets or sets the provisioning state.
+    publicKey:
+      type: string
+      description: Gets or sets the Public Key.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:connectedvmwarevsphere/v20220110preview:SystemDataResponse"
+      description: The system data.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+    vmId:
+      type: string
+      description: Gets or sets the Vm Id.
+  type: object
+  required:
+    - id
+    - identity
+    - name
+    - provisioningState
+    - systemData
+    - type

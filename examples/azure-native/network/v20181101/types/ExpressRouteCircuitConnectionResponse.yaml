@@ -1,0 +1,37 @@
+$token: azure-native:network/v20181101:ExpressRouteCircuitConnectionResponse
+description: Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
+properties:
+  addressPrefix:
+    type: string
+    description: /29 IP address space to carve out Customer addresses for tunnels.
+  authorizationKey:
+    type: string
+    description: The authorization key.
+  circuitConnectionStatus:
+    type: string
+    description: "Express Route Circuit Connection State. Possible values are: 'Connected' and 'Disconnected'."
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  expressRouteCircuitPeering:
+    type: object
+    $ref: "#/types/azure-native:network/v20181101:SubResourceResponse"
+    description: Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
+  id:
+    type: string
+    description: Resource ID.
+  name:
+    type: string
+    description: Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
+  peerExpressRouteCircuitPeering:
+    type: object
+    $ref: "#/types/azure-native:network/v20181101:SubResourceResponse"
+    description: Reference to Express Route Circuit Private Peering Resource of the peered circuit.
+  provisioningState:
+    type: string
+    description: "Provisioning state of the circuit connection resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'."
+type: object
+required:
+  - circuitConnectionStatus
+  - etag
+  - provisioningState

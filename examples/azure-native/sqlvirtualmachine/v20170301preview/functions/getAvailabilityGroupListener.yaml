@@ -1,0 +1,54 @@
+$token: azure-native:sqlvirtualmachine/v20170301preview:getAvailabilityGroupListener
+description: A SQL Server availability group listener.
+inputs:
+  properties:
+    availabilityGroupListenerName:
+      type: string
+      description: Name of the availability group listener.
+    resourceGroupName:
+      type: string
+      description: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    sqlVirtualMachineGroupName:
+      type: string
+      description: Name of the SQL virtual machine group.
+  type: object
+  required:
+    - availabilityGroupListenerName
+    - resourceGroupName
+    - sqlVirtualMachineGroupName
+outputs:
+  description: A SQL Server availability group listener.
+  properties:
+    availabilityGroupName:
+      type: string
+      description: Name of the availability group.
+    createDefaultAvailabilityGroupIfNotExist:
+      type: boolean
+      description: Create a default availability group if it does not exist.
+    id:
+      type: string
+      description: Resource ID.
+    loadBalancerConfigurations:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:sqlvirtualmachine/v20170301preview:LoadBalancerConfigurationResponse"
+      description: List of load balancer configurations for an availability group listener.
+    name:
+      type: string
+      description: Resource name.
+    port:
+      type: integer
+      description: Listener port.
+    provisioningState:
+      type: string
+      description: Provisioning state to track the async operation status.
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - id
+    - name
+    - provisioningState
+    - type

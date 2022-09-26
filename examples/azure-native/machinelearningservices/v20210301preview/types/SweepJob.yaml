@@ -1,0 +1,97 @@
+$token: azure-native:machinelearningservices/v20210301preview:SweepJob
+description: Sweep job definition.
+properties:
+  algorithm:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearningservices/v20210301preview:SamplingAlgorithm"
+    description: "[Required] Type of the hyperparameter sampling algorithms"
+  compute:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20210301preview:ComputeConfiguration"
+    description: "[Required] Compute binding for the job."
+  description:
+    type: string
+    description: The asset description text.
+  earlyTermination:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:BanditPolicy"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:MedianStoppingPolicy"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:TruncationSelectionPolicy"
+    discriminator:
+      propertyName: policyType
+      mapping:
+        Bandit: "#/types/azure-native:machinelearningservices/v20210301preview:BanditPolicy"
+        MedianStopping: "#/types/azure-native:machinelearningservices/v20210301preview:MedianStoppingPolicy"
+        TruncationSelection: "#/types/azure-native:machinelearningservices/v20210301preview:TruncationSelectionPolicy"
+    description: Early termination policies enable canceling poor-performing runs before they complete.
+  experimentName:
+    type: string
+    description: The name of the experiment the job belongs to. If not set, the job is placed in the "Default" experiment.
+  identity:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:AmlToken"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:ManagedIdentity"
+    discriminator:
+      propertyName: identityType
+      mapping:
+        AMLToken: "#/types/azure-native:machinelearningservices/v20210301preview:AmlToken"
+        Managed: "#/types/azure-native:machinelearningservices/v20210301preview:ManagedIdentity"
+    description: "Identity configuration. If set, this should be one of AmlToken, ManagedIdentity or null.\r
+
+      Defaults to AmlToken if null."
+  jobType:
+    type: string
+    description: |-
+      Enum to determine the type of job.
+      Expected value is 'Sweep'.
+    const: Sweep
+  maxConcurrentTrials:
+    type: integer
+    description: An upper bound on the number of trials performed in parallel.
+  maxTotalTrials:
+    type: integer
+    description: An upper bound on the number of trials to perform.
+  objective:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20210301preview:Objective"
+    description: "[Required] Optimization objective."
+  priority:
+    type: integer
+    description: "Job priority for scheduling policy. Only applies to AMLCompute.\r
+
+      Private preview feature and only available to users on the allow list."
+  properties:
+    type: object
+    additionalProperties:
+      type: string
+    description: The asset property dictionary.
+  searchSpace:
+    type: object
+    additionalProperties:
+      $ref: pulumi.json#/Any
+    description: "[Required] A dictionary containing each parameter and its distribution. The dictionary key is the name of the parameter"
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Tag dictionary. Tags can be added, removed, and updated.
+  timeout:
+    type: string
+    description: The total timeout in ISO 8601 format. Only supports duration with precision as low as Minutes.
+  trial:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20210301preview:TrialComponent"
+    description: Trial component definition.
+type: object
+required:
+  - algorithm
+  - compute
+  - jobType
+  - objective
+  - searchSpace

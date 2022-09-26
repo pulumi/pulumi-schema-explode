@@ -1,0 +1,46 @@
+$token: azure-native:machinelearningservices/v20220501:EnvironmentContainer
+description: Azure Resource Manager resource envelope.
+properties:
+  environmentContainerProperties:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220501:EnvironmentContainerResponse"
+    description: "[Required] Additional attributes of the entity."
+  name:
+    type: string
+    description: The name of the resource
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220501:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - environmentContainerProperties
+  - name
+  - systemData
+  - type
+inputProperties:
+  environmentContainerProperties:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220501:EnvironmentContainer"
+    description: "[Required] Additional attributes of the entity."
+  name:
+    type: string
+    description: Container name. This is case-sensitive.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  workspaceName:
+    type: string
+    description: Name of Azure Machine Learning workspace.
+requiredInputs:
+  - environmentContainerProperties
+  - resourceGroupName
+  - workspaceName
+aliases:
+  - type: azure-native:machinelearningservices:EnvironmentContainer
+  - type: azure-native:machinelearningservices/v20210301preview:EnvironmentContainer
+  - type: azure-native:machinelearningservices/v20220201preview:EnvironmentContainer
+  - type: azure-native:machinelearningservices/v20220601preview:EnvironmentContainer

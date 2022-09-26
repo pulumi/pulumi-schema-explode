@@ -1,0 +1,73 @@
+$token: azure-native:sql/v20201101preview:getFailoverGroup
+description: A failover group.
+inputs:
+  properties:
+    failoverGroupName:
+      type: string
+      description: The name of the failover group.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    serverName:
+      type: string
+      description: The name of the server containing the failover group.
+  type: object
+  required:
+    - failoverGroupName
+    - resourceGroupName
+    - serverName
+outputs:
+  description: A failover group.
+  properties:
+    databases:
+      type: array
+      items:
+        type: string
+      description: List of databases in the failover group.
+    id:
+      type: string
+      description: Resource ID.
+    location:
+      type: string
+      description: Resource location.
+    name:
+      type: string
+      description: Resource name.
+    partnerServers:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:sql/v20201101preview:PartnerInfoResponse"
+      description: List of partner server information for the failover group.
+    readOnlyEndpoint:
+      type: object
+      $ref: "#/types/azure-native:sql/v20201101preview:FailoverGroupReadOnlyEndpointResponse"
+      description: Read-only endpoint of the failover group instance.
+    readWriteEndpoint:
+      type: object
+      $ref: "#/types/azure-native:sql/v20201101preview:FailoverGroupReadWriteEndpointResponse"
+      description: Read-write endpoint of the failover group instance.
+    replicationRole:
+      type: string
+      description: Local replication role of the failover group instance.
+    replicationState:
+      type: string
+      description: Replication state of the failover group instance.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - partnerServers
+    - readWriteEndpoint
+    - replicationRole
+    - replicationState
+    - type

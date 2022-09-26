@@ -1,0 +1,139 @@
+$token: azure-native:machinelearningservices/v20220601preview:ImageModelSettingsClassificationResponse
+description: "Settings used for training the model.\r
+
+  For more information on the available settings please visit the official documentation:\r
+
+  https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models."
+properties:
+  advancedSettings:
+    type: string
+    description: Settings for advanced scenarios.
+  amsGradient:
+    type: boolean
+    description: Enable AMSGrad when optimizer is 'adam' or 'adamw'.
+  augmentations:
+    type: string
+    description: Settings for using Augmentations.
+  beta1:
+    type: number
+    description: Value of 'beta1' when optimizer is 'adam' or 'adamw'. Must be a float in the range [0, 1].
+  beta2:
+    type: number
+    description: Value of 'beta2' when optimizer is 'adam' or 'adamw'. Must be a float in the range [0, 1].
+  checkpointFrequency:
+    type: integer
+    description: Frequency to store model checkpoints. Must be a positive integer.
+  checkpointModel:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:MLFlowModelJobInputResponse"
+    description: The pretrained checkpoint model for incremental training.
+  checkpointRunId:
+    type: string
+    description: The id of a previous run that has a pretrained checkpoint for incremental training.
+  distributed:
+    type: boolean
+    description: Whether to use distributed training.
+  earlyStopping:
+    type: boolean
+    description: Enable early stopping logic during training.
+  earlyStoppingDelay:
+    type: integer
+    description: "Minimum number of epochs or validation evaluations to wait before primary metric improvement\r
+
+      is tracked for early stopping. Must be a positive integer."
+  earlyStoppingPatience:
+    type: integer
+    description: "Minimum number of epochs or validation evaluations with no primary metric improvement before\r
+
+      the run is stopped. Must be a positive integer."
+  enableOnnxNormalization:
+    type: boolean
+    description: Enable normalization when exporting ONNX model.
+  evaluationFrequency:
+    type: integer
+    description: Frequency to evaluate validation dataset to get metric scores. Must be a positive integer.
+  gradientAccumulationStep:
+    type: integer
+    description: "Gradient accumulation means running a configured number of \"GradAccumulationStep\" steps without\r
+
+      updating the model weights while accumulating the gradients of those steps, and then using\r
+
+      the accumulated gradients to compute the weight updates. Must be a positive integer."
+  layersToFreeze:
+    type: integer
+    description: "Number of layers to freeze for the model. Must be a positive integer.\r
+
+      For instance, passing 2 as value for 'seresnext' means\r
+
+      freezing layer0 and layer1. For a full list of models supported and details on layer freeze, please\r
+
+      see: https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models."
+  learningRate:
+    type: number
+    description: Initial learning rate. Must be a float in the range [0, 1].
+  learningRateScheduler:
+    type: string
+    description: Type of learning rate scheduler. Must be 'warmup_cosine' or 'step'.
+    default: None
+  modelName:
+    type: string
+    description: "Name of the model to use for training.\r
+
+      For more information on the available models please visit the official documentation:\r
+
+      https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models."
+  momentum:
+    type: number
+    description: Value of momentum when optimizer is 'sgd'. Must be a float in the range [0, 1].
+  nesterov:
+    type: boolean
+    description: Enable nesterov when optimizer is 'sgd'.
+  numberOfEpochs:
+    type: integer
+    description: Number of training epochs. Must be a positive integer.
+  numberOfWorkers:
+    type: integer
+    description: Number of data loader workers. Must be a non-negative integer.
+  optimizer:
+    type: string
+    description: Type of optimizer.
+    default: None
+  randomSeed:
+    type: integer
+    description: Random seed to be used when using deterministic training.
+  stepLRGamma:
+    type: number
+    description: Value of gamma when learning rate scheduler is 'step'. Must be a float in the range [0, 1].
+  stepLRStepSize:
+    type: integer
+    description: Value of step size when learning rate scheduler is 'step'. Must be a positive integer.
+  trainingBatchSize:
+    type: integer
+    description: Training batch size. Must be a positive integer.
+  trainingCropSize:
+    type: integer
+    description: Image crop size that is input to the neural network for the training dataset. Must be a positive integer.
+  validationBatchSize:
+    type: integer
+    description: Validation batch size. Must be a positive integer.
+  validationCropSize:
+    type: integer
+    description: Image crop size that is input to the neural network for the validation dataset. Must be a positive integer.
+  validationResizeSize:
+    type: integer
+    description: Image size to which to resize before cropping for validation dataset. Must be a positive integer.
+  warmupCosineLRCycles:
+    type: number
+    description: Value of cosine cycle when learning rate scheduler is 'warmup_cosine'. Must be a float in the range [0, 1].
+  warmupCosineLRWarmupEpochs:
+    type: integer
+    description: Value of warmup epochs when learning rate scheduler is 'warmup_cosine'. Must be a positive integer.
+  weightDecay:
+    type: number
+    description: Value of weight decay when optimizer is 'sgd', 'adam', or 'adamw'. Must be a float in the range[0, 1].
+  weightedLoss:
+    type: integer
+    description: "Weighted loss. The accepted values are 0 for no weighted loss.\r
+
+      1 for weighted loss with sqrt.(class_weights). 2 for weighted loss with class_weights. Must be 0 or 1 or 2."
+type: object

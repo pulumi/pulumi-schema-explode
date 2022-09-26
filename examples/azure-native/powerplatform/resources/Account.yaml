@@ -1,0 +1,58 @@
+$token: azure-native:powerplatform:Account
+description: |-
+  Definition of the account.
+  API Version: 2020-10-30-preview.
+properties:
+  description:
+    type: string
+    description: The description of the account.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  name:
+    type: string
+    description: The name of the resource
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:powerplatform:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  systemId:
+    type: string
+    description: The internally assigned unique identifier of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - location
+  - name
+  - systemData
+  - systemId
+  - type
+inputProperties:
+  accountName:
+    type: string
+    description: Name of the account.
+  description:
+    type: string
+    description: The description of the account.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:powerplatform/v20201030preview:Account

@@ -1,0 +1,126 @@
+$token: azure-native:containerservice:OpenShiftManagedCluster
+description: |-
+  OpenShift Managed cluster.
+  API Version: 2019-04-30.
+properties:
+  agentPoolProfiles:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:containerservice:OpenShiftManagedClusterAgentPoolProfileResponse"
+    description: Configuration of OpenShift cluster VMs.
+  authProfile:
+    type: object
+    $ref: "#/types/azure-native:containerservice:OpenShiftManagedClusterAuthProfileResponse"
+    description: Configures OpenShift authentication.
+  clusterVersion:
+    type: string
+    description: Version of OpenShift specified when creating the cluster.
+  fqdn:
+    type: string
+    description: Service generated FQDN for OpenShift API server loadbalancer internal hostname.
+  location:
+    type: string
+    description: Resource location
+  masterPoolProfile:
+    type: object
+    $ref: "#/types/azure-native:containerservice:OpenShiftManagedClusterMasterPoolProfileResponse"
+    description: Configuration for OpenShift master VMs.
+  name:
+    type: string
+    description: Resource name
+  networkProfile:
+    type: object
+    $ref: "#/types/azure-native:containerservice:NetworkProfileResponse"
+    description: Configuration for OpenShift networking.
+  openShiftVersion:
+    type: string
+    description: Version of OpenShift specified when creating the cluster.
+  plan:
+    type: object
+    $ref: "#/types/azure-native:containerservice:PurchasePlanResponse"
+    description: Define the resource plan as required by ARM for billing purposes
+  provisioningState:
+    type: string
+    description: The current deployment or provisioning state, which only appears in the response.
+  publicHostname:
+    type: string
+    description: Service generated FQDN for OpenShift API server.
+  routerProfiles:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:containerservice:OpenShiftRouterProfileResponse"
+    description: Configuration for OpenShift router(s).
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  type:
+    type: string
+    description: Resource type
+type: object
+required:
+  - clusterVersion
+  - fqdn
+  - location
+  - name
+  - openShiftVersion
+  - provisioningState
+  - publicHostname
+  - type
+inputProperties:
+  agentPoolProfiles:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:containerservice:OpenShiftManagedClusterAgentPoolProfile"
+    description: Configuration of OpenShift cluster VMs.
+  authProfile:
+    type: object
+    $ref: "#/types/azure-native:containerservice:OpenShiftManagedClusterAuthProfile"
+    description: Configures OpenShift authentication.
+  location:
+    type: string
+    description: Resource location
+  masterPoolProfile:
+    type: object
+    $ref: "#/types/azure-native:containerservice:OpenShiftManagedClusterMasterPoolProfile"
+    description: Configuration for OpenShift master VMs.
+  networkProfile:
+    type: object
+    $ref: "#/types/azure-native:containerservice:NetworkProfile"
+    description: Configuration for OpenShift networking.
+  openShiftVersion:
+    type: string
+    description: Version of OpenShift specified when creating the cluster.
+  plan:
+    type: object
+    $ref: "#/types/azure-native:containerservice:PurchasePlan"
+    description: Define the resource plan as required by ARM for billing purposes
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  resourceName:
+    type: string
+    description: The name of the OpenShift managed cluster resource.
+  routerProfiles:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:containerservice:OpenShiftRouterProfile"
+    description: Configuration for OpenShift router(s).
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+requiredInputs:
+  - openShiftVersion
+  - resourceGroupName
+aliases:
+  - type: azure-native:containerservice/v20180930preview:OpenShiftManagedCluster
+  - type: azure-native:containerservice/v20190430:OpenShiftManagedCluster
+  - type: azure-native:containerservice/v20190930preview:OpenShiftManagedCluster
+  - type: azure-native:containerservice/v20191027preview:OpenShiftManagedCluster

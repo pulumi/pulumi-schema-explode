@@ -1,0 +1,53 @@
+$token: azure-native:appplatform/v20220101preview:getService
+description: Service resource
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    serviceName:
+      type: string
+      description: The name of the Service resource.
+  type: object
+  required:
+    - resourceGroupName
+    - serviceName
+outputs:
+  description: Service resource
+  properties:
+    id:
+      type: string
+      description: Fully qualified resource Id for the resource.
+    location:
+      type: string
+      description: The GEO location of the resource.
+    name:
+      type: string
+      description: The name of the resource.
+    properties:
+      type: object
+      $ref: "#/types/azure-native:appplatform/v20220101preview:ClusterResourcePropertiesResponse"
+      description: Properties of the Service resource
+    sku:
+      type: object
+      $ref: "#/types/azure-native:appplatform/v20220101preview:SkuResponse"
+      description: Sku of the Service resource
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:appplatform/v20220101preview:SystemDataResponse"
+      description: Metadata pertaining to creation and last modification of the resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Tags of the service which is a list of key value pairs that describe the resource.
+    type:
+      type: string
+      description: The type of the resource.
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - systemData
+    - type

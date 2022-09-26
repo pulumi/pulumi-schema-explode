@@ -1,0 +1,35 @@
+$token: azure-native:keyvault/v20210601preview:KeyProperties
+description: The properties of the key.
+properties:
+  attributes:
+    type: object
+    $ref: "#/types/azure-native:keyvault/v20210601preview:KeyAttributes"
+    description: The attributes of the key.
+  curveName:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:keyvault/v20210601preview:JsonWebKeyCurveName"
+    description: The elliptic curve name. For valid values, see JsonWebKeyCurveName.
+  keyOps:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:keyvault/v20210601preview:JsonWebKeyOperation"
+  keySize:
+    type: integer
+    description: "The key size in bits. For example: 2048, 3072, or 4096 for RSA."
+  kty:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:keyvault/v20210601preview:JsonWebKeyType"
+    description: The type of the key. For valid values, see JsonWebKeyType.
+  releasePolicy:
+    type: object
+    $ref: "#/types/azure-native:keyvault/v20210601preview:KeyReleasePolicy"
+    description: Key release policy in response. It will be used for both output and input. Omitted if empty
+  rotationPolicy:
+    type: object
+    $ref: "#/types/azure-native:keyvault/v20210601preview:RotationPolicy"
+    description: Key rotation policy in response. It will be used for both output and input. Omitted if empty
+type: object

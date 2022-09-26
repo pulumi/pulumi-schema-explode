@@ -1,0 +1,88 @@
+$token: azure-native:dbformariadb/v20180601:getServer
+description: Represents a server.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    serverName:
+      type: string
+      description: The name of the server.
+  type: object
+  required:
+    - resourceGroupName
+    - serverName
+outputs:
+  description: Represents a server.
+  properties:
+    administratorLogin:
+      type: string
+      description: The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+    earliestRestoreDate:
+      type: string
+      description: Earliest restore point creation time (ISO8601 format)
+    fullyQualifiedDomainName:
+      type: string
+      description: The fully qualified domain name of a server.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    masterServerId:
+      type: string
+      description: The master server id of a replica server.
+    minimalTlsVersion:
+      type: string
+      description: Enforce a minimal Tls version for the server.
+    name:
+      type: string
+      description: The name of the resource
+    privateEndpointConnections:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:dbformariadb/v20180601:ServerPrivateEndpointConnectionResponse"
+      description: List of private endpoint connections on a server
+    publicNetworkAccess:
+      type: string
+      description: Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+    replicaCapacity:
+      type: integer
+      description: The maximum number of replicas that a master server can have.
+    replicationRole:
+      type: string
+      description: The replication role of the server.
+    sku:
+      type: object
+      $ref: "#/types/azure-native:dbformariadb/v20180601:SkuResponse"
+      description: The SKU (pricing tier) of the server.
+    sslEnforcement:
+      type: string
+      description: Enable ssl enforcement or not when connect to server.
+    storageProfile:
+      type: object
+      $ref: "#/types/azure-native:dbformariadb/v20180601:StorageProfileResponse"
+      description: Storage profile of a server.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+    userVisibleState:
+      type: string
+      description: A state of a server that is visible to user.
+    version:
+      type: string
+      description: Server version.
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - privateEndpointConnections
+    - type

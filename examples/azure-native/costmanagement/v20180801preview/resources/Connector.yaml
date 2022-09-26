@@ -1,0 +1,93 @@
+$token: azure-native:costmanagement/v20180801preview:Connector
+description: The Connector model definition
+properties:
+  collection:
+    type: object
+    $ref: "#/types/azure-native:costmanagement/v20180801preview:ConnectorCollectionInfoResponse"
+    description: Collection information
+  createdOn:
+    type: string
+    description: Connector definition creation datetime
+  credentialsKey:
+    type: string
+    description: Credentials authentication key (eg AWS ARN)
+  displayName:
+    type: string
+    description: Connector DisplayName (defaults to Name)
+  kind:
+    type: string
+    description: Connector kind (eg aws)
+  location:
+    type: string
+    description: Connector location
+  modifiedOn:
+    type: string
+    description: Connector last modified datetime
+  name:
+    type: string
+    description: Connector name
+  providerAccountId:
+    type: string
+    description: Connector providerAccountId (determined from credentials)
+  reportId:
+    type: string
+    description: Identifying source report. (For AWS this is a CUR report name, defined with Daily and with Resources)
+  status:
+    type: string
+    description: Connector status
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: Connector type
+type: object
+required:
+  - collection
+  - createdOn
+  - modifiedOn
+  - name
+  - providerAccountId
+  - type
+inputProperties:
+  connectorName:
+    type: string
+    description: Connector Name.
+  credentialsKey:
+    type: string
+    description: Credentials authentication key (eg AWS ARN)
+  credentialsSecret:
+    type: string
+    description: Credentials secret (eg AWS ExternalId)
+  displayName:
+    type: string
+    description: Connector DisplayName (defaults to Name)
+  kind:
+    type: string
+    description: Connector kind (eg aws)
+  location:
+    type: string
+    description: Connector location
+  reportId:
+    type: string
+    description: Identifying source report. (For AWS this is a CUR report name, defined with Daily and with Resources)
+  resourceGroupName:
+    type: string
+    description: Azure Resource Group Name.
+  status:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:costmanagement/v20180801preview:ConnectorStatus"
+    description: Connector status
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:costmanagement:Connector
+  - type: azure-native:costmanagement/v20190301preview:Connector

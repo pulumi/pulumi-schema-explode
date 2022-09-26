@@ -1,0 +1,81 @@
+$token: azure-native:operationalinsights/v20200301preview:StorageInsightConfig
+description: The top level storage insight resource container.
+properties:
+  containers:
+    type: array
+    items:
+      type: string
+    description: The names of the blob containers that the workspace should read
+  eTag:
+    type: string
+    description: The ETag of the storage insight.
+  name:
+    type: string
+    description: The name of the resource
+  status:
+    type: object
+    $ref: "#/types/azure-native:operationalinsights/v20200301preview:StorageInsightStatusResponse"
+    description: The status of the storage insight
+  storageAccount:
+    type: object
+    $ref: "#/types/azure-native:operationalinsights/v20200301preview:StorageAccountResponse"
+    description: The storage account connection details
+  tables:
+    type: array
+    items:
+      type: string
+    description: The names of the Azure tables that the workspace should read
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - name
+  - status
+  - storageAccount
+  - type
+inputProperties:
+  containers:
+    type: array
+    items:
+      type: string
+    description: The names of the blob containers that the workspace should read
+  eTag:
+    type: string
+    description: The ETag of the storage insight.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  storageAccount:
+    type: object
+    $ref: "#/types/azure-native:operationalinsights/v20200301preview:StorageAccount"
+    description: The storage account connection details
+  storageInsightName:
+    type: string
+    description: Name of the storageInsightsConfigs resource
+  tables:
+    type: array
+    items:
+      type: string
+    description: The names of the Azure tables that the workspace should read
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  workspaceName:
+    type: string
+    description: The name of the workspace.
+requiredInputs:
+  - resourceGroupName
+  - storageAccount
+  - workspaceName
+aliases:
+  - type: azure-native:operationalinsights:StorageInsightConfig
+  - type: azure-native:operationalinsights/v20150320:StorageInsightConfig
+  - type: azure-native:operationalinsights/v20200801:StorageInsightConfig

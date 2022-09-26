@@ -1,0 +1,50 @@
+$token: azure-native:subscription/v20211001:SubscriptionAliasResponsePropertiesResponse
+description: Put subscription creation result properties.
+properties:
+  acceptOwnershipState:
+    type: string
+    description: The accept ownership state of the resource.
+  acceptOwnershipUrl:
+    type: string
+    description: Url to accept ownership of the subscription.
+  billingScope:
+    type: string
+    description: |-
+      Billing scope of the subscription.
+      For CustomerLed and FieldLed - /billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}/invoiceSections/{invoiceSectionName}
+      For PartnerLed - /billingAccounts/{billingAccountName}/customers/{customerName}
+      For Legacy EA - /billingAccounts/{billingAccountName}/enrollmentAccounts/{enrollmentAccountName}
+  createdTime:
+    type: string
+    description: Created Time
+  displayName:
+    type: string
+    description: The display name of the subscription.
+  managementGroupId:
+    type: string
+    description: The Management Group Id.
+  provisioningState:
+    type: string
+    description: The provisioning state of the resource.
+  resellerId:
+    type: string
+    description: Reseller Id
+  subscriptionId:
+    type: string
+    description: Newly created subscription Id.
+  subscriptionOwnerId:
+    type: string
+    description: Owner Id of the subscription
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Tags for the subscription
+  workload:
+    type: string
+    description: The workload type of the subscription. It can be either Production or DevTest.
+type: object
+required:
+  - acceptOwnershipState
+  - acceptOwnershipUrl
+  - subscriptionId

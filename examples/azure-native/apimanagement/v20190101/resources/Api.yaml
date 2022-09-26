@@ -1,0 +1,181 @@
+$token: azure-native:apimanagement/v20190101:Api
+description: Api details.
+properties:
+  apiRevision:
+    type: string
+    description: Describes the Revision of the Api. If no value is provided, default revision 1 is created
+  apiRevisionDescription:
+    type: string
+    description: Description of the Api Revision.
+  apiType:
+    type: string
+    description: Type of API.
+  apiVersion:
+    type: string
+    description: Indicates the Version identifier of the API if the API is versioned
+  apiVersionDescription:
+    type: string
+    description: Description of the Api Version.
+  apiVersionSet:
+    type: object
+    $ref: "#/types/azure-native:apimanagement/v20190101:ApiVersionSetContractDetailsResponse"
+    description: Version set details
+  apiVersionSetId:
+    type: string
+    description: A resource identifier for the related ApiVersionSet.
+  authenticationSettings:
+    type: object
+    $ref: "#/types/azure-native:apimanagement/v20190101:AuthenticationSettingsContractResponse"
+    description: Collection of authentication settings included into this API.
+  description:
+    type: string
+    description: Description of the API. May include HTML formatting tags.
+  displayName:
+    type: string
+    description: API name. Must be 1 to 300 characters long.
+  isCurrent:
+    type: boolean
+    description: Indicates if API revision is current api revision.
+  isOnline:
+    type: boolean
+    description: Indicates if API revision is accessible via the gateway.
+  name:
+    type: string
+    description: Resource name.
+  path:
+    type: string
+    description: Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
+  protocols:
+    type: array
+    items:
+      type: string
+    description: Describes on which protocols the operations in this API can be invoked.
+  serviceUrl:
+    type: string
+    description: Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.
+  sourceApiId:
+    type: string
+    description: API identifier of the source API.
+  subscriptionKeyParameterNames:
+    type: object
+    $ref: "#/types/azure-native:apimanagement/v20190101:SubscriptionKeyParameterNamesContractResponse"
+    description: Protocols over which API is made available.
+  subscriptionRequired:
+    type: boolean
+    description: Specifies whether an API or Product subscription is required for accessing the API.
+  type:
+    type: string
+    description: Resource type for API Management resource.
+type: object
+required:
+  - isOnline
+  - name
+  - path
+  - type
+inputProperties:
+  apiId:
+    type: string
+    description: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
+  apiRevision:
+    type: string
+    description: Describes the Revision of the Api. If no value is provided, default revision 1 is created
+  apiRevisionDescription:
+    type: string
+    description: Description of the Api Revision.
+  apiType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:apimanagement/v20190101:ApiType"
+    description: Type of API.
+  apiVersion:
+    type: string
+    description: Indicates the Version identifier of the API if the API is versioned
+  apiVersionDescription:
+    type: string
+    description: Description of the Api Version.
+  apiVersionSet:
+    type: object
+    $ref: "#/types/azure-native:apimanagement/v20190101:ApiVersionSetContractDetails"
+    description: Version set details
+  apiVersionSetId:
+    type: string
+    description: A resource identifier for the related ApiVersionSet.
+  authenticationSettings:
+    type: object
+    $ref: "#/types/azure-native:apimanagement/v20190101:AuthenticationSettingsContract"
+    description: Collection of authentication settings included into this API.
+  description:
+    type: string
+    description: Description of the API. May include HTML formatting tags.
+  displayName:
+    type: string
+    description: API name. Must be 1 to 300 characters long.
+  format:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:apimanagement/v20190101:ContentFormat"
+    description: Format of the Content in which the API is getting imported.
+  isCurrent:
+    type: boolean
+    description: Indicates if API revision is current api revision.
+  path:
+    type: string
+    description: Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
+  protocols:
+    type: array
+    items:
+      $ref: "#/types/azure-native:apimanagement/v20190101:Protocol"
+    description: Describes on which protocols the operations in this API can be invoked.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  serviceName:
+    type: string
+    description: The name of the API Management service.
+  serviceUrl:
+    type: string
+    description: Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.
+  soapApiType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:apimanagement/v20190101:SoapApiType"
+    description: |-
+      Type of Api to create. 
+       * `http` creates a SOAP to REST API 
+       * `soap` creates a SOAP pass-through API .
+  sourceApiId:
+    type: string
+    description: API identifier of the source API.
+  subscriptionKeyParameterNames:
+    type: object
+    $ref: "#/types/azure-native:apimanagement/v20190101:SubscriptionKeyParameterNamesContract"
+    description: Protocols over which API is made available.
+  subscriptionRequired:
+    type: boolean
+    description: Specifies whether an API or Product subscription is required for accessing the API.
+  value:
+    type: string
+    description: Content value when Importing an API.
+  wsdlSelector:
+    type: object
+    $ref: "#/types/azure-native:apimanagement/v20190101:ApiCreateOrUpdatePropertiesWsdlSelector"
+    description: Criteria to limit import of WSDL to a subset of the document.
+requiredInputs:
+  - path
+  - resourceGroupName
+  - serviceName
+aliases:
+  - type: azure-native:apimanagement:Api
+  - type: azure-native:apimanagement/v20160707:Api
+  - type: azure-native:apimanagement/v20161010:Api
+  - type: azure-native:apimanagement/v20170301:Api
+  - type: azure-native:apimanagement/v20180101:Api
+  - type: azure-native:apimanagement/v20180601preview:Api
+  - type: azure-native:apimanagement/v20191201:Api
+  - type: azure-native:apimanagement/v20191201preview:Api
+  - type: azure-native:apimanagement/v20200601preview:Api
+  - type: azure-native:apimanagement/v20201201:Api
+  - type: azure-native:apimanagement/v20210101preview:Api
+  - type: azure-native:apimanagement/v20210401preview:Api
+  - type: azure-native:apimanagement/v20210801:Api
+  - type: azure-native:apimanagement/v20211201preview:Api

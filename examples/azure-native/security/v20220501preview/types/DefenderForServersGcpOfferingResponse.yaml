@@ -1,0 +1,36 @@
+$token: azure-native:security/v20220501preview:DefenderForServersGcpOfferingResponse
+description: The Defender for Servers GCP offering configurations
+properties:
+  arcAutoProvisioning:
+    type: object
+    $ref: "#/types/azure-native:security/v20220501preview:DefenderForServersGcpOfferingResponseArcAutoProvisioning"
+    description: The ARC autoprovisioning configuration
+  defenderForServers:
+    type: object
+    $ref: "#/types/azure-native:security/v20220501preview:DefenderForServersGcpOfferingResponseDefenderForServers"
+    description: The Defender for servers connection configuration
+  description:
+    type: string
+    description: The offering description.
+  mdeAutoProvisioning:
+    type: object
+    $ref: "#/types/azure-native:security/v20220501preview:DefenderForServersGcpOfferingResponseMdeAutoProvisioning"
+    description: The Microsoft Defender for Endpoint autoprovisioning configuration
+  offeringType:
+    type: string
+    description: |-
+      The type of the security offering.
+      Expected value is 'DefenderForServersGcp'.
+    const: DefenderForServersGcp
+  subPlan:
+    type: object
+    $ref: "#/types/azure-native:security/v20220501preview:DefenderForServersGcpOfferingResponseSubPlan"
+    description: configuration for the servers offering subPlan
+  vaAutoProvisioning:
+    type: object
+    $ref: "#/types/azure-native:security/v20220501preview:DefenderForServersGcpOfferingResponseVaAutoProvisioning"
+    description: The Vulnerability Assessment autoprovisioning configuration
+type: object
+required:
+  - description
+  - offeringType

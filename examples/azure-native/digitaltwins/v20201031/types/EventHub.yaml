@@ -1,0 +1,22 @@
+$token: azure-native:digitaltwins/v20201031:EventHub
+description: Properties related to EventHub.
+properties:
+  connectionStringPrimaryKey:
+    type: string
+    description: PrimaryConnectionString of the endpoint. Will be obfuscated during read.
+  connectionStringSecondaryKey:
+    type: string
+    description: SecondaryConnectionString of the endpoint. Will be obfuscated during read.
+  deadLetterSecret:
+    type: string
+    description: Dead letter storage secret. Will be obfuscated during read.
+  endpointType:
+    type: string
+    description: |-
+      The type of Digital Twins endpoint
+      Expected value is 'EventHub'.
+    const: EventHub
+type: object
+required:
+  - connectionStringPrimaryKey
+  - endpointType

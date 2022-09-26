@@ -1,0 +1,35 @@
+$token: azure-native:digitaltwins/v20210630preview:EventHub
+description: Properties related to EventHub.
+properties:
+  authenticationType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:digitaltwins/v20210630preview:AuthenticationType"
+    description: Specifies the authentication type being used for connecting to the endpoint. Defaults to 'KeyBased'. If 'KeyBased' is selected, a connection string must be specified (at least the primary connection string). If 'IdentityBased' is select, the endpointUri and entityPath properties must be specified.
+  connectionStringPrimaryKey:
+    type: string
+    description: PrimaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
+  connectionStringSecondaryKey:
+    type: string
+    description: SecondaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
+  deadLetterSecret:
+    type: string
+    description: Dead letter storage secret for key-based authentication. Will be obfuscated during read.
+  deadLetterUri:
+    type: string
+    description: Dead letter storage URL for identity-based authentication.
+  endpointType:
+    type: string
+    description: |-
+      The type of Digital Twins endpoint
+      Expected value is 'EventHub'.
+    const: EventHub
+  endpointUri:
+    type: string
+    description: The URL of the EventHub namespace for identity-based authentication. It must include the protocol 'sb://'.
+  entityPath:
+    type: string
+    description: The EventHub name in the EventHub namespace for identity-based authentication.
+type: object
+required:
+  - endpointType

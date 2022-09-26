@@ -1,0 +1,37 @@
+$token: azure-native:securityandcompliance/v20210111:ServicesProperties
+description: The properties of a service instance.
+properties:
+  accessPolicies:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:securityandcompliance/v20210111:ServiceAccessPolicyEntry"
+    description: The access policies of the service instance.
+  authenticationConfiguration:
+    type: object
+    $ref: "#/types/azure-native:securityandcompliance/v20210111:ServiceAuthenticationConfigurationInfo"
+    description: The authentication configuration for the service instance.
+  corsConfiguration:
+    type: object
+    $ref: "#/types/azure-native:securityandcompliance/v20210111:ServiceCorsConfigurationInfo"
+    description: The settings for the CORS configuration of the service instance.
+  cosmosDbConfiguration:
+    type: object
+    $ref: "#/types/azure-native:securityandcompliance/v20210111:ServiceCosmosDbConfigurationInfo"
+    description: The settings for the Cosmos DB database backing the service.
+  exportConfiguration:
+    type: object
+    $ref: "#/types/azure-native:securityandcompliance/v20210111:ServiceExportConfigurationInfo"
+    description: The settings for the export operation of the service instance.
+  privateEndpointConnections:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:securityandcompliance/v20210111:PrivateEndpointConnection"
+    description: The list of private endpoint connections that are set up for this resource.
+  publicNetworkAccess:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:securityandcompliance/v20210111:PublicNetworkAccess"
+    description: Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+type: object

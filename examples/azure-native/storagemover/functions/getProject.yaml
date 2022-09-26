@@ -1,0 +1,49 @@
+$token: azure-native:storagemover:getProject
+description: |-
+  The Project resource.
+  API Version: 2022-07-01-preview.
+inputs:
+  properties:
+    projectName:
+      type: string
+      description: The name of the Project resource.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    storageMoverName:
+      type: string
+      description: The name of the Storage Mover resource.
+  type: object
+  required:
+    - projectName
+    - resourceGroupName
+    - storageMoverName
+outputs:
+  description: The Project resource.
+  properties:
+    description:
+      type: string
+      description: A description for the Project.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    name:
+      type: string
+      description: The name of the resource
+    provisioningState:
+      type: string
+      description: The provisioning state of this resource.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:storagemover:SystemDataResponse"
+      description: Resource system metadata.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - id
+    - name
+    - provisioningState
+    - systemData
+    - type

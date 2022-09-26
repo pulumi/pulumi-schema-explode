@@ -1,0 +1,19 @@
+$token: azure-native:kusto/v20170907privatepreview:AzureSku
+properties:
+  capacity:
+    type: integer
+    description: SKU capacity.
+  name:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:kusto/v20170907privatepreview:AzureSkuName"
+    description: SKU name.
+  tier:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:kusto/v20170907privatepreview:AzureSkuTier"
+    description: SKU tier.
+type: object
+required:
+  - name
+  - tier

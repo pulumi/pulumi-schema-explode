@@ -1,0 +1,130 @@
+$token: azure-native:datalakestore:getAccount
+description: |-
+  Data Lake Store account information.
+  API Version: 2016-11-01.
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: The name of the Data Lake Store account.
+    resourceGroupName:
+      type: string
+      description: The name of the Azure resource group.
+  type: object
+  required:
+    - accountName
+    - resourceGroupName
+outputs:
+  description: Data Lake Store account information.
+  properties:
+    accountId:
+      type: string
+      description: The unique identifier associated with this Data Lake Store account.
+    creationTime:
+      type: string
+      description: The account creation time.
+    currentTier:
+      type: string
+      description: The commitment tier in use for the current month.
+    defaultGroup:
+      type: string
+      description: The default owner group for all new folders and files created in the Data Lake Store account.
+    encryptionConfig:
+      type: object
+      $ref: "#/types/azure-native:datalakestore:EncryptionConfigResponse"
+      description: The Key Vault encryption configuration.
+    encryptionProvisioningState:
+      type: string
+      description: The current state of encryption provisioning for this Data Lake Store account.
+    encryptionState:
+      type: string
+      description: The current state of encryption for this Data Lake Store account.
+    endpoint:
+      type: string
+      description: The full CName endpoint for this account.
+    firewallAllowAzureIps:
+      type: string
+      description: The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
+    firewallRules:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:datalakestore:FirewallRuleResponse"
+      description: The list of firewall rules associated with this Data Lake Store account.
+    firewallState:
+      type: string
+      description: The current state of the IP address firewall for this Data Lake Store account.
+    id:
+      type: string
+      description: The resource identifier.
+    identity:
+      type: object
+      $ref: "#/types/azure-native:datalakestore:EncryptionIdentityResponse"
+      description: The Key Vault encryption identity, if any.
+    lastModifiedTime:
+      type: string
+      description: The account last modified time.
+    location:
+      type: string
+      description: The resource location.
+    name:
+      type: string
+      description: The resource name.
+    newTier:
+      type: string
+      description: The commitment tier to use for next month.
+    provisioningState:
+      type: string
+      description: The provisioning status of the Data Lake Store account.
+    state:
+      type: string
+      description: The state of the Data Lake Store account.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: The resource tags.
+    trustedIdProviderState:
+      type: string
+      description: The current state of the trusted identity provider feature for this Data Lake Store account.
+    trustedIdProviders:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:datalakestore:TrustedIdProviderResponse"
+      description: The list of trusted identity providers associated with this Data Lake Store account.
+    type:
+      type: string
+      description: The resource type.
+    virtualNetworkRules:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:datalakestore:VirtualNetworkRuleResponse"
+      description: The list of virtual network rules associated with this Data Lake Store account.
+  type: object
+  required:
+    - accountId
+    - creationTime
+    - currentTier
+    - defaultGroup
+    - encryptionConfig
+    - encryptionProvisioningState
+    - encryptionState
+    - endpoint
+    - firewallAllowAzureIps
+    - firewallRules
+    - firewallState
+    - id
+    - identity
+    - lastModifiedTime
+    - location
+    - name
+    - newTier
+    - provisioningState
+    - state
+    - tags
+    - trustedIdProviderState
+    - trustedIdProviders
+    - type
+    - virtualNetworkRules

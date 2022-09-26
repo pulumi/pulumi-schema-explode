@@ -1,0 +1,83 @@
+$token: azure-native:hybridconnectivity:Endpoint
+description: |-
+  The endpoint for the target resource.
+  API Version: 2022-05-01-preview.
+properties:
+  createdAt:
+    type: string
+    description: The timestamp of resource creation (UTC).
+  createdBy:
+    type: string
+    description: The identity that created the resource.
+  createdByType:
+    type: string
+    description: The type of identity that created the resource.
+  lastModifiedAt:
+    type: string
+    description: The timestamp of resource last modification (UTC)
+  lastModifiedBy:
+    type: string
+    description: The identity that last modified the resource.
+  lastModifiedByType:
+    type: string
+    description: The type of identity that last modified the resource.
+  name:
+    type: string
+    description: The name of the resource
+  provisioningState:
+    type: string
+    description: The resource provisioning state.
+  resourceId:
+    type: string
+    description: The resource Id of the connectivity endpoint (optional).
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - name
+  - provisioningState
+  - type
+inputProperties:
+  createdAt:
+    type: string
+    description: The timestamp of resource creation (UTC).
+  createdBy:
+    type: string
+    description: The identity that created the resource.
+  createdByType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:hybridconnectivity:CreatedByType"
+    description: The type of identity that created the resource.
+  endpointName:
+    type: string
+    description: The endpoint name.
+  lastModifiedAt:
+    type: string
+    description: The timestamp of resource last modification (UTC)
+  lastModifiedBy:
+    type: string
+    description: The identity that last modified the resource.
+  lastModifiedByType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:hybridconnectivity:CreatedByType"
+    description: The type of identity that last modified the resource.
+  resourceId:
+    type: string
+    description: The resource Id of the connectivity endpoint (optional).
+  resourceUri:
+    type: string
+    description: The fully qualified Azure Resource manager identifier of the resource to be connected.
+  type:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:hybridconnectivity:Type"
+    description: The type of endpoint.
+requiredInputs:
+  - resourceUri
+  - type
+aliases:
+  - type: azure-native:hybridconnectivity/v20211006preview:Endpoint
+  - type: azure-native:hybridconnectivity/v20220501preview:Endpoint

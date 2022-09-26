@@ -1,0 +1,26 @@
+$token: azure-native:sqlvirtualmachine:StorageConfigurationSettings
+description: Storage Configurations for SQL Data, Log and TempDb.
+properties:
+  diskConfigurationType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:sqlvirtualmachine:DiskConfigurationType"
+    description: Disk configuration to apply to SQL Server.
+  sqlDataSettings:
+    type: object
+    $ref: "#/types/azure-native:sqlvirtualmachine:SQLStorageSettings"
+    description: SQL Server Data Storage Settings.
+  sqlLogSettings:
+    type: object
+    $ref: "#/types/azure-native:sqlvirtualmachine:SQLStorageSettings"
+    description: SQL Server Log Storage Settings.
+  sqlTempDbSettings:
+    type: object
+    $ref: "#/types/azure-native:sqlvirtualmachine:SQLStorageSettings"
+    description: SQL Server TempDb Storage Settings.
+  storageWorkloadType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:sqlvirtualmachine:StorageWorkloadType"
+    description: Storage workload type.
+type: object

@@ -1,0 +1,28 @@
+$token: azure-native:insights/v20191101preview:SyslogDataSourceResponse
+description: "Definition of which syslog data will be collected and how it will be collected.\r
+
+  Only collected from Linux machines."
+properties:
+  facilityNames:
+    type: array
+    items:
+      type: string
+    description: The list of facility names.
+  logLevels:
+    type: array
+    items:
+      type: string
+    description: The log levels to collect.
+  name:
+    type: string
+    description: "A friendly name for the data source. \r
+
+      This name should be unique across all data sources (regardless of type) within the data collection rule."
+  streams:
+    type: array
+    items:
+      type: string
+    description: "List of streams that this data source will be sent to.\r
+
+      A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to."
+type: object

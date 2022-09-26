@@ -1,0 +1,68 @@
+$token: azure-native:orbital/v20220301:getSpacecraft
+description: Customer creates a spacecraft resource to schedule a contact.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    spacecraftName:
+      type: string
+      description: Spacecraft ID.
+  type: object
+  required:
+    - resourceGroupName
+    - spacecraftName
+outputs:
+  description: Customer creates a spacecraft resource to schedule a contact.
+  properties:
+    etag:
+      type: string
+      description: A unique read-only string that changes whenever the resource is updated.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    links:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:orbital/v20220301:SpacecraftLinkResponse"
+      description: Immutable list of Spacecraft links.
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    name:
+      type: string
+      description: The name of the resource
+    noradId:
+      type: string
+      description: NORAD ID of the spacecraft.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:orbital/v20220301:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    titleLine:
+      type: string
+      description: Title line of the two-line element set (TLE).
+    tleLine1:
+      type: string
+      description: Line 1 of the two-line element set (TLE).
+    tleLine2:
+      type: string
+      description: Line 2 of the two-line element set (TLE).
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - etag
+    - id
+    - location
+    - name
+    - noradId
+    - systemData
+    - type

@@ -1,0 +1,61 @@
+$token: azure-native:peering/v20220101:getConnectionMonitorTest
+description: The Connection Monitor Test class.
+inputs:
+  properties:
+    connectionMonitorTestName:
+      type: string
+      description: The name of the connection monitor test
+    peeringServiceName:
+      type: string
+      description: The name of the peering service.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - connectionMonitorTestName
+    - peeringServiceName
+    - resourceGroupName
+outputs:
+  description: The Connection Monitor Test class.
+  properties:
+    destination:
+      type: string
+      description: The Connection Monitor test destination
+    destinationPort:
+      type: integer
+      description: The Connection Monitor test destination port
+    id:
+      type: string
+      description: The ID of the resource.
+    isTestSuccessful:
+      type: boolean
+      description: The flag that indicates if the Connection Monitor test is successful or not.
+    name:
+      type: string
+      description: The name of the resource.
+    path:
+      type: array
+      items:
+        type: string
+      description: The path representing the Connection Monitor test.
+    provisioningState:
+      type: string
+      description: The provisioning state of the resource.
+    sourceAgent:
+      type: string
+      description: The Connection Monitor test source agent
+    testFrequencyInSec:
+      type: integer
+      description: The Connection Monitor test frequency in seconds
+    type:
+      type: string
+      description: The type of the resource.
+  type: object
+  required:
+    - id
+    - isTestSuccessful
+    - name
+    - path
+    - provisioningState
+    - type

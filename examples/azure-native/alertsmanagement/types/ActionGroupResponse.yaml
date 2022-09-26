@@ -1,0 +1,46 @@
+$token: azure-native:alertsmanagement:ActionGroupResponse
+description: Action rule with action group configuration
+properties:
+  actionGroupId:
+    type: string
+    description: Action group to trigger if action rule matches
+  conditions:
+    type: object
+    $ref: "#/types/azure-native:alertsmanagement:ConditionsResponse"
+    description: conditions on which alerts will be filtered
+  createdAt:
+    type: string
+    description: Creation time of action rule. Date-Time in ISO-8601 format.
+  createdBy:
+    type: string
+    description: Created by user name.
+  description:
+    type: string
+    description: Description of action rule
+  lastModifiedAt:
+    type: string
+    description: Last updated time of action rule. Date-Time in ISO-8601 format.
+  lastModifiedBy:
+    type: string
+    description: Last modified by user name.
+  scope:
+    type: object
+    $ref: "#/types/azure-native:alertsmanagement:ScopeResponse"
+    description: scope on which action rule will apply
+  status:
+    type: string
+    description: Indicates if the given action rule is enabled or disabled
+  type:
+    type: string
+    description: |-
+      Indicates type of action rule
+      Expected value is 'ActionGroup'.
+    const: ActionGroup
+type: object
+required:
+  - actionGroupId
+  - createdAt
+  - createdBy
+  - lastModifiedAt
+  - lastModifiedBy
+  - type

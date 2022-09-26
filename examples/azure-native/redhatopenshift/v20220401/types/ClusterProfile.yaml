@@ -1,0 +1,21 @@
+$token: azure-native:redhatopenshift/v20220401:ClusterProfile
+description: ClusterProfile represents a cluster profile.
+properties:
+  domain:
+    type: string
+    description: The domain for the cluster.
+  fipsValidatedModules:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:redhatopenshift/v20220401:FipsValidatedModules"
+    description: If FIPS validated crypto modules are used
+  pullSecret:
+    type: string
+    description: The pull secret for the cluster.
+  resourceGroupId:
+    type: string
+    description: The ID of the cluster resource group.
+  version:
+    type: string
+    description: The version of the cluster.
+type: object

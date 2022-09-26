@@ -1,0 +1,188 @@
+$token: azure-native:workloads/v20211201preview:PhpWorkload
+description: Php workload resource
+properties:
+  adminUserProfile:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:UserProfileResponse"
+    description: Admin user profile used for VM and VMSS
+  appLocation:
+    type: string
+    description: The infra resources for PHP workload will be created in this location
+  backupProfile:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:BackupProfileResponse"
+    description: Backup profile
+  cacheProfile:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:CacheProfileResponse"
+    description: Cache profile
+  controllerProfile:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:NodeProfileResponse"
+    description: Controller VM profile
+  databaseProfile:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:DatabaseProfileResponse"
+    description: Database profile
+  fileshareProfile:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:FileshareProfileResponse"
+    description: File share profile
+  identity:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:PhpWorkloadResourceResponseIdentity"
+    description: Identity for the resource. Currently not supported
+  kind:
+    type: string
+    description: Indicates which kind of php workload this resource represent e.g WordPress
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  managedResourceGroupConfiguration:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:ManagedRGConfigurationResponse"
+    description: Managed resource group configuration of the workload
+  name:
+    type: string
+    description: The name of the resource
+  networkProfile:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:NetworkProfileResponse"
+    description: Network profile
+  phpProfile:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:PhpProfileResponse"
+    description: PHP profile
+  provisioningState:
+    type: string
+    description: Php workload resource provisioning state
+  searchProfile:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:SearchProfileResponse"
+    description: Search profile
+  siteProfile:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:SiteProfileResponse"
+    description: Site profile
+  sku:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:SkuResponse"
+    description: Php workloads SKU
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  webNodesProfile:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:VmssNodesProfileResponse"
+    description: VMSS web nodes profile
+type: object
+required:
+  - adminUserProfile
+  - appLocation
+  - controllerProfile
+  - databaseProfile
+  - kind
+  - location
+  - name
+  - provisioningState
+  - systemData
+  - type
+  - webNodesProfile
+inputProperties:
+  adminUserProfile:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:UserProfile"
+    description: Admin user profile used for VM and VMSS
+  appLocation:
+    type: string
+    description: The infra resources for PHP workload will be created in this location
+  backupProfile:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:BackupProfile"
+    description: Backup profile
+  cacheProfile:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:CacheProfile"
+    description: Cache profile
+  controllerProfile:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:NodeProfile"
+    description: Controller VM profile
+  databaseProfile:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:DatabaseProfile"
+    description: Database profile
+  fileshareProfile:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:FileshareProfile"
+    description: File share profile
+  identity:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:PhpWorkloadResourceIdentity"
+    description: Identity for the resource. Currently not supported
+  kind:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:workloads/v20211201preview:WorkloadKind"
+    description: Indicates which kind of php workload this resource represent e.g WordPress
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  managedResourceGroupConfiguration:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:ManagedRGConfiguration"
+    description: Managed resource group configuration of the workload
+  networkProfile:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:NetworkProfile"
+    description: Network profile
+  phpProfile:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:PhpProfile"
+    description: PHP profile
+  phpWorkloadName:
+    type: string
+    description: Php workload name
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  searchProfile:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:SearchProfile"
+    description: Search profile
+  siteProfile:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:SiteProfile"
+    description: Site profile
+  sku:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:Sku"
+    description: Php workloads SKU
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  webNodesProfile:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:VmssNodesProfile"
+    description: VMSS web nodes profile
+requiredInputs:
+  - adminUserProfile
+  - appLocation
+  - controllerProfile
+  - databaseProfile
+  - kind
+  - resourceGroupName
+  - webNodesProfile
+aliases:
+  - type: azure-native:workloads:PhpWorkload

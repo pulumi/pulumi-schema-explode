@@ -1,0 +1,23 @@
+$token: azure-native:authorization/v20201001:RoleManagementPolicyApprovalRuleResponse
+description: The role management policy approval rule.
+properties:
+  id:
+    type: string
+    description: The id of the rule.
+  ruleType:
+    type: string
+    description: |-
+      The type of rule
+      Expected value is 'RoleManagementPolicyApprovalRule'.
+    const: RoleManagementPolicyApprovalRule
+  setting:
+    type: object
+    $ref: "#/types/azure-native:authorization/v20201001:ApprovalSettingsResponse"
+    description: The approval setting
+  target:
+    type: object
+    $ref: "#/types/azure-native:authorization/v20201001:RoleManagementPolicyRuleTargetResponse"
+    description: The target of the current rule.
+type: object
+required:
+  - ruleType

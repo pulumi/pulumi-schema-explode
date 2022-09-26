@@ -1,0 +1,21 @@
+$token: azure-native:datamigration/v20220330preview:ConnectToTargetSqlMISyncTaskProperties
+description: Properties for the task that validates connection to Azure SQL Database Managed Instance
+properties:
+  clientData:
+    type: object
+    additionalProperties:
+      type: string
+    description: Key value pairs of client data to attach meta data information to task
+  input:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20220330preview:ConnectToTargetSqlMISyncTaskInput"
+    description: Task input
+  taskType:
+    type: string
+    description: |-
+      Task type.
+      Expected value is 'ConnectToTarget.AzureSqlDbMI.Sync.LRS'.
+    const: ConnectToTarget.AzureSqlDbMI.Sync.LRS
+type: object
+required:
+  - taskType

@@ -1,0 +1,111 @@
+$token: azure-native:securityinsights/v20220901preview:FileImport
+description: Represents a file import in Azure Security Insights.
+properties:
+  contentType:
+    type: string
+    description: The content type of this file.
+  createdTimeUTC:
+    type: string
+    description: The time the file was imported.
+  errorFile:
+    type: object
+    $ref: "#/types/azure-native:securityinsights/v20220901preview:FileMetadataResponse"
+    description: Represents the error file (if the import was ingested with errors or failed the validation).
+  errorsPreview:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:securityinsights/v20220901preview:ValidationErrorResponse"
+    description: An ordered list of some of the errors that were encountered during validation.
+  filesValidUntilTimeUTC:
+    type: string
+    description: The time the files associated with this import are deleted from the storage account.
+  importFile:
+    type: object
+    $ref: "#/types/azure-native:securityinsights/v20220901preview:FileMetadataResponse"
+    description: Represents the imported file.
+  importValidUntilTimeUTC:
+    type: string
+    description: The time the file import record is soft deleted from the database and history.
+  ingestedRecordCount:
+    type: integer
+    description: The number of records that have been successfully ingested.
+  ingestionMode:
+    type: string
+    description: Describes how to ingest the records in the file.
+  name:
+    type: string
+    description: The name of the resource
+  source:
+    type: string
+    description: The source for the data in the file.
+  state:
+    type: string
+    description: The state of the file import.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:securityinsights/v20220901preview:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  totalRecordCount:
+    type: integer
+    description: The number of records in the file.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  validRecordCount:
+    type: integer
+    description: The number of records that have passed validation.
+type: object
+required:
+  - contentType
+  - createdTimeUTC
+  - errorFile
+  - errorsPreview
+  - filesValidUntilTimeUTC
+  - importFile
+  - importValidUntilTimeUTC
+  - ingestedRecordCount
+  - ingestionMode
+  - name
+  - source
+  - state
+  - systemData
+  - totalRecordCount
+  - type
+  - validRecordCount
+inputProperties:
+  contentType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:securityinsights/v20220901preview:FileImportContentType"
+    description: The content type of this file.
+  fileImportId:
+    type: string
+    description: File import ID
+  importFile:
+    type: object
+    $ref: "#/types/azure-native:securityinsights/v20220901preview:FileMetadata"
+    description: Represents the imported file.
+  ingestionMode:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:securityinsights/v20220901preview:IngestionMode"
+    description: Describes how to ingest the records in the file.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  source:
+    type: string
+    description: The source for the data in the file.
+  workspaceName:
+    type: string
+    description: The name of the workspace.
+requiredInputs:
+  - contentType
+  - importFile
+  - ingestionMode
+  - resourceGroupName
+  - source
+  - workspaceName
+aliases:
+  - type: azure-native:securityinsights/v20220801preview:FileImport

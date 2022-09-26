@@ -1,0 +1,57 @@
+$token: azure-native:migrate/v20210801:getMoveCollection
+description: Define the move collection.
+inputs:
+  properties:
+    moveCollectionName:
+      type: string
+      description: The Move Collection Name.
+    resourceGroupName:
+      type: string
+      description: The Resource Group Name.
+  type: object
+  required:
+    - moveCollectionName
+    - resourceGroupName
+outputs:
+  description: Define the move collection.
+  properties:
+    etag:
+      type: string
+      description: The etag of the resource.
+    id:
+      type: string
+      description: Fully qualified resource Id for the resource.
+    identity:
+      type: object
+      $ref: "#/types/azure-native:migrate/v20210801:IdentityResponse"
+      description: Defines the MSI properties of the Move Collection.
+    location:
+      type: string
+      description: The geo-location where the resource lives.
+    name:
+      type: string
+      description: The name of the resource
+    properties:
+      type: object
+      $ref: "#/types/azure-native:migrate/v20210801:MoveCollectionPropertiesResponse"
+      description: Defines the move collection properties.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:migrate/v20210801:SystemDataResponse"
+      description: Metadata pertaining to creation and last modification of the resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource.
+  type: object
+  required:
+    - etag
+    - id
+    - name
+    - properties
+    - systemData
+    - type

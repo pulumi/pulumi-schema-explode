@@ -1,0 +1,31 @@
+$token: azure-native:streamanalytics/v20211001preview:AzureMachineLearningStudioFunctionBinding
+description: The binding to an Azure Machine Learning Studio.
+properties:
+  apiKey:
+    type: string
+    description: The API key used to authenticate with Request-Response endpoint.
+  batchSize:
+    type: integer
+    description: Number between 1 and 10000 describing maximum number of rows for every Azure ML RRS execute request. Default is 1000.
+  endpoint:
+    type: string
+    description: "The Request-Response execute endpoint of the Azure Machine Learning Studio. Find out more here: https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-consume-web-services#request-response-service-rrs"
+  inputs:
+    type: object
+    $ref: "#/types/azure-native:streamanalytics/v20211001preview:AzureMachineLearningStudioInputs"
+    description: The inputs for the Azure Machine Learning Studio endpoint.
+  outputs:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:streamanalytics/v20211001preview:AzureMachineLearningStudioOutputColumn"
+    description: A list of outputs from the Azure Machine Learning Studio endpoint execution.
+  type:
+    type: string
+    description: |-
+      Indicates the function binding type.
+      Expected value is 'Microsoft.MachineLearning/WebService'.
+    const: Microsoft.MachineLearning/WebService
+type: object
+required:
+  - type

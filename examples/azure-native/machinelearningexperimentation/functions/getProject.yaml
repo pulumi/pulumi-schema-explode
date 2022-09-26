@@ -1,0 +1,80 @@
+$token: azure-native:machinelearningexperimentation:getProject
+description: |-
+  An object that represents a machine learning project.
+  API Version: 2017-05-01-preview.
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: The name of the machine learning team account.
+    projectName:
+      type: string
+      description: The name of the machine learning project under a team account workspace.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group to which the machine learning team account belongs.
+    workspaceName:
+      type: string
+      description: The name of the machine learning team account workspace.
+  type: object
+  required:
+    - accountName
+    - projectName
+    - resourceGroupName
+    - workspaceName
+outputs:
+  description: An object that represents a machine learning project.
+  properties:
+    accountId:
+      type: string
+      description: The immutable id of the team account which contains this project.
+    creationDate:
+      type: string
+      description: The creation date of the project in ISO8601 format.
+    description:
+      type: string
+      description: The description of this project.
+    friendlyName:
+      type: string
+      description: The friendly name for this project.
+    gitrepo:
+      type: string
+      description: The reference to git repo for this project.
+    id:
+      type: string
+      description: The resource ID.
+    location:
+      type: string
+      description: The location of the resource. This cannot be changed after the resource is created.
+    name:
+      type: string
+      description: The name of the resource.
+    projectId:
+      type: string
+      description: The immutable id of this project.
+    provisioningState:
+      type: string
+      description: The current deployment state of project resource. The provisioningState is to indicate states for resource provisioning.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: The tags of the resource.
+    type:
+      type: string
+      description: The type of the resource.
+    workspaceId:
+      type: string
+      description: The immutable id of the workspace which contains this project.
+  type: object
+  required:
+    - accountId
+    - creationDate
+    - friendlyName
+    - id
+    - location
+    - name
+    - projectId
+    - provisioningState
+    - type
+    - workspaceId

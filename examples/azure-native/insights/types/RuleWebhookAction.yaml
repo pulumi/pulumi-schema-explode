@@ -1,0 +1,20 @@
+$token: azure-native:insights:RuleWebhookAction
+description: Specifies the action to post to service when the rule condition is evaluated. The discriminator is always RuleWebhookAction in this case.
+properties:
+  odataType:
+    type: string
+    description: |-
+      specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
+      Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleWebhookAction'.
+    const: Microsoft.Azure.Management.Insights.Models.RuleWebhookAction
+  properties:
+    type: object
+    additionalProperties:
+      type: string
+    description: the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
+  serviceUri:
+    type: string
+    description: the service uri to Post the notification when the alert activates or resolves.
+type: object
+required:
+  - odataType

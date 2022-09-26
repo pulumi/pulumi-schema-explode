@@ -1,0 +1,63 @@
+$token: azure-native:servicefabricmesh/v20180901preview:getVolume
+description: This type describes a volume resource.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: Azure resource group name
+    volumeResourceName:
+      type: string
+      description: The identity of the volume.
+  type: object
+  required:
+    - resourceGroupName
+    - volumeResourceName
+outputs:
+  description: This type describes a volume resource.
+  properties:
+    azureFileParameters:
+      type: object
+      $ref: "#/types/azure-native:servicefabricmesh/v20180901preview:VolumeProviderParametersAzureFileResponse"
+      description: This type describes a volume provided by an Azure Files file share.
+    description:
+      type: string
+      description: User readable description of the volume.
+    id:
+      type: string
+      description: Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    name:
+      type: string
+      description: The name of the resource
+    provider:
+      type: string
+      description: Provider of the volume.
+    provisioningState:
+      type: string
+      description: State of the resource.
+    status:
+      type: string
+      description: Status of the volume.
+    statusDetails:
+      type: string
+      description: Gives additional information about the current status of the volume.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - provider
+    - provisioningState
+    - status
+    - statusDetails
+    - type

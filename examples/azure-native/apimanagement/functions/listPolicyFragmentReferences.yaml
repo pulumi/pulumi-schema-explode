@@ -1,0 +1,42 @@
+$token: azure-native:apimanagement:listPolicyFragmentReferences
+description: |-
+  A collection of resources.
+  API Version: 2021-12-01-preview.
+inputs:
+  properties:
+    id:
+      type: string
+      description: A resource identifier.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    serviceName:
+      type: string
+      description: The name of the API Management service.
+    skip:
+      type: integer
+      description: Number of records to skip.
+    top:
+      type: integer
+      description: Number of records to return.
+  type: object
+  required:
+    - id
+    - resourceGroupName
+    - serviceName
+outputs:
+  description: A collection of resources.
+  properties:
+    count:
+      type: number
+      description: Total record count number.
+    nextLink:
+      type: string
+      description: Next page link if any.
+    value:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:apimanagement:ResourceCollectionResponseValue"
+      description: A collection of resources.
+  type: object

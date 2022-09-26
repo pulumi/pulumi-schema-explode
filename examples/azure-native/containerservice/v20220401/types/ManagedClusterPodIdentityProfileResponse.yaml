@@ -1,0 +1,22 @@
+$token: azure-native:containerservice/v20220401:ManagedClusterPodIdentityProfileResponse
+description: See [use AAD pod identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) for more details on pod identity integration.
+properties:
+  allowNetworkPluginKubenet:
+    type: boolean
+    description: Running in Kubenet is disabled by default due to the security related nature of AAD Pod Identity and the risks of IP spoofing. See [using Kubenet network plugin with AAD Pod Identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity#using-kubenet-network-plugin-with-azure-active-directory-pod-managed-identities) for more information.
+  enabled:
+    type: boolean
+    description: Whether the pod identity addon is enabled.
+  userAssignedIdentities:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20220401:ManagedClusterPodIdentityResponse"
+    description: The pod identities to use in the cluster.
+  userAssignedIdentityExceptions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20220401:ManagedClusterPodIdentityExceptionResponse"
+    description: The pod identity exceptions to allow.
+type: object

@@ -1,0 +1,171 @@
+$token: azure-native:network:FirewallPolicy
+description: |-
+  FirewallPolicy Resource.
+  API Version: 2020-11-01.
+properties:
+  basePolicy:
+    type: object
+    $ref: "#/types/azure-native:network:SubResourceResponse"
+    description: The parent firewall policy from which rules are inherited.
+  childPolicies:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network:SubResourceResponse"
+    description: List of references to Child Firewall Policies.
+  dnsSettings:
+    type: object
+    $ref: "#/types/azure-native:network:DnsSettingsResponse"
+    description: DNS Proxy Settings definition.
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  firewalls:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network:SubResourceResponse"
+    description: List of references to Azure Firewalls that this Firewall Policy is associated with.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:network:ManagedServiceIdentityResponse"
+    description: The identity of the firewall policy.
+  insights:
+    type: object
+    $ref: "#/types/azure-native:network:FirewallPolicyInsightsResponse"
+    description: Insights on Firewall Policy.
+  intrusionDetection:
+    type: object
+    $ref: "#/types/azure-native:network:FirewallPolicyIntrusionDetectionResponse"
+    description: The configuration for Intrusion detection.
+  location:
+    type: string
+    description: Resource location.
+  name:
+    type: string
+    description: Resource name.
+  provisioningState:
+    type: string
+    description: The provisioning state of the firewall policy resource.
+  ruleCollectionGroups:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network:SubResourceResponse"
+    description: List of references to FirewallPolicyRuleCollectionGroups.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:network:FirewallPolicySkuResponse"
+    description: The Firewall Policy SKU.
+  snat:
+    type: object
+    $ref: "#/types/azure-native:network:FirewallPolicySNATResponse"
+    description: The private IP addresses/IP ranges to which traffic will not be SNAT.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  threatIntelMode:
+    type: string
+    description: The operation mode for Threat Intelligence.
+  threatIntelWhitelist:
+    type: object
+    $ref: "#/types/azure-native:network:FirewallPolicyThreatIntelWhitelistResponse"
+    description: ThreatIntel Whitelist for Firewall Policy.
+  transportSecurity:
+    type: object
+    $ref: "#/types/azure-native:network:FirewallPolicyTransportSecurityResponse"
+    description: TLS Configuration definition.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - childPolicies
+  - etag
+  - firewalls
+  - name
+  - provisioningState
+  - ruleCollectionGroups
+  - type
+inputProperties:
+  basePolicy:
+    type: object
+    $ref: "#/types/azure-native:network:SubResource"
+    description: The parent firewall policy from which rules are inherited.
+  dnsSettings:
+    type: object
+    $ref: "#/types/azure-native:network:DnsSettings"
+    description: DNS Proxy Settings definition.
+  firewallPolicyName:
+    type: string
+    description: The name of the Firewall Policy.
+  id:
+    type: string
+    description: Resource ID.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:network:ManagedServiceIdentity"
+    description: The identity of the firewall policy.
+  insights:
+    type: object
+    $ref: "#/types/azure-native:network:FirewallPolicyInsights"
+    description: Insights on Firewall Policy.
+  intrusionDetection:
+    type: object
+    $ref: "#/types/azure-native:network:FirewallPolicyIntrusionDetection"
+    description: The configuration for Intrusion detection.
+  location:
+    type: string
+    description: Resource location.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:network:FirewallPolicySku"
+    description: The Firewall Policy SKU.
+  snat:
+    type: object
+    $ref: "#/types/azure-native:network:FirewallPolicySNAT"
+    description: The private IP addresses/IP ranges to which traffic will not be SNAT.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  threatIntelMode:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network:AzureFirewallThreatIntelMode"
+    description: The operation mode for Threat Intelligence.
+  threatIntelWhitelist:
+    type: object
+    $ref: "#/types/azure-native:network:FirewallPolicyThreatIntelWhitelist"
+    description: ThreatIntel Whitelist for Firewall Policy.
+  transportSecurity:
+    type: object
+    $ref: "#/types/azure-native:network:FirewallPolicyTransportSecurity"
+    description: TLS Configuration definition.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:network/v20190601:FirewallPolicy
+  - type: azure-native:network/v20190701:FirewallPolicy
+  - type: azure-native:network/v20190801:FirewallPolicy
+  - type: azure-native:network/v20190901:FirewallPolicy
+  - type: azure-native:network/v20191101:FirewallPolicy
+  - type: azure-native:network/v20191201:FirewallPolicy
+  - type: azure-native:network/v20200301:FirewallPolicy
+  - type: azure-native:network/v20200401:FirewallPolicy
+  - type: azure-native:network/v20200501:FirewallPolicy
+  - type: azure-native:network/v20200601:FirewallPolicy
+  - type: azure-native:network/v20200701:FirewallPolicy
+  - type: azure-native:network/v20200801:FirewallPolicy
+  - type: azure-native:network/v20201101:FirewallPolicy
+  - type: azure-native:network/v20210201:FirewallPolicy
+  - type: azure-native:network/v20210301:FirewallPolicy
+  - type: azure-native:network/v20210501:FirewallPolicy
+  - type: azure-native:network/v20210801:FirewallPolicy
+  - type: azure-native:network/v20220101:FirewallPolicy

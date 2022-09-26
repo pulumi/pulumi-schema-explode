@@ -1,0 +1,53 @@
+$token: azure-native:softwareplan:HybridUseBenefit
+description: |-
+  Response on GET of a hybrid use benefit
+  API Version: 2019-06-01-preview.
+properties:
+  createdDate:
+    type: string
+    description: Created date
+  etag:
+    type: integer
+    description: Indicates the revision of the hybrid use benefit
+  lastUpdatedDate:
+    type: string
+    description: Last updated date
+  name:
+    type: string
+    description: The name of the resource
+  provisioningState:
+    type: string
+    description: Provisioning state
+  sku:
+    type: object
+    $ref: "#/types/azure-native:softwareplan:SkuResponse"
+    description: Hybrid use benefit SKU
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - createdDate
+  - etag
+  - lastUpdatedDate
+  - name
+  - provisioningState
+  - sku
+  - type
+inputProperties:
+  planId:
+    type: string
+    description: This is a unique identifier for a plan. Should be a guid.
+  scope:
+    type: string
+    description: The scope at which the operation is performed. This is limited to Microsoft.Compute/virtualMachines and Microsoft.Compute/hostGroups/hosts for now
+  sku:
+    type: object
+    $ref: "#/types/azure-native:softwareplan:Sku"
+    description: Hybrid use benefit SKU
+requiredInputs:
+  - scope
+  - sku
+aliases:
+  - type: azure-native:softwareplan/v20190601preview:HybridUseBenefit
+  - type: azure-native:softwareplan/v20191201:HybridUseBenefit

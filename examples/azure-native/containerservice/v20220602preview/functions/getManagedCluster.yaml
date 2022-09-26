@@ -1,0 +1,204 @@
+$token: azure-native:containerservice/v20220602preview:getManagedCluster
+description: Managed cluster.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    resourceName:
+      type: string
+      description: The name of the managed cluster resource.
+  type: object
+  required:
+    - resourceGroupName
+    - resourceName
+outputs:
+  description: Managed cluster.
+  properties:
+    aadProfile:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20220602preview:ManagedClusterAADProfileResponse"
+      description: The Azure Active Directory configuration.
+    addonProfiles:
+      type: object
+      additionalProperties:
+        type: object
+        $ref: "#/types/azure-native:containerservice/v20220602preview:ManagedClusterAddonProfileResponse"
+      description: The profile of managed cluster add-on.
+    agentPoolProfiles:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:containerservice/v20220602preview:ManagedClusterAgentPoolProfileResponse"
+      description: The agent pool properties.
+    apiServerAccessProfile:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20220602preview:ManagedClusterAPIServerAccessProfileResponse"
+      description: The access profile for managed cluster API server.
+    autoScalerProfile:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20220602preview:ManagedClusterPropertiesResponseAutoScalerProfile"
+      description: Parameters to be applied to the cluster-autoscaler when enabled
+    autoUpgradeProfile:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20220602preview:ManagedClusterAutoUpgradeProfileResponse"
+      description: The auto upgrade configuration.
+    azurePortalFQDN:
+      type: string
+      description: The Azure Portal requires certain Cross-Origin Resource Sharing (CORS) headers to be sent in some responses, which Kubernetes APIServer doesn't handle by default. This special FQDN supports CORS, allowing the Azure Portal to function properly.
+    creationData:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20220602preview:CreationDataResponse"
+      description: CreationData to be used to specify the source Snapshot ID if the cluster will be created/upgraded using a snapshot.
+    currentKubernetesVersion:
+      type: string
+      description: The version of Kubernetes the Managed Cluster is running.
+    disableLocalAccounts:
+      type: boolean
+      description: If set to true, getting static credentials will be disabled for this cluster. This must only be used on Managed Clusters that are AAD enabled. For more details see [disable local accounts](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts-preview).
+    diskEncryptionSetID:
+      type: string
+      description: "This is of the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/diskEncryptionSets/{encryptionSetName}'"
+    dnsPrefix:
+      type: string
+      description: This cannot be updated once the Managed Cluster has been created.
+    enableNamespaceResources:
+      type: boolean
+      description: The default value is false. It can be enabled/disabled on creation and updation of the managed cluster. See [https://aka.ms/NamespaceARMResource](https://aka.ms/NamespaceARMResource) for more details on Namespace as a ARM Resource.
+    enablePodSecurityPolicy:
+      type: boolean
+      description: (DEPRECATING) Whether to enable Kubernetes pod security policy (preview). This feature is set for removal on October 15th, 2020. Learn more at aka.ms/aks/azpodpolicy.
+    enableRBAC:
+      type: boolean
+      description: Whether to enable Kubernetes Role-Based Access Control.
+    extendedLocation:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20220602preview:ExtendedLocationResponse"
+      description: The extended location of the Virtual Machine.
+    fqdn:
+      type: string
+      description: The FQDN of the master pool.
+    fqdnSubdomain:
+      type: string
+      description: This cannot be updated once the Managed Cluster has been created.
+    httpProxyConfig:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20220602preview:ManagedClusterHTTPProxyConfigResponse"
+      description: Configurations for provisioning the cluster with HTTP proxy servers.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    identity:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20220602preview:ManagedClusterIdentityResponse"
+      description: The identity of the managed cluster, if configured.
+    identityProfile:
+      type: object
+      additionalProperties:
+        type: object
+        $ref: "#/types/azure-native:containerservice/v20220602preview:UserAssignedIdentityResponse"
+      description: Identities associated with the cluster.
+    ingressProfile:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20220602preview:ManagedClusterIngressProfileResponse"
+      description: Ingress profile for the managed cluster.
+    kubernetesVersion:
+      type: string
+      description: When you upgrade a supported AKS cluster, Kubernetes minor versions cannot be skipped. All upgrades must be performed sequentially by major version number. For example, upgrades between 1.14.x -> 1.15.x or 1.15.x -> 1.16.x are allowed, however 1.14.x -> 1.16.x is not allowed. See [upgrading an AKS cluster](https://docs.microsoft.com/azure/aks/upgrade-cluster) for more details.
+    linuxProfile:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20220602preview:ContainerServiceLinuxProfileResponse"
+      description: The profile for Linux VMs in the Managed Cluster.
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    maxAgentPools:
+      type: integer
+      description: The max number of agent pools for the managed cluster.
+    name:
+      type: string
+      description: The name of the resource
+    networkProfile:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20220602preview:ContainerServiceNetworkProfileResponse"
+      description: The network configuration profile.
+    nodeResourceGroup:
+      type: string
+      description: The name of the resource group containing agent pool nodes.
+    oidcIssuerProfile:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20220602preview:ManagedClusterOIDCIssuerProfileResponse"
+      description: The OIDC issuer profile of the Managed Cluster.
+    podIdentityProfile:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20220602preview:ManagedClusterPodIdentityProfileResponse"
+      description: See [use AAD pod identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) for more details on AAD pod identity integration.
+    powerState:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20220602preview:PowerStateResponse"
+      description: The Power State of the cluster.
+    privateFQDN:
+      type: string
+      description: The FQDN of private cluster.
+    privateLinkResources:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:containerservice/v20220602preview:PrivateLinkResourceResponse"
+      description: Private link resources associated with the cluster.
+    provisioningState:
+      type: string
+      description: The current provisioning state.
+    publicNetworkAccess:
+      type: string
+      description: Allow or deny public network access for AKS
+    securityProfile:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20220602preview:ManagedClusterSecurityProfileResponse"
+      description: Security profile for the managed cluster.
+    servicePrincipalProfile:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20220602preview:ManagedClusterServicePrincipalProfileResponse"
+      description: Information about a service principal identity for the cluster to use for manipulating Azure APIs.
+    sku:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20220602preview:ManagedClusterSKUResponse"
+      description: The managed cluster SKU.
+    storageProfile:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20220602preview:ManagedClusterStorageProfileResponse"
+      description: Storage profile for the managed cluster.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20220602preview:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+    windowsProfile:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20220602preview:ManagedClusterWindowsProfileResponse"
+      description: The profile for Windows VMs in the Managed Cluster.
+    workloadAutoScalerProfile:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20220602preview:ManagedClusterWorkloadAutoScalerProfileResponse"
+      description: Workload Auto-scaler profile for the container service cluster.
+  type: object
+  required:
+    - azurePortalFQDN
+    - currentKubernetesVersion
+    - fqdn
+    - id
+    - location
+    - maxAgentPools
+    - name
+    - powerState
+    - privateFQDN
+    - provisioningState
+    - systemData
+    - type

@@ -1,0 +1,176 @@
+$token: azure-native:apimanagement/v20161010:ApiManagementService
+description: A single API Management service resource in List or Get response.
+properties:
+  additionalLocations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:apimanagement/v20161010:AdditionalRegionResponse"
+    description: Additional datacenter locations of the API Management service.
+  addresserEmail:
+    type: string
+    description: Addresser email.
+  createdAtUtc:
+    type: string
+    description: "Creation UTC date of the API Management service.The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard."
+  customProperties:
+    type: object
+    additionalProperties:
+      type: string
+    description: Custom properties of the API Management service, like disabling TLS 1.0.
+  etag:
+    type: string
+    description: ETag of the resource.
+  hostnameConfigurations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:apimanagement/v20161010:HostnameConfigurationResponse"
+    description: Custom hostname configuration of the API Management service.
+  location:
+    type: string
+    description: Resource location.
+  managementApiUrl:
+    type: string
+    description: Management API endpoint URL of the API Management service.
+  name:
+    type: string
+    description: Resource name.
+  portalUrl:
+    type: string
+    description: Publisher portal endpoint Url of the API Management service.
+  provisioningState:
+    type: string
+    description: "The current provisioning state of the API Management service which can be one of the following: Created/Activating/Succeeded/Updating/Failed/Stopped/Terminating/TerminationFailed/Deleted."
+  publisherEmail:
+    type: string
+    description: Publisher email.
+  publisherName:
+    type: string
+    description: Publisher name.
+  runtimeUrl:
+    type: string
+    description: Proxy endpoint URL of the API Management service.
+  scmUrl:
+    type: string
+    description: SCM endpoint URL of the API Management service.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:apimanagement/v20161010:ApiManagementServiceSkuPropertiesResponse"
+    description: SKU properties of the API Management service.
+  staticIPs:
+    type: array
+    items:
+      type: string
+    description: Static IP addresses of the API Management service virtual machines. Available only for Standard and Premium SKU.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  targetProvisioningState:
+    type: string
+    description: The provisioning state of the API Management service, which is targeted by the long running operation started on the service.
+  type:
+    type: string
+    description: Resource type for API Management resource is set to Microsoft.ApiManagement.
+  vpnType:
+    type: string
+    description: The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
+    default: None
+  vpnconfiguration:
+    type: object
+    $ref: "#/types/azure-native:apimanagement/v20161010:VirtualNetworkConfigurationResponse"
+    description: Virtual network configuration of the API Management service.
+type: object
+required:
+  - createdAtUtc
+  - etag
+  - location
+  - managementApiUrl
+  - portalUrl
+  - provisioningState
+  - publisherEmail
+  - publisherName
+  - runtimeUrl
+  - scmUrl
+  - sku
+  - staticIPs
+  - targetProvisioningState
+  - type
+inputProperties:
+  additionalLocations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:apimanagement/v20161010:AdditionalRegion"
+    description: Additional datacenter locations of the API Management service.
+  addresserEmail:
+    type: string
+    description: Addresser email.
+  customProperties:
+    type: object
+    additionalProperties:
+      type: string
+    description: Custom properties of the API Management service, like disabling TLS 1.0.
+  hostnameConfigurations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:apimanagement/v20161010:HostnameConfiguration"
+    description: Custom hostname configuration of the API Management service.
+  location:
+    type: string
+    description: Resource location.
+  name:
+    type: string
+    description: Resource name.
+  publisherEmail:
+    type: string
+    description: Publisher email.
+  publisherName:
+    type: string
+    description: Publisher name.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  serviceName:
+    type: string
+    description: The name of the API Management service.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:apimanagement/v20161010:ApiManagementServiceSkuProperties"
+    description: SKU properties of the API Management service.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  vpnType:
+    $ref: "#/types/azure-native:apimanagement/v20161010:VirtualNetworkType"
+    description: The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
+    default: None
+  vpnconfiguration:
+    type: object
+    $ref: "#/types/azure-native:apimanagement/v20161010:VirtualNetworkConfiguration"
+    description: Virtual network configuration of the API Management service.
+requiredInputs:
+  - publisherEmail
+  - publisherName
+  - resourceGroupName
+  - sku
+aliases:
+  - type: azure-native:apimanagement:ApiManagementService
+  - type: azure-native:apimanagement/v20160707:ApiManagementService
+  - type: azure-native:apimanagement/v20170301:ApiManagementService
+  - type: azure-native:apimanagement/v20180101:ApiManagementService
+  - type: azure-native:apimanagement/v20180601preview:ApiManagementService
+  - type: azure-native:apimanagement/v20190101:ApiManagementService
+  - type: azure-native:apimanagement/v20191201:ApiManagementService
+  - type: azure-native:apimanagement/v20191201preview:ApiManagementService
+  - type: azure-native:apimanagement/v20200601preview:ApiManagementService
+  - type: azure-native:apimanagement/v20201201:ApiManagementService
+  - type: azure-native:apimanagement/v20210101preview:ApiManagementService
+  - type: azure-native:apimanagement/v20210401preview:ApiManagementService
+  - type: azure-native:apimanagement/v20210801:ApiManagementService
+  - type: azure-native:apimanagement/v20211201preview:ApiManagementService

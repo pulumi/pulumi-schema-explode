@@ -1,0 +1,26 @@
+$token: azure-native:network/v20210601:ForwardingConfigurationResponse
+description: Describes Forwarding Route.
+properties:
+  backendPool:
+    type: object
+    $ref: "#/types/azure-native:network/v20210601:SubResourceResponse"
+    description: A reference to the BackendPool which this rule routes to.
+  cacheConfiguration:
+    type: object
+    $ref: "#/types/azure-native:network/v20210601:CacheConfigurationResponse"
+    description: The caching configuration associated with this rule.
+  customForwardingPath:
+    type: string
+    description: A custom path used to rewrite resource paths matched by this rule. Leave empty to use incoming path.
+  forwardingProtocol:
+    type: string
+    description: Protocol this rule will use when forwarding traffic to backends.
+  odataType:
+    type: string
+    description: |-
+      
+      Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration'.
+    const: "#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration"
+type: object
+required:
+  - odataType

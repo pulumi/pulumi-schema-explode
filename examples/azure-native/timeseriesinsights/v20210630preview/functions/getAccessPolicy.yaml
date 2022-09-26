@@ -1,0 +1,46 @@
+$token: azure-native:timeseriesinsights/v20210630preview:getAccessPolicy
+description: An access policy is used to grant users and applications access to the environment. Roles are assigned to service principals in Azure Active Directory. These roles define the actions the principal can perform through the Time Series Insights data plane APIs.
+inputs:
+  properties:
+    accessPolicyName:
+      type: string
+      description: The name of the Time Series Insights access policy associated with the specified environment.
+    environmentName:
+      type: string
+      description: The name of the Time Series Insights environment associated with the specified resource group.
+    resourceGroupName:
+      type: string
+      description: Name of an Azure Resource group.
+  type: object
+  required:
+    - accessPolicyName
+    - environmentName
+    - resourceGroupName
+outputs:
+  description: An access policy is used to grant users and applications access to the environment. Roles are assigned to service principals in Azure Active Directory. These roles define the actions the principal can perform through the Time Series Insights data plane APIs.
+  properties:
+    description:
+      type: string
+      description: An description of the access policy.
+    id:
+      type: string
+      description: Resource Id
+    name:
+      type: string
+      description: Resource name
+    principalObjectId:
+      type: string
+      description: The objectId of the principal in Azure Active Directory.
+    roles:
+      type: array
+      items:
+        type: string
+      description: The list of roles the principal is assigned on the environment.
+    type:
+      type: string
+      description: Resource type
+  type: object
+  required:
+    - id
+    - name
+    - type

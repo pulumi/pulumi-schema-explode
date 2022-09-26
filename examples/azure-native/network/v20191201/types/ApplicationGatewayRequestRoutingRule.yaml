@@ -1,0 +1,42 @@
+$token: azure-native:network/v20191201:ApplicationGatewayRequestRoutingRule
+description: Request routing rule of an application gateway.
+properties:
+  backendAddressPool:
+    type: object
+    $ref: "#/types/azure-native:network/v20191201:SubResource"
+    description: Backend address pool resource of the application gateway.
+  backendHttpSettings:
+    type: object
+    $ref: "#/types/azure-native:network/v20191201:SubResource"
+    description: Backend http settings resource of the application gateway.
+  httpListener:
+    type: object
+    $ref: "#/types/azure-native:network/v20191201:SubResource"
+    description: Http listener resource of the application gateway.
+  id:
+    type: string
+    description: Resource ID.
+  name:
+    type: string
+    description: Name of the request routing rule that is unique within an Application Gateway.
+  priority:
+    type: integer
+    description: Priority of the request routing rule.
+  redirectConfiguration:
+    type: object
+    $ref: "#/types/azure-native:network/v20191201:SubResource"
+    description: Redirect configuration resource of the application gateway.
+  rewriteRuleSet:
+    type: object
+    $ref: "#/types/azure-native:network/v20191201:SubResource"
+    description: Rewrite Rule Set resource in Basic rule of the application gateway.
+  ruleType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20191201:ApplicationGatewayRequestRoutingRuleType"
+    description: Rule type.
+  urlPathMap:
+    type: object
+    $ref: "#/types/azure-native:network/v20191201:SubResource"
+    description: URL path map resource of the application gateway.
+type: object

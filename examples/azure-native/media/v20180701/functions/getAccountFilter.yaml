@@ -1,0 +1,49 @@
+$token: azure-native:media/v20180701:getAccountFilter
+description: An Account Filter.
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: The Media Services account name.
+    filterName:
+      type: string
+      description: The Account Filter name
+    resourceGroupName:
+      type: string
+      description: The name of the resource group within the Azure subscription.
+  type: object
+  required:
+    - accountName
+    - filterName
+    - resourceGroupName
+outputs:
+  description: An Account Filter.
+  properties:
+    firstQuality:
+      type: object
+      $ref: "#/types/azure-native:media/v20180701:FirstQualityResponse"
+      description: The first quality.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource.
+    name:
+      type: string
+      description: The name of the resource.
+    presentationTimeRange:
+      type: object
+      $ref: "#/types/azure-native:media/v20180701:PresentationTimeRangeResponse"
+      description: The presentation time range.
+    tracks:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:media/v20180701:FilterTrackSelectionResponse"
+      description: The tracks selection conditions.
+    type:
+      type: string
+      description: The type of the resource.
+  type: object
+  required:
+    - id
+    - name
+    - type

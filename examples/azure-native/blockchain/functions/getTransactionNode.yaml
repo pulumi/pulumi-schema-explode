@@ -1,0 +1,65 @@
+$token: azure-native:blockchain:getTransactionNode
+description: |-
+  Payload of the transaction node which is the request/response of the resource provider.
+  API Version: 2018-06-01-preview.
+inputs:
+  properties:
+    blockchainMemberName:
+      type: string
+      description: Blockchain member name.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    transactionNodeName:
+      type: string
+      description: Transaction node name.
+  type: object
+  required:
+    - blockchainMemberName
+    - resourceGroupName
+    - transactionNodeName
+outputs:
+  description: Payload of the transaction node which is the request/response of the resource provider.
+  properties:
+    dns:
+      type: string
+      description: Gets or sets the transaction node dns endpoint.
+    firewallRules:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:blockchain:FirewallRuleResponse"
+      description: Gets or sets the firewall rules.
+    id:
+      type: string
+      description: Fully qualified resource Id of the resource.
+    location:
+      type: string
+      description: Gets or sets the transaction node location.
+    name:
+      type: string
+      description: The name of the resource.
+    password:
+      type: string
+      description: Sets the transaction node dns endpoint basic auth password.
+    provisioningState:
+      type: string
+      description: Gets or sets the blockchain member provision state.
+    publicKey:
+      type: string
+      description: Gets or sets the transaction node public key.
+    type:
+      type: string
+      description: The type of the service - e.g. "Microsoft.Blockchain"
+    userName:
+      type: string
+      description: Gets or sets the transaction node dns endpoint basic auth user name.
+  type: object
+  required:
+    - dns
+    - id
+    - name
+    - provisioningState
+    - publicKey
+    - type
+    - userName

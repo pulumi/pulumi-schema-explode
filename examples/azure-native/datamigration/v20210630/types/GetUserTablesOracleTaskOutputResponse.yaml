@@ -1,0 +1,23 @@
+$token: azure-native:datamigration/v20210630:GetUserTablesOracleTaskOutputResponse
+description: Output for the task that gets the list of tables contained within a provided list of Oracle schemas.
+properties:
+  schemaName:
+    type: string
+    description: The schema this result is for
+  tables:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration/v20210630:DatabaseTableResponse"
+    description: List of valid tables found for this schema
+  validationErrors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration/v20210630:ReportableExceptionResponse"
+    description: Validation errors associated with the task
+type: object
+required:
+  - schemaName
+  - tables
+  - validationErrors

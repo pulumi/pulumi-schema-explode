@@ -1,0 +1,46 @@
+$token: azure-native:servicebus/v20180101preview:getNamespaceNetworkRuleSet
+description: Description of NetworkRuleSet resource.
+inputs:
+  properties:
+    namespaceName:
+      type: string
+      description: The namespace name
+    resourceGroupName:
+      type: string
+      description: Name of the Resource group within the Azure subscription.
+  type: object
+  required:
+    - namespaceName
+    - resourceGroupName
+outputs:
+  description: Description of NetworkRuleSet resource.
+  properties:
+    defaultAction:
+      type: string
+      description: Default Action for Network Rule Set
+    id:
+      type: string
+      description: Resource Id
+    ipRules:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:servicebus/v20180101preview:NWRuleSetIpRulesResponse"
+      description: List of IpRules
+    name:
+      type: string
+      description: Resource name
+    type:
+      type: string
+      description: Resource type
+    virtualNetworkRules:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:servicebus/v20180101preview:NWRuleSetVirtualNetworkRulesResponse"
+      description: List VirtualNetwork Rules
+  type: object
+  required:
+    - id
+    - name
+    - type

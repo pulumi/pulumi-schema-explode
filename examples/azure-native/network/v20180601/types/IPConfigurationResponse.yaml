@@ -1,0 +1,30 @@
+$token: azure-native:network/v20180601:IPConfigurationResponse
+description: IP configuration
+properties:
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  id:
+    type: string
+    description: Resource ID.
+  name:
+    type: string
+    description: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+  privateIPAddress:
+    type: string
+    description: The private IP address of the IP configuration.
+  privateIPAllocationMethod:
+    type: string
+    description: The private IP allocation method. Possible values are 'Static' and 'Dynamic'.
+  provisioningState:
+    type: string
+    description: "Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'."
+  publicIPAddress:
+    type: object
+    $ref: "#/types/azure-native:network/v20180601:PublicIPAddressResponse"
+    description: The reference of the public IP resource.
+  subnet:
+    type: object
+    $ref: "#/types/azure-native:network/v20180601:SubnetResponse"
+    description: The reference of the subnet resource.
+type: object

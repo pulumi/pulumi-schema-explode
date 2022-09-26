@@ -1,0 +1,74 @@
+$token: azure-native:eventhub:SchemaRegistry
+description: |-
+  Single item in List or Get Schema Group operation
+  API Version: 2022-01-01-preview.
+properties:
+  createdAtUtc:
+    type: string
+    description: Exact time the Schema Group was created.
+  eTag:
+    type: string
+    description: The ETag value.
+  groupProperties:
+    type: object
+    additionalProperties:
+      type: string
+    description: dictionary object for SchemaGroup group properties
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  name:
+    type: string
+    description: The name of the resource
+  schemaCompatibility:
+    type: string
+  schemaType:
+    type: string
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:eventhub:SystemDataResponse"
+    description: The system meta data relating to this resource.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+  updatedAtUtc:
+    type: string
+    description: Exact time the Schema Group was updated
+type: object
+required:
+  - createdAtUtc
+  - eTag
+  - location
+  - name
+  - systemData
+  - type
+  - updatedAtUtc
+inputProperties:
+  groupProperties:
+    type: object
+    additionalProperties:
+      type: string
+    description: dictionary object for SchemaGroup group properties
+  namespaceName:
+    type: string
+    description: The Namespace name
+  resourceGroupName:
+    type: string
+    description: Name of the resource group within the azure subscription.
+  schemaCompatibility:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:eventhub:SchemaCompatibility"
+  schemaGroupName:
+    type: string
+    description: "The Schema Group name "
+  schemaType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:eventhub:SchemaType"
+requiredInputs:
+  - namespaceName
+  - resourceGroupName
+aliases:
+  - type: azure-native:eventhub/v20211101:SchemaRegistry
+  - type: azure-native:eventhub/v20220101preview:SchemaRegistry

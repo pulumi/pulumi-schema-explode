@@ -1,0 +1,43 @@
+$token: azure-native:authorization/v20220801preview:getVariableAtManagementGroup
+description: The variable.
+inputs:
+  properties:
+    managementGroupId:
+      type: string
+      description: The ID of the management group.
+    variableName:
+      type: string
+      description: The name of the variable to operate on.
+  type: object
+  required:
+    - managementGroupId
+    - variableName
+outputs:
+  description: The variable.
+  properties:
+    columns:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:authorization/v20220801preview:PolicyVariableColumnResponse"
+      description: Variable column definitions.
+    id:
+      type: string
+      description: The ID of the variable.
+    name:
+      type: string
+      description: The name of the variable.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:authorization/v20220801preview:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    type:
+      type: string
+      description: The type of the resource (Microsoft.Authorization/variables).
+  type: object
+  required:
+    - columns
+    - id
+    - name
+    - systemData
+    - type

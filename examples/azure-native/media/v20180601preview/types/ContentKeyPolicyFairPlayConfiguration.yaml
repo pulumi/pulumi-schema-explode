@@ -1,0 +1,34 @@
+$token: azure-native:media/v20180601preview:ContentKeyPolicyFairPlayConfiguration
+description: Specifies a configuration for FairPlay licenses.
+properties:
+  ask:
+    type: string
+    description: The key that must be used as FairPlay ASk.
+  fairPlayPfx:
+    type: string
+    description: The Base64 representation of FairPlay certificate in PKCS 12 (pfx) format (including private key).
+  fairPlayPfxPassword:
+    type: string
+    description: The password encrypting FairPlay certificate in PKCS 12 (pfx) format.
+  odataType:
+    type: string
+    description: |-
+      The discriminator for derived types.
+      Expected value is '#Microsoft.Media.ContentKeyPolicyFairPlayConfiguration'.
+    const: "#Microsoft.Media.ContentKeyPolicyFairPlayConfiguration"
+  rentalAndLeaseKeyType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:media/v20180601preview:ContentKeyPolicyFairPlayRentalAndLeaseKeyType"
+    description: The rental and lease key type.
+  rentalDuration:
+    type: number
+    description: The rental duration. Must be greater than or equal to 0.
+type: object
+required:
+  - ask
+  - fairPlayPfx
+  - fairPlayPfxPassword
+  - odataType
+  - rentalAndLeaseKeyType
+  - rentalDuration

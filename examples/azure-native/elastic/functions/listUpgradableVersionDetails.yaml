@@ -1,0 +1,28 @@
+$token: azure-native:elastic:listUpgradableVersionDetails
+description: |-
+  Stack Versions that this version can upgrade to
+  API Version: 2021-10-01-preview.
+inputs:
+  properties:
+    monitorName:
+      type: string
+      description: Monitor resource name
+    resourceGroupName:
+      type: string
+      description: The name of the resource group to which the Elastic resource belongs.
+  type: object
+  required:
+    - monitorName
+    - resourceGroupName
+outputs:
+  description: Stack Versions that this version can upgrade to
+  properties:
+    currentVersion:
+      type: string
+      description: Current version of the elastic monitor
+    upgradableVersions:
+      type: array
+      items:
+        type: string
+      description: Stack Versions that this version can upgrade to
+  type: object

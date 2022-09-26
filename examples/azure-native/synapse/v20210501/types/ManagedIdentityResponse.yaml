@@ -1,0 +1,22 @@
+$token: azure-native:synapse/v20210501:ManagedIdentityResponse
+description: The workspace managed identity
+properties:
+  principalId:
+    type: string
+    description: The principal ID of the workspace managed identity
+  tenantId:
+    type: string
+    description: The tenant ID of the workspace managed identity
+  type:
+    type: string
+    description: The type of managed identity for the workspace
+  userAssignedIdentities:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:synapse/v20210501:UserAssignedManagedIdentityResponse"
+    description: The user assigned managed identities.
+type: object
+required:
+  - principalId
+  - tenantId

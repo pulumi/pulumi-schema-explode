@@ -1,0 +1,54 @@
+$token: azure-native:containerinstance/v20180601:ContainerResponse
+description: A container instance.
+properties:
+  command:
+    type: array
+    items:
+      type: string
+    description: The commands to execute within the container instance in exec form.
+  environmentVariables:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:containerinstance/v20180601:EnvironmentVariableResponse"
+    description: The environment variables to set in the container instance.
+  image:
+    type: string
+    description: The name of the image used to create the container instance.
+  instanceView:
+    type: object
+    $ref: "#/types/azure-native:containerinstance/v20180601:ContainerPropertiesResponseInstanceView"
+    description: The instance view of the container instance. Only valid in response.
+  livenessProbe:
+    type: object
+    $ref: "#/types/azure-native:containerinstance/v20180601:ContainerProbeResponse"
+    description: The liveness probe.
+  name:
+    type: string
+    description: The user-provided name of the container instance.
+  ports:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:containerinstance/v20180601:ContainerPortResponse"
+    description: The exposed ports on the container instance.
+  readinessProbe:
+    type: object
+    $ref: "#/types/azure-native:containerinstance/v20180601:ContainerProbeResponse"
+    description: The readiness probe.
+  resources:
+    type: object
+    $ref: "#/types/azure-native:containerinstance/v20180601:ResourceRequirementsResponse"
+    description: The resource requirements of the container instance.
+  volumeMounts:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:containerinstance/v20180601:VolumeMountResponse"
+    description: The volume mounts available to the container instance.
+type: object
+required:
+  - image
+  - instanceView
+  - name
+  - resources

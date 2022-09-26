@@ -1,0 +1,45 @@
+$token: azure-native:dataprotection/v20210701:getBackupInstance
+description: BackupInstance Resource
+inputs:
+  properties:
+    backupInstanceName:
+      type: string
+      description: The name of the backup instance
+    resourceGroupName:
+      type: string
+      description: The name of the resource group where the backup vault is present.
+    vaultName:
+      type: string
+      description: The name of the backup vault.
+  type: object
+  required:
+    - backupInstanceName
+    - resourceGroupName
+    - vaultName
+outputs:
+  description: BackupInstance Resource
+  properties:
+    id:
+      type: string
+      description: Resource Id represents the complete path to the resource.
+    name:
+      type: string
+      description: Resource name associated with the resource.
+    properties:
+      type: object
+      $ref: "#/types/azure-native:dataprotection/v20210701:BackupInstanceResponse"
+      description: BackupInstanceResource properties
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:dataprotection/v20210701:SystemDataResponse"
+      description: Metadata pertaining to creation and last modification of the resource.
+    type:
+      type: string
+      description: Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - systemData
+    - type

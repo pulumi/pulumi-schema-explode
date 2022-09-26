@@ -1,0 +1,27 @@
+$token: azure-native:web:IngressResponse
+description: Container App Ingress configuration.
+properties:
+  allowInsecure:
+    type: boolean
+    description: Bool indicating if HTTP connections to is allowed. If set to false HTTP connections are automatically redirected to HTTPS connections
+  external:
+    type: boolean
+    description: Bool indicating if app exposes an external http endpoint
+    default: false
+  fqdn:
+    type: string
+    description: Hostname.
+  targetPort:
+    type: integer
+    description: Target Port in containers for traffic from ingress
+  traffic:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:web:TrafficWeightResponse"
+  transport:
+    type: string
+    description: Ingress transport protocol
+type: object
+required:
+  - fqdn

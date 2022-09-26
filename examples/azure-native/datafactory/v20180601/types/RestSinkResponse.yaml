@@ -1,0 +1,45 @@
+$token: azure-native:datafactory/v20180601:RestSinkResponse
+description: A copy activity Rest service Sink.
+properties:
+  additionalHeaders:
+    $ref: pulumi.json#/Any
+    description: "The additional HTTP headers in the request to the RESTful API. Type: string (or Expression with resultType string)."
+  disableMetricsCollection:
+    $ref: pulumi.json#/Any
+    description: "If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean)."
+  httpCompressionType:
+    $ref: pulumi.json#/Any
+    description: "Http Compression Type to Send data in compressed format with Optimal Compression Level, Default is None. And The Only Supported option is Gzip. "
+  httpRequestTimeout:
+    $ref: pulumi.json#/Any
+    description: "The timeout (TimeSpan) to get an HTTP response. It is the timeout to get a response, not the timeout to read response data. Default value: 00:01:40. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9]))."
+  maxConcurrentConnections:
+    $ref: pulumi.json#/Any
+    description: "The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer)."
+  requestInterval:
+    $ref: pulumi.json#/Any
+    description: "The time to await before sending next request, in milliseconds "
+  requestMethod:
+    $ref: pulumi.json#/Any
+    description: "The HTTP method used to call the RESTful API. The default is POST. Type: string (or Expression with resultType string)."
+  sinkRetryCount:
+    $ref: pulumi.json#/Any
+    description: "Sink retry count. Type: integer (or Expression with resultType integer)."
+  sinkRetryWait:
+    $ref: pulumi.json#/Any
+    description: "Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9]))."
+  type:
+    type: string
+    description: |-
+      Copy sink type.
+      Expected value is 'RestSink'.
+    const: RestSink
+  writeBatchSize:
+    $ref: pulumi.json#/Any
+    description: "Write batch size. Type: integer (or Expression with resultType integer), minimum: 0."
+  writeBatchTimeout:
+    $ref: pulumi.json#/Any
+    description: "Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9]))."
+type: object
+required:
+  - type

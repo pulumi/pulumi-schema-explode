@@ -1,0 +1,30 @@
+$token: azure-native:machinelearningservices/v20220201preview:ComponentVersionResponse
+description: "Definition of a component version: defines resources that span component types."
+properties:
+  componentSpec:
+    $ref: pulumi.json#/Any
+    description: "Defines Component definition details.\r
+
+      <see href=\"https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-component-command\" />"
+  description:
+    type: string
+    description: The asset description text.
+  isAnonymous:
+    type: boolean
+    description: If the name version are system generated (anonymous registration).
+    default: false
+  isArchived:
+    type: boolean
+    description: Is the asset archived?
+    default: false
+  properties:
+    type: object
+    additionalProperties:
+      type: string
+    description: The asset property dictionary.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Tag dictionary. Tags can be added, removed, and updated.
+type: object

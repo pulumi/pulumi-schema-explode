@@ -1,0 +1,63 @@
+$token: azure-native:datafactory:AzureMLServiceLinkedService
+description: Azure ML Service linked service.
+properties:
+  annotations:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: List of tags that can be used for describing the linked service.
+  connectVia:
+    type: object
+    $ref: "#/types/azure-native:datafactory:IntegrationRuntimeReference"
+    description: The integration runtime reference.
+  description:
+    type: string
+    description: Linked service description.
+  encryptedCredential:
+    $ref: pulumi.json#/Any
+    description: "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string)."
+  mlWorkspaceName:
+    $ref: pulumi.json#/Any
+    description: "Azure ML Service workspace name. Type: string (or Expression with resultType string)."
+  parameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:datafactory:ParameterSpecification"
+    description: Parameters for linked service.
+  resourceGroupName:
+    $ref: pulumi.json#/Any
+    description: "Azure ML Service workspace resource group name. Type: string (or Expression with resultType string)."
+  servicePrincipalId:
+    $ref: pulumi.json#/Any
+    description: "The ID of the service principal used to authenticate against the endpoint of a published Azure ML Service pipeline. Type: string (or Expression with resultType string)."
+  servicePrincipalKey:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureKeyVaultSecretReference"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SecureString"
+    discriminator:
+      propertyName: type
+      mapping:
+        AzureKeyVaultSecret: "#/types/azure-native:datafactory:AzureKeyVaultSecretReference"
+        SecureString: "#/types/azure-native:datafactory:SecureString"
+    description: The key of the service principal used to authenticate against the endpoint of a published Azure ML Service pipeline.
+  subscriptionId:
+    $ref: pulumi.json#/Any
+    description: "Azure ML Service workspace subscription ID. Type: string (or Expression with resultType string)."
+  tenant:
+    $ref: pulumi.json#/Any
+    description: "The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string)."
+  type:
+    type: string
+    description: |-
+      Type of linked service.
+      Expected value is 'AzureMLService'.
+    const: AzureMLService
+type: object
+required:
+  - mlWorkspaceName
+  - resourceGroupName
+  - subscriptionId
+  - type

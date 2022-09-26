@@ -1,0 +1,8 @@
+$token: azure-native:media:OnErrorType
+description: A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
+type: string
+enum:
+  - description: Tells the service that if this TransformOutput fails, then any other incomplete TransformOutputs can be stopped.
+    value: StopProcessingJob
+  - description: Tells the service that if this TransformOutput fails, then allow any other TransformOutput to continue.
+    value: ContinueJob

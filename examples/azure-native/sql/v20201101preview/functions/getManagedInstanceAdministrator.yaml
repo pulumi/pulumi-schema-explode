@@ -1,0 +1,49 @@
+$token: azure-native:sql/v20201101preview:getManagedInstanceAdministrator
+description: An Azure SQL managed instance administrator.
+inputs:
+  properties:
+    administratorName:
+      type: string
+    managedInstanceName:
+      type: string
+      description: The name of the managed instance.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  type: object
+  required:
+    - administratorName
+    - managedInstanceName
+    - resourceGroupName
+outputs:
+  description: An Azure SQL managed instance administrator.
+  properties:
+    administratorType:
+      type: string
+      description: Type of the managed instance administrator.
+    id:
+      type: string
+      description: Resource ID.
+    login:
+      type: string
+      description: Login name of the managed instance administrator.
+    name:
+      type: string
+      description: Resource name.
+    sid:
+      type: string
+      description: SID (object ID) of the managed instance administrator.
+    tenantId:
+      type: string
+      description: Tenant ID of the managed instance administrator.
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - administratorType
+    - id
+    - login
+    - name
+    - sid
+    - type

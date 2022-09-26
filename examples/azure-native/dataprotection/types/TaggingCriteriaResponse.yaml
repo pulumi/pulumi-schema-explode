@@ -1,0 +1,24 @@
+$token: azure-native:dataprotection:TaggingCriteriaResponse
+description: Tagging criteria
+properties:
+  criteria:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:dataprotection:ScheduleBasedBackupCriteriaResponse"
+    description: Criteria which decides whether the tag can be applied to a triggered backup.
+  isDefault:
+    type: boolean
+    description: Specifies if tag is default.
+  tagInfo:
+    type: object
+    $ref: "#/types/azure-native:dataprotection:RetentionTagResponse"
+    description: Retention tag information
+  taggingPriority:
+    type: number
+    description: Retention Tag priority.
+type: object
+required:
+  - isDefault
+  - tagInfo
+  - taggingPriority

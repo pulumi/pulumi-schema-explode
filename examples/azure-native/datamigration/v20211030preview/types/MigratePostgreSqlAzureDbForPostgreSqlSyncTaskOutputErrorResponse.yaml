@@ -1,0 +1,26 @@
+$token: azure-native:datamigration/v20211030preview:MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputErrorResponse
+properties:
+  error:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20211030preview:ReportableExceptionResponse"
+    description: Migration error
+  events:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration/v20211030preview:SyncMigrationDatabaseErrorEventResponse"
+    description: List of error events
+  id:
+    type: string
+    description: Result identifier
+  resultType:
+    type: string
+    description: |-
+      Result type
+      Expected value is 'ErrorOutput'.
+    const: ErrorOutput
+type: object
+required:
+  - error
+  - id
+  - resultType

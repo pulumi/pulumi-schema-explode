@@ -1,0 +1,23 @@
+$token: azure-native:appplatform/v20220901preview:IngressSettingsResponse
+description: App ingress settings payload.
+properties:
+  backendProtocol:
+    type: string
+    description: How ingress should communicate with this app backend service.
+  clientAuth:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20220901preview:IngressSettingsResponseClientAuth"
+    description: Client-Certification Authentication.
+  readTimeoutInSeconds:
+    type: integer
+    description: Ingress read time out in seconds.
+  sendTimeoutInSeconds:
+    type: integer
+    description: Ingress send time out in seconds.
+  sessionAffinity:
+    type: string
+    description: Type of the affinity, set this to Cookie to enable session affinity.
+  sessionCookieMaxAge:
+    type: integer
+    description: Time in seconds until the cookie expires.
+type: object

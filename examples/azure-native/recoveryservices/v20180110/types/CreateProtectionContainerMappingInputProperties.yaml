@@ -1,0 +1,22 @@
+$token: azure-native:recoveryservices/v20180110:CreateProtectionContainerMappingInputProperties
+description: Configure pairing input properties.
+properties:
+  policyId:
+    type: string
+    description: Applicable policy.
+  providerSpecificInput:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20180110:A2AContainerMappingInput"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20180110:VMwareCbtContainerMappingInput"
+    discriminator:
+      propertyName: instanceType
+      mapping:
+        A2A: "#/types/azure-native:recoveryservices/v20180110:A2AContainerMappingInput"
+        VMwareCbt: "#/types/azure-native:recoveryservices/v20180110:VMwareCbtContainerMappingInput"
+    description: Provider specific input for pairing.
+  targetProtectionContainerId:
+    type: string
+    description: The target unique protection container name.
+type: object

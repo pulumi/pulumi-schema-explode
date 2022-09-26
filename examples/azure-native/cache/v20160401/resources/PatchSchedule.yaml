@@ -1,0 +1,44 @@
+$token: azure-native:cache/v20160401:PatchSchedule
+description: Response to put/get patch schedules for Redis cache.
+properties:
+  location:
+    type: string
+    description: Resource location.
+  name:
+    type: string
+    description: Resource name.
+  scheduleEntries:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:cache/v20160401:ScheduleEntryResponse"
+    description: List of patch schedules for a Redis cache.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - location
+  - name
+  - scheduleEntries
+  - type
+inputProperties:
+  name:
+    type: string
+    description: The name of the Redis cache.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  scheduleEntries:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:cache/v20160401:ScheduleEntry"
+    description: List of patch schedules for a Redis cache.
+requiredInputs:
+  - name
+  - resourceGroupName
+  - scheduleEntries
+aliases:
+  - type: azure-native:cache/v20170201:PatchSchedule
+deprecationMessage: Version 2016-04-01 will be removed in v2 of the provider.

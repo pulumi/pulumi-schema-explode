@@ -1,0 +1,77 @@
+$token: azure-native:storagepool/v20210401preview:getDiskPool
+description: Response for Disk Pool request.
+inputs:
+  properties:
+    diskPoolName:
+      type: string
+      description: The name of the Disk Pool.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+  type: object
+  required:
+    - diskPoolName
+    - resourceGroupName
+outputs:
+  description: Response for Disk Pool request.
+  properties:
+    additionalCapabilities:
+      type: array
+      items:
+        type: string
+      description: List of additional capabilities for Disk Pool.
+    availabilityZones:
+      type: array
+      items:
+        type: string
+      description: 'Logical zone for Disk Pool resource; example: ["1"].'
+    disks:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:storagepool/v20210401preview:DiskResponse"
+      description: List of Azure Managed Disks to attach to a Disk Pool.
+    id:
+      type: string
+      description: Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    location:
+      type: string
+      description: The geo-location where the resource lives.
+    name:
+      type: string
+      description: The name of the resource
+    provisioningState:
+      type: string
+      description: State of the operation on the resource.
+    status:
+      type: string
+      description: Operational status of the Disk Pool.
+    subnetId:
+      type: string
+      description: Azure Resource ID of a Subnet for the Disk Pool.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:storagepool/v20210401preview:SystemMetadataResponse"
+      description: Resource metadata required by ARM RPC
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    tier:
+      type: string
+      description: Sku tier
+    type:
+      type: string
+      description: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+  type: object
+  required:
+    - availabilityZones
+    - id
+    - location
+    - name
+    - provisioningState
+    - status
+    - subnetId
+    - systemData
+    - type

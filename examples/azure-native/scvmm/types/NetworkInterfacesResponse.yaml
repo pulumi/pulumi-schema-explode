@@ -1,0 +1,46 @@
+$token: azure-native:scvmm:NetworkInterfacesResponse
+description: Network Interface model
+properties:
+  displayName:
+    type: string
+    description: Gets the display name of the network interface as shown in the vmmServer. This is the fallback label for a NIC when the name is not set.
+  ipv4AddressType:
+    type: string
+    description: Gets or sets the ipv4 address type.
+  ipv4Addresses:
+    type: array
+    items:
+      type: string
+    description: Gets or sets the nic ipv4 addresses.
+  ipv6AddressType:
+    type: string
+    description: Gets or sets the ipv6 address type.
+  ipv6Addresses:
+    type: array
+    items:
+      type: string
+    description: Gets or sets the nic ipv6 addresses.
+  macAddress:
+    type: string
+    description: Gets or sets the nic MAC address.
+  macAddressType:
+    type: string
+    description: Gets or sets the mac address type.
+  name:
+    type: string
+    description: Gets or sets the name of the network interface.
+  networkName:
+    type: string
+    description: Gets or sets the name of the virtual network in vmmServer that the nic is connected to.
+  nicId:
+    type: string
+    description: Gets or sets the nic id.
+  virtualNetworkId:
+    type: string
+    description: Gets or sets the ARM Id of the Microsoft.ScVmm/virtualNetwork resource to connect the nic.
+type: object
+required:
+  - displayName
+  - ipv4Addresses
+  - ipv6Addresses
+  - networkName

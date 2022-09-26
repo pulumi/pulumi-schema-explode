@@ -1,0 +1,90 @@
+$token: azure-native:compute/v20190301:GalleryApplication
+description: Specifies information about the gallery Application Definition that you want to create or update.
+properties:
+  description:
+    type: string
+    description: The description of this gallery Application Definition resource. This property is updatable.
+  endOfLifeDate:
+    type: string
+    description: The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
+  eula:
+    type: string
+    description: The Eula agreement for the gallery Application Definition.
+  location:
+    type: string
+    description: Resource location
+  name:
+    type: string
+    description: Resource name
+  privacyStatementUri:
+    type: string
+    description: The privacy statement uri.
+  releaseNoteUri:
+    type: string
+    description: The release note uri.
+  supportedOSType:
+    type: string
+    description: "This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**"
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  type:
+    type: string
+    description: Resource type
+type: object
+required:
+  - location
+  - name
+  - supportedOSType
+  - type
+inputProperties:
+  description:
+    type: string
+    description: The description of this gallery Application Definition resource. This property is updatable.
+  endOfLifeDate:
+    type: string
+    description: The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
+  eula:
+    type: string
+    description: The Eula agreement for the gallery Application Definition.
+  galleryApplicationName:
+    type: string
+    description: The name of the gallery Application Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
+  galleryName:
+    type: string
+    description: The name of the Shared Application Gallery in which the Application Definition is to be created.
+  location:
+    type: string
+    description: Resource location
+  privacyStatementUri:
+    type: string
+    description: The privacy statement uri.
+  releaseNoteUri:
+    type: string
+    description: The release note uri.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  supportedOSType:
+    $ref: "#/types/azure-native:compute/v20190301:OperatingSystemTypes"
+    description: "This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**"
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+requiredInputs:
+  - galleryName
+  - resourceGroupName
+  - supportedOSType
+aliases:
+  - type: azure-native:compute:GalleryApplication
+  - type: azure-native:compute/v20190701:GalleryApplication
+  - type: azure-native:compute/v20191201:GalleryApplication
+  - type: azure-native:compute/v20200930:GalleryApplication
+  - type: azure-native:compute/v20210701:GalleryApplication
+  - type: azure-native:compute/v20211001:GalleryApplication
+  - type: azure-native:compute/v20220103:GalleryApplication
+deprecationMessage: Version 2019-03-01 will be removed in v2 of the provider.

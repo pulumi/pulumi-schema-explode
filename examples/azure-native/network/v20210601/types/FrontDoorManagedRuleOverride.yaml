@@ -1,0 +1,25 @@
+$token: azure-native:network/v20210601:FrontDoorManagedRuleOverride
+description: Defines a managed rule group override setting.
+properties:
+  action:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20210601:ActionType"
+    description: Describes the override action to be applied when rule matches.
+  enabledState:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20210601:ManagedRuleEnabledState"
+    description: Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
+  exclusions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210601:ManagedRuleExclusion"
+    description: Describes the exclusions that are applied to this specific rule.
+  ruleId:
+    type: string
+    description: Identifier for the managed rule.
+type: object
+required:
+  - ruleId

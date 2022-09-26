@@ -1,0 +1,56 @@
+$token: azure-native:workloads:getWordpressInstance
+description: |-
+  WordPress instance resource
+  API Version: 2021-12-01-preview.
+inputs:
+  properties:
+    phpWorkloadName:
+      type: string
+      description: Php workload name
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+  type: object
+  required:
+    - phpWorkloadName
+    - resourceGroupName
+outputs:
+  description: WordPress instance resource
+  properties:
+    databaseName:
+      type: string
+      description: Database name used by the application
+    databaseUser:
+      type: string
+      description: User name used by the application to connect to database
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    name:
+      type: string
+      description: The name of the resource
+    provisioningState:
+      type: string
+      description: WordPress instance provisioning state
+    siteUrl:
+      type: string
+      description: Site Url to access the WordPress application
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:workloads:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+    version:
+      type: string
+      description: Application version
+  type: object
+  required:
+    - id
+    - name
+    - provisioningState
+    - siteUrl
+    - systemData
+    - type
+    - version

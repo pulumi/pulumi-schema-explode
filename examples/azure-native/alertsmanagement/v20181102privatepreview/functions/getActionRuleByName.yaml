@@ -1,0 +1,46 @@
+$token: azure-native:alertsmanagement/v20181102privatepreview:getActionRuleByName
+description: Action rule object containing target scope, conditions and suppression logic
+inputs:
+  properties:
+    actionRuleName:
+      type: string
+      description: The name of action rule that needs to be fetched
+    resourceGroup:
+      type: string
+      description: Resource group name where the resource is created.
+  type: object
+  required:
+    - actionRuleName
+    - resourceGroup
+outputs:
+  description: Action rule object containing target scope, conditions and suppression logic
+  properties:
+    id:
+      type: string
+      description: Azure resource Id
+    location:
+      type: string
+      description: Resource location
+    name:
+      type: string
+      description: Azure resource name
+    properties:
+      type: object
+      $ref: "#/types/azure-native:alertsmanagement/v20181102privatepreview:ActionRulePropertiesResponse"
+      description: Action rule properties defining scope, conditions, suppression logic for action rule
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    type:
+      type: string
+      description: Azure resource type
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - properties
+    - type
+deprecationMessage: Version 2018-11-02-privatepreview will be removed in v2 of the provider.

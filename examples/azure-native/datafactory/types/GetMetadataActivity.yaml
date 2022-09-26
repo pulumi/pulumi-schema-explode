@@ -1,0 +1,112 @@
+$token: azure-native:datafactory:GetMetadataActivity
+description: Activity to get metadata of dataset
+properties:
+  dataset:
+    type: object
+    $ref: "#/types/azure-native:datafactory:DatasetReference"
+    description: GetMetadata activity dataset reference.
+  dependsOn:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory:ActivityDependency"
+    description: Activity depends on condition.
+  description:
+    type: string
+    description: Activity description.
+  fieldList:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: Fields of metadata to get from dataset.
+  formatSettings:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory:BinaryReadSettings"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:DelimitedTextReadSettings"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:JsonReadSettings"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:XmlReadSettings"
+    discriminator:
+      propertyName: type
+      mapping:
+        BinaryReadSettings: "#/types/azure-native:datafactory:BinaryReadSettings"
+        DelimitedTextReadSettings: "#/types/azure-native:datafactory:DelimitedTextReadSettings"
+        JsonReadSettings: "#/types/azure-native:datafactory:JsonReadSettings"
+        XmlReadSettings: "#/types/azure-native:datafactory:XmlReadSettings"
+    description: GetMetadata activity format settings.
+  linkedServiceName:
+    type: object
+    $ref: "#/types/azure-native:datafactory:LinkedServiceReference"
+    description: Linked service reference.
+  name:
+    type: string
+    description: Activity name.
+  policy:
+    type: object
+    $ref: "#/types/azure-native:datafactory:ActivityPolicy"
+    description: Activity policy.
+  storeSettings:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AmazonS3CompatibleReadSettings"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AmazonS3ReadSettings"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureBlobFSReadSettings"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureBlobStorageReadSettings"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureDataLakeStoreReadSettings"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureFileStorageReadSettings"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:FileServerReadSettings"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:FtpReadSettings"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:GoogleCloudStorageReadSettings"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:HdfsReadSettings"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:HttpReadSettings"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:OracleCloudStorageReadSettings"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SftpReadSettings"
+    discriminator:
+      propertyName: type
+      mapping:
+        AmazonS3CompatibleReadSettings: "#/types/azure-native:datafactory:AmazonS3CompatibleReadSettings"
+        AmazonS3ReadSettings: "#/types/azure-native:datafactory:AmazonS3ReadSettings"
+        AzureBlobFSReadSettings: "#/types/azure-native:datafactory:AzureBlobFSReadSettings"
+        AzureBlobStorageReadSettings: "#/types/azure-native:datafactory:AzureBlobStorageReadSettings"
+        AzureDataLakeStoreReadSettings: "#/types/azure-native:datafactory:AzureDataLakeStoreReadSettings"
+        AzureFileStorageReadSettings: "#/types/azure-native:datafactory:AzureFileStorageReadSettings"
+        FileServerReadSettings: "#/types/azure-native:datafactory:FileServerReadSettings"
+        FtpReadSettings: "#/types/azure-native:datafactory:FtpReadSettings"
+        GoogleCloudStorageReadSettings: "#/types/azure-native:datafactory:GoogleCloudStorageReadSettings"
+        HdfsReadSettings: "#/types/azure-native:datafactory:HdfsReadSettings"
+        HttpReadSettings: "#/types/azure-native:datafactory:HttpReadSettings"
+        OracleCloudStorageReadSettings: "#/types/azure-native:datafactory:OracleCloudStorageReadSettings"
+        SftpReadSettings: "#/types/azure-native:datafactory:SftpReadSettings"
+    description: GetMetadata activity store settings.
+  type:
+    type: string
+    description: |-
+      Type of activity.
+      Expected value is 'GetMetadata'.
+    const: GetMetadata
+  userProperties:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory:UserProperty"
+    description: Activity user properties.
+type: object
+required:
+  - dataset
+  - name
+  - type

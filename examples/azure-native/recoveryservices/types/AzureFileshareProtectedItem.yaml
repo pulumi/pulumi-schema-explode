@@ -1,0 +1,84 @@
+$token: azure-native:recoveryservices:AzureFileshareProtectedItem
+description: Azure File Share workload-specific backup item.
+properties:
+  backupManagementType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:recoveryservices:BackupManagementType"
+    description: Type of backup management for the backed up item.
+  backupSetName:
+    type: string
+    description: Name of the backup set the backup item belongs to
+  containerName:
+    type: string
+    description: Unique name of container
+  createMode:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:recoveryservices:CreateMode"
+    description: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+  deferredDeleteTimeInUTC:
+    type: string
+    description: Time for deferred deletion in UTC
+  deferredDeleteTimeRemaining:
+    type: string
+    description: Time remaining before the DS marked for deferred delete is permanently deleted
+  extendedInfo:
+    type: object
+    $ref: "#/types/azure-native:recoveryservices:AzureFileshareProtectedItemExtendedInfo"
+    description: Additional information with this backup item.
+  friendlyName:
+    type: string
+    description: Friendly name of the fileshare represented by this backup item.
+  isDeferredDeleteScheduleUpcoming:
+    type: boolean
+    description: Flag to identify whether the deferred deleted DS is to be purged soon
+  isRehydrate:
+    type: boolean
+    description: Flag to identify that deferred deleted DS is to be moved into Pause state
+  isScheduledForDeferredDelete:
+    type: boolean
+    description: Flag to identify whether the DS is scheduled for deferred delete
+  kpisHealths:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:recoveryservices:KPIResourceHealthDetails"
+    description: Health details of different KPIs
+  lastBackupStatus:
+    type: string
+    description: "Last backup operation status. Possible values: Healthy, Unhealthy."
+  lastBackupTime:
+    type: string
+    description: Timestamp of the last backup operation on this backup item.
+  lastRecoveryPoint:
+    type: string
+    description: Timestamp when the last (latest) backup copy was created for this backup item.
+  policyId:
+    type: string
+    description: ID of the backup policy with which this item is backed up.
+  protectedItemType:
+    type: string
+    description: |-
+      backup item type.
+      Expected value is 'AzureFileShareProtectedItem'.
+    const: AzureFileShareProtectedItem
+  protectionState:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:recoveryservices:ProtectionState"
+    description: Backup state of this backup item.
+  protectionStatus:
+    type: string
+    description: Backup status of this backup item.
+  sourceResourceId:
+    type: string
+    description: ARM ID of the resource to be backed up.
+  workloadType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:recoveryservices:DataSourceType"
+    description: Type of workload this item represents.
+type: object
+required:
+  - protectedItemType

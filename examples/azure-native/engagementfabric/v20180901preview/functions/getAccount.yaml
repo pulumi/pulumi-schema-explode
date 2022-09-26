@@ -1,0 +1,45 @@
+$token: azure-native:engagementfabric/v20180901preview:getAccount
+description: The EngagementFabric account
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: Account Name
+    resourceGroupName:
+      type: string
+      description: Resource Group Name
+  type: object
+  required:
+    - accountName
+    - resourceGroupName
+outputs:
+  description: The EngagementFabric account
+  properties:
+    id:
+      type: string
+      description: The ID of the resource
+    location:
+      type: string
+      description: The location of the resource
+    name:
+      type: string
+      description: The name of the resource
+    sku:
+      type: object
+      $ref: "#/types/azure-native:engagementfabric/v20180901preview:SKUResponse"
+      description: The SKU of the resource
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: The tags of the resource
+    type:
+      type: string
+      description: The fully qualified type of the resource
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - sku
+    - type

@@ -1,0 +1,77 @@
+$token: azure-native:aadiam/v20200301preview:privateLinkForAzureAd
+description: PrivateLink Policy configuration object.
+properties:
+  allTenants:
+    type: boolean
+    description: Flag indicating whether all tenants are allowed
+  name:
+    type: string
+    description: Name of this resource.
+  ownerTenantId:
+    type: string
+    description: Guid of the owner tenant
+  resourceGroup:
+    type: string
+    description: Name of the resource group
+  resourceName:
+    type: string
+    description: Name of the private link policy resource
+  subscriptionId:
+    type: string
+    description: Subscription Identifier
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  tenants:
+    type: array
+    items:
+      type: string
+    description: The list of tenantIds.
+  type:
+    type: string
+    description: Type of this resource.
+type: object
+required:
+  - type
+inputProperties:
+  allTenants:
+    type: boolean
+    description: Flag indicating whether all tenants are allowed
+  name:
+    type: string
+    description: Name of this resource.
+  ownerTenantId:
+    type: string
+    description: Guid of the owner tenant
+  policyName:
+    type: string
+    description: The name of the private link policy in Azure AD.
+  resourceGroup:
+    type: string
+    description: Name of the resource group
+  resourceGroupName:
+    type: string
+    description: Name of an Azure resource group.
+  resourceName:
+    type: string
+    description: Name of the private link policy resource
+  subscriptionId:
+    type: string
+    description: Subscription Identifier
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  tenants:
+    type: array
+    items:
+      type: string
+    description: The list of tenantIds.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:aadiam:privateLinkForAzureAd
+  - type: azure-native:aadiam/v20200301:privateLinkForAzureAd

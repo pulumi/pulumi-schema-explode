@@ -1,0 +1,25 @@
+$token: azure-native:eventgrid/v20211015preview:getPartnerTopicEventSubscriptionFullUrl
+description: Full endpoint url of an event subscription
+inputs:
+  properties:
+    eventSubscriptionName:
+      type: string
+      description: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+    partnerTopicName:
+      type: string
+      description: Name of the partner topic.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group within the user's subscription.
+  type: object
+  required:
+    - eventSubscriptionName
+    - partnerTopicName
+    - resourceGroupName
+outputs:
+  description: Full endpoint url of an event subscription
+  properties:
+    endpointUrl:
+      type: string
+      description: The URL that represents the endpoint of the destination of an event subscription.
+  type: object

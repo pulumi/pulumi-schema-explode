@@ -1,0 +1,23 @@
+$token: azure-native:iotcentral/v20211101preview:NetworkRuleSets
+description: Network Rule Set Properties of this IoT Central application.
+properties:
+  applyToDevices:
+    type: boolean
+    description: Whether these rules apply for device connectivity to IoT Hub and Device Provisioning service associated with this application.
+    default: false
+  applyToIoTCentral:
+    type: boolean
+    description: Whether these rules apply for connectivity via IoT Central web portal and APIs.
+    default: false
+  defaultAction:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:iotcentral/v20211101preview:NetworkAction"
+    description: The default network action to apply.
+  ipRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:iotcentral/v20211101preview:NetworkRuleSetIpRule"
+    description: List of IP rules.
+type: object

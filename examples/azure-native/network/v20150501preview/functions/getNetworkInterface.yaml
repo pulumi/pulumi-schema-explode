@@ -1,0 +1,77 @@
+$token: azure-native:network/v20150501preview:getNetworkInterface
+description: A NetworkInterface in a resource group
+inputs:
+  properties:
+    networkInterfaceName:
+      type: string
+      description: The name of the network interface.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - networkInterfaceName
+    - resourceGroupName
+outputs:
+  description: A NetworkInterface in a resource group
+  properties:
+    dnsSettings:
+      type: object
+      $ref: "#/types/azure-native:network/v20150501preview:NetworkInterfaceDnsSettingsResponse"
+      description: Gets or sets DNS Settings in  NetworkInterface
+    enableIPForwarding:
+      type: boolean
+      description: Gets or sets whether IPForwarding is enabled on the NIC
+    etag:
+      type: string
+      description: Gets a unique read-only string that changes whenever the resource is updated
+    id:
+      type: string
+      description: Resource Id
+    ipConfigurations:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20150501preview:NetworkInterfaceIpConfigurationResponse"
+      description: Gets or sets list of IPConfigurations of the NetworkInterface
+    location:
+      type: string
+      description: Resource location
+    macAddress:
+      type: string
+      description: Gets the MAC Address of the network interface
+    name:
+      type: string
+      description: Resource name
+    networkSecurityGroup:
+      type: object
+      $ref: "#/types/azure-native:network/v20150501preview:SubResourceResponse"
+      description: Gets or sets the reference of the NetworkSecurityGroup resource
+    primary:
+      type: boolean
+      description: Gets whether this is a primary NIC on a virtual machine
+    provisioningState:
+      type: string
+      description: Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+    resourceGuid:
+      type: string
+      description: Gets or sets resource guid property of the network interface resource
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    type:
+      type: string
+      description: Resource type
+    virtualMachine:
+      type: object
+      $ref: "#/types/azure-native:network/v20150501preview:SubResourceResponse"
+      description: Gets or sets the reference of a VirtualMachine
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - type
+deprecationMessage: Version 2015-05-01-preview will be removed in v2 of the provider.

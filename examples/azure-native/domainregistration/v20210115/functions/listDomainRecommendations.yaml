@@ -1,0 +1,27 @@
+$token: azure-native:domainregistration/v20210115:listDomainRecommendations
+description: Collection of domain name identifiers.
+inputs:
+  properties:
+    keywords:
+      type: string
+      description: Keywords to be used for generating domain recommendations.
+    maxDomainRecommendations:
+      type: integer
+      description: Maximum number of recommendations.
+  type: object
+outputs:
+  description: Collection of domain name identifiers.
+  properties:
+    nextLink:
+      type: string
+      description: Link to next page of resources.
+    value:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:domainregistration/v20210115:NameIdentifierResponse"
+      description: Collection of resources.
+  type: object
+  required:
+    - nextLink
+    - value

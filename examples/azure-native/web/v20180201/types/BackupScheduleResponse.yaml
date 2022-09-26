@@ -1,0 +1,32 @@
+$token: azure-native:web/v20180201:BackupScheduleResponse
+description: Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
+properties:
+  frequencyInterval:
+    type: integer
+    description: How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
+    default: 7
+  frequencyUnit:
+    type: string
+    description: The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
+    default: Day
+  keepAtLeastOneBackup:
+    type: boolean
+    description: True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
+    default: true
+  lastExecutionTime:
+    type: string
+    description: Last time when this schedule was triggered.
+  retentionPeriodInDays:
+    type: integer
+    description: After how many days backups should be deleted.
+    default: 30
+  startTime:
+    type: string
+    description: When the schedule should start working.
+type: object
+required:
+  - frequencyInterval
+  - frequencyUnit
+  - keepAtLeastOneBackup
+  - lastExecutionTime
+  - retentionPeriodInDays

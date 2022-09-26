@@ -1,0 +1,85 @@
+$token: azure-native:devtestlab:getVirtualNetwork
+description: |-
+  A virtual network.
+  API Version: 2018-09-15.
+inputs:
+  properties:
+    expand:
+      type: string
+      description: "Specify the $expand query. Example: 'properties($expand=externalSubnets)'"
+    labName:
+      type: string
+      description: The name of the lab.
+    name:
+      type: string
+      description: The name of the virtual network.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - labName
+    - name
+    - resourceGroupName
+outputs:
+  description: A virtual network.
+  properties:
+    allowedSubnets:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:devtestlab:SubnetResponse"
+      description: The allowed subnets of the virtual network.
+    createdDate:
+      type: string
+      description: The creation date of the virtual network.
+    description:
+      type: string
+      description: The description of the virtual network.
+    externalProviderResourceId:
+      type: string
+      description: The Microsoft.Network resource identifier of the virtual network.
+    externalSubnets:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:devtestlab:ExternalSubnetResponse"
+      description: The external subnet properties.
+    id:
+      type: string
+      description: The identifier of the resource.
+    location:
+      type: string
+      description: The location of the resource.
+    name:
+      type: string
+      description: The name of the resource.
+    provisioningState:
+      type: string
+      description: The provisioning status of the resource.
+    subnetOverrides:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:devtestlab:SubnetOverrideResponse"
+      description: The subnet overrides of the virtual network.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: The tags of the resource.
+    type:
+      type: string
+      description: The type of the resource.
+    uniqueIdentifier:
+      type: string
+      description: The unique immutable identifier of a resource (Guid).
+  type: object
+  required:
+    - createdDate
+    - externalSubnets
+    - id
+    - name
+    - provisioningState
+    - type
+    - uniqueIdentifier

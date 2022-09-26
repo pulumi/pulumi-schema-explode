@@ -1,0 +1,73 @@
+$token: azure-native:databoxedge/v20210601:getKubernetesRole
+description: Kubernetes role.
+inputs:
+  properties:
+    deviceName:
+      type: string
+      description: The device name.
+    name:
+      type: string
+      description: The role name.
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+  type: object
+  required:
+    - deviceName
+    - name
+    - resourceGroupName
+outputs:
+  description: Kubernetes role.
+  properties:
+    hostPlatform:
+      type: string
+      description: Host OS supported by the Kubernetes role.
+    hostPlatformType:
+      type: string
+      description: Platform where the runtime is hosted.
+    id:
+      type: string
+      description: The path ID that uniquely identifies the object.
+    kind:
+      type: string
+      description: |-
+        Role type.
+        Expected value is 'Kubernetes'.
+      const: Kubernetes
+    kubernetesClusterInfo:
+      type: object
+      $ref: "#/types/azure-native:databoxedge/v20210601:KubernetesClusterInfoResponse"
+      description: Kubernetes cluster configuration
+    kubernetesRoleResources:
+      type: object
+      $ref: "#/types/azure-native:databoxedge/v20210601:KubernetesRoleResourcesResponse"
+      description: Kubernetes role resources
+    name:
+      type: string
+      description: The object name.
+    provisioningState:
+      type: string
+      description: State of Kubernetes deployment
+    roleStatus:
+      type: string
+      description: Role status.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:databoxedge/v20210601:SystemDataResponse"
+      description: Role configured on ASE resource
+    type:
+      type: string
+      description: The hierarchical type of the object.
+  type: object
+  required:
+    - hostPlatform
+    - hostPlatformType
+    - id
+    - kind
+    - kubernetesClusterInfo
+    - kubernetesRoleResources
+    - name
+    - provisioningState
+    - roleStatus
+    - systemData
+    - type

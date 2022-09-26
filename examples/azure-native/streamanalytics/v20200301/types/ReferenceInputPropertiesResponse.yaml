@@ -1,0 +1,61 @@
+$token: azure-native:streamanalytics/v20200301:ReferenceInputPropertiesResponse
+description: The properties that are associated with an input containing reference data.
+properties:
+  compression:
+    type: object
+    $ref: "#/types/azure-native:streamanalytics/v20200301:CompressionResponse"
+    description: Describes how input data is compressed
+  datasource:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20200301:AzureSqlReferenceInputDataSourceResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20200301:BlobReferenceInputDataSourceResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20200301:FileReferenceInputDataSourceResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        File: "#/types/azure-native:streamanalytics/v20200301:FileReferenceInputDataSourceResponse"
+        Microsoft.Sql/Server/Database: "#/types/azure-native:streamanalytics/v20200301:AzureSqlReferenceInputDataSourceResponse"
+        Microsoft.Storage/Blob: "#/types/azure-native:streamanalytics/v20200301:BlobReferenceInputDataSourceResponse"
+    description: Describes an input data source that contains reference data. Required on PUT (CreateOrReplace) requests.
+  diagnostics:
+    type: object
+    $ref: "#/types/azure-native:streamanalytics/v20200301:DiagnosticsResponse"
+    description: Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+  etag:
+    type: string
+    description: The current entity tag for the input. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+  partitionKey:
+    type: string
+    description: partitionKey Describes a key in the input data which is used for partitioning the input data
+  serialization:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20200301:AvroSerializationResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20200301:CsvSerializationResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20200301:JsonSerializationResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20200301:ParquetSerializationResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        Avro: "#/types/azure-native:streamanalytics/v20200301:AvroSerializationResponse"
+        Csv: "#/types/azure-native:streamanalytics/v20200301:CsvSerializationResponse"
+        Json: "#/types/azure-native:streamanalytics/v20200301:JsonSerializationResponse"
+        Parquet: "#/types/azure-native:streamanalytics/v20200301:ParquetSerializationResponse"
+    description: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+  type:
+    type: string
+    description: |-
+      Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
+      Expected value is 'Reference'.
+    const: Reference
+type: object
+required:
+  - diagnostics
+  - etag
+  - type

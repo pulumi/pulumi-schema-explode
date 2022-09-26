@@ -1,0 +1,44 @@
+$token: azure-native:machinelearningservices/v20220601preview:TextNer
+description: "Text-NER task in AutoML NLP vertical.\r
+
+  NER - Named Entity Recognition.\r
+
+  NLP - Natural Language Processing."
+properties:
+  featurizationSettings:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:NlpVerticalFeaturizationSettings"
+    description: Featurization inputs needed for AutoML job.
+  limitSettings:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:NlpVerticalLimitSettings"
+    description: Execution constraints for AutoMLJob.
+  logVerbosity:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearningservices/v20220601preview:LogVerbosity"
+    description: Log verbosity for the job.
+    default: Info
+  targetColumnName:
+    type: string
+    description: "Target column name: This is prediction values column.\r
+
+      Also known as label column name in context of classification tasks."
+  taskType:
+    type: string
+    description: |-
+      AutoMLJob Task type.
+      Expected value is 'TextNER'.
+    const: TextNER
+  trainingData:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:MLTableJobInput"
+    description: "[Required] Training data input."
+  validationData:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:MLTableJobInput"
+    description: Validation data inputs.
+type: object
+required:
+  - taskType
+  - trainingData

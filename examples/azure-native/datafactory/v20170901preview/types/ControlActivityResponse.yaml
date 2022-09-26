@@ -1,0 +1,25 @@
+$token: azure-native:datafactory/v20170901preview:ControlActivityResponse
+description: Base class for all control activities like IfCondition, ForEach , Until.
+properties:
+  dependsOn:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20170901preview:ActivityDependencyResponse"
+    description: Activity depends on condition.
+  description:
+    type: string
+    description: Activity description.
+  name:
+    type: string
+    description: Activity name.
+  type:
+    type: string
+    description: |-
+      Type of activity.
+      Expected value is 'Container'.
+    const: Container
+type: object
+required:
+  - name
+  - type

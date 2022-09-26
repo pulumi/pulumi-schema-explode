@@ -1,0 +1,29 @@
+$token: azure-native:network/v20190801:getP2sVpnGatewayP2sVpnConnectionHealthDetailed
+description: P2S Vpn connection detailed health written to sas url.
+inputs:
+  properties:
+    gatewayName:
+      type: string
+      description: The name of the P2SVpnGateway.
+    outputBlobSasUrl:
+      type: string
+      description: The sas-url to download the P2S Vpn connection health detail.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    vpnUserNamesFilter:
+      type: array
+      items:
+        type: string
+      description: The list of p2s vpn user names whose p2s vpn connection detailed health to retrieve for.
+  type: object
+  required:
+    - gatewayName
+    - resourceGroupName
+outputs:
+  description: P2S Vpn connection detailed health written to sas url.
+  properties:
+    sasUrl:
+      type: string
+      description: "Returned sas url of the blob to which the p2s vpn connection detailed health will be written. "
+  type: object

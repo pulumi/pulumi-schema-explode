@@ -1,0 +1,52 @@
+$token: azure-native:cdn:SecurityPolicy
+description: |-
+  SecurityPolicy association for AzureFrontDoor profile
+  API Version: 2020-09-01.
+properties:
+  deploymentStatus:
+    type: string
+  name:
+    type: string
+    description: Resource name.
+  parameters:
+    type: object
+    $ref: "#/types/azure-native:cdn:SecurityPolicyWebApplicationFirewallParametersResponse"
+    description: object which contains security policy parameters
+  provisioningState:
+    type: string
+    description: Provisioning status
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:cdn:SystemDataResponse"
+    description: Read only system data
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - deploymentStatus
+  - name
+  - provisioningState
+  - systemData
+  - type
+inputProperties:
+  parameters:
+    type: object
+    $ref: "#/types/azure-native:cdn:SecurityPolicyWebApplicationFirewallParameters"
+    description: object which contains security policy parameters
+  profileName:
+    type: string
+    description: Name of the CDN profile which is unique within the resource group.
+  resourceGroupName:
+    type: string
+    description: Name of the Resource group within the Azure subscription.
+  securityPolicyName:
+    type: string
+    description: Name of the security policy under the profile.
+requiredInputs:
+  - profileName
+  - resourceGroupName
+aliases:
+  - type: azure-native:cdn/v20200901:SecurityPolicy
+  - type: azure-native:cdn/v20210601:SecurityPolicy
+  - type: azure-native:cdn/v20220501preview:SecurityPolicy

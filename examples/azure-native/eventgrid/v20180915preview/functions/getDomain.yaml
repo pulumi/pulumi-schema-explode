@@ -1,0 +1,56 @@
+$token: azure-native:eventgrid/v20180915preview:getDomain
+description: EventGrid Domain
+inputs:
+  properties:
+    domainName:
+      type: string
+      description: Name of the domain
+    resourceGroupName:
+      type: string
+      description: The name of the resource group within the user's subscription.
+  type: object
+  required:
+    - domainName
+    - resourceGroupName
+outputs:
+  description: EventGrid Domain
+  properties:
+    endpoint:
+      type: string
+      description: Endpoint for the domain.
+    id:
+      type: string
+      description: Fully qualified identifier of the resource
+    inputSchema:
+      type: string
+      description: This determines the format that Event Grid should expect for incoming events published to the domain.
+    inputSchemaMapping:
+      type: object
+      $ref: "#/types/azure-native:eventgrid/v20180915preview:JsonInputSchemaMappingResponse"
+      description: Information about the InputSchemaMapping which specified the info about mapping event payload.
+    location:
+      type: string
+      description: Location of the resource
+    name:
+      type: string
+      description: Name of the resource
+    provisioningState:
+      type: string
+      description: Provisioning state of the domain.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Tags of the resource
+    type:
+      type: string
+      description: Type of the resource
+  type: object
+  required:
+    - endpoint
+    - id
+    - location
+    - name
+    - provisioningState
+    - type
+deprecationMessage: Version 2018-09-15-preview will be removed in v2 of the provider.

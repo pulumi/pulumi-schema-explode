@@ -1,0 +1,63 @@
+$token: azure-native:datamigration/v20180419:ConnectToSourceSqlServerSyncTaskPropertiesResponse
+description: Properties for the task that validates connection to SQL Server and source server requirements for online migration
+properties:
+  commands:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:datamigration/v20180419:MigrateMISyncCompleteCommandPropertiesResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration/v20180419:MigrateSyncCompleteCommandPropertiesResponse"
+      discriminator:
+        propertyName: commandType
+        mapping:
+          Migrate.SqlServer.AzureDbSqlMi.Complete: "#/types/azure-native:datamigration/v20180419:MigrateMISyncCompleteCommandPropertiesResponse"
+          Migrate.Sync.Complete.Database: "#/types/azure-native:datamigration/v20180419:MigrateSyncCompleteCommandPropertiesResponse"
+    description: Array of command properties.
+  errors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration/v20180419:ODataErrorResponse"
+    description: Array of errors. This is ignored if submitted.
+  input:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20180419:ConnectToSourceSqlServerTaskInputResponse"
+    description: Task input
+  output:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:datamigration/v20180419:ConnectToSourceSqlServerTaskOutputAgentJobLevelResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration/v20180419:ConnectToSourceSqlServerTaskOutputDatabaseLevelResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration/v20180419:ConnectToSourceSqlServerTaskOutputLoginLevelResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration/v20180419:ConnectToSourceSqlServerTaskOutputTaskLevelResponse"
+      discriminator:
+        propertyName: resultType
+        mapping:
+          AgentJobLevelOutput: "#/types/azure-native:datamigration/v20180419:ConnectToSourceSqlServerTaskOutputAgentJobLevelResponse"
+          DatabaseLevelOutput: "#/types/azure-native:datamigration/v20180419:ConnectToSourceSqlServerTaskOutputDatabaseLevelResponse"
+          LoginLevelOutput: "#/types/azure-native:datamigration/v20180419:ConnectToSourceSqlServerTaskOutputLoginLevelResponse"
+          TaskLevelOutput: "#/types/azure-native:datamigration/v20180419:ConnectToSourceSqlServerTaskOutputTaskLevelResponse"
+    description: Task output. This is ignored if submitted.
+  state:
+    type: string
+    description: The state of the task. This is ignored if submitted.
+  taskType:
+    type: string
+    description: |-
+      Task type.
+      Expected value is 'ConnectToSource.SqlServer.Sync'.
+    const: ConnectToSource.SqlServer.Sync
+type: object
+required:
+  - commands
+  - errors
+  - output
+  - state
+  - taskType

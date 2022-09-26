@@ -1,0 +1,55 @@
+$token: azure-native:notificationhubs/v20140901:NotificationHub
+description: Description of a NotificationHub Resource.
+properties:
+  location:
+    type: string
+    description: Gets or sets datacenter location of the NotificationHub.
+  name:
+    type: string
+    description: Gets or sets name of the NotificationHub.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:notificationhubs/v20140901:NotificationHubPropertiesResponse"
+    description: Gets or sets properties of the NotificationHub.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Gets or sets tags of the NotificationHub.
+  type:
+    type: string
+    description: Gets or sets resource type of the NotificationHub.
+type: object
+required:
+  - properties
+inputProperties:
+  location:
+    type: string
+    description: Gets or sets NotificationHub data center location.
+  namespaceName:
+    type: string
+    description: The namespace name.
+  notificationHubName:
+    type: string
+    description: The notification hub name.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:notificationhubs/v20140901:NotificationHubProperties"
+    description: Gets or sets properties of the NotificationHub.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Gets or sets NotificationHub tags.
+requiredInputs:
+  - namespaceName
+  - properties
+  - resourceGroupName
+aliases:
+  - type: azure-native:notificationhubs:NotificationHub
+  - type: azure-native:notificationhubs/v20160301:NotificationHub
+  - type: azure-native:notificationhubs/v20170401:NotificationHub
+deprecationMessage: Version 2014-09-01 will be removed in v2 of the provider.

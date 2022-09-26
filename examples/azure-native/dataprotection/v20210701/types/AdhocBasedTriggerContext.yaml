@@ -1,0 +1,17 @@
+$token: azure-native:dataprotection/v20210701:AdhocBasedTriggerContext
+description: Adhoc trigger context
+properties:
+  objectType:
+    type: string
+    description: |-
+      Type of the specific object - used for deserializing
+      Expected value is 'AdhocBasedTriggerContext'.
+    const: AdhocBasedTriggerContext
+  taggingCriteria:
+    type: object
+    $ref: "#/types/azure-native:dataprotection/v20210701:AdhocBasedTaggingCriteria"
+    description: Tagging Criteria containing retention tag for adhoc backup.
+type: object
+required:
+  - objectType
+  - taggingCriteria

@@ -1,0 +1,20 @@
+$token: azure-native:storagesync/v20191001:ServerEndpointRecallStatusResponse
+description: Server endpoint recall status object.
+properties:
+  lastUpdatedTimestamp:
+    type: string
+    description: Last updated timestamp
+  recallErrors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:storagesync/v20191001:ServerEndpointRecallErrorResponse"
+    description: Array of recall errors
+  totalRecallErrorsCount:
+    type: number
+    description: Total count of recall errors.
+type: object
+required:
+  - lastUpdatedTimestamp
+  - recallErrors
+  - totalRecallErrorsCount

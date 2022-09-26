@@ -1,0 +1,48 @@
+$token: azure-native:migrate:getMigrateProject
+description: |-
+  Migrate Project REST Resource.
+  API Version: 2018-09-01-preview.
+inputs:
+  properties:
+    migrateProjectName:
+      type: string
+      description: Name of the Azure Migrate project.
+    resourceGroupName:
+      type: string
+      description: Name of the Azure Resource Group that migrate project is part of.
+  type: object
+  required:
+    - migrateProjectName
+    - resourceGroupName
+outputs:
+  description: Migrate Project REST Resource.
+  properties:
+    eTag:
+      type: string
+      description: Gets or sets the eTag for concurrency control.
+    id:
+      type: string
+      description: Gets the relative URL to get this migrate project.
+    location:
+      type: string
+      description: Gets or sets the Azure location in which migrate project is created.
+    name:
+      type: string
+      description: Gets the name of the migrate project.
+    properties:
+      type: object
+      $ref: "#/types/azure-native:migrate:MigrateProjectPropertiesResponse"
+      description: Gets or sets the nested properties.
+    tags:
+      type: object
+      $ref: "#/types/azure-native:migrate:MigrateProjectResponseTags"
+      description: Gets or sets the tags.
+    type:
+      type: string
+      description: Handled by resource provider. Type = Microsoft.Migrate/MigrateProject.
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - type

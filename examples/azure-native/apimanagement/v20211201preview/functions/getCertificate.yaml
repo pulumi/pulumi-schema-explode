@@ -1,0 +1,52 @@
+$token: azure-native:apimanagement/v20211201preview:getCertificate
+description: Certificate details.
+inputs:
+  properties:
+    certificateId:
+      type: string
+      description: Identifier of the certificate entity. Must be unique in the current API Management service instance.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    serviceName:
+      type: string
+      description: The name of the API Management service.
+  type: object
+  required:
+    - certificateId
+    - resourceGroupName
+    - serviceName
+outputs:
+  description: Certificate details.
+  properties:
+    expirationDate:
+      type: string
+      description: |
+        Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    keyVault:
+      type: object
+      $ref: "#/types/azure-native:apimanagement/v20211201preview:KeyVaultContractPropertiesResponse"
+      description: KeyVault location details of the certificate.
+    name:
+      type: string
+      description: The name of the resource
+    subject:
+      type: string
+      description: Subject attribute of the certificate.
+    thumbprint:
+      type: string
+      description: Thumbprint of the certificate.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - expirationDate
+    - id
+    - name
+    - subject
+    - thumbprint
+    - type

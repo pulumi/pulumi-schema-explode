@@ -1,0 +1,58 @@
+$token: azure-native:datafactory:CassandraLinkedService
+description: Linked service for Cassandra data source.
+properties:
+  annotations:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: List of tags that can be used for describing the linked service.
+  authenticationType:
+    $ref: pulumi.json#/Any
+    description: "AuthenticationType to be used for connection. Type: string (or Expression with resultType string)."
+  connectVia:
+    type: object
+    $ref: "#/types/azure-native:datafactory:IntegrationRuntimeReference"
+    description: The integration runtime reference.
+  description:
+    type: string
+    description: Linked service description.
+  encryptedCredential:
+    $ref: pulumi.json#/Any
+    description: "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string)."
+  host:
+    $ref: pulumi.json#/Any
+    description: "Host name for connection. Type: string (or Expression with resultType string)."
+  parameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:datafactory:ParameterSpecification"
+    description: Parameters for linked service.
+  password:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureKeyVaultSecretReference"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SecureString"
+    discriminator:
+      propertyName: type
+      mapping:
+        AzureKeyVaultSecret: "#/types/azure-native:datafactory:AzureKeyVaultSecretReference"
+        SecureString: "#/types/azure-native:datafactory:SecureString"
+    description: Password for authentication.
+  port:
+    $ref: pulumi.json#/Any
+    description: "The port for the connection. Type: integer (or Expression with resultType integer)."
+  type:
+    type: string
+    description: |-
+      Type of linked service.
+      Expected value is 'Cassandra'.
+    const: Cassandra
+  username:
+    $ref: pulumi.json#/Any
+    description: "Username for authentication. Type: string (or Expression with resultType string)."
+type: object
+required:
+  - host
+  - type

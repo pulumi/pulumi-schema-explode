@@ -1,0 +1,74 @@
+$token: azure-native:resources/v20160201:getResource
+description: Resource information.
+inputs:
+  properties:
+    parentResourcePath:
+      type: string
+      description: Resource identity.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    resourceName:
+      type: string
+      description: Resource identity.
+    resourceProviderNamespace:
+      type: string
+      description: Resource identity.
+    resourceType:
+      type: string
+      description: Resource identity.
+  type: object
+  required:
+    - parentResourcePath
+    - resourceGroupName
+    - resourceName
+    - resourceProviderNamespace
+    - resourceType
+outputs:
+  description: Resource information.
+  properties:
+    id:
+      type: string
+      description: Resource Id
+    identity:
+      type: object
+      $ref: "#/types/azure-native:resources/v20160201:IdentityResponse"
+      description: The identity of the resource.
+    kind:
+      type: string
+      description: The kind of the resource.
+    location:
+      type: string
+      description: Resource location
+    managedBy:
+      type: string
+      description: Id of the resource that manages this resource.
+    name:
+      type: string
+      description: Resource name
+    plan:
+      type: object
+      $ref: "#/types/azure-native:resources/v20160201:PlanResponse"
+      description: The plan of the resource.
+    properties:
+      $ref: pulumi.json#/Any
+      description: The resource properties.
+    sku:
+      type: object
+      $ref: "#/types/azure-native:resources/v20160201:SkuResponse"
+      description: The sku of the resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    type:
+      type: string
+      description: Resource type
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - type
+deprecationMessage: Version 2016-02-01 will be removed in v2 of the provider.

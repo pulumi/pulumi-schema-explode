@@ -1,0 +1,23 @@
+$token: azure-native:logz/v20220101preview:MonitorProperties
+description: Properties specific to the monitor resource.
+properties:
+  logzOrganizationProperties:
+    type: object
+    $ref: "#/types/azure-native:logz/v20220101preview:LogzOrganizationProperties"
+  marketplaceSubscriptionStatus:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:logz/v20220101preview:MarketplaceSubscriptionStatus"
+    description: Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
+  monitoringStatus:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:logz/v20220101preview:MonitoringStatus"
+    description: Flag specifying if the resource monitoring is enabled or disabled.
+  planData:
+    type: object
+    $ref: "#/types/azure-native:logz/v20220101preview:PlanData"
+  userInfo:
+    type: object
+    $ref: "#/types/azure-native:logz/v20220101preview:UserInfo"
+type: object

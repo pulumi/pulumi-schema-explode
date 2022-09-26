@@ -1,0 +1,32 @@
+$token: azure-native:resources/v20200601:getTagAtScope
+description: Wrapper resource for tags API requests and responses.
+inputs:
+  properties:
+    scope:
+      type: string
+      description: The resource scope.
+  type: object
+  required:
+    - scope
+outputs:
+  description: Wrapper resource for tags API requests and responses.
+  properties:
+    id:
+      type: string
+      description: The ID of the tags wrapper resource.
+    name:
+      type: string
+      description: The name of the tags wrapper resource.
+    properties:
+      type: object
+      $ref: "#/types/azure-native:resources/v20200601:TagsResponse"
+      description: The set of tags.
+    type:
+      type: string
+      description: The type of the tags wrapper resource.
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - type

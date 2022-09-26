@@ -1,0 +1,13 @@
+$token: azure-native:cognitiveservices:Identity
+description: Managed service identity.
+properties:
+  type:
+    $ref: "#/types/azure-native:cognitiveservices:IdentityType"
+    description: Type of managed service identity.
+  userAssignedIdentities:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:cognitiveservices:UserAssignedIdentity"
+    description: "The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}"
+type: object

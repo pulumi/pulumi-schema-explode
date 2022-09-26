@@ -1,0 +1,29 @@
+$token: azure-native:network/v20170601:RouteFilter
+description: Route Filter Resource.
+properties:
+  id:
+    type: string
+    description: Resource ID.
+  location:
+    type: string
+    description: Resource location.
+  peerings:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20170601:ExpressRouteCircuitPeering"
+    description: A collection of references to express route circuit peerings.
+  rules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20170601:RouteFilterRule"
+    description: Collection of RouteFilterRules contained within a route filter.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+type: object
+required:
+  - location

@@ -1,0 +1,105 @@
+$token: azure-native:securityinsights/v20200101:getIncident
+description: Represents an incident in Azure Security Insights.
+inputs:
+  properties:
+    incidentId:
+      type: string
+      description: Incident ID
+    resourceGroupName:
+      type: string
+      description: The name of the resource group within the user's subscription. The name is case insensitive.
+    workspaceName:
+      type: string
+      description: The name of the workspace.
+  type: object
+  required:
+    - incidentId
+    - resourceGroupName
+    - workspaceName
+outputs:
+  description: Represents an incident in Azure Security Insights.
+  properties:
+    additionalData:
+      type: object
+      $ref: "#/types/azure-native:securityinsights/v20200101:IncidentAdditionalDataResponse"
+      description: Additional data on the incident
+    classification:
+      type: string
+      description: The reason the incident was closed
+    classificationComment:
+      type: string
+      description: Describes the reason the incident was closed
+    classificationReason:
+      type: string
+      description: The classification reason the incident was closed with
+    createdTimeUtc:
+      type: string
+      description: The time the incident was created
+    description:
+      type: string
+      description: The description of the incident
+    etag:
+      type: string
+      description: Etag of the azure resource
+    firstActivityTimeUtc:
+      type: string
+      description: The time of the first activity in the incident
+    id:
+      type: string
+      description: Azure resource Id
+    incidentNumber:
+      type: integer
+      description: A sequential number
+    incidentUrl:
+      type: string
+      description: The deep-link url to the incident in Azure portal
+    labels:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:securityinsights/v20200101:IncidentLabelResponse"
+      description: List of labels relevant to this incident
+    lastActivityTimeUtc:
+      type: string
+      description: The time of the last activity in the incident
+    lastModifiedTimeUtc:
+      type: string
+      description: The last time the incident was updated
+    name:
+      type: string
+      description: Azure resource name
+    owner:
+      type: object
+      $ref: "#/types/azure-native:securityinsights/v20200101:IncidentOwnerInfoResponse"
+      description: Describes a user that the incident is assigned to
+    relatedAnalyticRuleIds:
+      type: array
+      items:
+        type: string
+      description: List of resource ids of Analytic rules related to the incident
+    severity:
+      type: string
+      description: The severity of the incident
+    status:
+      type: string
+      description: The status of the incident
+    title:
+      type: string
+      description: The title of the incident
+    type:
+      type: string
+      description: Azure resource type
+  type: object
+  required:
+    - additionalData
+    - createdTimeUtc
+    - id
+    - incidentNumber
+    - incidentUrl
+    - lastModifiedTimeUtc
+    - name
+    - relatedAnalyticRuleIds
+    - severity
+    - status
+    - title
+    - type

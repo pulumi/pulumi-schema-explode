@@ -1,0 +1,27 @@
+$token: azure-native:portal:UserPropertiesResponse
+description: The cloud shell user settings properties.
+properties:
+  preferredLocation:
+    type: string
+    description: The preferred location of the cloud shell.
+  preferredOsType:
+    type: string
+    description: The operating system type of the cloud shell. Deprecated, use preferredShellType.
+  preferredShellType:
+    type: string
+    description: The shell type of the cloud shell.
+  storageProfile:
+    type: object
+    $ref: "#/types/azure-native:portal:StorageProfileResponse"
+    description: The storage profile of the user settings.
+  terminalSettings:
+    type: object
+    $ref: "#/types/azure-native:portal:TerminalSettingsResponse"
+    description: Settings for terminal appearance.
+type: object
+required:
+  - preferredLocation
+  - preferredOsType
+  - preferredShellType
+  - storageProfile
+  - terminalSettings

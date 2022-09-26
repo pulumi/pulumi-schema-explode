@@ -1,0 +1,68 @@
+$token: azure-native:containerregistry/v20201101preview:Token
+description: An object that represents a token for a container registry.
+properties:
+  creationDate:
+    type: string
+    description: The creation date of scope map.
+  credentials:
+    type: object
+    $ref: "#/types/azure-native:containerregistry/v20201101preview:TokenCredentialsPropertiesResponse"
+    description: The credentials that can be used for authenticating the token.
+  name:
+    type: string
+    description: The name of the resource.
+  provisioningState:
+    type: string
+    description: Provisioning state of the resource.
+  scopeMapId:
+    type: string
+    description: The resource ID of the scope map to which the token will be associated with.
+  status:
+    type: string
+    description: The status of the token example enabled or disabled.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:containerregistry/v20201101preview:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - creationDate
+  - name
+  - provisioningState
+  - systemData
+  - type
+inputProperties:
+  credentials:
+    type: object
+    $ref: "#/types/azure-native:containerregistry/v20201101preview:TokenCredentialsProperties"
+    description: The credentials that can be used for authenticating the token.
+  registryName:
+    type: string
+    description: The name of the container registry.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group to which the container registry belongs.
+  scopeMapId:
+    type: string
+    description: The resource ID of the scope map to which the token will be associated with.
+  status:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:containerregistry/v20201101preview:TokenStatus"
+    description: The status of the token example enabled or disabled.
+  tokenName:
+    type: string
+    description: The name of the token.
+requiredInputs:
+  - registryName
+  - resourceGroupName
+aliases:
+  - type: azure-native:containerregistry:Token
+  - type: azure-native:containerregistry/v20190501preview:Token
+  - type: azure-native:containerregistry/v20210601preview:Token
+  - type: azure-native:containerregistry/v20210801preview:Token
+  - type: azure-native:containerregistry/v20211201preview:Token
+  - type: azure-native:containerregistry/v20220201preview:Token

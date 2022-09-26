@@ -1,0 +1,45 @@
+$token: azure-native:relay/v20170401:getHybridConnectionAuthorizationRule
+description: Description of a namespace authorization rule.
+inputs:
+  properties:
+    authorizationRuleName:
+      type: string
+      description: The authorization rule name.
+    hybridConnectionName:
+      type: string
+      description: The hybrid connection name.
+    namespaceName:
+      type: string
+      description: The namespace name
+    resourceGroupName:
+      type: string
+      description: Name of the Resource group within the Azure subscription.
+  type: object
+  required:
+    - authorizationRuleName
+    - hybridConnectionName
+    - namespaceName
+    - resourceGroupName
+outputs:
+  description: Description of a namespace authorization rule.
+  properties:
+    id:
+      type: string
+      description: Resource ID.
+    name:
+      type: string
+      description: Resource name.
+    rights:
+      type: array
+      items:
+        type: string
+      description: The rights associated with the rule.
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - id
+    - name
+    - rights
+    - type

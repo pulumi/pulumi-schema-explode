@@ -1,0 +1,36 @@
+$token: azure-native:streamanalytics/v20160301:AzureDataLakeStoreOutputDataSource
+description: Describes an Azure Data Lake Store output data source.
+properties:
+  accountName:
+    type: string
+    description: The name of the Azure Data Lake Store account. Required on PUT (CreateOrReplace) requests.
+  dateFormat:
+    type: string
+    description: The date format. Wherever {date} appears in filePathPrefix, the value of this property is used as the date format instead.
+  filePathPrefix:
+    type: string
+    description: The location of the file to which the output should be written to. Required on PUT (CreateOrReplace) requests.
+  refreshToken:
+    type: string
+    description: A refresh token that can be used to obtain a valid access token that can then be used to authenticate with the data source. A valid refresh token is currently only obtainable via the Azure Portal. It is recommended to put a dummy string value here when creating the data source and then going to the Azure Portal to authenticate the data source which will update this property with a valid refresh token. Required on PUT (CreateOrReplace) requests.
+  tenantId:
+    type: string
+    description: The tenant id of the user used to obtain the refresh token. Required on PUT (CreateOrReplace) requests.
+  timeFormat:
+    type: string
+    description: The time format. Wherever {time} appears in filePathPrefix, the value of this property is used as the time format instead.
+  tokenUserDisplayName:
+    type: string
+    description: The user display name of the user that was used to obtain the refresh token. Use this property to help remember which user was used to obtain the refresh token.
+  tokenUserPrincipalName:
+    type: string
+    description: The user principal name (UPN) of the user that was used to obtain the refresh token. Use this property to help remember which user was used to obtain the refresh token.
+  type:
+    type: string
+    description: |-
+      Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+      Expected value is 'Microsoft.DataLake/Accounts'.
+    const: Microsoft.DataLake/Accounts
+type: object
+required:
+  - type

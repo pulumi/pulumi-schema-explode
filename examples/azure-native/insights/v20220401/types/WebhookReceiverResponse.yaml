@@ -1,0 +1,30 @@
+$token: azure-native:insights/v20220401:WebhookReceiverResponse
+description: A webhook receiver.
+properties:
+  identifierUri:
+    type: string
+    description: Indicates the identifier uri for aad auth.
+  name:
+    type: string
+    description: The name of the webhook receiver. Names must be unique across all receivers within an action group.
+  objectId:
+    type: string
+    description: Indicates the webhook app object Id for aad auth.
+  serviceUri:
+    type: string
+    description: The URI where webhooks should be sent.
+  tenantId:
+    type: string
+    description: Indicates the tenant id for aad auth.
+  useAadAuth:
+    type: boolean
+    description: Indicates whether or not use AAD authentication.
+    default: false
+  useCommonAlertSchema:
+    type: boolean
+    description: Indicates whether to use common alert schema.
+    default: false
+type: object
+required:
+  - name
+  - serviceUri

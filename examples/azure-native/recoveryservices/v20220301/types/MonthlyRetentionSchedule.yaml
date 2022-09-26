@@ -1,0 +1,26 @@
+$token: azure-native:recoveryservices/v20220301:MonthlyRetentionSchedule
+description: Monthly retention schedule.
+properties:
+  retentionDuration:
+    type: object
+    $ref: "#/types/azure-native:recoveryservices/v20220301:RetentionDuration"
+    description: Retention duration of retention Policy.
+  retentionScheduleDaily:
+    type: object
+    $ref: "#/types/azure-native:recoveryservices/v20220301:DailyRetentionFormat"
+    description: Daily retention format for monthly retention policy.
+  retentionScheduleFormatType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:recoveryservices/v20220301:RetentionScheduleFormat"
+    description: Retention schedule format type for monthly retention policy.
+  retentionScheduleWeekly:
+    type: object
+    $ref: "#/types/azure-native:recoveryservices/v20220301:WeeklyRetentionFormat"
+    description: Weekly retention format for monthly retention policy.
+  retentionTimes:
+    type: array
+    items:
+      type: string
+    description: Retention times of retention policy.
+type: object

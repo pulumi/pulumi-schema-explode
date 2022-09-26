@@ -1,0 +1,28 @@
+$token: azure-native:synapse/v20210601preview:listIntegrationRuntimeAuthKey
+description: The integration runtime authentication keys.
+inputs:
+  properties:
+    integrationRuntimeName:
+      type: string
+      description: Integration runtime name
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    workspaceName:
+      type: string
+      description: The name of the workspace.
+  type: object
+  required:
+    - integrationRuntimeName
+    - resourceGroupName
+    - workspaceName
+outputs:
+  description: The integration runtime authentication keys.
+  properties:
+    authKey1:
+      type: string
+      description: The primary integration runtime authentication key.
+    authKey2:
+      type: string
+      description: The secondary integration runtime authentication key.
+  type: object

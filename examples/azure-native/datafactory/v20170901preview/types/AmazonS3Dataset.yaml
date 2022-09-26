@@ -1,0 +1,86 @@
+$token: azure-native:datafactory/v20170901preview:AmazonS3Dataset
+description: A single Amazon Simple Storage Service (S3) object or a set of S3 objects.
+properties:
+  annotations:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: List of tags that can be used for describing the Dataset.
+  bucketName:
+    $ref: pulumi.json#/Any
+    description: "The name of the Amazon S3 bucket. Type: string (or Expression with resultType string)."
+  compression:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:DatasetBZip2Compression"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:DatasetDeflateCompression"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:DatasetGZipCompression"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:DatasetZipDeflateCompression"
+    discriminator:
+      propertyName: type
+      mapping:
+        BZip2: "#/types/azure-native:datafactory/v20170901preview:DatasetBZip2Compression"
+        Deflate: "#/types/azure-native:datafactory/v20170901preview:DatasetDeflateCompression"
+        GZip: "#/types/azure-native:datafactory/v20170901preview:DatasetGZipCompression"
+        ZipDeflate: "#/types/azure-native:datafactory/v20170901preview:DatasetZipDeflateCompression"
+    description: The data compression method used for the Amazon S3 object.
+  description:
+    type: string
+    description: Dataset description.
+  format:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:AvroFormat"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:JsonFormat"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:OrcFormat"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:ParquetFormat"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:TextFormat"
+    discriminator:
+      propertyName: type
+      mapping:
+        AvroFormat: "#/types/azure-native:datafactory/v20170901preview:AvroFormat"
+        JsonFormat: "#/types/azure-native:datafactory/v20170901preview:JsonFormat"
+        OrcFormat: "#/types/azure-native:datafactory/v20170901preview:OrcFormat"
+        ParquetFormat: "#/types/azure-native:datafactory/v20170901preview:ParquetFormat"
+        TextFormat: "#/types/azure-native:datafactory/v20170901preview:TextFormat"
+    description: The format of files.
+  key:
+    $ref: pulumi.json#/Any
+    description: "The key of the Amazon S3 object. Type: string (or Expression with resultType string)."
+  linkedServiceName:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20170901preview:LinkedServiceReference"
+    description: Linked service reference.
+  parameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20170901preview:ParameterSpecification"
+    description: Parameters for dataset.
+  prefix:
+    $ref: pulumi.json#/Any
+    description: "The prefix filter for the S3 object name. Type: string (or Expression with resultType string)."
+  structure:
+    $ref: pulumi.json#/Any
+    description: "Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement."
+  type:
+    type: string
+    description: |-
+      Type of dataset.
+      Expected value is 'AmazonS3Object'.
+    const: AmazonS3Object
+  version:
+    $ref: pulumi.json#/Any
+    description: "The version for the S3 object. Type: string (or Expression with resultType string)."
+type: object
+required:
+  - bucketName
+  - linkedServiceName
+  - type

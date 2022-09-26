@@ -1,0 +1,55 @@
+$token: azure-native:authorization/v20180101preview:RoleAssignment
+description: Role Assignments
+properties:
+  canDelegate:
+    type: boolean
+    description: The Delegation flag for the role assignment
+  name:
+    type: string
+    description: The role assignment name.
+  principalId:
+    type: string
+    description: The principal ID.
+  roleDefinitionId:
+    type: string
+    description: The role definition ID.
+  scope:
+    type: string
+    description: The role assignment scope.
+  type:
+    type: string
+    description: The role assignment type.
+type: object
+required:
+  - name
+  - type
+inputProperties:
+  canDelegate:
+    type: boolean
+    description: The delegation flag used for creating a role assignment
+  principalId:
+    type: string
+    description: The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
+  roleAssignmentName:
+    type: string
+    description: A GUID for the role assignment to create. The name must be unique and different for each role assignment.
+  roleDefinitionId:
+    type: string
+    description: The role definition ID used in the role assignment.
+  scope:
+    type: string
+    description: The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
+requiredInputs:
+  - principalId
+  - roleDefinitionId
+  - scope
+aliases:
+  - type: azure-native:authorization:RoleAssignment
+  - type: azure-native:authorization/v20150701:RoleAssignment
+  - type: azure-native:authorization/v20171001preview:RoleAssignment
+  - type: azure-native:authorization/v20180901preview:RoleAssignment
+  - type: azure-native:authorization/v20200301preview:RoleAssignment
+  - type: azure-native:authorization/v20200401preview:RoleAssignment
+  - type: azure-native:authorization/v20200801preview:RoleAssignment
+  - type: azure-native:authorization/v20201001preview:RoleAssignment
+  - type: azure-native:authorization/v20220401:RoleAssignment

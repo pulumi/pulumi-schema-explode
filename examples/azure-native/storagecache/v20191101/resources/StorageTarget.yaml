@@ -1,0 +1,89 @@
+$token: azure-native:storagecache/v20191101:StorageTarget
+description: A storage system being cached by a Cache.
+properties:
+  clfs:
+    type: object
+    $ref: "#/types/azure-native:storagecache/v20191101:ClfsTargetResponse"
+    description: Properties when targetType is clfs.
+  junctions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:storagecache/v20191101:NamespaceJunctionResponse"
+    description: List of Cache namespace junctions to target for namespace associations.
+  name:
+    type: string
+    description: Name of the Storage Target.
+  nfs3:
+    type: object
+    $ref: "#/types/azure-native:storagecache/v20191101:Nfs3TargetResponse"
+    description: Properties when targetType is nfs3.
+  provisioningState:
+    type: string
+    description: ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+  targetType:
+    type: string
+    description: Type of the Storage Target.
+  type:
+    type: string
+    description: Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
+  unknown:
+    type: object
+    $ref: "#/types/azure-native:storagecache/v20191101:UnknownTargetResponse"
+    description: Properties when targetType is unknown.
+type: object
+required:
+  - name
+  - type
+inputProperties:
+  cacheName:
+    type: string
+    description: Name of Cache.
+  clfs:
+    type: object
+    $ref: "#/types/azure-native:storagecache/v20191101:ClfsTarget"
+    description: Properties when targetType is clfs.
+  junctions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:storagecache/v20191101:NamespaceJunction"
+    description: List of Cache namespace junctions to target for namespace associations.
+  nfs3:
+    type: object
+    $ref: "#/types/azure-native:storagecache/v20191101:Nfs3Target"
+    description: Properties when targetType is nfs3.
+  provisioningState:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:storagecache/v20191101:ProvisioningStateType"
+    description: ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+  resourceGroupName:
+    type: string
+    description: Target resource group.
+  storageTargetName:
+    type: string
+    description: Name of the Storage Target.
+  targetType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:storagecache/v20191101:StorageTargetType"
+    description: Type of the Storage Target.
+  unknown:
+    type: object
+    $ref: "#/types/azure-native:storagecache/v20191101:UnknownTarget"
+    description: Properties when targetType is unknown.
+requiredInputs:
+  - cacheName
+  - resourceGroupName
+aliases:
+  - type: azure-native:storagecache:StorageTarget
+  - type: azure-native:storagecache/v20190801preview:StorageTarget
+  - type: azure-native:storagecache/v20200301:StorageTarget
+  - type: azure-native:storagecache/v20201001:StorageTarget
+  - type: azure-native:storagecache/v20210301:StorageTarget
+  - type: azure-native:storagecache/v20210501:StorageTarget
+  - type: azure-native:storagecache/v20210901:StorageTarget
+  - type: azure-native:storagecache/v20220101:StorageTarget
+  - type: azure-native:storagecache/v20220501:StorageTarget
+deprecationMessage: Version 2019-11-01 will be removed in v2 of the provider.

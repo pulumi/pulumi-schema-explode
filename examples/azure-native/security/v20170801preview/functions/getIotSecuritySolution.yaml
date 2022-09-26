@@ -1,0 +1,83 @@
+$token: azure-native:security/v20170801preview:getIotSecuritySolution
+description: Security Solution
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group within the user's subscription. The name is case insensitive.
+    solutionName:
+      type: string
+      description: The solution manager name
+  type: object
+  required:
+    - resourceGroupName
+    - solutionName
+outputs:
+  description: Security Solution
+  properties:
+    autoDiscoveredResources:
+      type: array
+      items:
+        type: string
+      description: List of resources that were automatically discovered as relevant to the security solution.
+    disabledDataSources:
+      type: array
+      items:
+        type: string
+      description: Disabled data sources. Disabling these data sources compromises the system.
+    displayName:
+      type: string
+      description: Resource display name.
+    export:
+      type: array
+      items:
+        type: string
+      description: List of additional export to workspace data options
+    id:
+      type: string
+      description: Resource Id
+    iotHubs:
+      type: array
+      items:
+        type: string
+      description: IoT Hub resource IDs
+    location:
+      type: string
+      description: The resource location.
+    name:
+      type: string
+      description: Resource name
+    recommendationsConfiguration:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:security/v20170801preview:RecommendationConfigurationPropertiesResponse"
+      description: List of recommendation configuration
+    status:
+      type: string
+      description: Security solution status
+      default: Enabled
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    type:
+      type: string
+      description: Resource type
+    userDefinedResources:
+      type: object
+      $ref: "#/types/azure-native:security/v20170801preview:UserDefinedResourcesPropertiesResponse"
+      description: Properties of the solution's user defined resources.
+    workspace:
+      type: string
+      description: Workspace resource ID
+  type: object
+  required:
+    - autoDiscoveredResources
+    - displayName
+    - id
+    - iotHubs
+    - name
+    - type
+    - workspace

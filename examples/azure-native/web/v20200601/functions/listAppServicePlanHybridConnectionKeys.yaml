@@ -1,0 +1,50 @@
+$token: azure-native:web/v20200601:listAppServicePlanHybridConnectionKeys
+description: Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
+inputs:
+  properties:
+    name:
+      type: string
+      description: Name of the App Service plan.
+    namespaceName:
+      type: string
+      description: The name of the Service Bus namespace.
+    relayName:
+      type: string
+      description: The name of the Service Bus relay.
+    resourceGroupName:
+      type: string
+      description: Name of the resource group to which the resource belongs.
+  type: object
+  required:
+    - name
+    - namespaceName
+    - relayName
+    - resourceGroupName
+outputs:
+  description: Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
+  properties:
+    id:
+      type: string
+      description: Resource Id.
+    kind:
+      type: string
+      description: Kind of resource.
+    name:
+      type: string
+      description: Resource Name.
+    sendKeyName:
+      type: string
+      description: The name of the send key.
+    sendKeyValue:
+      type: string
+      description: The value of the send key.
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - id
+    - name
+    - sendKeyName
+    - sendKeyValue
+    - type

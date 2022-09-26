@@ -1,0 +1,53 @@
+$token: azure-native:cache:getLinkedServer
+description: |-
+  Response to put/get linked server (with properties) for Redis cache.
+  API Version: 2020-06-01.
+inputs:
+  properties:
+    linkedServerName:
+      type: string
+      description: The name of the linked server.
+    name:
+      type: string
+      description: The name of the redis cache.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - linkedServerName
+    - name
+    - resourceGroupName
+outputs:
+  description: Response to put/get linked server (with properties) for Redis cache.
+  properties:
+    id:
+      type: string
+      description: Resource ID.
+    linkedRedisCacheId:
+      type: string
+      description: Fully qualified resourceId of the linked redis cache.
+    linkedRedisCacheLocation:
+      type: string
+      description: Location of the linked redis cache.
+    name:
+      type: string
+      description: Resource name.
+    provisioningState:
+      type: string
+      description: Terminal state of the link between primary and secondary redis cache.
+    serverRole:
+      type: string
+      description: Role of the linked server.
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - id
+    - linkedRedisCacheId
+    - linkedRedisCacheLocation
+    - name
+    - provisioningState
+    - serverRole
+    - type

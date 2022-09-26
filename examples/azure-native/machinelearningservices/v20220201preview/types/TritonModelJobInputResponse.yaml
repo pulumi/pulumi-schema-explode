@@ -1,0 +1,22 @@
+$token: azure-native:machinelearningservices/v20220201preview:TritonModelJobInputResponse
+properties:
+  description:
+    type: string
+    description: Description for the input.
+  jobInputType:
+    type: string
+    description: |-
+      Enum to determine the Job Input Type.
+      Expected value is 'TritonModel'.
+    const: TritonModel
+  mode:
+    type: string
+    description: Input Asset Delivery Mode.
+    default: ReadOnlyMount
+  uri:
+    type: string
+    description: "[Required] Input Asset URI."
+type: object
+required:
+  - jobInputType
+  - uri

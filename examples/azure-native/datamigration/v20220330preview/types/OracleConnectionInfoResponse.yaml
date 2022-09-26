@@ -1,0 +1,34 @@
+$token: azure-native:datamigration/v20220330preview:OracleConnectionInfoResponse
+description: Information for connecting to Oracle server
+properties:
+  authentication:
+    type: string
+    description: Authentication type to use for connection
+  dataSource:
+    type: string
+    description: EZConnect or TNSName connection string.
+  password:
+    type: string
+    description: Password credential.
+  port:
+    type: integer
+    description: port for server
+  serverName:
+    type: string
+    description: name of the server
+  serverVersion:
+    type: string
+    description: server version
+  type:
+    type: string
+    description: |-
+      Type of connection info
+      Expected value is 'OracleConnectionInfo'.
+    const: OracleConnectionInfo
+  userName:
+    type: string
+    description: User name
+type: object
+required:
+  - dataSource
+  - type

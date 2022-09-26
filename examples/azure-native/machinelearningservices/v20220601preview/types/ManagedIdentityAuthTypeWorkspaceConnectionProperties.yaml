@@ -1,0 +1,29 @@
+$token: azure-native:machinelearningservices/v20220601preview:ManagedIdentityAuthTypeWorkspaceConnectionProperties
+properties:
+  authType:
+    type: string
+    description: |-
+      Authentication type of the connection target
+      Expected value is 'ManagedIdentity'.
+    const: ManagedIdentity
+  category:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearningservices/v20220601preview:ConnectionCategory"
+    description: Category of the connection
+  credentials:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:WorkspaceConnectionManagedIdentity"
+  target:
+    type: string
+  value:
+    type: string
+    description: Value details of the workspace connection.
+  valueFormat:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearningservices/v20220601preview:ValueFormat"
+    description: format for the workspace connection value
+type: object
+required:
+  - authType

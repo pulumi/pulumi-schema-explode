@@ -1,0 +1,52 @@
+$token: azure-native:scvmm/v20200605preview:VirtualDiskResponse
+description: Virtual disk model
+properties:
+  bus:
+    type: integer
+    description: Gets or sets the disk bus.
+  busType:
+    type: string
+    description: Gets or sets the disk bus type.
+  createDiffDisk:
+    type: string
+    description: Gets or sets a value indicating diff disk.
+  diskId:
+    type: string
+    description: Gets or sets the disk id.
+  diskSizeGB:
+    type: integer
+    description: Gets or sets the disk total size.
+  displayName:
+    type: string
+    description: Gets the display name of the virtual disk as shown in the vmmServer. This is the fallback label for a disk when the name is not set.
+  lun:
+    type: integer
+    description: Gets or sets the disk lun.
+  maxDiskSizeGB:
+    type: integer
+    description: Gets or sets the max disk size.
+  name:
+    type: string
+    description: Gets or sets the name of the disk.
+  storageQoSPolicy:
+    type: object
+    $ref: "#/types/azure-native:scvmm/v20200605preview:StorageQoSPolicyDetailsResponse"
+    description: The QoS policy for the disk.
+  templateDiskId:
+    type: string
+    description: Gets or sets the disk id in the template.
+  vhdFormatType:
+    type: string
+    description: Gets the disk vhd format type.
+  vhdType:
+    type: string
+    description: Gets or sets the disk vhd type.
+  volumeType:
+    type: string
+    description: Gets or sets the disk volume type.
+type: object
+required:
+  - displayName
+  - maxDiskSizeGB
+  - vhdFormatType
+  - volumeType

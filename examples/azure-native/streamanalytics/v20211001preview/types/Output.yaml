@@ -1,0 +1,89 @@
+$token: azure-native:streamanalytics/v20211001preview:Output
+description: An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
+properties:
+  datasource:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:AzureDataLakeStoreOutputDataSource"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:AzureFunctionOutputDataSource"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:AzureSqlDatabaseOutputDataSource"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:AzureSynapseOutputDataSource"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:AzureTableOutputDataSource"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:BlobOutputDataSource"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:DocumentDbOutputDataSource"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:EventHubOutputDataSource"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:EventHubV2OutputDataSource"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:GatewayMessageBusOutputDataSource"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:PostgreSQLOutputDataSource"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:PowerBIOutputDataSource"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:RawOutputDatasource"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:ServiceBusQueueOutputDataSource"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:ServiceBusTopicOutputDataSource"
+    discriminator:
+      propertyName: type
+      mapping:
+        GatewayMessageBus: "#/types/azure-native:streamanalytics/v20211001preview:GatewayMessageBusOutputDataSource"
+        Microsoft.AzureFunction: "#/types/azure-native:streamanalytics/v20211001preview:AzureFunctionOutputDataSource"
+        Microsoft.DBForPostgreSQL/servers/databases: "#/types/azure-native:streamanalytics/v20211001preview:PostgreSQLOutputDataSource"
+        Microsoft.DataLake/Accounts: "#/types/azure-native:streamanalytics/v20211001preview:AzureDataLakeStoreOutputDataSource"
+        Microsoft.EventHub/EventHub: "#/types/azure-native:streamanalytics/v20211001preview:EventHubV2OutputDataSource"
+        Microsoft.ServiceBus/EventHub: "#/types/azure-native:streamanalytics/v20211001preview:EventHubOutputDataSource"
+        Microsoft.ServiceBus/Queue: "#/types/azure-native:streamanalytics/v20211001preview:ServiceBusQueueOutputDataSource"
+        Microsoft.ServiceBus/Topic: "#/types/azure-native:streamanalytics/v20211001preview:ServiceBusTopicOutputDataSource"
+        Microsoft.Sql/Server/DataWarehouse: "#/types/azure-native:streamanalytics/v20211001preview:AzureSynapseOutputDataSource"
+        Microsoft.Sql/Server/Database: "#/types/azure-native:streamanalytics/v20211001preview:AzureSqlDatabaseOutputDataSource"
+        Microsoft.Storage/Blob: "#/types/azure-native:streamanalytics/v20211001preview:BlobOutputDataSource"
+        Microsoft.Storage/DocumentDB: "#/types/azure-native:streamanalytics/v20211001preview:DocumentDbOutputDataSource"
+        Microsoft.Storage/Table: "#/types/azure-native:streamanalytics/v20211001preview:AzureTableOutputDataSource"
+        PowerBI: "#/types/azure-native:streamanalytics/v20211001preview:PowerBIOutputDataSource"
+        Raw: "#/types/azure-native:streamanalytics/v20211001preview:RawOutputDatasource"
+    description: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+  name:
+    type: string
+    description: Resource name
+  serialization:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:AvroSerialization"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:CsvSerialization"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:CustomClrSerialization"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:JsonSerialization"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:ParquetSerialization"
+    discriminator:
+      propertyName: type
+      mapping:
+        Avro: "#/types/azure-native:streamanalytics/v20211001preview:AvroSerialization"
+        Csv: "#/types/azure-native:streamanalytics/v20211001preview:CsvSerialization"
+        CustomClr: "#/types/azure-native:streamanalytics/v20211001preview:CustomClrSerialization"
+        Json: "#/types/azure-native:streamanalytics/v20211001preview:JsonSerialization"
+        Parquet: "#/types/azure-native:streamanalytics/v20211001preview:ParquetSerialization"
+    description: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+  sizeWindow:
+    type: number
+    description: The size window to constrain a Stream Analytics output to.
+  timeWindow:
+    type: string
+    description: The time frame for filtering Stream Analytics job outputs.
+  watermarkSettings:
+    type: object
+    $ref: "#/types/azure-native:streamanalytics/v20211001preview:OutputWatermarkProperties"
+    description: Settings which determine whether to send watermarks to downstream.
+type: object

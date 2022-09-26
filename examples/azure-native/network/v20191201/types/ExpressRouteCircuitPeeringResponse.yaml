@@ -1,0 +1,93 @@
+$token: azure-native:network/v20191201:ExpressRouteCircuitPeeringResponse
+description: Peering in an ExpressRouteCircuit resource.
+properties:
+  azureASN:
+    type: integer
+    description: The Azure ASN.
+  connections:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20191201:ExpressRouteCircuitConnectionResponse"
+    description: The list of circuit connections associated with Azure Private Peering for this circuit.
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  expressRouteConnection:
+    type: object
+    $ref: "#/types/azure-native:network/v20191201:ExpressRouteConnectionIdResponse"
+    description: The ExpressRoute connection.
+  gatewayManagerEtag:
+    type: string
+    description: The GatewayManager Etag.
+  id:
+    type: string
+    description: Resource ID.
+  ipv6PeeringConfig:
+    type: object
+    $ref: "#/types/azure-native:network/v20191201:Ipv6ExpressRouteCircuitPeeringConfigResponse"
+    description: The IPv6 peering configuration.
+  lastModifiedBy:
+    type: string
+    description: Who was the last to modify the peering.
+  microsoftPeeringConfig:
+    type: object
+    $ref: "#/types/azure-native:network/v20191201:ExpressRouteCircuitPeeringConfigResponse"
+    description: The Microsoft peering configuration.
+  name:
+    type: string
+    description: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+  peerASN:
+    type: number
+    description: The peer ASN.
+  peeredConnections:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20191201:PeerExpressRouteCircuitConnectionResponse"
+    description: The list of peered circuit connections associated with Azure Private Peering for this circuit.
+  peeringType:
+    type: string
+    description: The peering type.
+  primaryAzurePort:
+    type: string
+    description: The primary port.
+  primaryPeerAddressPrefix:
+    type: string
+    description: The primary address prefix.
+  provisioningState:
+    type: string
+    description: The provisioning state of the express route circuit peering resource.
+  routeFilter:
+    type: object
+    $ref: "#/types/azure-native:network/v20191201:SubResourceResponse"
+    description: The reference to the RouteFilter resource.
+  secondaryAzurePort:
+    type: string
+    description: The secondary port.
+  secondaryPeerAddressPrefix:
+    type: string
+    description: The secondary address prefix.
+  sharedKey:
+    type: string
+    description: The shared key.
+  state:
+    type: string
+    description: The peering state.
+  stats:
+    type: object
+    $ref: "#/types/azure-native:network/v20191201:ExpressRouteCircuitStatsResponse"
+    description: The peering stats of express route circuit.
+  type:
+    type: string
+    description: Type of the resource.
+  vlanId:
+    type: integer
+    description: The VLAN ID.
+type: object
+required:
+  - etag
+  - lastModifiedBy
+  - peeredConnections
+  - provisioningState
+  - type

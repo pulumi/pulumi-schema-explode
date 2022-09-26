@@ -1,0 +1,78 @@
+$token: azure-native:media/v20220801:getStreamingLocator
+description: A Streaming Locator resource
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: The Media Services account name.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group within the Azure subscription.
+    streamingLocatorName:
+      type: string
+      description: The Streaming Locator name.
+  type: object
+  required:
+    - accountName
+    - resourceGroupName
+    - streamingLocatorName
+outputs:
+  description: A Streaming Locator resource
+  properties:
+    alternativeMediaId:
+      type: string
+      description: Alternative Media ID of this Streaming Locator
+    assetName:
+      type: string
+      description: Asset Name
+    contentKeys:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:media/v20220801:StreamingLocatorContentKeyResponse"
+      description: The ContentKeys used by this Streaming Locator.
+    created:
+      type: string
+      description: The creation time of the Streaming Locator.
+    defaultContentKeyPolicyName:
+      type: string
+      description: Name of the default ContentKeyPolicy used by this Streaming Locator.
+    endTime:
+      type: string
+      description: The end time of the Streaming Locator.
+    filters:
+      type: array
+      items:
+        type: string
+      description: A list of asset or account filters which apply to this streaming locator
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    name:
+      type: string
+      description: The name of the resource
+    startTime:
+      type: string
+      description: The start time of the Streaming Locator.
+    streamingLocatorId:
+      type: string
+      description: The StreamingLocatorId of the Streaming Locator.
+    streamingPolicyName:
+      type: string
+      description: "Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'"
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:media/v20220801:SystemDataResponse"
+      description: The system metadata relating to this resource.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - assetName
+    - created
+    - id
+    - name
+    - streamingPolicyName
+    - systemData
+    - type

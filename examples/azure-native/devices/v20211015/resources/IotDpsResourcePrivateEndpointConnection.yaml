@@ -1,0 +1,46 @@
+$token: azure-native:devices/v20211015:IotDpsResourcePrivateEndpointConnection
+description: The private endpoint connection of a provisioning service
+properties:
+  name:
+    type: string
+    description: The resource name.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:devices/v20211015:PrivateEndpointConnectionPropertiesResponse"
+    description: The properties of a private endpoint connection
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:devices/v20211015:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  type:
+    type: string
+    description: The resource type.
+type: object
+required:
+  - name
+  - properties
+  - systemData
+  - type
+inputProperties:
+  privateEndpointConnectionName:
+    type: string
+    description: The name of the private endpoint connection
+  properties:
+    type: object
+    $ref: "#/types/azure-native:devices/v20211015:PrivateEndpointConnectionProperties"
+    description: The properties of a private endpoint connection
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the provisioning service.
+  resourceName:
+    type: string
+    description: The name of the provisioning service.
+requiredInputs:
+  - properties
+  - resourceGroupName
+  - resourceName
+aliases:
+  - type: azure-native:devices:IotDpsResourcePrivateEndpointConnection
+  - type: azure-native:devices/v20200301:IotDpsResourcePrivateEndpointConnection
+  - type: azure-native:devices/v20200901preview:IotDpsResourcePrivateEndpointConnection
+  - type: azure-native:devices/v20220205:IotDpsResourcePrivateEndpointConnection

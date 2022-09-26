@@ -1,0 +1,68 @@
+$token: azure-native:blueprint/v20171111preview:getPublishedBlueprint
+description: Represents a published Blueprint.
+inputs:
+  properties:
+    blueprintName:
+      type: string
+      description: name of the blueprint.
+    managementGroupName:
+      type: string
+      description: ManagementGroup where blueprint stores.
+    versionId:
+      type: string
+      description: version of the published blueprint.
+  type: object
+  required:
+    - blueprintName
+    - managementGroupName
+    - versionId
+outputs:
+  description: Represents a published Blueprint.
+  properties:
+    blueprintName:
+      type: string
+      description: Name of the Blueprint definition.
+    changeNotes:
+      type: string
+      description: Version-specific change notes
+    description:
+      type: string
+      description: Multi-line explain this resource.
+    displayName:
+      type: string
+      description: One-liner string explain this resource.
+    id:
+      type: string
+      description: String Id used to locate any resource on Azure.
+    name:
+      type: string
+      description: Name of this resource.
+    parameters:
+      type: object
+      additionalProperties:
+        type: object
+        $ref: "#/types/azure-native:blueprint/v20171111preview:ParameterDefinitionResponse"
+      description: Parameters required by this Blueprint definition.
+    resourceGroups:
+      type: object
+      additionalProperties:
+        type: object
+        $ref: "#/types/azure-native:blueprint/v20171111preview:ResourceGroupDefinitionResponse"
+      description: Resource group placeholders defined by this Blueprint definition.
+    status:
+      type: object
+      $ref: "#/types/azure-native:blueprint/v20171111preview:BlueprintStatusResponse"
+      description: Status of the Blueprint. This field is readonly.
+    targetScope:
+      type: string
+      description: The scope where this Blueprint can be applied.
+    type:
+      type: string
+      description: Type of this resource.
+  type: object
+  required:
+    - id
+    - name
+    - status
+    - type
+deprecationMessage: Version 2017-11-11-preview will be removed in v2 of the provider.

@@ -1,0 +1,104 @@
+$token: azure-native:media/v20210601:getJob
+description: A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: The Media Services account name.
+    jobName:
+      type: string
+      description: The Job name.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group within the Azure subscription.
+    transformName:
+      type: string
+      description: The Transform name.
+  type: object
+  required:
+    - accountName
+    - jobName
+    - resourceGroupName
+    - transformName
+outputs:
+  description: A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
+  properties:
+    correlationData:
+      type: object
+      additionalProperties:
+        type: string
+      description: Customer provided key, value pairs that will be returned in Job and JobOutput state events.
+    created:
+      type: string
+      description: The UTC date and time when the customer has created the Job, in 'YYYY-MM-DDThh:mm:ssZ' format.
+    description:
+      type: string
+      description: Optional customer supplied description of the Job.
+    endTime:
+      type: string
+      description: The UTC date and time at which this Job finished processing.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    input:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:media/v20210601:JobInputAssetResponse"
+        - type: object
+          $ref: "#/types/azure-native:media/v20210601:JobInputClipResponse"
+        - type: object
+          $ref: "#/types/azure-native:media/v20210601:JobInputHttpResponse"
+        - type: object
+          $ref: "#/types/azure-native:media/v20210601:JobInputSequenceResponse"
+        - type: object
+          $ref: "#/types/azure-native:media/v20210601:JobInputsResponse"
+      discriminator:
+        propertyName: odataType
+        mapping:
+          "#Microsoft.Media.JobInputAsset": "#/types/azure-native:media/v20210601:JobInputAssetResponse"
+          "#Microsoft.Media.JobInputClip": "#/types/azure-native:media/v20210601:JobInputClipResponse"
+          "#Microsoft.Media.JobInputHttp": "#/types/azure-native:media/v20210601:JobInputHttpResponse"
+          "#Microsoft.Media.JobInputSequence": "#/types/azure-native:media/v20210601:JobInputSequenceResponse"
+          "#Microsoft.Media.JobInputs": "#/types/azure-native:media/v20210601:JobInputsResponse"
+      description: The inputs for the Job.
+    lastModified:
+      type: string
+      description: The UTC date and time when the customer has last updated the Job, in 'YYYY-MM-DDThh:mm:ssZ' format.
+    name:
+      type: string
+      description: The name of the resource
+    outputs:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:media/v20210601:JobOutputAssetResponse"
+      description: The outputs for the Job.
+    priority:
+      type: string
+      description: Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
+    startTime:
+      type: string
+      description: The UTC date and time at which this Job began processing.
+    state:
+      type: string
+      description: The current state of the job.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:media/v20210601:SystemDataResponse"
+      description: The system metadata relating to this resource.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - created
+    - endTime
+    - id
+    - input
+    - lastModified
+    - name
+    - outputs
+    - startTime
+    - state
+    - systemData
+    - type

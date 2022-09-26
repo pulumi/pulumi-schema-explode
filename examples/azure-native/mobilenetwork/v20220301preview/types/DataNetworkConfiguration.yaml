@@ -1,0 +1,55 @@
+$token: azure-native:mobilenetwork/v20220301preview:DataNetworkConfiguration
+description: Settings controlling Data Network use
+properties:
+  additionalAllowedSessionTypes:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:mobilenetwork/v20220301preview:PduSessionType"
+    description: Allowed session types in addition to the default session type.  Must not duplicate the default session type.
+  allocationAndRetentionPriorityLevel:
+    type: integer
+    description: Default QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `5qi` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+    default: 9
+  allowedServices:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:mobilenetwork/v20220301preview:ServiceResourceId"
+    description: List of Services that can be used as part of this Sim Policy. The list must not contain duplicate items and must contain at least one item.
+  dataNetwork:
+    type: object
+    $ref: "#/types/azure-native:mobilenetwork/v20220301preview:DataNetworkResourceId"
+    description: A reference to the Data Network that these settings apply to
+  defaultSessionType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:mobilenetwork/v20220301preview:PduSessionType"
+    description: The default PDU session type, which is used if the UE does not request a specific session type.
+    default: IPv4
+  fiveQi:
+    type: integer
+    description: "Default QoS Flow 5G QoS Indicator value.  The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. This must not be a standardized 5QI value selecting a GBR (Guaranteed Bit Rate) QoS.  The illegal GBR 5QI values are: 1, 2, 3, 4, 65, 66, 67, 71, 72, 73, 74, 75, 76, 82, 83, 84, and 85. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5Qi parameter, and table 5.7.4-1 for the definition of which are the GBR 5QI values."
+    default: 9
+  preemptionCapability:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:mobilenetwork/v20220301preview:PreemptionCapability"
+    description: Default QoS Flow preemption capability.  The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+    default: NotPreempt
+  preemptionVulnerability:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:mobilenetwork/v20220301preview:PreemptionVulnerability"
+    description: Default QoS Flow preemption vulnerability.  The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+    default: Preemptable
+  sessionAmbr:
+    type: object
+    $ref: "#/types/azure-native:mobilenetwork/v20220301preview:Ambr"
+    description: Aggregate maximum bit rate across all non-GBR QoS flows of a given PDU session. See 3GPP TS23.501 section 5.7.2.6 for a full description of the Session-AMBR.
+type: object
+required:
+  - allowedServices
+  - dataNetwork
+  - sessionAmbr

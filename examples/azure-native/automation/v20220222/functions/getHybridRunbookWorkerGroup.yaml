@@ -1,0 +1,47 @@
+$token: azure-native:automation/v20220222:getHybridRunbookWorkerGroup
+description: Definition of hybrid runbook worker group.
+inputs:
+  properties:
+    automationAccountName:
+      type: string
+      description: The name of the automation account.
+    hybridRunbookWorkerGroupName:
+      type: string
+      description: The hybrid runbook worker group name
+    resourceGroupName:
+      type: string
+      description: Name of an Azure Resource group.
+  type: object
+  required:
+    - automationAccountName
+    - hybridRunbookWorkerGroupName
+    - resourceGroupName
+outputs:
+  description: Definition of hybrid runbook worker group.
+  properties:
+    credential:
+      type: object
+      $ref: "#/types/azure-native:automation/v20220222:RunAsCredentialAssociationPropertyResponse"
+      description: Sets the credential of a worker group.
+    groupType:
+      type: string
+      description: Type of the HybridWorkerGroup.
+    id:
+      type: string
+      description: Fully qualified resource Id for the resource
+    name:
+      type: string
+      description: The name of the resource
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:automation/v20220222:SystemDataResponse"
+      description: Resource system metadata.
+    type:
+      type: string
+      description: The type of the resource.
+  type: object
+  required:
+    - id
+    - name
+    - systemData
+    - type

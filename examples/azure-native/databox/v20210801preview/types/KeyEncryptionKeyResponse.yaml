@@ -1,0 +1,20 @@
+$token: azure-native:databox/v20210801preview:KeyEncryptionKeyResponse
+description: Encryption key containing details about key to encrypt different keys.
+properties:
+  identityProperties:
+    type: object
+    $ref: "#/types/azure-native:databox/v20210801preview:IdentityPropertiesResponse"
+    description: Managed identity properties used for key encryption.
+  kekType:
+    type: string
+    description: Type of encryption key used for key encryption.
+    default: MicrosoftManaged
+  kekUrl:
+    type: string
+    description: Key encryption key. It is required in case of Customer managed KekType.
+  kekVaultResourceID:
+    type: string
+    description: Kek vault resource id. It is required in case of Customer managed KekType.
+type: object
+required:
+  - kekType

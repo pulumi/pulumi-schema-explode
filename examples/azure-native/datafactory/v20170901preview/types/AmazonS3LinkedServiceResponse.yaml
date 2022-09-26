@@ -1,0 +1,48 @@
+$token: azure-native:datafactory/v20170901preview:AmazonS3LinkedServiceResponse
+description: Linked service for Amazon S3.
+properties:
+  accessKeyId:
+    $ref: pulumi.json#/Any
+    description: "The access key identifier of the Amazon S3 Identity and Access Management (IAM) user. Type: string (or Expression with resultType string)."
+  annotations:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: List of tags that can be used for describing the Dataset.
+  connectVia:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20170901preview:IntegrationRuntimeReferenceResponse"
+    description: The integration runtime reference.
+  description:
+    type: string
+    description: Linked service description.
+  encryptedCredential:
+    $ref: pulumi.json#/Any
+    description: "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string)."
+  parameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20170901preview:ParameterSpecificationResponse"
+    description: Parameters for linked service.
+  secretAccessKey:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:AzureKeyVaultSecretReferenceResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:SecureStringResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        AzureKeyVaultSecret: "#/types/azure-native:datafactory/v20170901preview:AzureKeyVaultSecretReferenceResponse"
+        SecureString: "#/types/azure-native:datafactory/v20170901preview:SecureStringResponse"
+    description: The secret access key of the Amazon S3 Identity and Access Management (IAM) user.
+  type:
+    type: string
+    description: |-
+      Type of linked service.
+      Expected value is 'AmazonS3'.
+    const: AmazonS3
+type: object
+required:
+  - type

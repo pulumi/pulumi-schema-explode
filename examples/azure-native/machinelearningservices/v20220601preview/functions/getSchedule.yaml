@@ -1,0 +1,45 @@
+$token: azure-native:machinelearningservices/v20220601preview:getSchedule
+description: Azure Resource Manager resource envelope.
+inputs:
+  properties:
+    name:
+      type: string
+      description: Schedule name.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    workspaceName:
+      type: string
+      description: Name of Azure Machine Learning workspace.
+  type: object
+  required:
+    - name
+    - resourceGroupName
+    - workspaceName
+outputs:
+  description: Azure Resource Manager resource envelope.
+  properties:
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    name:
+      type: string
+      description: The name of the resource
+    scheduleProperties:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20220601preview:ScheduleResponse"
+      description: "[Required] Additional attributes of the entity."
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20220601preview:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - id
+    - name
+    - scheduleProperties
+    - systemData
+    - type

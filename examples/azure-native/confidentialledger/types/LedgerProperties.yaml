@@ -1,0 +1,24 @@
+$token: azure-native:confidentialledger:LedgerProperties
+description: Additional Confidential Ledger properties.
+properties:
+  aadBasedSecurityPrincipals:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:confidentialledger:AADBasedSecurityPrincipal"
+    description: Array of all AAD based Security Principals.
+  certBasedSecurityPrincipals:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:confidentialledger:CertBasedSecurityPrincipal"
+    description: Array of all cert based Security Principals.
+  ledgerStorageAccount:
+    type: string
+    description: Name of the Blob Storage Account for saving ledger files
+  ledgerType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:confidentialledger:LedgerType"
+    description: Type of Confidential Ledger
+type: object

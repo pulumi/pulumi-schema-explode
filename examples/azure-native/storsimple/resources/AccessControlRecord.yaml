@@ -1,0 +1,49 @@
+$token: azure-native:storsimple:AccessControlRecord
+description: |-
+  The access control record.
+  API Version: 2017-06-01.
+properties:
+  initiatorName:
+    type: string
+    description: The iSCSI initiator name (IQN).
+  kind:
+    type: string
+    description: The Kind of the object. Currently only Series8000 is supported
+  name:
+    type: string
+    description: The name of the object.
+  type:
+    type: string
+    description: The hierarchical type of the object.
+  volumeCount:
+    type: integer
+    description: The number of volumes using the access control record.
+type: object
+required:
+  - initiatorName
+  - name
+  - type
+  - volumeCount
+inputProperties:
+  accessControlRecordName:
+    type: string
+    description: The name of the access control record.
+  initiatorName:
+    type: string
+    description: The iSCSI initiator name (IQN).
+  kind:
+    $ref: "#/types/azure-native:storsimple:Kind"
+    description: The Kind of the object. Currently only Series8000 is supported
+  managerName:
+    type: string
+    description: The manager name
+  resourceGroupName:
+    type: string
+    description: The resource group name
+requiredInputs:
+  - initiatorName
+  - managerName
+  - resourceGroupName
+aliases:
+  - type: azure-native:storsimple/v20161001:AccessControlRecord
+  - type: azure-native:storsimple/v20170601:AccessControlRecord

@@ -1,0 +1,45 @@
+$token: azure-native:datalakeanalytics:getFirewallRule
+description: |-
+  Data Lake Analytics firewall rule information.
+  API Version: 2016-11-01.
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: The name of the Data Lake Analytics account.
+    firewallRuleName:
+      type: string
+      description: The name of the firewall rule to retrieve.
+    resourceGroupName:
+      type: string
+      description: The name of the Azure resource group.
+  type: object
+  required:
+    - accountName
+    - firewallRuleName
+    - resourceGroupName
+outputs:
+  description: Data Lake Analytics firewall rule information.
+  properties:
+    endIpAddress:
+      type: string
+      description: The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+    id:
+      type: string
+      description: The resource identifier.
+    name:
+      type: string
+      description: The resource name.
+    startIpAddress:
+      type: string
+      description: The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+    type:
+      type: string
+      description: The resource type.
+  type: object
+  required:
+    - endIpAddress
+    - id
+    - name
+    - startIpAddress
+    - type

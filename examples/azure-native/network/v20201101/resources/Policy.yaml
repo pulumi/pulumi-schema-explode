@@ -1,0 +1,108 @@
+$token: azure-native:network/v20201101:Policy
+description: Defines web application firewall policy.
+properties:
+  customRules:
+    type: object
+    $ref: "#/types/azure-native:network/v20201101:CustomRuleListResponse"
+    description: Describes custom rules inside the policy.
+  etag:
+    type: string
+    description: Gets a unique read-only string that changes whenever the resource is updated.
+  frontendEndpointLinks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20201101:FrontendEndpointLinkResponse"
+    description: Describes Frontend Endpoints associated with this Web Application Firewall policy.
+  location:
+    type: string
+    description: Resource location.
+  managedRules:
+    type: object
+    $ref: "#/types/azure-native:network/v20201101:ManagedRuleSetListResponse"
+    description: Describes managed rules inside the policy.
+  name:
+    type: string
+    description: Resource name.
+  policySettings:
+    type: object
+    $ref: "#/types/azure-native:network/v20201101:FrontDoorPolicySettingsResponse"
+    description: Describes settings for the policy.
+  provisioningState:
+    type: string
+    description: Provisioning state of the policy.
+  resourceState:
+    type: string
+  routingRuleLinks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20201101:RoutingRuleLinkResponse"
+    description: Describes Routing Rules associated with this Web Application Firewall policy.
+  securityPolicyLinks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20201101:SecurityPolicyLinkResponse"
+    description: Describes Security Policy associated with this Web Application Firewall policy.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:network/v20201101:SkuResponse"
+    description: The pricing tier of web application firewall policy. Defaults to Classic_AzureFrontDoor if not specified.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - frontendEndpointLinks
+  - name
+  - provisioningState
+  - resourceState
+  - routingRuleLinks
+  - securityPolicyLinks
+  - type
+inputProperties:
+  customRules:
+    type: object
+    $ref: "#/types/azure-native:network/v20201101:CustomRuleList"
+    description: Describes custom rules inside the policy.
+  location:
+    type: string
+    description: Resource location.
+  managedRules:
+    type: object
+    $ref: "#/types/azure-native:network/v20201101:ManagedRuleSetList"
+    description: Describes managed rules inside the policy.
+  policyName:
+    type: string
+    description: The name of the Web Application Firewall Policy.
+  policySettings:
+    type: object
+    $ref: "#/types/azure-native:network/v20201101:FrontDoorPolicySettings"
+    description: Describes settings for the policy.
+  resourceGroupName:
+    type: string
+    description: Name of the Resource group within the Azure subscription.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:network/v20201101:Sku"
+    description: The pricing tier of web application firewall policy. Defaults to Classic_AzureFrontDoor if not specified.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:network:Policy
+  - type: azure-native:network/v20190301:Policy
+  - type: azure-native:network/v20191001:Policy
+  - type: azure-native:network/v20200401:Policy
+  - type: azure-native:network/v20210601:Policy
+  - type: azure-native:network/v20220501:Policy

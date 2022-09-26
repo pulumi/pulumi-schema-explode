@@ -1,0 +1,48 @@
+$token: azure-native:aadiam/v20170401preview:getDiagnosticSetting
+description: The diagnostic setting resource.
+inputs:
+  properties:
+    name:
+      type: string
+      description: The name of the diagnostic setting.
+  type: object
+  required:
+    - name
+outputs:
+  description: The diagnostic setting resource.
+  properties:
+    eventHubAuthorizationRuleId:
+      type: string
+      description: The resource Id for the event hub authorization rule.
+    eventHubName:
+      type: string
+      description: The name of the event hub. If none is specified, the default event hub will be selected.
+    id:
+      type: string
+      description: Azure resource Id
+    logs:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:aadiam/v20170401preview:LogSettingsResponse"
+      description: The list of logs settings.
+    name:
+      type: string
+      description: Azure resource name
+    serviceBusRuleId:
+      type: string
+      description: The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
+    storageAccountId:
+      type: string
+      description: The resource ID of the storage account to which you would like to send Diagnostic Logs.
+    type:
+      type: string
+      description: Azure resource type
+    workspaceId:
+      type: string
+      description: "The workspace ID (resource ID of a Log Analytics workspace) for a Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2"
+  type: object
+  required:
+    - id
+    - name
+    - type

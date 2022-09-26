@@ -1,0 +1,35 @@
+$token: azure-native:apimanagement/v20201201:getUserSharedAccessToken
+description: Get User Token response details.
+inputs:
+  properties:
+    expiry:
+      type: string
+      description: |
+        The Expiry time of the Token. Maximum token expiry time is set to 30 days. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+    keyType:
+      $ref: "#/types/azure-native:apimanagement/v20201201:KeyType"
+      description: The Key to be used to generate token for user.
+      default: primary
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    serviceName:
+      type: string
+      description: The name of the API Management service.
+    userId:
+      type: string
+      description: User identifier. Must be unique in the current API Management service instance.
+  type: object
+  required:
+    - expiry
+    - keyType
+    - resourceGroupName
+    - serviceName
+    - userId
+outputs:
+  description: Get User Token response details.
+  properties:
+    value:
+      type: string
+      description: Shared Access Authorization token for the User.
+  type: object

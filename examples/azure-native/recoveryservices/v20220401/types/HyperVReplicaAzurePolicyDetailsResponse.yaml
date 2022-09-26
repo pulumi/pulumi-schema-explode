@@ -1,0 +1,30 @@
+$token: azure-native:recoveryservices/v20220401:HyperVReplicaAzurePolicyDetailsResponse
+description: Hyper-V Replica Azure specific protection profile details.
+properties:
+  activeStorageAccountId:
+    type: string
+    description: The active storage account Id.
+  applicationConsistentSnapshotFrequencyInHours:
+    type: integer
+    description: The interval (in hours) at which Hyper-V Replica should create an application consistent snapshot within the VM.
+  encryption:
+    type: string
+    description: A value indicating whether encryption is enabled for virtual machines in this cloud.
+  instanceType:
+    type: string
+    description: |-
+      Gets the class type. Overridden in derived classes.
+      Expected value is 'HyperVReplicaAzure'.
+    const: HyperVReplicaAzure
+  onlineReplicationStartTime:
+    type: string
+    description: The scheduled start time for the initial replication. If this parameter is Null, the initial replication starts immediately.
+  recoveryPointHistoryDurationInHours:
+    type: integer
+    description: The duration (in hours) to which point the recovery history needs to be maintained.
+  replicationInterval:
+    type: integer
+    description: The replication interval.
+type: object
+required:
+  - instanceType

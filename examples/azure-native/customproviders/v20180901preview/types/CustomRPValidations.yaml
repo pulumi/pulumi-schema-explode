@@ -1,0 +1,14 @@
+$token: azure-native:customproviders/v20180901preview:CustomRPValidations
+description: A validation to apply on custom resource provider requests.
+properties:
+  specification:
+    type: string
+    description: A link to the validation specification. The specification must be hosted on raw.githubusercontent.com.
+  validationType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:customproviders/v20180901preview:ValidationType"
+    description: The type of validation to run against a matching request.
+type: object
+required:
+  - specification

@@ -1,0 +1,36 @@
+$token: azure-native:securityinsights/v20210301preview:GroupingConfigurationResponse
+description: Grouping configuration property bag.
+properties:
+  enabled:
+    type: boolean
+    description: Grouping enabled
+  groupByAlertDetails:
+    type: array
+    items:
+      type: string
+    description: A list of alert details to group by (when matchingMethod is Selected)
+  groupByCustomDetails:
+    type: array
+    items:
+      type: string
+    description: A list of custom details keys to group by (when matchingMethod is Selected). Only keys defined in the current alert rule may be used.
+  groupByEntities:
+    type: array
+    items:
+      type: string
+    description: A list of entity types to group by (when matchingMethod is Selected). Only entities defined in the current alert rule may be used.
+  lookbackDuration:
+    type: string
+    description: Limit the group to alerts created within the lookback duration (in ISO 8601 duration format)
+  matchingMethod:
+    type: string
+    description: Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
+  reopenClosedIncident:
+    type: boolean
+    description: Re-open closed matching incidents
+type: object
+required:
+  - enabled
+  - lookbackDuration
+  - matchingMethod
+  - reopenClosedIncident

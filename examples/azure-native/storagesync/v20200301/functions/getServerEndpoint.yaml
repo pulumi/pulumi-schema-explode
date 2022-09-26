@@ -1,0 +1,104 @@
+$token: azure-native:storagesync/v20200301:getServerEndpoint
+description: Server Endpoint object.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    serverEndpointName:
+      type: string
+      description: Name of Server Endpoint object.
+    storageSyncServiceName:
+      type: string
+      description: Name of Storage Sync Service resource.
+    syncGroupName:
+      type: string
+      description: Name of Sync Group resource.
+  type: object
+  required:
+    - resourceGroupName
+    - serverEndpointName
+    - storageSyncServiceName
+    - syncGroupName
+outputs:
+  description: Server Endpoint object.
+  properties:
+    cloudTiering:
+      type: string
+      description: Cloud Tiering.
+    cloudTieringStatus:
+      type: object
+      $ref: "#/types/azure-native:storagesync/v20200301:ServerEndpointCloudTieringStatusResponse"
+      description: Cloud tiering status. Only populated if cloud tiering is enabled.
+    friendlyName:
+      type: string
+      description: Friendly Name
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    initialDownloadPolicy:
+      type: string
+      description: Policy for how namespace and files are recalled during FastDr.
+    lastOperationName:
+      type: string
+      description: Resource Last Operation Name
+    lastWorkflowId:
+      type: string
+      description: ServerEndpoint lastWorkflowId
+    localCacheMode:
+      type: string
+      description: "Policy for enabling follow-the-sun business models: link local cache to cloud behavior to pre-populate before local access."
+    name:
+      type: string
+      description: The name of the resource
+    offlineDataTransfer:
+      type: string
+      description: Offline data transfer
+    offlineDataTransferShareName:
+      type: string
+      description: Offline data transfer share name
+    offlineDataTransferStorageAccountResourceId:
+      type: string
+      description: Offline data transfer storage account resource ID
+    offlineDataTransferStorageAccountTenantId:
+      type: string
+      description: Offline data transfer storage account tenant ID
+    provisioningState:
+      type: string
+      description: ServerEndpoint Provisioning State
+    recallStatus:
+      type: object
+      $ref: "#/types/azure-native:storagesync/v20200301:ServerEndpointRecallStatusResponse"
+      description: Recall status. Only populated if cloud tiering is enabled.
+    serverLocalPath:
+      type: string
+      description: Server Local path.
+    serverResourceId:
+      type: string
+      description: Server Resource Id.
+    syncStatus:
+      type: object
+      $ref: "#/types/azure-native:storagesync/v20200301:ServerEndpointSyncStatusResponse"
+      description: Server Endpoint sync status
+    tierFilesOlderThanDays:
+      type: integer
+      description: Tier files older than days.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+    volumeFreeSpacePercent:
+      type: integer
+      description: Level of free space to be maintained by Cloud Tiering if it is enabled.
+  type: object
+  required:
+    - cloudTieringStatus
+    - id
+    - lastOperationName
+    - lastWorkflowId
+    - name
+    - offlineDataTransferStorageAccountResourceId
+    - offlineDataTransferStorageAccountTenantId
+    - provisioningState
+    - recallStatus
+    - syncStatus
+    - type

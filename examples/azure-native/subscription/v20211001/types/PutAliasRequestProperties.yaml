@@ -1,0 +1,29 @@
+$token: azure-native:subscription/v20211001:PutAliasRequestProperties
+description: Put subscription properties.
+properties:
+  additionalProperties:
+    type: object
+    $ref: "#/types/azure-native:subscription/v20211001:PutAliasRequestAdditionalProperties"
+    description: Put alias request additional properties.
+  billingScope:
+    type: string
+    description: |-
+      Billing scope of the subscription.
+      For CustomerLed and FieldLed - /billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}/invoiceSections/{invoiceSectionName}
+      For PartnerLed - /billingAccounts/{billingAccountName}/customers/{customerName}
+      For Legacy EA - /billingAccounts/{billingAccountName}/enrollmentAccounts/{enrollmentAccountName}
+  displayName:
+    type: string
+    description: The friendly name of the subscription.
+  resellerId:
+    type: string
+    description: Reseller Id
+  subscriptionId:
+    type: string
+    description: This parameter can be used to create alias for existing subscription Id
+  workload:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:subscription/v20211001:Workload"
+    description: The workload type of the subscription. It can be either Production or DevTest.
+type: object

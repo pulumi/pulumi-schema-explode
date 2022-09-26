@@ -1,0 +1,43 @@
+$token: azure-native:hybridcompute/v20220310:AgentConfigurationResponse
+description: Configurable properties that the user can set locally via the azcmagent config command, or remotely via ARM.
+properties:
+  extensionsAllowList:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:hybridcompute/v20220310:ConfigurationExtensionResponse"
+    description: Array of extensions that are allowed to be installed or updated.
+  extensionsBlockList:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:hybridcompute/v20220310:ConfigurationExtensionResponse"
+    description: Array of extensions that are blocked (cannot be installed or updated)
+  extensionsEnabled:
+    type: string
+    description: Specifies whether the extension service is enabled or disabled.
+  guestConfigurationEnabled:
+    type: string
+    description: Specified whether the guest configuration service is enabled or disabled.
+  incomingConnectionsPorts:
+    type: array
+    items:
+      type: string
+    description: Specifies the list of ports that the agent will be able to listen on.
+  proxyBypass:
+    type: array
+    items:
+      type: string
+    description: List of service names which should not use the specified proxy server.
+  proxyUrl:
+    type: string
+    description: Specifies the URL of the proxy to be used.
+type: object
+required:
+  - extensionsAllowList
+  - extensionsBlockList
+  - extensionsEnabled
+  - guestConfigurationEnabled
+  - incomingConnectionsPorts
+  - proxyBypass
+  - proxyUrl

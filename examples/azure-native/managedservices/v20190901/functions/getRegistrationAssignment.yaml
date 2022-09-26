@@ -1,0 +1,39 @@
+$token: azure-native:managedservices/v20190901:getRegistrationAssignment
+description: Registration assignment.
+inputs:
+  properties:
+    expandRegistrationDefinition:
+      type: boolean
+      description: Tells whether to return registration definition details also along with registration assignment details.
+    registrationAssignmentId:
+      type: string
+      description: Guid of the registration assignment.
+    scope:
+      type: string
+      description: Scope of the resource.
+  type: object
+  required:
+    - registrationAssignmentId
+    - scope
+outputs:
+  description: Registration assignment.
+  properties:
+    id:
+      type: string
+      description: The fully qualified path of the registration assignment.
+    name:
+      type: string
+      description: Name of the registration assignment.
+    properties:
+      type: object
+      $ref: "#/types/azure-native:managedservices/v20190901:RegistrationAssignmentPropertiesResponse"
+      description: Properties of a registration assignment.
+    type:
+      type: string
+      description: Type of the resource.
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - type

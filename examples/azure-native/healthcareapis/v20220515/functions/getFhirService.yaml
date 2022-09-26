@@ -1,0 +1,103 @@
+$token: azure-native:healthcareapis/v20220515:getFhirService
+description: The description of Fhir Service
+inputs:
+  properties:
+    fhirServiceName:
+      type: string
+      description: The name of FHIR Service resource.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the service instance.
+    workspaceName:
+      type: string
+      description: The name of workspace resource.
+  type: object
+  required:
+    - fhirServiceName
+    - resourceGroupName
+    - workspaceName
+outputs:
+  description: The description of Fhir Service
+  properties:
+    accessPolicies:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:healthcareapis/v20220515:FhirServiceAccessPolicyEntryResponse"
+      description: Fhir Service access policies.
+    acrConfiguration:
+      type: object
+      $ref: "#/types/azure-native:healthcareapis/v20220515:FhirServiceAcrConfigurationResponse"
+      description: Fhir Service Azure container registry configuration.
+    authenticationConfiguration:
+      type: object
+      $ref: "#/types/azure-native:healthcareapis/v20220515:FhirServiceAuthenticationConfigurationResponse"
+      description: Fhir Service authentication configuration.
+    corsConfiguration:
+      type: object
+      $ref: "#/types/azure-native:healthcareapis/v20220515:FhirServiceCorsConfigurationResponse"
+      description: Fhir Service Cors configuration.
+    etag:
+      type: string
+      description: An etag associated with the resource, used for optimistic concurrency when editing it.
+    eventState:
+      type: string
+      description: Fhir Service event support status.
+    exportConfiguration:
+      type: object
+      $ref: "#/types/azure-native:healthcareapis/v20220515:FhirServiceExportConfigurationResponse"
+      description: Fhir Service export configuration.
+    id:
+      type: string
+      description: The resource identifier.
+    identity:
+      type: object
+      $ref: "#/types/azure-native:healthcareapis/v20220515:ServiceManagedIdentityResponseIdentity"
+      description: Setting indicating whether the service has a managed identity associated with it.
+    kind:
+      type: string
+      description: The kind of the service.
+    location:
+      type: string
+      description: The resource location.
+    name:
+      type: string
+      description: The resource name.
+    privateEndpointConnections:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:healthcareapis/v20220515:PrivateEndpointConnectionResponse"
+      description: The list of private endpoint connections that are set up for this resource.
+    provisioningState:
+      type: string
+      description: The provisioning state.
+    publicNetworkAccess:
+      type: string
+      description: Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+    resourceVersionPolicyConfiguration:
+      type: object
+      $ref: "#/types/azure-native:healthcareapis/v20220515:ResourceVersionPolicyConfigurationResponse"
+      description: Determines tracking of history for resources.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:healthcareapis/v20220515:SystemDataResponse"
+      description: Metadata pertaining to creation and last modification of the resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The resource type.
+  type: object
+  required:
+    - eventState
+    - id
+    - name
+    - privateEndpointConnections
+    - provisioningState
+    - publicNetworkAccess
+    - systemData
+    - type

@@ -1,0 +1,73 @@
+$token: azure-native:marketplace/v20210601:PrivateStoreCollection
+description: The Collection data structure.
+properties:
+  allSubscriptions:
+    type: boolean
+    description: Indicating whether all subscriptions are selected (=true) or not (=false).
+  claim:
+    type: string
+    description: Gets or sets the association with Commercial's Billing Account.
+  collectionId:
+    type: string
+    description: Gets collection Id.
+  collectionName:
+    type: string
+    description: Gets or sets collection name.
+  enabled:
+    type: boolean
+    description: Indicating whether the collection is enabled or disabled.
+  name:
+    type: string
+    description: The name of the resource.
+  numberOfOffers:
+    type: number
+    description: Gets the number of offers associated with the collection.
+  subscriptionsList:
+    type: array
+    items:
+      type: string
+    description: Gets or sets subscription ids list. Empty list indicates all subscriptions are selected, null indicates no update is done, explicit list indicates the explicit selected subscriptions. On insert, null is considered as bad request
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:marketplace/v20210601:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - collectionId
+  - name
+  - numberOfOffers
+  - systemData
+  - type
+inputProperties:
+  allSubscriptions:
+    type: boolean
+    description: Indicating whether all subscriptions are selected (=true) or not (=false).
+  claim:
+    type: string
+    description: Gets or sets the association with Commercial's Billing Account.
+  collectionId:
+    type: string
+    description: The collection ID
+  collectionName:
+    type: string
+    description: Gets or sets collection name.
+  enabled:
+    type: boolean
+    description: Indicating whether the collection is enabled or disabled.
+  privateStoreId:
+    type: string
+    description: The store ID - must use the tenant ID
+  subscriptionsList:
+    type: array
+    items:
+      type: string
+    description: Gets or sets subscription ids list. Empty list indicates all subscriptions are selected, null indicates no update is done, explicit list indicates the explicit selected subscriptions. On insert, null is considered as bad request
+requiredInputs:
+  - privateStoreId
+aliases:
+  - type: azure-native:marketplace:PrivateStoreCollection
+  - type: azure-native:marketplace/v20211201:PrivateStoreCollection
+  - type: azure-native:marketplace/v20220301:PrivateStoreCollection

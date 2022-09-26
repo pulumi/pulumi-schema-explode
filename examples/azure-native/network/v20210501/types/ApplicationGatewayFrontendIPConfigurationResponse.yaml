@@ -1,0 +1,41 @@
+$token: azure-native:network/v20210501:ApplicationGatewayFrontendIPConfigurationResponse
+description: Frontend IP configuration of an application gateway.
+properties:
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  id:
+    type: string
+    description: Resource ID.
+  name:
+    type: string
+    description: Name of the frontend IP configuration that is unique within an Application Gateway.
+  privateIPAddress:
+    type: string
+    description: PrivateIPAddress of the network interface IP Configuration.
+  privateIPAllocationMethod:
+    type: string
+    description: The private IP address allocation method.
+  privateLinkConfiguration:
+    type: object
+    $ref: "#/types/azure-native:network/v20210501:SubResourceResponse"
+    description: Reference to the application gateway private link configuration.
+  provisioningState:
+    type: string
+    description: The provisioning state of the frontend IP configuration resource.
+  publicIPAddress:
+    type: object
+    $ref: "#/types/azure-native:network/v20210501:SubResourceResponse"
+    description: Reference to the PublicIP resource.
+  subnet:
+    type: object
+    $ref: "#/types/azure-native:network/v20210501:SubResourceResponse"
+    description: Reference to the subnet resource.
+  type:
+    type: string
+    description: Type of the resource.
+type: object
+required:
+  - etag
+  - provisioningState
+  - type

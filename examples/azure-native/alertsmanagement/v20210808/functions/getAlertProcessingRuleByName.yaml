@@ -1,0 +1,50 @@
+$token: azure-native:alertsmanagement/v20210808:getAlertProcessingRuleByName
+description: Alert processing rule object containing target scopes, conditions and scheduling logic.
+inputs:
+  properties:
+    alertProcessingRuleName:
+      type: string
+      description: The name of the alert processing rule that needs to be fetched.
+    resourceGroupName:
+      type: string
+      description: Resource group name where the resource is created.
+  type: object
+  required:
+    - alertProcessingRuleName
+    - resourceGroupName
+outputs:
+  description: Alert processing rule object containing target scopes, conditions and scheduling logic.
+  properties:
+    id:
+      type: string
+      description: Azure resource Id
+    location:
+      type: string
+      description: Resource location
+    name:
+      type: string
+      description: Azure resource name
+    properties:
+      type: object
+      $ref: "#/types/azure-native:alertsmanagement/v20210808:AlertProcessingRulePropertiesResponse"
+      description: Alert processing rule properties.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:alertsmanagement/v20210808:SystemDataResponse"
+      description: Alert processing rule system data.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    type:
+      type: string
+      description: Azure resource type
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - properties
+    - systemData
+    - type

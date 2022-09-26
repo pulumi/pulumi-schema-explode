@@ -1,0 +1,66 @@
+$token: azure-native:datamigration/v20180419:MigrateSqlServerSqlMITaskPropertiesResponse
+description: Properties for task that migrates SQL Server databases to Azure SQL Database Managed Instance
+properties:
+  commands:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:datamigration/v20180419:MigrateMISyncCompleteCommandPropertiesResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration/v20180419:MigrateSyncCompleteCommandPropertiesResponse"
+      discriminator:
+        propertyName: commandType
+        mapping:
+          Migrate.SqlServer.AzureDbSqlMi.Complete: "#/types/azure-native:datamigration/v20180419:MigrateMISyncCompleteCommandPropertiesResponse"
+          Migrate.Sync.Complete.Database: "#/types/azure-native:datamigration/v20180419:MigrateSyncCompleteCommandPropertiesResponse"
+    description: Array of command properties.
+  errors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration/v20180419:ODataErrorResponse"
+    description: Array of errors. This is ignored if submitted.
+  input:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20180419:MigrateSqlServerSqlMITaskInputResponse"
+    description: Task input
+  output:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:datamigration/v20180419:MigrateSqlServerSqlMITaskOutputAgentJobLevelResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration/v20180419:MigrateSqlServerSqlMITaskOutputDatabaseLevelResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration/v20180419:MigrateSqlServerSqlMITaskOutputErrorResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration/v20180419:MigrateSqlServerSqlMITaskOutputLoginLevelResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration/v20180419:MigrateSqlServerSqlMITaskOutputMigrationLevelResponse"
+      discriminator:
+        propertyName: resultType
+        mapping:
+          AgentJobLevelOutput: "#/types/azure-native:datamigration/v20180419:MigrateSqlServerSqlMITaskOutputAgentJobLevelResponse"
+          DatabaseLevelOutput: "#/types/azure-native:datamigration/v20180419:MigrateSqlServerSqlMITaskOutputDatabaseLevelResponse"
+          ErrorOutput: "#/types/azure-native:datamigration/v20180419:MigrateSqlServerSqlMITaskOutputErrorResponse"
+          LoginLevelOutput: "#/types/azure-native:datamigration/v20180419:MigrateSqlServerSqlMITaskOutputLoginLevelResponse"
+          MigrationLevelOutput: "#/types/azure-native:datamigration/v20180419:MigrateSqlServerSqlMITaskOutputMigrationLevelResponse"
+    description: Task output. This is ignored if submitted.
+  state:
+    type: string
+    description: The state of the task. This is ignored if submitted.
+  taskType:
+    type: string
+    description: |-
+      Task type.
+      Expected value is 'Migrate.SqlServer.AzureSqlDbMI'.
+    const: Migrate.SqlServer.AzureSqlDbMI
+type: object
+required:
+  - commands
+  - errors
+  - output
+  - state
+  - taskType

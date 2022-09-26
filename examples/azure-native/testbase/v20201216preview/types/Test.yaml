@@ -1,0 +1,21 @@
+$token: azure-native:testbase/v20201216preview:Test
+description: The definition of a Test.
+properties:
+  commands:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:testbase/v20201216preview:Command"
+    description: The commands used in the test.
+  isActive:
+    type: boolean
+    description: Indicates if this test is active.It doesn't schedule test for not active Test.
+  testType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:testbase/v20201216preview:TestType"
+    description: The type of the test.
+type: object
+required:
+  - commands
+  - testType

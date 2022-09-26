@@ -1,0 +1,37 @@
+$token: azure-native:policyinsights/v20180701preview:listRemediationDeploymentsAtManagementGroup
+description: List of deployments for a remediation.
+inputs:
+  properties:
+    managementGroupId:
+      type: string
+      description: Management group ID.
+    managementGroupsNamespace:
+      type: string
+      description: The namespace for Microsoft Management RP; only "Microsoft.Management" is allowed.
+    remediationName:
+      type: string
+      description: The name of the remediation.
+    top:
+      type: integer
+      description: Maximum number of records to return.
+  type: object
+  required:
+    - managementGroupId
+    - managementGroupsNamespace
+    - remediationName
+outputs:
+  description: List of deployments for a remediation.
+  properties:
+    nextLink:
+      type: string
+      description: The URL to get the next set of results.
+    value:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:policyinsights/v20180701preview:RemediationDeploymentResponse"
+      description: Array of deployments for the remediation.
+  type: object
+  required:
+    - nextLink
+    - value

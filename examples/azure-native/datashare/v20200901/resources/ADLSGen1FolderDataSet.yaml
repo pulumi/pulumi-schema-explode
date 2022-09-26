@@ -1,0 +1,87 @@
+$token: azure-native:datashare/v20200901:ADLSGen1FolderDataSet
+description: An ADLS Gen 1 folder data set.
+properties:
+  accountName:
+    type: string
+    description: The ADLS account name.
+  dataSetId:
+    type: string
+    description: Unique id for identifying a data set resource
+  folderPath:
+    type: string
+    description: The folder path within the ADLS account.
+  kind:
+    type: string
+    description: |-
+      Kind of data set.
+      Expected value is 'AdlsGen1Folder'.
+    const: AdlsGen1Folder
+  name:
+    type: string
+    description: Name of the azure resource
+  resourceGroup:
+    type: string
+    description: Resource group of ADLS account.
+  subscriptionId:
+    type: string
+    description: Subscription id of ADLS account.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:datashare/v20200901:SystemDataResponse"
+    description: System Data of the Azure resource.
+  type:
+    type: string
+    description: Type of the azure resource
+type: object
+required:
+  - accountName
+  - dataSetId
+  - folderPath
+  - kind
+  - name
+  - resourceGroup
+  - subscriptionId
+  - systemData
+  - type
+inputProperties:
+  accountName:
+    type: string
+    description: The ADLS account name.
+  dataSetName:
+    type: string
+    description: The name of the dataSet.
+  folderPath:
+    type: string
+    description: The folder path within the ADLS account.
+  kind:
+    type: string
+    description: |-
+      Kind of data set.
+      Expected value is 'AdlsGen1Folder'.
+    const: AdlsGen1Folder
+  resourceGroup:
+    type: string
+    description: Resource group of ADLS account.
+  resourceGroupName:
+    type: string
+    description: The resource group name.
+  shareName:
+    type: string
+    description: The name of the share to add the data set to.
+  subscriptionId:
+    type: string
+    description: Subscription id of ADLS account.
+requiredInputs:
+  - accountName
+  - folderPath
+  - kind
+  - resourceGroup
+  - resourceGroupName
+  - shareName
+  - subscriptionId
+aliases:
+  - type: azure-native:datashare:ADLSGen1FolderDataSet
+  - type: azure-native:datashare/v20181101preview:ADLSGen1FolderDataSet
+  - type: azure-native:datashare/v20191101:ADLSGen1FolderDataSet
+  - type: azure-native:datashare/v20201001preview:ADLSGen1FolderDataSet
+  - type: azure-native:datashare/v20210801:ADLSGen1FolderDataSet

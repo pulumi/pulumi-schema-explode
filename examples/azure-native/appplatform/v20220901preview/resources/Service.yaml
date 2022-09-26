@@ -1,0 +1,70 @@
+$token: azure-native:appplatform/v20220901preview:Service
+description: Service resource
+properties:
+  location:
+    type: string
+    description: The GEO location of the resource.
+  name:
+    type: string
+    description: The name of the resource.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20220901preview:ClusterResourcePropertiesResponse"
+    description: Properties of the Service resource
+  sku:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20220901preview:SkuResponse"
+    description: Sku of the Service resource
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20220901preview:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Tags of the service which is a list of key value pairs that describe the resource.
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - name
+  - properties
+  - systemData
+  - type
+inputProperties:
+  location:
+    type: string
+    description: The GEO location of the resource.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20220901preview:ClusterResourceProperties"
+    description: Properties of the Service resource
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  serviceName:
+    type: string
+    description: The name of the Service resource.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20220901preview:Sku"
+    description: Sku of the Service resource
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Tags of the service which is a list of key value pairs that describe the resource.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:appplatform:Service
+  - type: azure-native:appplatform/v20200701:Service
+  - type: azure-native:appplatform/v20201101preview:Service
+  - type: azure-native:appplatform/v20210601preview:Service
+  - type: azure-native:appplatform/v20210901preview:Service
+  - type: azure-native:appplatform/v20220101preview:Service
+  - type: azure-native:appplatform/v20220301preview:Service
+  - type: azure-native:appplatform/v20220401:Service
+  - type: azure-native:appplatform/v20220501preview:Service

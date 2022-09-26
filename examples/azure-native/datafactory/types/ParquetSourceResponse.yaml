@@ -1,0 +1,72 @@
+$token: azure-native:datafactory:ParquetSourceResponse
+description: A copy activity Parquet source.
+properties:
+  additionalColumns:
+    $ref: pulumi.json#/Any
+    description: "Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects)."
+  disableMetricsCollection:
+    $ref: pulumi.json#/Any
+    description: "If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean)."
+  maxConcurrentConnections:
+    $ref: pulumi.json#/Any
+    description: "The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer)."
+  sourceRetryCount:
+    $ref: pulumi.json#/Any
+    description: "Source retry count. Type: integer (or Expression with resultType integer)."
+  sourceRetryWait:
+    $ref: pulumi.json#/Any
+    description: "Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9]))."
+  storeSettings:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AmazonS3CompatibleReadSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AmazonS3ReadSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureBlobFSReadSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureBlobStorageReadSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureDataLakeStoreReadSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureFileStorageReadSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:FileServerReadSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:FtpReadSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:GoogleCloudStorageReadSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:HdfsReadSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:HttpReadSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:OracleCloudStorageReadSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SftpReadSettingsResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        AmazonS3CompatibleReadSettings: "#/types/azure-native:datafactory:AmazonS3CompatibleReadSettingsResponse"
+        AmazonS3ReadSettings: "#/types/azure-native:datafactory:AmazonS3ReadSettingsResponse"
+        AzureBlobFSReadSettings: "#/types/azure-native:datafactory:AzureBlobFSReadSettingsResponse"
+        AzureBlobStorageReadSettings: "#/types/azure-native:datafactory:AzureBlobStorageReadSettingsResponse"
+        AzureDataLakeStoreReadSettings: "#/types/azure-native:datafactory:AzureDataLakeStoreReadSettingsResponse"
+        AzureFileStorageReadSettings: "#/types/azure-native:datafactory:AzureFileStorageReadSettingsResponse"
+        FileServerReadSettings: "#/types/azure-native:datafactory:FileServerReadSettingsResponse"
+        FtpReadSettings: "#/types/azure-native:datafactory:FtpReadSettingsResponse"
+        GoogleCloudStorageReadSettings: "#/types/azure-native:datafactory:GoogleCloudStorageReadSettingsResponse"
+        HdfsReadSettings: "#/types/azure-native:datafactory:HdfsReadSettingsResponse"
+        HttpReadSettings: "#/types/azure-native:datafactory:HttpReadSettingsResponse"
+        OracleCloudStorageReadSettings: "#/types/azure-native:datafactory:OracleCloudStorageReadSettingsResponse"
+        SftpReadSettings: "#/types/azure-native:datafactory:SftpReadSettingsResponse"
+    description: Parquet store settings.
+  type:
+    type: string
+    description: |-
+      Copy source type.
+      Expected value is 'ParquetSource'.
+    const: ParquetSource
+type: object
+required:
+  - type

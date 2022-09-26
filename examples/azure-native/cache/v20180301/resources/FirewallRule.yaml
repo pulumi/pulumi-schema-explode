@@ -1,0 +1,53 @@
+$token: azure-native:cache/v20180301:FirewallRule
+description: A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
+properties:
+  endIP:
+    type: string
+    description: highest IP address included in the range
+  name:
+    type: string
+    description: Resource name.
+  startIP:
+    type: string
+    description: lowest IP address included in the range
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - endIP
+  - name
+  - startIP
+  - type
+inputProperties:
+  cacheName:
+    type: string
+    description: The name of the Redis cache.
+  endIP:
+    type: string
+    description: highest IP address included in the range
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  ruleName:
+    type: string
+    description: The name of the firewall rule.
+  startIP:
+    type: string
+    description: lowest IP address included in the range
+requiredInputs:
+  - cacheName
+  - endIP
+  - resourceGroupName
+  - startIP
+aliases:
+  - type: azure-native:cache:FirewallRule
+  - type: azure-native:cache/v20160401:FirewallRule
+  - type: azure-native:cache/v20170201:FirewallRule
+  - type: azure-native:cache/v20171001:FirewallRule
+  - type: azure-native:cache/v20190701:FirewallRule
+  - type: azure-native:cache/v20200601:FirewallRule
+  - type: azure-native:cache/v20201201:FirewallRule
+  - type: azure-native:cache/v20210601:FirewallRule
+  - type: azure-native:cache/v20220501:FirewallRule
+deprecationMessage: Version 2018-03-01 will be removed in v2 of the provider.

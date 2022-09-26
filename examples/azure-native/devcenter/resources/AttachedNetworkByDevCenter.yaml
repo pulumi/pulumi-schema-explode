@@ -1,0 +1,60 @@
+$token: azure-native:devcenter:AttachedNetworkByDevCenter
+description: |-
+  Represents an attached NetworkConnection.
+  API Version: 2022-09-01-preview.
+properties:
+  domainJoinType:
+    type: string
+    description: AAD Join type of the network. This is populated based on the referenced Network Connection.
+  healthCheckStatus:
+    type: string
+    description: Health check status values
+  name:
+    type: string
+    description: The name of the resource
+  networkConnectionId:
+    type: string
+    description: The resource ID of the NetworkConnection you want to attach.
+  networkConnectionLocation:
+    type: string
+    description: The geo-location where the NetworkConnection resource specified in 'networkConnectionResourceId' property lives.
+  provisioningState:
+    type: string
+    description: The provisioning state of the resource.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:devcenter:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - domainJoinType
+  - healthCheckStatus
+  - name
+  - networkConnectionId
+  - networkConnectionLocation
+  - provisioningState
+  - systemData
+  - type
+inputProperties:
+  attachedNetworkConnectionName:
+    type: string
+    description: The name of the attached NetworkConnection.
+  devCenterName:
+    type: string
+    description: The name of the devcenter.
+  networkConnectionId:
+    type: string
+    description: The resource ID of the NetworkConnection you want to attach.
+  resourceGroupName:
+    type: string
+    description: Name of the resource group within the Azure subscription.
+requiredInputs:
+  - devCenterName
+  - networkConnectionId
+  - resourceGroupName
+aliases:
+  - type: azure-native:devcenter/v20220801preview:AttachedNetworkByDevCenter
+  - type: azure-native:devcenter/v20220901preview:AttachedNetworkByDevCenter

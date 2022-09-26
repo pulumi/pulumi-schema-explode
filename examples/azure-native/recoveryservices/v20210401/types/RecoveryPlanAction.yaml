@@ -1,0 +1,25 @@
+$token: azure-native:recoveryservices/v20210401:RecoveryPlanAction
+description: Recovery plan action details.
+properties:
+  actionName:
+    type: string
+    description: The action name.
+  failoverDirections:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:recoveryservices/v20210401:PossibleOperationsDirections"
+    description: The list of failover directions.
+  failoverTypes:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:recoveryservices/v20210401:ReplicationProtectedItemOperation"
+    description: The list of failover types.
+type: object
+required:
+  - actionName
+  - failoverDirections
+  - failoverTypes

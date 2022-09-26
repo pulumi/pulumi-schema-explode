@@ -1,0 +1,28 @@
+$token: azure-native:insights/v20140401:ManagementEventRuleConditionResponse
+description: A management event rule condition.
+properties:
+  aggregation:
+    type: object
+    $ref: "#/types/azure-native:insights/v20140401:ManagementEventAggregationConditionResponse"
+    description: How the data that is collected should be combined over time and when the alert is activated. Note that for management event alerts aggregation is optional – if it is not provided then any event will cause the alert to activate.
+  dataSource:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:insights/v20140401:RuleManagementEventDataSourceResponse"
+      - type: object
+        $ref: "#/types/azure-native:insights/v20140401:RuleMetricDataSourceResponse"
+    discriminator:
+      propertyName: odataType
+      mapping:
+        Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource: "#/types/azure-native:insights/v20140401:RuleManagementEventDataSourceResponse"
+        Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource: "#/types/azure-native:insights/v20140401:RuleMetricDataSourceResponse"
+    description: the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+  odataType:
+    type: string
+    description: |-
+      specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+      Expected value is 'Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition'.
+    const: Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition
+type: object
+required:
+  - odataType

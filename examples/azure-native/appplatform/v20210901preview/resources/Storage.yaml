@@ -1,0 +1,46 @@
+$token: azure-native:appplatform/v20210901preview:Storage
+description: Storage resource payload.
+properties:
+  name:
+    type: string
+    description: The name of the resource.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20210901preview:StorageAccountResponse"
+    description: Properties of the storage resource payload.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20210901preview:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - name
+  - properties
+  - systemData
+  - type
+inputProperties:
+  properties:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20210901preview:StorageAccount"
+    description: Properties of the storage resource payload.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  serviceName:
+    type: string
+    description: The name of the Service resource.
+  storageName:
+    type: string
+    description: The name of the storage resource.
+requiredInputs:
+  - resourceGroupName
+  - serviceName
+aliases:
+  - type: azure-native:appplatform:Storage
+  - type: azure-native:appplatform/v20220101preview:Storage
+  - type: azure-native:appplatform/v20220301preview:Storage
+  - type: azure-native:appplatform/v20220501preview:Storage
+  - type: azure-native:appplatform/v20220901preview:Storage

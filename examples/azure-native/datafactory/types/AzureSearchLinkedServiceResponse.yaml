@@ -1,0 +1,49 @@
+$token: azure-native:datafactory:AzureSearchLinkedServiceResponse
+description: Linked service for Windows Azure Search Service.
+properties:
+  annotations:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: List of tags that can be used for describing the linked service.
+  connectVia:
+    type: object
+    $ref: "#/types/azure-native:datafactory:IntegrationRuntimeReferenceResponse"
+    description: The integration runtime reference.
+  description:
+    type: string
+    description: Linked service description.
+  encryptedCredential:
+    $ref: pulumi.json#/Any
+    description: "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string)."
+  key:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureKeyVaultSecretReferenceResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SecureStringResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        AzureKeyVaultSecret: "#/types/azure-native:datafactory:AzureKeyVaultSecretReferenceResponse"
+        SecureString: "#/types/azure-native:datafactory:SecureStringResponse"
+    description: Admin Key for Azure Search service
+  parameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:datafactory:ParameterSpecificationResponse"
+    description: Parameters for linked service.
+  type:
+    type: string
+    description: |-
+      Type of linked service.
+      Expected value is 'AzureSearch'.
+    const: AzureSearch
+  url:
+    $ref: pulumi.json#/Any
+    description: "URL for Azure Search service. Type: string (or Expression with resultType string)."
+type: object
+required:
+  - type
+  - url

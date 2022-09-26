@@ -1,0 +1,48 @@
+$token: azure-native:dbformysql/v20210501:Database
+description: Represents a Database.
+properties:
+  charset:
+    type: string
+    description: The charset of the database.
+  collation:
+    type: string
+    description: The collation of the database.
+  name:
+    type: string
+    description: The name of the resource
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:dbformysql/v20210501:SystemDataResponse"
+    description: The system metadata relating to this resource.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - name
+  - systemData
+  - type
+inputProperties:
+  charset:
+    type: string
+    description: The charset of the database.
+  collation:
+    type: string
+    description: The collation of the database.
+  databaseName:
+    type: string
+    description: The name of the database.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  serverName:
+    type: string
+    description: The name of the server.
+requiredInputs:
+  - resourceGroupName
+  - serverName
+aliases:
+  - type: azure-native:dbformysql/v20200701preview:Database
+  - type: azure-native:dbformysql/v20200701privatepreview:Database
+  - type: azure-native:dbformysql/v20210501preview:Database
+  - type: azure-native:dbformysql/v20211201preview:Database

@@ -1,0 +1,71 @@
+$token: azure-native:datamigration/v20210630:MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse
+description: Properties for the task that migrates Oracle to Azure Database for PostgreSQL for online migrations
+properties:
+  clientData:
+    type: object
+    additionalProperties:
+      type: string
+    description: Key value pairs of client data to attach meta data information to task
+  commands:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:datamigration/v20210630:MigrateMISyncCompleteCommandPropertiesResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration/v20210630:MigrateSyncCompleteCommandPropertiesResponse"
+      discriminator:
+        propertyName: commandType
+        mapping:
+          Migrate.SqlServer.AzureDbSqlMi.Complete: "#/types/azure-native:datamigration/v20210630:MigrateMISyncCompleteCommandPropertiesResponse"
+          Migrate.Sync.Complete.Database: "#/types/azure-native:datamigration/v20210630:MigrateSyncCompleteCommandPropertiesResponse"
+    description: Array of command properties.
+  errors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration/v20210630:ODataErrorResponse"
+    description: Array of errors. This is ignored if submitted.
+  input:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20210630:MigrateOracleAzureDbPostgreSqlSyncTaskInputResponse"
+    description: Task input
+  output:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:datamigration/v20210630:MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseErrorResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration/v20210630:MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration/v20210630:MigrateOracleAzureDbPostgreSqlSyncTaskOutputErrorResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration/v20210630:MigrateOracleAzureDbPostgreSqlSyncTaskOutputMigrationLevelResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration/v20210630:MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponse"
+      discriminator:
+        propertyName: resultType
+        mapping:
+          DatabaseLevelErrorOutput: "#/types/azure-native:datamigration/v20210630:MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseErrorResponse"
+          DatabaseLevelOutput: "#/types/azure-native:datamigration/v20210630:MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponse"
+          ErrorOutput: "#/types/azure-native:datamigration/v20210630:MigrateOracleAzureDbPostgreSqlSyncTaskOutputErrorResponse"
+          MigrationLevelOutput: "#/types/azure-native:datamigration/v20210630:MigrateOracleAzureDbPostgreSqlSyncTaskOutputMigrationLevelResponse"
+          TableLevelOutput: "#/types/azure-native:datamigration/v20210630:MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponse"
+    description: Task output. This is ignored if submitted.
+  state:
+    type: string
+    description: The state of the task. This is ignored if submitted.
+  taskType:
+    type: string
+    description: |-
+      Task type.
+      Expected value is 'Migrate.Oracle.AzureDbForPostgreSql.Sync'.
+    const: Migrate.Oracle.AzureDbForPostgreSql.Sync
+type: object
+required:
+  - commands
+  - errors
+  - output
+  - state
+  - taskType

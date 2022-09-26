@@ -1,0 +1,32 @@
+$token: azure-native:avs/v20211201:VmVmPlacementPolicyProperties
+description: VM-VM placement policy properties
+properties:
+  affinityType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:avs/v20211201:AffinityType"
+    description: placement policy affinity type
+  displayName:
+    type: string
+    description: Display name of the placement policy
+  state:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:avs/v20211201:PlacementPolicyState"
+    description: Whether the placement policy is enabled or disabled
+  type:
+    type: string
+    description: |-
+      placement policy type
+      Expected value is 'VmVm'.
+    const: VmVm
+  vmMembers:
+    type: array
+    items:
+      type: string
+    description: Virtual machine members list
+type: object
+required:
+  - affinityType
+  - type
+  - vmMembers

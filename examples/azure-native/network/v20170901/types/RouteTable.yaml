@@ -1,0 +1,27 @@
+$token: azure-native:network/v20170901:RouteTable
+description: Route table resource.
+properties:
+  etag:
+    type: string
+    description: Gets a unique read-only string that changes whenever the resource is updated.
+  id:
+    type: string
+    description: Resource ID.
+  location:
+    type: string
+    description: Resource location.
+  provisioningState:
+    type: string
+    description: "The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'."
+  routes:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20170901:Route"
+    description: Collection of routes contained within a route table.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+type: object

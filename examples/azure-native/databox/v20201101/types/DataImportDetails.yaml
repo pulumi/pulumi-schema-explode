@@ -1,0 +1,18 @@
+$token: azure-native:databox/v20201101:DataImportDetails
+description: Details of the data to be used for importing data to azure.
+properties:
+  accountDetails:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:databox/v20201101:ManagedDiskDetails"
+      - type: object
+        $ref: "#/types/azure-native:databox/v20201101:StorageAccountDetails"
+    discriminator:
+      propertyName: dataAccountType
+      mapping:
+        ManagedDisk: "#/types/azure-native:databox/v20201101:ManagedDiskDetails"
+        StorageAccount: "#/types/azure-native:databox/v20201101:StorageAccountDetails"
+    description: Account details of the data to be transferred
+type: object
+required:
+  - accountDetails

@@ -1,0 +1,58 @@
+$token: azure-native:network/v20190901:getFirewallPolicyRuleGroup
+description: Rule Group resource.
+inputs:
+  properties:
+    firewallPolicyName:
+      type: string
+      description: The name of the Firewall Policy.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    ruleGroupName:
+      type: string
+      description: The name of the FirewallPolicyRuleGroup.
+  type: object
+  required:
+    - firewallPolicyName
+    - resourceGroupName
+    - ruleGroupName
+outputs:
+  description: Rule Group resource.
+  properties:
+    etag:
+      type: string
+      description: A unique read-only string that changes whenever the resource is updated.
+    id:
+      type: string
+      description: Resource ID.
+    name:
+      type: string
+      description: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+    priority:
+      type: integer
+      description: Priority of the Firewall Policy Rule Group resource.
+    provisioningState:
+      type: string
+      description: The provisioning state of the firewall policy rule group resource.
+    rules:
+      type: array
+      items:
+        oneOf:
+          - type: object
+            $ref: "#/types/azure-native:network/v20190901:FirewallPolicyFilterRuleResponse"
+          - type: object
+            $ref: "#/types/azure-native:network/v20190901:FirewallPolicyNatRuleResponse"
+        discriminator:
+          propertyName: ruleType
+          mapping:
+            FirewallPolicyFilterRule: "#/types/azure-native:network/v20190901:FirewallPolicyFilterRuleResponse"
+            FirewallPolicyNatRule: "#/types/azure-native:network/v20190901:FirewallPolicyNatRuleResponse"
+      description: Group of Firewall Policy rules.
+    type:
+      type: string
+      description: Rule Group type.
+  type: object
+  required:
+    - etag
+    - provisioningState
+    - type

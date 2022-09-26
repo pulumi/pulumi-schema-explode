@@ -1,0 +1,34 @@
+$token: azure-native:machinelearningservices/v20220601preview:DataContainerResponse
+description: Container for data asset versions.
+properties:
+  dataType:
+    type: string
+    description: "[Required] Specifies the type of data."
+  description:
+    type: string
+    description: The asset description text.
+  isArchived:
+    type: boolean
+    description: Is the asset archived?
+    default: false
+  latestVersion:
+    type: string
+    description: The latest version inside this container.
+  nextVersion:
+    type: string
+    description: The next auto incremental version
+  properties:
+    type: object
+    additionalProperties:
+      type: string
+    description: The asset property dictionary.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Tag dictionary. Tags can be added, removed, and updated.
+type: object
+required:
+  - dataType
+  - latestVersion
+  - nextVersion

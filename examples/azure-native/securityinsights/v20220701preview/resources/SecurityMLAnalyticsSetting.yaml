@@ -1,0 +1,51 @@
+$token: azure-native:securityinsights/v20220701preview:SecurityMLAnalyticsSetting
+description: Security ML Analytics Setting
+properties:
+  etag:
+    type: string
+    description: Etag of the azure resource
+  kind:
+    type: string
+    description: The kind of security ML Analytics Settings
+  name:
+    type: string
+    description: The name of the resource
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:securityinsights/v20220701preview:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - kind
+  - name
+  - systemData
+  - type
+inputProperties:
+  kind:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:securityinsights/v20220701preview:SecurityMLAnalyticsSettingsKind"
+    description: The kind of security ML Analytics Settings
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  settingsResourceName:
+    type: string
+    description: Security ML Analytics Settings resource name
+  workspaceName:
+    type: string
+    description: The name of the workspace.
+requiredInputs:
+  - kind
+  - resourceGroupName
+  - workspaceName
+aliases:
+  - type: azure-native:securityinsights:SecurityMLAnalyticsSetting
+  - type: azure-native:securityinsights/v20220501preview:SecurityMLAnalyticsSetting
+  - type: azure-native:securityinsights/v20220601preview:SecurityMLAnalyticsSetting
+  - type: azure-native:securityinsights/v20220801preview:SecurityMLAnalyticsSetting
+  - type: azure-native:securityinsights/v20220901preview:SecurityMLAnalyticsSetting
+deprecationMessage: "Please use one of the variants: AnomalySecurityMLAnalyticsSettings."

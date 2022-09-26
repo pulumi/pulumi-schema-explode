@@ -1,0 +1,60 @@
+$token: azure-native:databoxedge/v20210601:getCloudEdgeManagementRole
+description: CloudEdgeManagementRole role.
+inputs:
+  properties:
+    deviceName:
+      type: string
+      description: The device name.
+    name:
+      type: string
+      description: The role name.
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+  type: object
+  required:
+    - deviceName
+    - name
+    - resourceGroupName
+outputs:
+  description: CloudEdgeManagementRole role.
+  properties:
+    edgeProfile:
+      type: object
+      $ref: "#/types/azure-native:databoxedge/v20210601:EdgeProfileResponse"
+      description: Edge Profile of the resource
+    id:
+      type: string
+      description: The path ID that uniquely identifies the object.
+    kind:
+      type: string
+      description: |-
+        Role type.
+        Expected value is 'CloudEdgeManagement'.
+      const: CloudEdgeManagement
+    localManagementStatus:
+      type: string
+      description: Local Edge Management Status
+    name:
+      type: string
+      description: The object name.
+    roleStatus:
+      type: string
+      description: Role status.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:databoxedge/v20210601:SystemDataResponse"
+      description: Role configured on ASE resource
+    type:
+      type: string
+      description: The hierarchical type of the object.
+  type: object
+  required:
+    - edgeProfile
+    - id
+    - kind
+    - localManagementStatus
+    - name
+    - roleStatus
+    - systemData
+    - type

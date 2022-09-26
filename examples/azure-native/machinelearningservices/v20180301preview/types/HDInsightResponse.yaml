@@ -1,0 +1,43 @@
+$token: azure-native:machinelearningservices/v20180301preview:HDInsightResponse
+description: A HDInsight compute.
+properties:
+  computeLocation:
+    type: string
+    description: Location for the underlying compute
+  computeType:
+    type: string
+    description: |-
+      The type of compute
+      Expected value is 'HDInsight'.
+    const: HDInsight
+  createdOn:
+    type: string
+    description: The date and time when the compute was created.
+  description:
+    type: string
+    description: The description of the Machine Learning compute.
+  modifiedOn:
+    type: string
+    description: The date and time when the compute was last modified.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20180301preview:HDInsightResponseProperties"
+  provisioningErrors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20180301preview:MachineLearningServiceErrorResponse"
+    description: Errors during provisioning
+  provisioningState:
+    type: string
+    description: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
+  resourceId:
+    type: string
+    description: ARM resource id of the compute
+type: object
+required:
+  - computeType
+  - createdOn
+  - modifiedOn
+  - provisioningErrors
+  - provisioningState

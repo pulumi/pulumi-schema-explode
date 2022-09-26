@@ -1,0 +1,52 @@
+$token: azure-native:azurearcdata:getSqlServerInstance
+description: |-
+  A SqlServerInstance.
+  API Version: 2021-06-01-preview.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the Azure resource group
+    sqlServerInstanceName:
+      type: string
+      description: Name of SQL Server Instance
+  type: object
+  required:
+    - resourceGroupName
+    - sqlServerInstanceName
+outputs:
+  description: A SqlServerInstance.
+  properties:
+    id:
+      type: string
+      description: Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    name:
+      type: string
+      description: The name of the resource
+    properties:
+      type: object
+      $ref: "#/types/azure-native:azurearcdata:SqlServerInstancePropertiesResponse"
+      description: "null"
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:azurearcdata:SystemDataResponse"
+      description: Read only system data
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - properties
+    - systemData
+    - type

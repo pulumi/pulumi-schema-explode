@@ -1,0 +1,25 @@
+$token: azure-native:machinelearningservices:MLAssistConfiguration
+description: Represents configuration for machine learning assisted features in a labeling job.
+properties:
+  inferencingComputeBinding:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices:ComputeBinding"
+    description: The compute designated for inferencing.
+  mlAssistEnabled:
+    type: boolean
+    description: Indicates whether MLAssist feature is enabled.
+  modelNamePrefix:
+    type: string
+    description: Name prefix to use for machine learning model. For each iteration modelName will be appended with iteration e.g.{modelName}_{i}.
+  prelabelAccuracyThreshold:
+    type: number
+    description: Prelabel accuracy threshold used in MLAssist feature.
+  trainingComputeBinding:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices:ComputeBinding"
+    description: The compute designated for training.
+type: object
+required:
+  - inferencingComputeBinding
+  - modelNamePrefix
+  - trainingComputeBinding

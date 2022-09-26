@@ -1,0 +1,46 @@
+$token: azure-native:servicefabric/v20170701preview:ApplicationType
+description: The application type name resource
+properties:
+  location:
+    type: string
+    description: Azure resource location.
+  name:
+    type: string
+    description: Azure resource name.
+  provisioningState:
+    type: string
+    description: The current deployment or provisioning state, which only appears in the response.
+  type:
+    type: string
+    description: Azure resource type.
+type: object
+required:
+  - name
+  - provisioningState
+  - type
+inputProperties:
+  applicationTypeName:
+    type: string
+    description: The name of the application type name resource.
+  clusterName:
+    type: string
+    description: The name of the cluster resource.
+  location:
+    type: string
+    description: Azure resource location.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+requiredInputs:
+  - clusterName
+  - resourceGroupName
+aliases:
+  - type: azure-native:servicefabric:ApplicationType
+  - type: azure-native:servicefabric/v20190301:ApplicationType
+  - type: azure-native:servicefabric/v20190301preview:ApplicationType
+  - type: azure-native:servicefabric/v20190601preview:ApplicationType
+  - type: azure-native:servicefabric/v20191101preview:ApplicationType
+  - type: azure-native:servicefabric/v20200301:ApplicationType
+  - type: azure-native:servicefabric/v20201201preview:ApplicationType
+  - type: azure-native:servicefabric/v20210601:ApplicationType
+deprecationMessage: Version 2017-07-01-preview will be removed in v2 of the provider.

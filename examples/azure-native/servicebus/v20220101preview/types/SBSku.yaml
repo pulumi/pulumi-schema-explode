@@ -1,0 +1,19 @@
+$token: azure-native:servicebus/v20220101preview:SBSku
+description: SKU of the namespace.
+properties:
+  capacity:
+    type: integer
+    description: The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
+  name:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:servicebus/v20220101preview:SkuName"
+    description: Name of this SKU.
+  tier:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:servicebus/v20220101preview:SkuTier"
+    description: The billing tier of this particular SKU.
+type: object
+required:
+  - name

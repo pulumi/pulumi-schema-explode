@@ -1,0 +1,22 @@
+$token: azure-native:documentdb/v20220515:SqlTriggerResource
+description: Cosmos DB SQL trigger resource object
+properties:
+  body:
+    type: string
+    description: Body of the Trigger
+  id:
+    type: string
+    description: Name of the Cosmos DB SQL trigger
+  triggerOperation:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:documentdb/v20220515:TriggerOperation"
+    description: The operation the trigger is associated with
+  triggerType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:documentdb/v20220515:TriggerType"
+    description: Type of the Trigger
+type: object
+required:
+  - id

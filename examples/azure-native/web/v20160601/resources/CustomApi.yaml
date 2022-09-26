@@ -1,0 +1,55 @@
+$token: azure-native:web/v20160601:CustomApi
+description: A custom API
+properties:
+  etag:
+    type: string
+    description: Resource ETag
+  location:
+    type: string
+    description: Resource location
+  name:
+    type: string
+    description: Resource name
+  properties:
+    type: object
+    $ref: "#/types/azure-native:web/v20160601:CustomApiPropertiesDefinitionResponse"
+    description: Custom API properties
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  type:
+    type: string
+    description: Resource type
+type: object
+required:
+  - name
+  - properties
+  - type
+inputProperties:
+  apiName:
+    type: string
+    description: API name
+  location:
+    type: string
+    description: Resource location
+  properties:
+    type: object
+    $ref: "#/types/azure-native:web/v20160601:CustomApiPropertiesDefinition"
+    description: Custom API properties
+  resourceGroupName:
+    type: string
+    description: The resource group
+  subscriptionId:
+    type: string
+    description: Subscription Id
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:web:CustomApi

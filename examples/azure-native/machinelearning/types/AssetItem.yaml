@@ -1,0 +1,46 @@
+$token: azure-native:machinelearning:AssetItem
+description: Information about an asset associated with the web service.
+properties:
+  id:
+    type: string
+    description: Asset's Id.
+  inputPorts:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:machinelearning:InputPort"
+    description: Information about the asset's input ports.
+  locationInfo:
+    type: object
+    $ref: "#/types/azure-native:machinelearning:BlobLocation"
+    description: Access information for the asset.
+  metadata:
+    type: object
+    additionalProperties:
+      type: string
+    description: If the asset is a custom module, this holds the module's metadata.
+  name:
+    type: string
+    description: Asset's friendly name.
+  outputPorts:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:machinelearning:OutputPort"
+    description: Information about the asset's output ports.
+  parameters:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:machinelearning:ModuleAssetParameter"
+    description: If the asset is a custom module, this holds the module's parameters.
+  type:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearning:AssetType"
+    description: Asset's type.
+type: object
+required:
+  - locationInfo
+  - name
+  - type

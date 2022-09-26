@@ -1,0 +1,89 @@
+$token: azure-native:peering/v20220101:PeeringService
+description: Peering Service
+properties:
+  location:
+    type: string
+    description: The location of the resource.
+  logAnalyticsWorkspaceProperties:
+    type: object
+    $ref: "#/types/azure-native:peering/v20220101:LogAnalyticsWorkspacePropertiesResponse"
+    description: The Log Analytics Workspace Properties
+  name:
+    type: string
+    description: The name of the resource.
+  peeringServiceLocation:
+    type: string
+    description: The location (state/province) of the customer.
+  peeringServiceProvider:
+    type: string
+    description: The name of the service provider.
+  providerBackupPeeringLocation:
+    type: string
+    description: The backup peering (Microsoft/service provider) location to be used for customer traffic.
+  providerPrimaryPeeringLocation:
+    type: string
+    description: The primary peering (Microsoft/service provider) location to be used for customer traffic.
+  provisioningState:
+    type: string
+    description: The provisioning state of the resource.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:peering/v20220101:PeeringServiceSkuResponse"
+    description: The SKU that defines the type of the peering service.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The resource tags.
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - location
+  - name
+  - provisioningState
+  - type
+inputProperties:
+  location:
+    type: string
+    description: The location of the resource.
+  peeringServiceLocation:
+    type: string
+    description: The location (state/province) of the customer.
+  peeringServiceName:
+    type: string
+    description: The name of the peering service.
+  peeringServiceProvider:
+    type: string
+    description: The name of the service provider.
+  providerBackupPeeringLocation:
+    type: string
+    description: The backup peering (Microsoft/service provider) location to be used for customer traffic.
+  providerPrimaryPeeringLocation:
+    type: string
+    description: The primary peering (Microsoft/service provider) location to be used for customer traffic.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:peering/v20220101:PeeringServiceSku"
+    description: The SKU that defines the type of the peering service.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The resource tags.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:peering:PeeringService
+  - type: azure-native:peering/v20190801preview:PeeringService
+  - type: azure-native:peering/v20190901preview:PeeringService
+  - type: azure-native:peering/v20200101preview:PeeringService
+  - type: azure-native:peering/v20200401:PeeringService
+  - type: azure-native:peering/v20201001:PeeringService
+  - type: azure-native:peering/v20210101:PeeringService
+  - type: azure-native:peering/v20210601:PeeringService
+  - type: azure-native:peering/v20220601:PeeringService

@@ -1,0 +1,37 @@
+$token: azure-native:security:getWorkspaceSetting
+description: |-
+  Configures where to store the OMS agent data for workspaces under a scope
+  API Version: 2017-08-01-preview.
+inputs:
+  properties:
+    workspaceSettingName:
+      type: string
+      description: Name of the security setting
+  type: object
+  required:
+    - workspaceSettingName
+outputs:
+  description: Configures where to store the OMS agent data for workspaces under a scope
+  properties:
+    id:
+      type: string
+      description: Resource Id
+    name:
+      type: string
+      description: Resource name
+    scope:
+      type: string
+      description: All the VMs in this scope will send their security data to the mentioned workspace unless overridden by a setting with more specific scope
+    type:
+      type: string
+      description: Resource type
+    workspaceId:
+      type: string
+      description: The full Azure ID of the workspace to save the data in
+  type: object
+  required:
+    - id
+    - name
+    - scope
+    - type
+    - workspaceId

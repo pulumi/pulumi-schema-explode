@@ -1,0 +1,28 @@
+$token: azure-native:workloads/v20211201preview:SAPInstallWithoutOSConfigSoftwareConfigurationResponse
+description: The SAP Software configuration Input when the software is to be installed by service without OS Configurations
+properties:
+  bomUrl:
+    type: string
+    description: The URL to the SAP Build of Materials(BOM) file.
+  highAvailabilitySoftwareConfiguration:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:HighAvailabilitySoftwareConfigurationResponse"
+    description: Gets or sets the HA software configuration.
+  sapBitsStorageAccountId:
+    type: string
+    description: The SAP bits storage account id.
+  softwareInstallationType:
+    type: string
+    description: |-
+      The SAP software installation Type.
+      Expected value is 'SAPInstallWithoutOSConfig'.
+    const: SAPInstallWithoutOSConfig
+  softwareVersion:
+    type: string
+    description: The software version to install.
+type: object
+required:
+  - bomUrl
+  - sapBitsStorageAccountId
+  - softwareInstallationType
+  - softwareVersion

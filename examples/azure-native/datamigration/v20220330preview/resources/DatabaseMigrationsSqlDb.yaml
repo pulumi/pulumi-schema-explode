@@ -1,0 +1,39 @@
+$token: azure-native:datamigration/v20220330preview:DatabaseMigrationsSqlDb
+description: Database Migration Resource for SQL Database.
+properties:
+  name:
+    type: string
+  properties:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20220330preview:DatabaseMigrationPropertiesSqlDbResponse"
+    description: Database Migration Resource properties for SQL database.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20220330preview:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  type:
+    type: string
+type: object
+required:
+  - name
+  - properties
+  - systemData
+  - type
+inputProperties:
+  properties:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20220330preview:DatabaseMigrationPropertiesSqlDb"
+    description: Database Migration Resource properties for SQL database.
+  resourceGroupName:
+    type: string
+    description: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  sqlDbInstanceName:
+    type: string
+  targetDbName:
+    type: string
+    description: The name of the target database.
+requiredInputs:
+  - resourceGroupName
+  - sqlDbInstanceName
+aliases:
+  - type: azure-native:datamigration:DatabaseMigrationsSqlDb

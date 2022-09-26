@@ -1,0 +1,20 @@
+$token: azure-native:datamigration/v20210630:MigrateSsisTaskInputResponse
+description: Input for task that migrates SSIS packages from SQL Server to Azure SQL Database Managed Instance.
+properties:
+  sourceConnectionInfo:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20210630:SqlConnectionInfoResponse"
+    description: Information for connecting to source
+  ssisMigrationInfo:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20210630:SsisMigrationInfoResponse"
+    description: SSIS package migration information.
+  targetConnectionInfo:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20210630:SqlConnectionInfoResponse"
+    description: Information for connecting to target
+type: object
+required:
+  - sourceConnectionInfo
+  - ssisMigrationInfo
+  - targetConnectionInfo

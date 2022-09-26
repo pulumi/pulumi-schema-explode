@@ -1,0 +1,20 @@
+$token: azure-native:dataprotection/v20220401:SourceLifeCycle
+description: Source LifeCycle
+properties:
+  deleteAfter:
+    type: object
+    $ref: "#/types/azure-native:dataprotection/v20220401:AbsoluteDeleteOption"
+    description: Delete Option
+  sourceDataStore:
+    type: object
+    $ref: "#/types/azure-native:dataprotection/v20220401:DataStoreInfoBase"
+    description: DataStoreInfo base
+  targetDataStoreCopySettings:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:dataprotection/v20220401:TargetCopySetting"
+type: object
+required:
+  - deleteAfter
+  - sourceDataStore

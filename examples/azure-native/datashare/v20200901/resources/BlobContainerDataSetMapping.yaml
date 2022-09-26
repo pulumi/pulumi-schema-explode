@@ -1,0 +1,103 @@
+$token: azure-native:datashare/v20200901:BlobContainerDataSetMapping
+description: A Blob container data set mapping.
+properties:
+  containerName:
+    type: string
+    description: BLOB Container name.
+  dataSetId:
+    type: string
+    description: The id of the source data set.
+  dataSetMappingStatus:
+    type: string
+    description: Gets the status of the data set mapping.
+  kind:
+    type: string
+    description: |-
+      Kind of data set mapping.
+      Expected value is 'Container'.
+    const: Container
+  name:
+    type: string
+    description: Name of the azure resource
+  provisioningState:
+    type: string
+    description: Provisioning state of the data set mapping.
+  resourceGroup:
+    type: string
+    description: Resource group of storage account.
+  storageAccountName:
+    type: string
+    description: Storage account name of the source data set.
+  subscriptionId:
+    type: string
+    description: Subscription id of storage account.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:datashare/v20200901:SystemDataResponse"
+    description: System Data of the Azure resource.
+  type:
+    type: string
+    description: Type of the azure resource
+type: object
+required:
+  - containerName
+  - dataSetId
+  - dataSetMappingStatus
+  - kind
+  - name
+  - provisioningState
+  - resourceGroup
+  - storageAccountName
+  - subscriptionId
+  - systemData
+  - type
+inputProperties:
+  accountName:
+    type: string
+    description: The name of the share account.
+  containerName:
+    type: string
+    description: BLOB Container name.
+  dataSetId:
+    type: string
+    description: The id of the source data set.
+  dataSetMappingName:
+    type: string
+    description: The name of the data set mapping to be created.
+  kind:
+    type: string
+    description: |-
+      Kind of data set mapping.
+      Expected value is 'Container'.
+    const: Container
+  resourceGroup:
+    type: string
+    description: Resource group of storage account.
+  resourceGroupName:
+    type: string
+    description: The resource group name.
+  shareSubscriptionName:
+    type: string
+    description: The name of the share subscription which will hold the data set sink.
+  storageAccountName:
+    type: string
+    description: Storage account name of the source data set.
+  subscriptionId:
+    type: string
+    description: Subscription id of storage account.
+requiredInputs:
+  - accountName
+  - containerName
+  - dataSetId
+  - kind
+  - resourceGroup
+  - resourceGroupName
+  - shareSubscriptionName
+  - storageAccountName
+  - subscriptionId
+aliases:
+  - type: azure-native:datashare:BlobContainerDataSetMapping
+  - type: azure-native:datashare/v20181101preview:BlobContainerDataSetMapping
+  - type: azure-native:datashare/v20191101:BlobContainerDataSetMapping
+  - type: azure-native:datashare/v20201001preview:BlobContainerDataSetMapping
+  - type: azure-native:datashare/v20210801:BlobContainerDataSetMapping

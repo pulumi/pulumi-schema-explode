@@ -1,0 +1,35 @@
+$token: azure-native:deploymentmanager/v20180901preview:RolloutStepResponse
+description: Defines a specific step on a target service unit.
+properties:
+  messages:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:deploymentmanager/v20180901preview:MessageResponse"
+    description: Supplementary informative messages during rollout.
+  name:
+    type: string
+    description: Name of the step.
+  operationInfo:
+    type: object
+    $ref: "#/types/azure-native:deploymentmanager/v20180901preview:StepOperationInfoResponse"
+    description: Detailed information of specific action execution.
+  resourceOperations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:deploymentmanager/v20180901preview:ResourceOperationResponse"
+    description: Set of resource operations that were performed, if any, on an Azure resource.
+  status:
+    type: string
+    description: Current state of the step.
+  stepGroup:
+    type: string
+    description: The step group the current step is part of.
+type: object
+required:
+  - messages
+  - name
+  - operationInfo
+  - resourceOperations
+  - status

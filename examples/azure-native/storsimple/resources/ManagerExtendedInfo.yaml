@@ -1,0 +1,77 @@
+$token: azure-native:storsimple:ManagerExtendedInfo
+description: |-
+  The extended info of the manager.
+  API Version: 2017-06-01.
+properties:
+  algorithm:
+    type: string
+    description: Represents the encryption algorithm used to encrypt the keys. None - if Key is saved in plain text format. Algorithm name - if key is encrypted
+  encryptionKey:
+    type: string
+    description: Represents the CEK of the resource.
+  encryptionKeyThumbprint:
+    type: string
+    description: Represents the Cert thumbprint that was used to encrypt the CEK.
+  etag:
+    type: string
+    description: The etag of the resource.
+  integrityKey:
+    type: string
+    description: Represents the CIK of the resource.
+  kind:
+    type: string
+    description: The Kind of the object. Currently only Series8000 is supported
+  name:
+    type: string
+    description: The name of the object.
+  portalCertificateThumbprint:
+    type: string
+    description: Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
+  type:
+    type: string
+    description: The hierarchical type of the object.
+  version:
+    type: string
+    description: The version of the extended info being persisted.
+type: object
+required:
+  - algorithm
+  - integrityKey
+  - name
+  - type
+inputProperties:
+  algorithm:
+    type: string
+    description: Represents the encryption algorithm used to encrypt the keys. None - if Key is saved in plain text format. Algorithm name - if key is encrypted
+  encryptionKey:
+    type: string
+    description: Represents the CEK of the resource.
+  encryptionKeyThumbprint:
+    type: string
+    description: Represents the Cert thumbprint that was used to encrypt the CEK.
+  integrityKey:
+    type: string
+    description: Represents the CIK of the resource.
+  kind:
+    $ref: "#/types/azure-native:storsimple:Kind"
+    description: The Kind of the object. Currently only Series8000 is supported
+  managerName:
+    type: string
+    description: The manager name
+  portalCertificateThumbprint:
+    type: string
+    description: Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
+  resourceGroupName:
+    type: string
+    description: The resource group name
+  version:
+    type: string
+    description: The version of the extended info being persisted.
+requiredInputs:
+  - algorithm
+  - integrityKey
+  - managerName
+  - resourceGroupName
+aliases:
+  - type: azure-native:storsimple/v20161001:ManagerExtendedInfo
+  - type: azure-native:storsimple/v20170601:ManagerExtendedInfo

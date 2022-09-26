@@ -1,0 +1,65 @@
+$token: azure-native:workloads/v20211201preview:getSAPSizingRecommendations
+description: The SAP sizing recommendation result.
+inputs:
+  properties:
+    appLocation:
+      type: string
+      description: The geo-location where the resource is to be created.
+    databaseType:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:workloads/v20211201preview:SAPDatabaseType"
+      description: The database type.
+    dbMemory:
+      type: number
+      description: The database memory configuration.
+    dbScaleMethod:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:workloads/v20211201preview:SAPDatabaseScaleMethod"
+      description: The DB scale method.
+    deploymentType:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:workloads/v20211201preview:SAPDeploymentType"
+      description: "The deployment type. Eg: SingleServer/ThreeTier"
+    environment:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:workloads/v20211201preview:SAPEnvironmentType"
+      description: Defines the environment type - Production/Non Production.
+    highAvailabilityType:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:workloads/v20211201preview:SAPHighAvailabilityType"
+      description: The high availability type.
+    location:
+      type: string
+      description: The name of Azure region.
+    sapProduct:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:workloads/v20211201preview:SAPProductType"
+      description: Defines the SAP Product type.
+    saps:
+      type: number
+      description: The SAP Application Performance Standard measurement.
+  type: object
+  required:
+    - appLocation
+    - databaseType
+    - dbMemory
+    - deploymentType
+    - environment
+    - location
+    - sapProduct
+    - saps
+outputs:
+  description: The SAP sizing recommendation result.
+  properties:
+    deploymentType:
+      type: string
+      description: The type of SAP deployment, single server or Three tier.
+  type: object
+  required:
+    - deploymentType

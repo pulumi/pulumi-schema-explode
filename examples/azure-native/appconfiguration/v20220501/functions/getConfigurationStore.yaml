@@ -1,0 +1,92 @@
+$token: azure-native:appconfiguration/v20220501:getConfigurationStore
+description: The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
+inputs:
+  properties:
+    configStoreName:
+      type: string
+      description: The name of the configuration store.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group to which the container registry belongs.
+  type: object
+  required:
+    - configStoreName
+    - resourceGroupName
+outputs:
+  description: The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
+  properties:
+    creationDate:
+      type: string
+      description: The creation date of configuration store.
+    disableLocalAuth:
+      type: boolean
+      description: Disables all authentication methods other than AAD authentication.
+      default: false
+    enablePurgeProtection:
+      type: boolean
+      description: Property specifying whether protection against purge is enabled for this configuration store.
+      default: false
+    encryption:
+      type: object
+      $ref: "#/types/azure-native:appconfiguration/v20220501:EncryptionPropertiesResponse"
+      description: The encryption settings of the configuration store.
+    endpoint:
+      type: string
+      description: The DNS endpoint where the configuration store API will be available.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    identity:
+      type: object
+      $ref: "#/types/azure-native:appconfiguration/v20220501:ResourceIdentityResponse"
+      description: The managed identity information, if configured.
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    name:
+      type: string
+      description: The name of the resource
+    privateEndpointConnections:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:appconfiguration/v20220501:PrivateEndpointConnectionReferenceResponse"
+      description: The list of private endpoint connections that are set up for this resource.
+    provisioningState:
+      type: string
+      description: The provisioning state of the configuration store.
+    publicNetworkAccess:
+      type: string
+      description: Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+    sku:
+      type: object
+      $ref: "#/types/azure-native:appconfiguration/v20220501:SkuResponse"
+      description: The sku of the configuration store.
+    softDeleteRetentionInDays:
+      type: integer
+      description: The amount of time in days that the configuration store will be retained when it is soft deleted.
+      default: 7
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:appconfiguration/v20220501:SystemDataResponse"
+      description: Resource system metadata.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - creationDate
+    - endpoint
+    - id
+    - location
+    - name
+    - privateEndpointConnections
+    - provisioningState
+    - sku
+    - systemData
+    - type

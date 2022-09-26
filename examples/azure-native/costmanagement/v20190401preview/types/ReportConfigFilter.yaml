@@ -1,0 +1,28 @@
+$token: azure-native:costmanagement/v20190401preview:ReportConfigFilter
+description: The filter expression to be used in the report.
+properties:
+  and:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:costmanagement/v20190401preview:ReportConfigFilter"
+    description: The logical "AND" expression. Must have at least 2 items.
+  dimension:
+    type: object
+    $ref: "#/types/azure-native:costmanagement/v20190401preview:ReportConfigComparisonExpression"
+    description: Has comparison expression for a dimension
+  not:
+    type: object
+    $ref: "#/types/azure-native:costmanagement/v20190401preview:ReportConfigFilter"
+    description: The logical "NOT" expression.
+  or:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:costmanagement/v20190401preview:ReportConfigFilter"
+    description: The logical "OR" expression. Must have at least 2 items.
+  tag:
+    type: object
+    $ref: "#/types/azure-native:costmanagement/v20190401preview:ReportConfigComparisonExpression"
+    description: Has comparison expression for a tag
+type: object

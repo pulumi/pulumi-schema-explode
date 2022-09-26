@@ -1,0 +1,65 @@
+$token: azure-native:avs:WorkloadNetworkDhcp
+description: |-
+  NSX DHCP
+  API Version: 2020-07-17-preview.
+properties:
+  dhcpType:
+    type: string
+    description: "Type of DHCP: SERVER or RELAY."
+  displayName:
+    type: string
+    description: Display name of the DHCP entity.
+  name:
+    type: string
+    description: Resource name.
+  provisioningState:
+    type: string
+    description: The provisioning state
+  revision:
+    type: number
+    description: NSX revision number.
+  segments:
+    type: array
+    items:
+      type: string
+    description: NSX Segments consuming DHCP.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - dhcpType
+  - name
+  - provisioningState
+  - segments
+  - type
+inputProperties:
+  dhcpId:
+    type: string
+    description: NSX DHCP identifier. Generally the same as the DHCP display name
+  dhcpType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:avs:DhcpTypeEnum"
+    description: "Type of DHCP: SERVER or RELAY."
+  displayName:
+    type: string
+    description: Display name of the DHCP entity.
+  privateCloudName:
+    type: string
+    description: Name of the private cloud
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  revision:
+    type: number
+    description: NSX revision number.
+requiredInputs:
+  - dhcpType
+  - privateCloudName
+  - resourceGroupName
+aliases:
+  - type: azure-native:avs/v20200717preview:WorkloadNetworkDhcp
+  - type: azure-native:avs/v20210101preview:WorkloadNetworkDhcp
+  - type: azure-native:avs/v20210601:WorkloadNetworkDhcp
+  - type: azure-native:avs/v20211201:WorkloadNetworkDhcp

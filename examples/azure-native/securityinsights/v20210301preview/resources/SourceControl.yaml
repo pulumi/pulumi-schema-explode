@@ -1,0 +1,140 @@
+$token: azure-native:securityinsights/v20210301preview:SourceControl
+description: Represents a SourceControl in Azure Security Insights.
+properties:
+  contentTypes:
+    type: array
+    items:
+      type: string
+    description: Array of source control content types.
+  createdAt:
+    type: string
+    description: The timestamp of resource creation (UTC).
+  createdBy:
+    type: string
+    description: The identity that created the resource.
+  createdByType:
+    type: string
+    description: The type of identity that created the resource.
+  description:
+    type: string
+    description: A description of the source control
+  displayName:
+    type: string
+    description: The display name of the source control
+  etag:
+    type: string
+    description: Etag of the azure resource
+  lastModifiedAt:
+    type: string
+    description: The timestamp of resource last modification (UTC)
+  lastModifiedBy:
+    type: string
+    description: The identity that last modified the resource.
+  lastModifiedByType:
+    type: string
+    description: The type of identity that last modified the resource.
+  name:
+    type: string
+    description: Azure resource name
+  repoType:
+    type: string
+    description: The repository type of the source control
+  repository:
+    type: object
+    $ref: "#/types/azure-native:securityinsights/v20210301preview:RepositoryResponse"
+    description: Repository metadata.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:securityinsights/v20210301preview:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  type:
+    type: string
+    description: Azure resource type
+type: object
+required:
+  - contentTypes
+  - displayName
+  - name
+  - repoType
+  - repository
+  - systemData
+  - type
+inputProperties:
+  contentTypes:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:securityinsights/v20210301preview:ContentType"
+    description: Array of source control content types.
+  createdAt:
+    type: string
+    description: The timestamp of resource creation (UTC).
+  createdBy:
+    type: string
+    description: The identity that created the resource.
+  createdByType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:securityinsights/v20210301preview:CreatedByType"
+    description: The type of identity that created the resource.
+  description:
+    type: string
+    description: A description of the source control
+  displayName:
+    type: string
+    description: The display name of the source control
+  id:
+    type: string
+    description: The id (a Guid) of the source control
+  lastModifiedAt:
+    type: string
+    description: The timestamp of resource last modification (UTC)
+  lastModifiedBy:
+    type: string
+    description: The identity that last modified the resource.
+  lastModifiedByType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:securityinsights/v20210301preview:CreatedByType"
+    description: The type of identity that last modified the resource.
+  operationalInsightsResourceProvider:
+    type: string
+    description: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+  repoType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:securityinsights/v20210301preview:RepoType"
+    description: The repository type of the source control
+  repository:
+    type: object
+    $ref: "#/types/azure-native:securityinsights/v20210301preview:Repository"
+    description: Repository metadata.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  sourceControlId:
+    type: string
+    description: Source control Id
+  workspaceName:
+    type: string
+    description: The name of the workspace.
+requiredInputs:
+  - contentTypes
+  - displayName
+  - operationalInsightsResourceProvider
+  - repoType
+  - repository
+  - resourceGroupName
+  - workspaceName
+aliases:
+  - type: azure-native:securityinsights:SourceControl
+  - type: azure-native:securityinsights/v20210901preview:SourceControl
+  - type: azure-native:securityinsights/v20211001preview:SourceControl
+  - type: azure-native:securityinsights/v20220101preview:SourceControl
+  - type: azure-native:securityinsights/v20220401preview:SourceControl
+  - type: azure-native:securityinsights/v20220501preview:SourceControl
+  - type: azure-native:securityinsights/v20220601preview:SourceControl
+  - type: azure-native:securityinsights/v20220701preview:SourceControl
+  - type: azure-native:securityinsights/v20220801preview:SourceControl
+  - type: azure-native:securityinsights/v20220901preview:SourceControl

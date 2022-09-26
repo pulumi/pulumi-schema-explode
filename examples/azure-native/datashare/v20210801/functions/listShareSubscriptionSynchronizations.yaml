@@ -1,0 +1,42 @@
+$token: azure-native:datashare/v20210801:listShareSubscriptionSynchronizations
+description: A consumer side list of share subscription synchronizations
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: The name of the share account.
+    filter:
+      type: string
+      description: Filters the results using OData syntax.
+    orderby:
+      type: string
+      description: Sorts the results using OData syntax.
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+    shareSubscriptionName:
+      type: string
+      description: The name of the share subscription.
+    skipToken:
+      type: string
+      description: Continuation token
+  type: object
+  required:
+    - accountName
+    - resourceGroupName
+    - shareSubscriptionName
+outputs:
+  description: A consumer side list of share subscription synchronizations
+  properties:
+    nextLink:
+      type: string
+      description: The Url of next result page.
+    value:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:datashare/v20210801:ShareSubscriptionSynchronizationResponse"
+      description: Collection of items of type DataTransferObjects.
+  type: object
+  required:
+    - value

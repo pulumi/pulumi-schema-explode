@@ -1,0 +1,19 @@
+$token: azure-native:compute:DedicatedHostInstanceViewResponse
+description: The instance view of a dedicated host.
+properties:
+  assetId:
+    type: string
+    description: Specifies the unique id of the dedicated physical machine on which the dedicated host resides.
+  availableCapacity:
+    type: object
+    $ref: "#/types/azure-native:compute:DedicatedHostAvailableCapacityResponse"
+    description: Unutilized capacity of the dedicated host.
+  statuses:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:compute:InstanceViewStatusResponse"
+    description: The resource status information.
+type: object
+required:
+  - assetId

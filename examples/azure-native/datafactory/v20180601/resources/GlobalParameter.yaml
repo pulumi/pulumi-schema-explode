@@ -1,0 +1,46 @@
+$token: azure-native:datafactory/v20180601:GlobalParameter
+description: Global parameters resource type.
+properties:
+  etag:
+    type: string
+    description: Etag identifies change in the resource.
+  name:
+    type: string
+    description: The resource name.
+  properties:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20180601:GlobalParameterSpecificationResponse"
+    description: Properties of the global parameter.
+  type:
+    type: string
+    description: The resource type.
+type: object
+required:
+  - etag
+  - name
+  - properties
+  - type
+inputProperties:
+  factoryName:
+    type: string
+    description: The factory name.
+  globalParameterName:
+    type: string
+    description: The global parameter name.
+  properties:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20180601:GlobalParameterSpecification"
+    description: Properties of the global parameter.
+  resourceGroupName:
+    type: string
+    description: The resource group name.
+requiredInputs:
+  - factoryName
+  - properties
+  - resourceGroupName
+aliases:
+  - type: azure-native:datafactory:GlobalParameter

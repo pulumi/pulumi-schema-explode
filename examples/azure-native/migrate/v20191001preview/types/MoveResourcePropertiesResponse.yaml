@@ -1,0 +1,138 @@
+$token: azure-native:migrate/v20191001preview:MoveResourcePropertiesResponse
+description: Defines the move resource properties.
+properties:
+  dependsOn:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:migrate/v20191001preview:MoveResourceDependencyResponse"
+    description: Gets or sets the move resource dependencies.
+  dependsOnOverrides:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:migrate/v20191001preview:MoveResourceDependencyOverrideResponse"
+    description: Gets or sets the move resource dependencies overrides.
+  errors:
+    type: object
+    $ref: "#/types/azure-native:migrate/v20191001preview:MoveResourcePropertiesResponseErrors"
+    description: Defines the move resource errors.
+  existingTargetId:
+    type: string
+    description: Gets or sets the existing target ARM Id of the resource.
+  isResolveRequired:
+    type: boolean
+    description: Gets a value indicating whether the resolve action is required over the move collection.
+  moveStatus:
+    type: object
+    $ref: "#/types/azure-native:migrate/v20191001preview:MoveResourcePropertiesResponseMoveStatus"
+    description: Defines the move resource status.
+  provisioningState:
+    type: string
+    description: Defines the provisioning states.
+  resourceSettings:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:migrate/v20191001preview:AvailabilitySetResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate/v20191001preview:DiskEncryptionSetResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate/v20191001preview:KeyVaultResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate/v20191001preview:LoadBalancerResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate/v20191001preview:NetworkInterfaceResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate/v20191001preview:NetworkSecurityGroupResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate/v20191001preview:PublicIPAddressResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate/v20191001preview:ResourceGroupResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate/v20191001preview:SqlDatabaseResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate/v20191001preview:SqlElasticPoolResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate/v20191001preview:SqlServerResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate/v20191001preview:VirtualMachineResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate/v20191001preview:VirtualNetworkResourceSettingsResponse"
+    discriminator:
+      propertyName: resourceType
+      mapping:
+        Microsoft.Compute/availabilitySets: "#/types/azure-native:migrate/v20191001preview:AvailabilitySetResourceSettingsResponse"
+        Microsoft.Compute/diskEncryptionSets: "#/types/azure-native:migrate/v20191001preview:DiskEncryptionSetResourceSettingsResponse"
+        Microsoft.Compute/virtualMachines: "#/types/azure-native:migrate/v20191001preview:VirtualMachineResourceSettingsResponse"
+        Microsoft.KeyVault/vaults: "#/types/azure-native:migrate/v20191001preview:KeyVaultResourceSettingsResponse"
+        Microsoft.Network/loadBalancers: "#/types/azure-native:migrate/v20191001preview:LoadBalancerResourceSettingsResponse"
+        Microsoft.Network/networkInterfaces: "#/types/azure-native:migrate/v20191001preview:NetworkInterfaceResourceSettingsResponse"
+        Microsoft.Network/networkSecurityGroups: "#/types/azure-native:migrate/v20191001preview:NetworkSecurityGroupResourceSettingsResponse"
+        Microsoft.Network/publicIPAddresses: "#/types/azure-native:migrate/v20191001preview:PublicIPAddressResourceSettingsResponse"
+        Microsoft.Network/virtualNetworks: "#/types/azure-native:migrate/v20191001preview:VirtualNetworkResourceSettingsResponse"
+        Microsoft.Sql/servers: "#/types/azure-native:migrate/v20191001preview:SqlServerResourceSettingsResponse"
+        Microsoft.Sql/servers/databases: "#/types/azure-native:migrate/v20191001preview:SqlDatabaseResourceSettingsResponse"
+        Microsoft.Sql/servers/elasticPools: "#/types/azure-native:migrate/v20191001preview:SqlElasticPoolResourceSettingsResponse"
+        resourceGroups: "#/types/azure-native:migrate/v20191001preview:ResourceGroupResourceSettingsResponse"
+    description: Gets or sets the resource settings.
+  sourceId:
+    type: string
+    description: Gets or sets the Source ARM Id of the resource.
+  sourceResourceSettings:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:migrate/v20191001preview:AvailabilitySetResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate/v20191001preview:DiskEncryptionSetResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate/v20191001preview:KeyVaultResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate/v20191001preview:LoadBalancerResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate/v20191001preview:NetworkInterfaceResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate/v20191001preview:NetworkSecurityGroupResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate/v20191001preview:PublicIPAddressResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate/v20191001preview:ResourceGroupResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate/v20191001preview:SqlDatabaseResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate/v20191001preview:SqlElasticPoolResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate/v20191001preview:SqlServerResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate/v20191001preview:VirtualMachineResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate/v20191001preview:VirtualNetworkResourceSettingsResponse"
+    discriminator:
+      propertyName: resourceType
+      mapping:
+        Microsoft.Compute/availabilitySets: "#/types/azure-native:migrate/v20191001preview:AvailabilitySetResourceSettingsResponse"
+        Microsoft.Compute/diskEncryptionSets: "#/types/azure-native:migrate/v20191001preview:DiskEncryptionSetResourceSettingsResponse"
+        Microsoft.Compute/virtualMachines: "#/types/azure-native:migrate/v20191001preview:VirtualMachineResourceSettingsResponse"
+        Microsoft.KeyVault/vaults: "#/types/azure-native:migrate/v20191001preview:KeyVaultResourceSettingsResponse"
+        Microsoft.Network/loadBalancers: "#/types/azure-native:migrate/v20191001preview:LoadBalancerResourceSettingsResponse"
+        Microsoft.Network/networkInterfaces: "#/types/azure-native:migrate/v20191001preview:NetworkInterfaceResourceSettingsResponse"
+        Microsoft.Network/networkSecurityGroups: "#/types/azure-native:migrate/v20191001preview:NetworkSecurityGroupResourceSettingsResponse"
+        Microsoft.Network/publicIPAddresses: "#/types/azure-native:migrate/v20191001preview:PublicIPAddressResourceSettingsResponse"
+        Microsoft.Network/virtualNetworks: "#/types/azure-native:migrate/v20191001preview:VirtualNetworkResourceSettingsResponse"
+        Microsoft.Sql/servers: "#/types/azure-native:migrate/v20191001preview:SqlServerResourceSettingsResponse"
+        Microsoft.Sql/servers/databases: "#/types/azure-native:migrate/v20191001preview:SqlDatabaseResourceSettingsResponse"
+        Microsoft.Sql/servers/elasticPools: "#/types/azure-native:migrate/v20191001preview:SqlElasticPoolResourceSettingsResponse"
+        resourceGroups: "#/types/azure-native:migrate/v20191001preview:ResourceGroupResourceSettingsResponse"
+    description: Gets or sets the source resource settings.
+  targetId:
+    type: string
+    description: Gets or sets the Target ARM Id of the resource.
+type: object
+required:
+  - dependsOn
+  - errors
+  - isResolveRequired
+  - moveStatus
+  - provisioningState
+  - sourceId
+  - sourceResourceSettings
+  - targetId

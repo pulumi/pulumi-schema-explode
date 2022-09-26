@@ -1,0 +1,37 @@
+$token: azure-native:datamigration/v20180419:ConnectToSourceSqlServerTaskOutputLoginLevelResponse
+description: Login level output for the task that validates connection to SQL Server and also validates source server requirements
+properties:
+  defaultDatabase:
+    type: string
+    description: The default database for the login.
+  id:
+    type: string
+    description: Result identifier
+  isEnabled:
+    type: boolean
+    description: The state of the login.
+  loginType:
+    type: string
+    description: The type of login.
+  migrationEligibility:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20180419:MigrationEligibilityInfoResponse"
+    description: Information about eligibility of login for migration.
+  name:
+    type: string
+    description: Login name.
+  resultType:
+    type: string
+    description: |-
+      Type of result - database level or task level
+      Expected value is 'LoginLevelOutput'.
+    const: LoginLevelOutput
+type: object
+required:
+  - defaultDatabase
+  - id
+  - isEnabled
+  - loginType
+  - migrationEligibility
+  - name
+  - resultType

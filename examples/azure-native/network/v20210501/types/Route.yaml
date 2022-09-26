@@ -1,0 +1,29 @@
+$token: azure-native:network/v20210501:Route
+description: Route resource.
+properties:
+  addressPrefix:
+    type: string
+    description: The destination CIDR to which the route applies.
+  hasBgpOverride:
+    type: boolean
+    description: A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
+  id:
+    type: string
+    description: Resource ID.
+  name:
+    type: string
+    description: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+  nextHopIpAddress:
+    type: string
+    description: The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
+  nextHopType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20210501:RouteNextHopType"
+    description: The type of Azure hop the packet should be sent to.
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - nextHopType

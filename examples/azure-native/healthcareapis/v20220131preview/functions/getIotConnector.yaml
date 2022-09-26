@@ -1,0 +1,67 @@
+$token: azure-native:healthcareapis/v20220131preview:getIotConnector
+description: IoT Connector definition.
+inputs:
+  properties:
+    iotConnectorName:
+      type: string
+      description: The name of IoT Connector resource.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the service instance.
+    workspaceName:
+      type: string
+      description: The name of workspace resource.
+  type: object
+  required:
+    - iotConnectorName
+    - resourceGroupName
+    - workspaceName
+outputs:
+  description: IoT Connector definition.
+  properties:
+    deviceMapping:
+      type: object
+      $ref: "#/types/azure-native:healthcareapis/v20220131preview:IotMappingPropertiesResponse"
+      description: Device Mappings.
+    etag:
+      type: string
+      description: An etag associated with the resource, used for optimistic concurrency when editing it.
+    id:
+      type: string
+      description: The resource identifier.
+    identity:
+      type: object
+      $ref: "#/types/azure-native:healthcareapis/v20220131preview:ServiceManagedIdentityResponseIdentity"
+      description: Setting indicating whether the service has a managed identity associated with it.
+    ingestionEndpointConfiguration:
+      type: object
+      $ref: "#/types/azure-native:healthcareapis/v20220131preview:IotEventHubIngestionEndpointConfigurationResponse"
+      description: Source configuration.
+    location:
+      type: string
+      description: The resource location.
+    name:
+      type: string
+      description: The resource name.
+    provisioningState:
+      type: string
+      description: The provisioning state.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:healthcareapis/v20220131preview:SystemDataResponse"
+      description: Metadata pertaining to creation and last modification of the resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The resource type.
+  type: object
+  required:
+    - id
+    - name
+    - provisioningState
+    - systemData
+    - type

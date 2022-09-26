@@ -1,0 +1,34 @@
+$token: azure-native:security/v20190801:DenylistCustomAlertRuleResponse
+description: A custom alert rule that checks if a value (depends on the custom alert type) is denied.
+properties:
+  denylistValues:
+    type: array
+    items:
+      type: string
+    description: The values to deny. The format of the values depends on the rule type.
+  description:
+    type: string
+    description: The description of the custom alert.
+  displayName:
+    type: string
+    description: The display name of the custom alert.
+  isEnabled:
+    type: boolean
+    description: Status of the custom alert.
+  ruleType:
+    type: string
+    description: |-
+      The type of the custom alert rule.
+      Expected value is 'DenylistCustomAlertRule'.
+    const: DenylistCustomAlertRule
+  valueType:
+    type: string
+    description: The value type of the items in the list.
+type: object
+required:
+  - denylistValues
+  - description
+  - displayName
+  - isEnabled
+  - ruleType
+  - valueType

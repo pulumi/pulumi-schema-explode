@@ -1,0 +1,81 @@
+$token: azure-native:securityinsights/v20211001preview:MSTIDataConnector
+description: Represents Microsoft Threat Intelligence data connector.
+properties:
+  dataTypes:
+    type: object
+    $ref: "#/types/azure-native:securityinsights/v20211001preview:MSTIDataConnectorDataTypesResponse"
+    description: The available data types for the connector.
+  etag:
+    type: string
+    description: Etag of the azure resource
+  kind:
+    type: string
+    description: |-
+      The kind of the data connector
+      Expected value is 'MicrosoftThreatIntelligence'.
+    const: MicrosoftThreatIntelligence
+  name:
+    type: string
+    description: The name of the resource
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:securityinsights/v20211001preview:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  tenantId:
+    type: string
+    description: The tenant id to connect to, and get the data from.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - dataTypes
+  - kind
+  - name
+  - systemData
+  - tenantId
+  - type
+inputProperties:
+  dataConnectorId:
+    type: string
+    description: Connector ID
+  dataTypes:
+    type: object
+    $ref: "#/types/azure-native:securityinsights/v20211001preview:MSTIDataConnectorDataTypes"
+    description: The available data types for the connector.
+  kind:
+    type: string
+    description: |-
+      The kind of the data connector
+      Expected value is 'MicrosoftThreatIntelligence'.
+    const: MicrosoftThreatIntelligence
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  tenantId:
+    type: string
+    description: The tenant id to connect to, and get the data from.
+  workspaceName:
+    type: string
+    description: The name of the workspace.
+requiredInputs:
+  - dataTypes
+  - kind
+  - resourceGroupName
+  - tenantId
+  - workspaceName
+aliases:
+  - type: azure-native:securityinsights:MSTIDataConnector
+  - type: azure-native:securityinsights/v20190101preview:MSTIDataConnector
+  - type: azure-native:securityinsights/v20200101:MSTIDataConnector
+  - type: azure-native:securityinsights/v20210301preview:MSTIDataConnector
+  - type: azure-native:securityinsights/v20210901preview:MSTIDataConnector
+  - type: azure-native:securityinsights/v20211001:MSTIDataConnector
+  - type: azure-native:securityinsights/v20220101preview:MSTIDataConnector
+  - type: azure-native:securityinsights/v20220401preview:MSTIDataConnector
+  - type: azure-native:securityinsights/v20220501preview:MSTIDataConnector
+  - type: azure-native:securityinsights/v20220601preview:MSTIDataConnector
+  - type: azure-native:securityinsights/v20220701preview:MSTIDataConnector
+  - type: azure-native:securityinsights/v20220801:MSTIDataConnector
+  - type: azure-native:securityinsights/v20220801preview:MSTIDataConnector
+  - type: azure-native:securityinsights/v20220901preview:MSTIDataConnector

@@ -1,0 +1,164 @@
+$token: azure-native:web/v20150801:getSite
+description: Represents a web app
+inputs:
+  properties:
+    name:
+      type: string
+      description: Name of web app
+    propertiesToInclude:
+      type: string
+      description: Additional web app properties included in the response
+    resourceGroupName:
+      type: string
+      description: Name of resource group
+  type: object
+  required:
+    - name
+    - resourceGroupName
+outputs:
+  description: Represents a web app
+  properties:
+    availabilityState:
+      type: string
+      description: "Management information availability state for the web app. Possible values are Normal or Limited. \r
+
+        \            Normal means that the site is running correctly and that management information for the site is available. \r
+
+        \            Limited means that only partial management information for the site is available and that detailed site information is unavailable."
+    clientAffinityEnabled:
+      type: boolean
+      description: Specifies if the client affinity is enabled when load balancing http request for multiple instances of the web app
+    clientCertEnabled:
+      type: boolean
+      description: Specifies if the client certificate is enabled for the web app
+    cloningInfo:
+      type: object
+      $ref: "#/types/azure-native:web/v20150801:CloningInfoResponse"
+      description: "This is only valid for web app creation. If specified, web app is cloned from \r
+
+        \            a source web app"
+    containerSize:
+      type: integer
+      description: Size of a function container
+    defaultHostName:
+      type: string
+      description: Default hostname of the web app
+    enabled:
+      type: boolean
+      description: True if the site is enabled; otherwise, false. Setting this  value to false disables the site (takes the site off line).
+    enabledHostNames:
+      type: array
+      items:
+        type: string
+      description: "Hostnames for the web app that are enabled. Hostnames need to be assigned and enabled. If some hostnames are assigned but not enabled\r
+
+        \            the app is not served on those hostnames"
+    gatewaySiteName:
+      type: string
+      description: Name of gateway app associated with web app
+    hostNameSslStates:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:web/v20150801:HostNameSslStateResponse"
+      description: Hostname SSL states are  used to manage the SSL bindings for site's hostnames.
+    hostNames:
+      type: array
+      items:
+        type: string
+      description: Hostnames associated with web app
+    hostNamesDisabled:
+      type: boolean
+      description: "Specifies if the public hostnames are disabled the web app.\r
+
+        \            If set to true the app is only accessible via API Management process"
+    hostingEnvironmentProfile:
+      type: object
+      $ref: "#/types/azure-native:web/v20150801:HostingEnvironmentProfileResponse"
+      description: Specification for the hosting environment (App Service Environment) to use for the web app
+    id:
+      type: string
+      description: Resource Id
+    isDefaultContainer:
+      type: boolean
+      description: Site is a default container
+    kind:
+      type: string
+      description: Kind of resource
+    lastModifiedTimeUtc:
+      type: string
+      description: Last time web app was modified in UTC
+    location:
+      type: string
+      description: Resource Location
+    maxNumberOfWorkers:
+      type: integer
+      description: "Maximum number of workers\r
+
+        \            This only applies to function container"
+    microService:
+      type: string
+    name:
+      type: string
+      description: Resource Name
+    outboundIpAddresses:
+      type: string
+      description: List of comma separated IP addresses that this web app uses for outbound connections. Those can be used when configuring firewall rules for databases accessed by this web app.
+    premiumAppDeployed:
+      type: boolean
+      description: If set indicates whether web app is deployed as a premium app
+    repositorySiteName:
+      type: string
+      description: Name of repository site
+    resourceGroup:
+      type: string
+      description: Resource group web app belongs to
+    scmSiteAlsoStopped:
+      type: boolean
+      description: If set indicates whether to stop SCM (KUDU) site when the web app is stopped. Default is false.
+    serverFarmId:
+      type: string
+    siteConfig:
+      type: object
+      $ref: "#/types/azure-native:web/v20150801:SiteConfigResponse"
+      description: Configuration of web app
+    state:
+      type: string
+      description: State of the web app
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    targetSwapSlot:
+      type: string
+      description: Read-only property that specifies which slot this app will swap into
+    trafficManagerHostNames:
+      type: array
+      items:
+        type: string
+      description: Read-only list of Azure Traffic manager hostnames associated with web app
+    type:
+      type: string
+      description: Resource type
+    usageState:
+      type: string
+      description: State indicating whether web app has exceeded its quota usage
+  type: object
+  required:
+    - availabilityState
+    - defaultHostName
+    - enabledHostNames
+    - hostNames
+    - isDefaultContainer
+    - lastModifiedTimeUtc
+    - location
+    - outboundIpAddresses
+    - premiumAppDeployed
+    - repositorySiteName
+    - resourceGroup
+    - state
+    - targetSwapSlot
+    - trafficManagerHostNames
+    - usageState
+deprecationMessage: Version 2015-08-01 will be removed in v2 of the provider.

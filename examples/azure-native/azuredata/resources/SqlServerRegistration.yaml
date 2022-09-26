@@ -1,0 +1,67 @@
+$token: azure-native:azuredata:SqlServerRegistration
+description: |-
+  A SQL server registration.
+  API Version: 2019-07-24-preview.
+properties:
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  name:
+    type: string
+    description: The name of the resource
+  propertyBag:
+    type: string
+    description: Optional Properties as JSON string
+  resourceGroup:
+    type: string
+    description: Resource Group Name
+  subscriptionId:
+    type: string
+    description: Subscription Id
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:azuredata:SystemDataResponse"
+    description: Read only system data
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+type: object
+required:
+  - location
+  - name
+  - systemData
+  - type
+inputProperties:
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  propertyBag:
+    type: string
+    description: Optional Properties as JSON string
+  resourceGroup:
+    type: string
+    description: Resource Group Name
+  resourceGroupName:
+    type: string
+    description: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  sqlServerRegistrationName:
+    type: string
+    description: Name of the SQL Server registration.
+  subscriptionId:
+    type: string
+    description: Subscription Id
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:azuredata/v20170301preview:SqlServerRegistration
+  - type: azure-native:azuredata/v20190724preview:SqlServerRegistration

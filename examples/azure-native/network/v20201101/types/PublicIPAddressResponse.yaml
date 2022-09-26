@@ -1,0 +1,99 @@
+$token: azure-native:network/v20201101:PublicIPAddressResponse
+description: Public IP address resource.
+properties:
+  ddosSettings:
+    type: object
+    $ref: "#/types/azure-native:network/v20201101:DdosSettingsResponse"
+    description: The DDoS protection custom policy associated with the public IP address.
+  dnsSettings:
+    type: object
+    $ref: "#/types/azure-native:network/v20201101:PublicIPAddressDnsSettingsResponse"
+    description: The FQDN of the DNS record associated with the public IP address.
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  extendedLocation:
+    type: object
+    $ref: "#/types/azure-native:network/v20201101:ExtendedLocationResponse"
+    description: The extended location of the public ip address.
+  id:
+    type: string
+    description: Resource ID.
+  idleTimeoutInMinutes:
+    type: integer
+    description: The idle timeout of the public IP address.
+  ipAddress:
+    type: string
+    description: The IP address associated with the public IP address resource.
+  ipConfiguration:
+    type: object
+    $ref: "#/types/azure-native:network/v20201101:IPConfigurationResponse"
+    description: The IP configuration associated with the public IP address.
+  ipTags:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20201101:IpTagResponse"
+    description: The list of tags associated with the public IP address.
+  linkedPublicIPAddress:
+    type: object
+    $ref: "#/types/azure-native:network/v20201101:PublicIPAddressResponse"
+    description: The linked public IP address of the public IP address resource.
+  location:
+    type: string
+    description: Resource location.
+  migrationPhase:
+    type: string
+    description: Migration phase of Public IP Address.
+  name:
+    type: string
+    description: Resource name.
+  natGateway:
+    type: object
+    $ref: "#/types/azure-native:network/v20201101:NatGatewayResponse"
+    description: The NatGateway for the Public IP address.
+  provisioningState:
+    type: string
+    description: The provisioning state of the public IP address resource.
+  publicIPAddressVersion:
+    type: string
+    description: The public IP address version.
+  publicIPAllocationMethod:
+    type: string
+    description: The public IP address allocation method.
+  publicIPPrefix:
+    type: object
+    $ref: "#/types/azure-native:network/v20201101:SubResourceResponse"
+    description: The Public IP Prefix this Public IP Address should be allocated from.
+  resourceGuid:
+    type: string
+    description: The resource GUID property of the public IP address resource.
+  servicePublicIPAddress:
+    type: object
+    $ref: "#/types/azure-native:network/v20201101:PublicIPAddressResponse"
+    description: The service public IP address of the public IP address resource.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:network/v20201101:PublicIPAddressSkuResponse"
+    description: The public IP address SKU.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: Resource type.
+  zones:
+    type: array
+    items:
+      type: string
+    description: A list of availability zones denoting the IP allocated for the resource needs to come from.
+type: object
+required:
+  - etag
+  - ipConfiguration
+  - name
+  - provisioningState
+  - resourceGuid
+  - type

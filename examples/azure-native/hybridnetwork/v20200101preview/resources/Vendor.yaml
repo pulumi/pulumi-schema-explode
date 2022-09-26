@@ -1,0 +1,32 @@
+$token: azure-native:hybridnetwork/v20200101preview:Vendor
+description: Vendor resource.
+properties:
+  name:
+    type: string
+    description: The name of the resource
+  provisioningState:
+    type: string
+    description: The provisioning state of the vendor resource.
+  skus:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:hybridnetwork/v20200101preview:SubResourceResponse"
+    description: A list of IDs of the vendor skus offered by the vendor.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - name
+  - provisioningState
+  - skus
+  - type
+inputProperties:
+  vendorName:
+    type: string
+    description: The name of the vendor.
+aliases:
+  - type: azure-native:hybridnetwork:Vendor
+  - type: azure-native:hybridnetwork/v20210501:Vendor
+  - type: azure-native:hybridnetwork/v20220101preview:Vendor

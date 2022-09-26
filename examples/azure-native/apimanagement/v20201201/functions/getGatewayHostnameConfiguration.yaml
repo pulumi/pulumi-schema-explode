@@ -1,0 +1,57 @@
+$token: azure-native:apimanagement/v20201201:getGatewayHostnameConfiguration
+description: Gateway hostname configuration details.
+inputs:
+  properties:
+    gatewayId:
+      type: string
+      description: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
+    hcId:
+      type: string
+      description: Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    serviceName:
+      type: string
+      description: The name of the API Management service.
+  type: object
+  required:
+    - gatewayId
+    - hcId
+    - resourceGroupName
+    - serviceName
+outputs:
+  description: Gateway hostname configuration details.
+  properties:
+    certificateId:
+      type: string
+      description: Identifier of Certificate entity that will be used for TLS connection establishment
+    hostname:
+      type: string
+      description: Hostname value. Supports valid domain name, partial or full wildcard
+    http2Enabled:
+      type: boolean
+      description: Specifies if HTTP/2.0 is supported
+    id:
+      type: string
+      description: Resource ID.
+    name:
+      type: string
+      description: Resource name.
+    negotiateClientCertificate:
+      type: boolean
+      description: Determines whether gateway requests client certificate
+    tls10Enabled:
+      type: boolean
+      description: Specifies if TLS 1.0 is supported
+    tls11Enabled:
+      type: boolean
+      description: Specifies if TLS 1.1 is supported
+    type:
+      type: string
+      description: Resource type for API Management resource.
+  type: object
+  required:
+    - id
+    - name
+    - type

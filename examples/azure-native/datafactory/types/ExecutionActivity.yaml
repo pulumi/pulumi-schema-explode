@@ -1,0 +1,39 @@
+$token: azure-native:datafactory:ExecutionActivity
+description: Base class for all execution activities.
+properties:
+  dependsOn:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory:ActivityDependency"
+    description: Activity depends on condition.
+  description:
+    type: string
+    description: Activity description.
+  linkedServiceName:
+    type: object
+    $ref: "#/types/azure-native:datafactory:LinkedServiceReference"
+    description: Linked service reference.
+  name:
+    type: string
+    description: Activity name.
+  policy:
+    type: object
+    $ref: "#/types/azure-native:datafactory:ActivityPolicy"
+    description: Activity policy.
+  type:
+    type: string
+    description: |-
+      Type of activity.
+      Expected value is 'Execution'.
+    const: Execution
+  userProperties:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory:UserProperty"
+    description: Activity user properties.
+type: object
+required:
+  - name
+  - type

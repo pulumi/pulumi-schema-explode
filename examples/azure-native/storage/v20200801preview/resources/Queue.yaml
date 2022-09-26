@@ -1,0 +1,50 @@
+$token: azure-native:storage/v20200801preview:Queue
+properties:
+  approximateMessageCount:
+    type: integer
+    description: Integer indicating an approximate number of messages in the queue. This number is not lower than the actual number of messages in the queue, but could be higher.
+  metadata:
+    type: object
+    additionalProperties:
+      type: string
+    description: A name-value pair that represents queue metadata.
+  name:
+    type: string
+    description: The name of the resource
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - approximateMessageCount
+  - name
+  - type
+inputProperties:
+  accountName:
+    type: string
+    description: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+  metadata:
+    type: object
+    additionalProperties:
+      type: string
+    description: A name-value pair that represents queue metadata.
+  queueName:
+    type: string
+    description: A queue name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of lowercase alphanumeric and dash(-) characters only, it should begin and end with an alphanumeric character and it cannot have two consecutive dash(-) characters.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group within the user's subscription. The name is case insensitive.
+requiredInputs:
+  - accountName
+  - resourceGroupName
+aliases:
+  - type: azure-native:storage:Queue
+  - type: azure-native:storage/v20190601:Queue
+  - type: azure-native:storage/v20210101:Queue
+  - type: azure-native:storage/v20210201:Queue
+  - type: azure-native:storage/v20210401:Queue
+  - type: azure-native:storage/v20210601:Queue
+  - type: azure-native:storage/v20210801:Queue
+  - type: azure-native:storage/v20210901:Queue
+  - type: azure-native:storage/v20220501:Queue
+deprecationMessage: Version 2020-08-01-preview will be removed in v2 of the provider.

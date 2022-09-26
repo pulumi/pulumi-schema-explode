@@ -1,0 +1,18 @@
+$token: azure-native:containerregistry/v20210901:NetworkRuleSet
+description: The network rule set for a container registry.
+properties:
+  defaultAction:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:containerregistry/v20210901:DefaultAction"
+    description: The default action of allow or deny when no other rules match.
+    default: Allow
+  ipRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:containerregistry/v20210901:IPRule"
+    description: The IP ACL rules.
+type: object
+required:
+  - defaultAction

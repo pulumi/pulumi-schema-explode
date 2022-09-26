@@ -1,0 +1,66 @@
+$token: azure-native:recoveryservices/v20210601:VMNicDetailsResponse
+description: Hyper V VM network details.
+properties:
+  enableAcceleratedNetworkingOnRecovery:
+    type: boolean
+    description: A value indicating whether the NIC has accelerated networking enabled.
+  enableAcceleratedNetworkingOnTfo:
+    type: boolean
+    description: Whether the TFO NIC has accelerated networking enabled.
+  ipConfigs:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:recoveryservices/v20210601:IPConfigDetailsResponse"
+    description: The IP configurations of the NIC.
+  nicId:
+    type: string
+    description: The nic Id.
+  recoveryNetworkSecurityGroupId:
+    type: string
+    description: The id of the NSG associated with the NIC.
+  recoveryNicName:
+    type: string
+    description: The name of the NIC to be used when creating target NICs.
+  recoveryNicResourceGroupName:
+    type: string
+    description: The resource group of the NIC to be used when creating target NICs.
+  recoveryVMNetworkId:
+    type: string
+    description: Recovery VM network Id.
+  replicaNicId:
+    type: string
+    description: The replica nic Id.
+  reuseExistingNic:
+    type: boolean
+    description: A value indicating whether an existing NIC is allowed to be reused during failover subject to availability.
+    default: false
+  selectionType:
+    type: string
+    description: Selection type for failover.
+  sourceNicArmId:
+    type: string
+    description: The source nic ARM Id.
+  targetNicName:
+    type: string
+    description: Target NIC name.
+  tfoNetworkSecurityGroupId:
+    type: string
+    description: The NSG to be used by NIC during test failover.
+  tfoRecoveryNicName:
+    type: string
+    description: The name of the NIC to be used when creating target NICs in TFO.
+  tfoRecoveryNicResourceGroupName:
+    type: string
+    description: The resource group of the NIC to be used when creating target NICs in TFO.
+  tfoReuseExistingNic:
+    type: boolean
+    description: A value indicating whether an existing NIC is allowed to be reused during test failover subject to availability.
+    default: false
+  tfoVMNetworkId:
+    type: string
+    description: The network to be used by NIC during test failover.
+  vMNetworkName:
+    type: string
+    description: VM network name.
+type: object

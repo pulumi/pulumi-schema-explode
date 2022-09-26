@@ -1,0 +1,62 @@
+$token: azure-native:kusto/v20200614:getClusterPrincipalAssignment
+description: Class representing a cluster principal assignment.
+inputs:
+  properties:
+    clusterName:
+      type: string
+      description: The name of the Kusto cluster.
+    principalAssignmentName:
+      type: string
+      description: The name of the Kusto principalAssignment.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group containing the Kusto cluster.
+  type: object
+  required:
+    - clusterName
+    - principalAssignmentName
+    - resourceGroupName
+outputs:
+  description: Class representing a cluster principal assignment.
+  properties:
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    name:
+      type: string
+      description: The name of the resource
+    principalId:
+      type: string
+      description: The principal ID assigned to the cluster principal. It can be a user email, application ID, or security group name.
+    principalName:
+      type: string
+      description: The principal name
+    principalType:
+      type: string
+      description: Principal type.
+    provisioningState:
+      type: string
+      description: The provisioned state of the resource.
+    role:
+      type: string
+      description: Cluster principal role.
+    tenantId:
+      type: string
+      description: The tenant id of the principal
+    tenantName:
+      type: string
+      description: The tenant name of the principal
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - id
+    - name
+    - principalId
+    - principalName
+    - principalType
+    - provisioningState
+    - role
+    - tenantName
+    - type

@@ -1,0 +1,54 @@
+$token: azure-native:containerservice:getMaintenanceConfiguration
+description: |-
+  maintenance configuration.
+  API Version: 2021-03-01.
+inputs:
+  properties:
+    configName:
+      type: string
+      description: The name of the maintenance configuration.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    resourceName:
+      type: string
+      description: The name of the managed cluster resource.
+  type: object
+  required:
+    - configName
+    - resourceGroupName
+    - resourceName
+outputs:
+  description: maintenance configuration.
+  properties:
+    id:
+      type: string
+      description: Resource ID.
+    name:
+      type: string
+      description: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+    notAllowedTime:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:containerservice:TimeSpanResponse"
+      description: Time slots on which upgrade is not allowed.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:containerservice:SystemDataResponse"
+      description: The system meta data relating to this resource.
+    timeInWeek:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:containerservice:TimeInWeekResponse"
+      description: Weekday time slots allowed to upgrade.
+    type:
+      type: string
+      description: Resource type
+  type: object
+  required:
+    - id
+    - name
+    - systemData
+    - type

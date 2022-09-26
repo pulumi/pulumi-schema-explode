@@ -1,0 +1,59 @@
+$token: azure-native:netapp/v20210201:getSnapshot
+description: Snapshot of a Volume
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: The name of the NetApp account
+    poolName:
+      type: string
+      description: The name of the capacity pool
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    snapshotName:
+      type: string
+      description: The name of the snapshot
+    volumeName:
+      type: string
+      description: The name of the volume
+  type: object
+  required:
+    - accountName
+    - poolName
+    - resourceGroupName
+    - snapshotName
+    - volumeName
+outputs:
+  description: Snapshot of a Volume
+  properties:
+    created:
+      type: string
+      description: The creation date of the snapshot
+    id:
+      type: string
+      description: Resource Id
+    location:
+      type: string
+      description: Resource location
+    name:
+      type: string
+      description: Resource name
+    provisioningState:
+      type: string
+      description: Azure lifecycle management
+    snapshotId:
+      type: string
+      description: UUID v4 used to identify the Snapshot
+    type:
+      type: string
+      description: Resource type
+  type: object
+  required:
+    - created
+    - id
+    - location
+    - name
+    - provisioningState
+    - snapshotId
+    - type

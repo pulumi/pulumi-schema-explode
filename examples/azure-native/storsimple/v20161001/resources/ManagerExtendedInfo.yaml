@@ -1,0 +1,70 @@
+$token: azure-native:storsimple/v20161001:ManagerExtendedInfo
+description: The extended info of the manager.
+properties:
+  algorithm:
+    type: string
+    description: Represents the encryption algorithm used to encrypt the other keys. None - if EncryptionKey is saved in plain text format. AlgorithmName - if encryption is used
+  encryptionKey:
+    type: string
+    description: Represents the CEK of the resource
+  encryptionKeyThumbprint:
+    type: string
+    description: Represents the Cert thumbprint that was used to encrypt the CEK
+  etag:
+    type: string
+    description: ETag of the Resource
+  integrityKey:
+    type: string
+    description: Represents the CIK of the resource
+  name:
+    type: string
+    description: The name.
+  portalCertificateThumbprint:
+    type: string
+    description: Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
+  type:
+    type: string
+    description: The type.
+  version:
+    type: string
+    description: Represents the version of the ExtendedInfo object being persisted
+type: object
+required:
+  - algorithm
+  - integrityKey
+  - name
+  - type
+inputProperties:
+  algorithm:
+    type: string
+    description: Represents the encryption algorithm used to encrypt the other keys. None - if EncryptionKey is saved in plain text format. AlgorithmName - if encryption is used
+  encryptionKey:
+    type: string
+    description: Represents the CEK of the resource
+  encryptionKeyThumbprint:
+    type: string
+    description: Represents the Cert thumbprint that was used to encrypt the CEK
+  integrityKey:
+    type: string
+    description: Represents the CIK of the resource
+  managerName:
+    type: string
+    description: The manager name
+  portalCertificateThumbprint:
+    type: string
+    description: Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
+  resourceGroupName:
+    type: string
+    description: The resource group name
+  version:
+    type: string
+    description: Represents the version of the ExtendedInfo object being persisted
+requiredInputs:
+  - algorithm
+  - integrityKey
+  - managerName
+  - resourceGroupName
+aliases:
+  - type: azure-native:storsimple:ManagerExtendedInfo
+  - type: azure-native:storsimple/v20170601:ManagerExtendedInfo
+deprecationMessage: Version 2016-10-01 will be removed in v2 of the provider.

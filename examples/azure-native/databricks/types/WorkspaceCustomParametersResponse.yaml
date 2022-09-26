@@ -1,0 +1,70 @@
+$token: azure-native:databricks:WorkspaceCustomParametersResponse
+description: Custom Parameters used for Cluster Creation.
+properties:
+  amlWorkspaceId:
+    type: object
+    $ref: "#/types/azure-native:databricks:WorkspaceCustomStringParameterResponse"
+    description: The ID of a Azure Machine Learning workspace to link with Databricks workspace
+  customPrivateSubnetName:
+    type: object
+    $ref: "#/types/azure-native:databricks:WorkspaceCustomStringParameterResponse"
+    description: The name of the Private Subnet within the Virtual Network
+  customPublicSubnetName:
+    type: object
+    $ref: "#/types/azure-native:databricks:WorkspaceCustomStringParameterResponse"
+    description: The name of a Public Subnet within the Virtual Network
+  customVirtualNetworkId:
+    type: object
+    $ref: "#/types/azure-native:databricks:WorkspaceCustomStringParameterResponse"
+    description: The ID of a Virtual Network where this Databricks Cluster should be created
+  enableNoPublicIp:
+    type: object
+    $ref: "#/types/azure-native:databricks:WorkspaceCustomBooleanParameterResponse"
+    description: Should the Public IP be Disabled?
+  encryption:
+    type: object
+    $ref: "#/types/azure-native:databricks:WorkspaceEncryptionParameterResponse"
+    description: Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.
+  loadBalancerBackendPoolName:
+    type: object
+    $ref: "#/types/azure-native:databricks:WorkspaceCustomStringParameterResponse"
+    description: Name of the outbound Load Balancer Backend Pool for Secure Cluster Connectivity (No Public IP).
+  loadBalancerId:
+    type: object
+    $ref: "#/types/azure-native:databricks:WorkspaceCustomStringParameterResponse"
+    description: Resource URI of Outbound Load balancer for Secure Cluster Connectivity (No Public IP) workspace.
+  natGatewayName:
+    type: object
+    $ref: "#/types/azure-native:databricks:WorkspaceCustomStringParameterResponse"
+    description: Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets.
+  prepareEncryption:
+    type: object
+    $ref: "#/types/azure-native:databricks:WorkspaceCustomBooleanParameterResponse"
+    description: Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
+  publicIpName:
+    type: object
+    $ref: "#/types/azure-native:databricks:WorkspaceCustomStringParameterResponse"
+    description: Name of the Public IP for No Public IP workspace with managed vNet.
+  requireInfrastructureEncryption:
+    type: object
+    $ref: "#/types/azure-native:databricks:WorkspaceCustomBooleanParameterResponse"
+    description: A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
+  resourceTags:
+    type: object
+    $ref: "#/types/azure-native:databricks:WorkspaceCustomObjectParameterResponse"
+    description: Tags applied to resources under Managed resource group. These can be updated by updating tags at workspace level.
+  storageAccountName:
+    type: object
+    $ref: "#/types/azure-native:databricks:WorkspaceCustomStringParameterResponse"
+    description: Default DBFS storage account name.
+  storageAccountSkuName:
+    type: object
+    $ref: "#/types/azure-native:databricks:WorkspaceCustomStringParameterResponse"
+    description: "Storage account SKU name, ex: Standard_GRS, Standard_LRS. Refer https://aka.ms/storageskus for valid inputs."
+  vnetAddressPrefix:
+    type: object
+    $ref: "#/types/azure-native:databricks:WorkspaceCustomStringParameterResponse"
+    description: Address prefix for Managed virtual network. Default value for this input is 10.139.
+type: object
+required:
+  - resourceTags

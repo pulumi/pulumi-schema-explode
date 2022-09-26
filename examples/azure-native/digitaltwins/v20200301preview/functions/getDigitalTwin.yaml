@@ -1,0 +1,61 @@
+$token: azure-native:digitaltwins/v20200301preview:getDigitalTwin
+description: The description of the DigitalTwins service.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the DigitalTwinsInstance.
+    resourceName:
+      type: string
+      description: The name of the DigitalTwinsInstance.
+  type: object
+  required:
+    - resourceGroupName
+    - resourceName
+outputs:
+  description: The description of the DigitalTwins service.
+  properties:
+    createdTime:
+      type: string
+      description: Time when DigitalTwinsInstance was created.
+    hostName:
+      type: string
+      description: Api endpoint to work with DigitalTwinsInstance.
+    id:
+      type: string
+      description: The resource identifier.
+    lastUpdatedTime:
+      type: string
+      description: Time when DigitalTwinsInstance was created.
+    location:
+      type: string
+      description: The resource location.
+    name:
+      type: string
+      description: The resource name.
+    provisioningState:
+      type: string
+      description: The provisioning state.
+    sku:
+      type: object
+      $ref: "#/types/azure-native:digitaltwins/v20200301preview:DigitalTwinsSkuInfoResponse"
+      description: This property is reserved for future use, and will be ignored/omitted
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: The resource tags.
+    type:
+      type: string
+      description: The resource type.
+  type: object
+  required:
+    - createdTime
+    - hostName
+    - id
+    - lastUpdatedTime
+    - location
+    - name
+    - provisioningState
+    - type
+deprecationMessage: Version 2020-03-01-preview will be removed in v2 of the provider.

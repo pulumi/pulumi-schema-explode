@@ -1,0 +1,58 @@
+$token: azure-native:recommendationsservice:Account
+description: |-
+  Account resource details.
+  API Version: 2022-02-01.
+properties:
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  name:
+    type: string
+    description: The name of the resource
+  properties:
+    type: object
+    $ref: "#/types/azure-native:recommendationsservice:AccountResourceResponseProperties"
+    description: Account resource properties.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:recommendationsservice:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - location
+  - name
+  - properties
+  - systemData
+  - type
+inputProperties:
+  accountName:
+    type: string
+    description: The name of the RecommendationsService Account resource.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  properties:
+    type: object
+    $ref: "#/types/azure-native:recommendationsservice:AccountResourceProperties"
+    description: Account resource properties.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:recommendationsservice/v20220201:Account
+  - type: azure-native:recommendationsservice/v20220301preview:Account

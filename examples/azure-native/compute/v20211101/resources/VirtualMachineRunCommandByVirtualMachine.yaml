@@ -1,0 +1,130 @@
+$token: azure-native:compute/v20211101:VirtualMachineRunCommandByVirtualMachine
+description: Describes a Virtual Machine run command.
+properties:
+  asyncExecution:
+    type: boolean
+    description: Optional. If set to true, provisioning will complete as soon as the script starts and will not wait for script to complete.
+    default: false
+  errorBlobUri:
+    type: string
+    description: Specifies the Azure storage blob where script error stream will be uploaded.
+  instanceView:
+    type: object
+    $ref: "#/types/azure-native:compute/v20211101:VirtualMachineRunCommandInstanceViewResponse"
+    description: The virtual machine run command instance view.
+  location:
+    type: string
+    description: Resource location
+  name:
+    type: string
+    description: Resource name
+  outputBlobUri:
+    type: string
+    description: Specifies the Azure storage blob where script output stream will be uploaded.
+  parameters:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:compute/v20211101:RunCommandInputParameterResponse"
+    description: The parameters used by the script.
+  protectedParameters:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:compute/v20211101:RunCommandInputParameterResponse"
+    description: The parameters used by the script.
+  provisioningState:
+    type: string
+    description: The provisioning state, which only appears in the response.
+  runAsPassword:
+    type: string
+    description: Specifies the user account password on the VM when executing the run command.
+  runAsUser:
+    type: string
+    description: Specifies the user account on the VM when executing the run command.
+  source:
+    type: object
+    $ref: "#/types/azure-native:compute/v20211101:VirtualMachineRunCommandScriptSourceResponse"
+    description: The source of the run command script.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  timeoutInSeconds:
+    type: integer
+    description: The timeout in seconds to execute the run command.
+  type:
+    type: string
+    description: Resource type
+type: object
+required:
+  - instanceView
+  - location
+  - name
+  - provisioningState
+  - type
+inputProperties:
+  asyncExecution:
+    type: boolean
+    description: Optional. If set to true, provisioning will complete as soon as the script starts and will not wait for script to complete.
+    default: false
+  errorBlobUri:
+    type: string
+    description: Specifies the Azure storage blob where script error stream will be uploaded.
+  location:
+    type: string
+    description: Resource location
+  outputBlobUri:
+    type: string
+    description: Specifies the Azure storage blob where script output stream will be uploaded.
+  parameters:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:compute/v20211101:RunCommandInputParameter"
+    description: The parameters used by the script.
+  protectedParameters:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:compute/v20211101:RunCommandInputParameter"
+    description: The parameters used by the script.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  runAsPassword:
+    type: string
+    description: Specifies the user account password on the VM when executing the run command.
+  runAsUser:
+    type: string
+    description: Specifies the user account on the VM when executing the run command.
+  runCommandName:
+    type: string
+    description: The name of the virtual machine run command.
+  source:
+    type: object
+    $ref: "#/types/azure-native:compute/v20211101:VirtualMachineRunCommandScriptSource"
+    description: The source of the run command script.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  timeoutInSeconds:
+    type: integer
+    description: The timeout in seconds to execute the run command.
+  vmName:
+    type: string
+    description: The name of the virtual machine where the run command should be created or updated.
+requiredInputs:
+  - resourceGroupName
+  - vmName
+aliases:
+  - type: azure-native:compute:VirtualMachineRunCommandByVirtualMachine
+  - type: azure-native:compute/v20200601:VirtualMachineRunCommandByVirtualMachine
+  - type: azure-native:compute/v20201201:VirtualMachineRunCommandByVirtualMachine
+  - type: azure-native:compute/v20210301:VirtualMachineRunCommandByVirtualMachine
+  - type: azure-native:compute/v20210401:VirtualMachineRunCommandByVirtualMachine
+  - type: azure-native:compute/v20210701:VirtualMachineRunCommandByVirtualMachine
+  - type: azure-native:compute/v20220301:VirtualMachineRunCommandByVirtualMachine

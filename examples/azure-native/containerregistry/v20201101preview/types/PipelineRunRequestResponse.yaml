@@ -1,0 +1,29 @@
+$token: azure-native:containerregistry/v20201101preview:PipelineRunRequestResponse
+description: The request properties provided for a pipeline run.
+properties:
+  artifacts:
+    type: array
+    items:
+      type: string
+    description: "List of source artifacts to be transferred by the pipeline. \r
+
+      Specify an image by repository ('hello-world'). This will use the 'latest' tag.\r
+
+      Specify an image by tag ('hello-world:latest').\r
+
+      Specify an image by sha256-based manifest digest ('hello-world@sha256:abc123')."
+  catalogDigest:
+    type: string
+    description: The digest of the tar used to transfer the artifacts.
+  pipelineResourceId:
+    type: string
+    description: The resource ID of the pipeline to run.
+  source:
+    type: object
+    $ref: "#/types/azure-native:containerregistry/v20201101preview:PipelineRunSourcePropertiesResponse"
+    description: The source properties of the pipeline run.
+  target:
+    type: object
+    $ref: "#/types/azure-native:containerregistry/v20201101preview:PipelineRunTargetPropertiesResponse"
+    description: The target properties of the pipeline run.
+type: object

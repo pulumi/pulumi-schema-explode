@@ -1,0 +1,64 @@
+$token: azure-native:securityinsights/v20220801preview:getEntitiesGetTimeline
+description: The entity timeline result operation response.
+inputs:
+  properties:
+    endTime:
+      type: string
+      description: The end timeline date, so the results returned are before this date.
+    entityId:
+      type: string
+      description: entity ID
+    kinds:
+      type: array
+      items:
+        oneOf:
+          - type: string
+          - $ref: "#/types/azure-native:securityinsights/v20220801preview:EntityTimelineKind"
+      description: Array of timeline Item kinds.
+    numberOfBucket:
+      type: integer
+      description: The number of bucket for timeline queries aggregation.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    startTime:
+      type: string
+      description: The start timeline date, so the results returned are after this date.
+    workspaceName:
+      type: string
+      description: The name of the workspace.
+  type: object
+  required:
+    - endTime
+    - entityId
+    - resourceGroupName
+    - startTime
+    - workspaceName
+outputs:
+  description: The entity timeline result operation response.
+  properties:
+    metaData:
+      type: object
+      $ref: "#/types/azure-native:securityinsights/v20220801preview:TimelineResultsMetadataResponse"
+      description: The metadata from the timeline operation results.
+    value:
+      type: array
+      items:
+        oneOf:
+          - type: object
+            $ref: "#/types/azure-native:securityinsights/v20220801preview:ActivityTimelineItemResponse"
+          - type: object
+            $ref: "#/types/azure-native:securityinsights/v20220801preview:AnomalyTimelineItemResponse"
+          - type: object
+            $ref: "#/types/azure-native:securityinsights/v20220801preview:BookmarkTimelineItemResponse"
+          - type: object
+            $ref: "#/types/azure-native:securityinsights/v20220801preview:SecurityAlertTimelineItemResponse"
+        discriminator:
+          propertyName: kind
+          mapping:
+            Activity: "#/types/azure-native:securityinsights/v20220801preview:ActivityTimelineItemResponse"
+            Anomaly: "#/types/azure-native:securityinsights/v20220801preview:AnomalyTimelineItemResponse"
+            Bookmark: "#/types/azure-native:securityinsights/v20220801preview:BookmarkTimelineItemResponse"
+            SecurityAlert: "#/types/azure-native:securityinsights/v20220801preview:SecurityAlertTimelineItemResponse"
+      description: The timeline result values.
+  type: object

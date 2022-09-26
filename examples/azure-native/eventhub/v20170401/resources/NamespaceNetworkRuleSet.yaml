@@ -1,0 +1,62 @@
+$token: azure-native:eventhub/v20170401:NamespaceNetworkRuleSet
+description: Description of NetworkRuleSet resource.
+properties:
+  defaultAction:
+    type: string
+    description: Default Action for Network Rule Set
+  ipRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:eventhub/v20170401:NWRuleSetIpRulesResponse"
+    description: List of IpRules
+  name:
+    type: string
+    description: The name of the resource
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  virtualNetworkRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:eventhub/v20170401:NWRuleSetVirtualNetworkRulesResponse"
+    description: List VirtualNetwork Rules
+type: object
+required:
+  - name
+  - type
+inputProperties:
+  defaultAction:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:eventhub/v20170401:DefaultAction"
+    description: Default Action for Network Rule Set
+  ipRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:eventhub/v20170401:NWRuleSetIpRules"
+    description: List of IpRules
+  namespaceName:
+    type: string
+    description: The Namespace name
+  resourceGroupName:
+    type: string
+    description: Name of the resource group within the azure subscription.
+  virtualNetworkRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:eventhub/v20170401:NWRuleSetVirtualNetworkRules"
+    description: List VirtualNetwork Rules
+requiredInputs:
+  - namespaceName
+  - resourceGroupName
+aliases:
+  - type: azure-native:eventhub:NamespaceNetworkRuleSet
+  - type: azure-native:eventhub/v20180101preview:NamespaceNetworkRuleSet
+  - type: azure-native:eventhub/v20210101preview:NamespaceNetworkRuleSet
+  - type: azure-native:eventhub/v20210601preview:NamespaceNetworkRuleSet
+  - type: azure-native:eventhub/v20211101:NamespaceNetworkRuleSet
+  - type: azure-native:eventhub/v20220101preview:NamespaceNetworkRuleSet

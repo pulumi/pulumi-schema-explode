@@ -1,0 +1,98 @@
+$token: azure-native:eventgrid:PartnerDestination
+description: |-
+  Event Grid Partner Destination.
+  API Version: 2021-10-15-preview.
+properties:
+  activationState:
+    type: string
+    description: Activation state of the partner destination.
+  endpointBaseUrl:
+    type: string
+    description: Endpoint Base URL of the partner destination
+  endpointServiceContext:
+    type: string
+    description: Endpoint context associated with this partner destination.
+  expirationTimeIfNotActivatedUtc:
+    type: string
+    description: "Expiration time of the partner destination. If this timer expires and the partner destination was never activated,\r
+
+      the partner destination and corresponding channel are deleted."
+  location:
+    type: string
+    description: Location of the resource.
+  messageForActivation:
+    type: string
+    description: Context or helpful message that can be used during the approval process.
+  name:
+    type: string
+    description: Name of the resource.
+  partnerRegistrationImmutableId:
+    type: string
+    description: The immutable Id of the corresponding partner registration.
+  provisioningState:
+    type: string
+    description: Provisioning state of the partner destination.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:eventgrid:SystemDataResponse"
+    description: The system metadata relating to Partner Destination resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Tags of the resource.
+  type:
+    type: string
+    description: Type of the resource.
+type: object
+required:
+  - location
+  - name
+  - systemData
+  - type
+inputProperties:
+  activationState:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:eventgrid:PartnerDestinationActivationState"
+    description: Activation state of the partner destination.
+  endpointBaseUrl:
+    type: string
+    description: Endpoint Base URL of the partner destination
+  endpointServiceContext:
+    type: string
+    description: Endpoint context associated with this partner destination.
+  expirationTimeIfNotActivatedUtc:
+    type: string
+    description: "Expiration time of the partner destination. If this timer expires and the partner destination was never activated,\r
+
+      the partner destination and corresponding channel are deleted."
+  location:
+    type: string
+    description: Location of the resource.
+  messageForActivation:
+    type: string
+    description: Context or helpful message that can be used during the approval process.
+  partnerDestinationName:
+    type: string
+    description: Name of the partner destination.
+  partnerRegistrationImmutableId:
+    type: string
+    description: The immutable Id of the corresponding partner registration.
+  provisioningState:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:eventgrid:PartnerDestinationProvisioningState"
+    description: Provisioning state of the partner destination.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group within the user's subscription.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Tags of the resource.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:eventgrid/v20211015preview:PartnerDestination

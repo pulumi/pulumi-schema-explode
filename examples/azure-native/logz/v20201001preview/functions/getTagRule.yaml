@@ -1,0 +1,44 @@
+$token: azure-native:logz/v20201001preview:getTagRule
+description: Capture logs and metrics of Azure resources based on ARM tags.
+inputs:
+  properties:
+    monitorName:
+      type: string
+      description: Monitor resource name
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    ruleSetName:
+      type: string
+  type: object
+  required:
+    - monitorName
+    - resourceGroupName
+    - ruleSetName
+outputs:
+  description: Capture logs and metrics of Azure resources based on ARM tags.
+  properties:
+    id:
+      type: string
+      description: The id of the rule set.
+    name:
+      type: string
+      description: Name of the rule set.
+    properties:
+      type: object
+      $ref: "#/types/azure-native:logz/v20201001preview:MonitoringTagRulesPropertiesResponse"
+      description: Definition of the properties for a TagRules resource.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:logz/v20201001preview:SystemDataResponse"
+      description: The system metadata relating to this resource
+    type:
+      type: string
+      description: The type of the rule set.
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - systemData
+    - type

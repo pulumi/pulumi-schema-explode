@@ -1,0 +1,30 @@
+$token: azure-native:migrate/v20210801:NetworkInterfaceResourceSettings
+description: Defines the network interface resource settings.
+properties:
+  enableAcceleratedNetworking:
+    type: boolean
+    description: Gets or sets a value indicating whether accelerated networking is enabled.
+  ipConfigurations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:migrate/v20210801:NicIpConfigurationResourceSettings"
+    description: Gets or sets the IP configurations of the NIC.
+  resourceType:
+    type: string
+    description: |-
+      The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+      Expected value is 'Microsoft.Network/networkInterfaces'.
+    const: Microsoft.Network/networkInterfaces
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Gets or sets the Resource tags.
+  targetResourceName:
+    type: string
+    description: Gets or sets the target Resource name.
+type: object
+required:
+  - resourceType
+  - targetResourceName

@@ -1,0 +1,20 @@
+$token: azure-native:storage:ObjectReplicationPolicyRule
+description: The replication policy rule between two containers.
+properties:
+  destinationContainer:
+    type: string
+    description: Required. Destination container name.
+  filters:
+    type: object
+    $ref: "#/types/azure-native:storage:ObjectReplicationPolicyFilter"
+    description: Optional. An object that defines the filter set.
+  ruleId:
+    type: string
+    description: Rule Id is auto-generated for each new rule on destination account. It is required for put policy on source account.
+  sourceContainer:
+    type: string
+    description: Required. Source container name.
+type: object
+required:
+  - destinationContainer
+  - sourceContainer

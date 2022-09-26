@@ -1,0 +1,64 @@
+$token: azure-native:synapse/v20210601preview:IntegrationRuntime
+description: Integration runtime resource type.
+properties:
+  etag:
+    type: string
+    description: Resource Etag.
+  name:
+    type: string
+    description: The name of the resource
+  properties:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:synapse/v20210601preview:ManagedIntegrationRuntimeResponse"
+      - type: object
+        $ref: "#/types/azure-native:synapse/v20210601preview:SelfHostedIntegrationRuntimeResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        Managed: "#/types/azure-native:synapse/v20210601preview:ManagedIntegrationRuntimeResponse"
+        SelfHosted: "#/types/azure-native:synapse/v20210601preview:SelfHostedIntegrationRuntimeResponse"
+    description: Integration runtime properties.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - etag
+  - name
+  - properties
+  - type
+inputProperties:
+  integrationRuntimeName:
+    type: string
+    description: Integration runtime name
+  properties:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:synapse/v20210601preview:ManagedIntegrationRuntime"
+      - type: object
+        $ref: "#/types/azure-native:synapse/v20210601preview:SelfHostedIntegrationRuntime"
+    discriminator:
+      propertyName: type
+      mapping:
+        Managed: "#/types/azure-native:synapse/v20210601preview:ManagedIntegrationRuntime"
+        SelfHosted: "#/types/azure-native:synapse/v20210601preview:SelfHostedIntegrationRuntime"
+    description: Integration runtime properties.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  workspaceName:
+    type: string
+    description: The name of the workspace.
+requiredInputs:
+  - properties
+  - resourceGroupName
+  - workspaceName
+aliases:
+  - type: azure-native:synapse:IntegrationRuntime
+  - type: azure-native:synapse/v20190601preview:IntegrationRuntime
+  - type: azure-native:synapse/v20201201:IntegrationRuntime
+  - type: azure-native:synapse/v20210301:IntegrationRuntime
+  - type: azure-native:synapse/v20210401preview:IntegrationRuntime
+  - type: azure-native:synapse/v20210501:IntegrationRuntime
+  - type: azure-native:synapse/v20210601:IntegrationRuntime

@@ -1,0 +1,85 @@
+$token: azure-native:operationalinsights/v20151101preview:Workspace
+description: The top level Workspace resource container.
+properties:
+  customerId:
+    type: string
+    description: This is a read-only property. Represents the ID associated with the workspace.
+  eTag:
+    type: string
+    description: The ETag of the workspace.
+  location:
+    type: string
+    description: Resource location
+  name:
+    type: string
+    description: Resource name
+  portalUrl:
+    type: string
+    description: This is a legacy property and is not used anymore. Kept here for backward compatibility.
+  provisioningState:
+    type: string
+    description: The provisioning state of the workspace.
+  retentionInDays:
+    type: integer
+    description: "The workspace data retention in days. -1 means Unlimited retention for the Unlimited Sku. 730 days is the maximum allowed for all other Skus. "
+  sku:
+    type: object
+    $ref: "#/types/azure-native:operationalinsights/v20151101preview:SkuResponse"
+    description: The SKU of the workspace.
+  source:
+    type: string
+    description: This is a read-only legacy property. It is always set to 'Azure' by the service. Kept here for backward compatibility.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  type:
+    type: string
+    description: Resource type
+type: object
+required:
+  - customerId
+  - name
+  - portalUrl
+  - source
+  - type
+inputProperties:
+  eTag:
+    type: string
+    description: The ETag of the workspace.
+  location:
+    type: string
+    description: Resource location
+  provisioningState:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:operationalinsights/v20151101preview:EntityStatus"
+    description: The provisioning state of the workspace.
+  resourceGroupName:
+    type: string
+    description: The resource group name of the workspace.
+  retentionInDays:
+    type: integer
+    description: "The workspace data retention in days. -1 means Unlimited retention for the Unlimited Sku. 730 days is the maximum allowed for all other Skus. "
+  sku:
+    type: object
+    $ref: "#/types/azure-native:operationalinsights/v20151101preview:Sku"
+    description: The SKU of the workspace.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  workspaceName:
+    type: string
+    description: The name of the workspace.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:operationalinsights:Workspace
+  - type: azure-native:operationalinsights/v20200301preview:Workspace
+  - type: azure-native:operationalinsights/v20200801:Workspace
+  - type: azure-native:operationalinsights/v20201001:Workspace
+  - type: azure-native:operationalinsights/v20210601:Workspace
+  - type: azure-native:operationalinsights/v20211201preview:Workspace

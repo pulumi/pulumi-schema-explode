@@ -1,0 +1,38 @@
+$token: azure-native:media/v20211101:FromEachInputFileResponse
+description: An InputDefinition that looks at each input file provided to select tracks specified by the IncludedTracks property. Generally used with the AudioTrackByAttribute and VideoTrackByAttribute to select tracks from each file given.
+properties:
+  includedTracks:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:media/v20211101:AudioTrackDescriptorResponse"
+        - type: object
+          $ref: "#/types/azure-native:media/v20211101:SelectAudioTrackByAttributeResponse"
+        - type: object
+          $ref: "#/types/azure-native:media/v20211101:SelectAudioTrackByIdResponse"
+        - type: object
+          $ref: "#/types/azure-native:media/v20211101:SelectVideoTrackByAttributeResponse"
+        - type: object
+          $ref: "#/types/azure-native:media/v20211101:SelectVideoTrackByIdResponse"
+        - type: object
+          $ref: "#/types/azure-native:media/v20211101:VideoTrackDescriptorResponse"
+      discriminator:
+        propertyName: odataType
+        mapping:
+          "#Microsoft.Media.AudioTrackDescriptor": "#/types/azure-native:media/v20211101:AudioTrackDescriptorResponse"
+          "#Microsoft.Media.SelectAudioTrackByAttribute": "#/types/azure-native:media/v20211101:SelectAudioTrackByAttributeResponse"
+          "#Microsoft.Media.SelectAudioTrackById": "#/types/azure-native:media/v20211101:SelectAudioTrackByIdResponse"
+          "#Microsoft.Media.SelectVideoTrackByAttribute": "#/types/azure-native:media/v20211101:SelectVideoTrackByAttributeResponse"
+          "#Microsoft.Media.SelectVideoTrackById": "#/types/azure-native:media/v20211101:SelectVideoTrackByIdResponse"
+          "#Microsoft.Media.VideoTrackDescriptor": "#/types/azure-native:media/v20211101:VideoTrackDescriptorResponse"
+    description: The list of TrackDescriptors which define the metadata and selection of tracks in the input.
+  odataType:
+    type: string
+    description: |-
+      The discriminator for derived types.
+      Expected value is '#Microsoft.Media.FromEachInputFile'.
+    const: "#Microsoft.Media.FromEachInputFile"
+type: object
+required:
+  - odataType

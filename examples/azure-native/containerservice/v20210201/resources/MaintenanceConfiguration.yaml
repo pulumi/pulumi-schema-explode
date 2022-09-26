@@ -1,0 +1,78 @@
+$token: azure-native:containerservice/v20210201:MaintenanceConfiguration
+description: maintenance configuration.
+properties:
+  name:
+    type: string
+    description: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+  notAllowedTime:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20210201:TimeSpanResponse"
+    description: Time slots on which upgrade is not allowed.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:containerservice/v20210201:SystemDataResponse"
+    description: The system meta data relating to this resource.
+  timeInWeek:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20210201:TimeInWeekResponse"
+    description: Weekday time slots allowed to upgrade.
+  type:
+    type: string
+    description: Resource type
+type: object
+required:
+  - name
+  - systemData
+  - type
+inputProperties:
+  configName:
+    type: string
+    description: The name of the maintenance configuration.
+  notAllowedTime:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20210201:TimeSpan"
+    description: Time slots on which upgrade is not allowed.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  resourceName:
+    type: string
+    description: The name of the managed cluster resource.
+  timeInWeek:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20210201:TimeInWeek"
+    description: Weekday time slots allowed to upgrade.
+requiredInputs:
+  - resourceGroupName
+  - resourceName
+aliases:
+  - type: azure-native:containerservice:MaintenanceConfiguration
+  - type: azure-native:containerservice/v20201201:MaintenanceConfiguration
+  - type: azure-native:containerservice/v20210301:MaintenanceConfiguration
+  - type: azure-native:containerservice/v20210501:MaintenanceConfiguration
+  - type: azure-native:containerservice/v20210701:MaintenanceConfiguration
+  - type: azure-native:containerservice/v20210801:MaintenanceConfiguration
+  - type: azure-native:containerservice/v20210901:MaintenanceConfiguration
+  - type: azure-native:containerservice/v20211001:MaintenanceConfiguration
+  - type: azure-native:containerservice/v20211101preview:MaintenanceConfiguration
+  - type: azure-native:containerservice/v20220101:MaintenanceConfiguration
+  - type: azure-native:containerservice/v20220102preview:MaintenanceConfiguration
+  - type: azure-native:containerservice/v20220201:MaintenanceConfiguration
+  - type: azure-native:containerservice/v20220202preview:MaintenanceConfiguration
+  - type: azure-native:containerservice/v20220301:MaintenanceConfiguration
+  - type: azure-native:containerservice/v20220302preview:MaintenanceConfiguration
+  - type: azure-native:containerservice/v20220401:MaintenanceConfiguration
+  - type: azure-native:containerservice/v20220402preview:MaintenanceConfiguration
+  - type: azure-native:containerservice/v20220502preview:MaintenanceConfiguration
+  - type: azure-native:containerservice/v20220601:MaintenanceConfiguration
+  - type: azure-native:containerservice/v20220602preview:MaintenanceConfiguration
+  - type: azure-native:containerservice/v20220701:MaintenanceConfiguration
+  - type: azure-native:containerservice/v20220702preview:MaintenanceConfiguration

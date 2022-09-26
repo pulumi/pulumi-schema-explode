@@ -1,0 +1,31 @@
+$token: azure-native:logz/v20201001preview:MonitorPropertiesResponse
+description: Properties specific to the monitor resource.
+properties:
+  liftrResourceCategory:
+    type: string
+  liftrResourcePreference:
+    type: integer
+    description: The priority of the resource.
+  logzOrganizationProperties:
+    type: object
+    $ref: "#/types/azure-native:logz/v20201001preview:LogzOrganizationPropertiesResponse"
+  marketplaceSubscriptionStatus:
+    type: string
+    description: Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
+  monitoringStatus:
+    type: string
+    description: Flag specifying if the resource monitoring is enabled or disabled.
+  planData:
+    type: object
+    $ref: "#/types/azure-native:logz/v20201001preview:PlanDataResponse"
+  provisioningState:
+    type: string
+    description: Flag specifying if the resource provisioning state as tracked by ARM.
+  userInfo:
+    type: object
+    $ref: "#/types/azure-native:logz/v20201001preview:UserInfoResponse"
+type: object
+required:
+  - liftrResourceCategory
+  - liftrResourcePreference
+  - provisioningState

@@ -1,0 +1,19 @@
+$token: azure-native:insights:TriggerCondition
+description: The condition that results in the Log Search rule.
+properties:
+  metricTrigger:
+    type: object
+    $ref: "#/types/azure-native:insights:LogMetricTrigger"
+    description: Trigger condition for metric query rule
+  threshold:
+    type: number
+    description: Result or count threshold based on which rule should be triggered.
+  thresholdOperator:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:insights:ConditionalOperator"
+    description: Evaluation operation for rule - 'GreaterThan' or 'LessThan.
+type: object
+required:
+  - threshold
+  - thresholdOperator

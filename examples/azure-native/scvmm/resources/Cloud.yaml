@@ -1,0 +1,96 @@
+$token: azure-native:scvmm:Cloud
+description: |-
+  The Clouds resource definition.
+  API Version: 2020-06-05-preview.
+properties:
+  cloudCapacity:
+    type: object
+    $ref: "#/types/azure-native:scvmm:CloudCapacityResponse"
+    description: Capacity of the cloud.
+  cloudName:
+    type: string
+    description: Name of the cloud in VMMServer.
+  extendedLocation:
+    type: object
+    $ref: "#/types/azure-native:scvmm:ExtendedLocationResponse"
+    description: The extended location.
+  inventoryItemId:
+    type: string
+    description: Gets or sets the inventory Item ID for the resource.
+  location:
+    type: string
+    description: Gets or sets the location.
+  name:
+    type: string
+    description: Resource Name
+  provisioningState:
+    type: string
+    description: Gets or sets the provisioning state.
+  storageQoSPolicies:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:scvmm:StorageQoSPolicyResponse"
+    description: List of QoS policies available for the cloud.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:scvmm:SystemDataResponse"
+    description: The system data.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  type:
+    type: string
+    description: Resource Type
+  uuid:
+    type: string
+    description: Unique ID of the cloud.
+  vmmServerId:
+    type: string
+    description: ARM Id of the vmmServer resource in which this resource resides.
+type: object
+required:
+  - cloudCapacity
+  - cloudName
+  - extendedLocation
+  - location
+  - name
+  - provisioningState
+  - storageQoSPolicies
+  - systemData
+  - type
+inputProperties:
+  cloudName:
+    type: string
+    description: Name of the Cloud.
+  extendedLocation:
+    type: object
+    $ref: "#/types/azure-native:scvmm:ExtendedLocation"
+    description: The extended location.
+  inventoryItemId:
+    type: string
+    description: Gets or sets the inventory Item ID for the resource.
+  location:
+    type: string
+    description: Gets or sets the location.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  uuid:
+    type: string
+    description: Unique ID of the cloud.
+  vmmServerId:
+    type: string
+    description: ARM Id of the vmmServer resource in which this resource resides.
+requiredInputs:
+  - extendedLocation
+  - resourceGroupName
+aliases:
+  - type: azure-native:scvmm/v20200605preview:Cloud

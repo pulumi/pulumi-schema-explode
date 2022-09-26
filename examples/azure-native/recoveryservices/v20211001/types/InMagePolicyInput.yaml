@@ -1,0 +1,27 @@
+$token: azure-native:recoveryservices/v20211001:InMagePolicyInput
+description: VMWare Azure specific protection profile Input.
+properties:
+  appConsistentFrequencyInMinutes:
+    type: integer
+    description: The app consistent snapshot frequency (in minutes).
+  instanceType:
+    type: string
+    description: |-
+      The class type.
+      Expected value is 'InMage'.
+    const: InMage
+  multiVmSyncStatus:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:recoveryservices/v20211001:SetMultiVmSyncStatus"
+    description: A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
+  recoveryPointHistory:
+    type: integer
+    description: The duration in minutes until which the recovery points need to be stored.
+  recoveryPointThresholdInMinutes:
+    type: integer
+    description: The recovery point threshold in minutes.
+type: object
+required:
+  - instanceType
+  - multiVmSyncStatus

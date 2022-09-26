@@ -1,0 +1,80 @@
+$token: azure-native:containerservice:Snapshot
+description: |-
+  A node pool snapshot resource.
+  API Version: 2021-08-01.
+properties:
+  creationData:
+    type: object
+    $ref: "#/types/azure-native:containerservice:CreationDataResponse"
+    description: CreationData to be used to specify the source agent pool resource ID to create this snapshot.
+  location:
+    type: string
+    description: Resource location
+  name:
+    type: string
+    description: Resource name
+  snapshotType:
+    type: string
+    description: The type of a snapshot. The default is NodePool.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:containerservice:SystemDataResponse"
+    description: The system metadata relating to this snapshot.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  type:
+    type: string
+    description: Resource type
+type: object
+required:
+  - location
+  - name
+  - systemData
+  - type
+inputProperties:
+  creationData:
+    type: object
+    $ref: "#/types/azure-native:containerservice:CreationData"
+    description: CreationData to be used to specify the source agent pool resource ID to create this snapshot.
+  location:
+    type: string
+    description: Resource location
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  resourceName:
+    type: string
+    description: The name of the managed cluster resource.
+  snapshotType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:containerservice:SnapshotType"
+    description: The type of a snapshot. The default is NodePool.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:containerservice/v20210801:Snapshot
+  - type: azure-native:containerservice/v20210901:Snapshot
+  - type: azure-native:containerservice/v20211001:Snapshot
+  - type: azure-native:containerservice/v20211101preview:Snapshot
+  - type: azure-native:containerservice/v20220101:Snapshot
+  - type: azure-native:containerservice/v20220102preview:Snapshot
+  - type: azure-native:containerservice/v20220201:Snapshot
+  - type: azure-native:containerservice/v20220202preview:Snapshot
+  - type: azure-native:containerservice/v20220301:Snapshot
+  - type: azure-native:containerservice/v20220302preview:Snapshot
+  - type: azure-native:containerservice/v20220401:Snapshot
+  - type: azure-native:containerservice/v20220402preview:Snapshot
+  - type: azure-native:containerservice/v20220502preview:Snapshot
+  - type: azure-native:containerservice/v20220601:Snapshot
+  - type: azure-native:containerservice/v20220602preview:Snapshot
+  - type: azure-native:containerservice/v20220701:Snapshot
+  - type: azure-native:containerservice/v20220702preview:Snapshot

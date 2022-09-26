@@ -1,0 +1,94 @@
+$token: azure-native:web:WebAppSourceControlSlot
+description: |-
+  Source control configuration for an app.
+  API Version: 2020-12-01.
+properties:
+  branch:
+    type: string
+    description: Name of branch to use for deployment.
+  deploymentRollbackEnabled:
+    type: boolean
+    description: <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
+  gitHubActionConfiguration:
+    type: object
+    $ref: "#/types/azure-native:web:GitHubActionConfigurationResponse"
+    description: If GitHub Action is selected, than the associated configuration.
+  isGitHubAction:
+    type: boolean
+    description: <code>true</code> if this is deployed via GitHub action.
+  isManualIntegration:
+    type: boolean
+    description: <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
+  isMercurial:
+    type: boolean
+    description: <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.
+  kind:
+    type: string
+    description: Kind of resource.
+  name:
+    type: string
+    description: Resource Name.
+  repoUrl:
+    type: string
+    description: Repository or source control URL.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - name
+  - type
+inputProperties:
+  branch:
+    type: string
+    description: Name of branch to use for deployment.
+  deploymentRollbackEnabled:
+    type: boolean
+    description: <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
+  gitHubActionConfiguration:
+    type: object
+    $ref: "#/types/azure-native:web:GitHubActionConfiguration"
+    description: If GitHub Action is selected, than the associated configuration.
+  isGitHubAction:
+    type: boolean
+    description: <code>true</code> if this is deployed via GitHub action.
+  isManualIntegration:
+    type: boolean
+    description: <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
+  isMercurial:
+    type: boolean
+    description: <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.
+  kind:
+    type: string
+    description: Kind of resource.
+  name:
+    type: string
+    description: Name of the app.
+  repoUrl:
+    type: string
+    description: Repository or source control URL.
+  resourceGroupName:
+    type: string
+    description: Name of the resource group to which the resource belongs.
+  slot:
+    type: string
+    description: Name of the deployment slot. If a slot is not specified, the API will update the source control configuration for the production slot.
+requiredInputs:
+  - name
+  - resourceGroupName
+  - slot
+aliases:
+  - type: azure-native:web/v20150801:WebAppSourceControlSlot
+  - type: azure-native:web/v20160801:WebAppSourceControlSlot
+  - type: azure-native:web/v20180201:WebAppSourceControlSlot
+  - type: azure-native:web/v20181101:WebAppSourceControlSlot
+  - type: azure-native:web/v20190801:WebAppSourceControlSlot
+  - type: azure-native:web/v20200601:WebAppSourceControlSlot
+  - type: azure-native:web/v20200901:WebAppSourceControlSlot
+  - type: azure-native:web/v20201001:WebAppSourceControlSlot
+  - type: azure-native:web/v20201201:WebAppSourceControlSlot
+  - type: azure-native:web/v20210101:WebAppSourceControlSlot
+  - type: azure-native:web/v20210115:WebAppSourceControlSlot
+  - type: azure-native:web/v20210201:WebAppSourceControlSlot
+  - type: azure-native:web/v20210301:WebAppSourceControlSlot
+  - type: azure-native:web/v20220301:WebAppSourceControlSlot

@@ -1,0 +1,36 @@
+$token: azure-native:datamigration/v20220130preview:MongoDbDatabaseInfoResponse
+description: Describes a database within a MongoDB data source
+properties:
+  averageDocumentSize:
+    type: number
+    description: The average document size, or -1 if the average size is unknown
+  collections:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration/v20220130preview:MongoDbCollectionInfoResponse"
+    description: A list of supported collections in a MongoDB database
+  dataSize:
+    type: number
+    description: The estimated total data size, in bytes, or -1 if the size is unknown.
+  documentCount:
+    type: number
+    description: The estimated total number of documents, or -1 if the document count is unknown
+  name:
+    type: string
+    description: The unqualified name of the database or collection
+  qualifiedName:
+    type: string
+    description: The qualified name of the database or collection. For a collection, this is the database-qualified name.
+  supportsSharding:
+    type: boolean
+    description: Whether the database has sharding enabled. Note that the migration task will enable sharding on the target if necessary.
+type: object
+required:
+  - averageDocumentSize
+  - collections
+  - dataSize
+  - documentCount
+  - name
+  - qualifiedName
+  - supportsSharding

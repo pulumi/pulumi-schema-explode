@@ -1,0 +1,63 @@
+$token: azure-native:testbase/v20201216preview:getTestBaseAccount
+description: The Test Base Account resource.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the resource.
+    testBaseAccountName:
+      type: string
+      description: The resource name of the Test Base Account.
+  type: object
+  required:
+    - resourceGroupName
+    - testBaseAccountName
+outputs:
+  description: The Test Base Account resource.
+  properties:
+    accessLevel:
+      type: string
+      description: The access level of the Test Base Account.
+    etag:
+      type: string
+      description: Resource Etag.
+    id:
+      type: string
+      description: Resource ID.
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    name:
+      type: string
+      description: Resource name.
+    provisioningState:
+      type: string
+      description: The provisioning state of the resource.
+    sku:
+      type: object
+      $ref: "#/types/azure-native:testbase/v20201216preview:TestBaseAccountSKUResponse"
+      description: The SKU of the Test Base Account.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:testbase/v20201216preview:SystemDataResponse"
+      description: The system metadata relating to this resource
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: The tags of the resource.
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - accessLevel
+    - etag
+    - id
+    - location
+    - name
+    - provisioningState
+    - sku
+    - systemData
+    - type
+deprecationMessage: Version 2020-12-16-preview will be removed in v2 of the provider.

@@ -1,0 +1,26 @@
+$token: azure-native:containerinstance/v20181001:IpAddressResponse
+description: IP address for the container group.
+properties:
+  dnsNameLabel:
+    type: string
+    description: The Dns name label for the IP.
+  fqdn:
+    type: string
+    description: The FQDN for the IP.
+  ip:
+    type: string
+    description: The IP exposed to the public internet.
+  ports:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:containerinstance/v20181001:PortResponse"
+    description: The list of ports exposed on the container group.
+  type:
+    type: string
+    description: Specifies if the IP is exposed to the public internet or private VNET.
+type: object
+required:
+  - fqdn
+  - ports
+  - type

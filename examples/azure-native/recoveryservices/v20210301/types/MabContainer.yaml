@@ -1,0 +1,57 @@
+$token: azure-native:recoveryservices/v20210301:MabContainer
+description: Container with items backed up using MAB backup engine.
+properties:
+  agentVersion:
+    type: string
+    description: Agent version of this container.
+  backupManagementType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:recoveryservices/v20210301:BackupManagementType"
+    description: Type of backup management for the container.
+  canReRegister:
+    type: boolean
+    description: Can the container be registered one more time.
+  containerHealthState:
+    type: string
+    description: Health state of mab container.
+  containerId:
+    type: number
+    description: ContainerID represents the container.
+  containerType:
+    type: string
+    description: "Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.\r
+
+      Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is\r
+
+      Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload\r
+
+      Backup is VMAppContainer
+
+      Expected value is 'Windows'."
+    const: Windows
+  extendedInfo:
+    type: object
+    $ref: "#/types/azure-native:recoveryservices/v20210301:MabContainerExtendedInfo"
+    description: Additional information for this container
+  friendlyName:
+    type: string
+    description: Friendly name of the container.
+  healthStatus:
+    type: string
+    description: Status of health of the container.
+  mabContainerHealthDetails:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:recoveryservices/v20210301:MABContainerHealthDetails"
+    description: Health details on this mab container.
+  protectedItemCount:
+    type: number
+    description: Number of items backed up in this container.
+  registrationStatus:
+    type: string
+    description: Status of registration of the container with the Recovery Services Vault.
+type: object
+required:
+  - containerType

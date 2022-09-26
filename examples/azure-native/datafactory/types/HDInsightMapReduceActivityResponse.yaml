@@ -1,0 +1,75 @@
+$token: azure-native:datafactory:HDInsightMapReduceActivityResponse
+description: HDInsight MapReduce activity type.
+properties:
+  arguments:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: User specified arguments to HDInsightActivity.
+  className:
+    $ref: pulumi.json#/Any
+    description: "Class name. Type: string (or Expression with resultType string)."
+  defines:
+    type: object
+    additionalProperties:
+      $ref: pulumi.json#/Any
+    description: Allows user to specify defines for the MapReduce job request.
+  dependsOn:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory:ActivityDependencyResponse"
+    description: Activity depends on condition.
+  description:
+    type: string
+    description: Activity description.
+  getDebugInfo:
+    type: string
+    description: Debug info option.
+  jarFilePath:
+    $ref: pulumi.json#/Any
+    description: "Jar path. Type: string (or Expression with resultType string)."
+  jarLibs:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: Jar libs.
+  jarLinkedService:
+    type: object
+    $ref: "#/types/azure-native:datafactory:LinkedServiceReferenceResponse"
+    description: Jar linked service reference.
+  linkedServiceName:
+    type: object
+    $ref: "#/types/azure-native:datafactory:LinkedServiceReferenceResponse"
+    description: Linked service reference.
+  name:
+    type: string
+    description: Activity name.
+  policy:
+    type: object
+    $ref: "#/types/azure-native:datafactory:ActivityPolicyResponse"
+    description: Activity policy.
+  storageLinkedServices:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory:LinkedServiceReferenceResponse"
+    description: Storage linked service references.
+  type:
+    type: string
+    description: |-
+      Type of activity.
+      Expected value is 'HDInsightMapReduce'.
+    const: HDInsightMapReduce
+  userProperties:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory:UserPropertyResponse"
+    description: Activity user properties.
+type: object
+required:
+  - className
+  - jarFilePath
+  - name
+  - type

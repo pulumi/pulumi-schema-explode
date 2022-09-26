@@ -1,0 +1,49 @@
+$token: azure-native:databoxedge/v20200901:getAddon
+description: Role Addon
+inputs:
+  properties:
+    addonName:
+      type: string
+      description: The addon name.
+    deviceName:
+      type: string
+      description: The device name.
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+    roleName:
+      type: string
+      description: The role name.
+  type: object
+  required:
+    - addonName
+    - deviceName
+    - resourceGroupName
+    - roleName
+outputs:
+  description: Role Addon
+  properties:
+    id:
+      type: string
+      description: The path ID that uniquely identifies the object.
+    kind:
+      type: string
+      description: Addon type.
+    name:
+      type: string
+      description: The object name.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:databoxedge/v20200901:SystemDataResponse"
+      description: Addon type
+    type:
+      type: string
+      description: The hierarchical type of the object.
+  type: object
+  required:
+    - id
+    - kind
+    - name
+    - systemData
+    - type
+deprecationMessage: Version 2020-09-01 will be removed in v2 of the provider.

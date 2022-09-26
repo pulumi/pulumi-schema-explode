@@ -1,0 +1,21 @@
+$token: azure-native:media/v20211101:EnvelopeEncryptionResponse
+description: Class for EnvelopeEncryption encryption scheme
+properties:
+  clearTracks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:media/v20211101:TrackSelectionResponse"
+    description: Representing which tracks should not be encrypted
+  contentKeys:
+    type: object
+    $ref: "#/types/azure-native:media/v20211101:StreamingPolicyContentKeysResponse"
+    description: Representing default content key for each encryption scheme and separate content keys for specific tracks
+  customKeyAcquisitionUrlTemplate:
+    type: string
+    description: Template for the URL of the custom service delivering keys to end user players.  Not required when using Azure Media Services for issuing keys.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
+  enabledProtocols:
+    type: object
+    $ref: "#/types/azure-native:media/v20211101:EnabledProtocolsResponse"
+    description: Representing supported protocols
+type: object

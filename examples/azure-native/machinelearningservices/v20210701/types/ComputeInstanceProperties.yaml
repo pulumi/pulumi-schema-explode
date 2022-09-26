@@ -1,0 +1,35 @@
+$token: azure-native:machinelearningservices/v20210701:ComputeInstanceProperties
+description: Compute Instance properties
+properties:
+  applicationSharingPolicy:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearningservices/v20210701:ApplicationSharingPolicy"
+    description: Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
+    default: Shared
+  computeInstanceAuthorizationType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearningservices/v20210701:ComputeInstanceAuthorizationType"
+    description: The Compute Instance Authorization type. Available values are personal (default).
+    default: personal
+  personalComputeInstanceSettings:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20210701:PersonalComputeInstanceSettings"
+    description: Settings for a personal compute instance.
+  setupScripts:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20210701:SetupScripts"
+    description: Details of customized scripts to execute for setting up the cluster.
+  sshSettings:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20210701:ComputeInstanceSshSettings"
+    description: Specifies policy and settings for SSH access.
+  subnet:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20210701:ResourceId"
+    description: Virtual network subnet resource ID the compute nodes belong to.
+  vmSize:
+    type: string
+    description: Virtual Machine Size
+type: object

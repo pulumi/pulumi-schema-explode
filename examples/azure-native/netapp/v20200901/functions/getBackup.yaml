@@ -1,0 +1,71 @@
+$token: azure-native:netapp/v20200901:getBackup
+description: Backup of a Volume
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: The name of the NetApp account
+    backupName:
+      type: string
+      description: The name of the backup
+    poolName:
+      type: string
+      description: The name of the capacity pool
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    volumeName:
+      type: string
+      description: The name of the volume
+  type: object
+  required:
+    - accountName
+    - backupName
+    - poolName
+    - resourceGroupName
+    - volumeName
+outputs:
+  description: Backup of a Volume
+  properties:
+    backupId:
+      type: string
+      description: UUID v4 used to identify the Backup
+    backupType:
+      type: string
+      description: Type of backup Manual or Scheduled
+    creationDate:
+      type: string
+      description: The creation date of the backup
+    id:
+      type: string
+      description: Resource Id
+    label:
+      type: string
+      description: Label for backup
+    location:
+      type: string
+      description: Resource location
+    name:
+      type: string
+      description: Resource name
+    provisioningState:
+      type: string
+      description: Azure lifecycle management
+    size:
+      type: number
+      description: Size of backup
+    type:
+      type: string
+      description: Resource type
+  type: object
+  required:
+    - backupId
+    - backupType
+    - creationDate
+    - id
+    - location
+    - name
+    - provisioningState
+    - size
+    - type
+deprecationMessage: Version 2020-09-01 will be removed in v2 of the provider.

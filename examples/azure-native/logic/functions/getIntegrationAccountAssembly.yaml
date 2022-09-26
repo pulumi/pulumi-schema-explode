@@ -1,0 +1,50 @@
+$token: azure-native:logic:getIntegrationAccountAssembly
+description: |-
+  The assembly definition.
+  API Version: 2019-05-01.
+inputs:
+  properties:
+    assemblyArtifactName:
+      type: string
+      description: The assembly artifact name.
+    integrationAccountName:
+      type: string
+      description: The integration account name.
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+  type: object
+  required:
+    - assemblyArtifactName
+    - integrationAccountName
+    - resourceGroupName
+outputs:
+  description: The assembly definition.
+  properties:
+    id:
+      type: string
+      description: The resource id.
+    location:
+      type: string
+      description: The resource location.
+    name:
+      type: string
+      description: Gets the resource name.
+    properties:
+      type: object
+      $ref: "#/types/azure-native:logic:AssemblyPropertiesResponse"
+      description: The assembly properties.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: The resource tags.
+    type:
+      type: string
+      description: Gets the resource type.
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - type

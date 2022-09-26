@@ -1,0 +1,109 @@
+$token: azure-native:web/v20150801:SiteHostNameBindingSlot
+description: A host name binding object
+properties:
+  azureResourceName:
+    type: string
+    description: Azure resource name
+  azureResourceType:
+    type: string
+    description: Azure resource type
+  customHostNameDnsRecordType:
+    type: string
+    description: Custom DNS record type
+  domainId:
+    type: string
+    description: Fully qualified ARM domain resource URI
+  hostNameType:
+    type: string
+    description: Host name type
+  kind:
+    type: string
+    description: Kind of resource
+  location:
+    type: string
+    description: Resource Location
+  name:
+    type: string
+    description: Resource Name
+  siteName:
+    type: string
+    description: Web app name
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  type:
+    type: string
+    description: Resource type
+type: object
+required:
+  - location
+inputProperties:
+  azureResourceName:
+    type: string
+    description: Azure resource name
+  azureResourceType:
+    $ref: "#/types/azure-native:web/v20150801:AzureResourceType"
+    description: Azure resource type
+  customHostNameDnsRecordType:
+    $ref: "#/types/azure-native:web/v20150801:CustomHostNameDnsRecordType"
+    description: Custom DNS record type
+  domainId:
+    type: string
+    description: Fully qualified ARM domain resource URI
+  hostName:
+    type: string
+    description: Name of host
+  hostNameType:
+    $ref: "#/types/azure-native:web/v20150801:HostNameType"
+    description: Host name type
+  id:
+    type: string
+    description: Resource Id
+  kind:
+    type: string
+    description: Kind of resource
+  location:
+    type: string
+    description: Resource Location
+  name:
+    type: string
+    description: Resource Name
+  resourceGroupName:
+    type: string
+    description: Name of resource group
+  siteName:
+    type: string
+    description: Web app name
+  slot:
+    type: string
+    description: Name of web app slot. If not specified then will default to production slot.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  type:
+    type: string
+    description: Resource type
+requiredInputs:
+  - name
+  - resourceGroupName
+  - slot
+aliases:
+  - type: azure-native:web:SiteHostNameBindingSlot
+  - type: azure-native:web/v20160801:SiteHostNameBindingSlot
+  - type: azure-native:web/v20180201:SiteHostNameBindingSlot
+  - type: azure-native:web/v20181101:SiteHostNameBindingSlot
+  - type: azure-native:web/v20190801:SiteHostNameBindingSlot
+  - type: azure-native:web/v20200601:SiteHostNameBindingSlot
+  - type: azure-native:web/v20200901:SiteHostNameBindingSlot
+  - type: azure-native:web/v20201001:SiteHostNameBindingSlot
+  - type: azure-native:web/v20201201:SiteHostNameBindingSlot
+  - type: azure-native:web/v20210101:SiteHostNameBindingSlot
+  - type: azure-native:web/v20210115:SiteHostNameBindingSlot
+  - type: azure-native:web/v20210201:SiteHostNameBindingSlot
+  - type: azure-native:web/v20210301:SiteHostNameBindingSlot
+  - type: azure-native:web/v20220301:SiteHostNameBindingSlot
+deprecationMessage: Version 2015-08-01 will be removed in v2 of the provider.

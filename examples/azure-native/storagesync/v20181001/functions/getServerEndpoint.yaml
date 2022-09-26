@@ -1,0 +1,85 @@
+$token: azure-native:storagesync/v20181001:getServerEndpoint
+description: Server Endpoint object.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    serverEndpointName:
+      type: string
+      description: Name of Server Endpoint object.
+    storageSyncServiceName:
+      type: string
+      description: Name of Storage Sync Service resource.
+    syncGroupName:
+      type: string
+      description: Name of Sync Group resource.
+  type: object
+  required:
+    - resourceGroupName
+    - serverEndpointName
+    - storageSyncServiceName
+    - syncGroupName
+outputs:
+  description: Server Endpoint object.
+  properties:
+    cloudTiering:
+      type: string
+      description: Cloud Tiering.
+    friendlyName:
+      type: string
+      description: Friendly Name
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    lastOperationName:
+      type: string
+      description: Resource Last Operation Name
+    lastWorkflowId:
+      type: string
+      description: ServerEndpoint lastWorkflowId
+    name:
+      type: string
+      description: The name of the resource
+    offlineDataTransfer:
+      type: string
+      description: Offline data transfer
+    offlineDataTransferShareName:
+      type: string
+      description: Offline data transfer share name
+    offlineDataTransferStorageAccountResourceId:
+      type: string
+      description: Offline data transfer storage account resource ID
+    offlineDataTransferStorageAccountTenantId:
+      type: string
+      description: Offline data transfer storage account tenant ID
+    provisioningState:
+      type: string
+      description: ServerEndpoint Provisioning State
+    serverLocalPath:
+      type: string
+      description: Server Local path.
+    serverResourceId:
+      type: string
+      description: Server Resource Id.
+    syncStatus:
+      type: object
+      $ref: "#/types/azure-native:storagesync/v20181001:ServerEndpointHealthResponse"
+      description: Server Endpoint properties.
+    tierFilesOlderThanDays:
+      type: integer
+      description: Tier files older than days.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+    volumeFreeSpacePercent:
+      type: integer
+      description: Level of free space to be maintained by Cloud Tiering if it is enabled.
+  type: object
+  required:
+    - id
+    - name
+    - offlineDataTransferStorageAccountResourceId
+    - offlineDataTransferStorageAccountTenantId
+    - type
+deprecationMessage: Version 2018-10-01 will be removed in v2 of the provider.

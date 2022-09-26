@@ -1,0 +1,19 @@
+$token: azure-native:datamigration/v20210630:SsisMigrationInfo
+description: SSIS migration info with SSIS store type, overwrite policy.
+properties:
+  environmentOverwriteOption:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:datamigration/v20210630:SsisMigrationOverwriteOption"
+    description: The overwrite option for the SSIS environment migration
+  projectOverwriteOption:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:datamigration/v20210630:SsisMigrationOverwriteOption"
+    description: The overwrite option for the SSIS project migration
+  ssisStoreType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:datamigration/v20210630:SsisStoreType"
+    description: The SSIS store type of source, only SSIS catalog is supported now in DMS
+type: object

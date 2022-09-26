@@ -1,0 +1,65 @@
+$token: azure-native:azureactivedirectory:B2CTenant
+description: |-
+  
+  API Version: 2019-01-01-preview.
+properties:
+  billingConfig:
+    type: object
+    $ref: "#/types/azure-native:azureactivedirectory:B2CTenantResourcePropertiesResponseBillingConfig"
+    description: The billing configuration for the tenant.
+  location:
+    type: string
+    description: The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia' (preview). Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
+  name:
+    type: string
+    description: The name of the B2C tenant resource.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:azureactivedirectory:B2CResourceSKUResponse"
+    description: SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource Tags
+  tenantId:
+    type: string
+    description: An identifier of the B2C tenant.
+  type:
+    type: string
+    description: The type of the B2C tenant resource.
+type: object
+required:
+  - location
+  - name
+  - sku
+  - type
+inputProperties:
+  location:
+    type: string
+    description: The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia' (preview). Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:azureactivedirectory:CreateTenantRequestBodyProperties"
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  resourceName:
+    type: string
+    description: The initial domain name of the B2C tenant.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:azureactivedirectory:B2CResourceSKU"
+    description: SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource Tags
+requiredInputs:
+  - properties
+  - resourceGroupName
+  - sku
+aliases:
+  - type: azure-native:azureactivedirectory/v20190101preview:B2CTenant
+  - type: azure-native:azureactivedirectory/v20210401:B2CTenant

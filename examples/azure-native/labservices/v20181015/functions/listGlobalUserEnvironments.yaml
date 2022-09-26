@@ -1,0 +1,23 @@
+$token: azure-native:labservices/v20181015:listGlobalUserEnvironments
+description: Represents the list of environments owned by a user
+inputs:
+  properties:
+    labId:
+      type: string
+      description: The resource Id of the lab
+    userName:
+      type: string
+      description: The name of the user.
+  type: object
+  required:
+    - userName
+outputs:
+  description: Represents the list of environments owned by a user
+  properties:
+    environments:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:labservices/v20181015:EnvironmentDetailsResponse"
+      description: List of all the environments
+  type: object

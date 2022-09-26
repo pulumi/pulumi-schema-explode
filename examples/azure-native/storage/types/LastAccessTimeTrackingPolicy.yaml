@@ -1,0 +1,22 @@
+$token: azure-native:storage:LastAccessTimeTrackingPolicy
+description: The blob service properties for Last access time based tracking policy.
+properties:
+  blobType:
+    type: array
+    items:
+      type: string
+    description: An array of predefined supported blob types. Only blockBlob is the supported value. This field is currently read only
+  enable:
+    type: boolean
+    description: When set to true last access time based tracking is enabled.
+  name:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:storage:Name"
+    description: Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
+  trackingGranularityInDays:
+    type: integer
+    description: The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1
+type: object
+required:
+  - enable

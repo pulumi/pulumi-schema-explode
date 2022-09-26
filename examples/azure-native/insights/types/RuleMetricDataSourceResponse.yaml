@@ -1,0 +1,27 @@
+$token: azure-native:insights:RuleMetricDataSourceResponse
+description: A rule metric data source. The discriminator value is always RuleMetricDataSource in this case.
+properties:
+  legacyResourceId:
+    type: string
+    description: "the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule."
+  metricName:
+    type: string
+    description: the name of the metric that defines what the rule monitors.
+  metricNamespace:
+    type: string
+    description: the namespace of the metric.
+  odataType:
+    type: string
+    description: |-
+      specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+      Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource'.
+    const: Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource
+  resourceLocation:
+    type: string
+    description: the location of the resource.
+  resourceUri:
+    type: string
+    description: "the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule."
+type: object
+required:
+  - odataType

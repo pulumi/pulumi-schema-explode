@@ -1,0 +1,48 @@
+$token: azure-native:containerservice/v20220102preview:getPrivateEndpointConnection
+description: A private endpoint connection
+inputs:
+  properties:
+    privateEndpointConnectionName:
+      type: string
+      description: The name of the private endpoint connection.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    resourceName:
+      type: string
+      description: The name of the managed cluster resource.
+  type: object
+  required:
+    - privateEndpointConnectionName
+    - resourceGroupName
+    - resourceName
+outputs:
+  description: A private endpoint connection
+  properties:
+    id:
+      type: string
+      description: The ID of the private endpoint connection.
+    name:
+      type: string
+      description: The name of the private endpoint connection.
+    privateEndpoint:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20220102preview:PrivateEndpointResponse"
+      description: The resource of private endpoint.
+    privateLinkServiceConnectionState:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20220102preview:PrivateLinkServiceConnectionStateResponse"
+      description: A collection of information about the state of the connection between service consumer and provider.
+    provisioningState:
+      type: string
+      description: The current provisioning state.
+    type:
+      type: string
+      description: The resource type.
+  type: object
+  required:
+    - id
+    - name
+    - privateLinkServiceConnectionState
+    - provisioningState
+    - type

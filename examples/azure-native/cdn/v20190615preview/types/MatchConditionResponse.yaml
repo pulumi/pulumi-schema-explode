@@ -1,0 +1,30 @@
+$token: azure-native:cdn/v20190615preview:MatchConditionResponse
+description: Define match conditions
+properties:
+  matchValue:
+    type: array
+    items:
+      type: string
+    description: List of possible match values.
+  matchVariable:
+    type: string
+    description: Match variable to compare against.
+  negateCondition:
+    type: boolean
+    description: Describes if the result of this condition should be negated.
+  operator:
+    type: string
+    description: Describes operator to be matched
+  selector:
+    type: string
+    description: Selector can used to match a specific key for QueryString, Cookies, RequestHeader or PostArgs.
+  transforms:
+    type: array
+    items:
+      type: string
+    description: List of transforms.
+type: object
+required:
+  - matchValue
+  - matchVariable
+  - operator

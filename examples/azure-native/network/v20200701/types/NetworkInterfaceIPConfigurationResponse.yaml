@@ -1,0 +1,77 @@
+$token: azure-native:network/v20200701:NetworkInterfaceIPConfigurationResponse
+description: IPConfiguration in a network interface.
+properties:
+  applicationGatewayBackendAddressPools:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20200701:ApplicationGatewayBackendAddressPoolResponse"
+    description: The reference to ApplicationGatewayBackendAddressPool resource.
+  applicationSecurityGroups:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20200701:ApplicationSecurityGroupResponse"
+    description: Application security groups in which the IP configuration is included.
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  id:
+    type: string
+    description: Resource ID.
+  loadBalancerBackendAddressPools:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20200701:BackendAddressPoolResponse"
+    description: The reference to LoadBalancerBackendAddressPool resource.
+  loadBalancerInboundNatRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20200701:InboundNatRuleResponse"
+    description: A list of references of LoadBalancerInboundNatRules.
+  name:
+    type: string
+    description: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+  primary:
+    type: boolean
+    description: Whether this is a primary customer address on the network interface.
+  privateIPAddress:
+    type: string
+    description: Private IP address of the IP configuration.
+  privateIPAddressVersion:
+    type: string
+    description: Whether the specific IP configuration is IPv4 or IPv6. Default is IPv4.
+  privateIPAllocationMethod:
+    type: string
+    description: The private IP address allocation method.
+  privateLinkConnectionProperties:
+    type: object
+    $ref: "#/types/azure-native:network/v20200701:NetworkInterfaceIPConfigurationPrivateLinkConnectionPropertiesResponse"
+    description: PrivateLinkConnection properties for the network interface.
+  provisioningState:
+    type: string
+    description: The provisioning state of the network interface IP configuration.
+  publicIPAddress:
+    type: object
+    $ref: "#/types/azure-native:network/v20200701:PublicIPAddressResponse"
+    description: Public IP address bound to the IP configuration.
+  subnet:
+    type: object
+    $ref: "#/types/azure-native:network/v20200701:SubnetResponse"
+    description: Subnet bound to the IP configuration.
+  type:
+    type: string
+    description: Resource type.
+  virtualNetworkTaps:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20200701:VirtualNetworkTapResponse"
+    description: The reference to Virtual Network Taps.
+type: object
+required:
+  - etag
+  - privateLinkConnectionProperties
+  - provisioningState

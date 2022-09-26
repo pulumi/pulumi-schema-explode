@@ -1,0 +1,54 @@
+$token: azure-native:apimanagement:Schema
+description: |-
+  Schema Contract details.
+  API Version: 2021-04-01-preview.
+properties:
+  description:
+    type: string
+    description: Free-form schema entity description.
+  name:
+    type: string
+    description: The name of the resource
+  schemaType:
+    type: string
+    description: Schema Type. Immutable.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  value:
+    type: string
+    description: Json-encoded string for non json-based schema.
+type: object
+required:
+  - name
+  - schemaType
+  - type
+inputProperties:
+  description:
+    type: string
+    description: Free-form schema entity description.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  schemaId:
+    type: string
+    description: Schema id identifier. Must be unique in the current API Management service instance.
+  schemaType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:apimanagement:SchemaType"
+    description: Schema Type. Immutable.
+  serviceName:
+    type: string
+    description: The name of the API Management service.
+  value:
+    type: string
+    description: Json-encoded string for non json-based schema.
+requiredInputs:
+  - resourceGroupName
+  - schemaType
+  - serviceName
+aliases:
+  - type: azure-native:apimanagement/v20210401preview:Schema
+  - type: azure-native:apimanagement/v20210801:Schema
+  - type: azure-native:apimanagement/v20211201preview:Schema

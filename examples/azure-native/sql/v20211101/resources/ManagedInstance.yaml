@@ -1,0 +1,256 @@
+$token: azure-native:sql/v20211101:ManagedInstance
+description: An Azure SQL managed instance.
+properties:
+  administratorLogin:
+    type: string
+    description: Administrator username for the managed instance. Can only be specified when the managed instance is being created (and is required for creation).
+  administrators:
+    type: object
+    $ref: "#/types/azure-native:sql/v20211101:ManagedInstanceExternalAdministratorResponse"
+    description: The Azure Active Directory administrator of the server.
+  collation:
+    type: string
+    description: Collation of the managed instance.
+  currentBackupStorageRedundancy:
+    type: string
+    description: The storage account type used to store backups for this instance. The options are Local (LocallyRedundantStorage), Zone (ZoneRedundantStorage), Geo (GeoRedundantStorage) and GeoZone(GeoZoneRedundantStorage)
+  dnsZone:
+    type: string
+    description: The Dns Zone that the managed instance is in.
+  fullyQualifiedDomainName:
+    type: string
+    description: The fully qualified domain name of the managed instance.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:sql/v20211101:ResourceIdentityResponse"
+    description: The Azure Active Directory identity of the managed instance.
+  instancePoolId:
+    type: string
+    description: The Id of the instance pool this managed server belongs to.
+  keyId:
+    type: string
+    description: A CMK URI of the key to use for encryption.
+  licenseType:
+    type: string
+    description: The license type. Possible values are 'LicenseIncluded' (regular price inclusive of a new SQL license) and 'BasePrice' (discounted AHB price for bringing your own SQL licenses).
+  location:
+    type: string
+    description: Resource location.
+  maintenanceConfigurationId:
+    type: string
+    description: Specifies maintenance configuration id to apply to this managed instance.
+  minimalTlsVersion:
+    type: string
+    description: "Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'"
+  name:
+    type: string
+    description: Resource name.
+  primaryUserAssignedIdentityId:
+    type: string
+    description: The resource id of a user assigned identity to be used by default.
+  privateEndpointConnections:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:sql/v20211101:ManagedInstancePecPropertyResponse"
+    description: List of private endpoint connections on a managed instance.
+  provisioningState:
+    type: string
+  proxyOverride:
+    type: string
+    description: Connection type used for connecting to the instance.
+  publicDataEndpointEnabled:
+    type: boolean
+    description: Whether or not the public data endpoint is enabled.
+  requestedBackupStorageRedundancy:
+    type: string
+    description: The storage account type to be used to store backups for this instance. The options are Local (LocallyRedundantStorage), Zone (ZoneRedundantStorage), Geo (GeoRedundantStorage) and GeoZone(GeoZoneRedundantStorage)
+  servicePrincipal:
+    type: object
+    $ref: "#/types/azure-native:sql/v20211101:ServicePrincipalResponse"
+    description: The managed instance's service principal.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:sql/v20211101:SkuResponse"
+    description: "Managed instance SKU. Allowed values for sku.name: GP_Gen5, GP_G8IM, GP_G8IH, BC_Gen5, BC_G8IM, BC_G8IH"
+  state:
+    type: string
+    description: The state of the managed instance.
+  storageSizeInGB:
+    type: integer
+    description: "Storage size in GB. Minimum value: 32. Maximum value: 16384. Increments of 32 GB allowed only. Maximum value depends on the selected hardware family and number of vCores."
+  subnetId:
+    type: string
+    description: Subnet resource ID for the managed instance.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  timezoneId:
+    type: string
+    description: "Id of the timezone. Allowed values are timezones supported by Windows.\r
+
+      Windows keeps details on supported timezones, including the id, in registry under\r
+
+      KEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Time Zones.\r
+
+      You can get those registry values via SQL Server by querying SELECT name AS timezone_id FROM sys.time_zone_info.\r
+
+      List of Ids can also be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell.\r
+
+      An example of valid timezone id is \"Pacific Standard Time\" or \"W. Europe Standard Time\"."
+  type:
+    type: string
+    description: Resource type.
+  vCores:
+    type: integer
+    description: "The number of vCores. Allowed values: 8, 16, 24, 32, 40, 64, 80."
+  zoneRedundant:
+    type: boolean
+    description: Whether or not the multi-az is enabled.
+type: object
+required:
+  - currentBackupStorageRedundancy
+  - dnsZone
+  - fullyQualifiedDomainName
+  - location
+  - name
+  - privateEndpointConnections
+  - provisioningState
+  - state
+  - type
+inputProperties:
+  administratorLogin:
+    type: string
+    description: Administrator username for the managed instance. Can only be specified when the managed instance is being created (and is required for creation).
+  administratorLoginPassword:
+    type: string
+    description: The administrator login password (required for managed instance creation).
+  administrators:
+    type: object
+    $ref: "#/types/azure-native:sql/v20211101:ManagedInstanceExternalAdministrator"
+    description: The Azure Active Directory administrator of the server.
+  collation:
+    type: string
+    description: Collation of the managed instance.
+  dnsZonePartner:
+    type: string
+    description: The resource id of another managed instance whose DNS zone this managed instance will share after creation.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:sql/v20211101:ResourceIdentity"
+    description: The Azure Active Directory identity of the managed instance.
+  instancePoolId:
+    type: string
+    description: The Id of the instance pool this managed server belongs to.
+  keyId:
+    type: string
+    description: A CMK URI of the key to use for encryption.
+  licenseType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:sql/v20211101:ManagedInstanceLicenseType"
+    description: The license type. Possible values are 'LicenseIncluded' (regular price inclusive of a new SQL license) and 'BasePrice' (discounted AHB price for bringing your own SQL licenses).
+  location:
+    type: string
+    description: Resource location.
+  maintenanceConfigurationId:
+    type: string
+    description: Specifies maintenance configuration id to apply to this managed instance.
+  managedInstanceCreateMode:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:sql/v20211101:ManagedServerCreateMode"
+    description: "Specifies the mode of database creation.\r
+
+      \r
+
+      Default: Regular instance creation.\r
+
+      \r
+
+      Restore: Creates an instance by restoring a set of backups to specific point in time. RestorePointInTime and SourceManagedInstanceId must be specified."
+  managedInstanceName:
+    type: string
+    description: The name of the managed instance.
+  minimalTlsVersion:
+    type: string
+    description: "Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'"
+  primaryUserAssignedIdentityId:
+    type: string
+    description: The resource id of a user assigned identity to be used by default.
+  proxyOverride:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:sql/v20211101:ManagedInstanceProxyOverride"
+    description: Connection type used for connecting to the instance.
+  publicDataEndpointEnabled:
+    type: boolean
+    description: Whether or not the public data endpoint is enabled.
+  requestedBackupStorageRedundancy:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:sql/v20211101:BackupStorageRedundancy"
+    description: The storage account type to be used to store backups for this instance. The options are Local (LocallyRedundantStorage), Zone (ZoneRedundantStorage), Geo (GeoRedundantStorage) and GeoZone(GeoZoneRedundantStorage)
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  restorePointInTime:
+    type: string
+    description: Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
+  servicePrincipal:
+    type: object
+    $ref: "#/types/azure-native:sql/v20211101:ServicePrincipal"
+    description: The managed instance's service principal.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:sql/v20211101:Sku"
+    description: "Managed instance SKU. Allowed values for sku.name: GP_Gen5, GP_G8IM, GP_G8IH, BC_Gen5, BC_G8IM, BC_G8IH"
+  sourceManagedInstanceId:
+    type: string
+    description: The resource identifier of the source managed instance associated with create operation of this instance.
+  storageSizeInGB:
+    type: integer
+    description: "Storage size in GB. Minimum value: 32. Maximum value: 16384. Increments of 32 GB allowed only. Maximum value depends on the selected hardware family and number of vCores."
+  subnetId:
+    type: string
+    description: Subnet resource ID for the managed instance.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  timezoneId:
+    type: string
+    description: "Id of the timezone. Allowed values are timezones supported by Windows.\r
+
+      Windows keeps details on supported timezones, including the id, in registry under\r
+
+      KEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Time Zones.\r
+
+      You can get those registry values via SQL Server by querying SELECT name AS timezone_id FROM sys.time_zone_info.\r
+
+      List of Ids can also be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell.\r
+
+      An example of valid timezone id is \"Pacific Standard Time\" or \"W. Europe Standard Time\"."
+  vCores:
+    type: integer
+    description: "The number of vCores. Allowed values: 8, 16, 24, 32, 40, 64, 80."
+  zoneRedundant:
+    type: boolean
+    description: Whether or not the multi-az is enabled.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:sql:ManagedInstance
+  - type: azure-native:sql/v20150501preview:ManagedInstance
+  - type: azure-native:sql/v20180601preview:ManagedInstance
+  - type: azure-native:sql/v20200202preview:ManagedInstance
+  - type: azure-native:sql/v20200801preview:ManagedInstance
+  - type: azure-native:sql/v20201101preview:ManagedInstance
+  - type: azure-native:sql/v20210201preview:ManagedInstance
+  - type: azure-native:sql/v20210501preview:ManagedInstance
+  - type: azure-native:sql/v20210801preview:ManagedInstance
+  - type: azure-native:sql/v20211101preview:ManagedInstance
+  - type: azure-native:sql/v20220201preview:ManagedInstance

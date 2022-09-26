@@ -1,0 +1,66 @@
+$token: azure-native:devcenter/v20220801preview:getSchedule
+description: Represents a Schedule to execute a task.
+inputs:
+  properties:
+    poolName:
+      type: string
+      description: Name of the pool.
+    projectName:
+      type: string
+      description: The name of the project.
+    resourceGroupName:
+      type: string
+      description: Name of the resource group within the Azure subscription.
+    scheduleName:
+      type: string
+      description: The name of the schedule that uniquely identifies it.
+    top:
+      type: integer
+      description: "The maximum number of resources to return from the operation. Example: '$top=10'."
+  type: object
+  required:
+    - poolName
+    - projectName
+    - resourceGroupName
+    - scheduleName
+outputs:
+  description: Represents a Schedule to execute a task.
+  properties:
+    frequency:
+      type: string
+      description: The frequency of this scheduled task.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    name:
+      type: string
+      description: The name of the resource
+    provisioningState:
+      type: string
+      description: The provisioning state of the resource.
+    state:
+      type: string
+      description: Indicates whether or not this scheduled task is enabled.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:devcenter/v20220801preview:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    time:
+      type: string
+      description: The target time to trigger the action. The format is HH:MM.
+    timeZone:
+      type: string
+      description: The IANA timezone id at which the schedule should execute.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - frequency
+    - id
+    - name
+    - provisioningState
+    - systemData
+    - time
+    - timeZone
+    - type

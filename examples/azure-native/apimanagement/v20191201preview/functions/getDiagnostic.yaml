@@ -1,0 +1,63 @@
+$token: azure-native:apimanagement/v20191201preview:getDiagnostic
+description: Diagnostic details.
+inputs:
+  properties:
+    diagnosticId:
+      type: string
+      description: Diagnostic identifier. Must be unique in the current API Management service instance.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    serviceName:
+      type: string
+      description: The name of the API Management service.
+  type: object
+  required:
+    - diagnosticId
+    - resourceGroupName
+    - serviceName
+outputs:
+  description: Diagnostic details.
+  properties:
+    alwaysLog:
+      type: string
+      description: Specifies for what type of messages sampling settings should not apply.
+    backend:
+      type: object
+      $ref: "#/types/azure-native:apimanagement/v20191201preview:PipelineDiagnosticSettingsResponse"
+      description: Diagnostic settings for incoming/outgoing HTTP messages to the Backend
+    frontend:
+      type: object
+      $ref: "#/types/azure-native:apimanagement/v20191201preview:PipelineDiagnosticSettingsResponse"
+      description: Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
+    httpCorrelationProtocol:
+      type: string
+      description: Sets correlation protocol to use for Application Insights diagnostics.
+    id:
+      type: string
+      description: Resource ID.
+    logClientIp:
+      type: boolean
+      description: Log the ClientIP. Default is false.
+    loggerId:
+      type: string
+      description: Resource Id of a target logger.
+    name:
+      type: string
+      description: Resource name.
+    sampling:
+      type: object
+      $ref: "#/types/azure-native:apimanagement/v20191201preview:SamplingSettingsResponse"
+      description: Sampling settings for Diagnostic.
+    type:
+      type: string
+      description: Resource type for API Management resource.
+    verbosity:
+      type: string
+      description: The verbosity level applied to traces emitted by trace policies.
+  type: object
+  required:
+    - id
+    - loggerId
+    - name
+    - type

@@ -1,0 +1,57 @@
+$token: azure-native:avs/v20211201:PlacementPolicy
+description: A vSphere Distributed Resource Scheduler (DRS) placement policy
+properties:
+  name:
+    type: string
+    description: Resource name.
+  properties:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:avs/v20211201:VmHostPlacementPolicyPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:avs/v20211201:VmVmPlacementPolicyPropertiesResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        VmHost: "#/types/azure-native:avs/v20211201:VmHostPlacementPolicyPropertiesResponse"
+        VmVm: "#/types/azure-native:avs/v20211201:VmVmPlacementPolicyPropertiesResponse"
+    description: placement policy properties
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - name
+  - properties
+  - type
+inputProperties:
+  clusterName:
+    type: string
+    description: Name of the cluster in the private cloud
+  placementPolicyName:
+    type: string
+    description: Name of the VMware vSphere Distributed Resource Scheduler (DRS) placement policy
+  privateCloudName:
+    type: string
+    description: Name of the private cloud
+  properties:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:avs/v20211201:VmHostPlacementPolicyProperties"
+      - type: object
+        $ref: "#/types/azure-native:avs/v20211201:VmVmPlacementPolicyProperties"
+    discriminator:
+      propertyName: type
+      mapping:
+        VmHost: "#/types/azure-native:avs/v20211201:VmHostPlacementPolicyProperties"
+        VmVm: "#/types/azure-native:avs/v20211201:VmVmPlacementPolicyProperties"
+    description: placement policy properties
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+requiredInputs:
+  - clusterName
+  - privateCloudName
+  - resourceGroupName
+aliases:
+  - type: azure-native:avs:PlacementPolicy

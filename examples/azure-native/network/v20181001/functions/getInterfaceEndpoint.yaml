@@ -1,0 +1,70 @@
+$token: azure-native:network/v20181001:getInterfaceEndpoint
+description: Interface endpoint resource.
+inputs:
+  properties:
+    expand:
+      type: string
+      description: Expands referenced resources.
+    interfaceEndpointName:
+      type: string
+      description: The name of the interface endpoint.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - interfaceEndpointName
+    - resourceGroupName
+outputs:
+  description: Interface endpoint resource.
+  properties:
+    endpointService:
+      type: object
+      $ref: "#/types/azure-native:network/v20181001:EndpointServiceResponse"
+      description: A reference to the service being brought into the virtual network.
+    etag:
+      type: string
+      description: Gets a unique read-only string that changes whenever the resource is updated.
+    fqdn:
+      type: string
+      description: A first-party service's FQDN that is mapped to the private IP allocated via this interface endpoint.
+    id:
+      type: string
+      description: Resource ID.
+    location:
+      type: string
+      description: Resource location.
+    name:
+      type: string
+      description: Resource name.
+    networkInterfaces:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20181001:NetworkInterfaceResponse"
+      description: Gets an array of references to the network interfaces created for this interface endpoint.
+    owner:
+      type: string
+      description: A read-only property that identifies who created this interface endpoint.
+    provisioningState:
+      type: string
+      description: "The provisioning state of the interface endpoint. Possible values are: 'Updating', 'Deleting', and 'Failed'."
+    subnet:
+      type: object
+      $ref: "#/types/azure-native:network/v20181001:SubnetResponse"
+      description: The ID of the subnet from which the private IP will be allocated.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - name
+    - networkInterfaces
+    - owner
+    - provisioningState
+    - type

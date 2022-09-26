@@ -1,0 +1,42 @@
+$token: azure-native:app/v20220301:Container
+description: Container App container definition.
+properties:
+  args:
+    type: array
+    items:
+      type: string
+    description: Container start command arguments.
+  command:
+    type: array
+    items:
+      type: string
+    description: Container start command.
+  env:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:app/v20220301:EnvironmentVar"
+    description: Container environment variables.
+  image:
+    type: string
+    description: Container image tag.
+  name:
+    type: string
+    description: Custom container name.
+  probes:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:app/v20220301:ContainerAppProbe"
+    description: List of probes for the container.
+  resources:
+    type: object
+    $ref: "#/types/azure-native:app/v20220301:ContainerResources"
+    description: Container resource requirements.
+  volumeMounts:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:app/v20220301:VolumeMount"
+    description: Container volume mounts.
+type: object

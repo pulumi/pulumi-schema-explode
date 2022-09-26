@@ -1,0 +1,48 @@
+$token: azure-native:datafactory:ExecutePipelineActivity
+description: Execute pipeline activity.
+properties:
+  dependsOn:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory:ActivityDependency"
+    description: Activity depends on condition.
+  description:
+    type: string
+    description: Activity description.
+  name:
+    type: string
+    description: Activity name.
+  parameters:
+    type: object
+    additionalProperties:
+      $ref: pulumi.json#/Any
+    description: Pipeline parameters.
+  pipeline:
+    type: object
+    $ref: "#/types/azure-native:datafactory:PipelineReference"
+    description: Pipeline reference.
+  policy:
+    type: object
+    $ref: "#/types/azure-native:datafactory:ExecutePipelineActivityPolicy"
+    description: Execute pipeline activity policy.
+  type:
+    type: string
+    description: |-
+      Type of activity.
+      Expected value is 'ExecutePipeline'.
+    const: ExecutePipeline
+  userProperties:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory:UserProperty"
+    description: Activity user properties.
+  waitOnCompletion:
+    type: boolean
+    description: Defines whether activity execution will wait for the dependent pipeline execution to finish. Default is false.
+type: object
+required:
+  - name
+  - pipeline
+  - type

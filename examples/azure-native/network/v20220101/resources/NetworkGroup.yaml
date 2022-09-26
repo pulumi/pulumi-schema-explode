@@ -1,0 +1,51 @@
+$token: azure-native:network/v20220101:NetworkGroup
+description: The network group resource
+properties:
+  description:
+    type: string
+    description: A description of the network group.
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  name:
+    type: string
+    description: Resource name.
+  provisioningState:
+    type: string
+    description: The provisioning state of the scope assignment resource.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:network/v20220101:SystemDataResponse"
+    description: The system metadata related to this resource.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - etag
+  - name
+  - provisioningState
+  - systemData
+  - type
+inputProperties:
+  description:
+    type: string
+    description: A description of the network group.
+  networkGroupName:
+    type: string
+    description: The name of the network group.
+  networkManagerName:
+    type: string
+    description: The name of the network manager.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+requiredInputs:
+  - networkManagerName
+  - resourceGroupName
+aliases:
+  - type: azure-native:network:NetworkGroup
+  - type: azure-native:network/v20210201preview:NetworkGroup
+  - type: azure-native:network/v20210501preview:NetworkGroup
+  - type: azure-native:network/v20220201preview:NetworkGroup
+  - type: azure-native:network/v20220401preview:NetworkGroup

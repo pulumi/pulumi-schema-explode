@@ -1,0 +1,20 @@
+$token: azure-native:documentdb/v20211115preview:PeriodicModeBackupPolicyResponse
+description: The object representing periodic mode backup policy.
+properties:
+  migrationState:
+    type: object
+    $ref: "#/types/azure-native:documentdb/v20211115preview:BackupPolicyMigrationStateResponse"
+    description: The object representing the state of the migration between the backup policies.
+  periodicModeProperties:
+    type: object
+    $ref: "#/types/azure-native:documentdb/v20211115preview:PeriodicModePropertiesResponse"
+    description: Configuration values for periodic mode backup
+  type:
+    type: string
+    description: |-
+      Describes the mode of backups.
+      Expected value is 'Periodic'.
+    const: Periodic
+type: object
+required:
+  - type

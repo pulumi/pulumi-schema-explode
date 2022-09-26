@@ -1,0 +1,48 @@
+$token: azure-native:keyvault/v20200401preview:getManagedHsm
+description: Resource information with extended details.
+inputs:
+  properties:
+    name:
+      type: string
+      description: The name of the managed HSM Pool.
+    resourceGroupName:
+      type: string
+      description: Name of the resource group that contains the managed HSM pool.
+  type: object
+  required:
+    - name
+    - resourceGroupName
+outputs:
+  description: Resource information with extended details.
+  properties:
+    id:
+      type: string
+      description: The Azure Resource Manager resource ID for the managed HSM Pool.
+    location:
+      type: string
+      description: The supported Azure location where the managed HSM Pool should be created.
+    name:
+      type: string
+      description: The name of the managed HSM Pool.
+    properties:
+      type: object
+      $ref: "#/types/azure-native:keyvault/v20200401preview:ManagedHsmPropertiesResponse"
+      description: Properties of the managed HSM
+    sku:
+      type: object
+      $ref: "#/types/azure-native:keyvault/v20200401preview:ManagedHsmSkuResponse"
+      description: SKU details
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    type:
+      type: string
+      description: The resource type of the managed HSM Pool.
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - type

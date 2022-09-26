@@ -1,0 +1,43 @@
+$token: azure-native:datafactory:BlobTriggerResponse
+description: Trigger that runs every time the selected Blob container changes.
+properties:
+  annotations:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: List of tags that can be used for describing the trigger.
+  description:
+    type: string
+    description: Trigger description.
+  folderPath:
+    type: string
+    description: The path of the container/folder that will trigger the pipeline.
+  linkedService:
+    type: object
+    $ref: "#/types/azure-native:datafactory:LinkedServiceReferenceResponse"
+    description: The Azure Storage linked service reference.
+  maxConcurrency:
+    type: integer
+    description: The max number of parallel files to handle when it is triggered.
+  pipelines:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory:TriggerPipelineReferenceResponse"
+    description: Pipelines that need to be started.
+  runtimeState:
+    type: string
+    description: Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
+  type:
+    type: string
+    description: |-
+      Trigger type.
+      Expected value is 'BlobTrigger'.
+    const: BlobTrigger
+type: object
+required:
+  - folderPath
+  - linkedService
+  - maxConcurrency
+  - runtimeState
+  - type

@@ -1,0 +1,80 @@
+$token: azure-native:compute/v20220301:RestorePoint
+description: Restore Point details.
+properties:
+  consistencyMode:
+    type: string
+    description: ConsistencyMode of the RestorePoint. Can be specified in the input while creating a restore point. For now, only CrashConsistent is accepted as a valid input. Please refer to https://aka.ms/RestorePoints for more details.
+  excludeDisks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:compute/v20220301:ApiEntityReferenceResponse"
+    description: List of disk resource ids that the customer wishes to exclude from the restore point. If no disks are specified, all disks will be included.
+  instanceView:
+    type: object
+    $ref: "#/types/azure-native:compute/v20220301:RestorePointInstanceViewResponse"
+    description: The restore point instance view.
+  name:
+    type: string
+    description: Resource name
+  provisioningState:
+    type: string
+    description: Gets the provisioning state of the restore point.
+  sourceMetadata:
+    type: object
+    $ref: "#/types/azure-native:compute/v20220301:RestorePointSourceMetadataResponse"
+    description: Gets the details of the VM captured at the time of the restore point creation.
+  sourceRestorePoint:
+    type: object
+    $ref: "#/types/azure-native:compute/v20220301:ApiEntityReferenceResponse"
+    description: Resource Id of the source restore point from which a copy needs to be created.
+  timeCreated:
+    type: string
+    description: Gets the creation time of the restore point.
+  type:
+    type: string
+    description: Resource type
+type: object
+required:
+  - instanceView
+  - name
+  - provisioningState
+  - sourceMetadata
+  - type
+inputProperties:
+  consistencyMode:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:compute/v20220301:ConsistencyModeTypes"
+    description: ConsistencyMode of the RestorePoint. Can be specified in the input while creating a restore point. For now, only CrashConsistent is accepted as a valid input. Please refer to https://aka.ms/RestorePoints for more details.
+  excludeDisks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:compute/v20220301:ApiEntityReference"
+    description: List of disk resource ids that the customer wishes to exclude from the restore point. If no disks are specified, all disks will be included.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  restorePointCollectionName:
+    type: string
+    description: The name of the restore point collection.
+  restorePointName:
+    type: string
+    description: The name of the restore point.
+  sourceRestorePoint:
+    type: object
+    $ref: "#/types/azure-native:compute/v20220301:ApiEntityReference"
+    description: Resource Id of the source restore point from which a copy needs to be created.
+  timeCreated:
+    type: string
+    description: Gets the creation time of the restore point.
+requiredInputs:
+  - resourceGroupName
+  - restorePointCollectionName
+aliases:
+  - type: azure-native:compute:RestorePoint
+  - type: azure-native:compute/v20210301:RestorePoint
+  - type: azure-native:compute/v20210401:RestorePoint
+  - type: azure-native:compute/v20210701:RestorePoint
+  - type: azure-native:compute/v20211101:RestorePoint

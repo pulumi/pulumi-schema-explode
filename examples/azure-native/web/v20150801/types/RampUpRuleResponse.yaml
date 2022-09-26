@@ -1,0 +1,34 @@
+$token: azure-native:web/v20150801:RampUpRuleResponse
+description: Routing rules for ramp up testing. This rule allows to redirect static traffic % to a slot or to gradually change routing % based on performance
+properties:
+  actionHostName:
+    type: string
+    description: Hostname of a slot to which the traffic will be redirected if decided to. E.g. mysite-stage.azurewebsites.net
+  changeDecisionCallbackUrl:
+    type: string
+    description: "Custom decision algorithm can be provided in TiPCallback site extension which Url can be specified. See TiPCallback site extension for the scaffold and contracts.\r
+
+      \            https://www.siteextensions.net/packages/TiPCallback/"
+  changeIntervalInMinutes:
+    type: integer
+    description: "[Optional] Specifies interval in minutes to reevaluate ReroutePercentage"
+  changeStep:
+    type: number
+    description: "[Optional] In auto ramp up scenario this is the step to add/remove from {Microsoft.Web.Hosting.Administration.RampUpRule.ReroutePercentage} until it reaches \r
+
+      \            {Microsoft.Web.Hosting.Administration.RampUpRule.MinReroutePercentage} or {Microsoft.Web.Hosting.Administration.RampUpRule.MaxReroutePercentage}. Site metrics are checked every N minutes specified in {Microsoft.Web.Hosting.Administration.RampUpRule.ChangeIntervalInMinutes}.\r
+
+      \            Custom decision algorithm can be provided in TiPCallback site extension which Url can be specified in {Microsoft.Web.Hosting.Administration.RampUpRule.ChangeDecisionCallbackUrl}"
+  maxReroutePercentage:
+    type: number
+    description: "[Optional] Specifies upper boundary below which ReroutePercentage will stay."
+  minReroutePercentage:
+    type: number
+    description: "[Optional] Specifies lower boundary above which ReroutePercentage will stay."
+  name:
+    type: string
+    description: Name of the routing rule. The recommended name would be to point to the slot which will receive the traffic in the experiment.
+  reroutePercentage:
+    type: number
+    description: Percentage of the traffic which will be redirected to {Microsoft.Web.Hosting.Administration.RampUpRule.ActionHostName}
+type: object

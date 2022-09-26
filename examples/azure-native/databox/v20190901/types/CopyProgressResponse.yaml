@@ -1,0 +1,49 @@
+$token: azure-native:databox/v20190901:CopyProgressResponse
+description: Copy progress.
+properties:
+  accountId:
+    type: string
+    description: Id of the account where the data needs to be uploaded.
+  bytesSentToCloud:
+    type: number
+    description: Amount of data uploaded by the job as of now.
+  dataDestinationType:
+    type: string
+    description: Data Destination Type.
+  filesErroredOut:
+    type: number
+    description: Number of files which could not be copied
+  filesProcessed:
+    type: number
+    description: Number of files processed by the job as of now.
+  invalidFileBytesUploaded:
+    type: number
+    description: Total amount of data not adhering to azure naming conventions which were processed by automatic renaming
+  invalidFilesProcessed:
+    type: number
+    description: Number of files not adhering to azure naming conventions which were processed by automatic renaming
+  renamedContainerCount:
+    type: number
+    description: Number of folders not adhering to azure naming conventions which were processed by automatic renaming
+  storageAccountName:
+    type: string
+    description: Name of the storage account where the data needs to be uploaded.
+  totalBytesToProcess:
+    type: number
+    description: Total amount of data to be processed by the job.
+  totalFilesToProcess:
+    type: number
+    description: Total number of files to be processed by the job.
+type: object
+required:
+  - accountId
+  - bytesSentToCloud
+  - dataDestinationType
+  - filesErroredOut
+  - filesProcessed
+  - invalidFileBytesUploaded
+  - invalidFilesProcessed
+  - renamedContainerCount
+  - storageAccountName
+  - totalBytesToProcess
+  - totalFilesToProcess

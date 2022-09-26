@@ -1,0 +1,173 @@
+$token: azure-native:recoveryservices/v20180110:InMageAzureV2ReplicationDetailsResponse
+description: InMageAzureV2 provider specific settings
+properties:
+  agentExpiryDate:
+    type: string
+    description: Agent expiry date.
+  agentVersion:
+    type: string
+    description: The agent version.
+  azureVMDiskDetails:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:recoveryservices/v20180110:AzureVmDiskDetailsResponse"
+    description: Azure VM Disk details.
+  compressedDataRateInMB:
+    type: number
+    description: The compressed data change rate in MB.
+  datastores:
+    type: array
+    items:
+      type: string
+    description: The data stores of the on-premise machine. Value can be list of strings that contain data store names.
+  discoveryType:
+    type: string
+    description: A value indicating the discovery type of the machine. Value can be vCenter or physical.
+  diskResized:
+    type: string
+    description: A value indicating whether any disk is resized for this VM.
+  enableRdpOnTargetOption:
+    type: string
+    description: The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
+  infrastructureVmId:
+    type: string
+    description: The infrastructure VM Id.
+  instanceType:
+    type: string
+    description: |-
+      Gets the Instance type.
+      Expected value is 'InMageAzureV2'.
+    const: InMageAzureV2
+  ipAddress:
+    type: string
+    description: The source IP address.
+  isAgentUpdateRequired:
+    type: string
+    description: A value indicating whether installed agent needs to be updated.
+  isRebootAfterUpdateRequired:
+    type: string
+    description: A value indicating whether the source server requires a restart after update.
+  lastHeartbeat:
+    type: string
+    description: The last heartbeat received from the source server.
+  lastRpoCalculatedTime:
+    type: string
+    description: The last RPO calculated time.
+  lastUpdateReceivedTime:
+    type: string
+    description: The last update time received from on-prem components.
+  licenseType:
+    type: string
+    description: License Type of the VM to be used.
+  masterTargetId:
+    type: string
+    description: The master target Id.
+  multiVmGroupId:
+    type: string
+    description: The multi vm group Id.
+  multiVmGroupName:
+    type: string
+    description: The multi vm group name.
+  multiVmSyncStatus:
+    type: string
+    description: A value indicating whether multi vm sync is enabled or disabled.
+  osDiskId:
+    type: string
+    description: The id of the disk containing the OS.
+  osType:
+    type: string
+    description: The type of the OS on the VM.
+  osVersion:
+    type: string
+    description: The OS Version of the protected item.
+  processServerId:
+    type: string
+    description: The process server Id.
+  protectedDisks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:recoveryservices/v20180110:InMageAzureV2ProtectedDiskDetailsResponse"
+    description: The list of protected disks.
+  protectionStage:
+    type: string
+    description: The protection stage.
+  recoveryAvailabilitySetId:
+    type: string
+    description: The recovery availability set Id.
+  recoveryAzureLogStorageAccountId:
+    type: string
+    description: The ARM id of the log storage account used for replication. This will be set to null if no log storage account was provided during enable protection.
+  recoveryAzureResourceGroupId:
+    type: string
+    description: The target resource group Id.
+  recoveryAzureStorageAccount:
+    type: string
+    description: The recovery Azure storage account.
+  recoveryAzureVMName:
+    type: string
+    description: Recovery Azure given name.
+  recoveryAzureVMSize:
+    type: string
+    description: The Recovery Azure VM size.
+  replicaId:
+    type: string
+    description: The replica id of the protected item.
+  resyncProgressPercentage:
+    type: integer
+    description: The resync progress percentage.
+  rpoInSeconds:
+    type: number
+    description: The RPO in seconds.
+  selectedRecoveryAzureNetworkId:
+    type: string
+    description: The selected recovery azure network Id.
+  selectedSourceNicId:
+    type: string
+    description: The selected source nic Id which will be used as the primary nic during failover.
+  sourceVmCpuCount:
+    type: integer
+    description: The CPU count of the VM on the primary side.
+  sourceVmRamSizeInMB:
+    type: integer
+    description: The RAM size of the VM on the primary side.
+  targetVmId:
+    type: string
+    description: The ARM Id of the target Azure VM. This value will be null until the VM is failed over. Only after failure it will be populated with the ARM Id of the Azure VM.
+  uncompressedDataRateInMB:
+    type: number
+    description: The uncompressed data change rate in MB.
+  useManagedDisks:
+    type: string
+    description: A value indicating whether managed disks should be used during failover.
+  vCenterInfrastructureId:
+    type: string
+    description: The vCenter infrastructure Id.
+  validationErrors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:recoveryservices/v20180110:HealthErrorResponse"
+    description: The validation errors of the on-premise machine Value can be list of validation errors.
+  vhdName:
+    type: string
+    description: The OS disk VHD name.
+  vmId:
+    type: string
+    description: The virtual machine Id.
+  vmNics:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:recoveryservices/v20180110:VMNicDetailsResponse"
+    description: The PE Network details.
+  vmProtectionState:
+    type: string
+    description: The protection state for the vm.
+  vmProtectionStateDescription:
+    type: string
+    description: The protection state description for the vm.
+type: object
+required:
+  - instanceType

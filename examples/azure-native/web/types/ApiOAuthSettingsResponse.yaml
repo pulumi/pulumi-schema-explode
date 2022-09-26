@@ -1,0 +1,30 @@
+$token: azure-native:web:ApiOAuthSettingsResponse
+description: OAuth settings for the connection provider
+properties:
+  clientId:
+    type: string
+    description: Resource provider client id
+  clientSecret:
+    type: string
+    description: Client Secret needed for OAuth
+  customParameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:web:ApiOAuthSettingsParameterResponse"
+    description: OAuth parameters key is the name of parameter
+  identityProvider:
+    type: string
+    description: Identity provider
+  properties:
+    $ref: pulumi.json#/Any
+    description: Read only properties for this oauth setting.
+  redirectUrl:
+    type: string
+    description: Url
+  scopes:
+    type: array
+    items:
+      type: string
+    description: OAuth scopes
+type: object

@@ -1,0 +1,88 @@
+$token: azure-native:hybridcompute/v20210128preview:MachinePropertiesResponse
+description: Describes the properties of a hybrid machine.
+properties:
+  adFqdn:
+    type: string
+    description: Specifies the AD fully qualified display name.
+  agentVersion:
+    type: string
+    description: The hybrid machine agent full version.
+  clientPublicKey:
+    type: string
+    description: Public Key that the client provides to be used during initial resource onboarding
+  displayName:
+    type: string
+    description: Specifies the hybrid machine display name.
+  dnsFqdn:
+    type: string
+    description: Specifies the DNS fully qualified display name.
+  domainName:
+    type: string
+    description: Specifies the Windows domain name.
+  errorDetails:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:hybridcompute/v20210128preview:ErrorDetailResponse"
+    description: Details about the error state.
+  extensions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:hybridcompute/v20210128preview:MachineExtensionInstanceViewResponse"
+    description: Machine Extensions information
+  lastStatusChange:
+    type: string
+    description: The time of the last status change.
+  locationData:
+    type: object
+    $ref: "#/types/azure-native:hybridcompute/v20210128preview:LocationDataResponse"
+    description: Metadata pertaining to the geographic location of the resource.
+  machineFqdn:
+    type: string
+    description: Specifies the hybrid machine FQDN.
+  osName:
+    type: string
+    description: The Operating System running on the hybrid machine.
+  osProfile:
+    type: object
+    $ref: "#/types/azure-native:hybridcompute/v20210128preview:OSProfileResponse"
+    description: Specifies the operating system settings for the hybrid machine.
+  osSku:
+    type: string
+    description: Specifies the Operating System product SKU.
+  osVersion:
+    type: string
+    description: The version of Operating System running on the hybrid machine.
+  privateLinkScopeResourceId:
+    type: string
+    description: The resource id of the private link scope this machine is assigned to, if any.
+  provisioningState:
+    type: string
+    description: The provisioning state, which only appears in the response.
+  status:
+    type: string
+    description: The status of the hybrid machine agent.
+  vmId:
+    type: string
+    description: Specifies the hybrid machine unique ID.
+  vmUuid:
+    type: string
+    description: Specifies the Arc Machine's unique SMBIOS ID
+type: object
+required:
+  - adFqdn
+  - agentVersion
+  - displayName
+  - dnsFqdn
+  - domainName
+  - errorDetails
+  - lastStatusChange
+  - machineFqdn
+  - osName
+  - osProfile
+  - osSku
+  - osVersion
+  - provisioningState
+  - status
+  - vmUuid

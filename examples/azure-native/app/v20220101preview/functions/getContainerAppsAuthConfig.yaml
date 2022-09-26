@@ -1,0 +1,60 @@
+$token: azure-native:app/v20220101preview:getContainerAppsAuthConfig
+description: Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
+inputs:
+  properties:
+    containerAppName:
+      type: string
+      description: Name of the Container App.
+    name:
+      type: string
+      description: Name of the Container App AuthConfig.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+  type: object
+  required:
+    - containerAppName
+    - name
+    - resourceGroupName
+outputs:
+  description: Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
+  properties:
+    globalValidation:
+      type: object
+      $ref: "#/types/azure-native:app/v20220101preview:GlobalValidationResponse"
+      description: The configuration settings that determines the validation flow of users using  Service Authentication/Authorization.
+    httpSettings:
+      type: object
+      $ref: "#/types/azure-native:app/v20220101preview:HttpSettingsResponse"
+      description: The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Service Authentication/Authorization.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    identityProviders:
+      type: object
+      $ref: "#/types/azure-native:app/v20220101preview:IdentityProvidersResponse"
+      description: The configuration settings of each of the identity providers used to configure ContainerApp Service Authentication/Authorization.
+    login:
+      type: object
+      $ref: "#/types/azure-native:app/v20220101preview:LoginResponse"
+      description: The configuration settings of the login flow of users using ContainerApp Service Authentication/Authorization.
+    name:
+      type: string
+      description: The name of the resource
+    platform:
+      type: object
+      $ref: "#/types/azure-native:app/v20220101preview:AuthPlatformResponse"
+      description: The configuration settings of the platform of ContainerApp Service Authentication/Authorization.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:app/v20220101preview:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - id
+    - name
+    - systemData
+    - type

@@ -1,0 +1,15 @@
+$token: azure-native:servicefabricmesh/v20180701preview:IngressConfig
+description: Describes public connectivity configuration for the network.
+properties:
+  layer4:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:servicefabricmesh/v20180701preview:Layer4IngressConfig"
+    description: Configuration for layer4 public connectivity for this network.
+  qosLevel:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:servicefabricmesh/v20180701preview:IngressQoSLevel"
+    description: The QoS tier for ingress.
+type: object

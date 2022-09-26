@@ -1,0 +1,71 @@
+$token: azure-native:storage:Blob
+description: Manages a Blob within a Storage Container.
+properties:
+  accessTier:
+    $ref: "#/types/azure-native:storage:BlobAccessTier"
+    description: The access tier of the storage blob.
+  contentMd5:
+    type: string
+    description: The MD5 sum of the blob contents.
+  contentType:
+    type: string
+    description: The content type of the storage blob.
+  metadata:
+    type: object
+    additionalProperties:
+      type: string
+    description: A map of custom blob metadata.
+  name:
+    type: string
+    description: The name of the storage blob.
+  type:
+    $ref: "#/types/azure-native:storage:BlobType"
+    description: The type of the storage blob to be created.
+  url:
+    type: string
+    description: The URL of the blob.
+type: object
+required:
+  - accessTier
+  - metadata
+  - name
+  - type
+  - url
+inputProperties:
+  accessTier:
+    $ref: "#/types/azure-native:storage:BlobAccessTier"
+    description: The access tier of the storage blob.
+  accountName:
+    type: string
+    description: Specifies the storage account in which to create the storage container.
+  blobName:
+    type: string
+    description: The name of the storage blob. Must be unique within the storage container the blob is located.
+  containerName:
+    type: string
+    description: The name of the storage container in which this blob should be created.
+  contentMd5:
+    type: string
+    description: The MD5 sum of the blob contents. Cannot be defined if blob type is Append.
+  contentType:
+    type: string
+    description: The content type of the storage blob. Defaults to `application/octet-stream`.
+  metadata:
+    type: object
+    additionalProperties:
+      type: string
+    description: A map of custom blob metadata.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group within the user's subscription.
+  source:
+    $ref: pulumi.json#/Asset
+    description: An asset to copy to the blob contents. This field cannot be specified for Append blobs.
+  type:
+    $ref: "#/types/azure-native:storage:BlobType"
+    description: The type of the storage blob to be created. Defaults to 'Block'.
+    default: Block
+requiredInputs:
+  - resourceGroupName
+  - accountName
+  - containerName

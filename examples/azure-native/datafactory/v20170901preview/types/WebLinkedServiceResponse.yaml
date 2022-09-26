@@ -1,0 +1,46 @@
+$token: azure-native:datafactory/v20170901preview:WebLinkedServiceResponse
+description: Web linked service.
+properties:
+  annotations:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: List of tags that can be used for describing the Dataset.
+  connectVia:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20170901preview:IntegrationRuntimeReferenceResponse"
+    description: The integration runtime reference.
+  description:
+    type: string
+    description: Linked service description.
+  parameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20170901preview:ParameterSpecificationResponse"
+    description: Parameters for linked service.
+  type:
+    type: string
+    description: |-
+      Type of linked service.
+      Expected value is 'Web'.
+    const: Web
+  typeProperties:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:WebAnonymousAuthenticationResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:WebBasicAuthenticationResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:WebClientCertificateAuthenticationResponse"
+    discriminator:
+      propertyName: authenticationType
+      mapping:
+        Anonymous: "#/types/azure-native:datafactory/v20170901preview:WebAnonymousAuthenticationResponse"
+        Basic: "#/types/azure-native:datafactory/v20170901preview:WebBasicAuthenticationResponse"
+        ClientCertificate: "#/types/azure-native:datafactory/v20170901preview:WebClientCertificateAuthenticationResponse"
+    description: Web linked service properties.
+type: object
+required:
+  - type
+  - typeProperties

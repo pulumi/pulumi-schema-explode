@@ -1,0 +1,91 @@
+$token: azure-native:app/v20220101preview:ManagedEnvironment
+description: An environment for hosting container apps
+properties:
+  appLogsConfiguration:
+    type: object
+    $ref: "#/types/azure-native:app/v20220101preview:AppLogsConfigurationResponse"
+    description: |-
+      Cluster configuration which enables the log daemon to export
+      app logs to a destination. Currently only "log-analytics" is
+      supported
+  daprAIInstrumentationKey:
+    type: string
+    description: Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
+  defaultDomain:
+    type: string
+    description: Default Domain Name for the cluster
+  deploymentErrors:
+    type: string
+    description: Any errors that occurred during deployment or deployment validation
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  name:
+    type: string
+    description: The name of the resource
+  provisioningState:
+    type: string
+    description: Provisioning state of the Environment.
+  staticIp:
+    type: string
+    description: Static IP of the Environment
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:app/v20220101preview:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  vnetConfiguration:
+    type: object
+    $ref: "#/types/azure-native:app/v20220101preview:VnetConfigurationResponse"
+    description: Vnet configuration for the environment
+type: object
+required:
+  - defaultDomain
+  - deploymentErrors
+  - location
+  - name
+  - provisioningState
+  - staticIp
+  - systemData
+  - type
+inputProperties:
+  appLogsConfiguration:
+    type: object
+    $ref: "#/types/azure-native:app/v20220101preview:AppLogsConfiguration"
+    description: |-
+      Cluster configuration which enables the log daemon to export
+      app logs to a destination. Currently only "log-analytics" is
+      supported
+  daprAIInstrumentationKey:
+    type: string
+    description: Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  name:
+    type: string
+    description: Name of the Environment.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  vnetConfiguration:
+    type: object
+    $ref: "#/types/azure-native:app/v20220101preview:VnetConfiguration"
+    description: Vnet configuration for the environment
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:app:ManagedEnvironment
+  - type: azure-native:app/v20220301:ManagedEnvironment

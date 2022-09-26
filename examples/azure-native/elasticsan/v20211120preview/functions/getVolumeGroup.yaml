@@ -1,0 +1,59 @@
+$token: azure-native:elasticsan/v20211120preview:getVolumeGroup
+description: Response for Volume Group request.
+inputs:
+  properties:
+    elasticSanName:
+      type: string
+      description: The name of the ElasticSan.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    volumeGroupName:
+      type: string
+      description: The name of the VolumeGroup.
+  type: object
+  required:
+    - elasticSanName
+    - resourceGroupName
+    - volumeGroupName
+outputs:
+  description: Response for Volume Group request.
+  properties:
+    encryption:
+      type: string
+      description: Type of encryption
+    id:
+      type: string
+      description: Azure resource identifier.
+    name:
+      type: string
+      description: Azure resource name.
+    networkAcls:
+      type: object
+      $ref: "#/types/azure-native:elasticsan/v20211120preview:NetworkRuleSetResponse"
+      description: A collection of rules governing the accessibility from specific network locations.
+    protocolType:
+      type: string
+      description: Type of storage target
+    provisioningState:
+      type: string
+      description: State of the operation on the resource.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:elasticsan/v20211120preview:SystemDataResponse"
+      description: Resource metadata required by ARM RPC
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Azure resource tags.
+    type:
+      type: string
+      description: Azure resource type.
+  type: object
+  required:
+    - id
+    - name
+    - provisioningState
+    - systemData
+    - type

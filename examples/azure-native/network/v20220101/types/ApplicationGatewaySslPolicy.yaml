@@ -1,0 +1,33 @@
+$token: azure-native:network/v20220101:ApplicationGatewaySslPolicy
+description: Application Gateway Ssl policy.
+properties:
+  cipherSuites:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:network/v20220101:ApplicationGatewaySslCipherSuite"
+    description: Ssl cipher suites to be enabled in the specified order to application gateway.
+  disabledSslProtocols:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:network/v20220101:ApplicationGatewaySslProtocol"
+    description: Ssl protocols to be disabled on application gateway.
+  minProtocolVersion:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20220101:ApplicationGatewaySslProtocol"
+    description: Minimum version of Ssl protocol to be supported on application gateway.
+  policyName:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20220101:ApplicationGatewaySslPolicyName"
+    description: Name of Ssl predefined policy.
+  policyType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20220101:ApplicationGatewaySslPolicyType"
+    description: Type of Ssl Policy.
+type: object

@@ -1,0 +1,37 @@
+$token: azure-native:network/v20180401:MonitorConfigResponse
+description: Class containing endpoint monitoring settings in a Traffic Manager profile.
+properties:
+  customHeaders:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20180401:MonitorConfigResponseCustomHeaders"
+    description: List of custom headers.
+  expectedStatusCodeRanges:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20180401:MonitorConfigResponseExpectedStatusCodeRanges"
+    description: List of expected status code ranges.
+  intervalInSeconds:
+    type: number
+    description: The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
+  path:
+    type: string
+    description: The path relative to the endpoint domain name used to probe for endpoint health.
+  port:
+    type: number
+    description: The TCP port used to probe for endpoint health.
+  profileMonitorStatus:
+    type: string
+    description: The profile-level monitoring status of the Traffic Manager profile.
+  protocol:
+    type: string
+    description: The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
+  timeoutInSeconds:
+    type: number
+    description: The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
+  toleratedNumberOfFailures:
+    type: number
+    description: The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
+type: object

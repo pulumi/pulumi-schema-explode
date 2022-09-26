@@ -1,0 +1,71 @@
+$token: azure-native:netapp/v20210601:getSnapshotPolicy
+description: Snapshot policy information
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: The name of the NetApp account
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    snapshotPolicyName:
+      type: string
+      description: The name of the snapshot policy
+  type: object
+  required:
+    - accountName
+    - resourceGroupName
+    - snapshotPolicyName
+outputs:
+  description: Snapshot policy information
+  properties:
+    dailySchedule:
+      type: object
+      $ref: "#/types/azure-native:netapp/v20210601:DailyScheduleResponse"
+      description: Schedule for daily snapshots
+    enabled:
+      type: boolean
+      description: The property to decide policy is enabled or not
+    etag:
+      type: string
+      description: A unique read-only string that changes whenever the resource is updated.
+    hourlySchedule:
+      type: object
+      $ref: "#/types/azure-native:netapp/v20210601:HourlyScheduleResponse"
+      description: Schedule for hourly snapshots
+    id:
+      type: string
+      description: Resource Id
+    location:
+      type: string
+      description: Resource location
+    monthlySchedule:
+      type: object
+      $ref: "#/types/azure-native:netapp/v20210601:MonthlyScheduleResponse"
+      description: Schedule for monthly snapshots
+    name:
+      type: string
+      description: Resource name
+    provisioningState:
+      type: string
+      description: Azure lifecycle management
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    type:
+      type: string
+      description: Resource type
+    weeklySchedule:
+      type: object
+      $ref: "#/types/azure-native:netapp/v20210601:WeeklyScheduleResponse"
+      description: Schedule for weekly snapshots
+  type: object
+  required:
+    - etag
+    - id
+    - location
+    - name
+    - provisioningState
+    - type

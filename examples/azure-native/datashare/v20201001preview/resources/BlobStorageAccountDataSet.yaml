@@ -1,0 +1,85 @@
+$token: azure-native:datashare/v20201001preview:BlobStorageAccountDataSet
+description: An Azure blob storage account data set.
+properties:
+  dataSetId:
+    type: string
+    description: Unique id for identifying a data set resource
+  kind:
+    type: string
+    description: |-
+      Kind of data set.
+      Expected value is 'BlobStorageAccount'.
+    const: BlobStorageAccount
+  location:
+    type: string
+    description: Location of the storage account.
+  name:
+    type: string
+    description: Name of the azure resource
+  paths:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datashare/v20201001preview:BlobStorageAccountPathResponse"
+    description: A list of storage account paths.
+  storageAccountResourceId:
+    type: string
+    description: Resource id of the storage account.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:datashare/v20201001preview:SystemDataResponse"
+    description: System Data of the Azure resource.
+  type:
+    type: string
+    description: Type of the azure resource
+type: object
+required:
+  - dataSetId
+  - kind
+  - location
+  - name
+  - paths
+  - storageAccountResourceId
+  - systemData
+  - type
+inputProperties:
+  accountName:
+    type: string
+    description: The name of the share account.
+  dataSetName:
+    type: string
+    description: The name of the dataSet.
+  kind:
+    type: string
+    description: |-
+      Kind of data set.
+      Expected value is 'BlobStorageAccount'.
+    const: BlobStorageAccount
+  paths:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datashare/v20201001preview:BlobStorageAccountPath"
+    description: A list of storage account paths.
+  resourceGroupName:
+    type: string
+    description: The resource group name.
+  shareName:
+    type: string
+    description: The name of the share to add the data set to.
+  storageAccountResourceId:
+    type: string
+    description: Resource id of the storage account.
+requiredInputs:
+  - accountName
+  - kind
+  - paths
+  - resourceGroupName
+  - shareName
+  - storageAccountResourceId
+aliases:
+  - type: azure-native:datashare:BlobStorageAccountDataSet
+  - type: azure-native:datashare/v20181101preview:BlobStorageAccountDataSet
+  - type: azure-native:datashare/v20191101:BlobStorageAccountDataSet
+  - type: azure-native:datashare/v20200901:BlobStorageAccountDataSet
+  - type: azure-native:datashare/v20210801:BlobStorageAccountDataSet

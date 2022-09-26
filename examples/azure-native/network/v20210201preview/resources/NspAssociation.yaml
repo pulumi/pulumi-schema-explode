@@ -1,0 +1,82 @@
+$token: azure-native:network/v20210201preview:NspAssociation
+description: The NSP resource association resource
+properties:
+  accessMode:
+    type: string
+    description: Access mode on the association.
+  hasProvisioningIssues:
+    type: string
+    description: Specifies if there are provisioning issues
+  location:
+    type: string
+    description: Resource location.
+  name:
+    type: string
+    description: Resource name.
+  privateLinkResource:
+    type: object
+    $ref: "#/types/azure-native:network/v20210201preview:SubResourceResponse"
+    description: The PaaS resource to be associated.
+  profile:
+    type: object
+    $ref: "#/types/azure-native:network/v20210201preview:SubResourceResponse"
+    description: Profile id to which the PaaS resource is associated.
+  provisioningState:
+    type: string
+    description: The provisioning state of the resource  association resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - hasProvisioningIssues
+  - name
+  - provisioningState
+  - type
+inputProperties:
+  accessMode:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20210201preview:AssociationAccessMode"
+    description: Access mode on the association.
+  associationName:
+    type: string
+    description: The name of the NSP association.
+  id:
+    type: string
+    description: Resource ID.
+  location:
+    type: string
+    description: Resource location.
+  name:
+    type: string
+    description: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+  networkSecurityPerimeterName:
+    type: string
+    description: The name of the network security perimeter.
+  privateLinkResource:
+    type: object
+    $ref: "#/types/azure-native:network/v20210201preview:SubResource"
+    description: The PaaS resource to be associated.
+  profile:
+    type: object
+    $ref: "#/types/azure-native:network/v20210201preview:SubResource"
+    description: Profile id to which the PaaS resource is associated.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - networkSecurityPerimeterName
+  - resourceGroupName
+aliases:
+  - type: azure-native:network:NspAssociation

@@ -1,0 +1,72 @@
+$token: azure-native:storagesync:getStorageSyncService
+description: |-
+  Storage Sync Service object.
+  API Version: 2020-03-01.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    storageSyncServiceName:
+      type: string
+      description: Name of Storage Sync Service resource.
+  type: object
+  required:
+    - resourceGroupName
+    - storageSyncServiceName
+outputs:
+  description: Storage Sync Service object.
+  properties:
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    incomingTrafficPolicy:
+      type: string
+      description: Incoming Traffic Policy
+    lastOperationName:
+      type: string
+      description: Resource Last Operation Name
+    lastWorkflowId:
+      type: string
+      description: StorageSyncService lastWorkflowId
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    name:
+      type: string
+      description: The name of the resource
+    privateEndpointConnections:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:storagesync:PrivateEndpointConnectionResponse"
+      description: List of private endpoint connection associated with the specified storage sync service
+    provisioningState:
+      type: string
+      description: StorageSyncService Provisioning State
+    storageSyncServiceStatus:
+      type: integer
+      description: Storage Sync service status.
+    storageSyncServiceUid:
+      type: string
+      description: Storage Sync service Uid
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - id
+    - lastOperationName
+    - lastWorkflowId
+    - location
+    - name
+    - privateEndpointConnections
+    - provisioningState
+    - storageSyncServiceStatus
+    - storageSyncServiceUid
+    - type

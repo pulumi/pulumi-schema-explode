@@ -1,0 +1,138 @@
+$token: azure-native:migrate:MoveResourcePropertiesResponse
+description: Defines the move resource properties.
+properties:
+  dependsOn:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:migrate:MoveResourceDependencyResponse"
+    description: Gets or sets the move resource dependencies.
+  dependsOnOverrides:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:migrate:MoveResourceDependencyOverrideResponse"
+    description: Gets or sets the move resource dependencies overrides.
+  errors:
+    type: object
+    $ref: "#/types/azure-native:migrate:MoveResourcePropertiesResponseErrors"
+    description: Defines the move resource errors.
+  existingTargetId:
+    type: string
+    description: Gets or sets the existing target ARM Id of the resource.
+  isResolveRequired:
+    type: boolean
+    description: Gets a value indicating whether the resolve action is required over the move collection.
+  moveStatus:
+    type: object
+    $ref: "#/types/azure-native:migrate:MoveResourcePropertiesResponseMoveStatus"
+    description: Defines the move resource status.
+  provisioningState:
+    type: string
+    description: Defines the provisioning states.
+  resourceSettings:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:migrate:AvailabilitySetResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate:DiskEncryptionSetResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate:KeyVaultResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate:LoadBalancerResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate:NetworkInterfaceResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate:NetworkSecurityGroupResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate:PublicIPAddressResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate:ResourceGroupResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate:SqlDatabaseResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate:SqlElasticPoolResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate:SqlServerResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate:VirtualMachineResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate:VirtualNetworkResourceSettingsResponse"
+    discriminator:
+      propertyName: resourceType
+      mapping:
+        Microsoft.Compute/availabilitySets: "#/types/azure-native:migrate:AvailabilitySetResourceSettingsResponse"
+        Microsoft.Compute/diskEncryptionSets: "#/types/azure-native:migrate:DiskEncryptionSetResourceSettingsResponse"
+        Microsoft.Compute/virtualMachines: "#/types/azure-native:migrate:VirtualMachineResourceSettingsResponse"
+        Microsoft.KeyVault/vaults: "#/types/azure-native:migrate:KeyVaultResourceSettingsResponse"
+        Microsoft.Network/loadBalancers: "#/types/azure-native:migrate:LoadBalancerResourceSettingsResponse"
+        Microsoft.Network/networkInterfaces: "#/types/azure-native:migrate:NetworkInterfaceResourceSettingsResponse"
+        Microsoft.Network/networkSecurityGroups: "#/types/azure-native:migrate:NetworkSecurityGroupResourceSettingsResponse"
+        Microsoft.Network/publicIPAddresses: "#/types/azure-native:migrate:PublicIPAddressResourceSettingsResponse"
+        Microsoft.Network/virtualNetworks: "#/types/azure-native:migrate:VirtualNetworkResourceSettingsResponse"
+        Microsoft.Sql/servers: "#/types/azure-native:migrate:SqlServerResourceSettingsResponse"
+        Microsoft.Sql/servers/databases: "#/types/azure-native:migrate:SqlDatabaseResourceSettingsResponse"
+        Microsoft.Sql/servers/elasticPools: "#/types/azure-native:migrate:SqlElasticPoolResourceSettingsResponse"
+        resourceGroups: "#/types/azure-native:migrate:ResourceGroupResourceSettingsResponse"
+    description: Gets or sets the resource settings.
+  sourceId:
+    type: string
+    description: Gets or sets the Source ARM Id of the resource.
+  sourceResourceSettings:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:migrate:AvailabilitySetResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate:DiskEncryptionSetResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate:KeyVaultResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate:LoadBalancerResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate:NetworkInterfaceResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate:NetworkSecurityGroupResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate:PublicIPAddressResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate:ResourceGroupResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate:SqlDatabaseResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate:SqlElasticPoolResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate:SqlServerResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate:VirtualMachineResourceSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:migrate:VirtualNetworkResourceSettingsResponse"
+    discriminator:
+      propertyName: resourceType
+      mapping:
+        Microsoft.Compute/availabilitySets: "#/types/azure-native:migrate:AvailabilitySetResourceSettingsResponse"
+        Microsoft.Compute/diskEncryptionSets: "#/types/azure-native:migrate:DiskEncryptionSetResourceSettingsResponse"
+        Microsoft.Compute/virtualMachines: "#/types/azure-native:migrate:VirtualMachineResourceSettingsResponse"
+        Microsoft.KeyVault/vaults: "#/types/azure-native:migrate:KeyVaultResourceSettingsResponse"
+        Microsoft.Network/loadBalancers: "#/types/azure-native:migrate:LoadBalancerResourceSettingsResponse"
+        Microsoft.Network/networkInterfaces: "#/types/azure-native:migrate:NetworkInterfaceResourceSettingsResponse"
+        Microsoft.Network/networkSecurityGroups: "#/types/azure-native:migrate:NetworkSecurityGroupResourceSettingsResponse"
+        Microsoft.Network/publicIPAddresses: "#/types/azure-native:migrate:PublicIPAddressResourceSettingsResponse"
+        Microsoft.Network/virtualNetworks: "#/types/azure-native:migrate:VirtualNetworkResourceSettingsResponse"
+        Microsoft.Sql/servers: "#/types/azure-native:migrate:SqlServerResourceSettingsResponse"
+        Microsoft.Sql/servers/databases: "#/types/azure-native:migrate:SqlDatabaseResourceSettingsResponse"
+        Microsoft.Sql/servers/elasticPools: "#/types/azure-native:migrate:SqlElasticPoolResourceSettingsResponse"
+        resourceGroups: "#/types/azure-native:migrate:ResourceGroupResourceSettingsResponse"
+    description: Gets or sets the source resource settings.
+  targetId:
+    type: string
+    description: Gets or sets the Target ARM Id of the resource.
+type: object
+required:
+  - dependsOn
+  - errors
+  - isResolveRequired
+  - moveStatus
+  - provisioningState
+  - sourceId
+  - sourceResourceSettings
+  - targetId

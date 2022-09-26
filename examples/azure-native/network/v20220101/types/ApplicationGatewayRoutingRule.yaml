@@ -1,0 +1,32 @@
+$token: azure-native:network/v20220101:ApplicationGatewayRoutingRule
+description: Routing rule of an application gateway.
+properties:
+  backendAddressPool:
+    type: object
+    $ref: "#/types/azure-native:network/v20220101:SubResource"
+    description: Backend address pool resource of the application gateway.
+  backendSettings:
+    type: object
+    $ref: "#/types/azure-native:network/v20220101:SubResource"
+    description: Backend settings resource of the application gateway.
+  id:
+    type: string
+    description: Resource ID.
+  listener:
+    type: object
+    $ref: "#/types/azure-native:network/v20220101:SubResource"
+    description: Listener resource of the application gateway.
+  name:
+    type: string
+    description: Name of the routing rule that is unique within an Application Gateway.
+  priority:
+    type: integer
+    description: Priority of the routing rule.
+  ruleType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20220101:ApplicationGatewayRequestRoutingRuleType"
+    description: Rule type.
+type: object
+required:
+  - priority

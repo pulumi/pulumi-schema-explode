@@ -1,0 +1,25 @@
+$token: azure-native:cdn/v20200331:getProfileSupportedOptimizationTypes
+description: The result of the GetSupportedOptimizationTypes API
+inputs:
+  properties:
+    profileName:
+      type: string
+      description: Name of the CDN profile which is unique within the resource group.
+    resourceGroupName:
+      type: string
+      description: Name of the Resource group within the Azure subscription.
+  type: object
+  required:
+    - profileName
+    - resourceGroupName
+outputs:
+  description: The result of the GetSupportedOptimizationTypes API
+  properties:
+    supportedOptimizationTypes:
+      type: array
+      items:
+        type: string
+      description: Supported optimization types for a profile.
+  type: object
+  required:
+    - supportedOptimizationTypes

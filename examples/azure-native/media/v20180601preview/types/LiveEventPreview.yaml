@@ -1,0 +1,23 @@
+$token: azure-native:media/v20180601preview:LiveEventPreview
+description: The Live Event preview.
+properties:
+  accessControl:
+    type: object
+    $ref: "#/types/azure-native:media/v20180601preview:LiveEventPreviewAccessControl"
+    description: The access control for LiveEvent preview.
+  alternativeMediaId:
+    type: string
+    description: An Alternative Media Identifier associated with the preview url.  This identifier can be used to distinguish the preview of different live events for authorization purposes in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
+  endpoints:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:media/v20180601preview:LiveEventEndpoint"
+    description: The endpoints for preview.
+  previewLocator:
+    type: string
+    description: The preview locator Guid.
+  streamingPolicyName:
+    type: string
+    description: The name of streaming policy used for LiveEvent preview
+type: object

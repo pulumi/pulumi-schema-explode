@@ -1,0 +1,518 @@
+$token: azure-native:datafactory:CopyActivity
+description: Copy activity.
+properties:
+  dataIntegrationUnits:
+    $ref: pulumi.json#/Any
+    description: "Maximum number of data integration units that can be used to perform this data movement. Type: integer (or Expression with resultType integer), minimum: 0."
+  dependsOn:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory:ActivityDependency"
+    description: Activity depends on condition.
+  description:
+    type: string
+    description: Activity description.
+  enableSkipIncompatibleRow:
+    $ref: pulumi.json#/Any
+    description: "Whether to skip incompatible row. Default value is false. Type: boolean (or Expression with resultType boolean)."
+  enableStaging:
+    $ref: pulumi.json#/Any
+    description: "Specifies whether to copy data via an interim staging. Default value is false. Type: boolean (or Expression with resultType boolean)."
+  inputs:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory:DatasetReference"
+    description: List of inputs for the activity.
+  linkedServiceName:
+    type: object
+    $ref: "#/types/azure-native:datafactory:LinkedServiceReference"
+    description: Linked service reference.
+  logSettings:
+    type: object
+    $ref: "#/types/azure-native:datafactory:LogSettings"
+    description: Log settings customer needs provide when enabling log.
+  logStorageSettings:
+    type: object
+    $ref: "#/types/azure-native:datafactory:LogStorageSettings"
+    description: (Deprecated. Please use LogSettings) Log storage settings customer need to provide when enabling session log.
+  name:
+    type: string
+    description: Activity name.
+  outputs:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory:DatasetReference"
+    description: List of outputs for the activity.
+  parallelCopies:
+    $ref: pulumi.json#/Any
+    description: "Maximum number of concurrent sessions opened on the source or sink to avoid overloading the data store. Type: integer (or Expression with resultType integer), minimum: 0."
+  policy:
+    type: object
+    $ref: "#/types/azure-native:datafactory:ActivityPolicy"
+    description: Activity policy.
+  preserve:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: Preserve rules.
+  preserveRules:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: Preserve Rules.
+  redirectIncompatibleRowSettings:
+    type: object
+    $ref: "#/types/azure-native:datafactory:RedirectIncompatibleRowSettings"
+    description: Redirect incompatible row settings when EnableSkipIncompatibleRow is true.
+  sink:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AvroSink"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureBlobFSSink"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureDataExplorerSink"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureDataLakeStoreSink"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureDatabricksDeltaLakeSink"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureMySqlSink"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzurePostgreSqlSink"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureQueueSink"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureSearchIndexSink"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureSqlSink"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureTableSink"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:BinarySink"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:BlobSink"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:CommonDataServiceForAppsSink"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:CosmosDbMongoDbApiSink"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:CosmosDbSqlApiSink"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:DelimitedTextSink"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:DocumentDbCollectionSink"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:DynamicsCrmSink"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:DynamicsSink"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:FileSystemSink"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:InformixSink"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:JsonSink"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:MicrosoftAccessSink"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:MongoDbAtlasSink"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:MongoDbV2Sink"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:OdbcSink"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:OracleSink"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:OrcSink"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:ParquetSink"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:RestSink"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SalesforceServiceCloudSink"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SalesforceSink"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SapCloudForCustomerSink"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SnowflakeSink"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SqlDWSink"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SqlMISink"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SqlServerSink"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SqlSink"
+    discriminator:
+      propertyName: type
+      mapping:
+        AvroSink: "#/types/azure-native:datafactory:AvroSink"
+        AzureBlobFSSink: "#/types/azure-native:datafactory:AzureBlobFSSink"
+        AzureDataExplorerSink: "#/types/azure-native:datafactory:AzureDataExplorerSink"
+        AzureDataLakeStoreSink: "#/types/azure-native:datafactory:AzureDataLakeStoreSink"
+        AzureDatabricksDeltaLakeSink: "#/types/azure-native:datafactory:AzureDatabricksDeltaLakeSink"
+        AzureMySqlSink: "#/types/azure-native:datafactory:AzureMySqlSink"
+        AzurePostgreSqlSink: "#/types/azure-native:datafactory:AzurePostgreSqlSink"
+        AzureQueueSink: "#/types/azure-native:datafactory:AzureQueueSink"
+        AzureSearchIndexSink: "#/types/azure-native:datafactory:AzureSearchIndexSink"
+        AzureSqlSink: "#/types/azure-native:datafactory:AzureSqlSink"
+        AzureTableSink: "#/types/azure-native:datafactory:AzureTableSink"
+        BinarySink: "#/types/azure-native:datafactory:BinarySink"
+        BlobSink: "#/types/azure-native:datafactory:BlobSink"
+        CommonDataServiceForAppsSink: "#/types/azure-native:datafactory:CommonDataServiceForAppsSink"
+        CosmosDbMongoDbApiSink: "#/types/azure-native:datafactory:CosmosDbMongoDbApiSink"
+        CosmosDbSqlApiSink: "#/types/azure-native:datafactory:CosmosDbSqlApiSink"
+        DelimitedTextSink: "#/types/azure-native:datafactory:DelimitedTextSink"
+        DocumentDbCollectionSink: "#/types/azure-native:datafactory:DocumentDbCollectionSink"
+        DynamicsCrmSink: "#/types/azure-native:datafactory:DynamicsCrmSink"
+        DynamicsSink: "#/types/azure-native:datafactory:DynamicsSink"
+        FileSystemSink: "#/types/azure-native:datafactory:FileSystemSink"
+        InformixSink: "#/types/azure-native:datafactory:InformixSink"
+        JsonSink: "#/types/azure-native:datafactory:JsonSink"
+        MicrosoftAccessSink: "#/types/azure-native:datafactory:MicrosoftAccessSink"
+        MongoDbAtlasSink: "#/types/azure-native:datafactory:MongoDbAtlasSink"
+        MongoDbV2Sink: "#/types/azure-native:datafactory:MongoDbV2Sink"
+        OdbcSink: "#/types/azure-native:datafactory:OdbcSink"
+        OracleSink: "#/types/azure-native:datafactory:OracleSink"
+        OrcSink: "#/types/azure-native:datafactory:OrcSink"
+        ParquetSink: "#/types/azure-native:datafactory:ParquetSink"
+        RestSink: "#/types/azure-native:datafactory:RestSink"
+        SalesforceServiceCloudSink: "#/types/azure-native:datafactory:SalesforceServiceCloudSink"
+        SalesforceSink: "#/types/azure-native:datafactory:SalesforceSink"
+        SapCloudForCustomerSink: "#/types/azure-native:datafactory:SapCloudForCustomerSink"
+        SnowflakeSink: "#/types/azure-native:datafactory:SnowflakeSink"
+        SqlDWSink: "#/types/azure-native:datafactory:SqlDWSink"
+        SqlMISink: "#/types/azure-native:datafactory:SqlMISink"
+        SqlServerSink: "#/types/azure-native:datafactory:SqlServerSink"
+        SqlSink: "#/types/azure-native:datafactory:SqlSink"
+    description: Copy activity sink.
+  skipErrorFile:
+    type: object
+    $ref: "#/types/azure-native:datafactory:SkipErrorFile"
+    description: Specify the fault tolerance for data consistency.
+  source:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AmazonMWSSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AmazonRdsForOracleSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AmazonRdsForSqlServerSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AmazonRedshiftSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AvroSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureBlobFSSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureDataExplorerSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureDataLakeStoreSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureDatabricksDeltaLakeSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureMariaDBSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureMySqlSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzurePostgreSqlSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureSqlSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureTableSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:BinarySource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:BlobSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:CassandraSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:CommonDataServiceForAppsSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:ConcurSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:CosmosDbMongoDbApiSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:CosmosDbSqlApiSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:CouchbaseSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:Db2Source"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:DelimitedTextSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:DocumentDbCollectionSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:DrillSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:DynamicsAXSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:DynamicsCrmSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:DynamicsSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:EloquaSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:ExcelSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:FileSystemSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:GoogleAdWordsSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:GoogleBigQuerySource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:GreenplumSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:HBaseSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:HdfsSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:HiveSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:HttpSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:HubspotSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:ImpalaSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:InformixSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:JiraSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:JsonSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:MagentoSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:MariaDBSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:MarketoSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:MicrosoftAccessSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:MongoDbAtlasSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:MongoDbSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:MongoDbV2Source"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:MySqlSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:NetezzaSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:ODataSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:OdbcSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:Office365Source"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:OracleServiceCloudSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:OracleSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:OrcSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:ParquetSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:PaypalSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:PhoenixSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:PostgreSqlSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:PrestoSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:QuickBooksSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:RelationalSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:ResponsysSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:RestSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SalesforceMarketingCloudSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SalesforceServiceCloudSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SalesforceSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SapBwSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SapCloudForCustomerSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SapEccSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SapHanaSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SapOdpSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SapOpenHubSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SapTableSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:ServiceNowSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SharePointOnlineListSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:ShopifySource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SnowflakeSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SparkSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SqlDWSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SqlMISource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SqlServerSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SqlSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SquareSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SybaseSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:TabularSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:TeradataSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:VerticaSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:WebSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:XeroSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:XmlSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:ZohoSource"
+    discriminator:
+      propertyName: type
+      mapping:
+        AmazonMWSSource: "#/types/azure-native:datafactory:AmazonMWSSource"
+        AmazonRdsForOracleSource: "#/types/azure-native:datafactory:AmazonRdsForOracleSource"
+        AmazonRdsForSqlServerSource: "#/types/azure-native:datafactory:AmazonRdsForSqlServerSource"
+        AmazonRedshiftSource: "#/types/azure-native:datafactory:AmazonRedshiftSource"
+        AvroSource: "#/types/azure-native:datafactory:AvroSource"
+        AzureBlobFSSource: "#/types/azure-native:datafactory:AzureBlobFSSource"
+        AzureDataExplorerSource: "#/types/azure-native:datafactory:AzureDataExplorerSource"
+        AzureDataLakeStoreSource: "#/types/azure-native:datafactory:AzureDataLakeStoreSource"
+        AzureDatabricksDeltaLakeSource: "#/types/azure-native:datafactory:AzureDatabricksDeltaLakeSource"
+        AzureMariaDBSource: "#/types/azure-native:datafactory:AzureMariaDBSource"
+        AzureMySqlSource: "#/types/azure-native:datafactory:AzureMySqlSource"
+        AzurePostgreSqlSource: "#/types/azure-native:datafactory:AzurePostgreSqlSource"
+        AzureSqlSource: "#/types/azure-native:datafactory:AzureSqlSource"
+        AzureTableSource: "#/types/azure-native:datafactory:AzureTableSource"
+        BinarySource: "#/types/azure-native:datafactory:BinarySource"
+        BlobSource: "#/types/azure-native:datafactory:BlobSource"
+        CassandraSource: "#/types/azure-native:datafactory:CassandraSource"
+        CommonDataServiceForAppsSource: "#/types/azure-native:datafactory:CommonDataServiceForAppsSource"
+        ConcurSource: "#/types/azure-native:datafactory:ConcurSource"
+        CosmosDbMongoDbApiSource: "#/types/azure-native:datafactory:CosmosDbMongoDbApiSource"
+        CosmosDbSqlApiSource: "#/types/azure-native:datafactory:CosmosDbSqlApiSource"
+        CouchbaseSource: "#/types/azure-native:datafactory:CouchbaseSource"
+        Db2Source: "#/types/azure-native:datafactory:Db2Source"
+        DelimitedTextSource: "#/types/azure-native:datafactory:DelimitedTextSource"
+        DocumentDbCollectionSource: "#/types/azure-native:datafactory:DocumentDbCollectionSource"
+        DrillSource: "#/types/azure-native:datafactory:DrillSource"
+        DynamicsAXSource: "#/types/azure-native:datafactory:DynamicsAXSource"
+        DynamicsCrmSource: "#/types/azure-native:datafactory:DynamicsCrmSource"
+        DynamicsSource: "#/types/azure-native:datafactory:DynamicsSource"
+        EloquaSource: "#/types/azure-native:datafactory:EloquaSource"
+        ExcelSource: "#/types/azure-native:datafactory:ExcelSource"
+        FileSystemSource: "#/types/azure-native:datafactory:FileSystemSource"
+        GoogleAdWordsSource: "#/types/azure-native:datafactory:GoogleAdWordsSource"
+        GoogleBigQuerySource: "#/types/azure-native:datafactory:GoogleBigQuerySource"
+        GreenplumSource: "#/types/azure-native:datafactory:GreenplumSource"
+        HBaseSource: "#/types/azure-native:datafactory:HBaseSource"
+        HdfsSource: "#/types/azure-native:datafactory:HdfsSource"
+        HiveSource: "#/types/azure-native:datafactory:HiveSource"
+        HttpSource: "#/types/azure-native:datafactory:HttpSource"
+        HubspotSource: "#/types/azure-native:datafactory:HubspotSource"
+        ImpalaSource: "#/types/azure-native:datafactory:ImpalaSource"
+        InformixSource: "#/types/azure-native:datafactory:InformixSource"
+        JiraSource: "#/types/azure-native:datafactory:JiraSource"
+        JsonSource: "#/types/azure-native:datafactory:JsonSource"
+        MagentoSource: "#/types/azure-native:datafactory:MagentoSource"
+        MariaDBSource: "#/types/azure-native:datafactory:MariaDBSource"
+        MarketoSource: "#/types/azure-native:datafactory:MarketoSource"
+        MicrosoftAccessSource: "#/types/azure-native:datafactory:MicrosoftAccessSource"
+        MongoDbAtlasSource: "#/types/azure-native:datafactory:MongoDbAtlasSource"
+        MongoDbSource: "#/types/azure-native:datafactory:MongoDbSource"
+        MongoDbV2Source: "#/types/azure-native:datafactory:MongoDbV2Source"
+        MySqlSource: "#/types/azure-native:datafactory:MySqlSource"
+        NetezzaSource: "#/types/azure-native:datafactory:NetezzaSource"
+        ODataSource: "#/types/azure-native:datafactory:ODataSource"
+        OdbcSource: "#/types/azure-native:datafactory:OdbcSource"
+        Office365Source: "#/types/azure-native:datafactory:Office365Source"
+        OracleServiceCloudSource: "#/types/azure-native:datafactory:OracleServiceCloudSource"
+        OracleSource: "#/types/azure-native:datafactory:OracleSource"
+        OrcSource: "#/types/azure-native:datafactory:OrcSource"
+        ParquetSource: "#/types/azure-native:datafactory:ParquetSource"
+        PaypalSource: "#/types/azure-native:datafactory:PaypalSource"
+        PhoenixSource: "#/types/azure-native:datafactory:PhoenixSource"
+        PostgreSqlSource: "#/types/azure-native:datafactory:PostgreSqlSource"
+        PrestoSource: "#/types/azure-native:datafactory:PrestoSource"
+        QuickBooksSource: "#/types/azure-native:datafactory:QuickBooksSource"
+        RelationalSource: "#/types/azure-native:datafactory:RelationalSource"
+        ResponsysSource: "#/types/azure-native:datafactory:ResponsysSource"
+        RestSource: "#/types/azure-native:datafactory:RestSource"
+        SalesforceMarketingCloudSource: "#/types/azure-native:datafactory:SalesforceMarketingCloudSource"
+        SalesforceServiceCloudSource: "#/types/azure-native:datafactory:SalesforceServiceCloudSource"
+        SalesforceSource: "#/types/azure-native:datafactory:SalesforceSource"
+        SapBwSource: "#/types/azure-native:datafactory:SapBwSource"
+        SapCloudForCustomerSource: "#/types/azure-native:datafactory:SapCloudForCustomerSource"
+        SapEccSource: "#/types/azure-native:datafactory:SapEccSource"
+        SapHanaSource: "#/types/azure-native:datafactory:SapHanaSource"
+        SapOdpSource: "#/types/azure-native:datafactory:SapOdpSource"
+        SapOpenHubSource: "#/types/azure-native:datafactory:SapOpenHubSource"
+        SapTableSource: "#/types/azure-native:datafactory:SapTableSource"
+        ServiceNowSource: "#/types/azure-native:datafactory:ServiceNowSource"
+        SharePointOnlineListSource: "#/types/azure-native:datafactory:SharePointOnlineListSource"
+        ShopifySource: "#/types/azure-native:datafactory:ShopifySource"
+        SnowflakeSource: "#/types/azure-native:datafactory:SnowflakeSource"
+        SparkSource: "#/types/azure-native:datafactory:SparkSource"
+        SqlDWSource: "#/types/azure-native:datafactory:SqlDWSource"
+        SqlMISource: "#/types/azure-native:datafactory:SqlMISource"
+        SqlServerSource: "#/types/azure-native:datafactory:SqlServerSource"
+        SqlSource: "#/types/azure-native:datafactory:SqlSource"
+        SquareSource: "#/types/azure-native:datafactory:SquareSource"
+        SybaseSource: "#/types/azure-native:datafactory:SybaseSource"
+        TabularSource: "#/types/azure-native:datafactory:TabularSource"
+        TeradataSource: "#/types/azure-native:datafactory:TeradataSource"
+        VerticaSource: "#/types/azure-native:datafactory:VerticaSource"
+        WebSource: "#/types/azure-native:datafactory:WebSource"
+        XeroSource: "#/types/azure-native:datafactory:XeroSource"
+        XmlSource: "#/types/azure-native:datafactory:XmlSource"
+        ZohoSource: "#/types/azure-native:datafactory:ZohoSource"
+    description: Copy activity source.
+  stagingSettings:
+    type: object
+    $ref: "#/types/azure-native:datafactory:StagingSettings"
+    description: Specifies interim staging settings when EnableStaging is true.
+  translator:
+    $ref: pulumi.json#/Any
+    description: Copy activity translator. If not specified, tabular translator is used.
+  type:
+    type: string
+    description: |-
+      Type of activity.
+      Expected value is 'Copy'.
+    const: Copy
+  userProperties:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory:UserProperty"
+    description: Activity user properties.
+  validateDataConsistency:
+    $ref: pulumi.json#/Any
+    description: "Whether to enable Data Consistency validation. Type: boolean (or Expression with resultType boolean)."
+type: object
+required:
+  - name
+  - sink
+  - source
+  - type

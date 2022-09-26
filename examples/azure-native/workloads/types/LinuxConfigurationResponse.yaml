@@ -1,0 +1,23 @@
+$token: azure-native:workloads:LinuxConfigurationResponse
+description: Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+properties:
+  disablePasswordAuthentication:
+    type: boolean
+    description: Specifies whether password authentication should be disabled.
+  osType:
+    type: string
+    description: |-
+      The OS Type
+      Expected value is 'Linux'.
+    const: Linux
+  ssh:
+    type: object
+    $ref: "#/types/azure-native:workloads:SshConfigurationResponse"
+    description: Specifies the ssh key configuration for a Linux OS. (This property is deprecated, please use 'sshKeyPair' instead)
+  sshKeyPair:
+    type: object
+    $ref: "#/types/azure-native:workloads:SshKeyPairResponse"
+    description: The SSH Key-pair used to authenticate with the VM's.
+type: object
+required:
+  - osType

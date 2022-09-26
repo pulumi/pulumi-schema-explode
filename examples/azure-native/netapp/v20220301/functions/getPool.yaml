@@ -1,0 +1,90 @@
+$token: azure-native:netapp/v20220301:getPool
+description: Capacity pool resource
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: The name of the NetApp account
+    poolName:
+      type: string
+      description: The name of the capacity pool
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - accountName
+    - poolName
+    - resourceGroupName
+outputs:
+  description: Capacity pool resource
+  properties:
+    coolAccess:
+      type: boolean
+      description: If enabled (true) the pool can contain cool Access enabled volumes.
+      default: false
+    encryptionType:
+      type: string
+      description: Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
+      default: Single
+    etag:
+      type: string
+      description: A unique read-only string that changes whenever the resource is updated.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    name:
+      type: string
+      description: The name of the resource
+    poolId:
+      type: string
+      description: UUID v4 used to identify the Pool
+    provisioningState:
+      type: string
+      description: Azure lifecycle management
+    qosType:
+      type: string
+      description: The qos type of the pool
+      default: Auto
+    serviceLevel:
+      type: string
+      description: The service level of the file system
+    size:
+      type: number
+      description: Provisioned size of the pool (in bytes). Allowed values are in 1TiB chunks (value must be multiply of 4398046511104).
+      default: 4398046511104
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:netapp/v20220301:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    totalThroughputMibps:
+      type: number
+      description: Total throughput of pool in MiB/s
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+    utilizedThroughputMibps:
+      type: number
+      description: Utilized throughput of pool in MiB/s
+  type: object
+  required:
+    - etag
+    - id
+    - location
+    - name
+    - poolId
+    - provisioningState
+    - serviceLevel
+    - size
+    - systemData
+    - totalThroughputMibps
+    - type
+    - utilizedThroughputMibps

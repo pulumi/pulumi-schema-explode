@@ -1,0 +1,109 @@
+$token: azure-native:servicefabricmesh:Gateway
+description: |-
+  This type describes a gateway resource.
+  API Version: 2018-09-01-preview.
+properties:
+  description:
+    type: string
+    description: User readable description of the gateway.
+  destinationNetwork:
+    type: object
+    $ref: "#/types/azure-native:servicefabricmesh:NetworkRefResponse"
+    description: Network that the Application is using.
+  http:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:servicefabricmesh:HttpConfigResponse"
+    description: Configuration for http connectivity for this gateway.
+  ipAddress:
+    type: string
+    description: IP address of the gateway. This is populated in the response and is ignored for incoming requests.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  name:
+    type: string
+    description: The name of the resource
+  provisioningState:
+    type: string
+    description: State of the resource.
+  sourceNetwork:
+    type: object
+    $ref: "#/types/azure-native:servicefabricmesh:NetworkRefResponse"
+    description: Network the gateway should listen on for requests.
+  status:
+    type: string
+    description: Status of the resource.
+  statusDetails:
+    type: string
+    description: Gives additional information about the current status of the gateway.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  tcp:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:servicefabricmesh:TcpConfigResponse"
+    description: Configuration for tcp connectivity for this gateway.
+  type:
+    type: string
+    description: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+type: object
+required:
+  - destinationNetwork
+  - ipAddress
+  - location
+  - name
+  - provisioningState
+  - sourceNetwork
+  - status
+  - statusDetails
+  - type
+inputProperties:
+  description:
+    type: string
+    description: User readable description of the gateway.
+  destinationNetwork:
+    type: object
+    $ref: "#/types/azure-native:servicefabricmesh:NetworkRef"
+    description: Network that the Application is using.
+  gatewayResourceName:
+    type: string
+    description: The identity of the gateway.
+  http:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:servicefabricmesh:HttpConfig"
+    description: Configuration for http connectivity for this gateway.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  resourceGroupName:
+    type: string
+    description: Azure resource group name
+  sourceNetwork:
+    type: object
+    $ref: "#/types/azure-native:servicefabricmesh:NetworkRef"
+    description: Network the gateway should listen on for requests.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  tcp:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:servicefabricmesh:TcpConfig"
+    description: Configuration for tcp connectivity for this gateway.
+requiredInputs:
+  - destinationNetwork
+  - resourceGroupName
+  - sourceNetwork
+aliases:
+  - type: azure-native:servicefabricmesh/v20180901preview:Gateway

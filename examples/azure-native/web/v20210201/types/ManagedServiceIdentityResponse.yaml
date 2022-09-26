@@ -1,0 +1,22 @@
+$token: azure-native:web/v20210201:ManagedServiceIdentityResponse
+description: Managed service identity.
+properties:
+  principalId:
+    type: string
+    description: Principal Id of managed service identity.
+  tenantId:
+    type: string
+    description: Tenant of managed service identity.
+  type:
+    type: string
+    description: Type of managed service identity.
+  userAssignedIdentities:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:web/v20210201:UserAssignedIdentityResponse"
+    description: "The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}"
+type: object
+required:
+  - principalId
+  - tenantId

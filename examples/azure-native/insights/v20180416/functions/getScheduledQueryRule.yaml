@@ -1,0 +1,99 @@
+$token: azure-native:insights/v20180416:getScheduledQueryRule
+description: The Log Search Rule resource.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    ruleName:
+      type: string
+      description: The name of the rule.
+  type: object
+  required:
+    - resourceGroupName
+    - ruleName
+outputs:
+  description: The Log Search Rule resource.
+  properties:
+    action:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:insights/v20180416:AlertingActionResponse"
+        - type: object
+          $ref: "#/types/azure-native:insights/v20180416:LogToMetricActionResponse"
+      discriminator:
+        propertyName: odataType
+        mapping:
+          Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction: "#/types/azure-native:insights/v20180416:AlertingActionResponse"
+          Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction: "#/types/azure-native:insights/v20180416:LogToMetricActionResponse"
+      description: Action needs to be taken on rule execution.
+    autoMitigate:
+      type: boolean
+      description: The flag that indicates whether the alert should be automatically resolved or not. The default is false.
+      default: false
+    createdWithApiVersion:
+      type: string
+      description: The api-version used when creating this alert rule
+    description:
+      type: string
+      description: The description of the Log Search rule.
+    displayName:
+      type: string
+      description: The display name of the alert rule
+    enabled:
+      type: string
+      description: The flag which indicates whether the Log Search rule is enabled. Value should be true or false
+    etag:
+      type: string
+      description: "The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. "
+    id:
+      type: string
+      description: Azure resource Id
+    isLegacyLogAnalyticsRule:
+      type: boolean
+      description: True if alert rule is legacy Log Analytic rule
+    kind:
+      type: string
+      description: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+    lastUpdatedTime:
+      type: string
+      description: Last time the rule was updated in IS08601 format.
+    location:
+      type: string
+      description: Resource location
+    name:
+      type: string
+      description: Azure resource name
+    provisioningState:
+      type: string
+      description: Provisioning state of the scheduled query rule
+    schedule:
+      type: object
+      $ref: "#/types/azure-native:insights/v20180416:ScheduleResponse"
+      description: Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
+    source:
+      type: object
+      $ref: "#/types/azure-native:insights/v20180416:SourceResponse"
+      description: Data Source against which rule will Query Data
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    type:
+      type: string
+      description: Azure resource type
+  type: object
+  required:
+    - action
+    - createdWithApiVersion
+    - etag
+    - id
+    - isLegacyLogAnalyticsRule
+    - kind
+    - lastUpdatedTime
+    - location
+    - name
+    - provisioningState
+    - source
+    - type

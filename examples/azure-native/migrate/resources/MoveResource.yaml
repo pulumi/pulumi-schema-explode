@@ -1,0 +1,41 @@
+$token: azure-native:migrate:MoveResource
+description: |-
+  Defines the move resource.
+  API Version: 2021-01-01.
+properties:
+  name:
+    type: string
+    description: The name of the resource
+  properties:
+    type: object
+    $ref: "#/types/azure-native:migrate:MoveResourcePropertiesResponse"
+    description: Defines the move resource properties.
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - name
+  - properties
+  - type
+inputProperties:
+  moveCollectionName:
+    type: string
+    description: The Move Collection Name.
+  moveResourceName:
+    type: string
+    description: The Move Resource Name.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:migrate:MoveResourceProperties"
+    description: Defines the move resource properties.
+  resourceGroupName:
+    type: string
+    description: The Resource Group Name.
+requiredInputs:
+  - moveCollectionName
+  - resourceGroupName
+aliases:
+  - type: azure-native:migrate/v20191001preview:MoveResource
+  - type: azure-native:migrate/v20210101:MoveResource
+  - type: azure-native:migrate/v20210801:MoveResource

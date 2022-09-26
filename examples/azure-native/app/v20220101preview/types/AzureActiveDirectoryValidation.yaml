@@ -1,0 +1,17 @@
+$token: azure-native:app/v20220101preview:AzureActiveDirectoryValidation
+description: The configuration settings of the Azure Active Directory token validation flow.
+properties:
+  allowedAudiences:
+    type: array
+    items:
+      type: string
+    description: The list of audiences that can make successful authentication/authorization requests.
+  defaultAuthorizationPolicy:
+    type: object
+    $ref: "#/types/azure-native:app/v20220101preview:DefaultAuthorizationPolicy"
+    description: The configuration settings of the default authorization policy.
+  jwtClaimChecks:
+    type: object
+    $ref: "#/types/azure-native:app/v20220101preview:JwtClaimChecks"
+    description: The configuration settings of the checks that should be made while validating the JWT Claims.
+type: object

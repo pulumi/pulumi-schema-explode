@@ -1,0 +1,85 @@
+$token: azure-native:aad/v20210501:getOuContainer
+description: Resource for OuContainer.
+inputs:
+  properties:
+    domainServiceName:
+      type: string
+      description: The name of the domain service.
+    ouContainerName:
+      type: string
+      description: The name of the OuContainer.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group within the user's subscription. The name is case insensitive.
+  type: object
+  required:
+    - domainServiceName
+    - ouContainerName
+    - resourceGroupName
+outputs:
+  description: Resource for OuContainer.
+  properties:
+    accounts:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:aad/v20210501:ContainerAccountResponse"
+      description: The list of container accounts
+    containerId:
+      type: string
+      description: The OuContainer name
+    deploymentId:
+      type: string
+      description: The Deployment id
+    distinguishedName:
+      type: string
+      description: Distinguished Name of OuContainer instance
+    domainName:
+      type: string
+      description: The domain name of Domain Services.
+    etag:
+      type: string
+      description: Resource etag
+    id:
+      type: string
+      description: Resource Id
+    location:
+      type: string
+      description: Resource location
+    name:
+      type: string
+      description: Resource name
+    provisioningState:
+      type: string
+      description: The current deployment or provisioning state, which only appears in the response.
+    serviceStatus:
+      type: string
+      description: Status of OuContainer instance
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:aad/v20210501:SystemDataResponse"
+      description: The system meta data relating to this resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    tenantId:
+      type: string
+      description: Azure Active Directory tenant id
+    type:
+      type: string
+      description: Resource type
+  type: object
+  required:
+    - containerId
+    - deploymentId
+    - distinguishedName
+    - domainName
+    - id
+    - name
+    - provisioningState
+    - serviceStatus
+    - systemData
+    - tenantId
+    - type

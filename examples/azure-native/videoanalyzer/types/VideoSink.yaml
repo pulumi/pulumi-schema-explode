@@ -1,0 +1,35 @@
+$token: azure-native:videoanalyzer:VideoSink
+description: Video sink in a live topology allows for video and audio to be captured, optionally archived, and published via a video resource. If archiving is enabled, this results in a video of type 'archive'. If used in a batch topology, this allows for video and audio to be stored as a file, and published via a video resource of type 'file'
+properties:
+  inputs:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:videoanalyzer:NodeInput"
+    description: An array of upstream node references within the topology to be used as inputs for this node.
+  name:
+    type: string
+    description: Node name. Must be unique within the topology.
+  type:
+    type: string
+    description: |-
+      The discriminator for derived types.
+      Expected value is '#Microsoft.VideoAnalyzer.VideoSink'.
+    const: "#Microsoft.VideoAnalyzer.VideoSink"
+  videoCreationProperties:
+    type: object
+    $ref: "#/types/azure-native:videoanalyzer:VideoCreationProperties"
+    description: Optional video properties to be used in case a new video resource needs to be created on the service.
+  videoName:
+    type: string
+    description: "Name of a new or existing video resource used to capture and publish content. Note: if downstream of RTSP source, and if disableArchive is set to true, then no content is archived."
+  videoPublishingOptions:
+    type: object
+    $ref: "#/types/azure-native:videoanalyzer:VideoPublishingOptions"
+    description: Options to change how the video sink publishes content via the video resource. This property is only allowed for topologies where "kind" is set to "live".
+type: object
+required:
+  - inputs
+  - name
+  - type
+  - videoName

@@ -1,0 +1,22 @@
+$token: azure-native:machinelearning:GraphPackageResponse
+description: Defines the graph of modules making up the machine learning solution.
+properties:
+  edges:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:machinelearning:GraphEdgeResponse"
+    description: The list of edges making up the graph.
+  graphParameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:machinelearning:GraphParameterResponse"
+    description: The collection of global parameters for the graph, given as a global parameter name to GraphParameter map. Each parameter here has a 1:1 match with the global parameters values map declared at the WebServiceProperties level.
+  nodes:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:machinelearning:GraphNodeResponse"
+    description: The set of nodes making up the graph, provided as a nodeId to GraphNode map
+type: object

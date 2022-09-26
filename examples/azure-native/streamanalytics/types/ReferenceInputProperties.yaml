@@ -1,0 +1,31 @@
+$token: azure-native:streamanalytics:ReferenceInputProperties
+description: The properties that are associated with an input containing reference data.
+properties:
+  datasource:
+    type: object
+    $ref: "#/types/azure-native:streamanalytics:BlobReferenceInputDataSource"
+    description: Describes an input data source that contains reference data. Required on PUT (CreateOrReplace) requests.
+  serialization:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics:AvroSerialization"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics:CsvSerialization"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics:JsonSerialization"
+    discriminator:
+      propertyName: type
+      mapping:
+        Avro: "#/types/azure-native:streamanalytics:AvroSerialization"
+        Csv: "#/types/azure-native:streamanalytics:CsvSerialization"
+        Json: "#/types/azure-native:streamanalytics:JsonSerialization"
+    description: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+  type:
+    type: string
+    description: |-
+      Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
+      Expected value is 'Reference'.
+    const: Reference
+type: object
+required:
+  - type

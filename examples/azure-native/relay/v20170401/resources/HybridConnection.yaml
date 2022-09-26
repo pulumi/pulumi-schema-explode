@@ -1,0 +1,54 @@
+$token: azure-native:relay/v20170401:HybridConnection
+description: Description of hybrid connection resource.
+properties:
+  createdAt:
+    type: string
+    description: The time the hybrid connection was created.
+  listenerCount:
+    type: integer
+    description: "The number of listeners for this hybrid connection. Note that min : 1 and max:25 are supported."
+  name:
+    type: string
+    description: Resource name.
+  requiresClientAuthorization:
+    type: boolean
+    description: Returns true if client authorization is needed for this hybrid connection; otherwise, false.
+  type:
+    type: string
+    description: Resource type.
+  updatedAt:
+    type: string
+    description: The time the namespace was updated.
+  userMetadata:
+    type: string
+    description: The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored.
+type: object
+required:
+  - createdAt
+  - listenerCount
+  - name
+  - type
+  - updatedAt
+inputProperties:
+  hybridConnectionName:
+    type: string
+    description: The hybrid connection name.
+  namespaceName:
+    type: string
+    description: The namespace name
+  requiresClientAuthorization:
+    type: boolean
+    description: Returns true if client authorization is needed for this hybrid connection; otherwise, false.
+  resourceGroupName:
+    type: string
+    description: Name of the Resource group within the Azure subscription.
+  userMetadata:
+    type: string
+    description: The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored.
+requiredInputs:
+  - namespaceName
+  - resourceGroupName
+aliases:
+  - type: azure-native:relay:HybridConnection
+  - type: azure-native:relay/v20160701:HybridConnection
+  - type: azure-native:relay/v20211101:HybridConnection

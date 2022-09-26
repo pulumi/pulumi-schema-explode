@@ -1,0 +1,61 @@
+$token: azure-native:authorization/v20200701preview:getPolicyExemption
+description: The policy exemption.
+inputs:
+  properties:
+    policyExemptionName:
+      type: string
+      description: The name of the policy exemption to delete.
+    scope:
+      type: string
+      description: "The scope of the policy exemption. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'"
+  type: object
+  required:
+    - policyExemptionName
+    - scope
+outputs:
+  description: The policy exemption.
+  properties:
+    description:
+      type: string
+      description: The description of the policy exemption.
+    displayName:
+      type: string
+      description: The display name of the policy exemption.
+    exemptionCategory:
+      type: string
+      description: The policy exemption category. Possible values are Waiver and Mitigated.
+    expiresOn:
+      type: string
+      description: The expiration date and time (in UTC ISO 8601 format yyyy-MM-ddTHH:mm:ssZ) of the policy exemption.
+    id:
+      type: string
+      description: The ID of the policy exemption.
+    metadata:
+      $ref: pulumi.json#/Any
+      description: The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
+    name:
+      type: string
+      description: The name of the policy exemption.
+    policyAssignmentId:
+      type: string
+      description: The ID of the policy assignment that is being exempted.
+    policyDefinitionReferenceIds:
+      type: array
+      items:
+        type: string
+      description: The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:authorization/v20200701preview:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    type:
+      type: string
+      description: The type of the resource (Microsoft.Authorization/policyExemptions).
+  type: object
+  required:
+    - exemptionCategory
+    - id
+    - name
+    - policyAssignmentId
+    - systemData
+    - type

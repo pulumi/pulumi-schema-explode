@@ -1,0 +1,24 @@
+$token: azure-native:containerregistry/v20190601preview:listRegistryBuildSourceUploadUrl
+description: The properties of a response to source upload request.
+inputs:
+  properties:
+    registryName:
+      type: string
+      description: The name of the container registry.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group to which the container registry belongs.
+  type: object
+  required:
+    - registryName
+    - resourceGroupName
+outputs:
+  description: The properties of a response to source upload request.
+  properties:
+    relativePath:
+      type: string
+      description: The relative path to the source. This is used to submit the subsequent queue build request.
+    uploadUrl:
+      type: string
+      description: The URL where the client can upload the source.
+  type: object

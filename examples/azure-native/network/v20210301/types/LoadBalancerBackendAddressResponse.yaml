@@ -1,0 +1,28 @@
+$token: azure-native:network/v20210301:LoadBalancerBackendAddressResponse
+description: Load balancer backend addresses.
+properties:
+  ipAddress:
+    type: string
+    description: IP Address belonging to the referenced virtual network.
+  loadBalancerFrontendIPConfiguration:
+    type: object
+    $ref: "#/types/azure-native:network/v20210301:SubResourceResponse"
+    description: Reference to the frontend ip address configuration defined in regional loadbalancer.
+  name:
+    type: string
+    description: Name of the backend address.
+  networkInterfaceIPConfiguration:
+    type: object
+    $ref: "#/types/azure-native:network/v20210301:SubResourceResponse"
+    description: Reference to IP address defined in network interfaces.
+  subnet:
+    type: object
+    $ref: "#/types/azure-native:network/v20210301:SubResourceResponse"
+    description: Reference to an existing subnet.
+  virtualNetwork:
+    type: object
+    $ref: "#/types/azure-native:network/v20210301:SubResourceResponse"
+    description: Reference to an existing virtual network.
+type: object
+required:
+  - networkInterfaceIPConfiguration

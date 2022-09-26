@@ -1,0 +1,51 @@
+$token: azure-native:machinelearningservices/v20181119:AmlComputeResponseProperties
+description: AML Compute properties
+properties:
+  allocationState:
+    type: string
+    description: "Allocation state of the compute. Possible values are: steady - Indicates that the compute is not resizing. There are no changes to the number of compute nodes in the compute in progress. A compute enters this state when it is created and when no operations are being performed on the compute to change the number of compute nodes. resizing - Indicates that the compute is resizing; that is, compute nodes are being added to or removed from the compute."
+  allocationStateTransitionTime:
+    type: string
+    description: The time at which the compute entered its current allocation state.
+  currentNodeCount:
+    type: integer
+    description: The number of compute nodes currently assigned to the compute.
+  errors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20181119:MachineLearningServiceErrorResponse"
+    description: Collection of errors encountered by various compute nodes during node setup.
+  nodeStateCounts:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20181119:NodeStateCountsResponse"
+    description: Counts of various node states on the compute.
+  scaleSettings:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20181119:ScaleSettingsResponse"
+    description: Scale settings for AML Compute
+  subnet:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20181119:ResourceIdResponse"
+    description: Virtual network subnet resource ID the compute nodes belong to.
+  targetNodeCount:
+    type: integer
+    description: The target number of compute nodes for the compute. If the allocationState is resizing, this property denotes the target node count for the ongoing resize operation. If the allocationState is steady, this property denotes the target node count for the previous resize operation.
+  userAccountCredentials:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20181119:UserAccountCredentialsResponse"
+    description: Credentials for an administrator user account that will be created on each compute node.
+  vmPriority:
+    type: string
+    description: Virtual Machine priority
+  vmSize:
+    type: string
+    description: Virtual Machine Size
+type: object
+required:
+  - allocationState
+  - allocationStateTransitionTime
+  - currentNodeCount
+  - errors
+  - nodeStateCounts
+  - targetNodeCount

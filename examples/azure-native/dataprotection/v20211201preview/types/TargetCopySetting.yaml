@@ -1,0 +1,26 @@
+$token: azure-native:dataprotection/v20211201preview:TargetCopySetting
+description: Target copy settings
+properties:
+  copyAfter:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:dataprotection/v20211201preview:CopyOnExpiryOption"
+      - type: object
+        $ref: "#/types/azure-native:dataprotection/v20211201preview:CustomCopyOption"
+      - type: object
+        $ref: "#/types/azure-native:dataprotection/v20211201preview:ImmediateCopyOption"
+    discriminator:
+      propertyName: objectType
+      mapping:
+        CopyOnExpiryOption: "#/types/azure-native:dataprotection/v20211201preview:CopyOnExpiryOption"
+        CustomCopyOption: "#/types/azure-native:dataprotection/v20211201preview:CustomCopyOption"
+        ImmediateCopyOption: "#/types/azure-native:dataprotection/v20211201preview:ImmediateCopyOption"
+    description: It can be CustomCopyOption or ImmediateCopyOption.
+  dataStore:
+    type: object
+    $ref: "#/types/azure-native:dataprotection/v20211201preview:DataStoreInfoBase"
+    description: Info of target datastore
+type: object
+required:
+  - copyAfter
+  - dataStore

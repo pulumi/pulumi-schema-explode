@@ -1,0 +1,111 @@
+$token: azure-native:devtestlab/v20180915:Disk
+description: A Disk.
+properties:
+  createdDate:
+    type: string
+    description: The creation date of the disk.
+  diskBlobName:
+    type: string
+    description: When backed by a blob, the name of the VHD blob without extension.
+  diskSizeGiB:
+    type: integer
+    description: The size of the disk in Gibibytes.
+  diskType:
+    type: string
+    description: The storage type for the disk (i.e. Standard, Premium).
+  diskUri:
+    type: string
+    description: When backed by a blob, the URI of underlying blob.
+  hostCaching:
+    type: string
+    description: The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
+  leasedByLabVmId:
+    type: string
+    description: The resource ID of the VM to which this disk is leased.
+  location:
+    type: string
+    description: The location of the resource.
+  managedDiskId:
+    type: string
+    description: When backed by managed disk, this is the ID of the compute disk resource.
+  name:
+    type: string
+    description: The name of the resource.
+  provisioningState:
+    type: string
+    description: The provisioning status of the resource.
+  storageAccountId:
+    type: string
+    description: When backed by a blob, the storage account where the blob is.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+  type:
+    type: string
+    description: The type of the resource.
+  uniqueIdentifier:
+    type: string
+    description: The unique immutable identifier of a resource (Guid).
+type: object
+required:
+  - createdDate
+  - name
+  - provisioningState
+  - type
+  - uniqueIdentifier
+inputProperties:
+  diskBlobName:
+    type: string
+    description: When backed by a blob, the name of the VHD blob without extension.
+  diskSizeGiB:
+    type: integer
+    description: The size of the disk in Gibibytes.
+  diskType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:devtestlab/v20180915:StorageType"
+    description: The storage type for the disk (i.e. Standard, Premium).
+  diskUri:
+    type: string
+    description: When backed by a blob, the URI of underlying blob.
+  hostCaching:
+    type: string
+    description: The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
+  labName:
+    type: string
+    description: The name of the lab.
+  leasedByLabVmId:
+    type: string
+    description: The resource ID of the VM to which this disk is leased.
+  location:
+    type: string
+    description: The location of the resource.
+  managedDiskId:
+    type: string
+    description: When backed by managed disk, this is the ID of the compute disk resource.
+  name:
+    type: string
+    description: The name of the disk.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  storageAccountId:
+    type: string
+    description: When backed by a blob, the storage account where the blob is.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+  userName:
+    type: string
+    description: The name of the user profile.
+requiredInputs:
+  - labName
+  - resourceGroupName
+  - userName
+aliases:
+  - type: azure-native:devtestlab:Disk
+  - type: azure-native:devtestlab/v20160515:Disk

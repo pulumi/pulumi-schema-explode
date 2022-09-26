@@ -1,0 +1,31 @@
+$token: azure-native:appplatform/v20200701:getDeploymentLogFileUrl
+description: Log file URL payload
+inputs:
+  properties:
+    appName:
+      type: string
+      description: The name of the App resource.
+    deploymentName:
+      type: string
+      description: The name of the Deployment resource.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    serviceName:
+      type: string
+      description: The name of the Service resource.
+  type: object
+  required:
+    - appName
+    - deploymentName
+    - resourceGroupName
+    - serviceName
+outputs:
+  description: Log file URL payload
+  properties:
+    url:
+      type: string
+      description: URL of the log file
+  type: object
+  required:
+    - url

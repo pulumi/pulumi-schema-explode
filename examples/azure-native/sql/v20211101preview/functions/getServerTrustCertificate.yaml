@@ -1,0 +1,46 @@
+$token: azure-native:sql/v20211101preview:getServerTrustCertificate
+description: Server trust certificate imported from box to enable connection between box and Sql Managed Instance.
+inputs:
+  properties:
+    certificateName:
+      type: string
+      description: Name of of the certificate to get.
+    managedInstanceName:
+      type: string
+      description: The name of the managed instance.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  type: object
+  required:
+    - certificateName
+    - managedInstanceName
+    - resourceGroupName
+outputs:
+  description: Server trust certificate imported from box to enable connection between box and Sql Managed Instance.
+  properties:
+    certificateName:
+      type: string
+      description: The certificate name
+    id:
+      type: string
+      description: Resource ID.
+    name:
+      type: string
+      description: Resource name.
+    publicBlob:
+      type: string
+      description: The certificate public blob
+    thumbprint:
+      type: string
+      description: The certificate thumbprint
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - certificateName
+    - id
+    - name
+    - thumbprint
+    - type

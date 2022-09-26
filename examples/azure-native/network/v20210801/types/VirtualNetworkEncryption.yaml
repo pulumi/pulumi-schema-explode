@@ -1,0 +1,14 @@
+$token: azure-native:network/v20210801:VirtualNetworkEncryption
+description: Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
+properties:
+  enabled:
+    type: boolean
+    description: Indicates if encryption is enabled on the virtual network.
+  enforcement:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20210801:VirtualNetworkEncryptionEnforcement"
+    description: If the encrypted VNet allows VM that does not support encryption
+type: object
+required:
+  - enabled

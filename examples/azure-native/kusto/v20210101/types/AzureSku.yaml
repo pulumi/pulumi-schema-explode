@@ -1,0 +1,20 @@
+$token: azure-native:kusto/v20210101:AzureSku
+description: Azure SKU definition.
+properties:
+  capacity:
+    type: integer
+    description: The number of instances of the cluster.
+  name:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:kusto/v20210101:AzureSkuName"
+    description: SKU name.
+  tier:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:kusto/v20210101:AzureSkuTier"
+    description: SKU tier.
+type: object
+required:
+  - name
+  - tier

@@ -1,0 +1,115 @@
+$token: azure-native:containerregistry:listTaskDetails
+description: "The task that has the ARM resource and task properties. \r
+
+  The task will have all information to schedule a run against it.
+
+  API Version: 2019-06-01-preview."
+inputs:
+  properties:
+    registryName:
+      type: string
+      description: The name of the container registry.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group to which the container registry belongs.
+    taskName:
+      type: string
+      description: The name of the container registry task.
+  type: object
+  required:
+    - registryName
+    - resourceGroupName
+    - taskName
+outputs:
+  description: "The task that has the ARM resource and task properties. \r
+
+    The task will have all information to schedule a run against it."
+  properties:
+    agentConfiguration:
+      type: object
+      $ref: "#/types/azure-native:containerregistry:AgentPropertiesResponse"
+      description: The machine configuration of the run agent.
+    agentPoolName:
+      type: string
+      description: The dedicated agent pool for the task.
+    creationDate:
+      type: string
+      description: The creation date of task.
+    credentials:
+      type: object
+      $ref: "#/types/azure-native:containerregistry:CredentialsResponse"
+      description: The properties that describes a set of credentials that will be used when this run is invoked.
+    id:
+      type: string
+      description: The resource ID.
+    identity:
+      type: object
+      $ref: "#/types/azure-native:containerregistry:IdentityPropertiesResponse"
+      description: Identity for the resource.
+    isSystemTask:
+      type: boolean
+      description: The value of this property indicates whether the task resource is system task or not.
+      default: false
+    location:
+      type: string
+      description: The location of the resource. This cannot be changed after the resource is created.
+    logTemplate:
+      type: string
+      description: The template that describes the repository and tag information for run log artifact.
+    name:
+      type: string
+      description: The name of the resource.
+    platform:
+      type: object
+      $ref: "#/types/azure-native:containerregistry:PlatformPropertiesResponse"
+      description: The platform properties against which the run has to happen.
+    provisioningState:
+      type: string
+      description: The provisioning state of the task.
+    status:
+      type: string
+      description: The current status of task.
+    step:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:containerregistry:DockerBuildStepResponse"
+        - type: object
+          $ref: "#/types/azure-native:containerregistry:EncodedTaskStepResponse"
+        - type: object
+          $ref: "#/types/azure-native:containerregistry:FileTaskStepResponse"
+      discriminator:
+        propertyName: type
+        mapping:
+          Docker: "#/types/azure-native:containerregistry:DockerBuildStepResponse"
+          EncodedTask: "#/types/azure-native:containerregistry:EncodedTaskStepResponse"
+          FileTask: "#/types/azure-native:containerregistry:FileTaskStepResponse"
+      description: The properties of a task step.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:containerregistry:SystemDataResponse"
+      description: Metadata pertaining to creation and last modification of the resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: The tags of the resource.
+    timeout:
+      type: integer
+      description: Run timeout in seconds.
+      default: 3600
+    trigger:
+      type: object
+      $ref: "#/types/azure-native:containerregistry:TriggerPropertiesResponse"
+      description: The properties that describe all triggers for the task.
+    type:
+      type: string
+      description: The type of the resource.
+  type: object
+  required:
+    - creationDate
+    - id
+    - location
+    - name
+    - provisioningState
+    - systemData
+    - type

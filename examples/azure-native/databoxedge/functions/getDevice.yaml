@@ -1,0 +1,129 @@
+$token: azure-native:databoxedge:getDevice
+description: |-
+  The Data Box Edge/Gateway device.
+  API Version: 2020-12-01.
+inputs:
+  properties:
+    deviceName:
+      type: string
+      description: The device name.
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+  type: object
+  required:
+    - deviceName
+    - resourceGroupName
+outputs:
+  description: The Data Box Edge/Gateway device.
+  properties:
+    configuredRoleTypes:
+      type: array
+      items:
+        type: string
+      description: Type of compute roles configured.
+    culture:
+      type: string
+      description: The Data Box Edge/Gateway device culture.
+    dataBoxEdgeDeviceStatus:
+      type: string
+      description: The status of the Data Box Edge/Gateway device.
+    description:
+      type: string
+      description: The Description of the Data Box Edge/Gateway device.
+    deviceHcsVersion:
+      type: string
+      description: "The device software version number of the device (eg: 1.2.18105.6)."
+    deviceLocalCapacity:
+      type: number
+      description: The Data Box Edge/Gateway device local capacity in MB.
+    deviceModel:
+      type: string
+      description: The Data Box Edge/Gateway device model.
+    deviceSoftwareVersion:
+      type: string
+      description: The Data Box Edge/Gateway device software version.
+    deviceType:
+      type: string
+      description: The type of the Data Box Edge/Gateway device.
+    edgeProfile:
+      type: object
+      $ref: "#/types/azure-native:databoxedge:EdgeProfileResponse"
+      description: The details of Edge Profile for this resource
+    etag:
+      type: string
+      description: The etag for the devices.
+    friendlyName:
+      type: string
+      description: The Data Box Edge/Gateway device name.
+    id:
+      type: string
+      description: The path ID that uniquely identifies the object.
+    identity:
+      type: object
+      $ref: "#/types/azure-native:databoxedge:ResourceIdentityResponse"
+      description: Msi identity of the resource
+    kind:
+      type: string
+      description: The etag for the devices.
+    location:
+      type: string
+      description: The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
+    modelDescription:
+      type: string
+      description: The description of the Data Box Edge/Gateway device model.
+    name:
+      type: string
+      description: The object name.
+    nodeCount:
+      type: integer
+      description: The number of nodes in the cluster.
+    resourceMoveDetails:
+      type: object
+      $ref: "#/types/azure-native:databoxedge:ResourceMoveDetailsResponse"
+      description: The details of the move operation on this resource.
+    serialNumber:
+      type: string
+      description: The Serial Number of Data Box Edge/Gateway device.
+    sku:
+      type: object
+      $ref: "#/types/azure-native:databoxedge:SkuResponse"
+      description: The SKU type.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:databoxedge:SystemDataResponse"
+      description: DataBoxEdge Resource
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
+    timeZone:
+      type: string
+      description: The Data Box Edge/Gateway device timezone.
+    type:
+      type: string
+      description: The hierarchical type of the object.
+  type: object
+  required:
+    - configuredRoleTypes
+    - culture
+    - description
+    - deviceHcsVersion
+    - deviceLocalCapacity
+    - deviceModel
+    - deviceSoftwareVersion
+    - deviceType
+    - edgeProfile
+    - friendlyName
+    - id
+    - kind
+    - location
+    - modelDescription
+    - name
+    - nodeCount
+    - resourceMoveDetails
+    - serialNumber
+    - systemData
+    - timeZone
+    - type

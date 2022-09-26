@@ -1,0 +1,25 @@
+$token: azure-native:devices/v20190322preview:EventHubPropertiesResponse
+description: The properties of the provisioned Event Hub-compatible endpoint used by the IoT hub.
+properties:
+  endpoint:
+    type: string
+    description: The Event Hub-compatible endpoint.
+  partitionCount:
+    type: integer
+    description: "The number of partitions for receiving device-to-cloud messages in the Event Hub-compatible endpoint. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages."
+  partitionIds:
+    type: array
+    items:
+      type: string
+    description: The partition ids in the Event Hub-compatible endpoint.
+  path:
+    type: string
+    description: The Event Hub-compatible name.
+  retentionTimeInDays:
+    type: number
+    description: "The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages"
+type: object
+required:
+  - endpoint
+  - partitionIds
+  - path

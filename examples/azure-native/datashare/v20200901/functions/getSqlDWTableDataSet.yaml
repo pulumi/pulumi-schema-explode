@@ -1,0 +1,71 @@
+$token: azure-native:datashare/v20200901:getSqlDWTableDataSet
+description: A SQL DW table data set.
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: The name of the share account.
+    dataSetName:
+      type: string
+      description: The name of the dataSet.
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+    shareName:
+      type: string
+      description: The name of the share.
+  type: object
+  required:
+    - accountName
+    - dataSetName
+    - resourceGroupName
+    - shareName
+outputs:
+  description: A SQL DW table data set.
+  properties:
+    dataSetId:
+      type: string
+      description: Unique id for identifying a data set resource
+    dataWarehouseName:
+      type: string
+      description: DataWarehouse name of the source data set
+    id:
+      type: string
+      description: The resource id of the azure resource
+    kind:
+      type: string
+      description: |-
+        Kind of data set.
+        Expected value is 'SqlDWTable'.
+      const: SqlDWTable
+    name:
+      type: string
+      description: Name of the azure resource
+    schemaName:
+      type: string
+      description: Schema of the table. Default value is dbo.
+    sqlServerResourceId:
+      type: string
+      description: Resource id of SQL server
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:datashare/v20200901:SystemDataResponse"
+      description: System Data of the Azure resource.
+    tableName:
+      type: string
+      description: SQL DW table name.
+    type:
+      type: string
+      description: Type of the azure resource
+  type: object
+  required:
+    - dataSetId
+    - dataWarehouseName
+    - id
+    - kind
+    - name
+    - schemaName
+    - sqlServerResourceId
+    - systemData
+    - tableName
+    - type

@@ -1,0 +1,67 @@
+$token: azure-native:machinelearningservices/v20220201preview:HdfsDatastoreResponse
+properties:
+  credentials:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220201preview:AccountKeyDatastoreCredentialsResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220201preview:CertificateDatastoreCredentialsResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220201preview:KerberosKeytabCredentialsResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220201preview:KerberosPasswordCredentialsResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220201preview:NoneDatastoreCredentialsResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220201preview:SasDatastoreCredentialsResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220201preview:ServicePrincipalDatastoreCredentialsResponse"
+    discriminator:
+      propertyName: credentialsType
+      mapping:
+        AccountKey: "#/types/azure-native:machinelearningservices/v20220201preview:AccountKeyDatastoreCredentialsResponse"
+        Certificate: "#/types/azure-native:machinelearningservices/v20220201preview:CertificateDatastoreCredentialsResponse"
+        KerberosKeytab: "#/types/azure-native:machinelearningservices/v20220201preview:KerberosKeytabCredentialsResponse"
+        KerberosPassword: "#/types/azure-native:machinelearningservices/v20220201preview:KerberosPasswordCredentialsResponse"
+        None: "#/types/azure-native:machinelearningservices/v20220201preview:NoneDatastoreCredentialsResponse"
+        Sas: "#/types/azure-native:machinelearningservices/v20220201preview:SasDatastoreCredentialsResponse"
+        ServicePrincipal: "#/types/azure-native:machinelearningservices/v20220201preview:ServicePrincipalDatastoreCredentialsResponse"
+    description: "[Required] Account credentials."
+  datastoreType:
+    type: string
+    description: |-
+      Enum to determine the datastore contents type.
+      Expected value is 'Hdfs'.
+    const: Hdfs
+  description:
+    type: string
+    description: The asset description text.
+  hdfsServerCertificate:
+    type: string
+    description: The TLS cert of the HDFS server. Needs to be a base64 encoded string. Required if "Https" protocol is selected.
+  isDefault:
+    type: boolean
+    description: Readonly property to indicate if datastore is the workspace default datastore
+  nameNodeAddress:
+    type: string
+    description: "[Required] IP Address or DNS HostName."
+  properties:
+    type: object
+    additionalProperties:
+      type: string
+    description: The asset property dictionary.
+  protocol:
+    type: string
+    description: Protocol used to communicate with the storage account (Https/Http).
+    default: http
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Tag dictionary. Tags can be added, removed, and updated.
+type: object
+required:
+  - credentials
+  - datastoreType
+  - isDefault
+  - nameNodeAddress

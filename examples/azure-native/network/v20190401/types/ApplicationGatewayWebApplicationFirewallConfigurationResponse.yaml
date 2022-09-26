@@ -1,0 +1,45 @@
+$token: azure-native:network/v20190401:ApplicationGatewayWebApplicationFirewallConfigurationResponse
+description: Application gateway web application firewall configuration.
+properties:
+  disabledRuleGroups:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20190401:ApplicationGatewayFirewallDisabledRuleGroupResponse"
+    description: The disabled rule groups.
+  enabled:
+    type: boolean
+    description: Whether the web application firewall is enabled or not.
+  exclusions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20190401:ApplicationGatewayFirewallExclusionResponse"
+    description: The exclusion list.
+  fileUploadLimitInMb:
+    type: integer
+    description: Maximum file upload size in Mb for WAF.
+  firewallMode:
+    type: string
+    description: Web application firewall mode.
+  maxRequestBodySize:
+    type: integer
+    description: Maximum request body size for WAF.
+  maxRequestBodySizeInKb:
+    type: integer
+    description: Maximum request body size in Kb for WAF.
+  requestBodyCheck:
+    type: boolean
+    description: Whether allow WAF to check request Body.
+  ruleSetType:
+    type: string
+    description: "The type of the web application firewall rule set. Possible values are: 'OWASP'."
+  ruleSetVersion:
+    type: string
+    description: The version of the rule set type.
+type: object
+required:
+  - enabled
+  - firewallMode
+  - ruleSetType
+  - ruleSetVersion

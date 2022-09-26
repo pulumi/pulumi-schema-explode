@@ -1,0 +1,90 @@
+$token: azure-native:servicelinker/v20220101preview:getLinker
+description: Linker of source and target resource
+inputs:
+  properties:
+    linkerName:
+      type: string
+      description: The name Linker resource.
+    resourceUri:
+      type: string
+      description: The fully qualified Azure Resource manager identifier of the resource to be connected.
+  type: object
+  required:
+    - linkerName
+    - resourceUri
+outputs:
+  description: Linker of source and target resource
+  properties:
+    authInfo:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:servicelinker/v20220101preview:SecretAuthInfoResponse"
+        - type: object
+          $ref: "#/types/azure-native:servicelinker/v20220101preview:ServicePrincipalCertificateAuthInfoResponse"
+        - type: object
+          $ref: "#/types/azure-native:servicelinker/v20220101preview:ServicePrincipalSecretAuthInfoResponse"
+        - type: object
+          $ref: "#/types/azure-native:servicelinker/v20220101preview:SystemAssignedIdentityAuthInfoResponse"
+        - type: object
+          $ref: "#/types/azure-native:servicelinker/v20220101preview:UserAssignedIdentityAuthInfoResponse"
+      discriminator:
+        propertyName: authType
+        mapping:
+          secret: "#/types/azure-native:servicelinker/v20220101preview:SecretAuthInfoResponse"
+          servicePrincipalCertificate: "#/types/azure-native:servicelinker/v20220101preview:ServicePrincipalCertificateAuthInfoResponse"
+          servicePrincipalSecret: "#/types/azure-native:servicelinker/v20220101preview:ServicePrincipalSecretAuthInfoResponse"
+          systemAssignedIdentity: "#/types/azure-native:servicelinker/v20220101preview:SystemAssignedIdentityAuthInfoResponse"
+          userAssignedIdentity: "#/types/azure-native:servicelinker/v20220101preview:UserAssignedIdentityAuthInfoResponse"
+      description: The authentication type.
+    clientType:
+      type: string
+      description: The application client type
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    name:
+      type: string
+      description: The name of the resource
+    provisioningState:
+      type: string
+      description: "The provisioning state. "
+    scope:
+      type: string
+      description: connection scope in source service.
+    secretStore:
+      type: object
+      $ref: "#/types/azure-native:servicelinker/v20220101preview:SecretStoreResponse"
+      description: An option to store secret value in secure place
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:servicelinker/v20220101preview:SystemDataResponse"
+      description: The system data.
+    targetService:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:servicelinker/v20220101preview:AzureResourceResponse"
+        - type: object
+          $ref: "#/types/azure-native:servicelinker/v20220101preview:ConfluentBootstrapServerResponse"
+        - type: object
+          $ref: "#/types/azure-native:servicelinker/v20220101preview:ConfluentSchemaRegistryResponse"
+      discriminator:
+        propertyName: type
+        mapping:
+          AzureResource: "#/types/azure-native:servicelinker/v20220101preview:AzureResourceResponse"
+          ConfluentBootstrapServer: "#/types/azure-native:servicelinker/v20220101preview:ConfluentBootstrapServerResponse"
+          ConfluentSchemaRegistry: "#/types/azure-native:servicelinker/v20220101preview:ConfluentSchemaRegistryResponse"
+      description: The target service properties
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+    vNetSolution:
+      type: object
+      $ref: "#/types/azure-native:servicelinker/v20220101preview:VNetSolutionResponse"
+      description: The VNet solution.
+  type: object
+  required:
+    - id
+    - name
+    - provisioningState
+    - systemData
+    - type

@@ -1,0 +1,34 @@
+$token: azure-native:signalrservice/v20210901preview:PrivateEndpointConnectionResponse
+description: A private endpoint connection to an azure resource
+properties:
+  id:
+    type: string
+    description: Fully qualified resource Id for the resource.
+  name:
+    type: string
+    description: The name of the resource.
+  privateEndpoint:
+    type: object
+    $ref: "#/types/azure-native:signalrservice/v20210901preview:PrivateEndpointResponse"
+    description: Private endpoint associated with the private endpoint connection
+  privateLinkServiceConnectionState:
+    type: object
+    $ref: "#/types/azure-native:signalrservice/v20210901preview:PrivateLinkServiceConnectionStateResponse"
+    description: Connection state
+  provisioningState:
+    type: string
+    description: Provisioning state of the private endpoint connection
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:signalrservice/v20210901preview:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  type:
+    type: string
+    description: The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+type: object
+required:
+  - id
+  - name
+  - provisioningState
+  - systemData
+  - type

@@ -1,0 +1,88 @@
+$token: azure-native:datafactory/v20180601:getFactory
+description: Factory resource type.
+inputs:
+  properties:
+    factoryName:
+      type: string
+      description: The factory name.
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+  type: object
+  required:
+    - factoryName
+    - resourceGroupName
+outputs:
+  description: Factory resource type.
+  properties:
+    createTime:
+      type: string
+      description: Time the factory was created in ISO8601 format.
+    eTag:
+      type: string
+      description: Etag identifies change in the resource.
+    encryption:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20180601:EncryptionConfigurationResponse"
+      description: Properties to enable Customer Managed Key for the factory.
+    globalParameters:
+      type: object
+      additionalProperties:
+        type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:GlobalParameterSpecificationResponse"
+      description: List of parameters for factory.
+    id:
+      type: string
+      description: The resource identifier.
+    identity:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20180601:FactoryIdentityResponse"
+      description: Managed service identity of the factory.
+    location:
+      type: string
+      description: The resource location.
+    name:
+      type: string
+      description: The resource name.
+    provisioningState:
+      type: string
+      description: Factory provisioning state, example Succeeded.
+    publicNetworkAccess:
+      type: string
+      description: Whether or not public network access is allowed for the data factory.
+    purviewConfiguration:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20180601:PurviewConfigurationResponse"
+      description: Purview information of the factory.
+    repoConfiguration:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:datafactory/v20180601:FactoryGitHubConfigurationResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory/v20180601:FactoryVSTSConfigurationResponse"
+      discriminator:
+        propertyName: type
+        mapping:
+          FactoryGitHubConfiguration: "#/types/azure-native:datafactory/v20180601:FactoryGitHubConfigurationResponse"
+          FactoryVSTSConfiguration: "#/types/azure-native:datafactory/v20180601:FactoryVSTSConfigurationResponse"
+      description: Git repo information of the factory.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: The resource tags.
+    type:
+      type: string
+      description: The resource type.
+    version:
+      type: string
+      description: Version of the factory.
+  type: object
+  required:
+    - createTime
+    - eTag
+    - id
+    - name
+    - provisioningState
+    - type
+    - version

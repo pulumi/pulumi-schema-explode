@@ -1,0 +1,16 @@
+$token: azure-native:storage/v20210401:SasPolicy
+description: SasPolicy assigned to the storage account.
+properties:
+  expirationAction:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:storage/v20210401:ExpirationAction"
+    description: The SAS expiration action. Can only be Log.
+    default: Log
+  sasExpirationPeriod:
+    type: string
+    description: The SAS expiration period, DD.HH:MM:SS.
+type: object
+required:
+  - expirationAction
+  - sasExpirationPeriod

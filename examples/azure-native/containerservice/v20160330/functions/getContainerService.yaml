@@ -1,0 +1,74 @@
+$token: azure-native:containerservice/v20160330:getContainerService
+description: Container service.
+inputs:
+  properties:
+    containerServiceName:
+      type: string
+      description: The name of the container service in the specified subscription and resource group.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - containerServiceName
+    - resourceGroupName
+outputs:
+  description: Container service.
+  properties:
+    agentPoolProfiles:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:containerservice/v20160330:ContainerServiceAgentPoolProfileResponse"
+      description: Properties of the agent pool.
+    diagnosticsProfile:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20160330:ContainerServiceDiagnosticsProfileResponse"
+      description: Properties of the diagnostic agent.
+    id:
+      type: string
+      description: Resource Id
+    linuxProfile:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20160330:ContainerServiceLinuxProfileResponse"
+      description: Properties of Linux VMs.
+    location:
+      type: string
+      description: Resource location
+    masterProfile:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20160330:ContainerServiceMasterProfileResponse"
+      description: Properties of master agents.
+    name:
+      type: string
+      description: Resource name
+    orchestratorProfile:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20160330:ContainerServiceOrchestratorProfileResponse"
+      description: Properties of the orchestrator.
+    provisioningState:
+      type: string
+      description: the current deployment or provisioning state, which only appears in the response.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    type:
+      type: string
+      description: Resource type
+    windowsProfile:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20160330:ContainerServiceWindowsProfileResponse"
+      description: Properties of Windows VMs.
+  type: object
+  required:
+    - agentPoolProfiles
+    - id
+    - linuxProfile
+    - location
+    - masterProfile
+    - name
+    - provisioningState
+    - type
+deprecationMessage: Version 2016-03-30 will be removed in v2 of the provider.

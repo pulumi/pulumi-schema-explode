@@ -1,0 +1,64 @@
+$token: azure-native:authorization:getPolicySetDefinitionAtManagementGroup
+description: |-
+  The policy set definition.
+  API Version: 2020-09-01.
+inputs:
+  properties:
+    managementGroupId:
+      type: string
+      description: The ID of the management group.
+    policySetDefinitionName:
+      type: string
+      description: The name of the policy set definition to get.
+  type: object
+  required:
+    - managementGroupId
+    - policySetDefinitionName
+outputs:
+  description: The policy set definition.
+  properties:
+    description:
+      type: string
+      description: The policy set definition description.
+    displayName:
+      type: string
+      description: The display name of the policy set definition.
+    id:
+      type: string
+      description: The ID of the policy set definition.
+    metadata:
+      $ref: pulumi.json#/Any
+      description: The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
+    name:
+      type: string
+      description: The name of the policy set definition.
+    parameters:
+      type: object
+      additionalProperties:
+        type: object
+        $ref: "#/types/azure-native:authorization:ParameterDefinitionsValueResponse"
+      description: The policy set definition parameters that can be used in policy definition references.
+    policyDefinitionGroups:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:authorization:PolicyDefinitionGroupResponse"
+      description: The metadata describing groups of policy definition references within the policy set definition.
+    policyDefinitions:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:authorization:PolicyDefinitionReferenceResponse"
+      description: An array of policy definition references.
+    policyType:
+      type: string
+      description: The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+    type:
+      type: string
+      description: The type of the resource (Microsoft.Authorization/policySetDefinitions).
+  type: object
+  required:
+    - id
+    - name
+    - policyDefinitions
+    - type

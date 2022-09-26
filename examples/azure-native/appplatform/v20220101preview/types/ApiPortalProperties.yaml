@@ -1,0 +1,26 @@
+$token: azure-native:appplatform/v20220101preview:ApiPortalProperties
+description: API portal properties payload
+properties:
+  gatewayIds:
+    type: array
+    items:
+      type: string
+    description: The array of resource Ids of gateway to integrate with API portal.
+  httpsOnly:
+    type: boolean
+    description: Indicate if only https is allowed.
+    default: false
+  public:
+    type: boolean
+    description: Indicates whether the API portal exposes endpoint.
+    default: false
+  sourceUrls:
+    type: array
+    items:
+      type: string
+    description: Collection of OpenAPI source URL locations.
+  ssoProperties:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20220101preview:SsoProperties"
+    description: Single sign-on related configuration
+type: object

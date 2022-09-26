@@ -1,0 +1,47 @@
+$token: azure-native:managedservices/v20190401preview:RegistrationDefinition
+description: Registration definition.
+properties:
+  name:
+    type: string
+    description: Name of the registration definition.
+  plan:
+    type: object
+    $ref: "#/types/azure-native:managedservices/v20190401preview:PlanResponse"
+    description: Plan details for the managed services.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:managedservices/v20190401preview:RegistrationDefinitionPropertiesResponse"
+    description: Properties of a registration definition.
+  type:
+    type: string
+    description: Type of the resource.
+type: object
+required:
+  - name
+  - properties
+  - type
+inputProperties:
+  plan:
+    type: object
+    $ref: "#/types/azure-native:managedservices/v20190401preview:Plan"
+    description: Plan details for the managed services.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:managedservices/v20190401preview:RegistrationDefinitionProperties"
+    description: Properties of a registration definition.
+  registrationDefinitionId:
+    type: string
+    description: Guid of the registration definition.
+  scope:
+    type: string
+    description: Scope of the resource.
+requiredInputs:
+  - scope
+aliases:
+  - type: azure-native:managedservices:RegistrationDefinition
+  - type: azure-native:managedservices/v20180601preview:RegistrationDefinition
+  - type: azure-native:managedservices/v20190601:RegistrationDefinition
+  - type: azure-native:managedservices/v20190901:RegistrationDefinition
+  - type: azure-native:managedservices/v20200201preview:RegistrationDefinition
+  - type: azure-native:managedservices/v20220101preview:RegistrationDefinition
+deprecationMessage: Version 2019-04-01-preview will be removed in v2 of the provider.

@@ -1,0 +1,15 @@
+$token: azure-native:alertsmanagement/v20190505preview:SuppressionConfig
+description: Suppression logic for a given action rule
+properties:
+  recurrenceType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:alertsmanagement/v20190505preview:SuppressionType"
+    description: Specifies when the suppression should be applied
+  schedule:
+    type: object
+    $ref: "#/types/azure-native:alertsmanagement/v20190505preview:SuppressionSchedule"
+    description: suppression schedule configuration
+type: object
+required:
+  - recurrenceType

@@ -1,0 +1,141 @@
+$token: azure-native:botservice/v20180712:Channel
+description: Bot channel resource definition
+properties:
+  etag:
+    type: string
+    description: Entity Tag
+  kind:
+    type: string
+    description: Required. Gets or sets the Kind of the resource.
+  location:
+    type: string
+    description: Specifies the location of the resource.
+  name:
+    type: string
+    description: Specifies the name of the resource.
+  properties:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:botservice/v20180712:DirectLineChannelResponse"
+      - type: object
+        $ref: "#/types/azure-native:botservice/v20180712:EmailChannelResponse"
+      - type: object
+        $ref: "#/types/azure-native:botservice/v20180712:FacebookChannelResponse"
+      - type: object
+        $ref: "#/types/azure-native:botservice/v20180712:KikChannelResponse"
+      - type: object
+        $ref: "#/types/azure-native:botservice/v20180712:MsTeamsChannelResponse"
+      - type: object
+        $ref: "#/types/azure-native:botservice/v20180712:SkypeChannelResponse"
+      - type: object
+        $ref: "#/types/azure-native:botservice/v20180712:SlackChannelResponse"
+      - type: object
+        $ref: "#/types/azure-native:botservice/v20180712:SmsChannelResponse"
+      - type: object
+        $ref: "#/types/azure-native:botservice/v20180712:TelegramChannelResponse"
+      - type: object
+        $ref: "#/types/azure-native:botservice/v20180712:WebChatChannelResponse"
+    discriminator:
+      propertyName: channelName
+      mapping:
+        DirectLineChannel: "#/types/azure-native:botservice/v20180712:DirectLineChannelResponse"
+        EmailChannel: "#/types/azure-native:botservice/v20180712:EmailChannelResponse"
+        FacebookChannel: "#/types/azure-native:botservice/v20180712:FacebookChannelResponse"
+        KikChannel: "#/types/azure-native:botservice/v20180712:KikChannelResponse"
+        MsTeamsChannel: "#/types/azure-native:botservice/v20180712:MsTeamsChannelResponse"
+        SkypeChannel: "#/types/azure-native:botservice/v20180712:SkypeChannelResponse"
+        SlackChannel: "#/types/azure-native:botservice/v20180712:SlackChannelResponse"
+        SmsChannel: "#/types/azure-native:botservice/v20180712:SmsChannelResponse"
+        TelegramChannel: "#/types/azure-native:botservice/v20180712:TelegramChannelResponse"
+        WebChatChannel: "#/types/azure-native:botservice/v20180712:WebChatChannelResponse"
+    description: The set of properties specific to bot channel resource
+  sku:
+    type: object
+    $ref: "#/types/azure-native:botservice/v20180712:SkuResponse"
+    description: Gets or sets the SKU of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Contains resource tags defined as key/value pairs.
+  type:
+    type: string
+    description: Specifies the type of the resource.
+type: object
+required:
+  - name
+  - properties
+  - type
+inputProperties:
+  channelName:
+    type: string
+    description: The name of the Channel resource.
+  kind:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:botservice/v20180712:Kind"
+    description: Required. Gets or sets the Kind of the resource.
+  location:
+    type: string
+    description: Specifies the location of the resource.
+  properties:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:botservice/v20180712:DirectLineChannel"
+      - type: object
+        $ref: "#/types/azure-native:botservice/v20180712:EmailChannel"
+      - type: object
+        $ref: "#/types/azure-native:botservice/v20180712:FacebookChannel"
+      - type: object
+        $ref: "#/types/azure-native:botservice/v20180712:KikChannel"
+      - type: object
+        $ref: "#/types/azure-native:botservice/v20180712:MsTeamsChannel"
+      - type: object
+        $ref: "#/types/azure-native:botservice/v20180712:SkypeChannel"
+      - type: object
+        $ref: "#/types/azure-native:botservice/v20180712:SlackChannel"
+      - type: object
+        $ref: "#/types/azure-native:botservice/v20180712:SmsChannel"
+      - type: object
+        $ref: "#/types/azure-native:botservice/v20180712:TelegramChannel"
+      - type: object
+        $ref: "#/types/azure-native:botservice/v20180712:WebChatChannel"
+    discriminator:
+      propertyName: channelName
+      mapping:
+        DirectLineChannel: "#/types/azure-native:botservice/v20180712:DirectLineChannel"
+        EmailChannel: "#/types/azure-native:botservice/v20180712:EmailChannel"
+        FacebookChannel: "#/types/azure-native:botservice/v20180712:FacebookChannel"
+        KikChannel: "#/types/azure-native:botservice/v20180712:KikChannel"
+        MsTeamsChannel: "#/types/azure-native:botservice/v20180712:MsTeamsChannel"
+        SkypeChannel: "#/types/azure-native:botservice/v20180712:SkypeChannel"
+        SlackChannel: "#/types/azure-native:botservice/v20180712:SlackChannel"
+        SmsChannel: "#/types/azure-native:botservice/v20180712:SmsChannel"
+        TelegramChannel: "#/types/azure-native:botservice/v20180712:TelegramChannel"
+        WebChatChannel: "#/types/azure-native:botservice/v20180712:WebChatChannel"
+    description: The set of properties specific to bot channel resource
+  resourceGroupName:
+    type: string
+    description: The name of the Bot resource group in the user subscription.
+  resourceName:
+    type: string
+    description: The name of the Bot resource.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:botservice/v20180712:Sku"
+    description: Gets or sets the SKU of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Contains resource tags defined as key/value pairs.
+requiredInputs:
+  - resourceGroupName
+  - resourceName
+aliases:
+  - type: azure-native:botservice:Channel
+  - type: azure-native:botservice/v20171201:Channel
+  - type: azure-native:botservice/v20200602:Channel
+  - type: azure-native:botservice/v20210301:Channel
+  - type: azure-native:botservice/v20210501preview:Channel
+  - type: azure-native:botservice/v20220615preview:Channel

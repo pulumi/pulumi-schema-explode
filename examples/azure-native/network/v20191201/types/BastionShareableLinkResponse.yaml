@@ -1,0 +1,22 @@
+$token: azure-native:network/v20191201:BastionShareableLinkResponse
+description: Bastion Shareable Link.
+properties:
+  bsl:
+    type: string
+    description: The unique Bastion Shareable Link to the virtual machine.
+  createdAt:
+    type: string
+    description: The time when the link was created.
+  message:
+    type: string
+    description: Optional field indicating the warning or error message related to the vm in case of partial failure.
+  vm:
+    type: object
+    $ref: "#/types/azure-native:network/v20191201:VMResponse"
+    description: Reference of the virtual machine resource.
+type: object
+required:
+  - bsl
+  - createdAt
+  - message
+  - vm

@@ -1,0 +1,47 @@
+$token: azure-native:apimanagement/v20180601preview:getTagByOperation
+description: Tag Contract details.
+inputs:
+  properties:
+    apiId:
+      type: string
+      description: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
+    operationId:
+      type: string
+      description: Operation identifier within an API. Must be unique in the current API Management service instance.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    serviceName:
+      type: string
+      description: The name of the API Management service.
+    tagId:
+      type: string
+      description: Tag identifier. Must be unique in the current API Management service instance.
+  type: object
+  required:
+    - apiId
+    - operationId
+    - resourceGroupName
+    - serviceName
+    - tagId
+outputs:
+  description: Tag Contract details.
+  properties:
+    displayName:
+      type: string
+      description: Tag name.
+    id:
+      type: string
+      description: Resource ID.
+    name:
+      type: string
+      description: Resource name.
+    type:
+      type: string
+      description: Resource type for API Management resource.
+  type: object
+  required:
+    - displayName
+    - id
+    - name
+    - type

@@ -1,0 +1,83 @@
+$token: azure-native:security/v20210601:getAssessmentMetadataInSubscription
+description: Security assessment metadata response
+inputs:
+  properties:
+    assessmentMetadataName:
+      type: string
+      description: The Assessment Key - Unique key for the assessment type
+  type: object
+  required:
+    - assessmentMetadataName
+outputs:
+  description: Security assessment metadata response
+  properties:
+    assessmentType:
+      type: string
+      description: BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
+    categories:
+      type: array
+      items:
+        type: string
+    description:
+      type: string
+      description: Human readable description of the assessment
+    displayName:
+      type: string
+      description: User friendly display name of the assessment
+    id:
+      type: string
+      description: Resource Id
+    implementationEffort:
+      type: string
+      description: The implementation effort required to remediate this assessment
+    name:
+      type: string
+      description: Resource name
+    partnerData:
+      type: object
+      $ref: "#/types/azure-native:security/v20210601:SecurityAssessmentMetadataPartnerDataResponse"
+      description: Describes the partner that created the assessment
+    plannedDeprecationDate:
+      type: string
+    policyDefinitionId:
+      type: string
+      description: Azure resource ID of the policy definition that turns this assessment calculation on
+    preview:
+      type: boolean
+      description: True if this assessment is in preview release status
+    publishDates:
+      type: object
+      $ref: "#/types/azure-native:security/v20210601:SecurityAssessmentMetadataPropertiesResponseResponsePublishDates"
+    remediationDescription:
+      type: string
+      description: Human readable description of what you should do to mitigate this security issue
+    severity:
+      type: string
+      description: The severity level of the assessment
+    tactics:
+      type: array
+      items:
+        type: string
+    techniques:
+      type: array
+      items:
+        type: string
+    threats:
+      type: array
+      items:
+        type: string
+    type:
+      type: string
+      description: Resource type
+    userImpact:
+      type: string
+      description: The user impact of the assessment
+  type: object
+  required:
+    - assessmentType
+    - displayName
+    - id
+    - name
+    - policyDefinitionId
+    - severity
+    - type

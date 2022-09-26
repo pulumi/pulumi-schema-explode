@@ -1,0 +1,87 @@
+$token: azure-native:workloads:getSAPDatabaseInstance
+description: |-
+  Define the Database resource.
+  API Version: 2021-12-01-preview.
+inputs:
+  properties:
+    databaseInstanceName:
+      type: string
+      description: Database resource name string modeled as parameter for auto generation to work correctly.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    sapVirtualInstanceName:
+      type: string
+      description: The name of the Virtual Instances for SAP solutions resource
+  type: object
+  required:
+    - databaseInstanceName
+    - resourceGroupName
+    - sapVirtualInstanceName
+outputs:
+  description: Define the Database resource.
+  properties:
+    databaseSid:
+      type: string
+      description: Database SID name.
+    databaseType:
+      type: string
+      description: Database type, that is if the DB is HANA, DB2, Oracle, SAP ASE, Max DB or MS SQL Server.
+    errors:
+      type: object
+      $ref: "#/types/azure-native:workloads:SAPVirtualInstanceErrorResponse"
+      description: Defines the errors related to Database resource.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    ipAddress:
+      type: string
+      description: Database IP Address.
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    name:
+      type: string
+      description: The name of the resource
+    provisioningState:
+      type: string
+      description: Defines the provisioning states.
+    status:
+      type: string
+      description: Defines the SAP Instance status.
+    subnet:
+      type: string
+      description: Database subnet.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:workloads:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+    vmDetails:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:workloads:DatabaseVmDetailsResponse"
+      description: The list of virtual machines corresponding to the Database resource.
+  type: object
+  required:
+    - databaseSid
+    - databaseType
+    - errors
+    - id
+    - ipAddress
+    - location
+    - name
+    - provisioningState
+    - status
+    - subnet
+    - systemData
+    - type
+    - vmDetails

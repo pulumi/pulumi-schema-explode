@@ -1,0 +1,22 @@
+$token: azure-native:datamigration/v20220330preview:ValidateSyncMigrationInputSqlServerTaskInput
+description: Input for task that validates migration input for SQL sync migrations
+properties:
+  selectedDatabases:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration/v20220330preview:MigrateSqlServerSqlDbSyncDatabaseInput"
+    description: Databases to migrate
+  sourceConnectionInfo:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20220330preview:SqlConnectionInfo"
+    description: Information for connecting to source SQL server
+  targetConnectionInfo:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20220330preview:SqlConnectionInfo"
+    description: Information for connecting to target
+type: object
+required:
+  - selectedDatabases
+  - sourceConnectionInfo
+  - targetConnectionInfo

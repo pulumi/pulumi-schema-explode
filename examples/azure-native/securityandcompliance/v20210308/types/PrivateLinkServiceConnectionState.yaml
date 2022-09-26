@@ -1,0 +1,15 @@
+$token: azure-native:securityandcompliance/v20210308:PrivateLinkServiceConnectionState
+description: A collection of information about the state of the connection between service consumer and provider.
+properties:
+  actionsRequired:
+    type: string
+    description: A message indicating if changes on the service provider require any updates on the consumer.
+  description:
+    type: string
+    description: The reason for approval/rejection of the connection.
+  status:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:securityandcompliance/v20210308:PrivateEndpointServiceConnectionStatus"
+    description: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+type: object

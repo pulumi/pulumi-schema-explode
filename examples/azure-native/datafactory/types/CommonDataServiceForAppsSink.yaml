@@ -1,0 +1,42 @@
+$token: azure-native:datafactory:CommonDataServiceForAppsSink
+description: A copy activity Common Data Service for Apps sink.
+properties:
+  alternateKeyName:
+    $ref: pulumi.json#/Any
+    description: "The logical name of the alternate key which will be used when upserting records. Type: string (or Expression with resultType string)."
+  disableMetricsCollection:
+    $ref: pulumi.json#/Any
+    description: "If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean)."
+  ignoreNullValues:
+    $ref: pulumi.json#/Any
+    description: "The flag indicating whether to ignore null values from input dataset (except key fields) during write operation. Default is false. Type: boolean (or Expression with resultType boolean)."
+  maxConcurrentConnections:
+    $ref: pulumi.json#/Any
+    description: "The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer)."
+  sinkRetryCount:
+    $ref: pulumi.json#/Any
+    description: "Sink retry count. Type: integer (or Expression with resultType integer)."
+  sinkRetryWait:
+    $ref: pulumi.json#/Any
+    description: "Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9]))."
+  type:
+    type: string
+    description: |-
+      Copy sink type.
+      Expected value is 'CommonDataServiceForAppsSink'.
+    const: CommonDataServiceForAppsSink
+  writeBatchSize:
+    $ref: pulumi.json#/Any
+    description: "Write batch size. Type: integer (or Expression with resultType integer), minimum: 0."
+  writeBatchTimeout:
+    $ref: pulumi.json#/Any
+    description: "Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9]))."
+  writeBehavior:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:datafactory:DynamicsSinkWriteBehavior"
+    description: The write behavior for the operation.
+type: object
+required:
+  - type
+  - writeBehavior

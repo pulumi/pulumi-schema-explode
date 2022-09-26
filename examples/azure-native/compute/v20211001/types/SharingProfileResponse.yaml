@@ -1,0 +1,19 @@
+$token: azure-native:compute/v20211001:SharingProfileResponse
+description: Profile for gallery sharing to subscription or tenant
+properties:
+  communityGalleryInfo:
+    type: object
+    $ref: "#/types/azure-native:compute/v20211001:CommunityGalleryInfoResponse"
+    description: Information of community gallery if current gallery is shared to community.
+  groups:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:compute/v20211001:SharingProfileGroupResponse"
+    description: A list of sharing profile groups.
+  permissions:
+    type: string
+    description: "This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**"
+type: object
+required:
+  - groups

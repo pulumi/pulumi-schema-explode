@@ -1,0 +1,82 @@
+$token: azure-native:datafactory/v20170901preview:FileShareDataset
+description: An on-premises file system dataset.
+properties:
+  annotations:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: List of tags that can be used for describing the Dataset.
+  compression:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:DatasetBZip2Compression"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:DatasetDeflateCompression"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:DatasetGZipCompression"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:DatasetZipDeflateCompression"
+    discriminator:
+      propertyName: type
+      mapping:
+        BZip2: "#/types/azure-native:datafactory/v20170901preview:DatasetBZip2Compression"
+        Deflate: "#/types/azure-native:datafactory/v20170901preview:DatasetDeflateCompression"
+        GZip: "#/types/azure-native:datafactory/v20170901preview:DatasetGZipCompression"
+        ZipDeflate: "#/types/azure-native:datafactory/v20170901preview:DatasetZipDeflateCompression"
+    description: The data compression method used for the file system.
+  description:
+    type: string
+    description: Dataset description.
+  fileFilter:
+    $ref: pulumi.json#/Any
+    description: "Specify a filter to be used to select a subset of files in the folderPath rather than all files. Type: string (or Expression with resultType string)."
+  fileName:
+    $ref: pulumi.json#/Any
+    description: "The name of the on-premises file system. Type: string (or Expression with resultType string)."
+  folderPath:
+    $ref: pulumi.json#/Any
+    description: "The path of the on-premises file system. Type: string (or Expression with resultType string)."
+  format:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:AvroFormat"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:JsonFormat"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:OrcFormat"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:ParquetFormat"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:TextFormat"
+    discriminator:
+      propertyName: type
+      mapping:
+        AvroFormat: "#/types/azure-native:datafactory/v20170901preview:AvroFormat"
+        JsonFormat: "#/types/azure-native:datafactory/v20170901preview:JsonFormat"
+        OrcFormat: "#/types/azure-native:datafactory/v20170901preview:OrcFormat"
+        ParquetFormat: "#/types/azure-native:datafactory/v20170901preview:ParquetFormat"
+        TextFormat: "#/types/azure-native:datafactory/v20170901preview:TextFormat"
+    description: The format of the files.
+  linkedServiceName:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20170901preview:LinkedServiceReference"
+    description: Linked service reference.
+  parameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20170901preview:ParameterSpecification"
+    description: Parameters for dataset.
+  structure:
+    $ref: pulumi.json#/Any
+    description: "Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement."
+  type:
+    type: string
+    description: |-
+      Type of dataset.
+      Expected value is 'FileShare'.
+    const: FileShare
+type: object
+required:
+  - linkedServiceName
+  - type

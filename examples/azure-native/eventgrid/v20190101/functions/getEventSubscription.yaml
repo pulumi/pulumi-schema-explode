@@ -1,0 +1,75 @@
+$token: azure-native:eventgrid/v20190101:getEventSubscription
+description: Event Subscription
+inputs:
+  properties:
+    eventSubscriptionName:
+      type: string
+      description: Name of the event subscription
+    scope:
+      type: string
+      description: The scope of the event subscription. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
+  type: object
+  required:
+    - eventSubscriptionName
+    - scope
+outputs:
+  description: Event Subscription
+  properties:
+    deadLetterDestination:
+      type: object
+      $ref: "#/types/azure-native:eventgrid/v20190101:StorageBlobDeadLetterDestinationResponse"
+      description: The DeadLetter destination of the event subscription.
+    destination:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20190101:EventHubEventSubscriptionDestinationResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20190101:HybridConnectionEventSubscriptionDestinationResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20190101:StorageQueueEventSubscriptionDestinationResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20190101:WebHookEventSubscriptionDestinationResponse"
+      discriminator:
+        propertyName: endpointType
+        mapping:
+          EventHub: "#/types/azure-native:eventgrid/v20190101:EventHubEventSubscriptionDestinationResponse"
+          HybridConnection: "#/types/azure-native:eventgrid/v20190101:HybridConnectionEventSubscriptionDestinationResponse"
+          StorageQueue: "#/types/azure-native:eventgrid/v20190101:StorageQueueEventSubscriptionDestinationResponse"
+          WebHook: "#/types/azure-native:eventgrid/v20190101:WebHookEventSubscriptionDestinationResponse"
+      description: Information about the destination where events have to be delivered for the event subscription.
+    filter:
+      type: object
+      $ref: "#/types/azure-native:eventgrid/v20190101:EventSubscriptionFilterResponse"
+      description: Information about the filter for the event subscription.
+    id:
+      type: string
+      description: Fully qualified identifier of the resource
+    labels:
+      type: array
+      items:
+        type: string
+      description: List of user defined labels.
+    name:
+      type: string
+      description: Name of the resource
+    provisioningState:
+      type: string
+      description: Provisioning state of the event subscription.
+    retryPolicy:
+      type: object
+      $ref: "#/types/azure-native:eventgrid/v20190101:RetryPolicyResponse"
+      description: The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
+    topic:
+      type: string
+      description: Name of the topic of the event subscription.
+    type:
+      type: string
+      description: Type of the resource
+  type: object
+  required:
+    - id
+    - name
+    - provisioningState
+    - topic
+    - type
+deprecationMessage: Version 2019-01-01 will be removed in v2 of the provider.

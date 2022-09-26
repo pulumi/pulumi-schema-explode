@@ -1,0 +1,37 @@
+$token: azure-native:testbase:getTestResultVideoDownloadURL
+description: |-
+  The response of getting a download URL.
+  API Version: 2022-04-01-preview.
+inputs:
+  properties:
+    packageName:
+      type: string
+      description: The resource name of the Test Base Package.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the resource.
+    testBaseAccountName:
+      type: string
+      description: The resource name of the Test Base Account.
+    testResultName:
+      type: string
+      description: The Test Result Name. It equals to TestResult-{TestResultId} string.
+  type: object
+  required:
+    - packageName
+    - resourceGroupName
+    - testBaseAccountName
+    - testResultName
+outputs:
+  description: The response of getting a download URL.
+  properties:
+    downloadUrl:
+      type: string
+      description: The download URL.
+    expirationTime:
+      type: string
+      description: Expiry date of the download URL.
+  type: object
+  required:
+    - downloadUrl
+    - expirationTime

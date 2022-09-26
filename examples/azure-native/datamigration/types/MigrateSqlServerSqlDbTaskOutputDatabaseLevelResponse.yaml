@@ -1,0 +1,78 @@
+$token: azure-native:datamigration:MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse
+description: Database level result for Sql Server to Azure Sql DB migration.
+properties:
+  databaseName:
+    type: string
+    description: Name of the item
+  endedOn:
+    type: string
+    description: Migration end time
+  errorCount:
+    type: number
+    description: Number of database/object errors.
+  errorPrefix:
+    type: string
+    description: Wildcard string prefix to use for querying all errors of the item
+  exceptionsAndWarnings:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration:ReportableExceptionResponse"
+    description: Migration exceptions and warnings.
+  id:
+    type: string
+    description: Result identifier
+  message:
+    type: string
+    description: Migration progress message
+  numberOfObjects:
+    type: number
+    description: Number of objects
+  numberOfObjectsCompleted:
+    type: number
+    description: Number of successfully completed objects
+  objectSummary:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:datamigration:DataItemMigrationSummaryResultResponse"
+    description: Summary of object results in the migration
+  resultPrefix:
+    type: string
+    description: Wildcard string prefix to use for querying all sub-tem results of the item
+  resultType:
+    type: string
+    description: |-
+      Result type
+      Expected value is 'DatabaseLevelOutput'.
+    const: DatabaseLevelOutput
+  stage:
+    type: string
+    description: Migration stage that this database is in
+  startedOn:
+    type: string
+    description: Migration start time
+  state:
+    type: string
+    description: Current state of migration
+  statusMessage:
+    type: string
+    description: Status message
+type: object
+required:
+  - databaseName
+  - endedOn
+  - errorCount
+  - errorPrefix
+  - exceptionsAndWarnings
+  - id
+  - message
+  - numberOfObjects
+  - numberOfObjectsCompleted
+  - objectSummary
+  - resultPrefix
+  - resultType
+  - stage
+  - startedOn
+  - state
+  - statusMessage

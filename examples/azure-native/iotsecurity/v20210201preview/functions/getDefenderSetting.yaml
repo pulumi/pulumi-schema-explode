@@ -1,0 +1,44 @@
+$token: azure-native:iotsecurity/v20210201preview:getDefenderSetting
+description: IoT Defender settings
+inputs:
+  type: object
+outputs:
+  description: IoT Defender settings
+  properties:
+    deviceQuota:
+      type: integer
+      description: Size of the device quota. Value is required to be in multiples of 100.
+    evaluationEndTime:
+      type: string
+      description: End time of the evaluation period, if such exist
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    mdeIntegration:
+      type: object
+      $ref: "#/types/azure-native:iotsecurity/v20210201preview:DefenderSettingsPropertiesResponseMdeIntegration"
+      description: MDE integration configuration
+    name:
+      type: string
+      description: The name of the resource
+    onboardingKind:
+      type: string
+      description: The kind of onboarding for the subscription
+    sentinelWorkspaceResourceIds:
+      type: array
+      items:
+        type: string
+      description: Sentinel Workspace Resource Ids
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - deviceQuota
+    - evaluationEndTime
+    - id
+    - mdeIntegration
+    - name
+    - onboardingKind
+    - sentinelWorkspaceResourceIds
+    - type

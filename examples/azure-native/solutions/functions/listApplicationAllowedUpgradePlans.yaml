@@ -1,0 +1,26 @@
+$token: azure-native:solutions:listApplicationAllowedUpgradePlans
+description: |-
+  The array of plan.
+  API Version: 2021-07-01.
+inputs:
+  properties:
+    applicationName:
+      type: string
+      description: The name of the managed application.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+  type: object
+  required:
+    - applicationName
+    - resourceGroupName
+outputs:
+  description: The array of plan.
+  properties:
+    value:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:solutions:PlanResponse"
+      description: The array of plans.
+  type: object

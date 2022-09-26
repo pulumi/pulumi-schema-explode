@@ -1,0 +1,42 @@
+$token: azure-native:managedservices:getRegistrationDefinition
+description: |-
+  Registration definition.
+  API Version: 2019-09-01.
+inputs:
+  properties:
+    registrationDefinitionId:
+      type: string
+      description: Guid of the registration definition.
+    scope:
+      type: string
+      description: Scope of the resource.
+  type: object
+  required:
+    - registrationDefinitionId
+    - scope
+outputs:
+  description: Registration definition.
+  properties:
+    id:
+      type: string
+      description: Fully qualified path of the registration definition.
+    name:
+      type: string
+      description: Name of the registration definition.
+    plan:
+      type: object
+      $ref: "#/types/azure-native:managedservices:PlanResponse"
+      description: Plan details for the managed services.
+    properties:
+      type: object
+      $ref: "#/types/azure-native:managedservices:RegistrationDefinitionPropertiesResponse"
+      description: Properties of a registration definition.
+    type:
+      type: string
+      description: Type of the resource.
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - type

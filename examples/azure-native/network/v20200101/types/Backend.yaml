@@ -1,0 +1,33 @@
+$token: azure-native:network/v20200101:Backend
+description: Backend address of a frontDoor load balancer.
+properties:
+  address:
+    type: string
+    description: Location of the backend (IP address or FQDN)
+  backendHostHeader:
+    type: string
+    description: The value to use as the host header sent to the backend. If blank or unspecified, this defaults to the incoming host.
+  enabledState:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20200101:BackendEnabledState"
+    description: Whether to enable use of this backend. Permitted values are 'Enabled' or 'Disabled'
+  httpPort:
+    type: integer
+    description: The HTTP TCP port number. Must be between 1 and 65535.
+  httpsPort:
+    type: integer
+    description: The HTTPS TCP port number. Must be between 1 and 65535.
+  priority:
+    type: integer
+    description: Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy.
+  privateLinkAlias:
+    type: string
+    description: The Alias of the Private Link resource. Populating this optional field indicates that this backend is 'Private'
+  privateLinkApprovalMessage:
+    type: string
+    description: A custom message to be included in the approval request to connect to the Private Link
+  weight:
+    type: integer
+    description: Weight of this endpoint for load balancing purposes.
+type: object

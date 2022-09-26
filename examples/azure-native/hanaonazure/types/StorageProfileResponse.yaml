@@ -1,0 +1,21 @@
+$token: azure-native:hanaonazure:StorageProfileResponse
+description: Specifies the storage settings for the HANA instance disks.
+properties:
+  hanaSids:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:hanaonazure:SAPSystemIDResponse"
+    description: Specifies information related to SAP system IDs for the hana instance.
+  nfsIpAddress:
+    type: string
+    description: IP Address to connect to storage.
+  osDisks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:hanaonazure:DiskResponse"
+    description: Specifies information about the operating system disk used by the hana instance.
+type: object
+required:
+  - nfsIpAddress

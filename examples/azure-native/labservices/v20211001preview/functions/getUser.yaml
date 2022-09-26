@@ -1,0 +1,71 @@
+$token: azure-native:labservices/v20211001preview:getUser
+description: User of a lab that can register for and use virtual machines within the lab.
+inputs:
+  properties:
+    labName:
+      type: string
+      description: The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    userName:
+      type: string
+      description: The name of the user that uniquely identifies it within containing lab. Used in resource URIs.
+  type: object
+  required:
+    - labName
+    - resourceGroupName
+    - userName
+outputs:
+  description: User of a lab that can register for and use virtual machines within the lab.
+  properties:
+    additionalUsageQuota:
+      type: string
+      description: The amount of usage quota time the user gets in addition to the lab usage quota.
+    displayName:
+      type: string
+      description: Display name of the user, for example user's full name.
+    email:
+      type: string
+      description: Email address of the user.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    invitationSent:
+      type: string
+      description: Date and time when the invitation message was sent to the user.
+    invitationState:
+      type: string
+      description: State of the invitation message for the user.
+    name:
+      type: string
+      description: The name of the resource
+    provisioningState:
+      type: string
+      description: Current provisioning state of the user resource.
+    registrationState:
+      type: string
+      description: State of the user's registration within the lab.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:labservices/v20211001preview:SystemDataResponse"
+      description: Metadata pertaining to creation and last modification of the user resource.
+    totalUsage:
+      type: string
+      description: How long the user has used their virtual machines in this lab.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - displayName
+    - email
+    - id
+    - invitationSent
+    - invitationState
+    - name
+    - provisioningState
+    - registrationState
+    - systemData
+    - totalUsage
+    - type

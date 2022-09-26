@@ -1,0 +1,18 @@
+$token: azure-native:media/v20200501:JobInputSequence
+description: A Sequence contains an ordered list of Clips where each clip is a JobInput.  The Sequence will be treated as a single input.
+properties:
+  inputs:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:media/v20200501:JobInputClip"
+    description: JobInputs that make up the timeline.
+  odataType:
+    type: string
+    description: |-
+      The discriminator for derived types.
+      Expected value is '#Microsoft.Media.JobInputSequence'.
+    const: "#Microsoft.Media.JobInputSequence"
+type: object
+required:
+  - odataType

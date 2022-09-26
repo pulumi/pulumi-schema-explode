@@ -1,0 +1,51 @@
+$token: azure-native:purview:PrivateEndpointConnection
+description: |-
+  A private endpoint connection class.
+  API Version: 2020-12-01-preview.
+properties:
+  name:
+    type: string
+    description: Gets or sets the name.
+  privateEndpoint:
+    type: object
+    $ref: "#/types/azure-native:purview:PrivateEndpointResponse"
+    description: The private endpoint information.
+  privateLinkServiceConnectionState:
+    type: object
+    $ref: "#/types/azure-native:purview:PrivateLinkServiceConnectionStateResponse"
+    description: The private link service connection state.
+  provisioningState:
+    type: string
+    description: The provisioning state.
+  type:
+    type: string
+    description: Gets or sets the type.
+type: object
+required:
+  - name
+  - provisioningState
+  - type
+inputProperties:
+  accountName:
+    type: string
+    description: The name of the account.
+  privateEndpoint:
+    type: object
+    $ref: "#/types/azure-native:purview:PrivateEndpoint"
+    description: The private endpoint information.
+  privateEndpointConnectionName:
+    type: string
+    description: Name of the private endpoint connection.
+  privateLinkServiceConnectionState:
+    type: object
+    $ref: "#/types/azure-native:purview:PrivateLinkServiceConnectionState"
+    description: The private link service connection state.
+  resourceGroupName:
+    type: string
+    description: The resource group name.
+requiredInputs:
+  - accountName
+  - resourceGroupName
+aliases:
+  - type: azure-native:purview/v20201201preview:PrivateEndpointConnection
+  - type: azure-native:purview/v20210701:PrivateEndpointConnection

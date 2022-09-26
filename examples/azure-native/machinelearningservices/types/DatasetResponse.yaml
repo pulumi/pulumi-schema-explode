@@ -1,0 +1,55 @@
+$token: azure-native:machinelearningservices:DatasetResponse
+description: Machine Learning dataset object.
+properties:
+  createdTime:
+    type: string
+    description: The dataset creation time (UTC).
+  datasetId:
+    type: string
+    description: Unique Dataset identifier.
+  datasetState:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices:DatasetStateResponse"
+    description: Dataset state
+  datasetType:
+    type: string
+    description: Dataset Type.
+  defaultCompute:
+    type: string
+    description: Name of the default compute to be used for any Dataset actions (such as Profile, Write).
+  description:
+    type: string
+    description: Description about this dataset version.
+  etag:
+    type: string
+    description: eTag description
+  isVisible:
+    type: boolean
+    description: Flag to hide Dataset in UI
+  latest:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices:DatasetResponseLatest"
+    description: Last created Dataset definition.
+  modifiedTime:
+    type: string
+    description: The dataset last modified time (UTC).
+  name:
+    type: string
+    description: Unique dataset name
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Tags for this dataset version.
+type: object
+required:
+  - createdTime
+  - datasetId
+  - datasetType
+  - defaultCompute
+  - description
+  - etag
+  - isVisible
+  - modifiedTime
+  - name
+  - tags

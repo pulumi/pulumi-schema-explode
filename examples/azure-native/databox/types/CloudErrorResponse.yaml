@@ -1,0 +1,28 @@
+$token: azure-native:databox:CloudErrorResponse
+description: Cloud error.
+properties:
+  additionalInfo:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:databox:AdditionalErrorInfoResponse"
+    description: Cloud error additional info.
+  code:
+    type: string
+    description: Cloud error code.
+  details:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:databox:CloudErrorResponse"
+    description: Cloud error details.
+  message:
+    type: string
+    description: Cloud error message.
+  target:
+    type: string
+    description: Cloud error target.
+type: object
+required:
+  - additionalInfo
+  - details

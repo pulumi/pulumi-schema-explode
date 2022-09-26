@@ -1,0 +1,40 @@
+$token: azure-native:datafactory:GreenplumLinkedServiceResponse
+description: Greenplum Database linked service.
+properties:
+  annotations:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: List of tags that can be used for describing the linked service.
+  connectVia:
+    type: object
+    $ref: "#/types/azure-native:datafactory:IntegrationRuntimeReferenceResponse"
+    description: The integration runtime reference.
+  connectionString:
+    $ref: pulumi.json#/Any
+    description: "An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference."
+  description:
+    type: string
+    description: Linked service description.
+  encryptedCredential:
+    $ref: pulumi.json#/Any
+    description: "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string)."
+  parameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:datafactory:ParameterSpecificationResponse"
+    description: Parameters for linked service.
+  pwd:
+    type: object
+    $ref: "#/types/azure-native:datafactory:AzureKeyVaultSecretReferenceResponse"
+    description: The Azure key vault secret reference of password in connection string.
+  type:
+    type: string
+    description: |-
+      Type of linked service.
+      Expected value is 'Greenplum'.
+    const: Greenplum
+type: object
+required:
+  - type

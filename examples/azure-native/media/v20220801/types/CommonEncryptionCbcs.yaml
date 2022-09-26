@@ -1,0 +1,26 @@
+$token: azure-native:media/v20220801:CommonEncryptionCbcs
+description: Class for CommonEncryptionCbcs encryption scheme
+properties:
+  clearKeyEncryptionConfiguration:
+    type: object
+    $ref: "#/types/azure-native:media/v20220801:ClearKeyEncryptionConfiguration"
+    description: Optional configuration supporting ClearKey in CommonEncryptionCbcs encryption scheme.
+  clearTracks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:media/v20220801:TrackSelection"
+    description: Representing which tracks should not be encrypted
+  contentKeys:
+    type: object
+    $ref: "#/types/azure-native:media/v20220801:StreamingPolicyContentKeys"
+    description: Representing default content key for each encryption scheme and separate content keys for specific tracks
+  drm:
+    type: object
+    $ref: "#/types/azure-native:media/v20220801:CbcsDrmConfiguration"
+    description: Configuration of DRMs for current encryption scheme
+  enabledProtocols:
+    type: object
+    $ref: "#/types/azure-native:media/v20220801:EnabledProtocols"
+    description: Representing supported protocols
+type: object

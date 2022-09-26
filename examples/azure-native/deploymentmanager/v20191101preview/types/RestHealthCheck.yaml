@@ -1,0 +1,18 @@
+$token: azure-native:deploymentmanager/v20191101preview:RestHealthCheck
+description: A REST based health check
+properties:
+  name:
+    type: string
+    description: A unique name for this check.
+  request:
+    type: object
+    $ref: "#/types/azure-native:deploymentmanager/v20191101preview:RestRequest"
+    description: The request to the health provider.
+  response:
+    type: object
+    $ref: "#/types/azure-native:deploymentmanager/v20191101preview:RestResponse"
+    description: The expected response from the health provider. If no expected response is provided, the default is to expect the received response to have an HTTP status code of 200 OK.
+type: object
+required:
+  - name
+  - request

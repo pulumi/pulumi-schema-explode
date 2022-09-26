@@ -1,0 +1,18 @@
+$token: azure-native:aadiam/v20170401preview:LogSettings
+description: Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
+properties:
+  category:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:aadiam/v20170401preview:Category"
+    description: Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+  enabled:
+    type: boolean
+    description: A value indicating whether this log is enabled.
+  retentionPolicy:
+    type: object
+    $ref: "#/types/azure-native:aadiam/v20170401preview:RetentionPolicy"
+    description: The retention policy for this log.
+type: object
+required:
+  - enabled

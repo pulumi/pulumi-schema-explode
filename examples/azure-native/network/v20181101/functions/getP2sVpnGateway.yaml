@@ -1,0 +1,67 @@
+$token: azure-native:network/v20181101:getP2sVpnGateway
+description: P2SVpnGateway Resource.
+inputs:
+  properties:
+    gatewayName:
+      type: string
+      description: The name of the gateway.
+    resourceGroupName:
+      type: string
+      description: The resource group name of the P2SVpnGateway.
+  type: object
+  required:
+    - gatewayName
+    - resourceGroupName
+outputs:
+  description: P2SVpnGateway Resource.
+  properties:
+    etag:
+      type: string
+      description: Gets a unique read-only string that changes whenever the resource is updated.
+    id:
+      type: string
+      description: Resource ID.
+    location:
+      type: string
+      description: Resource location.
+    name:
+      type: string
+      description: Resource name.
+    p2SVpnServerConfiguration:
+      type: object
+      $ref: "#/types/azure-native:network/v20181101:SubResourceResponse"
+      description: The P2SVpnServerConfiguration to which the p2sVpnGateway is attached to.
+    provisioningState:
+      type: string
+      description: The provisioning state of the resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: Resource type.
+    virtualHub:
+      type: object
+      $ref: "#/types/azure-native:network/v20181101:SubResourceResponse"
+      description: The VirtualHub to which the gateway belongs
+    vpnClientAddressPool:
+      type: object
+      $ref: "#/types/azure-native:network/v20181101:AddressSpaceResponse"
+      description: The reference of the address space resource which represents Address space for P2S VpnClient.
+    vpnClientConnectionHealth:
+      type: object
+      $ref: "#/types/azure-native:network/v20181101:VpnClientConnectionHealthResponse"
+      description: All P2S VPN clients' connection health status.
+    vpnGatewayScaleUnit:
+      type: integer
+      description: The scale unit for this p2s vpn gateway.
+  type: object
+  required:
+    - etag
+    - location
+    - name
+    - provisioningState
+    - type
+    - vpnClientConnectionHealth

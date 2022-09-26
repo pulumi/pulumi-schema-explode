@@ -1,0 +1,32 @@
+$token: azure-native:datamigration/v20180715preview:ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskOutputResponse
+description: Output for the task that validates connection to Azure Database for PostgreSQL and target server requirements for Oracle source.
+properties:
+  databaseSchemaMap:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration/v20180715preview:ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskOutputResponseDatabaseSchemaMap"
+    description: Mapping of schemas per database
+  databases:
+    type: array
+    items:
+      type: string
+    description: List of databases on target server
+  targetServerBrandVersion:
+    type: string
+    description: Target server brand version
+  targetServerVersion:
+    type: string
+    description: Version of the target server
+  validationErrors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration/v20180715preview:ReportableExceptionResponse"
+    description: Validation errors associated with the task
+type: object
+required:
+  - databases
+  - targetServerBrandVersion
+  - targetServerVersion
+  - validationErrors

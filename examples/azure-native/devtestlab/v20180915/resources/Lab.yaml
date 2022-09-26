@@ -1,0 +1,170 @@
+$token: azure-native:devtestlab/v20180915:Lab
+description: A lab.
+properties:
+  announcement:
+    type: object
+    $ref: "#/types/azure-native:devtestlab/v20180915:LabAnnouncementPropertiesResponse"
+    description: The properties of any lab announcement associated with this lab
+  artifactsStorageAccount:
+    type: string
+    description: The lab's artifact storage account.
+  createdDate:
+    type: string
+    description: The creation date of the lab.
+  defaultPremiumStorageAccount:
+    type: string
+    description: The lab's default premium storage account.
+  defaultStorageAccount:
+    type: string
+    description: The lab's default storage account.
+  environmentPermission:
+    type: string
+    description: The access rights to be granted to the user when provisioning an environment
+  extendedProperties:
+    type: object
+    additionalProperties:
+      type: string
+    description: Extended properties of the lab used for experimental features
+  labStorageType:
+    type: string
+    description: Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
+    default: Premium
+  loadBalancerId:
+    type: string
+    description: The load balancer used to for lab VMs that use shared IP address.
+  location:
+    type: string
+    description: The location of the resource.
+  mandatoryArtifactsResourceIdsLinux:
+    type: array
+    items:
+      type: string
+    description: The ordered list of artifact resource IDs that should be applied on all Linux VM creations by default, prior to the artifacts specified by the user.
+  mandatoryArtifactsResourceIdsWindows:
+    type: array
+    items:
+      type: string
+    description: The ordered list of artifact resource IDs that should be applied on all Windows VM creations by default, prior to the artifacts specified by the user.
+  name:
+    type: string
+    description: The name of the resource.
+  networkSecurityGroupId:
+    type: string
+    description: The Network Security Group attached to the lab VMs Network interfaces to restrict open ports.
+  premiumDataDiskStorageAccount:
+    type: string
+    description: The lab's premium data disk storage account.
+  premiumDataDisks:
+    type: string
+    description: "The setting to enable usage of premium data disks.\r
+
+      When its value is 'Enabled', creation of standard or premium data disks is allowed.\r
+
+      When its value is 'Disabled', only creation of standard data disks is allowed."
+  provisioningState:
+    type: string
+    description: The provisioning status of the resource.
+  publicIpId:
+    type: string
+    description: The public IP address for the lab's load balancer.
+  support:
+    type: object
+    $ref: "#/types/azure-native:devtestlab/v20180915:LabSupportPropertiesResponse"
+    description: The properties of any lab support message associated with this lab
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+  type:
+    type: string
+    description: The type of the resource.
+  uniqueIdentifier:
+    type: string
+    description: The unique immutable identifier of a resource (Guid).
+  vaultName:
+    type: string
+    description: The lab's Key vault.
+  vmCreationResourceGroup:
+    type: string
+    description: The resource group in which all new lab virtual machines will be created. To let DevTest Labs manage resource group creation, set this value to null.
+type: object
+required:
+  - artifactsStorageAccount
+  - createdDate
+  - defaultPremiumStorageAccount
+  - defaultStorageAccount
+  - loadBalancerId
+  - name
+  - networkSecurityGroupId
+  - premiumDataDiskStorageAccount
+  - provisioningState
+  - publicIpId
+  - type
+  - uniqueIdentifier
+  - vaultName
+  - vmCreationResourceGroup
+inputProperties:
+  announcement:
+    type: object
+    $ref: "#/types/azure-native:devtestlab/v20180915:LabAnnouncementProperties"
+    description: The properties of any lab announcement associated with this lab
+  environmentPermission:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:devtestlab/v20180915:EnvironmentPermission"
+    description: The access rights to be granted to the user when provisioning an environment
+  extendedProperties:
+    type: object
+    additionalProperties:
+      type: string
+    description: Extended properties of the lab used for experimental features
+  labStorageType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:devtestlab/v20180915:StorageType"
+    description: Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
+    default: Premium
+  location:
+    type: string
+    description: The location of the resource.
+  mandatoryArtifactsResourceIdsLinux:
+    type: array
+    items:
+      type: string
+    description: The ordered list of artifact resource IDs that should be applied on all Linux VM creations by default, prior to the artifacts specified by the user.
+  mandatoryArtifactsResourceIdsWindows:
+    type: array
+    items:
+      type: string
+    description: The ordered list of artifact resource IDs that should be applied on all Windows VM creations by default, prior to the artifacts specified by the user.
+  name:
+    type: string
+    description: The name of the lab.
+  premiumDataDisks:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:devtestlab/v20180915:PremiumDataDisk"
+    description: "The setting to enable usage of premium data disks.\r
+
+      When its value is 'Enabled', creation of standard or premium data disks is allowed.\r
+
+      When its value is 'Disabled', only creation of standard data disks is allowed."
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  support:
+    type: object
+    $ref: "#/types/azure-native:devtestlab/v20180915:LabSupportProperties"
+    description: The properties of any lab support message associated with this lab
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:devtestlab:Lab
+  - type: azure-native:devtestlab/v20150521preview:Lab
+  - type: azure-native:devtestlab/v20160515:Lab

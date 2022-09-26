@@ -1,0 +1,27 @@
+$token: azure-native:batch/v20170101:listBatchAccountKeys
+description: A set of Azure Batch account keys.
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: The name of the account.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the Batch account.
+  type: object
+  required:
+    - accountName
+    - resourceGroupName
+outputs:
+  description: A set of Azure Batch account keys.
+  properties:
+    primary:
+      type: string
+      description: The primary key associated with the account.
+    secondary:
+      type: string
+      description: The secondary key associated with the account.
+  type: object
+  required:
+    - primary
+    - secondary

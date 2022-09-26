@@ -1,0 +1,31 @@
+$token: azure-native:network/v20220101:ApplicationGatewayListener
+description: Listener of an application gateway.
+properties:
+  frontendIPConfiguration:
+    type: object
+    $ref: "#/types/azure-native:network/v20220101:SubResource"
+    description: Frontend IP configuration resource of an application gateway.
+  frontendPort:
+    type: object
+    $ref: "#/types/azure-native:network/v20220101:SubResource"
+    description: Frontend port resource of an application gateway.
+  id:
+    type: string
+    description: Resource ID.
+  name:
+    type: string
+    description: Name of the listener that is unique within an Application Gateway.
+  protocol:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20220101:ApplicationGatewayProtocol"
+    description: Protocol of the listener.
+  sslCertificate:
+    type: object
+    $ref: "#/types/azure-native:network/v20220101:SubResource"
+    description: SSL certificate resource of an application gateway.
+  sslProfile:
+    type: object
+    $ref: "#/types/azure-native:network/v20220101:SubResource"
+    description: SSL profile resource of the application gateway.
+type: object

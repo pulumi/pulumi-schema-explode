@@ -1,0 +1,32 @@
+$token: azure-native:storage:NetworkRuleSetResponse
+description: Network rule set
+properties:
+  bypass:
+    type: string
+    description: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
+    default: AzureServices
+  defaultAction:
+    type: string
+    description: Specifies the default action of allow or deny when no other rules match.
+    default: Allow
+  ipRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:storage:IPRuleResponse"
+    description: Sets the IP ACL rules
+  resourceAccessRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:storage:ResourceAccessRuleResponse"
+    description: Sets the resource access rules
+  virtualNetworkRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:storage:VirtualNetworkRuleResponse"
+    description: Sets the virtual network rules
+type: object
+required:
+  - defaultAction

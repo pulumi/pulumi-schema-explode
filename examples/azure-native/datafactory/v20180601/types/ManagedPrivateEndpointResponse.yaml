@@ -1,0 +1,28 @@
+$token: azure-native:datafactory/v20180601:ManagedPrivateEndpointResponse
+description: Properties of a managed private endpoint
+properties:
+  connectionState:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20180601:ConnectionStatePropertiesResponse"
+    description: The managed private endpoint connection state
+  fqdns:
+    type: array
+    items:
+      type: string
+    description: Fully qualified domain names
+  groupId:
+    type: string
+    description: The groupId to which the managed private endpoint is created
+  isReserved:
+    type: boolean
+    description: Denotes whether the managed private endpoint is reserved
+  privateLinkResourceId:
+    type: string
+    description: The ARM resource ID of the resource to which the managed private endpoint is created
+  provisioningState:
+    type: string
+    description: The managed private endpoint provisioning state
+type: object
+required:
+  - isReserved
+  - provisioningState

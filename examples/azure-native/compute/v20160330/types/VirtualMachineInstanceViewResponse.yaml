@@ -1,0 +1,39 @@
+$token: azure-native:compute/v20160330:VirtualMachineInstanceViewResponse
+description: The instance view of a virtual machine.
+properties:
+  bootDiagnostics:
+    type: object
+    $ref: "#/types/azure-native:compute/v20160330:BootDiagnosticsInstanceViewResponse"
+    description: Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
+  disks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:compute/v20160330:DiskInstanceViewResponse"
+    description: The virtual machine disk information.
+  extensions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:compute/v20160330:VirtualMachineExtensionInstanceViewResponse"
+    description: The extensions information.
+  platformFaultDomain:
+    type: integer
+    description: Specifies the fault domain of the virtual machine.
+  platformUpdateDomain:
+    type: integer
+    description: Specifies the update domain of the virtual machine.
+  rdpThumbPrint:
+    type: string
+    description: The Remote desktop certificate thumbprint.
+  statuses:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:compute/v20160330:InstanceViewStatusResponse"
+    description: The resource status information.
+  vmAgent:
+    type: object
+    $ref: "#/types/azure-native:compute/v20160330:VirtualMachineAgentInstanceViewResponse"
+    description: The VM Agent running on the virtual machine.
+type: object

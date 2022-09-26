@@ -1,0 +1,17 @@
+$token: azure-native:network/v20160901:ApplicationGatewaySku
+description: SKU of an application gateway
+properties:
+  capacity:
+    type: integer
+    description: Capacity (instance count) of an application gateway.
+  name:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20160901:ApplicationGatewaySkuName"
+    description: "Name of an application gateway SKU. Possible values are: 'Standard_Small', 'Standard_Medium', 'Standard_Large', 'WAF_Medium', and 'WAF_Large'."
+  tier:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20160901:ApplicationGatewayTier"
+    description: "Tier of an application gateway. Possible values are: 'Standard' and 'WAF'."
+type: object

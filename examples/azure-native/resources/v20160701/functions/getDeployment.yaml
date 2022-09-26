@@ -1,0 +1,33 @@
+$token: azure-native:resources/v20160701:getDeployment
+description: Deployment information.
+inputs:
+  properties:
+    deploymentName:
+      type: string
+      description: The name of the deployment.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group to get. The name is case insensitive.
+  type: object
+  required:
+    - deploymentName
+    - resourceGroupName
+outputs:
+  description: Deployment information.
+  properties:
+    id:
+      type: string
+      description: The ID of the deployment.
+    name:
+      type: string
+      description: The name of the deployment.
+    properties:
+      type: object
+      $ref: "#/types/azure-native:resources/v20160701:DeploymentPropertiesExtendedResponse"
+      description: Deployment properties.
+  type: object
+  required:
+    - id
+    - name
+    - properties
+deprecationMessage: Version 2016-07-01 will be removed in v2 of the provider.

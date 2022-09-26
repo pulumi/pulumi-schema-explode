@@ -1,0 +1,103 @@
+$token: azure-native:compute/v20160430preview:AvailabilitySet
+properties:
+  location:
+    type: string
+    description: Resource location
+  managed:
+    type: boolean
+    description: If the availability set supports managed disks.
+  name:
+    type: string
+    description: Resource name
+  platformFaultDomainCount:
+    type: integer
+    description: Fault Domain count.
+  platformUpdateDomainCount:
+    type: integer
+    description: Update Domain count.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:compute/v20160430preview:SkuResponse"
+    description: Sku of the availability set
+  statuses:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:compute/v20160430preview:InstanceViewStatusResponse"
+    description: The resource status information.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  type:
+    type: string
+    description: Resource type
+  virtualMachines:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:compute/v20160430preview:SubResourceResponse"
+    description: A list of references to all virtual machines in the availability set.
+type: object
+required:
+  - location
+  - name
+  - statuses
+  - type
+inputProperties:
+  location:
+    type: string
+    description: Resource location
+  managed:
+    type: boolean
+    description: If the availability set supports managed disks.
+  name:
+    type: string
+    description: The name of the availability set.
+  platformFaultDomainCount:
+    type: integer
+    description: Fault Domain count.
+  platformUpdateDomainCount:
+    type: integer
+    description: Update Domain count.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:compute/v20160430preview:Sku"
+    description: Sku of the availability set
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  virtualMachines:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:compute/v20160430preview:SubResource"
+    description: A list of references to all virtual machines in the availability set.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:compute:AvailabilitySet
+  - type: azure-native:compute/v20150615:AvailabilitySet
+  - type: azure-native:compute/v20160330:AvailabilitySet
+  - type: azure-native:compute/v20170330:AvailabilitySet
+  - type: azure-native:compute/v20171201:AvailabilitySet
+  - type: azure-native:compute/v20180401:AvailabilitySet
+  - type: azure-native:compute/v20180601:AvailabilitySet
+  - type: azure-native:compute/v20181001:AvailabilitySet
+  - type: azure-native:compute/v20190301:AvailabilitySet
+  - type: azure-native:compute/v20190701:AvailabilitySet
+  - type: azure-native:compute/v20191201:AvailabilitySet
+  - type: azure-native:compute/v20200601:AvailabilitySet
+  - type: azure-native:compute/v20201201:AvailabilitySet
+  - type: azure-native:compute/v20210301:AvailabilitySet
+  - type: azure-native:compute/v20210401:AvailabilitySet
+  - type: azure-native:compute/v20210701:AvailabilitySet
+  - type: azure-native:compute/v20211101:AvailabilitySet
+  - type: azure-native:compute/v20220301:AvailabilitySet
+deprecationMessage: Version 2016-04-30-preview will be removed in v2 of the provider.

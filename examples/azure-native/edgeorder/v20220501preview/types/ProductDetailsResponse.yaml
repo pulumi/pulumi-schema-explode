@@ -1,0 +1,40 @@
+$token: azure-native:edgeorder/v20220501preview:ProductDetailsResponse
+description: Represents product details.
+properties:
+  childConfigurationDeviceDetails:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:edgeorder/v20220501preview:ConfigurationDeviceDetailsResponse"
+    description: Details of all child configurations that are part of the order item.
+  displayInfo:
+    type: object
+    $ref: "#/types/azure-native:edgeorder/v20220501preview:DisplayInfoResponse"
+    description: Display details of the product.
+  hierarchyInformation:
+    type: object
+    $ref: "#/types/azure-native:edgeorder/v20220501preview:HierarchyInformationResponse"
+    description: Hierarchy of the product which uniquely identifies the product.
+  identificationType:
+    type: string
+    description: Identification type of the configuration.
+  optInAdditionalConfigurations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:edgeorder/v20220501preview:AdditionalConfigurationResponse"
+    description: List of additional configurations customer wants in the order item apart from the ones included in the base configuration.
+  parentDeviceDetails:
+    type: object
+    $ref: "#/types/azure-native:edgeorder/v20220501preview:DeviceDetailsResponse"
+    description: Device details of the parent configuration.
+  productDoubleEncryptionStatus:
+    type: string
+    description: Double encryption status of the configuration. Read-only field.
+type: object
+required:
+  - childConfigurationDeviceDetails
+  - hierarchyInformation
+  - identificationType
+  - parentDeviceDetails
+  - productDoubleEncryptionStatus

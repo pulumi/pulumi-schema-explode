@@ -1,0 +1,58 @@
+$token: azure-native:customerinsights/v20170426:getHub
+description: Hub resource.
+inputs:
+  properties:
+    hubName:
+      type: string
+      description: The name of the hub.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - hubName
+    - resourceGroupName
+outputs:
+  description: Hub resource.
+  properties:
+    apiEndpoint:
+      type: string
+      description: API endpoint URL of the hub.
+    hubBillingInfo:
+      type: object
+      $ref: "#/types/azure-native:customerinsights/v20170426:HubBillingInfoFormatResponse"
+      description: Billing settings of the hub.
+    id:
+      type: string
+      description: Resource ID.
+    location:
+      type: string
+      description: Resource location.
+    name:
+      type: string
+      description: Resource name.
+    provisioningState:
+      type: string
+      description: Provisioning state of the hub.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    tenantFeatures:
+      type: integer
+      description: The bit flags for enabled hub features. Bit 0 is set to 1 indicates graph is enabled, or disabled if set to 0. Bit 1 is set to 1 indicates the hub is disabled, or enabled if set to 0.
+    type:
+      type: string
+      description: Resource type.
+    webEndpoint:
+      type: string
+      description: Web endpoint URL of the hub.
+  type: object
+  required:
+    - apiEndpoint
+    - id
+    - name
+    - provisioningState
+    - type
+    - webEndpoint

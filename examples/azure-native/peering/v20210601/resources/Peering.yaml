@@ -1,0 +1,95 @@
+$token: azure-native:peering/v20210601:Peering
+description: Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
+properties:
+  direct:
+    type: object
+    $ref: "#/types/azure-native:peering/v20210601:PeeringPropertiesDirectResponse"
+    description: The properties that define a direct peering.
+  exchange:
+    type: object
+    $ref: "#/types/azure-native:peering/v20210601:PeeringPropertiesExchangeResponse"
+    description: The properties that define an exchange peering.
+  kind:
+    type: string
+    description: The kind of the peering.
+  location:
+    type: string
+    description: The location of the resource.
+  name:
+    type: string
+    description: The name of the resource.
+  peeringLocation:
+    type: string
+    description: The location of the peering.
+  provisioningState:
+    type: string
+    description: The provisioning state of the resource.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:peering/v20210601:PeeringSkuResponse"
+    description: The SKU that defines the tier and kind of the peering.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The resource tags.
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - kind
+  - location
+  - name
+  - provisioningState
+  - sku
+  - type
+inputProperties:
+  direct:
+    type: object
+    $ref: "#/types/azure-native:peering/v20210601:PeeringPropertiesDirect"
+    description: The properties that define a direct peering.
+  exchange:
+    type: object
+    $ref: "#/types/azure-native:peering/v20210601:PeeringPropertiesExchange"
+    description: The properties that define an exchange peering.
+  kind:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:peering/v20210601:Kind"
+    description: The kind of the peering.
+  location:
+    type: string
+    description: The location of the resource.
+  peeringLocation:
+    type: string
+    description: The location of the peering.
+  peeringName:
+    type: string
+    description: The name of the peering.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:peering/v20210601:PeeringSku"
+    description: The SKU that defines the tier and kind of the peering.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The resource tags.
+requiredInputs:
+  - kind
+  - resourceGroupName
+  - sku
+aliases:
+  - type: azure-native:peering:Peering
+  - type: azure-native:peering/v20190801preview:Peering
+  - type: azure-native:peering/v20190901preview:Peering
+  - type: azure-native:peering/v20200101preview:Peering
+  - type: azure-native:peering/v20200401:Peering
+  - type: azure-native:peering/v20201001:Peering
+  - type: azure-native:peering/v20210101:Peering
+  - type: azure-native:peering/v20220101:Peering
+  - type: azure-native:peering/v20220601:Peering

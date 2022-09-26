@@ -1,0 +1,72 @@
+$token: azure-native:dashboard/v20220501preview:Grafana
+description: The grafana resource type.
+properties:
+  identity:
+    type: object
+    $ref: "#/types/azure-native:dashboard/v20220501preview:ManagedServiceIdentityResponse"
+    description: The managed identity of the grafana resource.
+  location:
+    type: string
+    description: The geo-location where the grafana resource lives
+  name:
+    type: string
+    description: Name of the grafana resource.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:dashboard/v20220501preview:ManagedGrafanaPropertiesResponse"
+    description: Properties specific to the grafana resource.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:dashboard/v20220501preview:ResourceSkuResponse"
+    description: The Sku of the grafana resource.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:dashboard/v20220501preview:SystemDataResponse"
+    description: The system meta data relating to this grafana resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags for grafana resource.
+  type:
+    type: string
+    description: The type of the grafana resource.
+type: object
+required:
+  - name
+  - properties
+  - systemData
+  - type
+inputProperties:
+  identity:
+    type: object
+    $ref: "#/types/azure-native:dashboard/v20220501preview:ManagedServiceIdentity"
+    description: The managed identity of the grafana resource.
+  location:
+    type: string
+    description: The geo-location where the grafana resource lives
+  properties:
+    type: object
+    $ref: "#/types/azure-native:dashboard/v20220501preview:ManagedGrafanaProperties"
+    description: Properties specific to the grafana resource.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:dashboard/v20220501preview:ResourceSku"
+    description: The Sku of the grafana resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags for grafana resource.
+  workspaceName:
+    type: string
+    description: The workspace name of Azure Managed Grafana.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:dashboard:Grafana
+  - type: azure-native:dashboard/v20210901preview:Grafana
+  - type: azure-native:dashboard/v20220801:Grafana

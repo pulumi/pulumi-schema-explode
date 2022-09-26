@@ -1,0 +1,38 @@
+$token: azure-native:eventhub/v20180101preview:getNamespaceVirtualNetworkRule
+description: Single item in a List or Get VirtualNetworkRules operation
+inputs:
+  properties:
+    namespaceName:
+      type: string
+      description: The Namespace name
+    resourceGroupName:
+      type: string
+      description: Name of the resource group within the azure subscription.
+    virtualNetworkRuleName:
+      type: string
+      description: The Virtual Network Rule name.
+  type: object
+  required:
+    - namespaceName
+    - resourceGroupName
+    - virtualNetworkRuleName
+outputs:
+  description: Single item in a List or Get VirtualNetworkRules operation
+  properties:
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    name:
+      type: string
+      description: The name of the resource
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+    virtualNetworkSubnetId:
+      type: string
+      description: ARM ID of Virtual Network Subnet
+  type: object
+  required:
+    - id
+    - name
+    - type

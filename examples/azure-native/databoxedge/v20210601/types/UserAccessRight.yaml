@@ -1,0 +1,15 @@
+$token: azure-native:databoxedge/v20210601:UserAccessRight
+description: The mapping between a particular user and the access type on the SMB share.
+properties:
+  accessType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:databoxedge/v20210601:ShareAccessType"
+    description: Type of access to be allowed for the user.
+  userId:
+    type: string
+    description: User ID (already existing in the device).
+type: object
+required:
+  - accessType
+  - userId

@@ -1,0 +1,80 @@
+$token: azure-native:eventhub/v20150801:EventHub
+description: Single item in List or Get Event Hub operation
+properties:
+  createdAt:
+    type: string
+    description: Exact time the Event Hub was created.
+  location:
+    type: string
+    description: Resource location
+  messageRetentionInDays:
+    type: number
+    description: Number of days to retain the events for this Event Hub.
+  name:
+    type: string
+    description: Resource name
+  partitionCount:
+    type: number
+    description: Number of partitions created for the Event Hub.
+  partitionIds:
+    type: array
+    items:
+      type: string
+    description: Current number of shards on the Event Hub.
+  status:
+    type: string
+    description: Enumerates the possible values for the status of the Event Hub.
+  type:
+    type: string
+    description: Resource type
+  updatedAt:
+    type: string
+    description: The exact time the message was updated.
+type: object
+required:
+  - createdAt
+  - name
+  - partitionIds
+  - type
+  - updatedAt
+inputProperties:
+  eventHubName:
+    type: string
+    description: The Event Hub name
+  location:
+    type: string
+    description: Location of the resource.
+  messageRetentionInDays:
+    type: number
+    description: Number of days to retain the events for this Event Hub.
+  name:
+    type: string
+    description: Name of the Event Hub.
+  namespaceName:
+    type: string
+    description: The Namespace name
+  partitionCount:
+    type: number
+    description: Number of partitions created for the Event Hub.
+  resourceGroupName:
+    type: string
+    description: Name of the resource group within the azure subscription.
+  status:
+    $ref: "#/types/azure-native:eventhub/v20150801:EntityStatus"
+    description: Enumerates the possible values for the status of the Event Hub.
+  type:
+    type: string
+    description: ARM type of the Namespace.
+requiredInputs:
+  - namespaceName
+  - resourceGroupName
+aliases:
+  - type: azure-native:eventhub:EventHub
+  - type: azure-native:eventhub/v20140901:EventHub
+  - type: azure-native:eventhub/v20170401:EventHub
+  - type: azure-native:eventhub/v20180101preview:EventHub
+  - type: azure-native:eventhub/v20210101preview:EventHub
+  - type: azure-native:eventhub/v20210601preview:EventHub
+  - type: azure-native:eventhub/v20211101:EventHub
+  - type: azure-native:eventhub/v20220101preview:EventHub
+deprecationMessage: Version 2015-08-01 will be removed in v2 of the provider.

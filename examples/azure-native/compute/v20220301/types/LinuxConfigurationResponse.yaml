@@ -1,0 +1,18 @@
+$token: azure-native:compute/v20220301:LinuxConfigurationResponse
+description: Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+properties:
+  disablePasswordAuthentication:
+    type: boolean
+    description: Specifies whether password authentication should be disabled.
+  patchSettings:
+    type: object
+    $ref: "#/types/azure-native:compute/v20220301:LinuxPatchSettingsResponse"
+    description: "[Preview Feature] Specifies settings related to VM Guest Patching on Linux."
+  provisionVMAgent:
+    type: boolean
+    description: Indicates whether virtual machine agent should be provisioned on the virtual machine. <br><br> When this property is not specified in the request body, default behavior is to set it to true.  This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
+  ssh:
+    type: object
+    $ref: "#/types/azure-native:compute/v20220301:SshConfigurationResponse"
+    description: Specifies the ssh key configuration for a Linux OS.
+type: object

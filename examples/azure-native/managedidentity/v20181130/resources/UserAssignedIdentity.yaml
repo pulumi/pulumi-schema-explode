@@ -1,0 +1,56 @@
+$token: azure-native:managedidentity/v20181130:UserAssignedIdentity
+description: Describes an identity resource.
+properties:
+  clientId:
+    type: string
+    description: The id of the app associated with the identity. This is a random generated UUID by MSI.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  name:
+    type: string
+    description: The name of the resource
+  principalId:
+    type: string
+    description: The id of the service principal object associated with the created identity.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  tenantId:
+    type: string
+    description: The id of the tenant which the identity belongs to.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - clientId
+  - location
+  - name
+  - principalId
+  - tenantId
+  - type
+inputProperties:
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  resourceGroupName:
+    type: string
+    description: The name of the Resource Group to which the identity belongs.
+  resourceName:
+    type: string
+    description: The name of the identity resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:managedidentity:UserAssignedIdentity
+  - type: azure-native:managedidentity/v20150831preview:UserAssignedIdentity
+  - type: azure-native:managedidentity/v20210930preview:UserAssignedIdentity
+  - type: azure-native:managedidentity/v20220131preview:UserAssignedIdentity

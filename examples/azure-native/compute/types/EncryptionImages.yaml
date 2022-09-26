@@ -1,0 +1,14 @@
+$token: azure-native:compute:EncryptionImages
+description: Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
+properties:
+  dataDiskImages:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:compute:DataDiskImageEncryption"
+    description: A list of encryption specifications for data disk images.
+  osDiskImage:
+    type: object
+    $ref: "#/types/azure-native:compute:OSDiskImageEncryption"
+    description: Contains encryption settings for an OS disk image.
+type: object

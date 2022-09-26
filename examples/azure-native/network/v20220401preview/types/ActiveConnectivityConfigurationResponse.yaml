@@ -1,0 +1,50 @@
+$token: azure-native:network/v20220401preview:ActiveConnectivityConfigurationResponse
+description: Active connectivity configuration.
+properties:
+  appliesToGroups:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20220401preview:ConnectivityGroupItemResponse"
+    description: Groups for configuration
+  commitTime:
+    type: string
+    description: Deployment time string.
+  configurationGroups:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20220401preview:ConfigurationGroupResponse"
+    description: Effective configuration groups.
+  connectivityTopology:
+    type: string
+    description: Connectivity topology type.
+  deleteExistingPeering:
+    type: string
+    description: Flag if need to remove current existing peerings.
+  description:
+    type: string
+    description: A description of the connectivity configuration.
+  hubs:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20220401preview:HubResponse"
+    description: List of hubItems
+  id:
+    type: string
+    description: Resource ID.
+  isGlobal:
+    type: string
+    description: Flag if global mesh is supported.
+  provisioningState:
+    type: string
+    description: The provisioning state of the connectivity configuration resource.
+  region:
+    type: string
+    description: Deployment region.
+type: object
+required:
+  - appliesToGroups
+  - connectivityTopology
+  - provisioningState

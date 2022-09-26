@@ -1,0 +1,26 @@
+$token: azure-native:containerinstance/v20210701:InitContainerPropertiesDefinitionResponseInstanceView
+description: The instance view of the init container. Only valid in response.
+properties:
+  currentState:
+    type: object
+    $ref: "#/types/azure-native:containerinstance/v20210701:ContainerStateResponse"
+    description: The current state of the init container.
+  events:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:containerinstance/v20210701:EventResponse"
+    description: The events of the init container.
+  previousState:
+    type: object
+    $ref: "#/types/azure-native:containerinstance/v20210701:ContainerStateResponse"
+    description: The previous state of the init container.
+  restartCount:
+    type: integer
+    description: The number of times that the init container has been restarted.
+type: object
+required:
+  - currentState
+  - events
+  - previousState
+  - restartCount

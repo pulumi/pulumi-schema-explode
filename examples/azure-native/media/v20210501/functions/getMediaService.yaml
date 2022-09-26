@@ -1,0 +1,69 @@
+$token: azure-native:media/v20210501:getMediaService
+description: A Media Services account.
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: The Media Services account name.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group within the Azure subscription.
+  type: object
+  required:
+    - accountName
+    - resourceGroupName
+outputs:
+  description: A Media Services account.
+  properties:
+    encryption:
+      type: object
+      $ref: "#/types/azure-native:media/v20210501:AccountEncryptionResponse"
+      description: The account encryption properties.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    identity:
+      type: object
+      $ref: "#/types/azure-native:media/v20210501:MediaServiceIdentityResponse"
+      description: The Managed Identity for the Media Services account.
+    keyDelivery:
+      type: object
+      $ref: "#/types/azure-native:media/v20210501:KeyDeliveryResponse"
+      description: The Key Delivery properties for Media Services account.
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    mediaServiceId:
+      type: string
+      description: The Media Services account ID.
+    name:
+      type: string
+      description: The name of the resource
+    storageAccounts:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:media/v20210501:StorageAccountResponse"
+      description: The storage accounts for this resource.
+    storageAuthentication:
+      type: string
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:media/v20210501:SystemDataResponse"
+      description: The system metadata relating to this resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - id
+    - location
+    - mediaServiceId
+    - name
+    - systemData
+    - type

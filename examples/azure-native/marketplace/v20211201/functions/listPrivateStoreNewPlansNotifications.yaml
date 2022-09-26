@@ -1,0 +1,19 @@
+$token: azure-native:marketplace/v20211201:listPrivateStoreNewPlansNotifications
+description: List of all new plans notifications for public offers
+inputs:
+  properties:
+    privateStoreId:
+      type: string
+      description: The store ID - must use the tenant ID
+  type: object
+  required:
+    - privateStoreId
+outputs:
+  description: List of all new plans notifications for public offers
+  properties:
+    newPlansNotifications:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:marketplace/v20211201:NewNotificationsResponse"
+  type: object

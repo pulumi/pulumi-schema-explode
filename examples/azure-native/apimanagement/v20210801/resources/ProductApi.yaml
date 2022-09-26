@@ -1,0 +1,115 @@
+$token: azure-native:apimanagement/v20210801:ProductApi
+description: API details.
+properties:
+  apiRevision:
+    type: string
+    description: Describes the revision of the API. If no value is provided, default revision 1 is created
+  apiRevisionDescription:
+    type: string
+    description: Description of the API Revision.
+  apiType:
+    type: string
+    description: Type of API.
+  apiVersion:
+    type: string
+    description: Indicates the version identifier of the API if the API is versioned
+  apiVersionDescription:
+    type: string
+    description: Description of the API Version.
+  apiVersionSet:
+    type: object
+    $ref: "#/types/azure-native:apimanagement/v20210801:ApiVersionSetContractDetailsResponse"
+    description: Version set details
+  apiVersionSetId:
+    type: string
+    description: A resource identifier for the related ApiVersionSet.
+  authenticationSettings:
+    type: object
+    $ref: "#/types/azure-native:apimanagement/v20210801:AuthenticationSettingsContractResponse"
+    description: Collection of authentication settings included into this API.
+  contact:
+    type: object
+    $ref: "#/types/azure-native:apimanagement/v20210801:ApiContactInformationResponse"
+    description: Contact information for the API.
+  description:
+    type: string
+    description: Description of the API. May include HTML formatting tags.
+  displayName:
+    type: string
+    description: API name. Must be 1 to 300 characters long.
+  isCurrent:
+    type: boolean
+    description: Indicates if API revision is current api revision.
+  isOnline:
+    type: boolean
+    description: Indicates if API revision is accessible via the gateway.
+  license:
+    type: object
+    $ref: "#/types/azure-native:apimanagement/v20210801:ApiLicenseInformationResponse"
+    description: License information for the API.
+  name:
+    type: string
+    description: The name of the resource
+  path:
+    type: string
+    description: Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
+  protocols:
+    type: array
+    items:
+      type: string
+    description: Describes on which protocols the operations in this API can be invoked.
+  serviceUrl:
+    type: string
+    description: Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.
+  sourceApiId:
+    type: string
+    description: API identifier of the source API.
+  subscriptionKeyParameterNames:
+    type: object
+    $ref: "#/types/azure-native:apimanagement/v20210801:SubscriptionKeyParameterNamesContractResponse"
+    description: Protocols over which API is made available.
+  subscriptionRequired:
+    type: boolean
+    description: Specifies whether an API or Product subscription is required for accessing the API.
+  termsOfServiceUrl:
+    type: string
+    description: " A URL to the Terms of Service for the API. MUST be in the format of a URL."
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - isOnline
+  - name
+  - path
+  - type
+inputProperties:
+  apiId:
+    type: string
+    description: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
+  productId:
+    type: string
+    description: Product identifier. Must be unique in the current API Management service instance.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  serviceName:
+    type: string
+    description: The name of the API Management service.
+requiredInputs:
+  - productId
+  - resourceGroupName
+  - serviceName
+aliases:
+  - type: azure-native:apimanagement:ProductApi
+  - type: azure-native:apimanagement/v20170301:ProductApi
+  - type: azure-native:apimanagement/v20180101:ProductApi
+  - type: azure-native:apimanagement/v20180601preview:ProductApi
+  - type: azure-native:apimanagement/v20190101:ProductApi
+  - type: azure-native:apimanagement/v20191201:ProductApi
+  - type: azure-native:apimanagement/v20191201preview:ProductApi
+  - type: azure-native:apimanagement/v20200601preview:ProductApi
+  - type: azure-native:apimanagement/v20201201:ProductApi
+  - type: azure-native:apimanagement/v20210101preview:ProductApi
+  - type: azure-native:apimanagement/v20210401preview:ProductApi
+  - type: azure-native:apimanagement/v20211201preview:ProductApi

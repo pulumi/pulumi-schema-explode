@@ -1,0 +1,43 @@
+$token: azure-native:workloads/v20211201preview:DeploymentWithOSConfiguration
+description: Deployment along with OS Configuration.
+properties:
+  appLocation:
+    type: string
+    description: The geo-location where the SAP system is to be created.
+  configurationType:
+    type: string
+    description: |-
+      The configuration Type.
+      Expected value is 'DeploymentWithOSConfig'.
+    const: DeploymentWithOSConfig
+  infrastructureConfiguration:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:workloads/v20211201preview:SingleServerConfiguration"
+      - type: object
+        $ref: "#/types/azure-native:workloads/v20211201preview:ThreeTierConfiguration"
+    discriminator:
+      propertyName: deploymentType
+      mapping:
+        SingleServer: "#/types/azure-native:workloads/v20211201preview:SingleServerConfiguration"
+        ThreeTier: "#/types/azure-native:workloads/v20211201preview:ThreeTierConfiguration"
+    description: The infrastructure configuration.
+  osSapConfiguration:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:OsSapConfiguration"
+    description: The OS and SAP configuration.
+  softwareConfiguration:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:workloads/v20211201preview:SAPInstallWithoutOSConfigSoftwareConfiguration"
+      - type: object
+        $ref: "#/types/azure-native:workloads/v20211201preview:ServiceInitiatedSoftwareConfiguration"
+    discriminator:
+      propertyName: softwareInstallationType
+      mapping:
+        SAPInstallWithoutOSConfig: "#/types/azure-native:workloads/v20211201preview:SAPInstallWithoutOSConfigSoftwareConfiguration"
+        ServiceInitiated: "#/types/azure-native:workloads/v20211201preview:ServiceInitiatedSoftwareConfiguration"
+    description: The software configuration.
+type: object
+required:
+  - configurationType

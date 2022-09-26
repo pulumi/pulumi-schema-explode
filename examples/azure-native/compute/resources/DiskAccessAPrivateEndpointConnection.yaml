@@ -1,0 +1,54 @@
+$token: azure-native:compute:DiskAccessAPrivateEndpointConnection
+description: |-
+  The Private Endpoint Connection resource.
+  API Version: 2020-12-01.
+properties:
+  name:
+    type: string
+    description: private endpoint connection name
+  privateEndpoint:
+    type: object
+    $ref: "#/types/azure-native:compute:PrivateEndpointResponse"
+    description: The resource of private end point.
+  privateLinkServiceConnectionState:
+    type: object
+    $ref: "#/types/azure-native:compute:PrivateLinkServiceConnectionStateResponse"
+    description: A collection of information about the state of the connection between DiskAccess and Virtual Network.
+  provisioningState:
+    type: string
+    description: The provisioning state of the private endpoint connection resource.
+  type:
+    type: string
+    description: private endpoint connection type
+type: object
+required:
+  - name
+  - privateEndpoint
+  - privateLinkServiceConnectionState
+  - provisioningState
+  - type
+inputProperties:
+  diskAccessName:
+    type: string
+    description: The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+  privateEndpointConnectionName:
+    type: string
+    description: The name of the private endpoint connection
+  privateLinkServiceConnectionState:
+    type: object
+    $ref: "#/types/azure-native:compute:PrivateLinkServiceConnectionState"
+    description: A collection of information about the state of the connection between DiskAccess and Virtual Network.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+requiredInputs:
+  - diskAccessName
+  - privateLinkServiceConnectionState
+  - resourceGroupName
+aliases:
+  - type: azure-native:compute/v20200930:DiskAccessAPrivateEndpointConnection
+  - type: azure-native:compute/v20201201:DiskAccessAPrivateEndpointConnection
+  - type: azure-native:compute/v20210401:DiskAccessAPrivateEndpointConnection
+  - type: azure-native:compute/v20210801:DiskAccessAPrivateEndpointConnection
+  - type: azure-native:compute/v20211201:DiskAccessAPrivateEndpointConnection
+  - type: azure-native:compute/v20220302:DiskAccessAPrivateEndpointConnection

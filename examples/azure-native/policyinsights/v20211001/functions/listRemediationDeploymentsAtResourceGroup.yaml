@@ -1,0 +1,33 @@
+$token: azure-native:policyinsights/v20211001:listRemediationDeploymentsAtResourceGroup
+description: List of deployments for a remediation.
+inputs:
+  properties:
+    remediationName:
+      type: string
+      description: The name of the remediation.
+    resourceGroupName:
+      type: string
+      description: Resource group name.
+    top:
+      type: integer
+      description: Maximum number of records to return.
+  type: object
+  required:
+    - remediationName
+    - resourceGroupName
+outputs:
+  description: List of deployments for a remediation.
+  properties:
+    nextLink:
+      type: string
+      description: The URL to get the next set of results.
+    value:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:policyinsights/v20211001:RemediationDeploymentResponse"
+      description: Array of deployments for the remediation.
+  type: object
+  required:
+    - nextLink
+    - value

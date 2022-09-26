@@ -1,0 +1,58 @@
+$token: azure-native:eventhub/v20210101preview:getDisasterRecoveryConfig
+description: Single item in List or Get Alias(Disaster Recovery configuration) operation
+inputs:
+  properties:
+    alias:
+      type: string
+      description: The Disaster Recovery configuration name
+    namespaceName:
+      type: string
+      description: The Namespace name
+    resourceGroupName:
+      type: string
+      description: Name of the resource group within the azure subscription.
+  type: object
+  required:
+    - alias
+    - namespaceName
+    - resourceGroupName
+outputs:
+  description: Single item in List or Get Alias(Disaster Recovery configuration) operation
+  properties:
+    alternateName:
+      type: string
+      description: Alternate name specified when alias and namespace names are same.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    name:
+      type: string
+      description: The name of the resource
+    partnerNamespace:
+      type: string
+      description: ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
+    pendingReplicationOperationsCount:
+      type: number
+      description: Number of entities pending to be replicated.
+    provisioningState:
+      type: string
+      description: Provisioning state of the Alias(Disaster Recovery configuration) - possible values 'Accepted' or 'Succeeded' or 'Failed'
+    role:
+      type: string
+      description: role of namespace in GEO DR - possible values 'Primary' or 'PrimaryNotReplicating' or 'Secondary'
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:eventhub/v20210101preview:SystemDataResponse"
+      description: The system meta data relating to this resource.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - id
+    - name
+    - pendingReplicationOperationsCount
+    - provisioningState
+    - role
+    - systemData
+    - type

@@ -1,0 +1,109 @@
+$token: azure-native:hybriddata:JobDefinition
+description: |-
+  Job Definition.
+  API Version: 2019-06-01.
+properties:
+  customerSecrets:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:hybriddata:CustomerSecretResponse"
+    description: List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+  dataServiceInput:
+    $ref: pulumi.json#/Any
+    description: A generic json used differently by each data service type.
+  dataSinkId:
+    type: string
+    description: Data Sink Id associated to the job definition.
+  dataSourceId:
+    type: string
+    description: Data Source Id associated to the job definition.
+  lastModifiedTime:
+    type: string
+    description: Last modified time of the job definition.
+  name:
+    type: string
+    description: Name of the object.
+  runLocation:
+    type: string
+    description: This is the preferred geo location for the job to run.
+  schedules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:hybriddata:ScheduleResponse"
+    description: Schedule for running the job definition
+  state:
+    type: string
+    description: State of the job definition.
+  type:
+    type: string
+    description: Type of the object.
+  userConfirmation:
+    type: string
+    description: Enum to detect if user confirmation is required. If not passed will default to NotRequired.
+    default: NotRequired
+type: object
+required:
+  - dataSinkId
+  - dataSourceId
+  - name
+  - state
+  - type
+inputProperties:
+  customerSecrets:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:hybriddata:CustomerSecret"
+    description: List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+  dataManagerName:
+    type: string
+    description: The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
+  dataServiceInput:
+    $ref: pulumi.json#/Any
+    description: A generic json used differently by each data service type.
+  dataServiceName:
+    type: string
+    description: The data service type of the job definition.
+  dataSinkId:
+    type: string
+    description: Data Sink Id associated to the job definition.
+  dataSourceId:
+    type: string
+    description: Data Source Id associated to the job definition.
+  jobDefinitionName:
+    type: string
+    description: The job definition name to be created or updated.
+  lastModifiedTime:
+    type: string
+    description: Last modified time of the job definition.
+  resourceGroupName:
+    type: string
+    description: The Resource Group Name
+  runLocation:
+    $ref: "#/types/azure-native:hybriddata:RunLocation"
+    description: This is the preferred geo location for the job to run.
+  schedules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:hybriddata:Schedule"
+    description: Schedule for running the job definition
+  state:
+    $ref: "#/types/azure-native:hybriddata:State"
+    description: State of the job definition.
+  userConfirmation:
+    $ref: "#/types/azure-native:hybriddata:UserConfirmation"
+    description: Enum to detect if user confirmation is required. If not passed will default to NotRequired.
+    default: NotRequired
+requiredInputs:
+  - dataManagerName
+  - dataServiceName
+  - dataSinkId
+  - dataSourceId
+  - resourceGroupName
+  - state
+aliases:
+  - type: azure-native:hybriddata/v20160601:JobDefinition
+  - type: azure-native:hybriddata/v20190601:JobDefinition

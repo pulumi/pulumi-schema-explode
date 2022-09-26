@@ -1,0 +1,48 @@
+$token: azure-native:avs/v20210601:getWorkloadNetworkDhcp
+description: NSX DHCP
+inputs:
+  properties:
+    dhcpId:
+      type: string
+      description: NSX DHCP identifier. Generally the same as the DHCP display name
+    privateCloudName:
+      type: string
+      description: Name of the private cloud
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+  type: object
+  required:
+    - dhcpId
+    - privateCloudName
+    - resourceGroupName
+outputs:
+  description: NSX DHCP
+  properties:
+    id:
+      type: string
+      description: Resource ID.
+    name:
+      type: string
+      description: Resource name.
+    properties:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:avs/v20210601:WorkloadNetworkDhcpRelayResponse"
+        - type: object
+          $ref: "#/types/azure-native:avs/v20210601:WorkloadNetworkDhcpServerResponse"
+      discriminator:
+        propertyName: dhcpType
+        mapping:
+          RELAY: "#/types/azure-native:avs/v20210601:WorkloadNetworkDhcpRelayResponse"
+          SERVER: "#/types/azure-native:avs/v20210601:WorkloadNetworkDhcpServerResponse"
+      description: DHCP properties.
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - type

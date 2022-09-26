@@ -1,0 +1,39 @@
+$token: azure-native:documentdb/v20210515:GremlinGraphGetPropertiesResponseResource
+properties:
+  conflictResolutionPolicy:
+    type: object
+    $ref: "#/types/azure-native:documentdb/v20210515:ConflictResolutionPolicyResponse"
+    description: The conflict resolution policy for the graph.
+  defaultTtl:
+    type: integer
+    description: Default time to live
+  etag:
+    type: string
+    description: A system generated property representing the resource etag required for optimistic concurrency control.
+  id:
+    type: string
+    description: Name of the Cosmos DB Gremlin graph
+  indexingPolicy:
+    type: object
+    $ref: "#/types/azure-native:documentdb/v20210515:IndexingPolicyResponse"
+    description: The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
+  partitionKey:
+    type: object
+    $ref: "#/types/azure-native:documentdb/v20210515:ContainerPartitionKeyResponse"
+    description: The configuration of the partition key to be used for partitioning data into multiple partitions
+  rid:
+    type: string
+    description: A system generated property. A unique identifier.
+  ts:
+    type: number
+    description: A system generated property that denotes the last updated timestamp of the resource.
+  uniqueKeyPolicy:
+    type: object
+    $ref: "#/types/azure-native:documentdb/v20210515:UniqueKeyPolicyResponse"
+    description: The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+type: object
+required:
+  - etag
+  - id
+  - rid
+  - ts

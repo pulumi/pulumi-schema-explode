@@ -1,0 +1,74 @@
+$token: azure-native:automation:getWebhook
+description: |-
+  Definition of the webhook type.
+  API Version: 2015-10-31.
+inputs:
+  properties:
+    automationAccountName:
+      type: string
+      description: The name of the automation account.
+    resourceGroupName:
+      type: string
+      description: Name of an Azure Resource group.
+    webhookName:
+      type: string
+      description: The webhook name.
+  type: object
+  required:
+    - automationAccountName
+    - resourceGroupName
+    - webhookName
+outputs:
+  description: Definition of the webhook type.
+  properties:
+    creationTime:
+      type: string
+      description: Gets or sets the creation time.
+    description:
+      type: string
+      description: Gets or sets the description.
+    expiryTime:
+      type: string
+      description: Gets or sets the expiry time.
+    id:
+      type: string
+      description: Fully qualified resource Id for the resource
+    isEnabled:
+      type: boolean
+      description: Gets or sets the value of the enabled flag of the webhook.
+      default: false
+    lastInvokedTime:
+      type: string
+      description: Gets or sets the last invoked time.
+    lastModifiedBy:
+      type: string
+      description: Details of the user who last modified the Webhook
+    lastModifiedTime:
+      type: string
+      description: Gets or sets the last modified time.
+    name:
+      type: string
+      description: The name of the resource
+    parameters:
+      type: object
+      additionalProperties:
+        type: string
+      description: Gets or sets the parameters of the job that is created when the webhook calls the runbook it is associated with.
+    runOn:
+      type: string
+      description: Gets or sets the name of the hybrid worker group the webhook job will run on.
+    runbook:
+      type: object
+      $ref: "#/types/azure-native:automation:RunbookAssociationPropertyResponse"
+      description: Gets or sets the runbook the webhook is associated with.
+    type:
+      type: string
+      description: The type of the resource.
+    uri:
+      type: string
+      description: Gets or sets the webhook uri.
+  type: object
+  required:
+    - id
+    - name
+    - type

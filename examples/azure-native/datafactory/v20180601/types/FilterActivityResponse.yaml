@@ -1,0 +1,41 @@
+$token: azure-native:datafactory/v20180601:FilterActivityResponse
+description: Filter and return results from input array based on the conditions.
+properties:
+  condition:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20180601:ExpressionResponse"
+    description: Condition to be used for filtering the input.
+  dependsOn:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20180601:ActivityDependencyResponse"
+    description: Activity depends on condition.
+  description:
+    type: string
+    description: Activity description.
+  items:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20180601:ExpressionResponse"
+    description: Input array on which filter should be applied.
+  name:
+    type: string
+    description: Activity name.
+  type:
+    type: string
+    description: |-
+      Type of activity.
+      Expected value is 'Filter'.
+    const: Filter
+  userProperties:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20180601:UserPropertyResponse"
+    description: Activity user properties.
+type: object
+required:
+  - condition
+  - items
+  - name
+  - type

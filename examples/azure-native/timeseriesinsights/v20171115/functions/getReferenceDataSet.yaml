@@ -1,0 +1,63 @@
+$token: azure-native:timeseriesinsights/v20171115:getReferenceDataSet
+description: A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
+inputs:
+  properties:
+    environmentName:
+      type: string
+      description: The name of the Time Series Insights environment associated with the specified resource group.
+    referenceDataSetName:
+      type: string
+      description: The name of the Time Series Insights reference data set associated with the specified environment.
+    resourceGroupName:
+      type: string
+      description: Name of an Azure Resource group.
+  type: object
+  required:
+    - environmentName
+    - referenceDataSetName
+    - resourceGroupName
+outputs:
+  description: A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
+  properties:
+    creationTime:
+      type: string
+      description: The time the resource was created.
+    dataStringComparisonBehavior:
+      type: string
+      description: The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
+    id:
+      type: string
+      description: Resource Id
+    keyProperties:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:timeseriesinsights/v20171115:ReferenceDataSetKeyPropertyResponse"
+      description: The list of key properties for the reference data set.
+    location:
+      type: string
+      description: Resource location
+    name:
+      type: string
+      description: Resource name
+    provisioningState:
+      type: string
+      description: Provisioning state of the resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    type:
+      type: string
+      description: Resource type
+  type: object
+  required:
+    - creationTime
+    - id
+    - keyProperties
+    - location
+    - name
+    - provisioningState
+    - type
+deprecationMessage: Version 2017-11-15 will be removed in v2 of the provider.

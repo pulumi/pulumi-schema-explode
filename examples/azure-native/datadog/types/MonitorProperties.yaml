@@ -1,0 +1,17 @@
+$token: azure-native:datadog:MonitorProperties
+description: Properties specific to the monitor resource.
+properties:
+  datadogOrganizationProperties:
+    type: object
+    $ref: "#/types/azure-native:datadog:DatadogOrganizationProperties"
+    description: Datadog organization properties
+  monitoringStatus:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:datadog:MonitoringStatus"
+    description: Flag specifying if the resource monitoring is enabled or disabled.
+  userInfo:
+    type: object
+    $ref: "#/types/azure-native:datadog:UserInfo"
+    description: User info
+type: object

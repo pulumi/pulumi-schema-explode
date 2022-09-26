@@ -1,0 +1,75 @@
+$token: azure-native:machinelearningexperimentation/v20170501preview:Workspace
+description: An object that represents a machine learning team account workspace.
+properties:
+  accountId:
+    type: string
+    description: The immutable id of the team account which contains this workspace.
+  creationDate:
+    type: string
+    description: The creation date of the machine learning workspace in ISO8601 format.
+  description:
+    type: string
+    description: The description of this workspace.
+  friendlyName:
+    type: string
+    description: The friendly name for this workspace. This will be the workspace name in the arm id when the workspace object gets created
+  location:
+    type: string
+    description: The location of the resource. This cannot be changed after the resource is created.
+  name:
+    type: string
+    description: The name of the resource.
+  provisioningState:
+    type: string
+    description: The current deployment state of team account workspace resource. The provisioningState is to indicate states for resource provisioning.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+  type:
+    type: string
+    description: The type of the resource.
+  workspaceId:
+    type: string
+    description: The immutable id of this workspace.
+type: object
+required:
+  - accountId
+  - creationDate
+  - friendlyName
+  - location
+  - name
+  - provisioningState
+  - type
+  - workspaceId
+inputProperties:
+  accountName:
+    type: string
+    description: The name of the machine learning team account.
+  description:
+    type: string
+    description: The description of this workspace.
+  friendlyName:
+    type: string
+    description: The friendly name for this workspace. This will be the workspace name in the arm id when the workspace object gets created
+  location:
+    type: string
+    description: The location of the resource. This cannot be changed after the resource is created.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group to which the machine learning team account belongs.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+  workspaceName:
+    type: string
+    description: The name of the machine learning team account workspace.
+requiredInputs:
+  - accountName
+  - friendlyName
+  - resourceGroupName
+aliases:
+  - type: azure-native:machinelearningexperimentation:Workspace

@@ -1,0 +1,16 @@
+$token: azure-native:mobilenetwork/v20220401preview:SimStaticIpProperties
+description: Static IP configuration for a SIM, scoped to a particular attached data network and slice.
+properties:
+  attachedDataNetwork:
+    type: object
+    $ref: "#/types/azure-native:mobilenetwork/v20220401preview:AttachedDataNetworkResourceId"
+    description: The attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
+  slice:
+    type: object
+    $ref: "#/types/azure-native:mobilenetwork/v20220401preview:SliceResourceId"
+    description: The network slice on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
+  staticIp:
+    type: object
+    $ref: "#/types/azure-native:mobilenetwork/v20220401preview:SimStaticIpPropertiesStaticIp"
+    description: The static IP configuration for the SIM to use at the defined network scope.
+type: object

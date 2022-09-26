@@ -1,0 +1,63 @@
+$token: azure-native:recoveryservices:MigrationItemPropertiesResponse
+description: Migration item properties.
+properties:
+  allowedOperations:
+    type: array
+    items:
+      type: string
+    description: The allowed operations on the migration item, based on the current migration state of the item.
+  currentJob:
+    type: object
+    $ref: "#/types/azure-native:recoveryservices:CurrentJobDetailsResponse"
+    description: The current job details.
+  health:
+    type: string
+    description: The consolidated health.
+  healthErrors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:recoveryservices:HealthErrorResponse"
+    description: The list of health errors.
+  machineName:
+    type: string
+    description: The on-premise virtual machine name.
+  migrationState:
+    type: string
+    description: The migration status.
+  migrationStateDescription:
+    type: string
+    description: The migration state description.
+  policyFriendlyName:
+    type: string
+    description: The name of policy governing this item.
+  policyId:
+    type: string
+    description: The ARM Id of policy governing this item.
+  providerSpecificDetails:
+    type: object
+    $ref: "#/types/azure-native:recoveryservices:VMwareCbtMigrationDetailsResponse"
+    description: The migration provider custom settings.
+  recoveryServicesProviderId:
+    type: string
+    description: The recovery services provider ARM Id.
+  testMigrateState:
+    type: string
+    description: The test migrate state.
+  testMigrateStateDescription:
+    type: string
+    description: The test migrate state description.
+type: object
+required:
+  - allowedOperations
+  - currentJob
+  - health
+  - healthErrors
+  - machineName
+  - migrationState
+  - migrationStateDescription
+  - policyFriendlyName
+  - policyId
+  - recoveryServicesProviderId
+  - testMigrateState
+  - testMigrateStateDescription

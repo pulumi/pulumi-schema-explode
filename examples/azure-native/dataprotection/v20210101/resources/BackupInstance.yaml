@@ -1,0 +1,53 @@
+$token: azure-native:dataprotection/v20210101:BackupInstance
+description: BackupInstance Resource
+properties:
+  name:
+    type: string
+    description: Resource name associated with the resource.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:dataprotection/v20210101:BackupInstanceResponse"
+    description: BackupInstanceResource properties
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:dataprotection/v20210101:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  type:
+    type: string
+    description: Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+type: object
+required:
+  - name
+  - properties
+  - systemData
+  - type
+inputProperties:
+  backupInstanceName:
+    type: string
+    description: The name of the backup instance
+  properties:
+    type: object
+    $ref: "#/types/azure-native:dataprotection/v20210101:BackupInstance"
+    description: BackupInstanceResource properties
+  resourceGroupName:
+    type: string
+    description: The name of the resource group where the backup vault is present.
+  vaultName:
+    type: string
+    description: The name of the backup vault.
+requiredInputs:
+  - resourceGroupName
+  - vaultName
+aliases:
+  - type: azure-native:dataprotection:BackupInstance
+  - type: azure-native:dataprotection/v20210201preview:BackupInstance
+  - type: azure-native:dataprotection/v20210601preview:BackupInstance
+  - type: azure-native:dataprotection/v20210701:BackupInstance
+  - type: azure-native:dataprotection/v20211001preview:BackupInstance
+  - type: azure-native:dataprotection/v20211201preview:BackupInstance
+  - type: azure-native:dataprotection/v20220101:BackupInstance
+  - type: azure-native:dataprotection/v20220201preview:BackupInstance
+  - type: azure-native:dataprotection/v20220301:BackupInstance
+  - type: azure-native:dataprotection/v20220331preview:BackupInstance
+  - type: azure-native:dataprotection/v20220401:BackupInstance
+  - type: azure-native:dataprotection/v20220501:BackupInstance

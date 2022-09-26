@@ -1,0 +1,40 @@
+$token: azure-native:hybridcompute/v20220310:MachineProperties
+description: Describes the properties of a hybrid machine.
+properties:
+  clientPublicKey:
+    type: string
+    description: Public Key that the client provides to be used during initial resource onboarding
+  extensions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:hybridcompute/v20220310:MachineExtensionInstanceView"
+    description: Machine Extensions information
+  locationData:
+    type: object
+    $ref: "#/types/azure-native:hybridcompute/v20220310:LocationData"
+    description: Metadata pertaining to the geographic location of the resource.
+  mssqlDiscovered:
+    type: string
+    description: Specifies whether any MS SQL instance is discovered on the machine.
+  osProfile:
+    type: object
+    $ref: "#/types/azure-native:hybridcompute/v20220310:OSProfile"
+    description: Specifies the operating system settings for the hybrid machine.
+  osType:
+    type: string
+    description: The type of Operating System (windows/linux).
+  parentClusterResourceId:
+    type: string
+    description: The resource id of the parent cluster (Azure HCI) this machine is assigned to, if any.
+  privateLinkScopeResourceId:
+    type: string
+    description: The resource id of the private link scope this machine is assigned to, if any.
+  serviceStatuses:
+    type: object
+    $ref: "#/types/azure-native:hybridcompute/v20220310:ServiceStatuses"
+    description: Statuses of dependent services that are reported back to ARM.
+  vmId:
+    type: string
+    description: Specifies the hybrid machine unique ID.
+type: object

@@ -1,0 +1,57 @@
+$token: azure-native:recoveryservices/v20220401:ReplicationPolicy
+description: Protection profile details.
+properties:
+  location:
+    type: string
+    description: Resource Location
+  name:
+    type: string
+    description: Resource Name
+  properties:
+    type: object
+    $ref: "#/types/azure-native:recoveryservices/v20220401:PolicyPropertiesResponse"
+    description: The custom data.
+  type:
+    type: string
+    description: Resource Type
+type: object
+required:
+  - name
+  - properties
+  - type
+inputProperties:
+  policyName:
+    type: string
+    description: Replication policy name.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:recoveryservices/v20220401:CreatePolicyInputProperties"
+    description: Policy creation properties.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group where the recovery services vault is present.
+  resourceName:
+    type: string
+    description: The name of the recovery services vault.
+requiredInputs:
+  - resourceGroupName
+  - resourceName
+aliases:
+  - type: azure-native:recoveryservices:ReplicationPolicy
+  - type: azure-native:recoveryservices/v20160810:ReplicationPolicy
+  - type: azure-native:recoveryservices/v20180110:ReplicationPolicy
+  - type: azure-native:recoveryservices/v20180710:ReplicationPolicy
+  - type: azure-native:recoveryservices/v20210210:ReplicationPolicy
+  - type: azure-native:recoveryservices/v20210301:ReplicationPolicy
+  - type: azure-native:recoveryservices/v20210401:ReplicationPolicy
+  - type: azure-native:recoveryservices/v20210601:ReplicationPolicy
+  - type: azure-native:recoveryservices/v20210701:ReplicationPolicy
+  - type: azure-native:recoveryservices/v20210801:ReplicationPolicy
+  - type: azure-native:recoveryservices/v20211001:ReplicationPolicy
+  - type: azure-native:recoveryservices/v20211101:ReplicationPolicy
+  - type: azure-native:recoveryservices/v20211201:ReplicationPolicy
+  - type: azure-native:recoveryservices/v20220101:ReplicationPolicy
+  - type: azure-native:recoveryservices/v20220201:ReplicationPolicy
+  - type: azure-native:recoveryservices/v20220301:ReplicationPolicy
+  - type: azure-native:recoveryservices/v20220501:ReplicationPolicy
+  - type: azure-native:recoveryservices/v20220801:ReplicationPolicy

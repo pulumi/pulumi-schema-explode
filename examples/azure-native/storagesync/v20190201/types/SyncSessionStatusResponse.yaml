@@ -1,0 +1,36 @@
+$token: azure-native:storagesync/v20190201:SyncSessionStatusResponse
+description: Sync Session status object.
+properties:
+  filesNotSyncingErrors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:storagesync/v20190201:FilesNotSyncingErrorResponse"
+    description: Array of per-item errors coming from the last sync session. Reserved for future use.
+  lastSyncPerItemErrorCount:
+    type: number
+    description: Last sync per item error count.
+  lastSyncResult:
+    type: integer
+    description: Last sync result (HResult)
+  lastSyncSuccessTimestamp:
+    type: string
+    description: Last sync success timestamp
+  lastSyncTimestamp:
+    type: string
+    description: Last sync timestamp
+  persistentFilesNotSyncingCount:
+    type: number
+    description: Count of persistent files not syncing. Reserved for future use.
+  transientFilesNotSyncingCount:
+    type: number
+    description: Count of transient files not syncing. Reserved for future use.
+type: object
+required:
+  - filesNotSyncingErrors
+  - lastSyncPerItemErrorCount
+  - lastSyncResult
+  - lastSyncSuccessTimestamp
+  - lastSyncTimestamp
+  - persistentFilesNotSyncingCount
+  - transientFilesNotSyncingCount

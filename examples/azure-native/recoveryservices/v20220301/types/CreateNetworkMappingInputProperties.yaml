@@ -1,0 +1,27 @@
+$token: azure-native:recoveryservices/v20220301:CreateNetworkMappingInputProperties
+description: Common input details for network mapping operation.
+properties:
+  fabricSpecificDetails:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20220301:AzureToAzureCreateNetworkMappingInput"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20220301:VmmToAzureCreateNetworkMappingInput"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20220301:VmmToVmmCreateNetworkMappingInput"
+    discriminator:
+      propertyName: instanceType
+      mapping:
+        AzureToAzure: "#/types/azure-native:recoveryservices/v20220301:AzureToAzureCreateNetworkMappingInput"
+        VmmToAzure: "#/types/azure-native:recoveryservices/v20220301:VmmToAzureCreateNetworkMappingInput"
+        VmmToVmm: "#/types/azure-native:recoveryservices/v20220301:VmmToVmmCreateNetworkMappingInput"
+    description: Fabric specific input properties.
+  recoveryFabricName:
+    type: string
+    description: Recovery fabric Name.
+  recoveryNetworkId:
+    type: string
+    description: Recovery network Id.
+type: object
+required:
+  - recoveryNetworkId

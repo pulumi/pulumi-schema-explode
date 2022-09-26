@@ -1,0 +1,48 @@
+$token: azure-native:datadog/v20200201preview:getMonitor
+inputs:
+  properties:
+    monitorName:
+      type: string
+      description: Monitor resource name
+    resourceGroupName:
+      type: string
+      description: The name of the resource group to which the Datadog resource belongs.
+  type: object
+  required:
+    - monitorName
+    - resourceGroupName
+outputs:
+  properties:
+    id:
+      type: string
+      description: ARM id of the monitor resource.
+    identity:
+      type: object
+      $ref: "#/types/azure-native:datadog/v20200201preview:IdentityPropertiesResponse"
+    location:
+      type: string
+    name:
+      type: string
+      description: Name of the monitor resource.
+    properties:
+      type: object
+      $ref: "#/types/azure-native:datadog/v20200201preview:MonitorPropertiesResponse"
+      description: Properties specific to the monitor resource.
+    sku:
+      type: object
+      $ref: "#/types/azure-native:datadog/v20200201preview:ResourceSkuResponse"
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+    type:
+      type: string
+      description: The type of the monitor resource.
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - properties
+    - type
+deprecationMessage: Version 2020-02-01-preview will be removed in v2 of the provider.

@@ -1,0 +1,29 @@
+$token: azure-native:containerregistry/v20211201preview:EventContentResponse
+description: The content of the event request message.
+properties:
+  action:
+    type: string
+    description: The action that encompasses the provided event.
+  actor:
+    type: object
+    $ref: "#/types/azure-native:containerregistry/v20211201preview:ActorResponse"
+    description: The agent that initiated the event. For most situations, this could be from the authorization context of the request.
+  id:
+    type: string
+    description: The event ID.
+  request:
+    type: object
+    $ref: "#/types/azure-native:containerregistry/v20211201preview:RequestResponse"
+    description: The request that generated the event.
+  source:
+    type: object
+    $ref: "#/types/azure-native:containerregistry/v20211201preview:SourceResponse"
+    description: The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
+  target:
+    type: object
+    $ref: "#/types/azure-native:containerregistry/v20211201preview:TargetResponse"
+    description: The target of the event.
+  timestamp:
+    type: string
+    description: The time at which the event occurred.
+type: object

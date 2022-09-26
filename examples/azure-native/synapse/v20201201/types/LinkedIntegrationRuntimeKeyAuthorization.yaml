@@ -1,0 +1,17 @@
+$token: azure-native:synapse/v20201201:LinkedIntegrationRuntimeKeyAuthorization
+description: The key authorization type integration runtime.
+properties:
+  authorizationType:
+    type: string
+    description: |-
+      The authorization type for integration runtime sharing.
+      Expected value is 'Key'.
+    const: Key
+  key:
+    type: object
+    $ref: "#/types/azure-native:synapse/v20201201:SecureString"
+    description: The key used for authorization.
+type: object
+required:
+  - authorizationType
+  - key

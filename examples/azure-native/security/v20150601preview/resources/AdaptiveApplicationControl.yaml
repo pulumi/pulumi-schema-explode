@@ -1,0 +1,77 @@
+$token: azure-native:security/v20150601preview:AdaptiveApplicationControl
+properties:
+  configurationStatus:
+    type: string
+    description: The configuration status of the VM/server group or machine or rule on the machine
+  enforcementMode:
+    type: string
+    description: The application control policy enforcement/protection mode of the VM/server group
+  issues:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:security/v20150601preview:AppWhitelistingIssueSummaryResponse"
+  location:
+    type: string
+    description: Location where the resource is stored
+  name:
+    type: string
+    description: Resource name
+  pathRecommendations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:security/v20150601preview:PathRecommendationResponse"
+  protectionMode:
+    type: object
+    $ref: "#/types/azure-native:security/v20150601preview:ProtectionModeResponse"
+    description: The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+  recommendationStatus:
+    type: string
+    description: The recommendation status of the VM/server group or VM/server
+  sourceSystem:
+    type: string
+    description: The source type of the VM/server group
+  type:
+    type: string
+    description: Resource type
+  vmRecommendations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:security/v20150601preview:VmRecommendationResponse"
+type: object
+required:
+  - location
+  - name
+  - type
+inputProperties:
+  ascLocation:
+    type: string
+    description: The location where ASC stores the data of the subscription. can be retrieved from Get locations
+  enforcementMode:
+    type: string
+    description: The enforcement mode of the group. Can also be defined per collection type by using ProtectionMode
+  groupName:
+    type: string
+    description: Name of an application control VM/server group
+  pathRecommendations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:security/v20150601preview:PathRecommendation"
+  protectionMode:
+    type: object
+    $ref: "#/types/azure-native:security/v20150601preview:ProtectionMode"
+    description: The protection mode of the group per collection type. Can also be defined for all collection types by using EnforcementMode
+  vmRecommendations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:security/v20150601preview:VmRecommendation"
+requiredInputs:
+  - ascLocation
+aliases:
+  - type: azure-native:security:AdaptiveApplicationControl
+  - type: azure-native:security/v20200101:AdaptiveApplicationControl
+deprecationMessage: Version 2015-06-01-preview will be removed in v2 of the provider.

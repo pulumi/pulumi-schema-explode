@@ -1,0 +1,87 @@
+$token: azure-native:storagemover/v20220701preview:getAgent
+description: The Agent resource.
+inputs:
+  properties:
+    agentName:
+      type: string
+      description: The name of the Agent resource.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    storageMoverName:
+      type: string
+      description: The name of the Storage Mover resource.
+  type: object
+  required:
+    - agentName
+    - resourceGroupName
+    - storageMoverName
+outputs:
+  description: The Agent resource.
+  properties:
+    agentStatus:
+      type: string
+      description: The Agent status.
+    agentVersion:
+      type: string
+      description: The Agent version.
+    arcResourceId:
+      type: string
+      description: The fully qualified resource ID of the Hybrid Compute resource for the Agent.
+    arcVmUuid:
+      type: string
+      description: The VM UUID of the Hybrid Compute resource for the Agent.
+    description:
+      type: string
+      description: A description for the Agent.
+    errorDetails:
+      type: object
+      $ref: "#/types/azure-native:storagemover/v20220701preview:AgentPropertiesResponseErrorDetails"
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    lastStatusUpdate:
+      type: string
+      description: The last updated time of the Agent status.
+    localIPAddress:
+      type: string
+      description: Local IP address reported by the Agent.
+    memoryInMB:
+      type: number
+      description: Available memory reported by the Agent, in MB.
+    name:
+      type: string
+      description: The name of the resource
+    numberOfCores:
+      type: number
+      description: Available compute cores reported by the Agent.
+    provisioningState:
+      type: string
+      description: The provisioning state of this resource.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:storagemover/v20220701preview:SystemDataResponse"
+      description: Resource system metadata.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+    uptimeInSeconds:
+      type: number
+      description: Uptime of the Agent in seconds.
+  type: object
+  required:
+    - agentStatus
+    - agentVersion
+    - arcResourceId
+    - arcVmUuid
+    - errorDetails
+    - id
+    - lastStatusUpdate
+    - localIPAddress
+    - memoryInMB
+    - name
+    - numberOfCores
+    - provisioningState
+    - systemData
+    - type
+    - uptimeInSeconds

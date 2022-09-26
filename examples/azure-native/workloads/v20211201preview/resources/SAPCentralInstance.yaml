@@ -1,0 +1,106 @@
+$token: azure-native:workloads/v20211201preview:SAPCentralInstance
+description: Define the SAP Central Services Instance resource.
+properties:
+  enqueueReplicationServerProperties:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:EnqueueReplicationServerPropertiesResponse"
+    description: Defines the SAP Enqueue Replication Server (ERS) properties.
+  enqueueServerProperties:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:EnqueueServerPropertiesResponse"
+    description: Defines the SAP Enqueue Server properties.
+  errors:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:SAPVirtualInstanceErrorResponse"
+    description: Defines the errors related to SAP Central Services Instance resource.
+  gatewayServerProperties:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:GatewayServerPropertiesResponse"
+    description: Defines the SAP Gateway Server properties.
+  health:
+    type: string
+    description: Defines the health of SAP Instances.
+  instanceNo:
+    type: string
+    description: The central services instance number.
+  kernelPatch:
+    type: string
+    description: The central services instance Kernel Patch level.
+  kernelVersion:
+    type: string
+    description: The central services instance Kernel Version.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  messageServerProperties:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:MessageServerPropertiesResponse"
+    description: Defines the SAP Message Server properties.
+  name:
+    type: string
+    description: The name of the resource
+  provisioningState:
+    type: string
+    description: Defines the provisioning states.
+  status:
+    type: string
+    description: Defines the SAP Instance status.
+  subnet:
+    type: string
+    description: The central services instance subnet.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  vmDetails:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:workloads/v20211201preview:CentralServerVmDetailsResponse"
+    description: The list of virtual machines corresponding to the Central Services instance.
+type: object
+required:
+  - errors
+  - health
+  - instanceNo
+  - kernelPatch
+  - kernelVersion
+  - location
+  - name
+  - provisioningState
+  - status
+  - subnet
+  - systemData
+  - type
+  - vmDetails
+inputProperties:
+  centralInstanceName:
+    type: string
+    description: Central Services Instance resource name string modeled as parameter for auto generation to work correctly.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  sapVirtualInstanceName:
+    type: string
+    description: The name of the Virtual Instances for SAP solutions resource
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - resourceGroupName
+  - sapVirtualInstanceName
+aliases:
+  - type: azure-native:workloads:SAPCentralInstance

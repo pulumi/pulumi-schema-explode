@@ -1,0 +1,48 @@
+$token: azure-native:advisor/v20220901:Suppression
+description: The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
+properties:
+  expirationTimeStamp:
+    type: string
+    description: Gets or sets the expiration time stamp.
+  name:
+    type: string
+    description: The name of the resource.
+  suppressionId:
+    type: string
+    description: The GUID of the suppression.
+  ttl:
+    type: string
+    description: The duration for which the suppression is valid.
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - expirationTimeStamp
+  - name
+  - type
+inputProperties:
+  name:
+    type: string
+    description: The name of the suppression.
+  recommendationId:
+    type: string
+    description: The recommendation ID.
+  resourceUri:
+    type: string
+    description: The fully qualified Azure Resource Manager identifier of the resource to which the recommendation applies.
+  suppressionId:
+    type: string
+    description: The GUID of the suppression.
+  ttl:
+    type: string
+    description: The duration for which the suppression is valid.
+requiredInputs:
+  - recommendationId
+  - resourceUri
+aliases:
+  - type: azure-native:advisor:Suppression
+  - type: azure-native:advisor/v20160712preview:Suppression
+  - type: azure-native:advisor/v20170331:Suppression
+  - type: azure-native:advisor/v20170419:Suppression
+  - type: azure-native:advisor/v20200101:Suppression

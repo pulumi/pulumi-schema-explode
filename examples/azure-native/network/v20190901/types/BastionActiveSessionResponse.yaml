@@ -1,0 +1,49 @@
+$token: azure-native:network/v20190901:BastionActiveSessionResponse
+description: The session detail for a target.
+properties:
+  protocol:
+    type: string
+    description: The protocol used to connect to the target.
+  resourceType:
+    type: string
+    description: The type of the resource.
+  sessionDurationInMins:
+    type: number
+    description: Duration in mins the session has been active.
+  sessionId:
+    type: string
+    description: A unique id for the session.
+  startTime:
+    $ref: pulumi.json#/Any
+    description: The time when the session started.
+  targetHostName:
+    type: string
+    description: The host name of the target.
+  targetIpAddress:
+    type: string
+    description: The IP Address of the target.
+  targetResourceGroup:
+    type: string
+    description: The resource group of the target.
+  targetResourceId:
+    type: string
+    description: The resource id of the target.
+  targetSubscriptionId:
+    type: string
+    description: The subscription id for the target virtual machine.
+  userName:
+    type: string
+    description: The user name who is active on this session.
+type: object
+required:
+  - protocol
+  - resourceType
+  - sessionDurationInMins
+  - sessionId
+  - startTime
+  - targetHostName
+  - targetIpAddress
+  - targetResourceGroup
+  - targetResourceId
+  - targetSubscriptionId
+  - userName

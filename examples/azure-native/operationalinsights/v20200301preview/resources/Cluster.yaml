@@ -1,0 +1,83 @@
+$token: azure-native:operationalinsights/v20200301preview:Cluster
+description: The top level Log Analytics cluster resource container.
+properties:
+  clusterId:
+    type: string
+    description: The ID associated with the cluster.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:operationalinsights/v20200301preview:IdentityResponse"
+    description: The identity of the resource.
+  keyVaultProperties:
+    type: object
+    $ref: "#/types/azure-native:operationalinsights/v20200301preview:KeyVaultPropertiesResponse"
+    description: The associated key properties.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  name:
+    type: string
+    description: The name of the resource
+  nextLink:
+    type: string
+    description: The link used to get the next page of recommendations.
+  provisioningState:
+    type: string
+    description: The provisioning state of the cluster.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:operationalinsights/v20200301preview:ClusterSkuResponse"
+    description: The sku properties.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - clusterId
+  - location
+  - name
+  - provisioningState
+  - type
+inputProperties:
+  clusterName:
+    type: string
+    description: The name of the Log Analytics cluster.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:operationalinsights/v20200301preview:Identity"
+    description: The identity of the resource.
+  keyVaultProperties:
+    type: object
+    $ref: "#/types/azure-native:operationalinsights/v20200301preview:KeyVaultProperties"
+    description: The associated key properties.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  nextLink:
+    type: string
+    description: The link used to get the next page of recommendations.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:operationalinsights/v20200301preview:ClusterSku"
+    description: The sku properties.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:operationalinsights:Cluster
+  - type: azure-native:operationalinsights/v20190801preview:Cluster
+  - type: azure-native:operationalinsights/v20200801:Cluster
+  - type: azure-native:operationalinsights/v20201001:Cluster
+  - type: azure-native:operationalinsights/v20210601:Cluster

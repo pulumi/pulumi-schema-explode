@@ -1,0 +1,52 @@
+$token: azure-native:servicefabricmesh/v20180901preview:Network
+description: This type describes a network resource.
+properties:
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  name:
+    type: string
+    description: The name of the resource
+  properties:
+    type: object
+    $ref: "#/types/azure-native:servicefabricmesh/v20180901preview:NetworkResourcePropertiesResponse"
+    description: Describes properties of a network resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+type: object
+required:
+  - location
+  - name
+  - properties
+  - type
+inputProperties:
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  networkResourceName:
+    type: string
+    description: The identity of the network.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:servicefabricmesh/v20180901preview:NetworkResourceProperties"
+    description: Describes properties of a network resource.
+  resourceGroupName:
+    type: string
+    description: Azure resource group name
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - properties
+  - resourceGroupName
+aliases:
+  - type: azure-native:servicefabricmesh:Network
+  - type: azure-native:servicefabricmesh/v20180701preview:Network

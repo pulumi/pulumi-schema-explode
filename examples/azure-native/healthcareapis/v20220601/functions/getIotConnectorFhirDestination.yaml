@@ -1,0 +1,63 @@
+$token: azure-native:healthcareapis/v20220601:getIotConnectorFhirDestination
+description: IoT Connector FHIR destination definition.
+inputs:
+  properties:
+    fhirDestinationName:
+      type: string
+      description: The name of IoT Connector FHIR destination resource.
+    iotConnectorName:
+      type: string
+      description: The name of IoT Connector resource.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the service instance.
+    workspaceName:
+      type: string
+      description: The name of workspace resource.
+  type: object
+  required:
+    - fhirDestinationName
+    - iotConnectorName
+    - resourceGroupName
+    - workspaceName
+outputs:
+  description: IoT Connector FHIR destination definition.
+  properties:
+    etag:
+      type: string
+      description: An etag associated with the resource, used for optimistic concurrency when editing it.
+    fhirMapping:
+      type: object
+      $ref: "#/types/azure-native:healthcareapis/v20220601:IotMappingPropertiesResponse"
+      description: FHIR Mappings
+    fhirServiceResourceId:
+      type: string
+      description: Fully qualified resource id of the FHIR service to connect to.
+    id:
+      type: string
+      description: The resource identifier.
+    location:
+      type: string
+      description: The resource location.
+    name:
+      type: string
+      description: The resource name.
+    resourceIdentityResolutionType:
+      type: string
+      description: Determines how resource identity is resolved on the destination.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:healthcareapis/v20220601:SystemDataResponse"
+      description: Metadata pertaining to creation and last modification of the resource.
+    type:
+      type: string
+      description: The resource type.
+  type: object
+  required:
+    - fhirMapping
+    - fhirServiceResourceId
+    - id
+    - name
+    - resourceIdentityResolutionType
+    - systemData
+    - type

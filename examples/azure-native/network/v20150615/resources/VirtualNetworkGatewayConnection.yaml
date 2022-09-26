@@ -1,0 +1,182 @@
+$token: azure-native:network/v20150615:VirtualNetworkGatewayConnection
+description: A common class for general resource information
+properties:
+  authorizationKey:
+    type: string
+    description: The authorizationKey.
+  connectionStatus:
+    type: string
+    description: Virtual network Gateway connection status. Possible values are 'Unknown', 'Connecting', 'Connected' and 'NotConnected'.
+  connectionType:
+    type: string
+    description: "Gateway connection type. Possible values are: 'IPsec','Vnet2Vnet','ExpressRoute', and 'VPNClient."
+  egressBytesTransferred:
+    type: number
+    description: The egress bytes transferred in this connection.
+  enableBgp:
+    type: boolean
+    description: EnableBgp flag
+  etag:
+    type: string
+    description: Gets a unique read-only string that changes whenever the resource is updated.
+  ingressBytesTransferred:
+    type: number
+    description: The ingress bytes transferred in this connection.
+  localNetworkGateway2:
+    type: object
+    $ref: "#/types/azure-native:network/v20150615:LocalNetworkGatewayResponse"
+    description: A common class for general resource information
+  location:
+    type: string
+    description: Resource location.
+  name:
+    type: string
+    description: Resource name.
+  peer:
+    type: object
+    $ref: "#/types/azure-native:network/v20150615:SubResourceResponse"
+    description: The reference to peerings resource.
+  provisioningState:
+    type: string
+    description: "The provisioning state of the VirtualNetworkGatewayConnection resource. Possible values are: 'Updating', 'Deleting', and 'Failed'."
+  resourceGuid:
+    type: string
+    description: The resource GUID property of the VirtualNetworkGatewayConnection resource.
+  routingWeight:
+    type: integer
+    description: The routing weight.
+  sharedKey:
+    type: string
+    description: The IPSec shared key.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: Resource type.
+  virtualNetworkGateway1:
+    type: object
+    $ref: "#/types/azure-native:network/v20150615:VirtualNetworkGatewayResponse"
+    description: A common class for general resource information
+  virtualNetworkGateway2:
+    type: object
+    $ref: "#/types/azure-native:network/v20150615:VirtualNetworkGatewayResponse"
+    description: A common class for general resource information
+type: object
+required:
+  - name
+  - type
+inputProperties:
+  authorizationKey:
+    type: string
+    description: The authorizationKey.
+  connectionStatus:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20150615:VirtualNetworkGatewayConnectionStatus"
+    description: Virtual network Gateway connection status. Possible values are 'Unknown', 'Connecting', 'Connected' and 'NotConnected'.
+  connectionType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20150615:VirtualNetworkGatewayConnectionType"
+    description: "Gateway connection type. Possible values are: 'IPsec','Vnet2Vnet','ExpressRoute', and 'VPNClient."
+  egressBytesTransferred:
+    type: number
+    description: The egress bytes transferred in this connection.
+  enableBgp:
+    type: boolean
+    description: EnableBgp flag
+  id:
+    type: string
+    description: Resource Identifier.
+  ingressBytesTransferred:
+    type: number
+    description: The ingress bytes transferred in this connection.
+  localNetworkGateway2:
+    type: object
+    $ref: "#/types/azure-native:network/v20150615:LocalNetworkGateway"
+    description: A common class for general resource information
+  location:
+    type: string
+    description: Resource location.
+  peer:
+    type: object
+    $ref: "#/types/azure-native:network/v20150615:SubResource"
+    description: The reference to peerings resource.
+  provisioningState:
+    type: string
+    description: "The provisioning state of the VirtualNetworkGatewayConnection resource. Possible values are: 'Updating', 'Deleting', and 'Failed'."
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  resourceGuid:
+    type: string
+    description: The resource GUID property of the VirtualNetworkGatewayConnection resource.
+  routingWeight:
+    type: integer
+    description: The routing weight.
+  sharedKey:
+    type: string
+    description: The IPSec shared key.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  virtualNetworkGateway1:
+    type: object
+    $ref: "#/types/azure-native:network/v20150615:VirtualNetworkGateway"
+    description: A common class for general resource information
+  virtualNetworkGateway2:
+    type: object
+    $ref: "#/types/azure-native:network/v20150615:VirtualNetworkGateway"
+    description: A common class for general resource information
+  virtualNetworkGatewayConnectionName:
+    type: string
+    description: The name of the virtual network gateway connection.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:network:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20160330:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20160601:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20160901:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20161201:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20170301:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20170601:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20170801:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20170901:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20171001:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20171101:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20180101:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20180201:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20180401:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20180601:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20180701:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20180801:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20181001:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20181101:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20181201:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20190201:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20190401:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20190601:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20190701:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20190801:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20190901:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20191101:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20191201:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20200301:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20200401:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20200501:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20200601:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20200701:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20200801:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20201101:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20210201:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20210301:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20210501:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20210801:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20220101:VirtualNetworkGatewayConnection
+deprecationMessage: Version 2015-06-15 will be removed in v2 of the provider.

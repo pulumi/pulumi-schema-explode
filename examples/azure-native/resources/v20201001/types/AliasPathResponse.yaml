@@ -1,0 +1,22 @@
+$token: azure-native:resources/v20201001:AliasPathResponse
+description: The type of the paths for alias.
+properties:
+  apiVersions:
+    type: array
+    items:
+      type: string
+    description: The API versions.
+  metadata:
+    type: object
+    $ref: "#/types/azure-native:resources/v20201001:AliasPathMetadataResponse"
+    description: The metadata of the alias path. If missing, fall back to the default metadata of the alias.
+  path:
+    type: string
+    description: The path of an alias.
+  pattern:
+    type: object
+    $ref: "#/types/azure-native:resources/v20201001:AliasPatternResponse"
+    description: The pattern for an alias path.
+type: object
+required:
+  - metadata

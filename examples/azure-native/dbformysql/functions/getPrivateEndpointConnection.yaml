@@ -1,0 +1,49 @@
+$token: azure-native:dbformysql:getPrivateEndpointConnection
+description: |-
+  A private endpoint connection
+  API Version: 2018-06-01.
+inputs:
+  properties:
+    privateEndpointConnectionName:
+      type: string
+      description: The name of the private endpoint connection.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    serverName:
+      type: string
+      description: The name of the server.
+  type: object
+  required:
+    - privateEndpointConnectionName
+    - resourceGroupName
+    - serverName
+outputs:
+  description: A private endpoint connection
+  properties:
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    name:
+      type: string
+      description: The name of the resource
+    privateEndpoint:
+      type: object
+      $ref: "#/types/azure-native:dbformysql:PrivateEndpointPropertyResponse"
+      description: Private endpoint which the connection belongs to.
+    privateLinkServiceConnectionState:
+      type: object
+      $ref: "#/types/azure-native:dbformysql:PrivateLinkServiceConnectionStatePropertyResponse"
+      description: Connection state of the private endpoint connection.
+    provisioningState:
+      type: string
+      description: State of the private endpoint connection.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - id
+    - name
+    - provisioningState
+    - type

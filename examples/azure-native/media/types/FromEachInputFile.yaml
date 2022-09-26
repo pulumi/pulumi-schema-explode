@@ -1,0 +1,38 @@
+$token: azure-native:media:FromEachInputFile
+description: An InputDefinition that looks at each input file provided to select tracks specified by the IncludedTracks property. Generally used with the AudioTrackByAttribute and VideoTrackByAttribute to select tracks from each file given.
+properties:
+  includedTracks:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:media:AudioTrackDescriptor"
+        - type: object
+          $ref: "#/types/azure-native:media:SelectAudioTrackByAttribute"
+        - type: object
+          $ref: "#/types/azure-native:media:SelectAudioTrackById"
+        - type: object
+          $ref: "#/types/azure-native:media:SelectVideoTrackByAttribute"
+        - type: object
+          $ref: "#/types/azure-native:media:SelectVideoTrackById"
+        - type: object
+          $ref: "#/types/azure-native:media:VideoTrackDescriptor"
+      discriminator:
+        propertyName: odataType
+        mapping:
+          "#Microsoft.Media.AudioTrackDescriptor": "#/types/azure-native:media:AudioTrackDescriptor"
+          "#Microsoft.Media.SelectAudioTrackByAttribute": "#/types/azure-native:media:SelectAudioTrackByAttribute"
+          "#Microsoft.Media.SelectAudioTrackById": "#/types/azure-native:media:SelectAudioTrackById"
+          "#Microsoft.Media.SelectVideoTrackByAttribute": "#/types/azure-native:media:SelectVideoTrackByAttribute"
+          "#Microsoft.Media.SelectVideoTrackById": "#/types/azure-native:media:SelectVideoTrackById"
+          "#Microsoft.Media.VideoTrackDescriptor": "#/types/azure-native:media:VideoTrackDescriptor"
+    description: The list of TrackDescriptors which define the metadata and selection of tracks in the input.
+  odataType:
+    type: string
+    description: |-
+      The discriminator for derived types.
+      Expected value is '#Microsoft.Media.FromEachInputFile'.
+    const: "#Microsoft.Media.FromEachInputFile"
+type: object
+required:
+  - odataType

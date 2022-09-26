@@ -1,0 +1,113 @@
+$token: azure-native:customerinsights:getPrediction
+description: |-
+  The prediction resource format.
+  API Version: 2017-04-26.
+inputs:
+  properties:
+    hubName:
+      type: string
+      description: The name of the hub.
+    predictionName:
+      type: string
+      description: The name of the Prediction.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - hubName
+    - predictionName
+    - resourceGroupName
+outputs:
+  description: The prediction resource format.
+  properties:
+    autoAnalyze:
+      type: boolean
+      description: Whether do auto analyze.
+    description:
+      type: object
+      additionalProperties:
+        type: string
+      description: Description of the prediction.
+    displayName:
+      type: object
+      additionalProperties:
+        type: string
+      description: Display name of the prediction.
+    grades:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:customerinsights:PredictionResponseGrades"
+      description: The prediction grades.
+    id:
+      type: string
+      description: Resource ID.
+    involvedInteractionTypes:
+      type: array
+      items:
+        type: string
+      description: Interaction types involved in the prediction.
+    involvedKpiTypes:
+      type: array
+      items:
+        type: string
+      description: KPI types involved in the prediction.
+    involvedRelationships:
+      type: array
+      items:
+        type: string
+      description: Relationships involved in the prediction.
+    mappings:
+      type: object
+      $ref: "#/types/azure-native:customerinsights:PredictionResponseMappings"
+      description: Definition of the link mapping of prediction.
+    name:
+      type: string
+      description: Resource name.
+    negativeOutcomeExpression:
+      type: string
+      description: Negative outcome expression.
+    positiveOutcomeExpression:
+      type: string
+      description: Positive outcome expression.
+    predictionName:
+      type: string
+      description: Name of the prediction.
+    primaryProfileType:
+      type: string
+      description: Primary profile type.
+    provisioningState:
+      type: string
+      description: Provisioning state.
+    scopeExpression:
+      type: string
+      description: Scope expression.
+    scoreLabel:
+      type: string
+      description: Score label.
+    systemGeneratedEntities:
+      type: object
+      $ref: "#/types/azure-native:customerinsights:PredictionResponseSystemGeneratedEntities"
+      description: System generated entities.
+    tenantId:
+      type: string
+      description: The hub name.
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - autoAnalyze
+    - id
+    - mappings
+    - name
+    - negativeOutcomeExpression
+    - positiveOutcomeExpression
+    - primaryProfileType
+    - provisioningState
+    - scopeExpression
+    - scoreLabel
+    - systemGeneratedEntities
+    - tenantId
+    - type

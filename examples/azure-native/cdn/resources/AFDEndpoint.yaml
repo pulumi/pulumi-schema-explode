@@ -1,0 +1,79 @@
+$token: azure-native:cdn:AFDEndpoint
+description: |-
+  CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The AzureFrontDoor endpoint uses the URL format <endpointname>.azureedge.net.
+  API Version: 2020-09-01.
+properties:
+  deploymentStatus:
+    type: string
+  enabledState:
+    type: string
+    description: Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
+  hostName:
+    type: string
+    description: The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
+  location:
+    type: string
+    description: Resource location.
+  name:
+    type: string
+    description: Resource name.
+  originResponseTimeoutSeconds:
+    type: integer
+    description: Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
+  provisioningState:
+    type: string
+    description: Provisioning status
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:cdn:SystemDataResponse"
+    description: Read only system data
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - deploymentStatus
+  - hostName
+  - location
+  - name
+  - provisioningState
+  - systemData
+  - type
+inputProperties:
+  enabledState:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:cdn:EnabledState"
+    description: Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
+  endpointName:
+    type: string
+    description: Name of the endpoint under the profile which is unique globally.
+  location:
+    type: string
+    description: Resource location.
+  originResponseTimeoutSeconds:
+    type: integer
+    description: Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
+  profileName:
+    type: string
+    description: Name of the CDN profile which is unique within the resource group.
+  resourceGroupName:
+    type: string
+    description: Name of the Resource group within the Azure subscription.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - profileName
+  - resourceGroupName
+aliases:
+  - type: azure-native:cdn/v20200901:AFDEndpoint
+  - type: azure-native:cdn/v20210601:AFDEndpoint
+  - type: azure-native:cdn/v20220501preview:AFDEndpoint

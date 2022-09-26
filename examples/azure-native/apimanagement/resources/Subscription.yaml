@@ -1,0 +1,122 @@
+$token: azure-native:apimanagement:Subscription
+description: |-
+  Subscription details.
+  API Version: 2020-12-01.
+properties:
+  allowTracing:
+    type: boolean
+    description: Determines whether tracing is enabled
+  createdDate:
+    type: string
+    description: |
+      Subscription creation date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+  displayName:
+    type: string
+    description: The name of the subscription, or null if the subscription has no name.
+  endDate:
+    type: string
+    description: |
+      Date when subscription was cancelled or expired. The setting is for audit purposes only and the subscription is not automatically cancelled. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+  expirationDate:
+    type: string
+    description: |
+      Subscription expiration date. The setting is for audit purposes only and the subscription is not automatically expired. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+  name:
+    type: string
+    description: Resource name.
+  notificationDate:
+    type: string
+    description: |
+      Upcoming subscription expiration notification date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+  ownerId:
+    type: string
+    description: The user resource identifier of the subscription owner. The value is a valid relative URL in the format of /users/{userId} where {userId} is a user identifier.
+  primaryKey:
+    type: string
+    description: Subscription primary key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
+  scope:
+    type: string
+    description: Scope like /products/{productId} or /apis or /apis/{apiId}.
+  secondaryKey:
+    type: string
+    description: Subscription secondary key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
+  startDate:
+    type: string
+    description: |
+      Subscription activation date. The setting is for audit purposes only and the subscription is not automatically activated. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+  state:
+    type: string
+    description: Subscription state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
+  stateComment:
+    type: string
+    description: Optional subscription comment added by an administrator when the state is changed to the 'rejected'.
+  type:
+    type: string
+    description: Resource type for API Management resource.
+type: object
+required:
+  - createdDate
+  - name
+  - scope
+  - state
+  - type
+inputProperties:
+  allowTracing:
+    type: boolean
+    description: Determines whether tracing can be enabled
+  appType:
+    type: string
+    description: Determines the type of application which send the create user request. Default is legacy publisher portal.
+  displayName:
+    type: string
+    description: Subscription name.
+  notify:
+    type: boolean
+    description: |-
+      Notify change in Subscription State. 
+       - If false, do not send any email notification for change of state of subscription 
+       - If true, send email notification of change of state of subscription 
+  ownerId:
+    type: string
+    description: User (user id path) for whom subscription is being created in form /users/{userId}
+  primaryKey:
+    type: string
+    description: Primary subscription key. If not specified during request key will be generated automatically.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  scope:
+    type: string
+    description: Scope like /products/{productId} or /apis or /apis/{apiId}.
+  secondaryKey:
+    type: string
+    description: Secondary subscription key. If not specified during request key will be generated automatically.
+  serviceName:
+    type: string
+    description: The name of the API Management service.
+  sid:
+    type: string
+    description: Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
+  state:
+    $ref: "#/types/azure-native:apimanagement:SubscriptionState"
+    description: Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
+requiredInputs:
+  - displayName
+  - resourceGroupName
+  - scope
+  - serviceName
+aliases:
+  - type: azure-native:apimanagement/v20160707:Subscription
+  - type: azure-native:apimanagement/v20161010:Subscription
+  - type: azure-native:apimanagement/v20170301:Subscription
+  - type: azure-native:apimanagement/v20180101:Subscription
+  - type: azure-native:apimanagement/v20180601preview:Subscription
+  - type: azure-native:apimanagement/v20190101:Subscription
+  - type: azure-native:apimanagement/v20191201:Subscription
+  - type: azure-native:apimanagement/v20191201preview:Subscription
+  - type: azure-native:apimanagement/v20200601preview:Subscription
+  - type: azure-native:apimanagement/v20201201:Subscription
+  - type: azure-native:apimanagement/v20210101preview:Subscription
+  - type: azure-native:apimanagement/v20210401preview:Subscription
+  - type: azure-native:apimanagement/v20210801:Subscription
+  - type: azure-native:apimanagement/v20211201preview:Subscription

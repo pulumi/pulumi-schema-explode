@@ -1,0 +1,84 @@
+$token: azure-native:cognitiveservices/v20211001:Account
+description: Cognitive Services account is an Azure resource representing the provisioned account, it's type, location and SKU.
+properties:
+  etag:
+    type: string
+    description: Resource Etag.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:cognitiveservices/v20211001:IdentityResponse"
+    description: Identity for the resource.
+  kind:
+    type: string
+    description: The Kind of the resource.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  name:
+    type: string
+    description: The name of the resource
+  properties:
+    type: object
+    $ref: "#/types/azure-native:cognitiveservices/v20211001:AccountPropertiesResponse"
+    description: Properties of Cognitive Services account.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:cognitiveservices/v20211001:SkuResponse"
+    description: The resource model definition representing SKU
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:cognitiveservices/v20211001:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - etag
+  - name
+  - properties
+  - systemData
+  - type
+inputProperties:
+  accountName:
+    type: string
+    description: The name of Cognitive Services account.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:cognitiveservices/v20211001:Identity"
+    description: Identity for the resource.
+  kind:
+    type: string
+    description: The Kind of the resource.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  properties:
+    type: object
+    $ref: "#/types/azure-native:cognitiveservices/v20211001:AccountProperties"
+    description: Properties of Cognitive Services account.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:cognitiveservices/v20211001:Sku"
+    description: The resource model definition representing SKU
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:cognitiveservices:Account
+  - type: azure-native:cognitiveservices/v20160201preview:Account
+  - type: azure-native:cognitiveservices/v20170418:Account
+  - type: azure-native:cognitiveservices/v20210430:Account
+  - type: azure-native:cognitiveservices/v20220301:Account

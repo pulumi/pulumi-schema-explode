@@ -1,0 +1,51 @@
+$token: azure-native:authorization/v20190901:getPolicyDefinition
+description: The policy definition.
+inputs:
+  properties:
+    policyDefinitionName:
+      type: string
+      description: The name of the policy definition to get.
+  type: object
+  required:
+    - policyDefinitionName
+outputs:
+  description: The policy definition.
+  properties:
+    description:
+      type: string
+      description: The policy definition description.
+    displayName:
+      type: string
+      description: The display name of the policy definition.
+    id:
+      type: string
+      description: The ID of the policy definition.
+    metadata:
+      $ref: pulumi.json#/Any
+      description: The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
+    mode:
+      type: string
+      description: The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
+    name:
+      type: string
+      description: The name of the policy definition.
+    parameters:
+      type: object
+      additionalProperties:
+        type: object
+        $ref: "#/types/azure-native:authorization/v20190901:ParameterDefinitionsValueResponse"
+      description: The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
+    policyRule:
+      $ref: pulumi.json#/Any
+      description: The policy rule.
+    policyType:
+      type: string
+      description: The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+    type:
+      type: string
+      description: The type of the resource (Microsoft.Authorization/policyDefinitions).
+  type: object
+  required:
+    - id
+    - name
+    - type

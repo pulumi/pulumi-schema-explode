@@ -1,0 +1,21 @@
+$token: azure-native:servicefabric/v20220801preview:VmssDataDiskResponse
+description: Managed data disk description.
+properties:
+  diskLetter:
+    type: string
+    description: Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
+  diskSizeGB:
+    type: integer
+    description: Disk size for each vm in the node type in GBs.
+  diskType:
+    type: string
+    description: Managed data disk type. Specifies the storage account type for the managed disk
+  lun:
+    type: integer
+    description: Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM. Lun 0 is reserved for the service fabric data disk.
+type: object
+required:
+  - diskLetter
+  - diskSizeGB
+  - diskType
+  - lun

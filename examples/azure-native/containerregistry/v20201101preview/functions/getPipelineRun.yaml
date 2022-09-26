@@ -1,0 +1,56 @@
+$token: azure-native:containerregistry/v20201101preview:getPipelineRun
+description: An object that represents a pipeline run for a container registry.
+inputs:
+  properties:
+    pipelineRunName:
+      type: string
+      description: The name of the pipeline run.
+    registryName:
+      type: string
+      description: The name of the container registry.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group to which the container registry belongs.
+  type: object
+  required:
+    - pipelineRunName
+    - registryName
+    - resourceGroupName
+outputs:
+  description: An object that represents a pipeline run for a container registry.
+  properties:
+    forceUpdateTag:
+      type: string
+      description: How the pipeline run should be forced to recreate even if the pipeline run configuration has not changed.
+    id:
+      type: string
+      description: The resource ID.
+    name:
+      type: string
+      description: The name of the resource.
+    provisioningState:
+      type: string
+      description: The provisioning state of a pipeline run.
+    request:
+      type: object
+      $ref: "#/types/azure-native:containerregistry/v20201101preview:PipelineRunRequestResponse"
+      description: The request parameters for a pipeline run.
+    response:
+      type: object
+      $ref: "#/types/azure-native:containerregistry/v20201101preview:PipelineRunResponseResponse"
+      description: The response of a pipeline run.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:containerregistry/v20201101preview:SystemDataResponse"
+      description: Metadata pertaining to creation and last modification of the resource.
+    type:
+      type: string
+      description: The type of the resource.
+  type: object
+  required:
+    - id
+    - name
+    - provisioningState
+    - response
+    - systemData
+    - type

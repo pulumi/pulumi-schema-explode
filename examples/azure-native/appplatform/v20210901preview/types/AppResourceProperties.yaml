@@ -1,0 +1,41 @@
+$token: azure-native:appplatform/v20210901preview:AppResourceProperties
+description: App resource properties payload
+properties:
+  activeDeploymentName:
+    type: string
+    description: Name of the active deployment of the App
+  customPersistentDisks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:appplatform/v20210901preview:CustomPersistentDiskResource"
+    description: List of custom persistent disks
+  enableEndToEndTLS:
+    type: boolean
+    description: Indicate if end to end TLS is enabled.
+    default: false
+  fqdn:
+    type: string
+    description: Fully qualified dns Name.
+  httpsOnly:
+    type: boolean
+    description: Indicate if only https is allowed.
+    default: false
+  loadedCertificates:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:appplatform/v20210901preview:LoadedCertificate"
+    description: Collection of loaded certificates
+  persistentDisk:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20210901preview:PersistentDisk"
+    description: Persistent disk settings
+  public:
+    type: boolean
+    description: Indicates whether the App exposes public endpoint
+  temporaryDisk:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20210901preview:TemporaryDisk"
+    description: Temporary disk settings
+type: object

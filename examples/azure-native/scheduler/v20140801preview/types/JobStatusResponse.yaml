@@ -1,0 +1,24 @@
+$token: azure-native:scheduler/v20140801preview:JobStatusResponse
+properties:
+  executionCount:
+    type: integer
+    description: Gets the number of times this job has executed.
+  failureCount:
+    type: integer
+    description: Gets the number of times this job has failed.
+  faultedCount:
+    type: integer
+    description: Gets the number of faulted occurrences (occurrences that were retried and failed as many times as the retry policy states).
+  lastExecutionTime:
+    type: string
+    description: Gets the time the last occurrence executed in ISO-8601 format.  Could be empty if job has not run yet.
+  nextExecutionTime:
+    type: string
+    description: Gets the time of the next occurrence in ISO-8601 format. Could be empty if the job is completed.
+type: object
+required:
+  - executionCount
+  - failureCount
+  - faultedCount
+  - lastExecutionTime
+  - nextExecutionTime

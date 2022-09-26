@@ -1,0 +1,59 @@
+$token: azure-native:securityinsights:SentinelOnboardingState
+description: |-
+  Sentinel onboarding state
+  API Version: 2021-03-01-preview.
+properties:
+  customerManagedKey:
+    type: boolean
+    description: Flag that indicates the status of the CMK setting
+  etag:
+    type: string
+    description: Etag of the azure resource
+  name:
+    type: string
+    description: Azure resource name
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:securityinsights:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  type:
+    type: string
+    description: Azure resource type
+type: object
+required:
+  - name
+  - systemData
+  - type
+inputProperties:
+  customerManagedKey:
+    type: boolean
+    description: Flag that indicates the status of the CMK setting
+  operationalInsightsResourceProvider:
+    type: string
+    description: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  sentinelOnboardingStateName:
+    type: string
+    description: The Sentinel onboarding state name. Supports - default
+  workspaceName:
+    type: string
+    description: The name of the workspace.
+requiredInputs:
+  - operationalInsightsResourceProvider
+  - resourceGroupName
+  - workspaceName
+aliases:
+  - type: azure-native:securityinsights/v20210301preview:SentinelOnboardingState
+  - type: azure-native:securityinsights/v20210901preview:SentinelOnboardingState
+  - type: azure-native:securityinsights/v20211001:SentinelOnboardingState
+  - type: azure-native:securityinsights/v20211001preview:SentinelOnboardingState
+  - type: azure-native:securityinsights/v20220101preview:SentinelOnboardingState
+  - type: azure-native:securityinsights/v20220401preview:SentinelOnboardingState
+  - type: azure-native:securityinsights/v20220501preview:SentinelOnboardingState
+  - type: azure-native:securityinsights/v20220601preview:SentinelOnboardingState
+  - type: azure-native:securityinsights/v20220701preview:SentinelOnboardingState
+  - type: azure-native:securityinsights/v20220801:SentinelOnboardingState
+  - type: azure-native:securityinsights/v20220801preview:SentinelOnboardingState
+  - type: azure-native:securityinsights/v20220901preview:SentinelOnboardingState

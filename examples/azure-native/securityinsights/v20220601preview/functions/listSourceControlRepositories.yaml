@@ -1,0 +1,30 @@
+$token: azure-native:securityinsights/v20220601preview:listSourceControlRepositories
+description: List all the source controls.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    workspaceName:
+      type: string
+      description: The name of the workspace.
+  type: object
+  required:
+    - resourceGroupName
+    - workspaceName
+outputs:
+  description: List all the source controls.
+  properties:
+    nextLink:
+      type: string
+      description: URL to fetch the next set of repositories.
+    value:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:securityinsights/v20220601preview:RepoResponse"
+      description: Array of repositories.
+  type: object
+  required:
+    - nextLink
+    - value

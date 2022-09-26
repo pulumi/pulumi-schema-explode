@@ -1,0 +1,43 @@
+$token: azure-native:datafactory/v20180601:ManagedIntegrationRuntimeStatusResponse
+description: Managed integration runtime status.
+properties:
+  createTime:
+    type: string
+    description: The time at which the integration runtime was created, in ISO8601 format.
+  dataFactoryName:
+    type: string
+    description: The data factory name which the integration runtime belong to.
+  lastOperation:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20180601:ManagedIntegrationRuntimeOperationResultResponse"
+    description: The last operation result that occurred on this integration runtime.
+  nodes:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20180601:ManagedIntegrationRuntimeNodeResponse"
+    description: The list of nodes for managed integration runtime.
+  otherErrors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20180601:ManagedIntegrationRuntimeErrorResponse"
+    description: The errors that occurred on this integration runtime.
+  state:
+    type: string
+    description: The state of integration runtime.
+  type:
+    type: string
+    description: |-
+      The type of integration runtime.
+      Expected value is 'Managed'.
+    const: Managed
+type: object
+required:
+  - createTime
+  - dataFactoryName
+  - lastOperation
+  - nodes
+  - otherErrors
+  - state
+  - type

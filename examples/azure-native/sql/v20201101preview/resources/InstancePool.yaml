@@ -1,0 +1,84 @@
+$token: azure-native:sql/v20201101preview:InstancePool
+description: An Azure SQL instance pool.
+properties:
+  licenseType:
+    type: string
+    description: The license type. Possible values are 'LicenseIncluded' (price for SQL license is included) and 'BasePrice' (without SQL license price).
+  location:
+    type: string
+    description: Resource location.
+  name:
+    type: string
+    description: Resource name.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:sql/v20201101preview:SkuResponse"
+    description: The name and tier of the SKU.
+  subnetId:
+    type: string
+    description: Resource ID of the subnet to place this instance pool in.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: Resource type.
+  vCores:
+    type: integer
+    description: Count of vCores belonging to this instance pool.
+type: object
+required:
+  - licenseType
+  - location
+  - name
+  - subnetId
+  - type
+  - vCores
+inputProperties:
+  instancePoolName:
+    type: string
+    description: The name of the instance pool to be created or updated.
+  licenseType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:sql/v20201101preview:InstancePoolLicenseType"
+    description: The license type. Possible values are 'LicenseIncluded' (price for SQL license is included) and 'BasePrice' (without SQL license price).
+  location:
+    type: string
+    description: Resource location.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:sql/v20201101preview:Sku"
+    description: The name and tier of the SKU.
+  subnetId:
+    type: string
+    description: Resource ID of the subnet to place this instance pool in.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  vCores:
+    type: integer
+    description: Count of vCores belonging to this instance pool.
+requiredInputs:
+  - licenseType
+  - resourceGroupName
+  - subnetId
+  - vCores
+aliases:
+  - type: azure-native:sql:InstancePool
+  - type: azure-native:sql/v20180601preview:InstancePool
+  - type: azure-native:sql/v20200202preview:InstancePool
+  - type: azure-native:sql/v20200801preview:InstancePool
+  - type: azure-native:sql/v20210201preview:InstancePool
+  - type: azure-native:sql/v20210501preview:InstancePool
+  - type: azure-native:sql/v20210801preview:InstancePool
+  - type: azure-native:sql/v20211101:InstancePool
+  - type: azure-native:sql/v20211101preview:InstancePool
+  - type: azure-native:sql/v20220201preview:InstancePool

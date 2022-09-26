@@ -1,0 +1,43 @@
+$token: azure-native:labservices:EnvironmentDetailsResponse
+description: This represents the details about a User's environment and its state.
+properties:
+  description:
+    type: string
+    description: Description of the Environment
+  environmentState:
+    type: string
+    description: Publishing state of the environment setting Possible values are Creating, Created, Failed
+  id:
+    type: string
+    description: Resource Id of the environment
+  latestOperationResult:
+    type: object
+    $ref: "#/types/azure-native:labservices:LatestOperationResultResponse"
+    description: "The details of the latest operation. ex: status, error"
+  name:
+    type: string
+    description: Name of the Environment
+  passwordLastReset:
+    type: string
+    description: When the password was last reset on the environment.
+  provisioningState:
+    type: string
+    description: The provisioning state of the environment. This also includes LabIsFull and NotYetProvisioned status.
+  totalUsage:
+    type: string
+    description: How long the environment has been used by a lab user
+  virtualMachineDetails:
+    type: object
+    $ref: "#/types/azure-native:labservices:VirtualMachineDetailsResponse"
+    description: Details of backing DTL virtual machine with compute and network details.
+type: object
+required:
+  - description
+  - environmentState
+  - id
+  - latestOperationResult
+  - name
+  - passwordLastReset
+  - provisioningState
+  - totalUsage
+  - virtualMachineDetails

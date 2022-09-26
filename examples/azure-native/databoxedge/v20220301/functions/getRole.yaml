@@ -1,0 +1,45 @@
+$token: azure-native:databoxedge/v20220301:getRole
+description: Compute role.
+inputs:
+  properties:
+    deviceName:
+      type: string
+      description: The device name.
+    name:
+      type: string
+      description: The role name.
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+  type: object
+  required:
+    - deviceName
+    - name
+    - resourceGroupName
+outputs:
+  description: Compute role.
+  properties:
+    id:
+      type: string
+      description: The path ID that uniquely identifies the object.
+    kind:
+      type: string
+      description: Role type.
+    name:
+      type: string
+      description: The object name.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:databoxedge/v20220301:SystemDataResponse"
+      description: Metadata pertaining to creation and last modification of Role
+    type:
+      type: string
+      description: The hierarchical type of the object.
+  type: object
+  required:
+    - id
+    - kind
+    - name
+    - systemData
+    - type
+deprecationMessage: "Please use one of the variants: CloudEdgeManagementRole, IoTRole, KubernetesRole, MECRole."

@@ -1,0 +1,36 @@
+$token: azure-native:network/v20190901:PrivateEndpointConnectionResponse
+description: PrivateEndpointConnection resource.
+properties:
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  id:
+    type: string
+    description: Resource ID.
+  linkIdentifier:
+    type: string
+    description: The consumer link id.
+  name:
+    type: string
+    description: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+  privateEndpoint:
+    type: object
+    $ref: "#/types/azure-native:network/v20190901:PrivateEndpointResponse"
+    description: The resource of private end point.
+  privateLinkServiceConnectionState:
+    type: object
+    $ref: "#/types/azure-native:network/v20190901:PrivateLinkServiceConnectionStateResponse"
+    description: A collection of information about the state of the connection between service consumer and provider.
+  provisioningState:
+    type: string
+    description: The provisioning state of the private endpoint connection resource.
+  type:
+    type: string
+    description: The resource type.
+type: object
+required:
+  - etag
+  - linkIdentifier
+  - privateEndpoint
+  - provisioningState
+  - type

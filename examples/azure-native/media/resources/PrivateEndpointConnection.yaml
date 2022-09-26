@@ -1,0 +1,50 @@
+$token: azure-native:media:PrivateEndpointConnection
+description: |-
+  The Private Endpoint Connection resource.
+  API Version: 2020-05-01.
+properties:
+  name:
+    type: string
+    description: The name of the resource
+  privateEndpoint:
+    type: object
+    $ref: "#/types/azure-native:media:PrivateEndpointResponse"
+    description: The resource of private end point.
+  privateLinkServiceConnectionState:
+    type: object
+    $ref: "#/types/azure-native:media:PrivateLinkServiceConnectionStateResponse"
+    description: A collection of information about the state of the connection between service consumer and provider.
+  provisioningState:
+    type: string
+    description: The provisioning state of the private endpoint connection resource.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - name
+  - privateLinkServiceConnectionState
+  - provisioningState
+  - type
+inputProperties:
+  accountName:
+    type: string
+    description: The Media Services account name.
+  name:
+    type: string
+  privateLinkServiceConnectionState:
+    type: object
+    $ref: "#/types/azure-native:media:PrivateLinkServiceConnectionState"
+    description: A collection of information about the state of the connection between service consumer and provider.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group within the Azure subscription.
+requiredInputs:
+  - accountName
+  - privateLinkServiceConnectionState
+  - resourceGroupName
+aliases:
+  - type: azure-native:media/v20200501:PrivateEndpointConnection
+  - type: azure-native:media/v20210501:PrivateEndpointConnection
+  - type: azure-native:media/v20210601:PrivateEndpointConnection
+  - type: azure-native:media/v20211101:PrivateEndpointConnection

@@ -1,0 +1,57 @@
+$token: azure-native:devops/v20200713preview:getPipeline
+description: Pipeline used to configure Continuous Integration (CI) & Continuous Delivery (CD) for Azure resources.
+inputs:
+  properties:
+    pipelineName:
+      type: string
+      description: The name of the Pipeline resource in ARM.
+    resourceGroupName:
+      type: string
+      description: Name of the resource group within the Azure subscription.
+  type: object
+  required:
+    - pipelineName
+    - resourceGroupName
+outputs:
+  description: Pipeline used to configure Continuous Integration (CI) & Continuous Delivery (CD) for Azure resources.
+  properties:
+    bootstrapConfiguration:
+      type: object
+      $ref: "#/types/azure-native:devops/v20200713preview:BootstrapConfigurationResponse"
+      description: Configuration used to bootstrap the Pipeline.
+    id:
+      type: string
+      description: Resource Id
+    location:
+      type: string
+      description: Resource Location
+    name:
+      type: string
+      description: Resource Name
+    pipelineId:
+      type: integer
+      description: Unique identifier of the Pipeline
+    pipelineType:
+      type: string
+      description: Specifies which CI/CD provider to use. Valid options are 'azurePipeline', 'githubWorkflow'.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:devops/v20200713preview:SystemDataResponse"
+      description: The system metadata pertaining to this resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource Tags
+    type:
+      type: string
+      description: Resource Type
+  type: object
+  required:
+    - bootstrapConfiguration
+    - id
+    - name
+    - pipelineId
+    - pipelineType
+    - systemData
+    - type

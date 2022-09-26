@@ -1,0 +1,95 @@
+$token: azure-native:kusto/v20190907:getCluster
+description: Class representing a Kusto cluster.
+inputs:
+  properties:
+    clusterName:
+      type: string
+      description: The name of the Kusto cluster.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group containing the Kusto cluster.
+  type: object
+  required:
+    - clusterName
+    - resourceGroupName
+outputs:
+  description: Class representing a Kusto cluster.
+  properties:
+    dataIngestionUri:
+      type: string
+      description: The cluster data ingestion URI.
+    enableDiskEncryption:
+      type: boolean
+      description: A boolean value that indicates if the cluster's disks are encrypted.
+    enableStreamingIngest:
+      type: boolean
+      description: A boolean value that indicates if the streaming ingest is enabled.
+      default: false
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    identity:
+      type: object
+      $ref: "#/types/azure-native:kusto/v20190907:IdentityResponse"
+      description: The identity of the cluster, if configured.
+    keyVaultProperties:
+      type: object
+      $ref: "#/types/azure-native:kusto/v20190907:KeyVaultPropertiesResponse"
+      description: KeyVault properties for the cluster encryption.
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    name:
+      type: string
+      description: The name of the resource
+    optimizedAutoscale:
+      type: object
+      $ref: "#/types/azure-native:kusto/v20190907:OptimizedAutoscaleResponse"
+      description: Optimized auto scale definition.
+    provisioningState:
+      type: string
+      description: The provisioned state of the resource.
+    sku:
+      type: object
+      $ref: "#/types/azure-native:kusto/v20190907:AzureSkuResponse"
+      description: The SKU of the cluster.
+    state:
+      type: string
+      description: The state of the resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    trustedExternalTenants:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:kusto/v20190907:TrustedExternalTenantResponse"
+      description: The cluster's external tenants.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+    uri:
+      type: string
+      description: The cluster URI.
+    virtualNetworkConfiguration:
+      type: object
+      $ref: "#/types/azure-native:kusto/v20190907:VirtualNetworkConfigurationResponse"
+      description: Virtual network definition.
+    zones:
+      type: array
+      items:
+        type: string
+      description: The availability zones of the cluster.
+  type: object
+  required:
+    - dataIngestionUri
+    - id
+    - location
+    - name
+    - provisioningState
+    - sku
+    - state
+    - type
+    - uri

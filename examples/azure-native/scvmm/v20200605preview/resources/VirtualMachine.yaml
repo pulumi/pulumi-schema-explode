@@ -1,0 +1,168 @@
+$token: azure-native:scvmm/v20200605preview:VirtualMachine
+description: The VirtualMachines resource definition.
+properties:
+  availabilitySets:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:scvmm/v20200605preview:VirtualMachinePropertiesResponseAvailabilitySets"
+    description: Availability Sets in vm.
+  checkpointType:
+    type: string
+    description: Type of checkpoint supported for the vm.
+  checkpoints:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:scvmm/v20200605preview:CheckpointResponse"
+    description: Checkpoints in the vm.
+  cloudId:
+    type: string
+    description: ARM Id of the cloud resource to use for deploying the vm.
+  extendedLocation:
+    type: object
+    $ref: "#/types/azure-native:scvmm/v20200605preview:ExtendedLocationResponse"
+    description: The extended location.
+  generation:
+    type: integer
+    description: Gets or sets the generation for the vm.
+  hardwareProfile:
+    type: object
+    $ref: "#/types/azure-native:scvmm/v20200605preview:HardwareProfileResponse"
+    description: Hardware properties.
+  inventoryItemId:
+    type: string
+    description: Gets or sets the inventory Item ID for the resource.
+  location:
+    type: string
+    description: Gets or sets the location.
+  name:
+    type: string
+    description: Resource Name
+  networkProfile:
+    type: object
+    $ref: "#/types/azure-native:scvmm/v20200605preview:NetworkProfileResponse"
+    description: Network properties.
+  osProfile:
+    type: object
+    $ref: "#/types/azure-native:scvmm/v20200605preview:OsProfileResponse"
+    description: OS properties.
+  powerState:
+    type: string
+    description: Gets the power state of the virtual machine.
+  provisioningState:
+    type: string
+    description: Gets or sets the provisioning state.
+  storageProfile:
+    type: object
+    $ref: "#/types/azure-native:scvmm/v20200605preview:StorageProfileResponse"
+    description: Storage properties.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:scvmm/v20200605preview:SystemDataResponse"
+    description: The system data.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  templateId:
+    type: string
+    description: ARM Id of the template resource to use for deploying the vm.
+  type:
+    type: string
+    description: Resource Type
+  uuid:
+    type: string
+    description: Unique ID of the virtual machine.
+  vmName:
+    type: string
+    description: VMName is the name of VM on the SCVMM server.
+  vmmServerId:
+    type: string
+    description: ARM Id of the vmmServer resource in which this resource resides.
+type: object
+required:
+  - extendedLocation
+  - location
+  - name
+  - powerState
+  - provisioningState
+  - systemData
+  - type
+inputProperties:
+  availabilitySets:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:scvmm/v20200605preview:VirtualMachinePropertiesAvailabilitySets"
+    description: Availability Sets in vm.
+  checkpointType:
+    type: string
+    description: Type of checkpoint supported for the vm.
+  checkpoints:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:scvmm/v20200605preview:Checkpoint"
+    description: Checkpoints in the vm.
+  cloudId:
+    type: string
+    description: ARM Id of the cloud resource to use for deploying the vm.
+  extendedLocation:
+    type: object
+    $ref: "#/types/azure-native:scvmm/v20200605preview:ExtendedLocation"
+    description: The extended location.
+  generation:
+    type: integer
+    description: Gets or sets the generation for the vm.
+  hardwareProfile:
+    type: object
+    $ref: "#/types/azure-native:scvmm/v20200605preview:HardwareProfile"
+    description: Hardware properties.
+  inventoryItemId:
+    type: string
+    description: Gets or sets the inventory Item ID for the resource.
+  location:
+    type: string
+    description: Gets or sets the location.
+  networkProfile:
+    type: object
+    $ref: "#/types/azure-native:scvmm/v20200605preview:NetworkProfile"
+    description: Network properties.
+  osProfile:
+    type: object
+    $ref: "#/types/azure-native:scvmm/v20200605preview:OsProfile"
+    description: OS properties.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  storageProfile:
+    type: object
+    $ref: "#/types/azure-native:scvmm/v20200605preview:StorageProfile"
+    description: Storage properties.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  templateId:
+    type: string
+    description: ARM Id of the template resource to use for deploying the vm.
+  uuid:
+    type: string
+    description: Unique ID of the virtual machine.
+  virtualMachineName:
+    type: string
+    description: Name of the VirtualMachine.
+  vmName:
+    type: string
+    description: VMName is the name of VM on the SCVMM server.
+  vmmServerId:
+    type: string
+    description: ARM Id of the vmmServer resource in which this resource resides.
+requiredInputs:
+  - extendedLocation
+  - resourceGroupName
+aliases:
+  - type: azure-native:scvmm:VirtualMachine

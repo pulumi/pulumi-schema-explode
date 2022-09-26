@@ -1,0 +1,36 @@
+$token: azure-native:documentdb/v20210701preview:GraphAPIComputeServiceResourcePropertiesResponse
+description: Properties for GraphAPIComputeServiceResource.
+properties:
+  creationTime:
+    type: string
+    description: Time of the last state change (ISO-8601 format).
+  graphApiComputeEndpoint:
+    type: string
+    description: GraphAPICompute endpoint for the service.
+  instanceCount:
+    type: integer
+    description: Instance count for the service.
+  instanceSize:
+    type: string
+    description: Instance type for the service.
+  locations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:documentdb/v20210701preview:GraphAPIComputeRegionalServiceResourceResponse"
+    description: An array that contains all of the locations for the service.
+  serviceType:
+    type: string
+    description: |-
+      ServiceType for the service.
+      Expected value is 'GraphAPICompute'.
+    const: GraphAPICompute
+  status:
+    type: string
+    description: Describes the status of a service.
+type: object
+required:
+  - creationTime
+  - locations
+  - serviceType
+  - status

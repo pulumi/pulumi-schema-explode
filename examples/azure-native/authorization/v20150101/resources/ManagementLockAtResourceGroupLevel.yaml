@@ -1,0 +1,44 @@
+$token: azure-native:authorization/v20150101:ManagementLockAtResourceGroupLevel
+description: Management lock information.
+properties:
+  level:
+    type: string
+    description: The lock level of the management lock.
+  name:
+    type: string
+    description: The name of the lock.
+  notes:
+    type: string
+    description: The notes of the management lock.
+  type:
+    type: string
+    description: The type of the lock.
+type: object
+required:
+  - type
+inputProperties:
+  level:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:authorization/v20150101:LockLevel"
+    description: The lock level of the management lock.
+  lockName:
+    type: string
+    description: The lock name.
+  name:
+    type: string
+    description: The name of the lock.
+  notes:
+    type: string
+    description: The notes of the management lock.
+  resourceGroupName:
+    type: string
+    description: The resource group name.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:authorization:ManagementLockAtResourceGroupLevel
+  - type: azure-native:authorization/v20160901:ManagementLockAtResourceGroupLevel
+  - type: azure-native:authorization/v20170401:ManagementLockAtResourceGroupLevel
+  - type: azure-native:authorization/v20200501:ManagementLockAtResourceGroupLevel
+deprecationMessage: Version 2015-01-01 will be removed in v2 of the provider.

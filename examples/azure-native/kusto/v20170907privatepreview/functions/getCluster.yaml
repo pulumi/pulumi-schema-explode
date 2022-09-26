@@ -1,0 +1,72 @@
+$token: azure-native:kusto/v20170907privatepreview:getCluster
+description: Class representing a Kusto cluster.
+inputs:
+  properties:
+    clusterName:
+      type: string
+      description: The name of the Kusto cluster.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group containing the Kusto cluster.
+  type: object
+  required:
+    - clusterName
+    - resourceGroupName
+outputs:
+  description: Class representing a Kusto cluster.
+  properties:
+    dataIngestionUri:
+      type: string
+      description: The cluster data ingestion URI.
+    etag:
+      type: string
+      description: An ETag of the resource created.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    name:
+      type: string
+      description: The name of the resource
+    provisioningState:
+      type: string
+      description: The provisioned state of the resource.
+    sku:
+      type: object
+      $ref: "#/types/azure-native:kusto/v20170907privatepreview:AzureSkuResponse"
+      description: The SKU of the cluster.
+    state:
+      type: string
+      description: The state of the resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    trustedExternalTenants:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:kusto/v20170907privatepreview:TrustedExternalTenantResponse"
+      description: The cluster's external tenants.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+    uri:
+      type: string
+      description: The cluster URI.
+  type: object
+  required:
+    - dataIngestionUri
+    - etag
+    - id
+    - location
+    - name
+    - provisioningState
+    - sku
+    - state
+    - type
+    - uri
+deprecationMessage: Version 2017-09-07-privatepreview will be removed in v2 of the provider.

@@ -1,0 +1,37 @@
+$token: azure-native:recoveryservices/v20160810:A2AEnableProtectionInput
+description: A2A enable protection input.
+properties:
+  fabricObjectId:
+    type: string
+    description: The fabric specific object Id of the virtual machine.
+  instanceType:
+    type: string
+    description: |-
+      The class type.
+      Expected value is 'A2A'.
+    const: A2A
+  recoveryAvailabilitySetId:
+    type: string
+    description: The recovery availability set Id.
+  recoveryCloudServiceId:
+    type: string
+    description: The recovery cloud service Id. Valid for V1 scenarios.
+  recoveryContainerId:
+    type: string
+    description: The recovery container Id.
+  recoveryResourceGroupId:
+    type: string
+    description: The recovery resource group Id. Valid for V2 scenarios.
+  vmDisks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:recoveryservices/v20160810:A2AVmDiskInputDetails"
+    description: The list of vm disk details.
+  vmManagedDisks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:recoveryservices/v20160810:A2AVmManagedDiskInputDetails"
+    description: The list of vm managed disk details.
+type: object

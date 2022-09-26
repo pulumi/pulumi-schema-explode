@@ -1,0 +1,34 @@
+$token: azure-native:hdinsight/v20210601:IPConfigurationResponse
+description: The ip configurations for the private link service.
+properties:
+  id:
+    type: string
+    description: The private link IP configuration id.
+  name:
+    type: string
+    description: The name of private link IP configuration.
+  primary:
+    type: boolean
+    description: Indicates whether this IP configuration is primary for the corresponding NIC.
+  privateIPAddress:
+    type: string
+    description: The IP address.
+  privateIPAllocationMethod:
+    type: string
+    description: The method that private IP address is allocated.
+  provisioningState:
+    type: string
+    description: The private link configuration provisioning state, which only appears in the response.
+  subnet:
+    type: object
+    $ref: "#/types/azure-native:hdinsight/v20210601:ResourceIdResponse"
+    description: The subnet resource id.
+  type:
+    type: string
+    description: The type of the private link IP configuration.
+type: object
+required:
+  - id
+  - name
+  - provisioningState
+  - type

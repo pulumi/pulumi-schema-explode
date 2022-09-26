@@ -1,0 +1,106 @@
+$token: azure-native:compute/v20201201:DedicatedHost
+description: Specifies information about the Dedicated host.
+properties:
+  autoReplaceOnFailure:
+    type: boolean
+    description: Specifies whether the dedicated host should be replaced automatically in case of a failure. The value is defaulted to 'true' when not provided.
+  hostId:
+    type: string
+    description: A unique id generated and assigned to the dedicated host by the platform. <br><br> Does not change throughout the lifetime of the host.
+  instanceView:
+    type: object
+    $ref: "#/types/azure-native:compute/v20201201:DedicatedHostInstanceViewResponse"
+    description: The dedicated host instance view.
+  licenseType:
+    type: string
+    description: "Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**"
+  location:
+    type: string
+    description: Resource location
+  name:
+    type: string
+    description: Resource name
+  platformFaultDomain:
+    type: integer
+    description: Fault domain of the dedicated host within a dedicated host group.
+  provisioningState:
+    type: string
+    description: The provisioning state, which only appears in the response.
+  provisioningTime:
+    type: string
+    description: The date when the host was first provisioned.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:compute/v20201201:SkuResponse"
+    description: SKU of the dedicated host for Hardware Generation and VM family. Only name is required to be set. List Microsoft.Compute SKUs for a list of possible values.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  type:
+    type: string
+    description: Resource type
+  virtualMachines:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:compute/v20201201:SubResourceReadOnlyResponse"
+    description: A list of references to all virtual machines in the Dedicated Host.
+type: object
+required:
+  - hostId
+  - instanceView
+  - location
+  - name
+  - provisioningState
+  - provisioningTime
+  - sku
+  - type
+  - virtualMachines
+inputProperties:
+  autoReplaceOnFailure:
+    type: boolean
+    description: Specifies whether the dedicated host should be replaced automatically in case of a failure. The value is defaulted to 'true' when not provided.
+  hostGroupName:
+    type: string
+    description: The name of the dedicated host group.
+  hostName:
+    type: string
+    description: The name of the dedicated host .
+  licenseType:
+    $ref: "#/types/azure-native:compute/v20201201:DedicatedHostLicenseTypes"
+    description: "Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**"
+  location:
+    type: string
+    description: Resource location
+  platformFaultDomain:
+    type: integer
+    description: Fault domain of the dedicated host within a dedicated host group.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:compute/v20201201:Sku"
+    description: SKU of the dedicated host for Hardware Generation and VM family. Only name is required to be set. List Microsoft.Compute SKUs for a list of possible values.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+requiredInputs:
+  - hostGroupName
+  - resourceGroupName
+  - sku
+aliases:
+  - type: azure-native:compute:DedicatedHost
+  - type: azure-native:compute/v20190301:DedicatedHost
+  - type: azure-native:compute/v20190701:DedicatedHost
+  - type: azure-native:compute/v20191201:DedicatedHost
+  - type: azure-native:compute/v20200601:DedicatedHost
+  - type: azure-native:compute/v20210301:DedicatedHost
+  - type: azure-native:compute/v20210401:DedicatedHost
+  - type: azure-native:compute/v20210701:DedicatedHost
+  - type: azure-native:compute/v20211101:DedicatedHost
+  - type: azure-native:compute/v20220301:DedicatedHost

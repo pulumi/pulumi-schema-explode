@@ -1,0 +1,47 @@
+$token: azure-native:securityinsights/v20220601preview:getThreatIntelligenceIndicator
+description: Threat intelligence information object.
+inputs:
+  properties:
+    name:
+      type: string
+      description: Threat intelligence indicator name field.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    workspaceName:
+      type: string
+      description: The name of the workspace.
+  type: object
+  required:
+    - name
+    - resourceGroupName
+    - workspaceName
+outputs:
+  description: Threat intelligence information object.
+  properties:
+    etag:
+      type: string
+      description: Etag of the azure resource
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    kind:
+      type: string
+      description: The kind of the entity.
+    name:
+      type: string
+      description: The name of the resource
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:securityinsights/v20220601preview:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - id
+    - kind
+    - name
+    - systemData
+    - type

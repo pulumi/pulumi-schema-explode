@@ -1,0 +1,20 @@
+$token: azure-native:storage/v20181101:Encryption
+description: The encryption settings on the storage account.
+properties:
+  keySource:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:storage/v20181101:KeySource"
+    description: "The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault"
+    default: Microsoft.Storage
+  keyVaultProperties:
+    type: object
+    $ref: "#/types/azure-native:storage/v20181101:KeyVaultProperties"
+    description: Properties provided by key vault.
+  services:
+    type: object
+    $ref: "#/types/azure-native:storage/v20181101:EncryptionServices"
+    description: List of services which support encryption.
+type: object
+required:
+  - keySource

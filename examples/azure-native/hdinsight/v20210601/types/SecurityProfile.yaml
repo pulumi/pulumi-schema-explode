@@ -1,0 +1,37 @@
+$token: azure-native:hdinsight/v20210601:SecurityProfile
+description: The security profile which contains Ssh public key for the HDInsight cluster.
+properties:
+  aaddsResourceId:
+    type: string
+    description: The resource ID of the user's Azure Active Directory Domain Service.
+  clusterUsersGroupDNs:
+    type: array
+    items:
+      type: string
+    description: Optional. The Distinguished Names for cluster user groups
+  directoryType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:hdinsight/v20210601:DirectoryType"
+    description: The directory type.
+  domain:
+    type: string
+    description: The organization's active directory domain.
+  domainUserPassword:
+    type: string
+    description: The domain admin password.
+  domainUsername:
+    type: string
+    description: The domain user account that will have admin privileges on the cluster.
+  ldapsUrls:
+    type: array
+    items:
+      type: string
+    description: The LDAPS protocol URLs to communicate with the Active Directory.
+  msiResourceId:
+    type: string
+    description: User assigned identity that has permissions to read and create cluster-related artifacts in the user's AADDS.
+  organizationalUnitDN:
+    type: string
+    description: The organizational unit within the Active Directory to place the cluster and service accounts.
+type: object

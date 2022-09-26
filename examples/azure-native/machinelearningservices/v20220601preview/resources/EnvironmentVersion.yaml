@@ -1,0 +1,50 @@
+$token: azure-native:machinelearningservices/v20220601preview:EnvironmentVersion
+description: Azure Resource Manager resource envelope.
+properties:
+  environmentVersionProperties:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:EnvironmentVersionResponse"
+    description: "[Required] Additional attributes of the entity."
+  name:
+    type: string
+    description: The name of the resource
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - environmentVersionProperties
+  - name
+  - systemData
+  - type
+inputProperties:
+  environmentVersionProperties:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:EnvironmentVersion"
+    description: "[Required] Additional attributes of the entity."
+  name:
+    type: string
+    description: Name of EnvironmentVersion. This is case-sensitive.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  version:
+    type: string
+    description: Version of EnvironmentVersion.
+  workspaceName:
+    type: string
+    description: Name of Azure Machine Learning workspace.
+requiredInputs:
+  - environmentVersionProperties
+  - name
+  - resourceGroupName
+  - workspaceName
+aliases:
+  - type: azure-native:machinelearningservices:EnvironmentVersion
+  - type: azure-native:machinelearningservices/v20210301preview:EnvironmentVersion
+  - type: azure-native:machinelearningservices/v20220201preview:EnvironmentVersion
+  - type: azure-native:machinelearningservices/v20220501:EnvironmentVersion

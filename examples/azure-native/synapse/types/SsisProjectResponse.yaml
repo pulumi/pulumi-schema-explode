@@ -1,0 +1,39 @@
+$token: azure-native:synapse:SsisProjectResponse
+description: Ssis project.
+properties:
+  description:
+    type: string
+    description: Metadata description.
+  environmentRefs:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:synapse:SsisEnvironmentReferenceResponse"
+    description: Environment reference in project
+  folderId:
+    type: number
+    description: Folder id which contains project.
+  id:
+    type: number
+    description: Metadata id.
+  name:
+    type: string
+    description: Metadata name.
+  parameters:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:synapse:SsisParameterResponse"
+    description: Parameters in project
+  type:
+    type: string
+    description: |-
+      The type of SSIS object metadata.
+      Expected value is 'Project'.
+    const: Project
+  version:
+    type: number
+    description: Project version.
+type: object
+required:
+  - type

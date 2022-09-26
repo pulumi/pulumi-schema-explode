@@ -1,0 +1,38 @@
+$token: azure-native:network/v20181101:AzureFirewallNatRule
+description: Properties of a NAT rule.
+properties:
+  description:
+    type: string
+    description: Description of the rule.
+  destinationAddresses:
+    type: array
+    items:
+      type: string
+    description: List of destination IP addresses for this rule.
+  destinationPorts:
+    type: array
+    items:
+      type: string
+    description: List of destination ports.
+  name:
+    type: string
+    description: Name of the NAT rule.
+  protocols:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:network/v20181101:AzureFirewallNetworkRuleProtocol"
+    description: Array of AzureFirewallNetworkRuleProtocols applicable to this NAT rule.
+  sourceAddresses:
+    type: array
+    items:
+      type: string
+    description: List of source IP addresses for this rule.
+  translatedAddress:
+    type: string
+    description: The translated address for this NAT rule.
+  translatedPort:
+    type: string
+    description: The translated port for this NAT rule.
+type: object

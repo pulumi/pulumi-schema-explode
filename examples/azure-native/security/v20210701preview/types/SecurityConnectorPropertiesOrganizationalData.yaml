@@ -1,0 +1,20 @@
+$token: azure-native:security/v20210701preview:SecurityConnectorPropertiesOrganizationalData
+description: The multi cloud account's organizational data
+properties:
+  excludedAccountIds:
+    type: array
+    items:
+      type: string
+    description: If the multi cloud account is of membership type organization, list of accounts excluded from offering
+  organizationMembershipType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:security/v20210701preview:OrganizationMembershipType"
+    description: The multi cloud account's membership type in the organization
+  parentHierarchyId:
+    type: string
+    description: If the multi cloud account is not of membership type organization, this will be the ID of the account's parent
+  stacksetName:
+    type: string
+    description: If the multi cloud account is of membership type organization, this will be the name of the onboarding stackset
+type: object

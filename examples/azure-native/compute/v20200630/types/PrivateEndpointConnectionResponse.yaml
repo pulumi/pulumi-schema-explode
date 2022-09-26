@@ -1,0 +1,30 @@
+$token: azure-native:compute/v20200630:PrivateEndpointConnectionResponse
+description: The Private Endpoint Connection resource.
+properties:
+  id:
+    type: string
+    description: private endpoint connection Id
+  name:
+    type: string
+    description: private endpoint connection name
+  privateEndpoint:
+    type: object
+    $ref: "#/types/azure-native:compute/v20200630:PrivateEndpointResponse"
+    description: The resource of private end point.
+  privateLinkServiceConnectionState:
+    type: object
+    $ref: "#/types/azure-native:compute/v20200630:PrivateLinkServiceConnectionStateResponse"
+    description: A collection of information about the state of the connection between DiskAccess and Virtual Network.
+  provisioningState:
+    type: string
+    description: The provisioning state of the private endpoint connection resource.
+  type:
+    type: string
+    description: private endpoint connection type
+type: object
+required:
+  - id
+  - name
+  - privateLinkServiceConnectionState
+  - provisioningState
+  - type

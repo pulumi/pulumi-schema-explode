@@ -1,0 +1,30 @@
+$token: azure-native:media:listStreamingLocatorContentKeys
+description: |-
+  Class of response for listContentKeys action
+  API Version: 2020-05-01.
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: The Media Services account name.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group within the Azure subscription.
+    streamingLocatorName:
+      type: string
+      description: The Streaming Locator name.
+  type: object
+  required:
+    - accountName
+    - resourceGroupName
+    - streamingLocatorName
+outputs:
+  description: Class of response for listContentKeys action
+  properties:
+    contentKeys:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:media:StreamingLocatorContentKeyResponse"
+      description: ContentKeys used by current Streaming Locator
+  type: object

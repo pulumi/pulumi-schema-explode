@@ -1,0 +1,61 @@
+$token: azure-native:containerregistry/v20210801preview:PipelineRun
+description: An object that represents a pipeline run for a container registry.
+properties:
+  forceUpdateTag:
+    type: string
+    description: How the pipeline run should be forced to recreate even if the pipeline run configuration has not changed.
+  name:
+    type: string
+    description: The name of the resource.
+  provisioningState:
+    type: string
+    description: The provisioning state of a pipeline run.
+  request:
+    type: object
+    $ref: "#/types/azure-native:containerregistry/v20210801preview:PipelineRunRequestResponse"
+    description: The request parameters for a pipeline run.
+  response:
+    type: object
+    $ref: "#/types/azure-native:containerregistry/v20210801preview:PipelineRunResponseResponse"
+    description: The response of a pipeline run.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:containerregistry/v20210801preview:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - name
+  - provisioningState
+  - response
+  - systemData
+  - type
+inputProperties:
+  forceUpdateTag:
+    type: string
+    description: How the pipeline run should be forced to recreate even if the pipeline run configuration has not changed.
+  pipelineRunName:
+    type: string
+    description: The name of the pipeline run.
+  registryName:
+    type: string
+    description: The name of the container registry.
+  request:
+    type: object
+    $ref: "#/types/azure-native:containerregistry/v20210801preview:PipelineRunRequest"
+    description: The request parameters for a pipeline run.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group to which the container registry belongs.
+requiredInputs:
+  - registryName
+  - resourceGroupName
+aliases:
+  - type: azure-native:containerregistry:PipelineRun
+  - type: azure-native:containerregistry/v20191201preview:PipelineRun
+  - type: azure-native:containerregistry/v20201101preview:PipelineRun
+  - type: azure-native:containerregistry/v20210601preview:PipelineRun
+  - type: azure-native:containerregistry/v20211201preview:PipelineRun
+  - type: azure-native:containerregistry/v20220201preview:PipelineRun

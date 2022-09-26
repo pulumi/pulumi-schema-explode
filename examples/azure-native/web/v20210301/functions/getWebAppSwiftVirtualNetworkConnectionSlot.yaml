@@ -1,0 +1,44 @@
+$token: azure-native:web/v20210301:getWebAppSwiftVirtualNetworkConnectionSlot
+description: Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
+inputs:
+  properties:
+    name:
+      type: string
+      description: Name of the app.
+    resourceGroupName:
+      type: string
+      description: Name of the resource group to which the resource belongs.
+    slot:
+      type: string
+      description: Name of the deployment slot. If a slot is not specified, the API will get a gateway for the production slot's Virtual Network.
+  type: object
+  required:
+    - name
+    - resourceGroupName
+    - slot
+outputs:
+  description: Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
+  properties:
+    id:
+      type: string
+      description: Resource Id.
+    kind:
+      type: string
+      description: Kind of resource.
+    name:
+      type: string
+      description: Resource Name.
+    subnetResourceId:
+      type: string
+      description: The Virtual Network subnet's resource ID. This is the subnet that this Web App will join. This subnet must have a delegation to Microsoft.Web/serverFarms defined first.
+    swiftSupported:
+      type: boolean
+      description: A flag that specifies if the scale unit this Web App is on supports Swift integration.
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - id
+    - name
+    - type

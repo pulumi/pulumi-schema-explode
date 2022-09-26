@@ -1,0 +1,39 @@
+$token: azure-native:streamanalytics/v20211001preview:AggregateFunctionProperties
+description: The properties that are associated with an aggregate function.
+properties:
+  binding:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:AzureMachineLearningServiceFunctionBinding"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:AzureMachineLearningStudioFunctionBinding"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:CSharpFunctionBinding"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:JavaScriptFunctionBinding"
+    discriminator:
+      propertyName: type
+      mapping:
+        Microsoft.MachineLearning/WebService: "#/types/azure-native:streamanalytics/v20211001preview:AzureMachineLearningStudioFunctionBinding"
+        Microsoft.MachineLearningServices: "#/types/azure-native:streamanalytics/v20211001preview:AzureMachineLearningServiceFunctionBinding"
+        Microsoft.StreamAnalytics/CLRUdf: "#/types/azure-native:streamanalytics/v20211001preview:CSharpFunctionBinding"
+        Microsoft.StreamAnalytics/JavascriptUdf: "#/types/azure-native:streamanalytics/v20211001preview:JavaScriptFunctionBinding"
+    description: The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
+  inputs:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:streamanalytics/v20211001preview:FunctionInput"
+  output:
+    type: object
+    $ref: "#/types/azure-native:streamanalytics/v20211001preview:FunctionOutput"
+    description: Describes the output of a function.
+  type:
+    type: string
+    description: |-
+      Indicates the type of function.
+      Expected value is 'Aggregate'.
+    const: Aggregate
+type: object
+required:
+  - type

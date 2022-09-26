@@ -1,0 +1,54 @@
+$token: azure-native:machinelearning:WebService
+description: |-
+  Instance of an Azure ML web service resource.
+  API Version: 2017-01-01.
+properties:
+  location:
+    type: string
+    description: Specifies the location of the resource.
+  name:
+    type: string
+    description: Specifies the name of the resource.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:machinelearning:WebServicePropertiesForGraphResponse"
+    description: Contains the property payload that describes the web service.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Contains resource tags defined as key/value pairs.
+  type:
+    type: string
+    description: Specifies the type of the resource.
+type: object
+required:
+  - location
+  - name
+  - properties
+  - type
+inputProperties:
+  location:
+    type: string
+    description: Specifies the location of the resource.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:machinelearning:WebServicePropertiesForGraph"
+    description: Contains the property payload that describes the web service.
+  resourceGroupName:
+    type: string
+    description: Name of the resource group in which the web service is located.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Contains resource tags defined as key/value pairs.
+  webServiceName:
+    type: string
+    description: The name of the web service.
+requiredInputs:
+  - properties
+  - resourceGroupName
+aliases:
+  - type: azure-native:machinelearning/v20160501preview:WebService
+  - type: azure-native:machinelearning/v20170101:WebService

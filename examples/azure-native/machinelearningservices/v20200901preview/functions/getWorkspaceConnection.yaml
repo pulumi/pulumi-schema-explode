@@ -1,0 +1,47 @@
+$token: azure-native:machinelearningservices/v20200901preview:getWorkspaceConnection
+description: Workspace connection.
+inputs:
+  properties:
+    connectionName:
+      type: string
+      description: Friendly name of the workspace connection
+    resourceGroupName:
+      type: string
+      description: Name of the resource group in which workspace is located.
+    workspaceName:
+      type: string
+      description: Name of Azure Machine Learning workspace.
+  type: object
+  required:
+    - connectionName
+    - resourceGroupName
+    - workspaceName
+outputs:
+  description: Workspace connection.
+  properties:
+    authType:
+      type: string
+      description: Authorization type of the workspace connection.
+    category:
+      type: string
+      description: Category of the workspace connection.
+    id:
+      type: string
+      description: ResourceId of the workspace connection.
+    name:
+      type: string
+      description: Friendly name of the workspace connection.
+    target:
+      type: string
+      description: Target of the workspace connection.
+    type:
+      type: string
+      description: Resource type of workspace connection.
+    value:
+      type: string
+      description: Value details of the workspace connection.
+  type: object
+  required:
+    - id
+    - name
+    - type

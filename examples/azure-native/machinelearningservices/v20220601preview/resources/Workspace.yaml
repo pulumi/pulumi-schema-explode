@@ -1,0 +1,244 @@
+$token: azure-native:machinelearningservices/v20220601preview:Workspace
+description: An object that represents a machine learning workspace.
+properties:
+  allowPublicAccessWhenBehindVnet:
+    type: boolean
+    description: The flag to indicate whether to allow public access when behind VNet.
+    default: false
+  applicationInsights:
+    type: string
+    description: ARM id of the application insights associated with this workspace.
+  containerRegistry:
+    type: string
+    description: ARM id of the container registry associated with this workspace.
+  description:
+    type: string
+    description: The description of this workspace.
+  discoveryUrl:
+    type: string
+    description: Url for the discovery service to identify regional endpoints for machine learning experimentation services
+  encryption:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:EncryptionPropertyResponse"
+    description: The encryption settings of Azure ML workspace.
+  friendlyName:
+    type: string
+    description: The friendly name for this workspace. This name in mutable
+  hbiWorkspace:
+    type: boolean
+    description: The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
+    default: false
+  identity:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:ManagedServiceIdentityResponse"
+    description: The identity of the resource.
+  imageBuildCompute:
+    type: string
+    description: The compute name for image build
+  keyVault:
+    type: string
+    description: ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
+  location:
+    type: string
+    description: Specifies the location of the resource.
+  mlFlowTrackingUri:
+    type: string
+    description: The URI associated with this workspace that machine learning flow must point at to set up tracking.
+  name:
+    type: string
+    description: The name of the resource
+  notebookInfo:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:NotebookResourceInfoResponse"
+    description: The notebook info of Azure ML workspace.
+  primaryUserAssignedIdentity:
+    type: string
+    description: The user assigned identity resource id that represents the workspace identity.
+  privateEndpointConnections:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20220601preview:PrivateEndpointConnectionResponse"
+    description: The list of private endpoint connections in the workspace.
+  privateLinkCount:
+    type: integer
+    description: Count of private connections in the workspace
+  provisioningState:
+    type: string
+    description: The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning.
+  publicNetworkAccess:
+    type: string
+    description: Whether requests from Public Network are allowed.
+  scheduledPurgeDate:
+    type: string
+    description: The timestamp when the soft deleted workspace is going to be purged
+  serviceManagedResourcesSettings:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:ServiceManagedResourcesSettingsResponse"
+    description: The service managed resource settings.
+  serviceProvisionedResourceGroup:
+    type: string
+    description: The name of the managed resource group created by workspace RP in customer subscription if the workspace is CMK workspace
+  sharedPrivateLinkResources:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20220601preview:SharedPrivateLinkResourceResponse"
+    description: The list of shared private link resources in this workspace.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:SkuResponse"
+    description: The sku of the workspace.
+  softDeletedAt:
+    type: string
+    description: The timestamp when the workspace was soft deleted
+  storageAccount:
+    type: string
+    description: ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
+  storageHnsEnabled:
+    type: boolean
+    description: If the storage associated with the workspace has hierarchical namespace(HNS) enabled.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Contains resource tags defined as key/value pairs.
+  tenantId:
+    type: string
+    description: The tenant id associated with this workspace.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  v1LegacyMode:
+    type: boolean
+    description: Enabling v1_legacy_mode may prevent you from using features provided by the v2 API.
+    default: false
+  workspaceId:
+    type: string
+    description: The immutable id associated with this workspace.
+type: object
+required:
+  - mlFlowTrackingUri
+  - name
+  - notebookInfo
+  - privateEndpointConnections
+  - privateLinkCount
+  - provisioningState
+  - scheduledPurgeDate
+  - serviceProvisionedResourceGroup
+  - softDeletedAt
+  - storageHnsEnabled
+  - systemData
+  - tenantId
+  - type
+  - workspaceId
+inputProperties:
+  allowPublicAccessWhenBehindVnet:
+    type: boolean
+    description: The flag to indicate whether to allow public access when behind VNet.
+    default: false
+  applicationInsights:
+    type: string
+    description: ARM id of the application insights associated with this workspace.
+  containerRegistry:
+    type: string
+    description: ARM id of the container registry associated with this workspace.
+  description:
+    type: string
+    description: The description of this workspace.
+  discoveryUrl:
+    type: string
+    description: Url for the discovery service to identify regional endpoints for machine learning experimentation services
+  encryption:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:EncryptionProperty"
+    description: The encryption settings of Azure ML workspace.
+  friendlyName:
+    type: string
+    description: The friendly name for this workspace. This name in mutable
+  hbiWorkspace:
+    type: boolean
+    description: The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
+    default: false
+  identity:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:ManagedServiceIdentity"
+    description: The identity of the resource.
+  imageBuildCompute:
+    type: string
+    description: The compute name for image build
+  keyVault:
+    type: string
+    description: ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
+  location:
+    type: string
+    description: Specifies the location of the resource.
+  primaryUserAssignedIdentity:
+    type: string
+    description: The user assigned identity resource id that represents the workspace identity.
+  publicNetworkAccess:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearningservices/v20220601preview:PublicNetworkAccess"
+    description: Whether requests from Public Network are allowed.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  serviceManagedResourcesSettings:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:ServiceManagedResourcesSettings"
+    description: The service managed resource settings.
+  sharedPrivateLinkResources:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20220601preview:SharedPrivateLinkResource"
+    description: The list of shared private link resources in this workspace.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:Sku"
+    description: The sku of the workspace.
+  storageAccount:
+    type: string
+    description: ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Contains resource tags defined as key/value pairs.
+  v1LegacyMode:
+    type: boolean
+    description: Enabling v1_legacy_mode may prevent you from using features provided by the v2 API.
+    default: false
+  workspaceName:
+    type: string
+    description: Name of Azure Machine Learning workspace.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:machinelearningservices:Workspace
+  - type: azure-native:machinelearningservices/v20180301preview:Workspace
+  - type: azure-native:machinelearningservices/v20181119:Workspace
+  - type: azure-native:machinelearningservices/v20190501:Workspace
+  - type: azure-native:machinelearningservices/v20190601:Workspace
+  - type: azure-native:machinelearningservices/v20191101:Workspace
+  - type: azure-native:machinelearningservices/v20200101:Workspace
+  - type: azure-native:machinelearningservices/v20200218preview:Workspace
+  - type: azure-native:machinelearningservices/v20200301:Workspace
+  - type: azure-native:machinelearningservices/v20200401:Workspace
+  - type: azure-native:machinelearningservices/v20200501preview:Workspace
+  - type: azure-native:machinelearningservices/v20200515preview:Workspace
+  - type: azure-native:machinelearningservices/v20200601:Workspace
+  - type: azure-native:machinelearningservices/v20200801:Workspace
+  - type: azure-native:machinelearningservices/v20200901preview:Workspace
+  - type: azure-native:machinelearningservices/v20210101:Workspace
+  - type: azure-native:machinelearningservices/v20210301preview:Workspace
+  - type: azure-native:machinelearningservices/v20210401:Workspace
+  - type: azure-native:machinelearningservices/v20210701:Workspace
+  - type: azure-native:machinelearningservices/v20220101preview:Workspace
+  - type: azure-native:machinelearningservices/v20220201preview:Workspace
+  - type: azure-native:machinelearningservices/v20220501:Workspace

@@ -1,0 +1,166 @@
+$token: azure-native:eventgrid:PartnerRegistration
+description: |-
+  Information about a partner registration.
+  API Version: 2021-06-01-preview.
+properties:
+  authorizedAzureSubscriptionIds:
+    type: array
+    items:
+      type: string
+    description: "List of Azure subscription Ids that are authorized to create a partner namespace\r
+
+      associated with this partner registration. This is an optional property. Creating\r
+
+      partner namespaces is always permitted under the same Azure subscription as the one used\r
+
+      for creating the partner registration."
+  customerServiceUri:
+    type: string
+    description: The extension of the customer service URI of the publisher.
+  location:
+    type: string
+    description: Location of the resource.
+  logoUri:
+    type: string
+    description: URI of the logo.
+  longDescription:
+    type: string
+    description: "Long description for the custom scenarios and integration to be displayed in the portal if needed.\r
+
+      Length of this description should not exceed 2048 characters."
+  name:
+    type: string
+    description: Name of the resource.
+  partnerCustomerServiceExtension:
+    type: string
+    description: The extension of the customer service number of the publisher. Only digits are allowed and number of digits should not exceed 10.
+  partnerCustomerServiceNumber:
+    type: string
+    description: "The customer service number of the publisher. The expected phone format should start with a '+' sign \r
+
+      followed by the country code. The remaining digits are then followed. Only digits and spaces are allowed and its\r
+
+      length cannot exceed 16 digits including country code. Examples of valid phone numbers are: +1 515 123 4567 and\r
+
+      +966 7 5115 2471. Examples of invalid phone numbers are: +1 (515) 123-4567, 1 515 123 4567 and +966 121 5115 24 7 551 1234 43"
+  partnerName:
+    type: string
+    description: 'Official name of the partner name. For example: "Contoso".'
+  partnerResourceTypeDescription:
+    type: string
+    description: Short description of the partner resource type. The length of this description should not exceed 256 characters.
+  partnerResourceTypeDisplayName:
+    type: string
+    description: Display name of the partner resource type.
+  partnerResourceTypeName:
+    type: string
+    description: Name of the partner resource type.
+  provisioningState:
+    type: string
+    description: Provisioning state of the partner registration.
+  setupUri:
+    type: string
+    description: "URI of the partner website that can be used by Azure customers to setup Event Grid\r
+
+      integration on an event source."
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:eventgrid:SystemDataResponse"
+    description: The system metadata relating to Partner Registration resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Tags of the resource.
+  type:
+    type: string
+    description: Type of the resource.
+  visibilityState:
+    type: string
+    description: Visibility state of the partner registration.
+type: object
+required:
+  - location
+  - name
+  - provisioningState
+  - systemData
+  - type
+inputProperties:
+  authorizedAzureSubscriptionIds:
+    type: array
+    items:
+      type: string
+    description: "List of Azure subscription Ids that are authorized to create a partner namespace\r
+
+      associated with this partner registration. This is an optional property. Creating\r
+
+      partner namespaces is always permitted under the same Azure subscription as the one used\r
+
+      for creating the partner registration."
+  customerServiceUri:
+    type: string
+    description: The extension of the customer service URI of the publisher.
+  location:
+    type: string
+    description: Location of the resource.
+  logoUri:
+    type: string
+    description: URI of the logo.
+  longDescription:
+    type: string
+    description: "Long description for the custom scenarios and integration to be displayed in the portal if needed.\r
+
+      Length of this description should not exceed 2048 characters."
+  partnerCustomerServiceExtension:
+    type: string
+    description: The extension of the customer service number of the publisher. Only digits are allowed and number of digits should not exceed 10.
+  partnerCustomerServiceNumber:
+    type: string
+    description: "The customer service number of the publisher. The expected phone format should start with a '+' sign \r
+
+      followed by the country code. The remaining digits are then followed. Only digits and spaces are allowed and its\r
+
+      length cannot exceed 16 digits including country code. Examples of valid phone numbers are: +1 515 123 4567 and\r
+
+      +966 7 5115 2471. Examples of invalid phone numbers are: +1 (515) 123-4567, 1 515 123 4567 and +966 121 5115 24 7 551 1234 43"
+  partnerName:
+    type: string
+    description: 'Official name of the partner name. For example: "Contoso".'
+  partnerRegistrationName:
+    type: string
+    description: Name of the partner registration.
+  partnerResourceTypeDescription:
+    type: string
+    description: Short description of the partner resource type. The length of this description should not exceed 256 characters.
+  partnerResourceTypeDisplayName:
+    type: string
+    description: Display name of the partner resource type.
+  partnerResourceTypeName:
+    type: string
+    description: Name of the partner resource type.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group within the user's subscription.
+  setupUri:
+    type: string
+    description: "URI of the partner website that can be used by Azure customers to setup Event Grid\r
+
+      integration on an event source."
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Tags of the resource.
+  visibilityState:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:eventgrid:PartnerRegistrationVisibilityState"
+    description: Visibility state of the partner registration.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:eventgrid/v20200401preview:PartnerRegistration
+  - type: azure-native:eventgrid/v20201015preview:PartnerRegistration
+  - type: azure-native:eventgrid/v20210601preview:PartnerRegistration
+  - type: azure-native:eventgrid/v20211015preview:PartnerRegistration
+  - type: azure-native:eventgrid/v20220615:PartnerRegistration

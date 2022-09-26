@@ -1,0 +1,17 @@
+$token: azure-native:security/v20200101:AssessmentStatus
+description: The result of the assessment
+properties:
+  cause:
+    type: string
+    description: Programmatic code for the cause of the assessment status
+  code:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:security/v20200101:AssessmentStatusCode"
+    description: Programmatic code for the status of the assessment
+  description:
+    type: string
+    description: Human readable description of the assessment status
+type: object
+required:
+  - code

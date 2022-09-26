@@ -1,0 +1,47 @@
+$token: azure-native:migrate:getProject
+description: |-
+  Azure Migrate Project.
+  API Version: 2019-10-01.
+inputs:
+  properties:
+    projectName:
+      type: string
+      description: Name of the Azure Migrate project.
+    resourceGroupName:
+      type: string
+      description: Name of the Azure Resource Group that project is part of.
+  type: object
+  required:
+    - projectName
+    - resourceGroupName
+outputs:
+  description: Azure Migrate Project.
+  properties:
+    eTag:
+      type: string
+      description: For optimistic concurrency control.
+    id:
+      type: string
+      description: Path reference to this project /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}
+    location:
+      type: string
+      description: Azure location in which project is created.
+    name:
+      type: string
+      description: Name of the project.
+    properties:
+      type: object
+      $ref: "#/types/azure-native:migrate:ProjectPropertiesResponse"
+      description: Properties of the project.
+    tags:
+      $ref: pulumi.json#/Any
+      description: Tags provided by Azure Tagging service.
+    type:
+      type: string
+      description: Type of the object = [Microsoft.Migrate/assessmentProjects].
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - type

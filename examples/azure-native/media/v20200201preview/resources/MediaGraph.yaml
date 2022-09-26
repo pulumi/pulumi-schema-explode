@@ -1,0 +1,75 @@
+$token: azure-native:media/v20200201preview:MediaGraph
+description: The Media Graph.
+properties:
+  created:
+    type: string
+    description: Date the Media Graph was created.
+  description:
+    type: string
+    description: Media Graph description.
+  lastModified:
+    type: string
+    description: Date the Media Graph was last modified.
+  name:
+    type: string
+    description: The name of the resource.
+  sinks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:media/v20200201preview:MediaGraphAssetSinkResponse"
+    description: Media Graph sinks.
+  sources:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:media/v20200201preview:MediaGraphRtspSourceResponse"
+    description: Media Graph sources.
+  state:
+    type: string
+    description: Media Graph state which indicates the resource allocation status for running the media graph pipeline.
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - created
+  - lastModified
+  - name
+  - sinks
+  - sources
+  - state
+  - type
+inputProperties:
+  accountName:
+    type: string
+    description: The Media Services account name.
+  description:
+    type: string
+    description: Media Graph description.
+  mediaGraphName:
+    type: string
+    description: The Media Graph name.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group within the Azure subscription.
+  sinks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:media/v20200201preview:MediaGraphAssetSink"
+    description: Media Graph sinks.
+  sources:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:media/v20200201preview:MediaGraphRtspSource"
+    description: Media Graph sources.
+requiredInputs:
+  - accountName
+  - resourceGroupName
+  - sinks
+  - sources
+aliases:
+  - type: azure-native:media:MediaGraph
+  - type: azure-native:media/v20190901preview:MediaGraph

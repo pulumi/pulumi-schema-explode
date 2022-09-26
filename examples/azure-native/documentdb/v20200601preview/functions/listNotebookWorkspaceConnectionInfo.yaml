@@ -1,0 +1,31 @@
+$token: azure-native:documentdb/v20200601preview:listNotebookWorkspaceConnectionInfo
+description: The connection info for the given notebook workspace
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: Cosmos DB database account name.
+    notebookWorkspaceName:
+      type: string
+      description: The name of the notebook workspace resource.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+  type: object
+  required:
+    - accountName
+    - notebookWorkspaceName
+    - resourceGroupName
+outputs:
+  description: The connection info for the given notebook workspace
+  properties:
+    authToken:
+      type: string
+      description: Specifies auth token used for connecting to Notebook server (uses token-based auth).
+    notebookServerEndpoint:
+      type: string
+      description: Specifies the endpoint of Notebook server.
+  type: object
+  required:
+    - authToken
+    - notebookServerEndpoint

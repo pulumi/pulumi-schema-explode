@@ -1,0 +1,117 @@
+$token: azure-native:securityinsights/v20220901preview:getMetadata
+description: Metadata resource definition.
+inputs:
+  properties:
+    metadataName:
+      type: string
+      description: The Metadata name.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    workspaceName:
+      type: string
+      description: The name of the workspace.
+  type: object
+  required:
+    - metadataName
+    - resourceGroupName
+    - workspaceName
+outputs:
+  description: Metadata resource definition.
+  properties:
+    author:
+      type: object
+      $ref: "#/types/azure-native:securityinsights/v20220901preview:MetadataAuthorResponse"
+      description: The creator of the content item.
+    categories:
+      type: object
+      $ref: "#/types/azure-native:securityinsights/v20220901preview:MetadataCategoriesResponse"
+      description: Categories for the solution content item
+    contentId:
+      type: string
+      description: Static ID for the content.  Used to identify dependencies and content from solutions or community.  Hard-coded/static for out of the box content and solutions. Dynamic for user-created.  This is the resource name
+    contentSchemaVersion:
+      type: string
+      description: Schema version of the content. Can be used to distinguish between different flow based on the schema version
+    customVersion:
+      type: string
+      description: The custom version of the content. A optional free text
+    dependencies:
+      type: object
+      $ref: "#/types/azure-native:securityinsights/v20220901preview:MetadataDependenciesResponse"
+      description: Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex formats.
+    etag:
+      type: string
+      description: Etag of the azure resource
+    firstPublishDate:
+      type: string
+      description: first publish date solution content item
+    icon:
+      type: string
+      description: the icon identifier. this id can later be fetched from the solution template
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    kind:
+      type: string
+      description: The kind of content the metadata is for.
+    lastPublishDate:
+      type: string
+      description: last publish date for the solution content item
+    name:
+      type: string
+      description: The name of the resource
+    parentId:
+      type: string
+      description: Full parent resource ID of the content item the metadata is for.  This is the full resource ID including the scope (subscription and resource group)
+    previewImages:
+      type: array
+      items:
+        type: string
+      description: preview image file names. These will be taken from the solution artifacts
+    previewImagesDark:
+      type: array
+      items:
+        type: string
+      description: preview image file names. These will be taken from the solution artifacts. used for dark theme support
+    providers:
+      type: array
+      items:
+        type: string
+      description: Providers for the solution content item
+    source:
+      type: object
+      $ref: "#/types/azure-native:securityinsights/v20220901preview:MetadataSourceResponse"
+      description: Source of the content.  This is where/how it was created.
+    support:
+      type: object
+      $ref: "#/types/azure-native:securityinsights/v20220901preview:MetadataSupportResponse"
+      description: Support information for the metadata - type, name, contact information
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:securityinsights/v20220901preview:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    threatAnalysisTactics:
+      type: array
+      items:
+        type: string
+      description: the tactics the resource covers
+    threatAnalysisTechniques:
+      type: array
+      items:
+        type: string
+      description: the techniques the resource covers, these have to be aligned with the tactics being used
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+    version:
+      type: string
+      description: Version of the content.  Default and recommended format is numeric (e.g. 1, 1.0, 1.0.0, 1.0.0.0), following ARM template best practices.  Can also be any string, but then we cannot guarantee any version checks
+  type: object
+  required:
+    - id
+    - kind
+    - name
+    - parentId
+    - systemData
+    - type

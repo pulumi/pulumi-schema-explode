@@ -1,0 +1,64 @@
+$token: azure-native:network/v20190601:getNetworkProfile
+description: Network profile resource.
+inputs:
+  properties:
+    expand:
+      type: string
+      description: Expands referenced resources.
+    networkProfileName:
+      type: string
+      description: The name of the public IP prefix.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - networkProfileName
+    - resourceGroupName
+outputs:
+  description: Network profile resource.
+  properties:
+    containerNetworkInterfaceConfigurations:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20190601:ContainerNetworkInterfaceConfigurationResponse"
+      description: List of chid container network interface configurations.
+    containerNetworkInterfaces:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20190601:ContainerNetworkInterfaceResponse"
+      description: List of child container network interfaces.
+    etag:
+      type: string
+      description: A unique read-only string that changes whenever the resource is updated.
+    id:
+      type: string
+      description: Resource ID.
+    location:
+      type: string
+      description: Resource location.
+    name:
+      type: string
+      description: Resource name.
+    provisioningState:
+      type: string
+      description: The provisioning state of the resource.
+    resourceGuid:
+      type: string
+      description: The resource GUID property of the network interface resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - name
+    - provisioningState
+    - resourceGuid
+    - type

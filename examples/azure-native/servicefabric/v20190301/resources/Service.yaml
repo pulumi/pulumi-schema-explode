@@ -1,0 +1,168 @@
+$token: azure-native:servicefabric/v20190301:Service
+description: The service resource.
+properties:
+  correlationScheme:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:servicefabric/v20190301:ServiceCorrelationDescriptionResponse"
+    description: A list that describes the correlation of the service with other services.
+  defaultMoveCost:
+    type: string
+    description: Specifies the move cost for the service.
+  etag:
+    type: string
+    description: Azure resource etag.
+  location:
+    type: string
+    description: It will be deprecated in New API, resource location depends on the parent resource.
+  name:
+    type: string
+    description: Azure resource name.
+  partitionDescription:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:servicefabric/v20190301:NamedPartitionSchemeDescriptionResponse"
+      - type: object
+        $ref: "#/types/azure-native:servicefabric/v20190301:SingletonPartitionSchemeDescriptionResponse"
+      - type: object
+        $ref: "#/types/azure-native:servicefabric/v20190301:UniformInt64RangePartitionSchemeDescriptionResponse"
+    discriminator:
+      propertyName: partitionScheme
+      mapping:
+        Named: "#/types/azure-native:servicefabric/v20190301:NamedPartitionSchemeDescriptionResponse"
+        Singleton: "#/types/azure-native:servicefabric/v20190301:SingletonPartitionSchemeDescriptionResponse"
+        UniformInt64Range: "#/types/azure-native:servicefabric/v20190301:UniformInt64RangePartitionSchemeDescriptionResponse"
+    description: Describes how the service is partitioned.
+  placementConstraints:
+    type: string
+    description: 'The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".'
+  provisioningState:
+    type: string
+    description: The current deployment or provisioning state, which only appears in the response
+  serviceKind:
+    type: string
+    description: The kind of service (Stateless or Stateful).
+  serviceLoadMetrics:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:servicefabric/v20190301:ServiceLoadMetricDescriptionResponse"
+    description: The service load metrics is given as an array of ServiceLoadMetricDescription objects.
+  servicePackageActivationMode:
+    type: string
+    description: The activation Mode of the service package
+  servicePlacementPolicies:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:servicefabric/v20190301:ServicePlacementPolicyDescriptionResponse"
+    description: A list that describes the correlation of the service with other services.
+  serviceTypeName:
+    type: string
+    description: The name of the service type
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Azure resource tags.
+  type:
+    type: string
+    description: Azure resource type.
+type: object
+required:
+  - etag
+  - name
+  - provisioningState
+  - serviceKind
+  - type
+inputProperties:
+  applicationName:
+    type: string
+    description: The name of the application resource.
+  clusterName:
+    type: string
+    description: The name of the cluster resource.
+  correlationScheme:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:servicefabric/v20190301:ServiceCorrelationDescription"
+    description: A list that describes the correlation of the service with other services.
+  defaultMoveCost:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:servicefabric/v20190301:MoveCost"
+    description: Specifies the move cost for the service.
+  location:
+    type: string
+    description: It will be deprecated in New API, resource location depends on the parent resource.
+  partitionDescription:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:servicefabric/v20190301:NamedPartitionSchemeDescription"
+      - type: object
+        $ref: "#/types/azure-native:servicefabric/v20190301:SingletonPartitionSchemeDescription"
+      - type: object
+        $ref: "#/types/azure-native:servicefabric/v20190301:UniformInt64RangePartitionSchemeDescription"
+    discriminator:
+      propertyName: partitionScheme
+      mapping:
+        Named: "#/types/azure-native:servicefabric/v20190301:NamedPartitionSchemeDescription"
+        Singleton: "#/types/azure-native:servicefabric/v20190301:SingletonPartitionSchemeDescription"
+        UniformInt64Range: "#/types/azure-native:servicefabric/v20190301:UniformInt64RangePartitionSchemeDescription"
+    description: Describes how the service is partitioned.
+  placementConstraints:
+    type: string
+    description: 'The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".'
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  serviceKind:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:servicefabric/v20190301:ServiceKind"
+    description: The kind of service (Stateless or Stateful).
+  serviceLoadMetrics:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:servicefabric/v20190301:ServiceLoadMetricDescription"
+    description: The service load metrics is given as an array of ServiceLoadMetricDescription objects.
+  serviceName:
+    type: string
+    description: The name of the service resource in the format of {applicationName}~{serviceName}.
+  servicePackageActivationMode:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:servicefabric/v20190301:ArmServicePackageActivationMode"
+    description: The activation Mode of the service package
+  servicePlacementPolicies:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:servicefabric/v20190301:ServicePlacementPolicyDescription"
+    description: A list that describes the correlation of the service with other services.
+  serviceTypeName:
+    type: string
+    description: The name of the service type
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Azure resource tags.
+requiredInputs:
+  - applicationName
+  - clusterName
+  - resourceGroupName
+  - serviceKind
+aliases:
+  - type: azure-native:servicefabric:Service
+  - type: azure-native:servicefabric/v20170701preview:Service
+  - type: azure-native:servicefabric/v20190301preview:Service
+  - type: azure-native:servicefabric/v20190601preview:Service
+  - type: azure-native:servicefabric/v20191101preview:Service
+  - type: azure-native:servicefabric/v20200301:Service
+  - type: azure-native:servicefabric/v20201201preview:Service
+  - type: azure-native:servicefabric/v20210601:Service
+deprecationMessage: Version 2019-03-01 will be removed in v2 of the provider.

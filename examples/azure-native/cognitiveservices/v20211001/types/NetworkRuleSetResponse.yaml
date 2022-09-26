@@ -1,0 +1,19 @@
+$token: azure-native:cognitiveservices/v20211001:NetworkRuleSetResponse
+description: A set of rules governing the network accessibility.
+properties:
+  defaultAction:
+    type: string
+    description: The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
+  ipRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:cognitiveservices/v20211001:IpRuleResponse"
+    description: The list of IP address rules.
+  virtualNetworkRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:cognitiveservices/v20211001:VirtualNetworkRuleResponse"
+    description: The list of virtual network rules.
+type: object

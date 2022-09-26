@@ -1,0 +1,50 @@
+$token: azure-native:datafactory/v20180601:ScriptActivity
+description: Script activity type.
+properties:
+  dependsOn:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20180601:ActivityDependency"
+    description: Activity depends on condition.
+  description:
+    type: string
+    description: Activity description.
+  linkedServiceName:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20180601:LinkedServiceReference"
+    description: Linked service reference.
+  logSettings:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20180601:ScriptActivityTypePropertiesLogSettings"
+    description: Log settings of script activity.
+  name:
+    type: string
+    description: Activity name.
+  policy:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20180601:ActivityPolicy"
+    description: Activity policy.
+  scripts:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20180601:ScriptActivityScriptBlock"
+    description: "Array of script blocks. Type: array."
+  type:
+    type: string
+    description: |-
+      Type of activity.
+      Expected value is 'Script'.
+    const: Script
+  userProperties:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20180601:UserProperty"
+    description: Activity user properties.
+type: object
+required:
+  - linkedServiceName
+  - name
+  - type

@@ -1,0 +1,30 @@
+$token: azure-native:datamigration/v20220130preview:listSqlMigrationServiceMonitoringData
+description: Integration Runtime Monitoring Data.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    sqlMigrationServiceName:
+      type: string
+      description: Name of the SQL Migration Service.
+  type: object
+  required:
+    - resourceGroupName
+    - sqlMigrationServiceName
+outputs:
+  description: Integration Runtime Monitoring Data.
+  properties:
+    name:
+      type: string
+      description: The name of Integration Runtime.
+    nodes:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:datamigration/v20220130preview:NodeMonitoringDataResponse"
+      description: Integration Runtime node monitoring data.
+  type: object
+  required:
+    - name
+    - nodes

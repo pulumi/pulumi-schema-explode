@@ -1,0 +1,49 @@
+$token: azure-native:apimanagement/v20210401preview:getCache
+description: Cache details.
+inputs:
+  properties:
+    cacheId:
+      type: string
+      description: Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    serviceName:
+      type: string
+      description: The name of the API Management service.
+  type: object
+  required:
+    - cacheId
+    - resourceGroupName
+    - serviceName
+outputs:
+  description: Cache details.
+  properties:
+    connectionString:
+      type: string
+      description: Runtime connection string to cache
+    description:
+      type: string
+      description: Cache description
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    name:
+      type: string
+      description: The name of the resource
+    resourceId:
+      type: string
+      description: Original uri of entity in external system cache points to
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+    useFromLocation:
+      type: string
+      description: Location identifier to use cache from (should be either 'default' or valid Azure region identifier)
+  type: object
+  required:
+    - connectionString
+    - id
+    - name
+    - type
+    - useFromLocation

@@ -1,0 +1,86 @@
+$token: azure-native:network/v20200301:getWebApplicationFirewallPolicy
+description: Defines web application firewall policy.
+inputs:
+  properties:
+    policyName:
+      type: string
+      description: The name of the policy.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - policyName
+    - resourceGroupName
+outputs:
+  description: Defines web application firewall policy.
+  properties:
+    applicationGateways:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20200301:ApplicationGatewayResponse"
+      description: A collection of references to application gateways.
+    customRules:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20200301:WebApplicationFirewallCustomRuleResponse"
+      description: The custom rules inside the policy.
+    etag:
+      type: string
+      description: A unique read-only string that changes whenever the resource is updated.
+    httpListeners:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20200301:SubResourceResponse"
+      description: A collection of references to application gateway http listeners.
+    id:
+      type: string
+      description: Resource ID.
+    location:
+      type: string
+      description: Resource location.
+    managedRules:
+      type: object
+      $ref: "#/types/azure-native:network/v20200301:ManagedRulesDefinitionResponse"
+      description: Describes the managedRules structure.
+    name:
+      type: string
+      description: Resource name.
+    pathBasedRules:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20200301:SubResourceResponse"
+      description: A collection of references to application gateway path rules.
+    policySettings:
+      type: object
+      $ref: "#/types/azure-native:network/v20200301:PolicySettingsResponse"
+      description: The PolicySettings for policy.
+    provisioningState:
+      type: string
+      description: The provisioning state of the web application firewall policy resource.
+    resourceState:
+      type: string
+      description: Resource status of the policy.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - applicationGateways
+    - etag
+    - httpListeners
+    - managedRules
+    - name
+    - pathBasedRules
+    - provisioningState
+    - resourceState
+    - type

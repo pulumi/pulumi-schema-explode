@@ -1,0 +1,71 @@
+$token: azure-native:datashare:listShareSynchronizationDetails
+description: |-
+  details of synchronization
+  API Version: 2020-09-01.
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: The name of the share account.
+    consumerEmail:
+      type: string
+      description: Email of the user who created the synchronization
+    consumerName:
+      type: string
+      description: Name of the user who created the synchronization
+    consumerTenantName:
+      type: string
+      description: Tenant name of the consumer who created the synchronization
+    durationMs:
+      type: integer
+      description: synchronization duration
+    endTime:
+      type: string
+      description: End time of synchronization
+    filter:
+      type: string
+      description: Filters the results using OData syntax.
+    message:
+      type: string
+      description: message of synchronization
+    orderby:
+      type: string
+      description: Sorts the results using OData syntax.
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+    shareName:
+      type: string
+      description: The name of the share.
+    skipToken:
+      type: string
+      description: Continuation token
+    startTime:
+      type: string
+      description: start time of synchronization
+    status:
+      type: string
+      description: Raw Status
+    synchronizationId:
+      type: string
+      description: Synchronization id
+  type: object
+  required:
+    - accountName
+    - resourceGroupName
+    - shareName
+outputs:
+  description: details of synchronization
+  properties:
+    nextLink:
+      type: string
+      description: The Url of next result page.
+    value:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:datashare:SynchronizationDetailsResponse"
+      description: Collection of items of type DataTransferObjects.
+  type: object
+  required:
+    - value

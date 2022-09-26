@@ -1,0 +1,33 @@
+$token: azure-native:containerservice/v20190930preview:OpenShiftManagedClusterAgentPoolProfile
+description: Defines the configuration of the OpenShift cluster VMs.
+properties:
+  count:
+    type: integer
+    description: Number of agents (VMs) to host docker containers.
+  name:
+    type: string
+    description: Unique name of the pool profile in the context of the subscription and resource group.
+  osType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:containerservice/v20190930preview:OSType"
+    description: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+  role:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:containerservice/v20190930preview:OpenShiftAgentPoolProfileRole"
+    description: Define the role of the AgentPoolProfile.
+  subnetCidr:
+    type: string
+    description: Subnet CIDR for the peering.
+    default: 10.0.0.0/24
+  vmSize:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:containerservice/v20190930preview:OpenShiftContainerServiceVMSize"
+    description: Size of agent VMs.
+type: object
+required:
+  - count
+  - name
+  - vmSize

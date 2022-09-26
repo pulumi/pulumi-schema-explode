@@ -1,0 +1,28 @@
+$token: azure-native:recoveryservices/v20220601preview:LongTermRetentionPolicy
+description: Long term retention policy.
+properties:
+  dailySchedule:
+    type: object
+    $ref: "#/types/azure-native:recoveryservices/v20220601preview:DailyRetentionSchedule"
+    description: Daily retention schedule of the protection policy.
+  monthlySchedule:
+    type: object
+    $ref: "#/types/azure-native:recoveryservices/v20220601preview:MonthlyRetentionSchedule"
+    description: Monthly retention schedule of the protection policy.
+  retentionPolicyType:
+    type: string
+    description: |-
+      This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+      Expected value is 'LongTermRetentionPolicy'.
+    const: LongTermRetentionPolicy
+  weeklySchedule:
+    type: object
+    $ref: "#/types/azure-native:recoveryservices/v20220601preview:WeeklyRetentionSchedule"
+    description: Weekly retention schedule of the protection policy.
+  yearlySchedule:
+    type: object
+    $ref: "#/types/azure-native:recoveryservices/v20220601preview:YearlyRetentionSchedule"
+    description: Yearly retention schedule of the protection policy.
+type: object
+required:
+  - retentionPolicyType

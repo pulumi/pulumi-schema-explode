@@ -1,0 +1,89 @@
+$token: azure-native:customerinsights:getRelationship
+description: |-
+  The relationship resource format.
+  API Version: 2017-04-26.
+inputs:
+  properties:
+    hubName:
+      type: string
+      description: The name of the hub.
+    relationshipName:
+      type: string
+      description: The name of the relationship.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - hubName
+    - relationshipName
+    - resourceGroupName
+outputs:
+  description: The relationship resource format.
+  properties:
+    cardinality:
+      type: string
+      description: The Relationship Cardinality.
+    description:
+      type: object
+      additionalProperties:
+        type: string
+      description: Localized descriptions for the Relationship.
+    displayName:
+      type: object
+      additionalProperties:
+        type: string
+      description: Localized display name for the Relationship.
+    expiryDateTimeUtc:
+      type: string
+      description: The expiry date time in UTC.
+    fields:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:customerinsights:PropertyDefinitionResponse"
+      description: The properties of the Relationship.
+    id:
+      type: string
+      description: Resource ID.
+    lookupMappings:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:customerinsights:RelationshipTypeMappingResponse"
+      description: Optional property to be used to map fields in profile to their strong ids in related profile.
+    name:
+      type: string
+      description: Resource name.
+    profileType:
+      type: string
+      description: Profile type.
+    provisioningState:
+      type: string
+      description: Provisioning state.
+    relatedProfileType:
+      type: string
+      description: Related profile being referenced.
+    relationshipGuidId:
+      type: string
+      description: The relationship guid id.
+    relationshipName:
+      type: string
+      description: The Relationship name.
+    tenantId:
+      type: string
+      description: The hub name.
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - id
+    - name
+    - profileType
+    - provisioningState
+    - relatedProfileType
+    - relationshipGuidId
+    - relationshipName
+    - tenantId
+    - type

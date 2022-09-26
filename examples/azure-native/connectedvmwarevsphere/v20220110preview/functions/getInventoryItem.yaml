@@ -1,0 +1,60 @@
+$token: azure-native:connectedvmwarevsphere/v20220110preview:getInventoryItem
+description: Defines the inventory item.
+inputs:
+  properties:
+    inventoryItemName:
+      type: string
+      description: Name of the inventoryItem.
+    resourceGroupName:
+      type: string
+      description: The Resource Group Name.
+    vcenterName:
+      type: string
+      description: Name of the vCenter.
+  type: object
+  required:
+    - inventoryItemName
+    - resourceGroupName
+    - vcenterName
+outputs:
+  description: Defines the inventory item.
+  properties:
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    inventoryType:
+      type: string
+      description: They inventory type.
+    kind:
+      type: string
+      description: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+    managedResourceId:
+      type: string
+      description: Gets or sets the tracked resource id corresponding to the inventory resource.
+    moName:
+      type: string
+      description: Gets or sets the vCenter Managed Object name for the inventory item.
+    moRefId:
+      type: string
+      description: Gets or sets the MoRef (Managed Object Reference) ID for the inventory item.
+    name:
+      type: string
+      description: The name of the resource
+    provisioningState:
+      type: string
+      description: Gets or sets the provisioning state.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:connectedvmwarevsphere/v20220110preview:SystemDataResponse"
+      description: The system data.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - id
+    - inventoryType
+    - name
+    - provisioningState
+    - systemData
+    - type

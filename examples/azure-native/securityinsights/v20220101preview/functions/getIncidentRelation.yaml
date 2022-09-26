@@ -1,0 +1,63 @@
+$token: azure-native:securityinsights/v20220101preview:getIncidentRelation
+description: Represents a relation between two resources
+inputs:
+  properties:
+    incidentId:
+      type: string
+      description: Incident ID
+    relationName:
+      type: string
+      description: Relation Name
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    workspaceName:
+      type: string
+      description: The name of the workspace.
+  type: object
+  required:
+    - incidentId
+    - relationName
+    - resourceGroupName
+    - workspaceName
+outputs:
+  description: Represents a relation between two resources
+  properties:
+    etag:
+      type: string
+      description: Etag of the azure resource
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    name:
+      type: string
+      description: The name of the resource
+    relatedResourceId:
+      type: string
+      description: The resource ID of the related resource
+    relatedResourceKind:
+      type: string
+      description: The resource kind of the related resource
+    relatedResourceName:
+      type: string
+      description: The name of the related resource
+    relatedResourceType:
+      type: string
+      description: The resource type of the related resource
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:securityinsights/v20220101preview:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - id
+    - name
+    - relatedResourceId
+    - relatedResourceKind
+    - relatedResourceName
+    - relatedResourceType
+    - systemData
+    - type

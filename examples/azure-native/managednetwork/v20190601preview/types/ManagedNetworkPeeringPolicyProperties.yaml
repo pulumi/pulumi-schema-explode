@@ -1,0 +1,27 @@
+$token: azure-native:managednetwork/v20190601preview:ManagedNetworkPeeringPolicyProperties
+description: Properties of a Managed Network Peering Policy
+properties:
+  hub:
+    type: object
+    $ref: "#/types/azure-native:managednetwork/v20190601preview:ResourceId"
+    description: Gets or sets the hub virtual network ID
+  mesh:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:managednetwork/v20190601preview:ResourceId"
+    description: Gets or sets the mesh group IDs
+  spokes:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:managednetwork/v20190601preview:ResourceId"
+    description: Gets or sets the spokes group IDs
+  type:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:managednetwork/v20190601preview:Type"
+    description: Gets or sets the connectivity type of a network structure policy
+type: object
+required:
+  - type

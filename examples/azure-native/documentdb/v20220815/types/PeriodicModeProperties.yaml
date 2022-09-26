@@ -1,0 +1,15 @@
+$token: azure-native:documentdb/v20220815:PeriodicModeProperties
+description: Configuration values for periodic mode backup
+properties:
+  backupIntervalInMinutes:
+    type: integer
+    description: An integer representing the interval in minutes between two backups
+  backupRetentionIntervalInHours:
+    type: integer
+    description: An integer representing the time (in hours) that each backup is retained
+  backupStorageRedundancy:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:documentdb/v20220815:BackupStorageRedundancy"
+    description: Enum to indicate type of backup residency
+type: object

@@ -1,0 +1,65 @@
+$token: azure-native:hybriddata/v20190601:DataManager
+description: The DataManager resource.
+properties:
+  etag:
+    type: string
+    description: Etag of the Resource.
+  location:
+    type: string
+    description: "The location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East\r
+
+      US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo\r
+
+      region is specified on update the request will succeed."
+  name:
+    type: string
+    description: The Resource Name.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:hybriddata/v20190601:SkuResponse"
+    description: The sku type.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: "The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource\r
+
+      (across resource groups)."
+  type:
+    type: string
+    description: The Resource type.
+type: object
+required:
+  - location
+  - name
+  - type
+inputProperties:
+  dataManagerName:
+    type: string
+    description: The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
+  location:
+    type: string
+    description: "The location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East\r
+
+      US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo\r
+
+      region is specified on update the request will succeed."
+  resourceGroupName:
+    type: string
+    description: The Resource Group Name
+  sku:
+    type: object
+    $ref: "#/types/azure-native:hybriddata/v20190601:Sku"
+    description: The sku type.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: "The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource\r
+
+      (across resource groups)."
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:hybriddata:DataManager
+  - type: azure-native:hybriddata/v20160601:DataManager

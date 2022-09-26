@@ -1,0 +1,68 @@
+$token: azure-native:machinelearningservices/v20220501:Job
+description: Azure Resource Manager resource envelope.
+properties:
+  jobBaseProperties:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220501:CommandJobResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220501:PipelineJobResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220501:SweepJobResponse"
+    discriminator:
+      propertyName: jobType
+      mapping:
+        Command: "#/types/azure-native:machinelearningservices/v20220501:CommandJobResponse"
+        Pipeline: "#/types/azure-native:machinelearningservices/v20220501:PipelineJobResponse"
+        Sweep: "#/types/azure-native:machinelearningservices/v20220501:SweepJobResponse"
+    description: "[Required] Additional attributes of the entity."
+  name:
+    type: string
+    description: The name of the resource
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220501:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - jobBaseProperties
+  - name
+  - systemData
+  - type
+inputProperties:
+  id:
+    type: string
+    description: The name and identifier for the Job. This is case-sensitive.
+  jobBaseProperties:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220501:CommandJob"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220501:PipelineJob"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220501:SweepJob"
+    discriminator:
+      propertyName: jobType
+      mapping:
+        Command: "#/types/azure-native:machinelearningservices/v20220501:CommandJob"
+        Pipeline: "#/types/azure-native:machinelearningservices/v20220501:PipelineJob"
+        Sweep: "#/types/azure-native:machinelearningservices/v20220501:SweepJob"
+    description: "[Required] Additional attributes of the entity."
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  workspaceName:
+    type: string
+    description: Name of Azure Machine Learning workspace.
+requiredInputs:
+  - jobBaseProperties
+  - resourceGroupName
+  - workspaceName
+aliases:
+  - type: azure-native:machinelearningservices:Job
+  - type: azure-native:machinelearningservices/v20210301preview:Job
+  - type: azure-native:machinelearningservices/v20220201preview:Job
+  - type: azure-native:machinelearningservices/v20220601preview:Job

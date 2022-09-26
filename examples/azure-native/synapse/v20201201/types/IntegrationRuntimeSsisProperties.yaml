@@ -1,0 +1,43 @@
+$token: azure-native:synapse/v20201201:IntegrationRuntimeSsisProperties
+description: SSIS properties for managed integration runtime.
+properties:
+  catalogInfo:
+    type: object
+    $ref: "#/types/azure-native:synapse/v20201201:IntegrationRuntimeSsisCatalogInfo"
+    description: Catalog information for managed dedicated integration runtime.
+  customSetupScriptProperties:
+    type: object
+    $ref: "#/types/azure-native:synapse/v20201201:IntegrationRuntimeCustomSetupScriptProperties"
+    description: Custom setup script properties for a managed dedicated integration runtime.
+  dataProxyProperties:
+    type: object
+    $ref: "#/types/azure-native:synapse/v20201201:IntegrationRuntimeDataProxyProperties"
+    description: Data proxy properties for a managed dedicated integration runtime.
+  edition:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:synapse/v20201201:IntegrationRuntimeEdition"
+    description: The edition for the SSIS Integration Runtime
+  expressCustomSetupProperties:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:synapse/v20201201:CmdkeySetup"
+        - type: object
+          $ref: "#/types/azure-native:synapse/v20201201:ComponentSetup"
+        - type: object
+          $ref: "#/types/azure-native:synapse/v20201201:EnvironmentVariableSetup"
+      discriminator:
+        propertyName: type
+        mapping:
+          CmdkeySetup: "#/types/azure-native:synapse/v20201201:CmdkeySetup"
+          ComponentSetup: "#/types/azure-native:synapse/v20201201:ComponentSetup"
+          EnvironmentVariableSetup: "#/types/azure-native:synapse/v20201201:EnvironmentVariableSetup"
+    description: Custom setup without script properties for a SSIS integration runtime.
+  licenseType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:synapse/v20201201:IntegrationRuntimeLicenseType"
+    description: License type for bringing your own license scenario.
+type: object

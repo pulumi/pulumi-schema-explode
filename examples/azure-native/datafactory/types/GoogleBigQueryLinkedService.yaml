@@ -1,0 +1,88 @@
+$token: azure-native:datafactory:GoogleBigQueryLinkedService
+description: Google BigQuery service linked service.
+properties:
+  additionalProjects:
+    $ref: pulumi.json#/Any
+    description: A comma-separated list of public BigQuery projects to access.
+  annotations:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: List of tags that can be used for describing the linked service.
+  authenticationType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:datafactory:GoogleBigQueryAuthenticationType"
+    description: The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR.
+  clientId:
+    $ref: pulumi.json#/Any
+    description: "The client id of the google application used to acquire the refresh token. Type: string (or Expression with resultType string)."
+  clientSecret:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureKeyVaultSecretReference"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SecureString"
+    discriminator:
+      propertyName: type
+      mapping:
+        AzureKeyVaultSecret: "#/types/azure-native:datafactory:AzureKeyVaultSecretReference"
+        SecureString: "#/types/azure-native:datafactory:SecureString"
+    description: The client secret of the google application used to acquire the refresh token.
+  connectVia:
+    type: object
+    $ref: "#/types/azure-native:datafactory:IntegrationRuntimeReference"
+    description: The integration runtime reference.
+  description:
+    type: string
+    description: Linked service description.
+  email:
+    $ref: pulumi.json#/Any
+    description: The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR.
+  encryptedCredential:
+    $ref: pulumi.json#/Any
+    description: "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string)."
+  keyFilePath:
+    $ref: pulumi.json#/Any
+    description: The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR.
+  parameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:datafactory:ParameterSpecification"
+    description: Parameters for linked service.
+  project:
+    $ref: pulumi.json#/Any
+    description: The default BigQuery project to query against.
+  refreshToken:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureKeyVaultSecretReference"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SecureString"
+    discriminator:
+      propertyName: type
+      mapping:
+        AzureKeyVaultSecret: "#/types/azure-native:datafactory:AzureKeyVaultSecretReference"
+        SecureString: "#/types/azure-native:datafactory:SecureString"
+    description: The refresh token obtained from Google for authorizing access to BigQuery for UserAuthentication.
+  requestGoogleDriveScope:
+    $ref: pulumi.json#/Any
+    description: Whether to request access to Google Drive. Allowing Google Drive access enables support for federated tables that combine BigQuery data with data from Google Drive. The default value is false.
+  trustedCertPath:
+    $ref: pulumi.json#/Any
+    description: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
+  type:
+    type: string
+    description: |-
+      Type of linked service.
+      Expected value is 'GoogleBigQuery'.
+    const: GoogleBigQuery
+  useSystemTrustStore:
+    $ref: pulumi.json#/Any
+    description: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
+type: object
+required:
+  - authenticationType
+  - project
+  - type

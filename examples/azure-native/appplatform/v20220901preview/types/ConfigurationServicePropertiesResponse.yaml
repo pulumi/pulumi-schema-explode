@@ -1,0 +1,25 @@
+$token: azure-native:appplatform/v20220901preview:ConfigurationServicePropertiesResponse
+description: Application Configuration Service properties payload
+properties:
+  instances:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:appplatform/v20220901preview:ConfigurationServiceInstanceResponse"
+    description: Collection of instances belong to Application Configuration Service.
+  provisioningState:
+    type: string
+    description: State of the Application Configuration Service.
+  resourceRequests:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20220901preview:ConfigurationServiceResourceRequestsResponse"
+    description: The requested resource quantity for required CPU and Memory.
+  settings:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20220901preview:ConfigurationServiceSettingsResponse"
+    description: The settings of Application Configuration Service.
+type: object
+required:
+  - instances
+  - provisioningState
+  - resourceRequests

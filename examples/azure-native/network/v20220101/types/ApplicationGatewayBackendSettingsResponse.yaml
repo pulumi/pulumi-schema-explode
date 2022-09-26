@@ -1,0 +1,48 @@
+$token: azure-native:network/v20220101:ApplicationGatewayBackendSettingsResponse
+description: Backend address pool settings of an application gateway.
+properties:
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  hostName:
+    type: string
+    description: Server name indication to be sent to the backend servers for Tls protocol.
+  id:
+    type: string
+    description: Resource ID.
+  name:
+    type: string
+    description: Name of the backend settings that is unique within an Application Gateway.
+  pickHostNameFromBackendAddress:
+    type: boolean
+    description: Whether to pick server name indication from the host name of the backend server for Tls protocol. Default value is false.
+  port:
+    type: integer
+    description: The destination port on the backend.
+  probe:
+    type: object
+    $ref: "#/types/azure-native:network/v20220101:SubResourceResponse"
+    description: Probe resource of an application gateway.
+  protocol:
+    type: string
+    description: The protocol used to communicate with the backend.
+  provisioningState:
+    type: string
+    description: The provisioning state of the backend HTTP settings resource.
+  timeout:
+    type: integer
+    description: Connection timeout in seconds. Application Gateway will fail the request if response is not received within ConnectionTimeout. Acceptable values are from 1 second to 86400 seconds.
+  trustedRootCertificates:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20220101:SubResourceResponse"
+    description: Array of references to application gateway trusted root certificates.
+  type:
+    type: string
+    description: Type of the resource.
+type: object
+required:
+  - etag
+  - provisioningState
+  - type

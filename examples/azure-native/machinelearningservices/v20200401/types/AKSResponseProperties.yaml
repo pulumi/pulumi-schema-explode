@@ -1,0 +1,31 @@
+$token: azure-native:machinelearningservices/v20200401:AKSResponseProperties
+description: AKS properties
+properties:
+  agentCount:
+    type: integer
+    description: Number of agents
+  agentVMSize:
+    type: string
+    description: Agent virtual machine size
+  aksNetworkingConfiguration:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20200401:AksNetworkingConfigurationResponse"
+    description: AKS networking configuration for vnet
+  clusterFqdn:
+    type: string
+    description: Cluster full qualified domain name
+  clusterPurpose:
+    type: string
+  sslConfiguration:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20200401:SslConfigurationResponse"
+    description: SSL configuration
+  systemServices:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20200401:SystemServiceResponse"
+    description: System services
+type: object
+required:
+  - systemServices

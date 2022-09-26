@@ -1,0 +1,55 @@
+$token: azure-native:deploymentmanager:getStep
+description: |-
+  The resource representation of a rollout step.
+  API Version: 2019-11-01-preview.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    stepName:
+      type: string
+      description: The name of the deployment step.
+  type: object
+  required:
+    - resourceGroupName
+    - stepName
+outputs:
+  description: The resource representation of a rollout step.
+  properties:
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    name:
+      type: string
+      description: The name of the resource
+    properties:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:deploymentmanager:HealthCheckStepPropertiesResponse"
+        - type: object
+          $ref: "#/types/azure-native:deploymentmanager:WaitStepPropertiesResponse"
+      discriminator:
+        propertyName: stepType
+        mapping:
+          HealthCheck: "#/types/azure-native:deploymentmanager:HealthCheckStepPropertiesResponse"
+          Wait: "#/types/azure-native:deploymentmanager:WaitStepPropertiesResponse"
+      description: The properties that define the step.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - properties
+    - type

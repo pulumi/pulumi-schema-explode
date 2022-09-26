@@ -1,0 +1,36 @@
+$token: azure-native:datafactory/v20180601:WranglingDataFlow
+description: Power Query data flow.
+properties:
+  annotations:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: List of tags that can be used for describing the data flow.
+  description:
+    type: string
+    description: The description of the data flow.
+  documentLocale:
+    type: string
+    description: Locale of the Power query mashup document.
+  folder:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20180601:DataFlowFolder"
+    description: The folder that this data flow is in. If not specified, Data flow will appear at the root level.
+  script:
+    type: string
+    description: Power query mashup script.
+  sources:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20180601:PowerQuerySource"
+    description: List of sources in Power Query.
+  type:
+    type: string
+    description: |-
+      Type of data flow.
+      Expected value is 'WranglingDataFlow'.
+    const: WranglingDataFlow
+type: object
+required:
+  - type

@@ -1,0 +1,119 @@
+$token: azure-native:web/v20210301:getCertificate
+description: SSL certificate for an app.
+inputs:
+  properties:
+    name:
+      type: string
+      description: Name of the certificate.
+    resourceGroupName:
+      type: string
+      description: Name of the resource group to which the resource belongs.
+  type: object
+  required:
+    - name
+    - resourceGroupName
+outputs:
+  description: SSL certificate for an app.
+  properties:
+    canonicalName:
+      type: string
+      description: CNAME of the certificate to be issued via free certificate
+    cerBlob:
+      type: string
+      description: Raw bytes of .cer file
+    domainValidationMethod:
+      type: string
+      description: Method of domain validation for free cert
+    expirationDate:
+      type: string
+      description: Certificate expiration date.
+    friendlyName:
+      type: string
+      description: Friendly name of the certificate.
+    hostNames:
+      type: array
+      items:
+        type: string
+      description: Host names the certificate applies to.
+    hostingEnvironmentProfile:
+      type: object
+      $ref: "#/types/azure-native:web/v20210301:HostingEnvironmentProfileResponse"
+      description: Specification for the App Service Environment to use for the certificate.
+    id:
+      type: string
+      description: Resource Id.
+    issueDate:
+      type: string
+      description: Certificate issue Date.
+    issuer:
+      type: string
+      description: Certificate issuer.
+    keyVaultId:
+      type: string
+      description: Key Vault Csm resource Id.
+    keyVaultSecretName:
+      type: string
+      description: Key Vault secret name.
+    keyVaultSecretStatus:
+      type: string
+      description: Status of the Key Vault secret.
+    kind:
+      type: string
+      description: Kind of resource.
+    location:
+      type: string
+      description: Resource Location.
+    name:
+      type: string
+      description: Resource Name.
+    pfxBlob:
+      type: string
+      description: Pfx blob.
+    publicKeyHash:
+      type: string
+      description: Public key hash.
+    selfLink:
+      type: string
+      description: Self link.
+    serverFarmId:
+      type: string
+      description: 'Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".'
+    siteName:
+      type: string
+      description: App name.
+    subjectName:
+      type: string
+      description: Subject name of the certificate.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    thumbprint:
+      type: string
+      description: Certificate thumbprint.
+    type:
+      type: string
+      description: Resource type.
+    valid:
+      type: boolean
+      description: Is the certificate valid?.
+  type: object
+  required:
+    - cerBlob
+    - expirationDate
+    - friendlyName
+    - hostingEnvironmentProfile
+    - id
+    - issueDate
+    - issuer
+    - keyVaultSecretStatus
+    - location
+    - name
+    - publicKeyHash
+    - selfLink
+    - siteName
+    - subjectName
+    - thumbprint
+    - type
+    - valid

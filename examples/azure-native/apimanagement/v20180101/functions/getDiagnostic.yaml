@@ -1,0 +1,39 @@
+$token: azure-native:apimanagement/v20180101:getDiagnostic
+description: Diagnostic details.
+inputs:
+  properties:
+    diagnosticId:
+      type: string
+      description: Diagnostic identifier. Must be unique in the current API Management service instance.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    serviceName:
+      type: string
+      description: The name of the API Management service.
+  type: object
+  required:
+    - diagnosticId
+    - resourceGroupName
+    - serviceName
+outputs:
+  description: Diagnostic details.
+  properties:
+    enabled:
+      type: boolean
+      description: Indicates whether a diagnostic should receive data or not.
+    id:
+      type: string
+      description: Resource ID.
+    name:
+      type: string
+      description: Resource name.
+    type:
+      type: string
+      description: Resource type for API Management resource.
+  type: object
+  required:
+    - enabled
+    - id
+    - name
+    - type

@@ -1,0 +1,47 @@
+$token: azure-native:machinelearningservices/v20220601preview:ComputeInstanceProperties
+description: Compute Instance properties
+properties:
+  applicationSharingPolicy:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearningservices/v20220601preview:ApplicationSharingPolicy"
+    description: Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
+    default: Shared
+  computeInstanceAuthorizationType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearningservices/v20220601preview:ComputeInstanceAuthorizationType"
+    description: The Compute Instance Authorization type. Available values are personal (default).
+    default: personal
+  customServices:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20220601preview:CustomService"
+    description: List of Custom Services added to the compute.
+  enableNodePublicIp:
+    type: boolean
+    description: "Enable or disable node public IP address provisioning. Possible values are: Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs."
+  idleTimeBeforeShutdown:
+    type: string
+    description: Stops compute instance after user defined period of inactivity. Time is defined in ISO8601 format. Minimum is 15 min, maximum is 3 days.
+  personalComputeInstanceSettings:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:PersonalComputeInstanceSettings"
+    description: Settings for a personal compute instance.
+  setupScripts:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:SetupScripts"
+    description: Details of customized scripts to execute for setting up the cluster.
+  sshSettings:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:ComputeInstanceSshSettings"
+    description: Specifies policy and settings for SSH access.
+  subnet:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:ResourceId"
+    description: Virtual network subnet resource ID the compute nodes belong to.
+  vmSize:
+    type: string
+    description: Virtual Machine Size
+type: object

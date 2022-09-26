@@ -1,0 +1,40 @@
+$token: azure-native:appplatform:DeploymentResourcePropertiesResponse
+description: Deployment resource properties payload
+properties:
+  active:
+    type: boolean
+    description: Indicates whether the Deployment is active
+  appName:
+    type: string
+    description: App name of the deployment
+  createdTime:
+    type: string
+    description: Date time when the resource is created
+  deploymentSettings:
+    type: object
+    $ref: "#/types/azure-native:appplatform:DeploymentSettingsResponse"
+    description: Deployment settings of the Deployment
+  instances:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:appplatform:DeploymentInstanceResponse"
+    description: Collection of instances belong to the Deployment
+  provisioningState:
+    type: string
+    description: Provisioning state of the Deployment
+  source:
+    type: object
+    $ref: "#/types/azure-native:appplatform:UserSourceInfoResponse"
+    description: Uploaded source information of the deployment.
+  status:
+    type: string
+    description: Status of the Deployment
+type: object
+required:
+  - active
+  - appName
+  - createdTime
+  - instances
+  - provisioningState
+  - status

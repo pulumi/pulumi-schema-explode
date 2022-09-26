@@ -1,0 +1,47 @@
+$token: azure-native:dbformysql/v20171201:getServerAdministrator
+description: Represents a and external administrator to be created.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    serverName:
+      type: string
+      description: The name of the server.
+  type: object
+  required:
+    - resourceGroupName
+    - serverName
+outputs:
+  description: Represents a and external administrator to be created.
+  properties:
+    administratorType:
+      type: string
+      description: The type of administrator.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    login:
+      type: string
+      description: The server administrator login account name.
+    name:
+      type: string
+      description: The name of the resource
+    sid:
+      type: string
+      description: The server administrator Sid (Secure ID).
+    tenantId:
+      type: string
+      description: The server Active Directory Administrator tenant id.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - administratorType
+    - id
+    - login
+    - name
+    - sid
+    - tenantId
+    - type

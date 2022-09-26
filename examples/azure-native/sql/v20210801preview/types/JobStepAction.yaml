@@ -1,0 +1,21 @@
+$token: azure-native:sql/v20210801preview:JobStepAction
+description: The action to be executed by a job step.
+properties:
+  source:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:sql/v20210801preview:JobStepActionSource"
+    description: The source of the action to execute.
+    default: Inline
+  type:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:sql/v20210801preview:JobStepActionType"
+    description: Type of action being executed by the job step.
+    default: TSql
+  value:
+    type: string
+    description: The action value, for example the text of the T-SQL script to execute.
+type: object
+required:
+  - value

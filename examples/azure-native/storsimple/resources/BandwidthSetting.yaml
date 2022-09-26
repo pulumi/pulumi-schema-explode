@@ -1,0 +1,54 @@
+$token: azure-native:storsimple:BandwidthSetting
+description: |-
+  The bandwidth setting.
+  API Version: 2017-06-01.
+properties:
+  kind:
+    type: string
+    description: The Kind of the object. Currently only Series8000 is supported
+  name:
+    type: string
+    description: The name of the object.
+  schedules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:storsimple:BandwidthScheduleResponse"
+    description: The schedules.
+  type:
+    type: string
+    description: The hierarchical type of the object.
+  volumeCount:
+    type: integer
+    description: The number of volumes that uses the bandwidth setting.
+type: object
+required:
+  - name
+  - schedules
+  - type
+  - volumeCount
+inputProperties:
+  bandwidthSettingName:
+    type: string
+    description: The bandwidth setting name.
+  kind:
+    $ref: "#/types/azure-native:storsimple:Kind"
+    description: The Kind of the object. Currently only Series8000 is supported
+  managerName:
+    type: string
+    description: The manager name
+  resourceGroupName:
+    type: string
+    description: The resource group name
+  schedules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:storsimple:BandwidthSchedule"
+    description: The schedules.
+requiredInputs:
+  - managerName
+  - resourceGroupName
+  - schedules
+aliases:
+  - type: azure-native:storsimple/v20170601:BandwidthSetting

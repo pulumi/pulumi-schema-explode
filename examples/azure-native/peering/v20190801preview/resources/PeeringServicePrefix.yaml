@@ -1,0 +1,63 @@
+$token: azure-native:peering/v20190801preview:PeeringServicePrefix
+description: The peering service prefix class.
+properties:
+  learnedType:
+    type: string
+    description: The prefix learned type
+  name:
+    type: string
+    description: The name of the resource.
+  prefix:
+    type: string
+    description: Valid route prefix
+  prefixValidationState:
+    type: string
+    description: The prefix validation state
+  provisioningState:
+    type: string
+    description: The provisioning state of the resource.
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - name
+  - provisioningState
+  - type
+inputProperties:
+  learnedType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:peering/v20190801preview:LearnedType"
+    description: The prefix learned type
+  peeringServiceName:
+    type: string
+    description: The peering service name.
+  prefix:
+    type: string
+    description: Valid route prefix
+  prefixName:
+    type: string
+    description: The prefix name
+  prefixValidationState:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:peering/v20190801preview:PrefixValidationState"
+    description: The prefix validation state
+  resourceGroupName:
+    type: string
+    description: The resource group name.
+requiredInputs:
+  - peeringServiceName
+  - resourceGroupName
+aliases:
+  - type: azure-native:peering:PeeringServicePrefix
+  - type: azure-native:peering/v20190901preview:PeeringServicePrefix
+  - type: azure-native:peering/v20200101preview:PeeringServicePrefix
+  - type: azure-native:peering/v20200401:PeeringServicePrefix
+  - type: azure-native:peering/v20201001:PeeringServicePrefix
+  - type: azure-native:peering/v20210101:PeeringServicePrefix
+  - type: azure-native:peering/v20210601:PeeringServicePrefix
+  - type: azure-native:peering/v20220101:PeeringServicePrefix
+  - type: azure-native:peering/v20220601:PeeringServicePrefix
+deprecationMessage: Version 2019-08-01-preview will be removed in v2 of the provider.

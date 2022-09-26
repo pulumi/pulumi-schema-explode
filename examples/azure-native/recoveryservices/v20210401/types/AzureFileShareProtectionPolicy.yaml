@@ -1,0 +1,50 @@
+$token: azure-native:recoveryservices/v20210401:AzureFileShareProtectionPolicy
+description: AzureStorage backup policy.
+properties:
+  backupManagementType:
+    type: string
+    description: |-
+      This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+      Expected value is 'AzureStorage'.
+    const: AzureStorage
+  protectedItemsCount:
+    type: integer
+    description: Number of items associated with this policy.
+  retentionPolicy:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210401:LongTermRetentionPolicy"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210401:SimpleRetentionPolicy"
+    discriminator:
+      propertyName: retentionPolicyType
+      mapping:
+        LongTermRetentionPolicy: "#/types/azure-native:recoveryservices/v20210401:LongTermRetentionPolicy"
+        SimpleRetentionPolicy: "#/types/azure-native:recoveryservices/v20210401:SimpleRetentionPolicy"
+    description: Retention policy with the details on backup copy retention ranges.
+  schedulePolicy:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210401:LogSchedulePolicy"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210401:LongTermSchedulePolicy"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210401:SimpleSchedulePolicy"
+    discriminator:
+      propertyName: schedulePolicyType
+      mapping:
+        LogSchedulePolicy: "#/types/azure-native:recoveryservices/v20210401:LogSchedulePolicy"
+        LongTermSchedulePolicy: "#/types/azure-native:recoveryservices/v20210401:LongTermSchedulePolicy"
+        SimpleSchedulePolicy: "#/types/azure-native:recoveryservices/v20210401:SimpleSchedulePolicy"
+    description: Backup schedule specified as part of backup policy.
+  timeZone:
+    type: string
+    description: 'TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".'
+  workLoadType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:recoveryservices/v20210401:WorkloadType"
+    description: Type of workload for the backup management
+type: object
+required:
+  - backupManagementType

@@ -1,0 +1,58 @@
+$token: azure-native:automation/v20151031:DscNodeConfiguration
+description: Definition of the dsc node configuration.
+properties:
+  configuration:
+    type: object
+    $ref: "#/types/azure-native:automation/v20151031:DscConfigurationAssociationPropertyResponse"
+    description: Gets or sets the configuration of the node.
+  creationTime:
+    type: string
+    description: Gets or sets creation time.
+  lastModifiedTime:
+    type: string
+    description: Gets or sets the last modified time.
+  name:
+    type: string
+    description: The name of the resource
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - name
+  - type
+inputProperties:
+  automationAccountName:
+    type: string
+    description: The name of the automation account.
+  configuration:
+    type: object
+    $ref: "#/types/azure-native:automation/v20151031:DscConfigurationAssociationProperty"
+    description: Gets or sets the configuration of the node.
+  incrementNodeConfigurationBuild:
+    type: boolean
+    description: If a new build version of NodeConfiguration is required.
+  name:
+    type: string
+    description: Name of the node configuration.
+  nodeConfigurationName:
+    type: string
+    description: The create or update parameters for configuration.
+  resourceGroupName:
+    type: string
+    description: Name of an Azure Resource group.
+  source:
+    type: object
+    $ref: "#/types/azure-native:automation/v20151031:ContentSource"
+    description: Gets or sets the source.
+requiredInputs:
+  - automationAccountName
+  - configuration
+  - name
+  - resourceGroupName
+  - source
+aliases:
+  - type: azure-native:automation:DscNodeConfiguration
+  - type: azure-native:automation/v20180115:DscNodeConfiguration
+  - type: azure-native:automation/v20190601:DscNodeConfiguration
+  - type: azure-native:automation/v20200113preview:DscNodeConfiguration

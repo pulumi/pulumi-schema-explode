@@ -1,0 +1,45 @@
+$token: azure-native:databoxedge/v20220301:getTrigger
+description: Trigger details.
+inputs:
+  properties:
+    deviceName:
+      type: string
+      description: The device name.
+    name:
+      type: string
+      description: The trigger name.
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+  type: object
+  required:
+    - deviceName
+    - name
+    - resourceGroupName
+outputs:
+  description: Trigger details.
+  properties:
+    id:
+      type: string
+      description: The path ID that uniquely identifies the object.
+    kind:
+      type: string
+      description: Trigger Kind.
+    name:
+      type: string
+      description: The object name.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:databoxedge/v20220301:SystemDataResponse"
+      description: Metadata pertaining to creation and last modification of Trigger
+    type:
+      type: string
+      description: The hierarchical type of the object.
+  type: object
+  required:
+    - id
+    - kind
+    - name
+    - systemData
+    - type
+deprecationMessage: "Please use one of the variants: FileEventTrigger, PeriodicTimerEventTrigger."

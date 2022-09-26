@@ -1,0 +1,34 @@
+$token: azure-native:compute/v20201201:CreationData
+description: Data used when creating a disk.
+properties:
+  createOption:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:compute/v20201201:DiskCreateOption"
+    description: This enumerates the possible sources of a disk's creation.
+  galleryImageReference:
+    type: object
+    $ref: "#/types/azure-native:compute/v20201201:ImageDiskReference"
+    description: Required if creating from a Gallery Image. The id of the ImageDiskReference will be the ARM id of the shared galley image version from which to create a disk.
+  imageReference:
+    type: object
+    $ref: "#/types/azure-native:compute/v20201201:ImageDiskReference"
+    description: Disk source information.
+  logicalSectorSize:
+    type: integer
+    description: Logical sector size in bytes for Ultra disks. Supported values are 512 ad 4096. 4096 is the default.
+  sourceResourceId:
+    type: string
+    description: If createOption is Copy, this is the ARM id of the source snapshot or disk.
+  sourceUri:
+    type: string
+    description: If createOption is Import, this is the URI of a blob to be imported into a managed disk.
+  storageAccountId:
+    type: string
+    description: Required if createOption is Import. The Azure Resource Manager identifier of the storage account containing the blob to import as a disk.
+  uploadSizeBytes:
+    type: number
+    description: If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
+type: object
+required:
+  - createOption

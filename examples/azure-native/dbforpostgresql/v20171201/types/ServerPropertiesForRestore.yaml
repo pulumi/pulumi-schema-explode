@@ -1,0 +1,47 @@
+$token: azure-native:dbforpostgresql/v20171201:ServerPropertiesForRestore
+description: The properties used to create a new server by restoring from a backup.
+properties:
+  createMode:
+    type: string
+    description: |-
+      The mode to create a new server.
+      Expected value is 'PointInTimeRestore'.
+    const: PointInTimeRestore
+  infrastructureEncryption:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:dbforpostgresql/v20171201:InfrastructureEncryption"
+    description: Status showing whether the server enabled infrastructure encryption.
+  minimalTlsVersion:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:dbforpostgresql/v20171201:MinimalTlsVersionEnum"
+    description: Enforce a minimal Tls version for the server.
+  publicNetworkAccess:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:dbforpostgresql/v20171201:PublicNetworkAccessEnum"
+    description: Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+  restorePointInTime:
+    type: string
+    description: Restore point creation time (ISO8601 format), specifying the time to restore from.
+  sourceServerId:
+    type: string
+    description: The source server id to restore from.
+  sslEnforcement:
+    $ref: "#/types/azure-native:dbforpostgresql/v20171201:SslEnforcementEnum"
+    description: Enable ssl enforcement or not when connect to server.
+  storageProfile:
+    type: object
+    $ref: "#/types/azure-native:dbforpostgresql/v20171201:StorageProfile"
+    description: Storage profile of a server.
+  version:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:dbforpostgresql/v20171201:ServerVersion"
+    description: Server version.
+type: object
+required:
+  - createMode
+  - restorePointInTime
+  - sourceServerId

@@ -1,0 +1,79 @@
+$token: azure-native:security:getAssessment
+description: |-
+  Security assessment on a resource
+  API Version: 2020-01-01.
+inputs:
+  properties:
+    assessmentName:
+      type: string
+      description: The Assessment Key - Unique key for the assessment type
+    expand:
+      type: string
+      description: OData expand. Optional.
+    resourceId:
+      type: string
+      description: The identifier of the resource.
+  type: object
+  required:
+    - assessmentName
+    - resourceId
+outputs:
+  description: Security assessment on a resource
+  properties:
+    additionalData:
+      type: object
+      additionalProperties:
+        type: string
+      description: Additional data regarding the assessment
+    displayName:
+      type: string
+      description: User friendly display name of the assessment
+    id:
+      type: string
+      description: Resource Id
+    links:
+      type: object
+      $ref: "#/types/azure-native:security:AssessmentLinksResponse"
+      description: Links relevant to the assessment
+    metadata:
+      type: object
+      $ref: "#/types/azure-native:security:SecurityAssessmentMetadataPropertiesResponse"
+      description: Describes properties of an assessment metadata.
+    name:
+      type: string
+      description: Resource name
+    partnersData:
+      type: object
+      $ref: "#/types/azure-native:security:SecurityAssessmentPartnerDataResponse"
+      description: Data regarding 3rd party partner integration
+    resourceDetails:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:security:AzureResourceDetailsResponse"
+        - type: object
+          $ref: "#/types/azure-native:security:OnPremiseResourceDetailsResponse"
+        - type: object
+          $ref: "#/types/azure-native:security:OnPremiseSqlResourceDetailsResponse"
+      discriminator:
+        propertyName: source
+        mapping:
+          Azure: "#/types/azure-native:security:AzureResourceDetailsResponse"
+          OnPremise: "#/types/azure-native:security:OnPremiseResourceDetailsResponse"
+          OnPremiseSql: "#/types/azure-native:security:OnPremiseSqlResourceDetailsResponse"
+      description: Details of the resource that was assessed
+    status:
+      type: object
+      $ref: "#/types/azure-native:security:AssessmentStatusResponse"
+      description: The result of the assessment
+    type:
+      type: string
+      description: Resource type
+  type: object
+  required:
+    - displayName
+    - id
+    - links
+    - name
+    - resourceDetails
+    - status
+    - type

@@ -1,0 +1,32 @@
+$token: azure-native:web:listWebAppSiteBackups
+description: |-
+  Collection of backup items.
+  API Version: 2020-12-01.
+inputs:
+  properties:
+    name:
+      type: string
+      description: Name of the app.
+    resourceGroupName:
+      type: string
+      description: Name of the resource group to which the resource belongs.
+  type: object
+  required:
+    - name
+    - resourceGroupName
+outputs:
+  description: Collection of backup items.
+  properties:
+    nextLink:
+      type: string
+      description: Link to next page of resources.
+    value:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:web:BackupItemResponse"
+      description: Collection of resources.
+  type: object
+  required:
+    - nextLink
+    - value

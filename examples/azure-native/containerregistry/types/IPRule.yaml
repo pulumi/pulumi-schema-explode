@@ -1,0 +1,15 @@
+$token: azure-native:containerregistry:IPRule
+description: IP rule with specific IP or IP range in CIDR format.
+properties:
+  action:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:containerregistry:Action"
+    description: The action of IP ACL rule.
+    default: Allow
+  iPAddressOrRange:
+    type: string
+    description: Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
+type: object
+required:
+  - iPAddressOrRange

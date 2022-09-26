@@ -1,0 +1,112 @@
+$token: azure-native:storagesync/v20200901:getRegisteredServer
+description: Registered Server resource.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    serverId:
+      type: string
+      description: GUID identifying the on-premises server.
+    storageSyncServiceName:
+      type: string
+      description: Name of Storage Sync Service resource.
+  type: object
+  required:
+    - resourceGroupName
+    - serverId
+    - storageSyncServiceName
+outputs:
+  description: Registered Server resource.
+  properties:
+    agentVersion:
+      type: string
+      description: Registered Server Agent Version
+    agentVersionExpirationDate:
+      type: string
+      description: Registered Server Agent Version Expiration Date
+    agentVersionStatus:
+      type: string
+      description: Registered Server Agent Version Status
+    clusterId:
+      type: string
+      description: Registered Server clusterId
+    clusterName:
+      type: string
+      description: Registered Server clusterName
+    discoveryEndpointUri:
+      type: string
+      description: Resource discoveryEndpointUri
+    friendlyName:
+      type: string
+      description: Friendly Name
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    lastHeartBeat:
+      type: string
+      description: Registered Server last heart beat
+    lastOperationName:
+      type: string
+      description: Resource Last Operation Name
+    lastWorkflowId:
+      type: string
+      description: Registered Server lastWorkflowId
+    managementEndpointUri:
+      type: string
+      description: Management Endpoint Uri
+    monitoringConfiguration:
+      type: string
+      description: Monitoring Configuration
+    monitoringEndpointUri:
+      type: string
+      description: Telemetry Endpoint Uri
+    name:
+      type: string
+      description: The name of the resource
+    provisioningState:
+      type: string
+      description: Registered Server Provisioning State
+    resourceLocation:
+      type: string
+      description: Resource Location
+    serverCertificate:
+      type: string
+      description: Registered Server Certificate
+    serverId:
+      type: string
+      description: Registered Server serverId
+    serverManagementErrorCode:
+      type: integer
+      description: Registered Server Management Error Code
+    serverName:
+      type: string
+      description: Server name
+    serverOSVersion:
+      type: string
+      description: Registered Server OS Version
+    serverRole:
+      type: string
+      description: Registered Server serverRole
+    serviceLocation:
+      type: string
+      description: Service Location
+    storageSyncServiceUid:
+      type: string
+      description: Registered Server storageSyncServiceUid
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:storagesync/v20200901:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - agentVersionExpirationDate
+    - agentVersionStatus
+    - id
+    - name
+    - serverName
+    - systemData
+    - type

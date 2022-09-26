@@ -1,0 +1,49 @@
+$token: azure-native:datamigration:ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponse
+description: Properties for the task that validates connection to Azure Database For PostgreSQL server and target server requirements for online migration
+properties:
+  commands:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:datamigration:MigrateMISyncCompleteCommandPropertiesResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration:MigrateSyncCompleteCommandPropertiesResponse"
+      discriminator:
+        propertyName: commandType
+        mapping:
+          Migrate.SqlServer.AzureDbSqlMi.Complete: "#/types/azure-native:datamigration:MigrateMISyncCompleteCommandPropertiesResponse"
+          Migrate.Sync.Complete.Database: "#/types/azure-native:datamigration:MigrateSyncCompleteCommandPropertiesResponse"
+    description: Array of command properties.
+  errors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration:ODataErrorResponse"
+    description: Array of errors. This is ignored if submitted.
+  input:
+    type: object
+    $ref: "#/types/azure-native:datamigration:ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponse"
+    description: Task input
+  output:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration:ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponse"
+    description: Task output. This is ignored if submitted.
+  state:
+    type: string
+    description: The state of the task. This is ignored if submitted.
+  taskType:
+    type: string
+    description: |-
+      Task type.
+      Expected value is 'ConnectToTarget.AzureDbForPostgreSql.Sync'.
+    const: ConnectToTarget.AzureDbForPostgreSql.Sync
+type: object
+required:
+  - commands
+  - errors
+  - output
+  - state
+  - taskType

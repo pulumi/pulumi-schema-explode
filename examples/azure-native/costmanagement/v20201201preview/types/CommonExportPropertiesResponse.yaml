@@ -1,0 +1,26 @@
+$token: azure-native:costmanagement/v20201201preview:CommonExportPropertiesResponse
+description: The common properties of the export.
+properties:
+  definition:
+    type: object
+    $ref: "#/types/azure-native:costmanagement/v20201201preview:ExportDefinitionResponse"
+    description: Has the definition for the export.
+  deliveryInfo:
+    type: object
+    $ref: "#/types/azure-native:costmanagement/v20201201preview:ExportDeliveryInfoResponse"
+    description: Has delivery information for the export.
+  format:
+    type: string
+    description: The format of the export being delivered. Currently only 'Csv' is supported.
+  nextRunTimeEstimate:
+    type: string
+    description: If the export has an active schedule, provides an estimate of the next execution time.
+  runHistory:
+    type: object
+    $ref: "#/types/azure-native:costmanagement/v20201201preview:ExportExecutionListResultResponse"
+    description: If requested, has the most recent execution history for the export.
+type: object
+required:
+  - definition
+  - deliveryInfo
+  - nextRunTimeEstimate

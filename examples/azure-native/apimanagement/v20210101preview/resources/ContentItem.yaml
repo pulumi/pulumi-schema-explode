@@ -1,0 +1,42 @@
+$token: azure-native:apimanagement/v20210101preview:ContentItem
+description: Content type contract details.
+properties:
+  name:
+    type: string
+    description: Resource name.
+  properties:
+    $ref: pulumi.json#/Any
+    description: Properties of the content item.
+  type:
+    type: string
+    description: Resource type for API Management resource.
+type: object
+required:
+  - name
+  - properties
+  - type
+inputProperties:
+  contentItemId:
+    type: string
+    description: Content item identifier.
+  contentTypeId:
+    type: string
+    description: Content type identifier.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  serviceName:
+    type: string
+    description: The name of the API Management service.
+requiredInputs:
+  - contentTypeId
+  - resourceGroupName
+  - serviceName
+aliases:
+  - type: azure-native:apimanagement:ContentItem
+  - type: azure-native:apimanagement/v20191201:ContentItem
+  - type: azure-native:apimanagement/v20200601preview:ContentItem
+  - type: azure-native:apimanagement/v20201201:ContentItem
+  - type: azure-native:apimanagement/v20210401preview:ContentItem
+  - type: azure-native:apimanagement/v20210801:ContentItem
+  - type: azure-native:apimanagement/v20211201preview:ContentItem

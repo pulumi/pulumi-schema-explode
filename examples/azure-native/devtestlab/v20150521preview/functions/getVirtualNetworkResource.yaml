@@ -1,0 +1,61 @@
+$token: azure-native:devtestlab/v20150521preview:getVirtualNetworkResource
+description: A virtual network.
+inputs:
+  properties:
+    labName:
+      type: string
+      description: The name of the lab.
+    name:
+      type: string
+      description: The name of the virtual network.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - labName
+    - name
+    - resourceGroupName
+outputs:
+  description: A virtual network.
+  properties:
+    allowedSubnets:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:devtestlab/v20150521preview:SubnetResponse"
+      description: The allowed subnets of the virtual network.
+    description:
+      type: string
+      description: The description of the virtual network.
+    externalProviderResourceId:
+      type: string
+      description: The Microsoft.Network resource identifier of the virtual network.
+    id:
+      type: string
+      description: The identifier of the resource.
+    location:
+      type: string
+      description: The location of the resource.
+    name:
+      type: string
+      description: The name of the resource.
+    provisioningState:
+      type: string
+      description: The provisioning status of the resource.
+    subnetOverrides:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:devtestlab/v20150521preview:SubnetOverrideResponse"
+      description: The subnet overrides of the virtual network.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: The tags of the resource.
+    type:
+      type: string
+      description: The type of the resource.
+  type: object
+deprecationMessage: Version 2015-05-21-preview will be removed in v2 of the provider.

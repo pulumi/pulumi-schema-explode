@@ -1,0 +1,57 @@
+$token: azure-native:apimanagement/v20210401preview:Policy
+description: Policy Contract details.
+properties:
+  format:
+    type: string
+    description: Format of the policyContent.
+    default: xml
+  name:
+    type: string
+    description: The name of the resource
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  value:
+    type: string
+    description: Contents of the Policy as defined by the format.
+type: object
+required:
+  - name
+  - type
+  - value
+inputProperties:
+  format:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:apimanagement/v20210401preview:PolicyContentFormat"
+    description: Format of the policyContent.
+    default: xml
+  policyId:
+    type: string
+    description: The identifier of the Policy.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  serviceName:
+    type: string
+    description: The name of the API Management service.
+  value:
+    type: string
+    description: Contents of the Policy as defined by the format.
+requiredInputs:
+  - resourceGroupName
+  - serviceName
+  - value
+aliases:
+  - type: azure-native:apimanagement:Policy
+  - type: azure-native:apimanagement/v20170301:Policy
+  - type: azure-native:apimanagement/v20180101:Policy
+  - type: azure-native:apimanagement/v20180601preview:Policy
+  - type: azure-native:apimanagement/v20190101:Policy
+  - type: azure-native:apimanagement/v20191201:Policy
+  - type: azure-native:apimanagement/v20191201preview:Policy
+  - type: azure-native:apimanagement/v20200601preview:Policy
+  - type: azure-native:apimanagement/v20201201:Policy
+  - type: azure-native:apimanagement/v20210101preview:Policy
+  - type: azure-native:apimanagement/v20210801:Policy
+  - type: azure-native:apimanagement/v20211201preview:Policy

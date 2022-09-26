@@ -1,0 +1,109 @@
+$token: azure-native:compute/v20211101:VirtualMachineScaleSetVMExtension
+description: Describes a VMSS VM Extension.
+properties:
+  autoUpgradeMinorVersion:
+    type: boolean
+    description: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+  enableAutomaticUpgrade:
+    type: boolean
+    description: Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+  forceUpdateTag:
+    type: string
+    description: How the extension handler should be forced to update even if the extension configuration has not changed.
+  instanceView:
+    type: object
+    $ref: "#/types/azure-native:compute/v20211101:VirtualMachineExtensionInstanceViewResponse"
+    description: The virtual machine extension instance view.
+  name:
+    type: string
+    description: The name of the extension.
+  protectedSettings:
+    $ref: pulumi.json#/Any
+    description: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+  protectedSettingsFromKeyVault:
+    $ref: pulumi.json#/Any
+    description: The extensions protected settings that are passed by reference, and consumed from key vault
+  provisioningState:
+    type: string
+    description: The provisioning state, which only appears in the response.
+  publisher:
+    type: string
+    description: The name of the extension handler publisher.
+  settings:
+    $ref: pulumi.json#/Any
+    description: Json formatted public settings for the extension.
+  suppressFailures:
+    type: boolean
+    description: Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
+  type:
+    type: string
+    description: Resource type
+  typeHandlerVersion:
+    type: string
+    description: Specifies the version of the script handler.
+type: object
+required:
+  - name
+  - provisioningState
+  - type
+inputProperties:
+  autoUpgradeMinorVersion:
+    type: boolean
+    description: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+  enableAutomaticUpgrade:
+    type: boolean
+    description: Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+  forceUpdateTag:
+    type: string
+    description: How the extension handler should be forced to update even if the extension configuration has not changed.
+  instanceId:
+    type: string
+    description: The instance ID of the virtual machine.
+  instanceView:
+    type: object
+    $ref: "#/types/azure-native:compute/v20211101:VirtualMachineExtensionInstanceView"
+    description: The virtual machine extension instance view.
+  protectedSettings:
+    $ref: pulumi.json#/Any
+    description: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+  protectedSettingsFromKeyVault:
+    $ref: pulumi.json#/Any
+    description: The extensions protected settings that are passed by reference, and consumed from key vault
+  publisher:
+    type: string
+    description: The name of the extension handler publisher.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  settings:
+    $ref: pulumi.json#/Any
+    description: Json formatted public settings for the extension.
+  suppressFailures:
+    type: boolean
+    description: Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
+  type:
+    type: string
+    description: Specifies the type of the extension; an example is "CustomScriptExtension".
+  typeHandlerVersion:
+    type: string
+    description: Specifies the version of the script handler.
+  vmExtensionName:
+    type: string
+    description: The name of the virtual machine extension.
+  vmScaleSetName:
+    type: string
+    description: The name of the VM scale set.
+requiredInputs:
+  - instanceId
+  - resourceGroupName
+  - vmScaleSetName
+aliases:
+  - type: azure-native:compute:VirtualMachineScaleSetVMExtension
+  - type: azure-native:compute/v20190701:VirtualMachineScaleSetVMExtension
+  - type: azure-native:compute/v20191201:VirtualMachineScaleSetVMExtension
+  - type: azure-native:compute/v20200601:VirtualMachineScaleSetVMExtension
+  - type: azure-native:compute/v20201201:VirtualMachineScaleSetVMExtension
+  - type: azure-native:compute/v20210301:VirtualMachineScaleSetVMExtension
+  - type: azure-native:compute/v20210401:VirtualMachineScaleSetVMExtension
+  - type: azure-native:compute/v20210701:VirtualMachineScaleSetVMExtension
+  - type: azure-native:compute/v20220301:VirtualMachineScaleSetVMExtension

@@ -1,0 +1,79 @@
+$token: azure-native:customerinsights:getConnector
+description: |-
+  The connector resource format.
+  API Version: 2017-04-26.
+inputs:
+  properties:
+    connectorName:
+      type: string
+      description: The name of the connector.
+    hubName:
+      type: string
+      description: The name of the hub.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - connectorName
+    - hubName
+    - resourceGroupName
+outputs:
+  description: The connector resource format.
+  properties:
+    connectorId:
+      type: integer
+      description: ID of the connector.
+    connectorName:
+      type: string
+      description: Name of the connector.
+    connectorProperties:
+      type: object
+      additionalProperties:
+        $ref: pulumi.json#/Any
+      description: The connector properties.
+    connectorType:
+      type: string
+      description: Type of connector.
+    created:
+      type: string
+      description: The created time.
+    description:
+      type: string
+      description: Description of the connector.
+    displayName:
+      type: string
+      description: Display name of the connector.
+    id:
+      type: string
+      description: Resource ID.
+    isInternal:
+      type: boolean
+      description: If this is an internal connector.
+    lastModified:
+      type: string
+      description: The last modified time.
+    name:
+      type: string
+      description: Resource name.
+    state:
+      type: string
+      description: State of connector.
+    tenantId:
+      type: string
+      description: The hub name.
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - connectorId
+    - connectorProperties
+    - connectorType
+    - created
+    - id
+    - lastModified
+    - name
+    - state
+    - tenantId
+    - type

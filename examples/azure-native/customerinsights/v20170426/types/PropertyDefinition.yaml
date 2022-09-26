@@ -1,0 +1,55 @@
+$token: azure-native:customerinsights/v20170426:PropertyDefinition
+description: Property definition.
+properties:
+  arrayValueSeparator:
+    type: string
+    description: Array value separator for properties with isArray set.
+  enumValidValues:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:customerinsights/v20170426:ProfileEnumValidValuesFormat"
+    description: Describes valid values for an enum property.
+  fieldName:
+    type: string
+    description: Name of the property.
+  fieldType:
+    type: string
+    description: Type of the property.
+  isArray:
+    type: boolean
+    description: Indicates if the property is actually an array of the fieldType above on the data api.
+  isAvailableInGraph:
+    type: boolean
+    description: Whether property is available in graph or not.
+  isEnum:
+    type: boolean
+    description: Indicates if the property is an enum.
+  isFlagEnum:
+    type: boolean
+    description: Indicates if the property is an flag enum.
+  isImage:
+    type: boolean
+    description: Whether the property is an Image.
+  isLocalizedString:
+    type: boolean
+    description: Whether the property is a localized string.
+  isName:
+    type: boolean
+    description: Whether the property is a name or a part of name.
+  isRequired:
+    type: boolean
+    description: Whether property value is required on instances, IsRequired field only for Interaction. Profile Instance will not check for required field.
+  maxLength:
+    type: integer
+    description: Max length of string. Used only if type is string.
+  propertyId:
+    type: string
+    description: The ID associated with the property.
+  schemaItemPropLink:
+    type: string
+    description: URL encoded schema.org item prop link for the property.
+type: object
+required:
+  - fieldName
+  - fieldType

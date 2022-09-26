@@ -1,0 +1,55 @@
+$token: azure-native:peering/v20200401:getPeeringService
+description: Peering Service
+inputs:
+  properties:
+    peeringServiceName:
+      type: string
+      description: The name of the peering.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - peeringServiceName
+    - resourceGroupName
+outputs:
+  description: Peering Service
+  properties:
+    id:
+      type: string
+      description: The ID of the resource.
+    location:
+      type: string
+      description: The location of the resource.
+    name:
+      type: string
+      description: The name of the resource.
+    peeringServiceLocation:
+      type: string
+      description: The PeeringServiceLocation of the Customer.
+    peeringServiceProvider:
+      type: string
+      description: The MAPS Provider Name.
+    provisioningState:
+      type: string
+      description: The provisioning state of the resource.
+    sku:
+      type: object
+      $ref: "#/types/azure-native:peering/v20200401:PeeringServiceSkuResponse"
+      description: The SKU that defines the type of the peering service.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: The resource tags.
+    type:
+      type: string
+      description: The type of the resource.
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - provisioningState
+    - type
+deprecationMessage: Version 2020-04-01 will be removed in v2 of the provider.

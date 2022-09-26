@@ -1,0 +1,74 @@
+$token: azure-native:storage/v20210601:EncryptionScope
+description: The Encryption Scope resource.
+properties:
+  creationTime:
+    type: string
+    description: Gets the creation date and time of the encryption scope in UTC.
+  keyVaultProperties:
+    type: object
+    $ref: "#/types/azure-native:storage/v20210601:EncryptionScopeKeyVaultPropertiesResponse"
+    description: The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.
+  lastModifiedTime:
+    type: string
+    description: Gets the last modification date and time of the encryption scope in UTC.
+  name:
+    type: string
+    description: The name of the resource
+  requireInfrastructureEncryption:
+    type: boolean
+    description: A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
+  source:
+    type: string
+    description: "The provider for the encryption scope. Possible values (case-insensitive):  Microsoft.Storage, Microsoft.KeyVault."
+  state:
+    type: string
+    description: "The state of the encryption scope. Possible values (case-insensitive):  Enabled, Disabled."
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - creationTime
+  - lastModifiedTime
+  - name
+  - type
+inputProperties:
+  accountName:
+    type: string
+    description: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+  encryptionScopeName:
+    type: string
+    description: The name of the encryption scope within the specified storage account. Encryption scope names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
+  keyVaultProperties:
+    type: object
+    $ref: "#/types/azure-native:storage/v20210601:EncryptionScopeKeyVaultProperties"
+    description: The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.
+  requireInfrastructureEncryption:
+    type: boolean
+    description: A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group within the user's subscription. The name is case insensitive.
+  source:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:storage/v20210601:EncryptionScopeSource"
+    description: "The provider for the encryption scope. Possible values (case-insensitive):  Microsoft.Storage, Microsoft.KeyVault."
+  state:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:storage/v20210601:EncryptionScopeState"
+    description: "The state of the encryption scope. Possible values (case-insensitive):  Enabled, Disabled."
+requiredInputs:
+  - accountName
+  - resourceGroupName
+aliases:
+  - type: azure-native:storage:EncryptionScope
+  - type: azure-native:storage/v20190601:EncryptionScope
+  - type: azure-native:storage/v20200801preview:EncryptionScope
+  - type: azure-native:storage/v20210101:EncryptionScope
+  - type: azure-native:storage/v20210201:EncryptionScope
+  - type: azure-native:storage/v20210401:EncryptionScope
+  - type: azure-native:storage/v20210801:EncryptionScope
+  - type: azure-native:storage/v20210901:EncryptionScope
+  - type: azure-native:storage/v20220501:EncryptionScope

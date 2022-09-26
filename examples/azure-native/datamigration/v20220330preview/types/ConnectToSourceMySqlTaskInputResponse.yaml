@@ -1,0 +1,20 @@
+$token: azure-native:datamigration/v20220330preview:ConnectToSourceMySqlTaskInputResponse
+description: Input for the task that validates MySQL database connection
+properties:
+  checkPermissionsGroup:
+    type: string
+    description: Permission group for validations
+  isOfflineMigration:
+    type: boolean
+    description: Flag for whether or not the migration is offline
+    default: false
+  sourceConnectionInfo:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20220330preview:MySqlConnectionInfoResponse"
+    description: Information for connecting to MySQL source
+  targetPlatform:
+    type: string
+    description: Target Platform for the migration
+type: object
+required:
+  - sourceConnectionInfo

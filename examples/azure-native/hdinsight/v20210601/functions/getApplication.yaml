@@ -1,0 +1,53 @@
+$token: azure-native:hdinsight/v20210601:getApplication
+description: The HDInsight cluster application
+inputs:
+  properties:
+    applicationName:
+      type: string
+      description: The constant value for the application name.
+    clusterName:
+      type: string
+      description: The name of the cluster.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - applicationName
+    - clusterName
+    - resourceGroupName
+outputs:
+  description: The HDInsight cluster application
+  properties:
+    etag:
+      type: string
+      description: The ETag for the application
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    name:
+      type: string
+      description: The name of the resource
+    properties:
+      type: object
+      $ref: "#/types/azure-native:hdinsight/v20210601:ApplicationPropertiesResponse"
+      description: The properties of the application.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:hdinsight/v20210601:SystemDataResponse"
+      description: Metadata pertaining to creation and last modification of the resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: The tags for the application.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - systemData
+    - type

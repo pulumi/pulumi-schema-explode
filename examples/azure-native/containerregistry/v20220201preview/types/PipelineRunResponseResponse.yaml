@@ -1,0 +1,40 @@
+$token: azure-native:containerregistry/v20220201preview:PipelineRunResponseResponse
+description: The response properties returned for a pipeline run.
+properties:
+  catalogDigest:
+    type: string
+    description: The digest of the tar used to transfer the artifacts.
+  finishTime:
+    type: string
+    description: The time the pipeline run finished.
+  importedArtifacts:
+    type: array
+    items:
+      type: string
+    description: The artifacts imported in the pipeline run.
+  pipelineRunErrorMessage:
+    type: string
+    description: The detailed error message for the pipeline run in the case of failure.
+  progress:
+    type: object
+    $ref: "#/types/azure-native:containerregistry/v20220201preview:ProgressPropertiesResponse"
+    description: The current progress of the copy operation.
+  source:
+    type: object
+    $ref: "#/types/azure-native:containerregistry/v20220201preview:ImportPipelineSourcePropertiesResponse"
+    description: The source of the pipeline run.
+  startTime:
+    type: string
+    description: The time the pipeline run started.
+  status:
+    type: string
+    description: The current status of the pipeline run.
+  target:
+    type: object
+    $ref: "#/types/azure-native:containerregistry/v20220201preview:ExportPipelineTargetPropertiesResponse"
+    description: The target of the pipeline run.
+  trigger:
+    type: object
+    $ref: "#/types/azure-native:containerregistry/v20220201preview:PipelineTriggerDescriptorResponse"
+    description: The trigger that caused the pipeline run.
+type: object

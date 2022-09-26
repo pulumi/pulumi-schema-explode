@@ -1,0 +1,29 @@
+$token: azure-native:deploymentmanager/v20180901preview:StepOperationInfoResponse
+description: Detailed information of a specific step run.
+properties:
+  correlationId:
+    type: string
+    description: Unique identifier to track the request for ARM-based resources.
+  deploymentName:
+    type: string
+    description: The name of the ARM deployment initiated as part of the step.
+  endTime:
+    type: string
+    description: End time of the action in UTC.
+  error:
+    type: object
+    $ref: "#/types/azure-native:deploymentmanager/v20180901preview:CloudErrorBodyResponse"
+    description: The errors, if any, for the action.
+  lastUpdatedTime:
+    type: string
+    description: Last time in UTC this operation was updated.
+  startTime:
+    type: string
+    description: Start time of the action in UTC.
+type: object
+required:
+  - correlationId
+  - deploymentName
+  - endTime
+  - lastUpdatedTime
+  - startTime

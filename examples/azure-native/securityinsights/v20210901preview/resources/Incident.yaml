@@ -1,0 +1,181 @@
+$token: azure-native:securityinsights/v20210901preview:Incident
+description: Represents an incident in Azure Security Insights.
+properties:
+  additionalData:
+    type: object
+    $ref: "#/types/azure-native:securityinsights/v20210901preview:IncidentAdditionalDataResponse"
+    description: Additional data on the incident
+  classification:
+    type: string
+    description: The reason the incident was closed
+  classificationComment:
+    type: string
+    description: Describes the reason the incident was closed
+  classificationReason:
+    type: string
+    description: The classification reason the incident was closed with
+  createdTimeUtc:
+    type: string
+    description: The time the incident was created
+  description:
+    type: string
+    description: The description of the incident
+  etag:
+    type: string
+    description: Etag of the azure resource
+  firstActivityTimeUtc:
+    type: string
+    description: The time of the first activity in the incident
+  incidentNumber:
+    type: integer
+    description: A sequential number
+  incidentUrl:
+    type: string
+    description: The deep-link url to the incident in Azure portal
+  labels:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:securityinsights/v20210901preview:IncidentLabelResponse"
+    description: List of labels relevant to this incident
+  lastActivityTimeUtc:
+    type: string
+    description: The time of the last activity in the incident
+  lastModifiedTimeUtc:
+    type: string
+    description: The last time the incident was updated
+  name:
+    type: string
+    description: The name of the resource
+  owner:
+    type: object
+    $ref: "#/types/azure-native:securityinsights/v20210901preview:IncidentOwnerInfoResponse"
+    description: Describes a user that the incident is assigned to
+  providerIncidentId:
+    type: string
+    description: The incident ID assigned by the incident provider
+  providerName:
+    type: string
+    description: The name of the source provider that generated the incident
+  relatedAnalyticRuleIds:
+    type: array
+    items:
+      type: string
+    description: List of resource ids of Analytic rules related to the incident
+  severity:
+    type: string
+    description: The severity of the incident
+  status:
+    type: string
+    description: The status of the incident
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:securityinsights/v20210901preview:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  teamInformation:
+    type: object
+    $ref: "#/types/azure-native:securityinsights/v20210901preview:TeamInformationResponse"
+    description: Describes a team for the incident
+  title:
+    type: string
+    description: The title of the incident
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - additionalData
+  - createdTimeUtc
+  - incidentNumber
+  - incidentUrl
+  - lastModifiedTimeUtc
+  - name
+  - relatedAnalyticRuleIds
+  - severity
+  - status
+  - systemData
+  - title
+  - type
+inputProperties:
+  classification:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:securityinsights/v20210901preview:IncidentClassification"
+    description: The reason the incident was closed
+  classificationComment:
+    type: string
+    description: Describes the reason the incident was closed
+  classificationReason:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:securityinsights/v20210901preview:IncidentClassificationReason"
+    description: The classification reason the incident was closed with
+  description:
+    type: string
+    description: The description of the incident
+  firstActivityTimeUtc:
+    type: string
+    description: The time of the first activity in the incident
+  incidentId:
+    type: string
+    description: Incident ID
+  labels:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:securityinsights/v20210901preview:IncidentLabel"
+    description: List of labels relevant to this incident
+  lastActivityTimeUtc:
+    type: string
+    description: The time of the last activity in the incident
+  owner:
+    type: object
+    $ref: "#/types/azure-native:securityinsights/v20210901preview:IncidentOwnerInfo"
+    description: Describes a user that the incident is assigned to
+  providerIncidentId:
+    type: string
+    description: The incident ID assigned by the incident provider
+  providerName:
+    type: string
+    description: The name of the source provider that generated the incident
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  severity:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:securityinsights/v20210901preview:IncidentSeverity"
+    description: The severity of the incident
+  status:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:securityinsights/v20210901preview:IncidentStatus"
+    description: The status of the incident
+  title:
+    type: string
+    description: The title of the incident
+  workspaceName:
+    type: string
+    description: The name of the workspace.
+requiredInputs:
+  - resourceGroupName
+  - severity
+  - status
+  - title
+  - workspaceName
+aliases:
+  - type: azure-native:securityinsights:Incident
+  - type: azure-native:securityinsights/v20190101preview:Incident
+  - type: azure-native:securityinsights/v20200101:Incident
+  - type: azure-native:securityinsights/v20210301preview:Incident
+  - type: azure-native:securityinsights/v20210401:Incident
+  - type: azure-native:securityinsights/v20211001:Incident
+  - type: azure-native:securityinsights/v20211001preview:Incident
+  - type: azure-native:securityinsights/v20220101preview:Incident
+  - type: azure-native:securityinsights/v20220401preview:Incident
+  - type: azure-native:securityinsights/v20220501preview:Incident
+  - type: azure-native:securityinsights/v20220601preview:Incident
+  - type: azure-native:securityinsights/v20220701preview:Incident
+  - type: azure-native:securityinsights/v20220801:Incident
+  - type: azure-native:securityinsights/v20220801preview:Incident
+  - type: azure-native:securityinsights/v20220901preview:Incident

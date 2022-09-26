@@ -1,0 +1,64 @@
+$token: azure-native:datafactory/v20180601:DataFlow
+description: Data flow resource type.
+properties:
+  etag:
+    type: string
+    description: Etag identifies change in the resource.
+  name:
+    type: string
+    description: The resource name.
+  properties:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:FlowletResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:MappingDataFlowResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:WranglingDataFlowResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        Flowlet: "#/types/azure-native:datafactory/v20180601:FlowletResponse"
+        MappingDataFlow: "#/types/azure-native:datafactory/v20180601:MappingDataFlowResponse"
+        WranglingDataFlow: "#/types/azure-native:datafactory/v20180601:WranglingDataFlowResponse"
+    description: Data flow properties.
+  type:
+    type: string
+    description: The resource type.
+type: object
+required:
+  - etag
+  - name
+  - properties
+  - type
+inputProperties:
+  dataFlowName:
+    type: string
+    description: The data flow name.
+  factoryName:
+    type: string
+    description: The factory name.
+  properties:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:Flowlet"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:MappingDataFlow"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:WranglingDataFlow"
+    discriminator:
+      propertyName: type
+      mapping:
+        Flowlet: "#/types/azure-native:datafactory/v20180601:Flowlet"
+        MappingDataFlow: "#/types/azure-native:datafactory/v20180601:MappingDataFlow"
+        WranglingDataFlow: "#/types/azure-native:datafactory/v20180601:WranglingDataFlow"
+    description: Data flow properties.
+  resourceGroupName:
+    type: string
+    description: The resource group name.
+requiredInputs:
+  - factoryName
+  - properties
+  - resourceGroupName
+aliases:
+  - type: azure-native:datafactory:DataFlow

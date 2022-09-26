@@ -1,0 +1,16 @@
+$token: azure-native:machinelearningcompute/v20170601preview:SslConfiguration
+description: SSL configuration. If configured data-plane calls to user services will be exposed over SSL only.
+properties:
+  cert:
+    type: string
+    description: The SSL cert data in PEM format encoded as base64 string
+  key:
+    type: string
+    description: The SSL key data in PEM format encoded as base64 string. This is not returned in response of GET/PUT on the resource.. To see this please call listKeys API.
+  status:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearningcompute/v20170601preview:Status"
+    description: SSL status. Allowed values are Enabled and Disabled.
+    default: Enabled
+type: object

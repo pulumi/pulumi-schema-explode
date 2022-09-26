@@ -1,0 +1,48 @@
+$token: azure-native:synapse/v20201201:getPrivateEndpointConnection
+description: A private endpoint connection
+inputs:
+  properties:
+    privateEndpointConnectionName:
+      type: string
+      description: The name of the private endpoint connection.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    workspaceName:
+      type: string
+      description: The name of the workspace.
+  type: object
+  required:
+    - privateEndpointConnectionName
+    - resourceGroupName
+    - workspaceName
+outputs:
+  description: A private endpoint connection
+  properties:
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    name:
+      type: string
+      description: The name of the resource
+    privateEndpoint:
+      type: object
+      $ref: "#/types/azure-native:synapse/v20201201:PrivateEndpointResponse"
+      description: The private endpoint which the connection belongs to.
+    privateLinkServiceConnectionState:
+      type: object
+      $ref: "#/types/azure-native:synapse/v20201201:PrivateLinkServiceConnectionStateResponse"
+      description: Connection state of the private endpoint connection.
+    provisioningState:
+      type: string
+      description: Provisioning state of the private endpoint connection.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - id
+    - name
+    - provisioningState
+    - type
+deprecationMessage: Version 2020-12-01 will be removed in v2 of the provider.

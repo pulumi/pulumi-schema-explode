@@ -1,0 +1,14 @@
+$token: azure-native:signalrservice/v20220201:ManagedIdentity
+description: A class represent managed identities used for request and response
+properties:
+  type:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:signalrservice/v20220201:ManagedIdentityType"
+    description: "Represents the identity type: systemAssigned, userAssigned, None"
+  userAssignedIdentities:
+    type: object
+    additionalProperties:
+      $ref: pulumi.json#/Any
+    description: Get or set the user assigned identities
+type: object

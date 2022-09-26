@@ -1,0 +1,30 @@
+$token: azure-native:datafactory/v20170901preview:CustomDataSourceLinkedService
+description: Custom linked service.
+properties:
+  annotations:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: List of tags that can be used for describing the Dataset.
+  connectVia:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20170901preview:IntegrationRuntimeReference"
+    description: The integration runtime reference.
+  description:
+    type: string
+    description: Linked service description.
+  parameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20170901preview:ParameterSpecification"
+    description: Parameters for linked service.
+  type:
+    type: string
+    description: |-
+      Type of linked service.
+      Expected value is 'CustomDataSource'.
+    const: CustomDataSource
+type: object
+required:
+  - type

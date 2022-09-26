@@ -1,0 +1,60 @@
+$token: azure-native:containerservice/v20220602preview:TrustedAccessRoleBinding
+description: Defines binding between a resource and role
+properties:
+  name:
+    type: string
+    description: The name of the resource
+  provisioningState:
+    type: string
+    description: The current provisioning state of trusted access role binding.
+  roles:
+    type: array
+    items:
+      type: string
+    description: "A list of roles to bind, each item is a resource type qualified role name. For example: 'Microsoft.MachineLearningServices/workspaces/reader'."
+  sourceResourceId:
+    type: string
+    description: The ARM resource ID of source resource that trusted access is configured for.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:containerservice/v20220602preview:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - name
+  - provisioningState
+  - roles
+  - sourceResourceId
+  - systemData
+  - type
+inputProperties:
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  resourceName:
+    type: string
+    description: The name of the managed cluster resource.
+  roles:
+    type: array
+    items:
+      type: string
+    description: "A list of roles to bind, each item is a resource type qualified role name. For example: 'Microsoft.MachineLearningServices/workspaces/reader'."
+  sourceResourceId:
+    type: string
+    description: The ARM resource ID of source resource that trusted access is configured for.
+  trustedAccessRoleBindingName:
+    type: string
+    description: The name of trusted access role binding.
+requiredInputs:
+  - resourceGroupName
+  - resourceName
+  - roles
+  - sourceResourceId
+aliases:
+  - type: azure-native:containerservice:TrustedAccessRoleBinding
+  - type: azure-native:containerservice/v20220402preview:TrustedAccessRoleBinding
+  - type: azure-native:containerservice/v20220502preview:TrustedAccessRoleBinding
+  - type: azure-native:containerservice/v20220702preview:TrustedAccessRoleBinding

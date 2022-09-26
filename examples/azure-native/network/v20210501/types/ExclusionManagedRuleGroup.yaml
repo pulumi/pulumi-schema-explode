@@ -1,0 +1,15 @@
+$token: azure-native:network/v20210501:ExclusionManagedRuleGroup
+description: Defines a managed rule group to use for exclusion.
+properties:
+  ruleGroupName:
+    type: string
+    description: The managed rule group for exclusion.
+  rules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210501:ExclusionManagedRule"
+    description: List of rules that will be excluded. If none specified, all rules in the group will be excluded.
+type: object
+required:
+  - ruleGroupName

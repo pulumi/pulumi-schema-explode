@@ -1,0 +1,27 @@
+$token: azure-native:mobilenetwork/v20220301preview:NaptConfiguration
+description: The Network Address and Port Translation settings to use for the attached data network.
+properties:
+  enabled:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:mobilenetwork/v20220301preview:NaptEnabled"
+    description: Whether NAPT is enabled for connections to this attachedDataNetwork.
+  pinholeLimits:
+    type: integer
+    description: Maximum number of UDP and TCP pinholes that can be open simultaneously on the core interface.
+    default: 65536
+  pinholeTimeouts:
+    type: object
+    $ref: "#/types/azure-native:mobilenetwork/v20220301preview:PinholeTimeouts"
+    description: Expiry times of inactive NAPT pinholes, in seconds. All timers must be at least 1 second.
+  portRange:
+    type: object
+    $ref: "#/types/azure-native:mobilenetwork/v20220301preview:PortRange"
+    description: |-
+      Range of port numbers to use as translated ports on each translated address.
+      If not specified and NAPT is enabled, this range defaults to 1,024 - 65,535. (Ports under 1,024 should not be used because these are special purpose ports reserved by IANA.)
+  portReuseHoldTime:
+    type: object
+    $ref: "#/types/azure-native:mobilenetwork/v20220301preview:PortReuseHoldTimes"
+    description: The minimum time (in seconds) that will pass before a port that was used by a closed pinhole can be recycled for use by another pinhole. All hold times must be minimum 1 second.
+type: object

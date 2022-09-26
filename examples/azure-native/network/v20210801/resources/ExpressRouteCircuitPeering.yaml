@@ -1,0 +1,210 @@
+$token: azure-native:network/v20210801:ExpressRouteCircuitPeering
+description: Peering in an ExpressRouteCircuit resource.
+properties:
+  azureASN:
+    type: integer
+    description: The Azure ASN.
+  connections:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210801:ExpressRouteCircuitConnectionResponse"
+    description: The list of circuit connections associated with Azure Private Peering for this circuit.
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  expressRouteConnection:
+    type: object
+    $ref: "#/types/azure-native:network/v20210801:ExpressRouteConnectionIdResponse"
+    description: The ExpressRoute connection.
+  gatewayManagerEtag:
+    type: string
+    description: The GatewayManager Etag.
+  ipv6PeeringConfig:
+    type: object
+    $ref: "#/types/azure-native:network/v20210801:Ipv6ExpressRouteCircuitPeeringConfigResponse"
+    description: The IPv6 peering configuration.
+  lastModifiedBy:
+    type: string
+    description: Who was the last to modify the peering.
+  microsoftPeeringConfig:
+    type: object
+    $ref: "#/types/azure-native:network/v20210801:ExpressRouteCircuitPeeringConfigResponse"
+    description: The Microsoft peering configuration.
+  name:
+    type: string
+    description: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+  peerASN:
+    type: number
+    description: The peer ASN.
+  peeredConnections:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210801:PeerExpressRouteCircuitConnectionResponse"
+    description: The list of peered circuit connections associated with Azure Private Peering for this circuit.
+  peeringType:
+    type: string
+    description: The peering type.
+  primaryAzurePort:
+    type: string
+    description: The primary port.
+  primaryPeerAddressPrefix:
+    type: string
+    description: The primary address prefix.
+  provisioningState:
+    type: string
+    description: The provisioning state of the express route circuit peering resource.
+  routeFilter:
+    type: object
+    $ref: "#/types/azure-native:network/v20210801:SubResourceResponse"
+    description: The reference to the RouteFilter resource.
+  secondaryAzurePort:
+    type: string
+    description: The secondary port.
+  secondaryPeerAddressPrefix:
+    type: string
+    description: The secondary address prefix.
+  sharedKey:
+    type: string
+    description: The shared key.
+  state:
+    type: string
+    description: The peering state.
+  stats:
+    type: object
+    $ref: "#/types/azure-native:network/v20210801:ExpressRouteCircuitStatsResponse"
+    description: The peering stats of express route circuit.
+  type:
+    type: string
+    description: Type of the resource.
+  vlanId:
+    type: integer
+    description: The VLAN ID.
+type: object
+required:
+  - etag
+  - lastModifiedBy
+  - peeredConnections
+  - provisioningState
+  - type
+inputProperties:
+  azureASN:
+    type: integer
+    description: The Azure ASN.
+  circuitName:
+    type: string
+    description: The name of the express route circuit.
+  connections:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210801:ExpressRouteCircuitConnection"
+    description: The list of circuit connections associated with Azure Private Peering for this circuit.
+  gatewayManagerEtag:
+    type: string
+    description: The GatewayManager Etag.
+  id:
+    type: string
+    description: Resource ID.
+  ipv6PeeringConfig:
+    type: object
+    $ref: "#/types/azure-native:network/v20210801:Ipv6ExpressRouteCircuitPeeringConfig"
+    description: The IPv6 peering configuration.
+  microsoftPeeringConfig:
+    type: object
+    $ref: "#/types/azure-native:network/v20210801:ExpressRouteCircuitPeeringConfig"
+    description: The Microsoft peering configuration.
+  name:
+    type: string
+    description: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+  peerASN:
+    type: number
+    description: The peer ASN.
+  peeringName:
+    type: string
+    description: The name of the peering.
+  peeringType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20210801:ExpressRoutePeeringType"
+    description: The peering type.
+  primaryAzurePort:
+    type: string
+    description: The primary port.
+  primaryPeerAddressPrefix:
+    type: string
+    description: The primary address prefix.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  routeFilter:
+    type: object
+    $ref: "#/types/azure-native:network/v20210801:SubResource"
+    description: The reference to the RouteFilter resource.
+  secondaryAzurePort:
+    type: string
+    description: The secondary port.
+  secondaryPeerAddressPrefix:
+    type: string
+    description: The secondary address prefix.
+  sharedKey:
+    type: string
+    description: The shared key.
+  state:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20210801:ExpressRoutePeeringState"
+    description: The peering state.
+  stats:
+    type: object
+    $ref: "#/types/azure-native:network/v20210801:ExpressRouteCircuitStats"
+    description: The peering stats of express route circuit.
+  vlanId:
+    type: integer
+    description: The VLAN ID.
+requiredInputs:
+  - circuitName
+  - resourceGroupName
+aliases:
+  - type: azure-native:network:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20150501preview:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20150615:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20160330:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20160601:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20160901:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20161201:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20170301:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20170601:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20170801:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20170901:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20171001:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20171101:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20180101:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20180201:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20180401:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20180601:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20180701:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20180801:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20181001:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20181101:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20181201:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20190201:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20190401:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20190601:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20190701:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20190801:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20190901:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20191101:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20191201:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20200301:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20200401:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20200501:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20200601:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20200701:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20200801:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20201101:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20210201:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20210301:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20210501:ExpressRouteCircuitPeering
+  - type: azure-native:network/v20220101:ExpressRouteCircuitPeering

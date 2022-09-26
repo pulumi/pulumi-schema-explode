@@ -1,0 +1,209 @@
+$token: azure-native:network:getApplicationGateway
+description: |-
+  Application gateway resource.
+  API Version: 2020-11-01.
+inputs:
+  properties:
+    applicationGatewayName:
+      type: string
+      description: The name of the application gateway.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - applicationGatewayName
+    - resourceGroupName
+outputs:
+  description: Application gateway resource.
+  properties:
+    authenticationCertificates:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network:ApplicationGatewayAuthenticationCertificateResponse"
+      description: Authentication certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+    autoscaleConfiguration:
+      type: object
+      $ref: "#/types/azure-native:network:ApplicationGatewayAutoscaleConfigurationResponse"
+      description: Autoscale Configuration.
+    backendAddressPools:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network:ApplicationGatewayBackendAddressPoolResponse"
+      description: Backend address pool of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+    backendHttpSettingsCollection:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network:ApplicationGatewayBackendHttpSettingsResponse"
+      description: Backend http settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+    customErrorConfigurations:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network:ApplicationGatewayCustomErrorResponse"
+      description: Custom error configurations of the application gateway resource.
+    enableFips:
+      type: boolean
+      description: Whether FIPS is enabled on the application gateway resource.
+    enableHttp2:
+      type: boolean
+      description: Whether HTTP2 is enabled on the application gateway resource.
+    etag:
+      type: string
+      description: A unique read-only string that changes whenever the resource is updated.
+    firewallPolicy:
+      type: object
+      $ref: "#/types/azure-native:network:SubResourceResponse"
+      description: Reference to the FirewallPolicy resource.
+    forceFirewallPolicyAssociation:
+      type: boolean
+      description: If true, associates a firewall policy with an application gateway regardless whether the policy differs from the WAF Config.
+    frontendIPConfigurations:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network:ApplicationGatewayFrontendIPConfigurationResponse"
+      description: Frontend IP addresses of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+    frontendPorts:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network:ApplicationGatewayFrontendPortResponse"
+      description: Frontend ports of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+    gatewayIPConfigurations:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network:ApplicationGatewayIPConfigurationResponse"
+      description: Subnets of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+    httpListeners:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network:ApplicationGatewayHttpListenerResponse"
+      description: Http listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+    id:
+      type: string
+      description: Resource ID.
+    identity:
+      type: object
+      $ref: "#/types/azure-native:network:ManagedServiceIdentityResponse"
+      description: The identity of the application gateway, if configured.
+    location:
+      type: string
+      description: Resource location.
+    name:
+      type: string
+      description: Resource name.
+    operationalState:
+      type: string
+      description: Operational state of the application gateway resource.
+    privateEndpointConnections:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network:ApplicationGatewayPrivateEndpointConnectionResponse"
+      description: Private Endpoint connections on application gateway.
+    privateLinkConfigurations:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network:ApplicationGatewayPrivateLinkConfigurationResponse"
+      description: PrivateLink configurations on application gateway.
+    probes:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network:ApplicationGatewayProbeResponse"
+      description: Probes of the application gateway resource.
+    provisioningState:
+      type: string
+      description: The provisioning state of the application gateway resource.
+    redirectConfigurations:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network:ApplicationGatewayRedirectConfigurationResponse"
+      description: Redirect configurations of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+    requestRoutingRules:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network:ApplicationGatewayRequestRoutingRuleResponse"
+      description: Request routing rules of the application gateway resource.
+    resourceGuid:
+      type: string
+      description: The resource GUID property of the application gateway resource.
+    rewriteRuleSets:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network:ApplicationGatewayRewriteRuleSetResponse"
+      description: Rewrite rules for the application gateway resource.
+    sku:
+      type: object
+      $ref: "#/types/azure-native:network:ApplicationGatewaySkuResponse"
+      description: SKU of the application gateway resource.
+    sslCertificates:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network:ApplicationGatewaySslCertificateResponse"
+      description: SSL certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+    sslPolicy:
+      type: object
+      $ref: "#/types/azure-native:network:ApplicationGatewaySslPolicyResponse"
+      description: SSL policy of the application gateway resource.
+    sslProfiles:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network:ApplicationGatewaySslProfileResponse"
+      description: SSL profiles of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    trustedClientCertificates:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network:ApplicationGatewayTrustedClientCertificateResponse"
+      description: Trusted client certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+    trustedRootCertificates:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network:ApplicationGatewayTrustedRootCertificateResponse"
+      description: Trusted Root certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+    type:
+      type: string
+      description: Resource type.
+    urlPathMaps:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network:ApplicationGatewayUrlPathMapResponse"
+      description: URL path map of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+    webApplicationFirewallConfiguration:
+      type: object
+      $ref: "#/types/azure-native:network:ApplicationGatewayWebApplicationFirewallConfigurationResponse"
+      description: Web application firewall configuration.
+    zones:
+      type: array
+      items:
+        type: string
+      description: A list of availability zones denoting where the resource needs to come from.
+  type: object
+  required:
+    - etag
+    - name
+    - operationalState
+    - privateEndpointConnections
+    - provisioningState
+    - resourceGuid
+    - type

@@ -1,0 +1,25 @@
+$token: azure-native:containerinstance/v20201101:Volume
+description: The properties of the volume.
+properties:
+  azureFile:
+    type: object
+    $ref: "#/types/azure-native:containerinstance/v20201101:AzureFileVolume"
+    description: The Azure File volume.
+  emptyDir:
+    $ref: pulumi.json#/Any
+    description: The empty directory volume.
+  gitRepo:
+    type: object
+    $ref: "#/types/azure-native:containerinstance/v20201101:GitRepoVolume"
+    description: The git repo volume.
+  name:
+    type: string
+    description: The name of the volume.
+  secret:
+    type: object
+    additionalProperties:
+      type: string
+    description: The secret volume.
+type: object
+required:
+  - name

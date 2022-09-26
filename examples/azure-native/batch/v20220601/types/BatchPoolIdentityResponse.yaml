@@ -1,0 +1,15 @@
+$token: azure-native:batch/v20220601:BatchPoolIdentityResponse
+description: The identity of the Batch pool, if configured. If the pool identity is updated during update an existing pool, only the new vms which are created after the pool shrinks to 0 will have the updated identities
+properties:
+  type:
+    type: string
+    description: The type of identity used for the Batch Pool.
+  userAssignedIdentities:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:batch/v20220601:UserAssignedIdentitiesResponse"
+    description: The list of user identities associated with the Batch pool.
+type: object
+required:
+  - type

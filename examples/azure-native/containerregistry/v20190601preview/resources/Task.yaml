@@ -1,0 +1,169 @@
+$token: azure-native:containerregistry/v20190601preview:Task
+description: "The task that has the ARM resource and task properties. \r
+
+  The task will have all information to schedule a run against it."
+properties:
+  agentConfiguration:
+    type: object
+    $ref: "#/types/azure-native:containerregistry/v20190601preview:AgentPropertiesResponse"
+    description: The machine configuration of the run agent.
+  agentPoolName:
+    type: string
+    description: The dedicated agent pool for the task.
+  creationDate:
+    type: string
+    description: The creation date of task.
+  credentials:
+    type: object
+    $ref: "#/types/azure-native:containerregistry/v20190601preview:CredentialsResponse"
+    description: The properties that describes a set of credentials that will be used when this run is invoked.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:containerregistry/v20190601preview:IdentityPropertiesResponse"
+    description: Identity for the resource.
+  isSystemTask:
+    type: boolean
+    description: The value of this property indicates whether the task resource is system task or not.
+    default: false
+  location:
+    type: string
+    description: The location of the resource. This cannot be changed after the resource is created.
+  logTemplate:
+    type: string
+    description: The template that describes the repository and tag information for run log artifact.
+  name:
+    type: string
+    description: The name of the resource.
+  platform:
+    type: object
+    $ref: "#/types/azure-native:containerregistry/v20190601preview:PlatformPropertiesResponse"
+    description: The platform properties against which the run has to happen.
+  provisioningState:
+    type: string
+    description: The provisioning state of the task.
+  status:
+    type: string
+    description: The current status of task.
+  step:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:containerregistry/v20190601preview:DockerBuildStepResponse"
+      - type: object
+        $ref: "#/types/azure-native:containerregistry/v20190601preview:EncodedTaskStepResponse"
+      - type: object
+        $ref: "#/types/azure-native:containerregistry/v20190601preview:FileTaskStepResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        Docker: "#/types/azure-native:containerregistry/v20190601preview:DockerBuildStepResponse"
+        EncodedTask: "#/types/azure-native:containerregistry/v20190601preview:EncodedTaskStepResponse"
+        FileTask: "#/types/azure-native:containerregistry/v20190601preview:FileTaskStepResponse"
+    description: The properties of a task step.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:containerregistry/v20190601preview:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+  timeout:
+    type: integer
+    description: Run timeout in seconds.
+    default: 3600
+  trigger:
+    type: object
+    $ref: "#/types/azure-native:containerregistry/v20190601preview:TriggerPropertiesResponse"
+    description: The properties that describe all triggers for the task.
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - creationDate
+  - location
+  - name
+  - provisioningState
+  - systemData
+  - type
+inputProperties:
+  agentConfiguration:
+    type: object
+    $ref: "#/types/azure-native:containerregistry/v20190601preview:AgentProperties"
+    description: The machine configuration of the run agent.
+  agentPoolName:
+    type: string
+    description: The dedicated agent pool for the task.
+  credentials:
+    type: object
+    $ref: "#/types/azure-native:containerregistry/v20190601preview:Credentials"
+    description: The properties that describes a set of credentials that will be used when this run is invoked.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:containerregistry/v20190601preview:IdentityProperties"
+    description: Identity for the resource.
+  isSystemTask:
+    type: boolean
+    description: The value of this property indicates whether the task resource is system task or not.
+    default: false
+  location:
+    type: string
+    description: The location of the resource. This cannot be changed after the resource is created.
+  logTemplate:
+    type: string
+    description: The template that describes the repository and tag information for run log artifact.
+  platform:
+    type: object
+    $ref: "#/types/azure-native:containerregistry/v20190601preview:PlatformProperties"
+    description: The platform properties against which the run has to happen.
+  registryName:
+    type: string
+    description: The name of the container registry.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group to which the container registry belongs.
+  status:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:containerregistry/v20190601preview:TaskStatus"
+    description: The current status of task.
+  step:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:containerregistry/v20190601preview:DockerBuildStep"
+      - type: object
+        $ref: "#/types/azure-native:containerregistry/v20190601preview:EncodedTaskStep"
+      - type: object
+        $ref: "#/types/azure-native:containerregistry/v20190601preview:FileTaskStep"
+    discriminator:
+      propertyName: type
+      mapping:
+        Docker: "#/types/azure-native:containerregistry/v20190601preview:DockerBuildStep"
+        EncodedTask: "#/types/azure-native:containerregistry/v20190601preview:EncodedTaskStep"
+        FileTask: "#/types/azure-native:containerregistry/v20190601preview:FileTaskStep"
+    description: The properties of a task step.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+  taskName:
+    type: string
+    description: The name of the container registry task.
+  timeout:
+    type: integer
+    description: Run timeout in seconds.
+    default: 3600
+  trigger:
+    type: object
+    $ref: "#/types/azure-native:containerregistry/v20190601preview:TriggerProperties"
+    description: The properties that describe all triggers for the task.
+requiredInputs:
+  - registryName
+  - resourceGroupName
+aliases:
+  - type: azure-native:containerregistry:Task
+  - type: azure-native:containerregistry/v20180201preview:Task
+  - type: azure-native:containerregistry/v20180901:Task
+  - type: azure-native:containerregistry/v20190401:Task

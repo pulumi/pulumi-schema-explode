@@ -1,0 +1,53 @@
+$token: azure-native:datafactory/v20170901preview:CustomActivity
+description: Custom activity type.
+properties:
+  command:
+    $ref: pulumi.json#/Any
+    description: "Command for custom activity Type: string (or Expression with resultType string)."
+  dependsOn:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20170901preview:ActivityDependency"
+    description: Activity depends on condition.
+  description:
+    type: string
+    description: Activity description.
+  extendedProperties:
+    type: object
+    additionalProperties:
+      $ref: pulumi.json#/Any
+    description: User defined property bag. There is no restriction on the keys or values that can be used. The user specified custom activity has the full responsibility to consume and interpret the content defined.
+  folderPath:
+    $ref: pulumi.json#/Any
+    description: "Folder path for resource files Type: string (or Expression with resultType string)."
+  linkedServiceName:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20170901preview:LinkedServiceReference"
+    description: Linked service reference.
+  name:
+    type: string
+    description: Activity name.
+  policy:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20170901preview:ActivityPolicy"
+    description: Activity policy.
+  referenceObjects:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20170901preview:CustomActivityReferenceObject"
+    description: Reference objects
+  resourceLinkedService:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20170901preview:LinkedServiceReference"
+    description: Resource linked service reference.
+  type:
+    type: string
+    description: |-
+      Type of activity.
+      Expected value is 'Custom'.
+    const: Custom
+type: object
+required:
+  - command
+  - name
+  - type

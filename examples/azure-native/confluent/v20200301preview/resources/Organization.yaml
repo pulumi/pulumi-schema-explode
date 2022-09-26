@@ -1,0 +1,76 @@
+$token: azure-native:confluent/v20200301preview:Organization
+description: Organization resource.
+properties:
+  createdTime:
+    type: string
+    description: The creation time of the resource.
+  location:
+    type: string
+    description: Location of Organization resource
+  name:
+    type: string
+    description: The name of the resource.
+  offerDetail:
+    type: object
+    $ref: "#/types/azure-native:confluent/v20200301preview:OrganizationResourcePropertiesResponseOfferDetail"
+    description: Confluent offer detail
+  organizationId:
+    type: string
+    description: Id of the Confluent organization.
+  provisioningState:
+    type: string
+    description: Provision states for confluent RP
+  ssoUrl:
+    type: string
+    description: SSO url for the Confluent organization.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Organization resource tags
+  type:
+    type: string
+    description: The type of the resource.
+  userDetail:
+    type: object
+    $ref: "#/types/azure-native:confluent/v20200301preview:OrganizationResourcePropertiesResponseUserDetail"
+    description: Subscriber detail
+type: object
+required:
+  - createdTime
+  - name
+  - organizationId
+  - provisioningState
+  - ssoUrl
+  - type
+inputProperties:
+  location:
+    type: string
+    description: Location of Organization resource
+  offerDetail:
+    type: object
+    $ref: "#/types/azure-native:confluent/v20200301preview:OrganizationResourcePropertiesOfferDetail"
+    description: Confluent offer detail
+  organizationName:
+    type: string
+    description: Organization resource name
+  resourceGroupName:
+    type: string
+    description: Resource group name
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Organization resource tags
+  userDetail:
+    type: object
+    $ref: "#/types/azure-native:confluent/v20200301preview:OrganizationResourcePropertiesUserDetail"
+    description: Subscriber detail
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:confluent:Organization
+  - type: azure-native:confluent/v20200301:Organization
+  - type: azure-native:confluent/v20210301preview:Organization
+  - type: azure-native:confluent/v20210901preview:Organization
+  - type: azure-native:confluent/v20211201:Organization

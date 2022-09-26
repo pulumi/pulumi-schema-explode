@@ -1,0 +1,47 @@
+$token: azure-native:containerservice/v20180331:listManagedClusterAccessProfile
+description: Managed cluster Access Profile.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    resourceName:
+      type: string
+      description: The name of the managed cluster resource.
+    roleName:
+      type: string
+      description: The name of the role for managed cluster accessProfile resource.
+  type: object
+  required:
+    - resourceGroupName
+    - resourceName
+    - roleName
+outputs:
+  description: Managed cluster Access Profile.
+  properties:
+    id:
+      type: string
+      description: Resource Id
+    kubeConfig:
+      type: string
+      description: Base64-encoded Kubernetes configuration file.
+    location:
+      type: string
+      description: Resource location
+    name:
+      type: string
+      description: Resource name
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    type:
+      type: string
+      description: Resource type
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - type

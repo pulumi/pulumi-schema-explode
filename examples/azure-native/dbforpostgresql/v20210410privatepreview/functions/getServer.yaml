@@ -1,0 +1,113 @@
+$token: azure-native:dbforpostgresql/v20210410privatepreview:getServer
+description: Represents a server.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    serverName:
+      type: string
+      description: The name of the server.
+  type: object
+  required:
+    - resourceGroupName
+    - serverName
+outputs:
+  description: Represents a server.
+  properties:
+    administratorLogin:
+      type: string
+      description: The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+    availabilityZone:
+      type: string
+      description: availability Zone information of the server.
+    byokEnforcement:
+      type: string
+      description: Status showing whether the data encryption is enabled with customer-managed keys.
+    delegatedSubnetArguments:
+      type: object
+      $ref: "#/types/azure-native:dbforpostgresql/v20210410privatepreview:ServerPropertiesResponseDelegatedSubnetArguments"
+    displayName:
+      type: string
+      description: The display name of a server.
+    fullyQualifiedDomainName:
+      type: string
+      description: The fully qualified domain name of a server.
+    haEnabled:
+      type: string
+      description: stand by count value can be either enabled or disabled
+    haState:
+      type: string
+      description: A state of a HA server that is visible to user.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    identity:
+      type: object
+      $ref: "#/types/azure-native:dbforpostgresql/v20210410privatepreview:IdentityResponse"
+      description: The Azure Active Directory identity of the server.
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    maintenanceWindow:
+      type: object
+      $ref: "#/types/azure-native:dbforpostgresql/v20210410privatepreview:MaintenanceWindowResponse"
+      description: Maintenance window of a server.
+    name:
+      type: string
+      description: The name of the resource
+    pointInTimeUTC:
+      type: string
+      description: Restore point creation time (ISO8601 format), specifying the time to restore from.
+    privateDnsZoneArguments:
+      type: object
+      $ref: "#/types/azure-native:dbforpostgresql/v20210410privatepreview:ServerPropertiesResponsePrivateDnsZoneArguments"
+    publicNetworkAccess:
+      type: string
+      description: public network access is enabled or not
+    sku:
+      type: object
+      $ref: "#/types/azure-native:dbforpostgresql/v20210410privatepreview:SkuResponse"
+      description: The SKU (pricing tier) of the server.
+    sourceResourceGroupName:
+      type: string
+      description: The resource group name of source PostgreSQL server name to restore from.
+    sourceServerName:
+      type: string
+      description: The source PostgreSQL server name to restore from.
+    sourceSubscriptionId:
+      type: string
+      description: The subscription id of source PostgreSQL server name to restore from.
+    standbyAvailabilityZone:
+      type: string
+      description: availability Zone information of the server.
+    state:
+      type: string
+      description: A state of a server that is visible to user.
+    storageProfile:
+      type: object
+      $ref: "#/types/azure-native:dbforpostgresql/v20210410privatepreview:StorageProfileResponse"
+      description: Storage profile of a server.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+    version:
+      type: string
+      description: PostgreSQL Server version.
+  type: object
+  required:
+    - byokEnforcement
+    - fullyQualifiedDomainName
+    - haState
+    - id
+    - location
+    - name
+    - publicNetworkAccess
+    - standbyAvailabilityZone
+    - state
+    - type

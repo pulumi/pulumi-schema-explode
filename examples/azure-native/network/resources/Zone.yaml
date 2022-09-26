@@ -1,0 +1,101 @@
+$token: azure-native:network:Zone
+description: |-
+  Describes a DNS zone.
+  API Version: 2018-05-01.
+properties:
+  etag:
+    type: string
+    description: The etag of the zone.
+  location:
+    type: string
+    description: Resource location.
+  maxNumberOfRecordSets:
+    type: number
+    description: The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+  maxNumberOfRecordsPerRecordSet:
+    type: number
+    description: The maximum number of records per record set that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+  name:
+    type: string
+    description: Resource name.
+  nameServers:
+    type: array
+    items:
+      type: string
+    description: The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
+  numberOfRecordSets:
+    type: number
+    description: The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+  registrationVirtualNetworks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network:SubResourceResponse"
+    description: A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
+  resolutionVirtualNetworks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network:SubResourceResponse"
+    description: A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: Resource type.
+  zoneType:
+    type: string
+    description: The type of this DNS zone (Public or Private).
+    default: Public
+type: object
+required:
+  - location
+  - maxNumberOfRecordSets
+  - maxNumberOfRecordsPerRecordSet
+  - name
+  - nameServers
+  - numberOfRecordSets
+  - type
+inputProperties:
+  location:
+    type: string
+    description: Resource location.
+  registrationVirtualNetworks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network:SubResource"
+    description: A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
+  resolutionVirtualNetworks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network:SubResource"
+    description: A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  zoneName:
+    type: string
+    description: The name of the DNS zone (without a terminating dot).
+  zoneType:
+    $ref: "#/types/azure-native:network:ZoneType"
+    description: The type of this DNS zone (Public or Private).
+    default: Public
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:network/v20150504preview:Zone
+  - type: azure-native:network/v20160401:Zone
+  - type: azure-native:network/v20170901:Zone
+  - type: azure-native:network/v20171001:Zone
+  - type: azure-native:network/v20180301preview:Zone
+  - type: azure-native:network/v20180501:Zone

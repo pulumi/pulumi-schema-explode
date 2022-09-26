@@ -10,4 +10,9 @@ async function makeExample(example: string) {
   explode(schema, { format: "yaml", writeFile: fsFileWriter(dir) });
 }
 
-makeExample("aws");
+if (process.argv.length > 2) {
+  makeExample(process.argv[2]);
+} else {
+  makeExample("aws");
+  makeExample("azure-native");
+}

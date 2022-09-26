@@ -1,0 +1,34 @@
+$token: azure-native:automation:UpdateConfiguration
+description: Update specific properties of the software update configuration.
+properties:
+  azureVirtualMachines:
+    type: array
+    items:
+      type: string
+    description: List of azure resource Ids for azure virtual machines targeted by the software update configuration.
+  duration:
+    type: string
+    description: Maximum time allowed for the software update configuration run. Duration needs to be specified using the format PT[n]H[n]M[n]S as per ISO8601
+  linux:
+    type: object
+    $ref: "#/types/azure-native:automation:LinuxProperties"
+    description: Linux specific update configuration.
+  nonAzureComputerNames:
+    type: array
+    items:
+      type: string
+    description: List of names of non-azure machines targeted by the software update configuration.
+  operatingSystem:
+    $ref: "#/types/azure-native:automation:OperatingSystemType"
+    description: operating system of target machines
+  targets:
+    type: object
+    $ref: "#/types/azure-native:automation:TargetProperties"
+    description: Group targets for the software update configuration.
+  windows:
+    type: object
+    $ref: "#/types/azure-native:automation:WindowsProperties"
+    description: Windows specific update configuration.
+type: object
+required:
+  - operatingSystem

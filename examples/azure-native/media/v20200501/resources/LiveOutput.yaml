@@ -1,0 +1,97 @@
+$token: azure-native:media/v20200501:LiveOutput
+description: The Live Output.
+properties:
+  archiveWindowLength:
+    type: string
+    description: ISO 8601 time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use PT1H30M to indicate 1 hour and 30 minutes of archive window.
+  assetName:
+    type: string
+    description: The asset that the live output will write to.
+  created:
+    type: string
+    description: The creation time the live output.
+  description:
+    type: string
+    description: The description of the live output.
+  hls:
+    type: object
+    $ref: "#/types/azure-native:media/v20200501:HlsResponse"
+    description: HTTP Live Streaming (HLS) packing setting for the live output.
+  lastModified:
+    type: string
+    description: The time the live output was last modified.
+  manifestName:
+    type: string
+    description: The manifest file name. If not provided, the service will generate one automatically.
+  name:
+    type: string
+    description: The name of the resource
+  outputSnapTime:
+    type: number
+    description: The initial timestamp that the live output will start at, any content before this value will not be archived.
+  provisioningState:
+    type: string
+    description: The provisioning state of the live output.
+  resourceState:
+    type: string
+    description: The resource state of the live output.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - archiveWindowLength
+  - assetName
+  - created
+  - lastModified
+  - name
+  - provisioningState
+  - resourceState
+  - type
+inputProperties:
+  accountName:
+    type: string
+    description: The Media Services account name.
+  archiveWindowLength:
+    type: string
+    description: ISO 8601 time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use PT1H30M to indicate 1 hour and 30 minutes of archive window.
+  assetName:
+    type: string
+    description: The asset that the live output will write to.
+  description:
+    type: string
+    description: The description of the live output.
+  hls:
+    type: object
+    $ref: "#/types/azure-native:media/v20200501:Hls"
+    description: HTTP Live Streaming (HLS) packing setting for the live output.
+  liveEventName:
+    type: string
+    description: The name of the live event, maximum length is 32.
+  liveOutputName:
+    type: string
+    description: The name of the live output.
+  manifestName:
+    type: string
+    description: The manifest file name. If not provided, the service will generate one automatically.
+  outputSnapTime:
+    type: number
+    description: The initial timestamp that the live output will start at, any content before this value will not be archived.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group within the Azure subscription.
+requiredInputs:
+  - accountName
+  - archiveWindowLength
+  - assetName
+  - liveEventName
+  - resourceGroupName
+aliases:
+  - type: azure-native:media:LiveOutput
+  - type: azure-native:media/v20180330preview:LiveOutput
+  - type: azure-native:media/v20180601preview:LiveOutput
+  - type: azure-native:media/v20180701:LiveOutput
+  - type: azure-native:media/v20190501preview:LiveOutput
+  - type: azure-native:media/v20210601:LiveOutput
+  - type: azure-native:media/v20211101:LiveOutput
+  - type: azure-native:media/v20220801:LiveOutput

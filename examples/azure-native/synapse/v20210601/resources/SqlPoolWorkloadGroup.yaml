@@ -1,0 +1,80 @@
+$token: azure-native:synapse/v20210601:SqlPoolWorkloadGroup
+description: Workload group operations for a sql pool
+properties:
+  importance:
+    type: string
+    description: The workload group importance level.
+  maxResourcePercent:
+    type: integer
+    description: The workload group cap percentage resource.
+  maxResourcePercentPerRequest:
+    type: number
+    description: The workload group request maximum grant percentage.
+  minResourcePercent:
+    type: integer
+    description: The workload group minimum percentage resource.
+  minResourcePercentPerRequest:
+    type: number
+    description: The workload group request minimum grant percentage.
+  name:
+    type: string
+    description: The name of the resource
+  queryExecutionTimeout:
+    type: integer
+    description: The workload group query execution timeout.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - maxResourcePercent
+  - minResourcePercent
+  - minResourcePercentPerRequest
+  - name
+  - type
+inputProperties:
+  importance:
+    type: string
+    description: The workload group importance level.
+  maxResourcePercent:
+    type: integer
+    description: The workload group cap percentage resource.
+  maxResourcePercentPerRequest:
+    type: number
+    description: The workload group request maximum grant percentage.
+  minResourcePercent:
+    type: integer
+    description: The workload group minimum percentage resource.
+  minResourcePercentPerRequest:
+    type: number
+    description: The workload group request minimum grant percentage.
+  queryExecutionTimeout:
+    type: integer
+    description: The workload group query execution timeout.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  sqlPoolName:
+    type: string
+    description: SQL pool name
+  workloadGroupName:
+    type: string
+    description: The name of the workload group.
+  workspaceName:
+    type: string
+    description: The name of the workspace.
+requiredInputs:
+  - maxResourcePercent
+  - minResourcePercent
+  - minResourcePercentPerRequest
+  - resourceGroupName
+  - sqlPoolName
+  - workspaceName
+aliases:
+  - type: azure-native:synapse:SqlPoolWorkloadGroup
+  - type: azure-native:synapse/v20190601preview:SqlPoolWorkloadGroup
+  - type: azure-native:synapse/v20201201:SqlPoolWorkloadGroup
+  - type: azure-native:synapse/v20210301:SqlPoolWorkloadGroup
+  - type: azure-native:synapse/v20210401preview:SqlPoolWorkloadGroup
+  - type: azure-native:synapse/v20210501:SqlPoolWorkloadGroup
+  - type: azure-native:synapse/v20210601preview:SqlPoolWorkloadGroup

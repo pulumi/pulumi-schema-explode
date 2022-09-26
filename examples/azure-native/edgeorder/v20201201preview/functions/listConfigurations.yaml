@@ -1,0 +1,35 @@
+$token: azure-native:edgeorder/v20201201preview:listConfigurations
+description: The list of configurations.
+inputs:
+  properties:
+    configurationFilters:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:edgeorder/v20201201preview:ConfigurationFilters"
+      description: Holds details about product hierarchy information and filterable property.
+    customerSubscriptionDetails:
+      type: object
+      $ref: "#/types/azure-native:edgeorder/v20201201preview:CustomerSubscriptionDetails"
+      description: Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details
+    skipToken:
+      type: string
+      description: $skipToken is supported on list of configurations, which provides the next page in the list of configurations.
+  type: object
+  required:
+    - configurationFilters
+outputs:
+  description: The list of configurations.
+  properties:
+    nextLink:
+      type: string
+      description: Link for the next set of configurations.
+    value:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:edgeorder/v20201201preview:ConfigurationResponse"
+      description: List of configurations.
+  type: object
+  required:
+    - value

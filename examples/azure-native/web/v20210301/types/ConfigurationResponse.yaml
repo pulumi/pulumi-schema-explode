@@ -1,0 +1,25 @@
+$token: azure-native:web/v20210301:ConfigurationResponse
+description: Non versioned Container App configuration properties that define the mutable settings of a Container app
+properties:
+  activeRevisionsMode:
+    type: string
+    description: |-
+      ActiveRevisionsMode controls how active revisions are handled for the Container app:
+      <list><item>Multiple: multiple revisions can be active. If no value if provided, this is the default</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode</item></list>
+  ingress:
+    type: object
+    $ref: "#/types/azure-native:web/v20210301:IngressResponse"
+    description: Ingress configurations.
+  registries:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:web/v20210301:RegistryCredentialsResponse"
+    description: Collection of private container registry credentials for containers used by the Container app
+  secrets:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:web/v20210301:SecretResponse"
+    description: Collection of secrets used by a Container app
+type: object

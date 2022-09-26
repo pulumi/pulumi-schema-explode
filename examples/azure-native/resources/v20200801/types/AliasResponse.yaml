@@ -1,0 +1,29 @@
+$token: azure-native:resources/v20200801:AliasResponse
+description: "The alias type. "
+properties:
+  defaultMetadata:
+    type: object
+    $ref: "#/types/azure-native:resources/v20200801:AliasPathMetadataResponse"
+    description: The default alias path metadata. Applies to the default path and to any alias path that doesn't have metadata
+  defaultPath:
+    type: string
+    description: The default path for an alias.
+  defaultPattern:
+    type: object
+    $ref: "#/types/azure-native:resources/v20200801:AliasPatternResponse"
+    description: The default pattern for an alias.
+  name:
+    type: string
+    description: The alias name.
+  paths:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:resources/v20200801:AliasPathResponse"
+    description: The paths for an alias.
+  type:
+    type: string
+    description: The type of the alias.
+type: object
+required:
+  - defaultMetadata

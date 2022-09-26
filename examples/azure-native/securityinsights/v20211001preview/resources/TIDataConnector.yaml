@@ -1,0 +1,87 @@
+$token: azure-native:securityinsights/v20211001preview:TIDataConnector
+description: Represents threat intelligence data connector.
+properties:
+  dataTypes:
+    type: object
+    $ref: "#/types/azure-native:securityinsights/v20211001preview:TIDataConnectorDataTypesResponse"
+    description: The available data types for the connector.
+  etag:
+    type: string
+    description: Etag of the azure resource
+  kind:
+    type: string
+    description: |-
+      The kind of the data connector
+      Expected value is 'ThreatIntelligence'.
+    const: ThreatIntelligence
+  name:
+    type: string
+    description: The name of the resource
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:securityinsights/v20211001preview:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  tenantId:
+    type: string
+    description: The tenant id to connect to, and get the data from.
+  tipLookbackPeriod:
+    type: string
+    description: The lookback period for the feed to be imported.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - dataTypes
+  - kind
+  - name
+  - systemData
+  - tenantId
+  - type
+inputProperties:
+  dataConnectorId:
+    type: string
+    description: Connector ID
+  dataTypes:
+    type: object
+    $ref: "#/types/azure-native:securityinsights/v20211001preview:TIDataConnectorDataTypes"
+    description: The available data types for the connector.
+  kind:
+    type: string
+    description: |-
+      The kind of the data connector
+      Expected value is 'ThreatIntelligence'.
+    const: ThreatIntelligence
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  tenantId:
+    type: string
+    description: The tenant id to connect to, and get the data from.
+  tipLookbackPeriod:
+    type: string
+    description: The lookback period for the feed to be imported.
+  workspaceName:
+    type: string
+    description: The name of the workspace.
+requiredInputs:
+  - dataTypes
+  - kind
+  - resourceGroupName
+  - tenantId
+  - workspaceName
+aliases:
+  - type: azure-native:securityinsights:TIDataConnector
+  - type: azure-native:securityinsights/v20190101preview:TIDataConnector
+  - type: azure-native:securityinsights/v20200101:TIDataConnector
+  - type: azure-native:securityinsights/v20210301preview:TIDataConnector
+  - type: azure-native:securityinsights/v20210901preview:TIDataConnector
+  - type: azure-native:securityinsights/v20211001:TIDataConnector
+  - type: azure-native:securityinsights/v20220101preview:TIDataConnector
+  - type: azure-native:securityinsights/v20220401preview:TIDataConnector
+  - type: azure-native:securityinsights/v20220501preview:TIDataConnector
+  - type: azure-native:securityinsights/v20220601preview:TIDataConnector
+  - type: azure-native:securityinsights/v20220701preview:TIDataConnector
+  - type: azure-native:securityinsights/v20220801:TIDataConnector
+  - type: azure-native:securityinsights/v20220801preview:TIDataConnector
+  - type: azure-native:securityinsights/v20220901preview:TIDataConnector

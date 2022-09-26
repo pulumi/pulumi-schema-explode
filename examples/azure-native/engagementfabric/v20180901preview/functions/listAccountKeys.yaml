@@ -1,0 +1,26 @@
+$token: azure-native:engagementfabric/v20180901preview:listAccountKeys
+description: The list of the EngagementFabric account keys
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: Account Name
+    resourceGroupName:
+      type: string
+      description: Resource Group Name
+  type: object
+  required:
+    - accountName
+    - resourceGroupName
+outputs:
+  description: The list of the EngagementFabric account keys
+  properties:
+    value:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:engagementfabric/v20180901preview:KeyDescriptionResponse"
+      description: Account keys
+  type: object
+  required:
+    - value

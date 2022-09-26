@@ -1,0 +1,51 @@
+$token: azure-native:recoveryservices/v20210801:getReplicationMigrationItem
+description: Migration item.
+inputs:
+  properties:
+    fabricName:
+      type: string
+      description: Fabric unique name.
+    migrationItemName:
+      type: string
+      description: Migration item name.
+    protectionContainerName:
+      type: string
+      description: Protection container name.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group where the recovery services vault is present.
+    resourceName:
+      type: string
+      description: The name of the recovery services vault.
+  type: object
+  required:
+    - fabricName
+    - migrationItemName
+    - protectionContainerName
+    - resourceGroupName
+    - resourceName
+outputs:
+  description: Migration item.
+  properties:
+    id:
+      type: string
+      description: Resource Id
+    location:
+      type: string
+      description: Resource Location
+    name:
+      type: string
+      description: Resource Name
+    properties:
+      type: object
+      $ref: "#/types/azure-native:recoveryservices/v20210801:MigrationItemPropertiesResponse"
+      description: The migration item properties.
+    type:
+      type: string
+      description: Resource Type
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - type

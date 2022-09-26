@@ -1,0 +1,28 @@
+$token: azure-native:network/v20181101:ExpressRouteCircuitPeeringConfig
+description: Specifies the peering configuration.
+properties:
+  advertisedCommunities:
+    type: array
+    items:
+      type: string
+    description: The communities of bgp peering. Specified for microsoft peering
+  advertisedPublicPrefixes:
+    type: array
+    items:
+      type: string
+    description: The reference of AdvertisedPublicPrefixes.
+  advertisedPublicPrefixesState:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20181101:ExpressRouteCircuitPeeringAdvertisedPublicPrefixState"
+    description: AdvertisedPublicPrefixState of the Peering resource. Possible values are 'NotConfigured', 'Configuring', 'Configured', and 'ValidationNeeded'.
+  customerASN:
+    type: integer
+    description: The CustomerASN of the peering.
+  legacyMode:
+    type: integer
+    description: The legacy mode of the peering.
+  routingRegistryName:
+    type: string
+    description: The RoutingRegistryName of the configuration.
+type: object

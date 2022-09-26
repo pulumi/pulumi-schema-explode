@@ -1,0 +1,124 @@
+$token: azure-native:eventgrid:getDomainTopicEventSubscription
+description: |-
+  Event Subscription
+  API Version: 2021-10-15-preview.
+inputs:
+  properties:
+    domainName:
+      type: string
+      description: Name of the top level domain.
+    eventSubscriptionName:
+      type: string
+      description: Name of the event subscription.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group within the user's subscription.
+    topicName:
+      type: string
+      description: Name of the domain topic.
+  type: object
+  required:
+    - domainName
+    - eventSubscriptionName
+    - resourceGroupName
+    - topicName
+outputs:
+  description: Event Subscription
+  properties:
+    deadLetterDestination:
+      type: object
+      $ref: "#/types/azure-native:eventgrid:StorageBlobDeadLetterDestinationResponse"
+      description: "The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.\r
+
+        Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering."
+    deadLetterWithResourceIdentity:
+      type: object
+      $ref: "#/types/azure-native:eventgrid:DeadLetterWithResourceIdentityResponse"
+      description: "The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.\r
+
+        Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering."
+    deliveryWithResourceIdentity:
+      type: object
+      $ref: "#/types/azure-native:eventgrid:DeliveryWithResourceIdentityResponse"
+      description: "Information about the destination where events have to be delivered for the event subscription.\r
+
+        Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering."
+    destination:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:eventgrid:AzureFunctionEventSubscriptionDestinationResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid:EventHubEventSubscriptionDestinationResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid:HybridConnectionEventSubscriptionDestinationResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid:PartnerEventSubscriptionDestinationResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid:ServiceBusQueueEventSubscriptionDestinationResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid:ServiceBusTopicEventSubscriptionDestinationResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid:StorageQueueEventSubscriptionDestinationResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid:WebHookEventSubscriptionDestinationResponse"
+      discriminator:
+        propertyName: endpointType
+        mapping:
+          AzureFunction: "#/types/azure-native:eventgrid:AzureFunctionEventSubscriptionDestinationResponse"
+          EventHub: "#/types/azure-native:eventgrid:EventHubEventSubscriptionDestinationResponse"
+          HybridConnection: "#/types/azure-native:eventgrid:HybridConnectionEventSubscriptionDestinationResponse"
+          PartnerDestination: "#/types/azure-native:eventgrid:PartnerEventSubscriptionDestinationResponse"
+          ServiceBusQueue: "#/types/azure-native:eventgrid:ServiceBusQueueEventSubscriptionDestinationResponse"
+          ServiceBusTopic: "#/types/azure-native:eventgrid:ServiceBusTopicEventSubscriptionDestinationResponse"
+          StorageQueue: "#/types/azure-native:eventgrid:StorageQueueEventSubscriptionDestinationResponse"
+          WebHook: "#/types/azure-native:eventgrid:WebHookEventSubscriptionDestinationResponse"
+      description: "Information about the destination where events have to be delivered for the event subscription.\r
+
+        Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering."
+    eventDeliverySchema:
+      type: string
+      description: The event delivery schema for the event subscription.
+      default: EventGridSchema
+    expirationTimeUtc:
+      type: string
+      description: Expiration time of the event subscription.
+    filter:
+      type: object
+      $ref: "#/types/azure-native:eventgrid:EventSubscriptionFilterResponse"
+      description: Information about the filter for the event subscription.
+    id:
+      type: string
+      description: Fully qualified identifier of the resource.
+    labels:
+      type: array
+      items:
+        type: string
+      description: List of user defined labels.
+    name:
+      type: string
+      description: Name of the resource.
+    provisioningState:
+      type: string
+      description: Provisioning state of the event subscription.
+    retryPolicy:
+      type: object
+      $ref: "#/types/azure-native:eventgrid:RetryPolicyResponse"
+      description: The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:eventgrid:SystemDataResponse"
+      description: The system metadata relating to Event Subscription resource.
+    topic:
+      type: string
+      description: Name of the topic of the event subscription.
+    type:
+      type: string
+      description: Type of the resource.
+  type: object
+  required:
+    - id
+    - name
+    - provisioningState
+    - systemData
+    - topic
+    - type

@@ -1,0 +1,18 @@
+$token: azure-native:documentdb/v20190801:ContainerPartitionKey
+description: The configuration of the partition key to be used for partitioning data into multiple partitions
+properties:
+  kind:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:documentdb/v20190801:PartitionKind"
+    description: Indicates the kind of algorithm used for partitioning
+    default: Hash
+  paths:
+    type: array
+    items:
+      type: string
+    description: List of paths using which data within the container can be partitioned
+  version:
+    type: integer
+    description: Indicates the version of the partition key definition
+type: object

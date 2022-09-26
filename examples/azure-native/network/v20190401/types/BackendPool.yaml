@@ -1,0 +1,24 @@
+$token: azure-native:network/v20190401:BackendPool
+description: A backend pool is a collection of backends that can be routed to.
+properties:
+  backends:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20190401:Backend"
+    description: The set of backends for this pool
+  healthProbeSettings:
+    type: object
+    $ref: "#/types/azure-native:network/v20190401:SubResource"
+    description: L7 health probe settings for a backend pool
+  id:
+    type: string
+    description: Resource ID.
+  loadBalancingSettings:
+    type: object
+    $ref: "#/types/azure-native:network/v20190401:SubResource"
+    description: Load balancing settings for a backend pool
+  name:
+    type: string
+    description: Resource name.
+type: object

@@ -1,0 +1,22 @@
+$token: azure-native:eventgrid/v20220615:NumberNotInRangeAdvancedFilterResponse
+description: NumberNotInRange Advanced Filter.
+properties:
+  key:
+    type: string
+    description: The field/property in the event based on which you want to filter.
+  operatorType:
+    type: string
+    description: |-
+      The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+      Expected value is 'NumberNotInRange'.
+    const: NumberNotInRange
+  values:
+    type: array
+    items:
+      type: array
+      items:
+        type: number
+    description: The set of filter values.
+type: object
+required:
+  - operatorType

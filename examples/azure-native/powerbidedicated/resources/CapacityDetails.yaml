@@ -1,0 +1,94 @@
+$token: azure-native:powerbidedicated:CapacityDetails
+description: |-
+  Represents an instance of a Dedicated Capacity resource.
+  API Version: 2021-01-01.
+properties:
+  administration:
+    type: object
+    $ref: "#/types/azure-native:powerbidedicated:DedicatedCapacityAdministratorsResponse"
+    description: A collection of Dedicated capacity administrators
+  friendlyName:
+    type: string
+    description: Capacity name
+  location:
+    type: string
+    description: Location of the PowerBI Dedicated resource.
+  mode:
+    type: string
+    description: Specifies the generation of the Power BI Embedded capacity. If no value is specified, the default value 'Gen2' is used. [Learn More](https://docs.microsoft.com/power-bi/developer/embedded/power-bi-embedded-generation-2)
+  name:
+    type: string
+    description: The name of the PowerBI Dedicated resource.
+  provisioningState:
+    type: string
+    description: The current deployment state of PowerBI Dedicated resource. The provisioningState is to indicate states for resource provisioning.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:powerbidedicated:CapacitySkuResponse"
+    description: The SKU of the PowerBI Dedicated capacity resource.
+  state:
+    type: string
+    description: The current state of PowerBI Dedicated resource. The state is to indicate more states outside of resource provisioning.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:powerbidedicated:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Key-value pairs of additional resource provisioning properties.
+  tenantId:
+    type: string
+    description: Tenant ID for the capacity. Used for creating Pro Plus capacity.
+  type:
+    type: string
+    description: The type of the PowerBI Dedicated resource.
+type: object
+required:
+  - friendlyName
+  - location
+  - name
+  - provisioningState
+  - sku
+  - state
+  - tenantId
+  - type
+inputProperties:
+  administration:
+    type: object
+    $ref: "#/types/azure-native:powerbidedicated:DedicatedCapacityAdministrators"
+    description: A collection of Dedicated capacity administrators
+  dedicatedCapacityName:
+    type: string
+    description: The name of the Dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
+  location:
+    type: string
+    description: Location of the PowerBI Dedicated resource.
+  mode:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:powerbidedicated:Mode"
+    description: Specifies the generation of the Power BI Embedded capacity. If no value is specified, the default value 'Gen2' is used. [Learn More](https://docs.microsoft.com/power-bi/developer/embedded/power-bi-embedded-generation-2)
+  resourceGroupName:
+    type: string
+    description: The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:powerbidedicated:CapacitySku"
+    description: The SKU of the PowerBI Dedicated capacity resource.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:powerbidedicated:SystemData"
+    description: Metadata pertaining to creation and last modification of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Key-value pairs of additional resource provisioning properties.
+requiredInputs:
+  - resourceGroupName
+  - sku
+aliases:
+  - type: azure-native:powerbidedicated/v20171001:CapacityDetails
+  - type: azure-native:powerbidedicated/v20210101:CapacityDetails

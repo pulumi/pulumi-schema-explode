@@ -1,0 +1,31 @@
+$token: azure-native:datamigration/v20210630:ConnectToSourceNonSqlTaskOutputResponse
+description: Output for connect to MySQL type source
+properties:
+  databases:
+    type: array
+    items:
+      type: string
+    description: List of databases on the server
+  id:
+    type: string
+    description: Result identifier
+  serverProperties:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20210630:ServerPropertiesResponse"
+    description: Server properties
+  sourceServerBrandVersion:
+    type: string
+    description: Server brand version
+  validationErrors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration/v20210630:ReportableExceptionResponse"
+    description: Validation errors associated with the task
+type: object
+required:
+  - databases
+  - id
+  - serverProperties
+  - sourceServerBrandVersion
+  - validationErrors

@@ -1,0 +1,25 @@
+$token: azure-native:orbital/v20210404preview:SpacecraftLink
+description: Spacecraft Link
+properties:
+  bandwidthMHz:
+    type: number
+    description: Bandwidth in MHz
+  centerFrequencyMHz:
+    type: number
+    description: Center Frequency in MHz
+  direction:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:orbital/v20210404preview:Direction"
+    description: Direction (uplink or downlink)
+  polarization:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:orbital/v20210404preview:Polarization"
+    description: polarization. eg (RHCP, LHCP)
+type: object
+required:
+  - bandwidthMHz
+  - centerFrequencyMHz
+  - direction
+  - polarization

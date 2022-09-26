@@ -1,0 +1,45 @@
+$token: azure-native:avs/v20200717preview:getAddon
+description: An addon resource
+inputs:
+  properties:
+    addonName:
+      type: string
+      description: Name of the addon for the private cloud
+    privateCloudName:
+      type: string
+      description: Name of the private cloud
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+  type: object
+  required:
+    - addonName
+    - privateCloudName
+    - resourceGroupName
+outputs:
+  description: An addon resource
+  properties:
+    addonType:
+      type: string
+      description: The type of private cloud addon
+    id:
+      type: string
+      description: Resource ID.
+    licenseKey:
+      type: string
+      description: The SRM license
+    name:
+      type: string
+      description: Resource name.
+    provisioningState:
+      type: string
+      description: The state of the addon provisioning
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - id
+    - name
+    - provisioningState
+    - type

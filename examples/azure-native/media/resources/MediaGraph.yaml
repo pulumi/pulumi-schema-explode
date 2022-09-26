@@ -1,0 +1,77 @@
+$token: azure-native:media:MediaGraph
+description: |-
+  The Media Graph.
+  API Version: 2020-02-01-preview.
+properties:
+  created:
+    type: string
+    description: Date the Media Graph was created.
+  description:
+    type: string
+    description: Media Graph description.
+  lastModified:
+    type: string
+    description: Date the Media Graph was last modified.
+  name:
+    type: string
+    description: The name of the resource.
+  sinks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:media:MediaGraphAssetSinkResponse"
+    description: Media Graph sinks.
+  sources:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:media:MediaGraphRtspSourceResponse"
+    description: Media Graph sources.
+  state:
+    type: string
+    description: Media Graph state which indicates the resource allocation status for running the media graph pipeline.
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - created
+  - lastModified
+  - name
+  - sinks
+  - sources
+  - state
+  - type
+inputProperties:
+  accountName:
+    type: string
+    description: The Media Services account name.
+  description:
+    type: string
+    description: Media Graph description.
+  mediaGraphName:
+    type: string
+    description: The Media Graph name.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group within the Azure subscription.
+  sinks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:media:MediaGraphAssetSink"
+    description: Media Graph sinks.
+  sources:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:media:MediaGraphRtspSource"
+    description: Media Graph sources.
+requiredInputs:
+  - accountName
+  - resourceGroupName
+  - sinks
+  - sources
+aliases:
+  - type: azure-native:media/v20190901preview:MediaGraph
+  - type: azure-native:media/v20200201preview:MediaGraph

@@ -1,0 +1,23 @@
+$token: azure-native:containerinstance/v20211001:ContainerHttpGet
+description: The container Http Get settings, for liveness or readiness probe
+properties:
+  httpHeaders:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:containerinstance/v20211001:HttpHeader"
+    description: The HTTP headers.
+  path:
+    type: string
+    description: The path to probe.
+  port:
+    type: integer
+    description: The port number to probe.
+  scheme:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:containerinstance/v20211001:Scheme"
+    description: The scheme.
+type: object
+required:
+  - port

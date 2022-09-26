@@ -1,0 +1,27 @@
+$token: azure-native:synapse/v20190601preview:SelfHostedIntegrationRuntime
+description: Self-hosted integration runtime.
+properties:
+  description:
+    type: string
+    description: Integration runtime description.
+  linkedInfo:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:synapse/v20190601preview:LinkedIntegrationRuntimeKeyAuthorization"
+      - type: object
+        $ref: "#/types/azure-native:synapse/v20190601preview:LinkedIntegrationRuntimeRbacAuthorization"
+    discriminator:
+      propertyName: authorizationType
+      mapping:
+        Key: "#/types/azure-native:synapse/v20190601preview:LinkedIntegrationRuntimeKeyAuthorization"
+        RBAC: "#/types/azure-native:synapse/v20190601preview:LinkedIntegrationRuntimeRbacAuthorization"
+    description: Linked integration runtime type from data factory
+  type:
+    type: string
+    description: |-
+      The type of integration runtime.
+      Expected value is 'SelfHosted'.
+    const: SelfHosted
+type: object
+required:
+  - type

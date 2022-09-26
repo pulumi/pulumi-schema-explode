@@ -1,0 +1,58 @@
+$token: azure-native:datafactory/v20170901preview:ShopifyLinkedService
+description: Shopify Service linked service.
+properties:
+  accessToken:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:AzureKeyVaultSecretReference"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:SecureString"
+    discriminator:
+      propertyName: type
+      mapping:
+        AzureKeyVaultSecret: "#/types/azure-native:datafactory/v20170901preview:AzureKeyVaultSecretReference"
+        SecureString: "#/types/azure-native:datafactory/v20170901preview:SecureString"
+    description: The API access token that can be used to access Shopify’s data. The token won't expire if it is offline mode.
+  annotations:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: List of tags that can be used for describing the Dataset.
+  connectVia:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20170901preview:IntegrationRuntimeReference"
+    description: The integration runtime reference.
+  description:
+    type: string
+    description: Linked service description.
+  encryptedCredential:
+    $ref: pulumi.json#/Any
+    description: "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string)."
+  host:
+    $ref: pulumi.json#/Any
+    description: The endpoint of the Shopify server. (i.e. mystore.myshopify.com)
+  parameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20170901preview:ParameterSpecification"
+    description: Parameters for linked service.
+  type:
+    type: string
+    description: |-
+      Type of linked service.
+      Expected value is 'Shopify'.
+    const: Shopify
+  useEncryptedEndpoints:
+    $ref: pulumi.json#/Any
+    description: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+  useHostVerification:
+    $ref: pulumi.json#/Any
+    description: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
+  usePeerVerification:
+    $ref: pulumi.json#/Any
+    description: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+type: object
+required:
+  - host
+  - type

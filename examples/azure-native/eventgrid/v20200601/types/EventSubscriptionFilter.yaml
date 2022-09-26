@@ -1,0 +1,71 @@
+$token: azure-native:eventgrid/v20200601:EventSubscriptionFilter
+description: Filter for the Event Subscription.
+properties:
+  advancedFilters:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20200601:BoolEqualsAdvancedFilter"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20200601:NumberGreaterThanAdvancedFilter"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20200601:NumberGreaterThanOrEqualsAdvancedFilter"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20200601:NumberInAdvancedFilter"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20200601:NumberLessThanAdvancedFilter"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20200601:NumberLessThanOrEqualsAdvancedFilter"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20200601:NumberNotInAdvancedFilter"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20200601:StringBeginsWithAdvancedFilter"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20200601:StringContainsAdvancedFilter"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20200601:StringEndsWithAdvancedFilter"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20200601:StringInAdvancedFilter"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20200601:StringNotInAdvancedFilter"
+      discriminator:
+        propertyName: operatorType
+        mapping:
+          BoolEquals: "#/types/azure-native:eventgrid/v20200601:BoolEqualsAdvancedFilter"
+          NumberGreaterThan: "#/types/azure-native:eventgrid/v20200601:NumberGreaterThanAdvancedFilter"
+          NumberGreaterThanOrEquals: "#/types/azure-native:eventgrid/v20200601:NumberGreaterThanOrEqualsAdvancedFilter"
+          NumberIn: "#/types/azure-native:eventgrid/v20200601:NumberInAdvancedFilter"
+          NumberLessThan: "#/types/azure-native:eventgrid/v20200601:NumberLessThanAdvancedFilter"
+          NumberLessThanOrEquals: "#/types/azure-native:eventgrid/v20200601:NumberLessThanOrEqualsAdvancedFilter"
+          NumberNotIn: "#/types/azure-native:eventgrid/v20200601:NumberNotInAdvancedFilter"
+          StringBeginsWith: "#/types/azure-native:eventgrid/v20200601:StringBeginsWithAdvancedFilter"
+          StringContains: "#/types/azure-native:eventgrid/v20200601:StringContainsAdvancedFilter"
+          StringEndsWith: "#/types/azure-native:eventgrid/v20200601:StringEndsWithAdvancedFilter"
+          StringIn: "#/types/azure-native:eventgrid/v20200601:StringInAdvancedFilter"
+          StringNotIn: "#/types/azure-native:eventgrid/v20200601:StringNotInAdvancedFilter"
+    description: An array of advanced filters that are used for filtering event subscriptions.
+  includedEventTypes:
+    type: array
+    items:
+      type: string
+    description: A list of applicable event types that need to be part of the event subscription. If it is desired to subscribe to all default event types, set the IncludedEventTypes to null.
+  isSubjectCaseSensitive:
+    type: boolean
+    description: "Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter\r
+
+      should be compared in a case sensitive manner."
+    default: false
+  subjectBeginsWith:
+    type: string
+    description: "An optional string to filter events for an event subscription based on a resource path prefix.\r
+
+      The format of this depends on the publisher of the events.\r
+
+      Wildcard characters are not supported in this path."
+  subjectEndsWith:
+    type: string
+    description: "An optional string to filter events for an event subscription based on a resource path suffix.\r
+
+      Wildcard characters are not supported in this path."
+type: object

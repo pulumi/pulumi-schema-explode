@@ -1,0 +1,79 @@
+$token: azure-native:healthcareapis/v20190916:Service
+description: The description of the service.
+properties:
+  etag:
+    type: string
+    description: An etag associated with the resource, used for optimistic concurrency when editing it.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:healthcareapis/v20190916:ResourceResponseIdentity"
+    description: Setting indicating whether the service has a managed identity associated with it.
+  kind:
+    type: string
+    description: The kind of the service.
+  location:
+    type: string
+    description: The resource location.
+  name:
+    type: string
+    description: The resource name.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:healthcareapis/v20190916:ServicesPropertiesResponse"
+    description: The common properties of a service.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The resource tags.
+  type:
+    type: string
+    description: The resource type.
+type: object
+required:
+  - kind
+  - location
+  - name
+  - properties
+  - type
+inputProperties:
+  identity:
+    type: object
+    $ref: "#/types/azure-native:healthcareapis/v20190916:ResourceIdentity"
+    description: Setting indicating whether the service has a managed identity associated with it.
+  kind:
+    $ref: "#/types/azure-native:healthcareapis/v20190916:Kind"
+    description: The kind of the service.
+  location:
+    type: string
+    description: The resource location.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:healthcareapis/v20190916:ServicesProperties"
+    description: The common properties of a service.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the service instance.
+  resourceName:
+    type: string
+    description: The name of the service instance.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The resource tags.
+requiredInputs:
+  - kind
+  - resourceGroupName
+aliases:
+  - type: azure-native:healthcareapis:Service
+  - type: azure-native:healthcareapis/v20180820preview:Service
+  - type: azure-native:healthcareapis/v20200315:Service
+  - type: azure-native:healthcareapis/v20200330:Service
+  - type: azure-native:healthcareapis/v20210111:Service
+  - type: azure-native:healthcareapis/v20210601preview:Service
+  - type: azure-native:healthcareapis/v20211101:Service
+  - type: azure-native:healthcareapis/v20220131preview:Service
+  - type: azure-native:healthcareapis/v20220515:Service
+  - type: azure-native:healthcareapis/v20220601:Service
+deprecationMessage: Version 2019-09-16 will be removed in v2 of the provider.

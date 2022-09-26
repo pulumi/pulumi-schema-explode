@@ -1,0 +1,54 @@
+$token: azure-native:guestconfiguration/v20220125:GuestConfigurationAssignmentPropertiesResponse
+description: Guest configuration assignment properties.
+properties:
+  assignmentHash:
+    type: string
+    description: Combined hash of the configuration package and parameters.
+  complianceStatus:
+    type: string
+    description: A value indicating compliance status of the machine for the assigned guest configuration.
+  context:
+    type: string
+    description: "The source which initiated the guest configuration assignment. Ex: Azure Policy"
+  guestConfiguration:
+    type: object
+    $ref: "#/types/azure-native:guestconfiguration/v20220125:GuestConfigurationNavigationResponse"
+    description: The guest configuration to assign.
+  lastComplianceStatusChecked:
+    type: string
+    description: Date and time when last compliance status was checked.
+  latestAssignmentReport:
+    type: object
+    $ref: "#/types/azure-native:guestconfiguration/v20220125:AssignmentReportResponse"
+    description: Last reported guest configuration assignment report.
+  latestReportId:
+    type: string
+    description: "Id of the latest report for the guest configuration assignment. "
+  parameterHash:
+    type: string
+    description: "parameter hash for the guest configuration assignment. "
+  provisioningState:
+    type: string
+    description: The provisioning state, which only appears in the response.
+  resourceType:
+    type: string
+    description: Type of the resource - VMSS / VM
+  targetResourceId:
+    type: string
+    description: VM resource Id.
+  vmssVMList:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:guestconfiguration/v20220125:VMSSVMInfoResponse"
+    description: The list of VM Compliance data for VMSS
+type: object
+required:
+  - assignmentHash
+  - complianceStatus
+  - lastComplianceStatusChecked
+  - latestReportId
+  - parameterHash
+  - provisioningState
+  - resourceType
+  - targetResourceId

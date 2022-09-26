@@ -1,0 +1,21 @@
+$token: azure-native:datamigration/v20220330preview:ConnectToSourceSqlServerSyncTaskProperties
+description: Properties for the task that validates connection to SQL Server and source server requirements for online migration
+properties:
+  clientData:
+    type: object
+    additionalProperties:
+      type: string
+    description: Key value pairs of client data to attach meta data information to task
+  input:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20220330preview:ConnectToSourceSqlServerTaskInput"
+    description: Task input
+  taskType:
+    type: string
+    description: |-
+      Task type.
+      Expected value is 'ConnectToSource.SqlServer.Sync'.
+    const: ConnectToSource.SqlServer.Sync
+type: object
+required:
+  - taskType

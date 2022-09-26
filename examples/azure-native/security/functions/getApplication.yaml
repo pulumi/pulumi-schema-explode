@@ -1,0 +1,39 @@
+$token: azure-native:security:getApplication
+description: |-
+  Security Application over a given scope
+  API Version: 2022-07-01-preview.
+inputs:
+  properties:
+    applicationId:
+      type: string
+      description: The security Application key - unique key for the standard application
+  type: object
+  required:
+    - applicationId
+outputs:
+  description: Security Application over a given scope
+  properties:
+    description:
+      type: string
+      description: description of the application
+    displayName:
+      type: string
+      description: display name of the application
+    id:
+      type: string
+      description: Resource Id
+    name:
+      type: string
+      description: Resource name
+    sourceResourceType:
+      type: string
+      description: The application source, what it affects, e.g. Assessments
+    type:
+      type: string
+      description: Resource type
+  type: object
+  required:
+    - id
+    - name
+    - sourceResourceType
+    - type

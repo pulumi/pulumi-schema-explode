@@ -1,0 +1,75 @@
+$token: azure-native:recoveryservices/v20210701:InMageRcmEnableProtectionInput
+description: InMageRcm specific enable protection input.
+properties:
+  disksDefault:
+    type: object
+    $ref: "#/types/azure-native:recoveryservices/v20210701:InMageRcmDisksDefaultInput"
+    description: The default disk input.
+  disksToInclude:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:recoveryservices/v20210701:InMageRcmDiskInput"
+    description: The disks to include list.
+  fabricDiscoveryMachineId:
+    type: string
+    description: The ARM Id of discovered machine.
+  instanceType:
+    type: string
+    description: |-
+      The class type.
+      Expected value is 'InMageRcm'.
+    const: InMageRcm
+  licenseType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:recoveryservices/v20210701:LicenseType"
+    description: The license type.
+  multiVmGroupName:
+    type: string
+    description: The multi VM group name.
+  processServerId:
+    type: string
+    description: The process server Id.
+  runAsAccountId:
+    type: string
+    description: The run-as account Id.
+  targetAvailabilitySetId:
+    type: string
+    description: The target availability set ARM Id.
+  targetAvailabilityZone:
+    type: string
+    description: The target availability zone.
+  targetBootDiagnosticsStorageAccountId:
+    type: string
+    description: The target boot diagnostics storage account ARM Id.
+  targetNetworkId:
+    type: string
+    description: The selected target network ARM Id.
+  targetProximityPlacementGroupId:
+    type: string
+    description: The target proximity placement group Id.
+  targetResourceGroupId:
+    type: string
+    description: The target resource group ARM Id.
+  targetSubnetName:
+    type: string
+    description: The selected target subnet name.
+  targetVmName:
+    type: string
+    description: The target VM name.
+  targetVmSize:
+    type: string
+    description: The target VM size.
+  testNetworkId:
+    type: string
+    description: The selected test network ARM Id.
+  testSubnetName:
+    type: string
+    description: The selected test subnet name.
+type: object
+required:
+  - fabricDiscoveryMachineId
+  - instanceType
+  - processServerId
+  - targetResourceGroupId

@@ -1,0 +1,92 @@
+$token: azure-native:app/v20220101preview:DaprComponent
+description: Dapr Component.
+properties:
+  componentType:
+    type: string
+    description: Component type
+  ignoreErrors:
+    type: boolean
+    description: Boolean describing if the component errors are ignores
+  initTimeout:
+    type: string
+    description: Initialization timeout
+  metadata:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:app/v20220101preview:DaprMetadataResponse"
+    description: Component metadata
+  name:
+    type: string
+    description: The name of the resource
+  scopes:
+    type: array
+    items:
+      type: string
+    description: Names of container apps that can use this Dapr component
+  secrets:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:app/v20220101preview:SecretResponse"
+    description: Collection of secrets used by a Dapr component
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:app/v20220101preview:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  version:
+    type: string
+    description: Component version
+type: object
+required:
+  - name
+  - systemData
+  - type
+inputProperties:
+  componentType:
+    type: string
+    description: Component type
+  environmentName:
+    type: string
+    description: Name of the Managed Environment.
+  ignoreErrors:
+    type: boolean
+    description: Boolean describing if the component errors are ignores
+  initTimeout:
+    type: string
+    description: Initialization timeout
+  metadata:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:app/v20220101preview:DaprMetadata"
+    description: Component metadata
+  name:
+    type: string
+    description: Name of the Dapr Component.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  scopes:
+    type: array
+    items:
+      type: string
+    description: Names of container apps that can use this Dapr component
+  secrets:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:app/v20220101preview:Secret"
+    description: Collection of secrets used by a Dapr component
+  version:
+    type: string
+    description: Component version
+requiredInputs:
+  - environmentName
+  - resourceGroupName
+aliases:
+  - type: azure-native:app:DaprComponent
+  - type: azure-native:app/v20220301:DaprComponent

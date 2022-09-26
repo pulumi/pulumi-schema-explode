@@ -1,0 +1,56 @@
+$token: azure-native:confidentialledger/v20201201preview:Ledger
+description: Confidential Ledger. Contains the properties of Confidential Ledger Resource.
+properties:
+  location:
+    type: string
+    description: The Azure location where the Confidential Ledger is running.
+  name:
+    type: string
+    description: Name of the Resource.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:confidentialledger/v20201201preview:LedgerPropertiesResponse"
+    description: Properties of Confidential Ledger Resource.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:confidentialledger/v20201201preview:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Additional tags for Confidential Ledger
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - name
+  - properties
+  - systemData
+  - type
+inputProperties:
+  ledgerName:
+    type: string
+    description: Name of the Confidential Ledger
+  location:
+    type: string
+    description: The Azure location where the Confidential Ledger is running.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:confidentialledger/v20201201preview:LedgerProperties"
+    description: Properties of Confidential Ledger Resource.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Additional tags for Confidential Ledger
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:confidentialledger:Ledger
+  - type: azure-native:confidentialledger/v20210513preview:Ledger
+  - type: azure-native:confidentialledger/v20220513:Ledger

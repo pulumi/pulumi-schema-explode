@@ -1,0 +1,14 @@
+$token: azure-native:network/v20160901:ApplicationGatewayWebApplicationFirewallConfiguration
+description: Application gateway web application firewall configuration.
+properties:
+  enabled:
+    type: boolean
+    description: Whether the web application firewall is enabled.
+  firewallMode:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20160901:ApplicationGatewayFirewallMode"
+    description: "Web application firewall mode. Possible values are: 'Detection' and 'Prevention'."
+type: object
+required:
+  - enabled

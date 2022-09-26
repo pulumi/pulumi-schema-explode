@@ -1,0 +1,109 @@
+$token: azure-native:databox/v20200401:DataBoxDiskJobDetailsResponse
+description: DataBox Disk Job Details.
+properties:
+  chainOfCustodySasKey:
+    type: string
+    description: Shared access key to download the chain of custody logs
+  contactDetails:
+    type: object
+    $ref: "#/types/azure-native:databox/v20200401:ContactDetailsResponse"
+    description: Contact details for notification and shipping.
+  copyLogDetails:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:databox/v20200401:DataBoxAccountCopyLogDetailsResponse"
+        - type: object
+          $ref: "#/types/azure-native:databox/v20200401:DataBoxDiskCopyLogDetailsResponse"
+        - type: object
+          $ref: "#/types/azure-native:databox/v20200401:DataBoxHeavyAccountCopyLogDetailsResponse"
+      discriminator:
+        propertyName: copyLogDetailsType
+        mapping:
+          DataBox: "#/types/azure-native:databox/v20200401:DataBoxAccountCopyLogDetailsResponse"
+          DataBoxDisk: "#/types/azure-native:databox/v20200401:DataBoxDiskCopyLogDetailsResponse"
+          DataBoxHeavy: "#/types/azure-native:databox/v20200401:DataBoxHeavyAccountCopyLogDetailsResponse"
+    description: List of copy log details.
+  copyProgress:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:databox/v20200401:DataBoxDiskCopyProgressResponse"
+    description: Copy progress per disk.
+  dataExportDetails:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:databox/v20200401:DataExportDetailsResponse"
+    description: Details of the data to be exported from azure.
+  dataImportDetails:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:databox/v20200401:DataImportDetailsResponse"
+    description: Details of the data to be imported into azure.
+  deliveryPackage:
+    type: object
+    $ref: "#/types/azure-native:databox/v20200401:PackageShippingDetailsResponse"
+    description: Delivery package shipping details.
+  disksAndSizeDetails:
+    type: object
+    additionalProperties:
+      type: integer
+    description: Contains the map of disk serial number to the disk size being used for the job. Is returned only after the disks are shipped to the customer.
+  expectedDataSizeInTeraBytes:
+    type: integer
+    description: The expected size of the data, which needs to be transferred in this job, in terabytes.
+  jobDetailsType:
+    type: string
+    description: |-
+      Indicates the type of job details.
+      Expected value is 'DataBoxDisk'.
+    const: DataBoxDisk
+  jobStages:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:databox/v20200401:JobStagesResponse"
+    description: List of stages that run in the job.
+  keyEncryptionKey:
+    type: object
+    $ref: "#/types/azure-native:databox/v20200401:KeyEncryptionKeyResponse"
+    description: Details about which key encryption type is being used.
+  passkey:
+    type: string
+    description: User entered passkey for DataBox Disk job.
+  preferences:
+    type: object
+    $ref: "#/types/azure-native:databox/v20200401:PreferencesResponse"
+    description: Preferences for the order.
+  preferredDisks:
+    type: object
+    additionalProperties:
+      type: integer
+    description: User preference on what size disks are needed for the job. The map is from the disk size in TB to the count. Eg. {2,5} means 5 disks of 2 TB size. Key is string but will be checked against an int.
+  returnPackage:
+    type: object
+    $ref: "#/types/azure-native:databox/v20200401:PackageShippingDetailsResponse"
+    description: Return package shipping details.
+  reverseShipmentLabelSasKey:
+    type: string
+    description: Shared access key to download the return shipment label
+  shippingAddress:
+    type: object
+    $ref: "#/types/azure-native:databox/v20200401:ShippingAddressResponse"
+    description: Shipping address of the customer.
+type: object
+required:
+  - chainOfCustodySasKey
+  - contactDetails
+  - copyLogDetails
+  - copyProgress
+  - deliveryPackage
+  - disksAndSizeDetails
+  - jobDetailsType
+  - jobStages
+  - keyEncryptionKey
+  - returnPackage
+  - reverseShipmentLabelSasKey

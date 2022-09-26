@@ -1,0 +1,60 @@
+$token: azure-native:datafactory/v20180601:SqlDWSinkResponse
+description: A copy activity SQL Data Warehouse sink.
+properties:
+  allowCopyCommand:
+    $ref: pulumi.json#/Any
+    description: "Indicates to use Copy Command to copy data into SQL Data Warehouse. Type: boolean (or Expression with resultType boolean)."
+  allowPolyBase:
+    $ref: pulumi.json#/Any
+    description: "Indicates to use PolyBase to copy data into SQL Data Warehouse when applicable. Type: boolean (or Expression with resultType boolean)."
+  copyCommandSettings:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20180601:DWCopyCommandSettingsResponse"
+    description: Specifies Copy Command related settings when allowCopyCommand is true.
+  disableMetricsCollection:
+    $ref: pulumi.json#/Any
+    description: "If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean)."
+  maxConcurrentConnections:
+    $ref: pulumi.json#/Any
+    description: "The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer)."
+  polyBaseSettings:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20180601:PolybaseSettingsResponse"
+    description: Specifies PolyBase-related settings when allowPolyBase is true.
+  preCopyScript:
+    $ref: pulumi.json#/Any
+    description: "SQL pre-copy script. Type: string (or Expression with resultType string)."
+  sinkRetryCount:
+    $ref: pulumi.json#/Any
+    description: "Sink retry count. Type: integer (or Expression with resultType integer)."
+  sinkRetryWait:
+    $ref: pulumi.json#/Any
+    description: "Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9]))."
+  sqlWriterUseTableLock:
+    $ref: pulumi.json#/Any
+    description: "Whether to use table lock during bulk copy. Type: boolean (or Expression with resultType boolean)."
+  tableOption:
+    $ref: pulumi.json#/Any
+    description: "The option to handle sink table, such as autoCreate. For now only 'autoCreate' value is supported. Type: string (or Expression with resultType string)."
+  type:
+    type: string
+    description: |-
+      Copy sink type.
+      Expected value is 'SqlDWSink'.
+    const: SqlDWSink
+  upsertSettings:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20180601:SqlDWUpsertSettingsResponse"
+    description: SQL DW upsert settings.
+  writeBatchSize:
+    $ref: pulumi.json#/Any
+    description: "Write batch size. Type: integer (or Expression with resultType integer), minimum: 0."
+  writeBatchTimeout:
+    $ref: pulumi.json#/Any
+    description: "Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9]))."
+  writeBehavior:
+    $ref: pulumi.json#/Any
+    description: "Write behavior when copying data into azure SQL DW. Type: SqlDWWriteBehaviorEnum (or Expression with resultType SqlDWWriteBehaviorEnum)"
+type: object
+required:
+  - type

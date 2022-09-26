@@ -1,0 +1,21 @@
+$token: azure-native:dataprotection/v20220331preview:AzureOperationalStoreParameters
+description: Parameters for Operational-Tier DataStore
+properties:
+  dataStoreType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:dataprotection/v20220331preview:DataStoreTypes"
+    description: type of datastore; Operational/Vault/Archive
+  objectType:
+    type: string
+    description: |-
+      Type of the specific object - used for deserializing
+      Expected value is 'AzureOperationalStoreParameters'.
+    const: AzureOperationalStoreParameters
+  resourceGroupId:
+    type: string
+    description: Gets or sets the Snapshot Resource Group Uri.
+type: object
+required:
+  - dataStoreType
+  - objectType

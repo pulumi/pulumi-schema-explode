@@ -1,0 +1,37 @@
+$token: azure-native:batch/v20200501:VirtualMachineConfigurationResponse
+properties:
+  containerConfiguration:
+    type: object
+    $ref: "#/types/azure-native:batch/v20200501:ContainerConfigurationResponse"
+    description: If specified, setup is performed on each node in the pool to allow tasks to run in containers. All regular tasks and job manager tasks run on this pool must specify the containerSettings property, and all other tasks may specify it.
+  dataDisks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:batch/v20200501:DataDiskResponse"
+    description: This property must be specified if the compute nodes in the pool need to have empty data disks attached to them.
+  diskEncryptionConfiguration:
+    type: object
+    $ref: "#/types/azure-native:batch/v20200501:DiskEncryptionConfigurationResponse"
+    description: If specified, encryption is performed on each node in the pool during node provisioning.
+  imageReference:
+    type: object
+    $ref: "#/types/azure-native:batch/v20200501:ImageReferenceResponse"
+  licenseType:
+    type: string
+    description: |
+      This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are:
+
+       Windows_Server - The on-premises license is for Windows Server.
+       Windows_Client - The on-premises license is for Windows Client.
+  nodeAgentSkuId:
+    type: string
+    description: The Batch node agent is a program that runs on each node in the pool, and provides the command-and-control interface between the node and the Batch service. There are different implementations of the node agent, known as SKUs, for different operating systems. You must specify a node agent SKU which matches the selected image reference. To get the list of supported node agent SKUs along with their list of verified image references, see the 'List supported node agent SKUs' operation.
+  windowsConfiguration:
+    type: object
+    $ref: "#/types/azure-native:batch/v20200501:WindowsConfigurationResponse"
+    description: This property must not be specified if the imageReference specifies a Linux OS image.
+type: object
+required:
+  - imageReference
+  - nodeAgentSkuId

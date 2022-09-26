@@ -1,0 +1,56 @@
+$token: azure-native:appconfiguration/v20220301preview:PrivateEndpointConnection
+description: A private endpoint connection
+properties:
+  name:
+    type: string
+    description: The name of the resource.
+  privateEndpoint:
+    type: object
+    $ref: "#/types/azure-native:appconfiguration/v20220301preview:PrivateEndpointResponse"
+    description: The resource of private endpoint.
+  privateLinkServiceConnectionState:
+    type: object
+    $ref: "#/types/azure-native:appconfiguration/v20220301preview:PrivateLinkServiceConnectionStateResponse"
+    description: A collection of information about the state of the connection between service consumer and provider.
+  provisioningState:
+    type: string
+    description: The provisioning status of the private endpoint connection.
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - name
+  - privateLinkServiceConnectionState
+  - provisioningState
+  - type
+inputProperties:
+  configStoreName:
+    type: string
+    description: The name of the configuration store.
+  privateEndpoint:
+    type: object
+    $ref: "#/types/azure-native:appconfiguration/v20220301preview:PrivateEndpoint"
+    description: The resource of private endpoint.
+  privateEndpointConnectionName:
+    type: string
+    description: Private endpoint connection name
+  privateLinkServiceConnectionState:
+    type: object
+    $ref: "#/types/azure-native:appconfiguration/v20220301preview:PrivateLinkServiceConnectionState"
+    description: A collection of information about the state of the connection between service consumer and provider.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group to which the container registry belongs.
+requiredInputs:
+  - configStoreName
+  - privateLinkServiceConnectionState
+  - resourceGroupName
+aliases:
+  - type: azure-native:appconfiguration:PrivateEndpointConnection
+  - type: azure-native:appconfiguration/v20191101preview:PrivateEndpointConnection
+  - type: azure-native:appconfiguration/v20200601:PrivateEndpointConnection
+  - type: azure-native:appconfiguration/v20200701preview:PrivateEndpointConnection
+  - type: azure-native:appconfiguration/v20210301preview:PrivateEndpointConnection
+  - type: azure-native:appconfiguration/v20211001preview:PrivateEndpointConnection
+  - type: azure-native:appconfiguration/v20220501:PrivateEndpointConnection

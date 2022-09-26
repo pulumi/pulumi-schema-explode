@@ -1,0 +1,75 @@
+$token: azure-native:logic:getIntegrationAccountMap
+description: |-
+  The integration account map.
+  API Version: 2019-05-01.
+inputs:
+  properties:
+    integrationAccountName:
+      type: string
+      description: The integration account name.
+    mapName:
+      type: string
+      description: The integration account map name.
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+  type: object
+  required:
+    - integrationAccountName
+    - mapName
+    - resourceGroupName
+outputs:
+  description: The integration account map.
+  properties:
+    changedTime:
+      type: string
+      description: The changed time.
+    content:
+      type: string
+      description: The content.
+    contentLink:
+      type: object
+      $ref: "#/types/azure-native:logic:ContentLinkResponse"
+      description: The content link.
+    contentType:
+      type: string
+      description: The content type.
+    createdTime:
+      type: string
+      description: The created time.
+    id:
+      type: string
+      description: The resource id.
+    location:
+      type: string
+      description: The resource location.
+    mapType:
+      type: string
+      description: The map type.
+    metadata:
+      $ref: pulumi.json#/Any
+      description: The metadata.
+    name:
+      type: string
+      description: Gets the resource name.
+    parametersSchema:
+      type: object
+      $ref: "#/types/azure-native:logic:IntegrationAccountMapPropertiesResponseParametersSchema"
+      description: The parameters schema of integration account map.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: The resource tags.
+    type:
+      type: string
+      description: Gets the resource type.
+  type: object
+  required:
+    - changedTime
+    - contentLink
+    - createdTime
+    - id
+    - mapType
+    - name
+    - type

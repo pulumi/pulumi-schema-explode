@@ -1,0 +1,44 @@
+$token: azure-native:insights:getPrivateLinkScopedResource
+description: |-
+  A private link scoped resource
+  API Version: 2019-10-17-preview.
+inputs:
+  properties:
+    name:
+      type: string
+      description: The name of the scoped resource object.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    scopeName:
+      type: string
+      description: The name of the Azure Monitor PrivateLinkScope resource.
+  type: object
+  required:
+    - name
+    - resourceGroupName
+    - scopeName
+outputs:
+  description: A private link scoped resource
+  properties:
+    id:
+      type: string
+      description: Azure resource Id
+    linkedResourceId:
+      type: string
+      description: The resource id of the scoped Azure monitor resource.
+    name:
+      type: string
+      description: Azure resource name
+    provisioningState:
+      type: string
+      description: State of the private endpoint connection.
+    type:
+      type: string
+      description: Azure resource type
+  type: object
+  required:
+    - id
+    - name
+    - provisioningState
+    - type

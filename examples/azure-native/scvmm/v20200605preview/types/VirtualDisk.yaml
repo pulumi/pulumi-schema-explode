@@ -1,0 +1,37 @@
+$token: azure-native:scvmm/v20200605preview:VirtualDisk
+description: Virtual disk model
+properties:
+  bus:
+    type: integer
+    description: Gets or sets the disk bus.
+  busType:
+    type: string
+    description: Gets or sets the disk bus type.
+  createDiffDisk:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:scvmm/v20200605preview:CreateDiffDisk"
+    description: Gets or sets a value indicating diff disk.
+  diskId:
+    type: string
+    description: Gets or sets the disk id.
+  diskSizeGB:
+    type: integer
+    description: Gets or sets the disk total size.
+  lun:
+    type: integer
+    description: Gets or sets the disk lun.
+  name:
+    type: string
+    description: Gets or sets the name of the disk.
+  storageQoSPolicy:
+    type: object
+    $ref: "#/types/azure-native:scvmm/v20200605preview:StorageQoSPolicyDetails"
+    description: The QoS policy for the disk.
+  templateDiskId:
+    type: string
+    description: Gets or sets the disk id in the template.
+  vhdType:
+    type: string
+    description: Gets or sets the disk vhd type.
+type: object

@@ -1,0 +1,32 @@
+$token: azure-native:cdn/v20220501preview:CookiesMatchConditionParameters
+description: Defines the parameters for Cookies match conditions
+properties:
+  matchValues:
+    type: array
+    items:
+      type: string
+    description: The match value for the condition of the delivery rule
+  negateCondition:
+    type: boolean
+    description: Describes if this is negate condition or not
+  operator:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:cdn/v20220501preview:CookiesOperator"
+    description: Describes operator to be matched
+  selector:
+    type: string
+    description: Name of Cookies to be matched
+  transforms:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:cdn/v20220501preview:Transform"
+    description: List of transforms
+  typeName:
+    type: string
+type: object
+required:
+  - operator
+  - typeName

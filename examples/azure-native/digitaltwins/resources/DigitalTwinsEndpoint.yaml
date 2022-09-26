@@ -1,0 +1,66 @@
+$token: azure-native:digitaltwins:DigitalTwinsEndpoint
+description: |-
+  DigitalTwinsInstance endpoint resource.
+  API Version: 2020-12-01.
+properties:
+  name:
+    type: string
+    description: Extension resource name.
+  properties:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:digitaltwins:EventGridResponse"
+      - type: object
+        $ref: "#/types/azure-native:digitaltwins:EventHubResponse"
+      - type: object
+        $ref: "#/types/azure-native:digitaltwins:ServiceBusResponse"
+    discriminator:
+      propertyName: endpointType
+      mapping:
+        EventGrid: "#/types/azure-native:digitaltwins:EventGridResponse"
+        EventHub: "#/types/azure-native:digitaltwins:EventHubResponse"
+        ServiceBus: "#/types/azure-native:digitaltwins:ServiceBusResponse"
+    description: DigitalTwinsInstance endpoint resource properties.
+  type:
+    type: string
+    description: The resource type.
+type: object
+required:
+  - name
+  - properties
+  - type
+inputProperties:
+  endpointName:
+    type: string
+    description: Name of Endpoint Resource.
+  properties:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:digitaltwins:EventGrid"
+      - type: object
+        $ref: "#/types/azure-native:digitaltwins:EventHub"
+      - type: object
+        $ref: "#/types/azure-native:digitaltwins:ServiceBus"
+    discriminator:
+      propertyName: endpointType
+      mapping:
+        EventGrid: "#/types/azure-native:digitaltwins:EventGrid"
+        EventHub: "#/types/azure-native:digitaltwins:EventHub"
+        ServiceBus: "#/types/azure-native:digitaltwins:ServiceBus"
+    description: DigitalTwinsInstance endpoint resource properties.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the DigitalTwinsInstance.
+  resourceName:
+    type: string
+    description: The name of the DigitalTwinsInstance.
+requiredInputs:
+  - properties
+  - resourceGroupName
+  - resourceName
+aliases:
+  - type: azure-native:digitaltwins/v20200301preview:DigitalTwinsEndpoint
+  - type: azure-native:digitaltwins/v20201031:DigitalTwinsEndpoint
+  - type: azure-native:digitaltwins/v20201201:DigitalTwinsEndpoint
+  - type: azure-native:digitaltwins/v20210630preview:DigitalTwinsEndpoint
+  - type: azure-native:digitaltwins/v20220531:DigitalTwinsEndpoint

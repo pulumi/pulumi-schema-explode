@@ -1,0 +1,37 @@
+$token: azure-native:logic:listIntegrationAccountKeyVaultKeys
+description: |-
+  Collection of key vault keys.
+  API Version: 2019-05-01.
+inputs:
+  properties:
+    integrationAccountName:
+      type: string
+      description: The integration account name.
+    keyVault:
+      type: object
+      $ref: "#/types/azure-native:logic:KeyVaultReference"
+      description: The key vault reference.
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+    skipToken:
+      type: string
+      description: The skip token.
+  type: object
+  required:
+    - integrationAccountName
+    - keyVault
+    - resourceGroupName
+outputs:
+  description: Collection of key vault keys.
+  properties:
+    skipToken:
+      type: string
+      description: The skip token.
+    value:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:logic:KeyVaultKeyResponse"
+      description: The key vault keys.
+  type: object

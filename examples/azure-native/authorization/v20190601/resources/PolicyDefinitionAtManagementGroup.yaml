@@ -1,0 +1,76 @@
+$token: azure-native:authorization/v20190601:PolicyDefinitionAtManagementGroup
+description: The policy definition.
+properties:
+  description:
+    type: string
+    description: The policy definition description.
+  displayName:
+    type: string
+    description: The display name of the policy definition.
+  metadata:
+    $ref: pulumi.json#/Any
+    description: The policy definition metadata.
+  mode:
+    type: string
+    description: The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
+  name:
+    type: string
+    description: The name of the policy definition.
+  parameters:
+    $ref: pulumi.json#/Any
+    description: Required if a parameter is used in policy rule.
+  policyRule:
+    $ref: pulumi.json#/Any
+    description: The policy rule.
+  policyType:
+    type: string
+    description: The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+  type:
+    type: string
+    description: The type of the resource (Microsoft.Authorization/policyDefinitions).
+type: object
+required:
+  - name
+  - type
+inputProperties:
+  description:
+    type: string
+    description: The policy definition description.
+  displayName:
+    type: string
+    description: The display name of the policy definition.
+  managementGroupId:
+    type: string
+    description: The ID of the management group.
+  metadata:
+    $ref: pulumi.json#/Any
+    description: The policy definition metadata.
+  mode:
+    type: string
+    description: The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
+  parameters:
+    $ref: pulumi.json#/Any
+    description: Required if a parameter is used in policy rule.
+  policyDefinitionName:
+    type: string
+    description: The name of the policy definition to create.
+  policyRule:
+    $ref: pulumi.json#/Any
+    description: The policy rule.
+  policyType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:authorization/v20190601:PolicyType"
+    description: The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+requiredInputs:
+  - managementGroupId
+aliases:
+  - type: azure-native:authorization:PolicyDefinitionAtManagementGroup
+  - type: azure-native:authorization/v20161201:PolicyDefinitionAtManagementGroup
+  - type: azure-native:authorization/v20180301:PolicyDefinitionAtManagementGroup
+  - type: azure-native:authorization/v20180501:PolicyDefinitionAtManagementGroup
+  - type: azure-native:authorization/v20190101:PolicyDefinitionAtManagementGroup
+  - type: azure-native:authorization/v20190901:PolicyDefinitionAtManagementGroup
+  - type: azure-native:authorization/v20200301:PolicyDefinitionAtManagementGroup
+  - type: azure-native:authorization/v20200901:PolicyDefinitionAtManagementGroup
+  - type: azure-native:authorization/v20210601:PolicyDefinitionAtManagementGroup

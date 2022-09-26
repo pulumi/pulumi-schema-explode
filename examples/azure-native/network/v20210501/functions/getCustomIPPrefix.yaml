@@ -1,0 +1,96 @@
+$token: azure-native:network/v20210501:getCustomIPPrefix
+description: Custom IP prefix resource.
+inputs:
+  properties:
+    customIpPrefixName:
+      type: string
+      description: The name of the custom IP prefix.
+    expand:
+      type: string
+      description: Expands referenced resources.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - customIpPrefixName
+    - resourceGroupName
+outputs:
+  description: Custom IP prefix resource.
+  properties:
+    authorizationMessage:
+      type: string
+      description: Authorization message for WAN validation.
+    childCustomIpPrefixes:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20210501:SubResourceResponse"
+      description: The list of all Children for IPv6 /48 CustomIpPrefix.
+    cidr:
+      type: string
+      description: The prefix range in CIDR notation. Should include the start address and the prefix length.
+    commissionedState:
+      type: string
+      description: The commissioned state of the Custom IP Prefix.
+    customIpPrefixParent:
+      type: object
+      $ref: "#/types/azure-native:network/v20210501:SubResourceResponse"
+      description: The Parent CustomIpPrefix for IPv6 /64 CustomIpPrefix.
+    etag:
+      type: string
+      description: A unique read-only string that changes whenever the resource is updated.
+    extendedLocation:
+      type: object
+      $ref: "#/types/azure-native:network/v20210501:ExtendedLocationResponse"
+      description: The extended location of the custom IP prefix.
+    failedReason:
+      type: string
+      description: The reason why resource is in failed state.
+    id:
+      type: string
+      description: Resource ID.
+    location:
+      type: string
+      description: Resource location.
+    name:
+      type: string
+      description: Resource name.
+    provisioningState:
+      type: string
+      description: The provisioning state of the custom IP prefix resource.
+    publicIpPrefixes:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20210501:SubResourceResponse"
+      description: The list of all referenced PublicIpPrefixes.
+    resourceGuid:
+      type: string
+      description: The resource GUID property of the custom IP prefix resource.
+    signedMessage:
+      type: string
+      description: Signed message for WAN validation.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: Resource type.
+    zones:
+      type: array
+      items:
+        type: string
+      description: A list of availability zones denoting the IP allocated for the resource needs to come from.
+  type: object
+  required:
+    - childCustomIpPrefixes
+    - etag
+    - failedReason
+    - name
+    - provisioningState
+    - publicIpPrefixes
+    - resourceGuid
+    - type

@@ -1,0 +1,15 @@
+$token: azure-native:containerinstance/v20210901:GpuResource
+description: The GPU resource.
+properties:
+  count:
+    type: integer
+    description: The count of the GPU resource.
+  sku:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:containerinstance/v20210901:GpuSku"
+    description: The SKU of the GPU resource.
+type: object
+required:
+  - count
+  - sku

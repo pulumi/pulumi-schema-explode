@@ -1,0 +1,77 @@
+$token: azure-native:servicelinker:getLinker
+description: |-
+  Linker of source and target resource
+  API Version: 2021-11-01-preview.
+inputs:
+  properties:
+    linkerName:
+      type: string
+      description: The name Linker resource.
+    resourceUri:
+      type: string
+      description: The fully qualified Azure Resource manager identifier of the resource to be connected.
+  type: object
+  required:
+    - linkerName
+    - resourceUri
+outputs:
+  description: Linker of source and target resource
+  properties:
+    authInfo:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:servicelinker:SecretAuthInfoResponse"
+        - type: object
+          $ref: "#/types/azure-native:servicelinker:ServicePrincipalCertificateAuthInfoResponse"
+        - type: object
+          $ref: "#/types/azure-native:servicelinker:ServicePrincipalSecretAuthInfoResponse"
+        - type: object
+          $ref: "#/types/azure-native:servicelinker:SystemAssignedIdentityAuthInfoResponse"
+        - type: object
+          $ref: "#/types/azure-native:servicelinker:UserAssignedIdentityAuthInfoResponse"
+      discriminator:
+        propertyName: authType
+        mapping:
+          secret: "#/types/azure-native:servicelinker:SecretAuthInfoResponse"
+          servicePrincipalCertificate: "#/types/azure-native:servicelinker:ServicePrincipalCertificateAuthInfoResponse"
+          servicePrincipalSecret: "#/types/azure-native:servicelinker:ServicePrincipalSecretAuthInfoResponse"
+          systemAssignedIdentity: "#/types/azure-native:servicelinker:SystemAssignedIdentityAuthInfoResponse"
+          userAssignedIdentity: "#/types/azure-native:servicelinker:UserAssignedIdentityAuthInfoResponse"
+      description: The authentication type.
+    clientType:
+      type: string
+      description: The application client type
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    name:
+      type: string
+      description: The name of the resource
+    provisioningState:
+      type: string
+      description: "The provisioning state. "
+    secretStore:
+      type: object
+      $ref: "#/types/azure-native:servicelinker:SecretStoreResponse"
+      description: An option to store secret value in secure place
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:servicelinker:SystemDataResponse"
+      description: The system data.
+    targetId:
+      type: string
+      description: The resource Id of target service.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+    vNetSolution:
+      type: object
+      $ref: "#/types/azure-native:servicelinker:VNetSolutionResponse"
+      description: The VNet solution.
+  type: object
+  required:
+    - id
+    - name
+    - provisioningState
+    - systemData
+    - type

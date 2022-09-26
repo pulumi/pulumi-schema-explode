@@ -1,0 +1,44 @@
+$token: azure-native:migrate/v20191001:PrivateEndpointConnection
+description: A private endpoint connection for a project.
+properties:
+  eTag:
+    type: string
+    description: For optimistic concurrency control.
+  name:
+    type: string
+    description: Name of the private endpoint endpoint connection.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:migrate/v20191001:PrivateEndpointConnectionPropertiesResponse"
+    description: Properties of the private endpoint endpoint connection.
+  type:
+    type: string
+    description: Type of the object = [Microsoft.Migrate/assessmentProjects/privateEndpointConnections].
+type: object
+required:
+  - name
+  - properties
+  - type
+inputProperties:
+  eTag:
+    type: string
+    description: For optimistic concurrency control.
+  privateEndpointConnectionName:
+    type: string
+    description: Unique name of a private endpoint connection within a project.
+  projectName:
+    type: string
+    description: Name of the Azure Migrate project.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:migrate/v20191001:PrivateEndpointConnectionProperties"
+    description: Properties of the private endpoint endpoint connection.
+  resourceGroupName:
+    type: string
+    description: Name of the Azure Resource Group that project is part of.
+requiredInputs:
+  - projectName
+  - properties
+  - resourceGroupName
+aliases:
+  - type: azure-native:migrate:PrivateEndpointConnection

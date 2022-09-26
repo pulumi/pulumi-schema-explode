@@ -1,0 +1,50 @@
+$token: azure-native:dataprotection/v20220201preview:BackupInstanceResponse
+description: Backup Instance
+properties:
+  currentProtectionState:
+    type: string
+    description: Specifies the current protection state of the resource
+  dataSourceInfo:
+    type: object
+    $ref: "#/types/azure-native:dataprotection/v20220201preview:DatasourceResponse"
+    description: Gets or sets the data source information.
+  dataSourceSetInfo:
+    type: object
+    $ref: "#/types/azure-native:dataprotection/v20220201preview:DatasourceSetResponse"
+    description: Gets or sets the data source set information.
+  datasourceAuthCredentials:
+    type: object
+    $ref: "#/types/azure-native:dataprotection/v20220201preview:SecretStoreBasedAuthCredentialsResponse"
+    description: Credentials to use to authenticate with data source provider.
+  friendlyName:
+    type: string
+    description: Gets or sets the Backup Instance friendly name.
+  objectType:
+    type: string
+  policyInfo:
+    type: object
+    $ref: "#/types/azure-native:dataprotection/v20220201preview:PolicyInfoResponse"
+    description: Gets or sets the policy information.
+  protectionErrorDetails:
+    type: object
+    $ref: "#/types/azure-native:dataprotection/v20220201preview:UserFacingErrorResponse"
+    description: Specifies the protection error of the resource
+  protectionStatus:
+    type: object
+    $ref: "#/types/azure-native:dataprotection/v20220201preview:ProtectionStatusDetailsResponse"
+    description: Specifies the protection status of the resource
+  provisioningState:
+    type: string
+    description: Specifies the provisioning state of the resource i.e. provisioning/updating/Succeeded/Failed
+  validationType:
+    type: string
+    description: Specifies the type of validation. In case of DeepValidation, all validations from /validateForBackup API will run again.
+type: object
+required:
+  - currentProtectionState
+  - dataSourceInfo
+  - objectType
+  - policyInfo
+  - protectionErrorDetails
+  - protectionStatus
+  - provisioningState

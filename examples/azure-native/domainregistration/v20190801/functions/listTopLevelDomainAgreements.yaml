@@ -1,0 +1,32 @@
+$token: azure-native:domainregistration/v20190801:listTopLevelDomainAgreements
+description: Collection of top-level domain legal agreements.
+inputs:
+  properties:
+    forTransfer:
+      type: boolean
+      description: If <code>true</code>, then the list of agreements will include agreements for domain transfer as well; otherwise, <code>false</code>.
+    includePrivacy:
+      type: boolean
+      description: If <code>true</code>, then the list of agreements will include agreements for domain privacy as well; otherwise, <code>false</code>.
+    name:
+      type: string
+      description: Name of the top-level domain.
+  type: object
+  required:
+    - name
+outputs:
+  description: Collection of top-level domain legal agreements.
+  properties:
+    nextLink:
+      type: string
+      description: Link to next page of resources.
+    value:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:domainregistration/v20190801:TldLegalAgreementResponse"
+      description: Collection of resources.
+  type: object
+  required:
+    - nextLink
+    - value

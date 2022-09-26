@@ -1,0 +1,34 @@
+$token: azure-native:workloads/v20211201preview:SingleServerConfiguration
+description: Gets or sets the single server configuration.
+properties:
+  appResourceGroup:
+    type: string
+    description: The application resource group where SAP system resources will be deployed.
+  databaseType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:workloads/v20211201preview:SAPDatabaseType"
+    description: The database type.
+  deploymentType:
+    type: string
+    description: |-
+      The type of SAP deployment, single server or Three tier.
+      Expected value is 'SingleServer'.
+    const: SingleServer
+  networkConfiguration:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:NetworkConfiguration"
+    description: Network configuration for the server
+  subnetId:
+    type: string
+    description: The subnet id.
+  virtualMachineConfiguration:
+    type: object
+    $ref: "#/types/azure-native:workloads/v20211201preview:VirtualMachineConfiguration"
+    description: Gets or sets the virtual machine configuration.
+type: object
+required:
+  - appResourceGroup
+  - deploymentType
+  - subnetId
+  - virtualMachineConfiguration

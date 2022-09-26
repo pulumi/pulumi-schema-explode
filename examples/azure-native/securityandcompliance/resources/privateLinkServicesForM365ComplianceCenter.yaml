@@ -1,0 +1,77 @@
+$token: azure-native:securityandcompliance:privateLinkServicesForM365ComplianceCenter
+description: |-
+  The description of the service.
+  API Version: 2021-03-08.
+properties:
+  etag:
+    type: string
+    description: An etag associated with the resource, used for optimistic concurrency when editing it.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:securityandcompliance:ServicesResourceResponseIdentity"
+    description: Setting indicating whether the service has a managed identity associated with it.
+  kind:
+    type: string
+    description: The kind of the service.
+  location:
+    type: string
+    description: The resource location.
+  name:
+    type: string
+    description: The resource name.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:securityandcompliance:ServicesPropertiesResponse"
+    description: The common properties of a service.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:securityandcompliance:SystemDataResponse"
+    description: Required property for system data
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The resource tags.
+  type:
+    type: string
+    description: The resource type.
+type: object
+required:
+  - kind
+  - location
+  - name
+  - properties
+  - systemData
+  - type
+inputProperties:
+  identity:
+    type: object
+    $ref: "#/types/azure-native:securityandcompliance:ServicesResourceIdentity"
+    description: Setting indicating whether the service has a managed identity associated with it.
+  kind:
+    $ref: "#/types/azure-native:securityandcompliance:Kind"
+    description: The kind of the service.
+  location:
+    type: string
+    description: The resource location.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:securityandcompliance:ServicesProperties"
+    description: The common properties of a service.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the service instance.
+  resourceName:
+    type: string
+    description: The name of the service instance.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The resource tags.
+requiredInputs:
+  - kind
+  - resourceGroupName
+aliases:
+  - type: azure-native:securityandcompliance/v20210111:privateLinkServicesForM365ComplianceCenter
+  - type: azure-native:securityandcompliance/v20210308:privateLinkServicesForM365ComplianceCenter

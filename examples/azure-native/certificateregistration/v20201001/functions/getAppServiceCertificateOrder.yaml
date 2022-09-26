@@ -1,0 +1,129 @@
+$token: azure-native:certificateregistration/v20201001:getAppServiceCertificateOrder
+description: SSL certificate purchase order.
+inputs:
+  properties:
+    certificateOrderName:
+      type: string
+      description: Name of the certificate order..
+    resourceGroupName:
+      type: string
+      description: Name of the resource group to which the resource belongs.
+  type: object
+  required:
+    - certificateOrderName
+    - resourceGroupName
+outputs:
+  description: SSL certificate purchase order.
+  properties:
+    appServiceCertificateNotRenewableReasons:
+      type: array
+      items:
+        type: string
+      description: Reasons why App Service Certificate is not renewable at the current moment.
+    autoRenew:
+      type: boolean
+      description: <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
+      default: true
+    certificates:
+      type: object
+      additionalProperties:
+        type: object
+        $ref: "#/types/azure-native:certificateregistration/v20201001:AppServiceCertificateResponse"
+      description: State of the Key Vault secret.
+    csr:
+      type: string
+      description: Last CSR that was created for this order.
+    distinguishedName:
+      type: string
+      description: Certificate distinguished name.
+    domainVerificationToken:
+      type: string
+      description: Domain verification token.
+    expirationTime:
+      type: string
+      description: Certificate expiration time.
+    id:
+      type: string
+      description: Resource Id.
+    intermediate:
+      type: object
+      $ref: "#/types/azure-native:certificateregistration/v20201001:CertificateDetailsResponse"
+      description: Intermediate certificate.
+    isPrivateKeyExternal:
+      type: boolean
+      description: <code>true</code> if private key is external; otherwise, <code>false</code>.
+    keySize:
+      type: integer
+      description: Certificate key size.
+      default: 2048
+    kind:
+      type: string
+      description: Kind of resource.
+    lastCertificateIssuanceTime:
+      type: string
+      description: Certificate last issuance time.
+    location:
+      type: string
+      description: Resource Location.
+    name:
+      type: string
+      description: Resource Name.
+    nextAutoRenewalTimeStamp:
+      type: string
+      description: Time stamp when the certificate would be auto renewed next
+    productType:
+      type: string
+      description: Certificate product type.
+    provisioningState:
+      type: string
+      description: Status of certificate order.
+    root:
+      type: object
+      $ref: "#/types/azure-native:certificateregistration/v20201001:CertificateDetailsResponse"
+      description: Root certificate.
+    serialNumber:
+      type: string
+      description: Current serial number of the certificate.
+    signedCertificate:
+      type: object
+      $ref: "#/types/azure-native:certificateregistration/v20201001:CertificateDetailsResponse"
+      description: Signed certificate.
+    status:
+      type: string
+      description: Current order status.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:certificateregistration/v20201001:SystemDataResponse"
+      description: The system metadata relating to this resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: Resource type.
+    validityInYears:
+      type: integer
+      description: Duration in years (must be between 1 and 3).
+      default: 1
+  type: object
+  required:
+    - appServiceCertificateNotRenewableReasons
+    - domainVerificationToken
+    - expirationTime
+    - id
+    - intermediate
+    - isPrivateKeyExternal
+    - lastCertificateIssuanceTime
+    - location
+    - name
+    - nextAutoRenewalTimeStamp
+    - productType
+    - provisioningState
+    - root
+    - serialNumber
+    - signedCertificate
+    - status
+    - systemData
+    - type

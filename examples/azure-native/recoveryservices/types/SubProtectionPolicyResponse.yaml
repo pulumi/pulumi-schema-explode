@@ -1,0 +1,34 @@
+$token: azure-native:recoveryservices:SubProtectionPolicyResponse
+description: Sub-protection policy which includes schedule and retention
+properties:
+  policyType:
+    type: string
+    description: Type of backup policy type
+  retentionPolicy:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices:LongTermRetentionPolicyResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices:SimpleRetentionPolicyResponse"
+    discriminator:
+      propertyName: retentionPolicyType
+      mapping:
+        LongTermRetentionPolicy: "#/types/azure-native:recoveryservices:LongTermRetentionPolicyResponse"
+        SimpleRetentionPolicy: "#/types/azure-native:recoveryservices:SimpleRetentionPolicyResponse"
+    description: Retention policy with the details on backup copy retention ranges.
+  schedulePolicy:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices:LogSchedulePolicyResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices:LongTermSchedulePolicyResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices:SimpleSchedulePolicyResponse"
+    discriminator:
+      propertyName: schedulePolicyType
+      mapping:
+        LogSchedulePolicy: "#/types/azure-native:recoveryservices:LogSchedulePolicyResponse"
+        LongTermSchedulePolicy: "#/types/azure-native:recoveryservices:LongTermSchedulePolicyResponse"
+        SimpleSchedulePolicy: "#/types/azure-native:recoveryservices:SimpleSchedulePolicyResponse"
+    description: Backup schedule specified as part of backup policy.
+type: object

@@ -1,0 +1,67 @@
+$token: azure-native:machinelearningservices/v20220501:AzureFileDatastore
+description: Azure File datastore configuration.
+properties:
+  accountName:
+    type: string
+    description: "[Required] Storage account name."
+  credentials:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220501:AccountKeyDatastoreCredentials"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220501:CertificateDatastoreCredentials"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220501:NoneDatastoreCredentials"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220501:SasDatastoreCredentials"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220501:ServicePrincipalDatastoreCredentials"
+    discriminator:
+      propertyName: credentialsType
+      mapping:
+        AccountKey: "#/types/azure-native:machinelearningservices/v20220501:AccountKeyDatastoreCredentials"
+        Certificate: "#/types/azure-native:machinelearningservices/v20220501:CertificateDatastoreCredentials"
+        None: "#/types/azure-native:machinelearningservices/v20220501:NoneDatastoreCredentials"
+        Sas: "#/types/azure-native:machinelearningservices/v20220501:SasDatastoreCredentials"
+        ServicePrincipal: "#/types/azure-native:machinelearningservices/v20220501:ServicePrincipalDatastoreCredentials"
+    description: "[Required] Account credentials."
+  datastoreType:
+    type: string
+    description: |-
+      Enum to determine the datastore contents type.
+      Expected value is 'AzureFile'.
+    const: AzureFile
+  description:
+    type: string
+    description: The asset description text.
+  endpoint:
+    type: string
+    description: Azure cloud endpoint for the storage account.
+  fileShareName:
+    type: string
+    description: "[Required] The name of the Azure file share that the datastore points to."
+  properties:
+    type: object
+    additionalProperties:
+      type: string
+    description: The asset property dictionary.
+  protocol:
+    type: string
+    description: Protocol used to communicate with the storage account.
+  serviceDataAccessAuthIdentity:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearningservices/v20220501:ServiceDataAccessAuthIdentity"
+    description: Indicates which identity to use to authenticate service data access to customer's storage.
+    default: None
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Tag dictionary. Tags can be added, removed, and updated.
+type: object
+required:
+  - accountName
+  - credentials
+  - datastoreType
+  - fileShareName

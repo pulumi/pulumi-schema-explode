@@ -1,0 +1,75 @@
+$token: azure-native:documentdb/v20211115preview:CassandraResourceCassandraView
+description: An Azure Cosmos DB Cassandra view.
+properties:
+  identity:
+    type: object
+    $ref: "#/types/azure-native:documentdb/v20211115preview:ManagedServiceIdentityResponse"
+    description: Identity for the resource.
+  location:
+    type: string
+    description: The location of the resource group to which the resource belongs.
+  name:
+    type: string
+    description: The name of the ARM resource.
+  options:
+    type: object
+    $ref: "#/types/azure-native:documentdb/v20211115preview:CassandraViewGetPropertiesResponseOptions"
+  resource:
+    type: object
+    $ref: "#/types/azure-native:documentdb/v20211115preview:CassandraViewGetPropertiesResponseResource"
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: 'Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".'
+  type:
+    type: string
+    description: The type of Azure resource.
+type: object
+required:
+  - name
+  - type
+inputProperties:
+  accountName:
+    type: string
+    description: Cosmos DB database account name.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:documentdb/v20211115preview:ManagedServiceIdentity"
+    description: Identity for the resource.
+  keyspaceName:
+    type: string
+    description: Cosmos DB keyspace name.
+  location:
+    type: string
+    description: The location of the resource group to which the resource belongs.
+  options:
+    type: object
+    $ref: "#/types/azure-native:documentdb/v20211115preview:CreateUpdateOptions"
+    description: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+  resource:
+    type: object
+    $ref: "#/types/azure-native:documentdb/v20211115preview:CassandraViewResource"
+    description: The standard JSON format of a Cassandra view
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: 'Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".'
+  viewName:
+    type: string
+    description: Cosmos DB view name.
+requiredInputs:
+  - accountName
+  - keyspaceName
+  - resource
+  - resourceGroupName
+aliases:
+  - type: azure-native:documentdb:CassandraResourceCassandraView
+  - type: azure-native:documentdb/v20210701preview:CassandraResourceCassandraView
+  - type: azure-native:documentdb/v20211015preview:CassandraResourceCassandraView
+  - type: azure-native:documentdb/v20220215preview:CassandraResourceCassandraView
+  - type: azure-native:documentdb/v20220515preview:CassandraResourceCassandraView

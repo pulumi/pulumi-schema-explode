@@ -1,0 +1,45 @@
+$token: azure-native:elastic/v20211001preview:getTagRule
+description: Capture logs and metrics of Azure resources based on ARM tags.
+inputs:
+  properties:
+    monitorName:
+      type: string
+      description: Monitor resource name
+    resourceGroupName:
+      type: string
+      description: The name of the resource group to which the Elastic resource belongs.
+    ruleSetName:
+      type: string
+      description: Tag Rule Set resource name
+  type: object
+  required:
+    - monitorName
+    - resourceGroupName
+    - ruleSetName
+outputs:
+  description: Capture logs and metrics of Azure resources based on ARM tags.
+  properties:
+    id:
+      type: string
+      description: The id of the rule set.
+    name:
+      type: string
+      description: Name of the rule set.
+    properties:
+      type: object
+      $ref: "#/types/azure-native:elastic/v20211001preview:MonitoringTagRulesPropertiesResponse"
+      description: Properties of the monitoring tag rules.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:elastic/v20211001preview:SystemDataResponse"
+      description: The system metadata relating to this resource
+    type:
+      type: string
+      description: The type of the rule set.
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - systemData
+    - type

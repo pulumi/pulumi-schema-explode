@@ -1,0 +1,35 @@
+$token: azure-native:network/v20200601:ConnectionMonitorTestConfigurationResponse
+description: Describes a connection monitor test configuration.
+properties:
+  httpConfiguration:
+    type: object
+    $ref: "#/types/azure-native:network/v20200601:ConnectionMonitorHttpConfigurationResponse"
+    description: The parameters used to perform test evaluation over HTTP.
+  icmpConfiguration:
+    type: object
+    $ref: "#/types/azure-native:network/v20200601:ConnectionMonitorIcmpConfigurationResponse"
+    description: The parameters used to perform test evaluation over ICMP.
+  name:
+    type: string
+    description: The name of the connection monitor test configuration.
+  preferredIPVersion:
+    type: string
+    description: The preferred IP version to use in test evaluation. The connection monitor may choose to use a different version depending on other parameters.
+  protocol:
+    type: string
+    description: The protocol to use in test evaluation.
+  successThreshold:
+    type: object
+    $ref: "#/types/azure-native:network/v20200601:ConnectionMonitorSuccessThresholdResponse"
+    description: The threshold for declaring a test successful.
+  tcpConfiguration:
+    type: object
+    $ref: "#/types/azure-native:network/v20200601:ConnectionMonitorTcpConfigurationResponse"
+    description: The parameters used to perform test evaluation over TCP.
+  testFrequencySec:
+    type: integer
+    description: The frequency of test evaluation, in seconds.
+type: object
+required:
+  - name
+  - protocol

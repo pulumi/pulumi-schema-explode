@@ -1,0 +1,31 @@
+$token: azure-native:media/v20180330preview:Filters
+description: Describes all the filtering operations, such as de-interlacing, rotation etc. that are to be applied to the input media before encoding.
+properties:
+  crop:
+    type: object
+    $ref: "#/types/azure-native:media/v20180330preview:Rectangle"
+    description: The parameters for the rectangular window with which to crop the input video.
+  deinterlace:
+    type: object
+    $ref: "#/types/azure-native:media/v20180330preview:Deinterlace"
+    description: The de-interlacing settings.
+  overlays:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:media/v20180330preview:AudioOverlay"
+        - type: object
+          $ref: "#/types/azure-native:media/v20180330preview:VideoOverlay"
+      discriminator:
+        propertyName: odataType
+        mapping:
+          "#Microsoft.Media.AudioOverlay": "#/types/azure-native:media/v20180330preview:AudioOverlay"
+          "#Microsoft.Media.VideoOverlay": "#/types/azure-native:media/v20180330preview:VideoOverlay"
+    description: The properties of overlays to be applied to the input video. These could be audio, image or video overlays.
+  rotation:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:media/v20180330preview:Rotation"
+    description: The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
+type: object

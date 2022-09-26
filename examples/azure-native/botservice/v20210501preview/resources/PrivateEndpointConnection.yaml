@@ -1,0 +1,47 @@
+$token: azure-native:botservice/v20210501preview:PrivateEndpointConnection
+description: The Private Endpoint Connection resource.
+properties:
+  name:
+    type: string
+    description: The name of the resource
+  privateEndpoint:
+    type: object
+    $ref: "#/types/azure-native:botservice/v20210501preview:PrivateEndpointResponse"
+    description: The resource of private end point.
+  privateLinkServiceConnectionState:
+    type: object
+    $ref: "#/types/azure-native:botservice/v20210501preview:PrivateLinkServiceConnectionStateResponse"
+    description: A collection of information about the state of the connection between service consumer and provider.
+  provisioningState:
+    type: string
+    description: The provisioning state of the private endpoint connection resource.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - name
+  - privateLinkServiceConnectionState
+  - provisioningState
+  - type
+inputProperties:
+  privateEndpointConnectionName:
+    type: string
+    description: The name of the private endpoint connection associated with the Azure resource
+  privateLinkServiceConnectionState:
+    type: object
+    $ref: "#/types/azure-native:botservice/v20210501preview:PrivateLinkServiceConnectionState"
+    description: A collection of information about the state of the connection between service consumer and provider.
+  resourceGroupName:
+    type: string
+    description: The name of the Bot resource group in the user subscription.
+  resourceName:
+    type: string
+    description: The name of the Bot resource.
+requiredInputs:
+  - privateLinkServiceConnectionState
+  - resourceGroupName
+  - resourceName
+aliases:
+  - type: azure-native:botservice:PrivateEndpointConnection
+  - type: azure-native:botservice/v20220615preview:PrivateEndpointConnection

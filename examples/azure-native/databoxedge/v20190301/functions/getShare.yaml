@@ -1,0 +1,81 @@
+$token: azure-native:databoxedge/v20190301:getShare
+description: Represents a share on the  Data Box Edge/Gateway device.
+inputs:
+  properties:
+    deviceName:
+      type: string
+      description: The device name.
+    name:
+      type: string
+      description: The share name.
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+  type: object
+  required:
+    - deviceName
+    - name
+    - resourceGroupName
+outputs:
+  description: Represents a share on the  Data Box Edge/Gateway device.
+  properties:
+    accessProtocol:
+      type: string
+      description: Access protocol to be used by the share.
+    azureContainerInfo:
+      type: object
+      $ref: "#/types/azure-native:databoxedge/v20190301:AzureContainerInfoResponse"
+      description: Azure container mapping for the share.
+    clientAccessRights:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:databoxedge/v20190301:ClientAccessRightResponse"
+      description: List of IP addresses and corresponding access rights on the share(required for NFS protocol).
+    dataPolicy:
+      type: string
+      description: Data policy of the share.
+    description:
+      type: string
+      description: Description for the share.
+    id:
+      type: string
+      description: The path ID that uniquely identifies the object.
+    monitoringStatus:
+      type: string
+      description: Current monitoring status of the share.
+    name:
+      type: string
+      description: The object name.
+    refreshDetails:
+      type: object
+      $ref: "#/types/azure-native:databoxedge/v20190301:RefreshDetailsResponse"
+      description: Details of the refresh job on this share.
+    shareMappings:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:databoxedge/v20190301:MountPointMapResponse"
+      description: Share mount point to the role.
+    shareStatus:
+      type: string
+      description: Current status of the share.
+    type:
+      type: string
+      description: The hierarchical type of the object.
+    userAccessRights:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:databoxedge/v20190301:UserAccessRightResponse"
+      description: Mapping of users and corresponding access rights on the share (required for SMB protocol).
+  type: object
+  required:
+    - accessProtocol
+    - id
+    - monitoringStatus
+    - name
+    - shareMappings
+    - shareStatus
+    - type
+deprecationMessage: Version 2019-03-01 will be removed in v2 of the provider.

@@ -1,0 +1,74 @@
+$token: azure-native:documentdb:SqlResourceSqlRoleDefinition
+description: |-
+  An Azure Cosmos DB SQL Role Definition.
+  API Version: 2021-03-01-preview.
+properties:
+  assignableScopes:
+    type: array
+    items:
+      type: string
+    description: A set of fully qualified Scopes at or below which Role Assignments may be created using this Role Definition. This will allow application of this Role Definition on the entire database account or any underlying Database / Collection. Must have at least one element. Scopes higher than Database account are not enforceable as assignable Scopes. Note that resources referenced in assignable Scopes need not exist.
+  name:
+    type: string
+    description: The name of the database account.
+  permissions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:documentdb:PermissionResponse"
+    description: The set of operations allowed through this Role Definition.
+  roleName:
+    type: string
+    description: A user-friendly name for the Role Definition. Must be unique for the database account.
+  type:
+    type: string
+    description: The type of Azure resource.
+type: object
+required:
+  - name
+  - type
+inputProperties:
+  accountName:
+    type: string
+    description: Cosmos DB database account name.
+  assignableScopes:
+    type: array
+    items:
+      type: string
+    description: A set of fully qualified Scopes at or below which Role Assignments may be created using this Role Definition. This will allow application of this Role Definition on the entire database account or any underlying Database / Collection. Must have at least one element. Scopes higher than Database account are not enforceable as assignable Scopes. Note that resources referenced in assignable Scopes need not exist.
+  permissions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:documentdb:Permission"
+    description: The set of operations allowed through this Role Definition.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  roleDefinitionId:
+    type: string
+    description: The GUID for the Role Definition.
+  roleName:
+    type: string
+    description: A user-friendly name for the Role Definition. Must be unique for the database account.
+  type:
+    $ref: "#/types/azure-native:documentdb:RoleDefinitionType"
+    description: Indicates whether the Role Definition was built-in or user created.
+requiredInputs:
+  - accountName
+  - resourceGroupName
+aliases:
+  - type: azure-native:documentdb/v20200601preview:SqlResourceSqlRoleDefinition
+  - type: azure-native:documentdb/v20210301preview:SqlResourceSqlRoleDefinition
+  - type: azure-native:documentdb/v20210401preview:SqlResourceSqlRoleDefinition
+  - type: azure-native:documentdb/v20210415:SqlResourceSqlRoleDefinition
+  - type: azure-native:documentdb/v20210515:SqlResourceSqlRoleDefinition
+  - type: azure-native:documentdb/v20210615:SqlResourceSqlRoleDefinition
+  - type: azure-native:documentdb/v20210701preview:SqlResourceSqlRoleDefinition
+  - type: azure-native:documentdb/v20211015:SqlResourceSqlRoleDefinition
+  - type: azure-native:documentdb/v20211015preview:SqlResourceSqlRoleDefinition
+  - type: azure-native:documentdb/v20211115preview:SqlResourceSqlRoleDefinition
+  - type: azure-native:documentdb/v20220215preview:SqlResourceSqlRoleDefinition
+  - type: azure-native:documentdb/v20220515:SqlResourceSqlRoleDefinition
+  - type: azure-native:documentdb/v20220515preview:SqlResourceSqlRoleDefinition
+  - type: azure-native:documentdb/v20220815:SqlResourceSqlRoleDefinition

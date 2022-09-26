@@ -1,0 +1,113 @@
+$token: azure-native:education/v20211201preview:Student
+description: Student details.
+properties:
+  budget:
+    type: object
+    $ref: "#/types/azure-native:education/v20211201preview:AmountResponse"
+    description: Student Budget
+  effectiveDate:
+    type: string
+    description: Date student was added to the lab
+  email:
+    type: string
+    description: Student Email
+  expirationDate:
+    type: string
+    description: Date this student is set to expire from the lab.
+  firstName:
+    type: string
+    description: First Name
+  lastName:
+    type: string
+    description: Last Name
+  name:
+    type: string
+    description: The name of the resource
+  role:
+    type: string
+    description: Student Role
+  status:
+    type: string
+    description: Student Lab Status
+  subscriptionAlias:
+    type: string
+    description: Subscription alias
+  subscriptionId:
+    type: string
+    description: Subscription Id
+  subscriptionInviteLastSentDate:
+    type: string
+    description: subscription invite last sent date
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:education/v20211201preview:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - budget
+  - effectiveDate
+  - email
+  - expirationDate
+  - firstName
+  - lastName
+  - name
+  - role
+  - status
+  - subscriptionId
+  - systemData
+  - type
+inputProperties:
+  billingAccountName:
+    type: string
+    description: Billing account name.
+  billingProfileName:
+    type: string
+    description: Billing profile name.
+  budget:
+    type: object
+    $ref: "#/types/azure-native:education/v20211201preview:Amount"
+    description: Student Budget
+  email:
+    type: string
+    description: Student Email
+  expirationDate:
+    type: string
+    description: Date this student is set to expire from the lab.
+  firstName:
+    type: string
+    description: First Name
+  invoiceSectionName:
+    type: string
+    description: Invoice section name.
+  lastName:
+    type: string
+    description: Last Name
+  role:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:education/v20211201preview:StudentRole"
+    description: Student Role
+  studentAlias:
+    type: string
+    description: Student alias.
+  subscriptionAlias:
+    type: string
+    description: Subscription alias
+  subscriptionInviteLastSentDate:
+    type: string
+    description: subscription invite last sent date
+requiredInputs:
+  - billingAccountName
+  - billingProfileName
+  - budget
+  - email
+  - expirationDate
+  - firstName
+  - invoiceSectionName
+  - lastName
+  - role
+aliases:
+  - type: azure-native:education:Student

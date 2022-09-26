@@ -1,0 +1,15 @@
+$token: azure-native:network/v20200501:ExpressRouteLinkMacSecConfig
+description: ExpressRouteLink Mac Security Configuration.
+properties:
+  cakSecretIdentifier:
+    type: string
+    description: Keyvault Secret Identifier URL containing Mac security CAK key.
+  cipher:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20200501:ExpressRouteLinkMacSecCipher"
+    description: Mac security cipher.
+  cknSecretIdentifier:
+    type: string
+    description: Keyvault Secret Identifier URL containing Mac security CKN key.
+type: object

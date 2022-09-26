@@ -1,0 +1,52 @@
+$token: azure-native:management/v20201001:getManagementGroup
+description: The management group details.
+inputs:
+  properties:
+    expand:
+      type: string
+      description: The $expand=children query string parameter allows clients to request inclusion of children in the response payload.  $expand=path includes the path from the root group to the current group.  $expand=ancestors includes the ancestor Ids of the current group.
+    filter:
+      type: string
+      description: A filter which allows the exclusion of subscriptions from results (i.e. '$filter=children.childType ne Subscription')
+    groupId:
+      type: string
+      description: Management Group ID.
+    recurse:
+      type: boolean
+      description: The $recurse=true query string parameter allows clients to request inclusion of entire hierarchy in the response payload. Note that  $expand=children must be passed up if $recurse is set to true.
+  type: object
+  required:
+    - groupId
+outputs:
+  description: The management group details.
+  properties:
+    children:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:management/v20201001:ManagementGroupChildInfoResponse"
+      description: The list of children.
+    details:
+      type: object
+      $ref: "#/types/azure-native:management/v20201001:ManagementGroupDetailsResponse"
+      description: The details of a management group.
+    displayName:
+      type: string
+      description: The friendly name of the management group.
+    id:
+      type: string
+      description: The fully qualified ID for the management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+    name:
+      type: string
+      description: The name of the management group. For example, 00000000-0000-0000-0000-000000000000
+    tenantId:
+      type: string
+      description: The AAD Tenant ID associated with the management group. For example, 00000000-0000-0000-0000-000000000000
+    type:
+      type: string
+      description: The type of the resource.  For example, Microsoft.Management/managementGroups
+  type: object
+  required:
+    - id
+    - name
+    - type

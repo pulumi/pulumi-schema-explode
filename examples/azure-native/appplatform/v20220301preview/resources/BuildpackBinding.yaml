@@ -1,0 +1,54 @@
+$token: azure-native:appplatform/v20220301preview:BuildpackBinding
+description: Buildpack Binding Resource object
+properties:
+  name:
+    type: string
+    description: The name of the resource.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20220301preview:BuildpackBindingPropertiesResponse"
+    description: Properties of a buildpack binding
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20220301preview:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - name
+  - properties
+  - systemData
+  - type
+inputProperties:
+  buildServiceName:
+    type: string
+    description: The name of the build service resource.
+  builderName:
+    type: string
+    description: The name of the builder resource.
+  buildpackBindingName:
+    type: string
+    description: The name of the Buildpack Binding Name
+  properties:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20220301preview:BuildpackBindingProperties"
+    description: Properties of a buildpack binding
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  serviceName:
+    type: string
+    description: The name of the Service resource.
+requiredInputs:
+  - buildServiceName
+  - builderName
+  - resourceGroupName
+  - serviceName
+aliases:
+  - type: azure-native:appplatform:BuildpackBinding
+  - type: azure-native:appplatform/v20220101preview:BuildpackBinding
+  - type: azure-native:appplatform/v20220401:BuildpackBinding
+  - type: azure-native:appplatform/v20220501preview:BuildpackBinding
+  - type: azure-native:appplatform/v20220901preview:BuildpackBinding

@@ -1,0 +1,42 @@
+$token: azure-native:dbforpostgresql/v20201105preview:Database
+description: Represents a Database.
+properties:
+  charset:
+    type: string
+    description: The charset of the database.
+  collation:
+    type: string
+    description: The collation of the database.
+  name:
+    type: string
+    description: The name of the resource
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - name
+  - type
+inputProperties:
+  charset:
+    type: string
+    description: The charset of the database.
+  collation:
+    type: string
+    description: The collation of the database.
+  databaseName:
+    type: string
+    description: The name of the database.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  serverName:
+    type: string
+    description: The name of the server.
+requiredInputs:
+  - resourceGroupName
+  - serverName
+aliases:
+  - type: azure-native:dbforpostgresql/v20210601:Database
+  - type: azure-native:dbforpostgresql/v20210601preview:Database
+  - type: azure-native:dbforpostgresql/v20220120preview:Database

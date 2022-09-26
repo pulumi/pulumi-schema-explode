@@ -1,0 +1,21 @@
+$token: azure-native:datafactory/v20170901preview:MultiplePipelineTrigger
+description: Base class for all triggers that support one to many model for trigger to pipeline.
+properties:
+  description:
+    type: string
+    description: Trigger description.
+  pipelines:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20170901preview:TriggerPipelineReference"
+    description: Pipelines that need to be started.
+  type:
+    type: string
+    description: |-
+      Trigger type.
+      Expected value is 'MultiplePipelineTrigger'.
+    const: MultiplePipelineTrigger
+type: object
+required:
+  - type

@@ -1,0 +1,74 @@
+$token: azure-native:testbase:TestBaseAccount
+description: |-
+  The Test Base Account resource.
+  API Version: 2022-04-01-preview.
+properties:
+  accessLevel:
+    type: string
+    description: The access level of the Test Base Account.
+  etag:
+    type: string
+    description: Resource Etag.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  name:
+    type: string
+    description: Resource name.
+  provisioningState:
+    type: string
+    description: The provisioning state of the resource.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:testbase:TestBaseAccountSKUResponse"
+    description: The SKU of the Test Base Account.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:testbase:SystemDataResponse"
+    description: The system metadata relating to this resource
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - accessLevel
+  - etag
+  - location
+  - name
+  - provisioningState
+  - sku
+  - systemData
+  - type
+inputProperties:
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the resource.
+  restore:
+    type: boolean
+    description: The flag indicating if we would like to restore the Test Base Accounts which were soft deleted before.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:testbase:TestBaseAccountSKU"
+    description: The SKU of the Test Base Account.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+  testBaseAccountName:
+    type: string
+    description: The resource name of the Test Base Account.
+requiredInputs:
+  - resourceGroupName
+  - sku
+aliases:
+  - type: azure-native:testbase/v20201216preview:TestBaseAccount
+  - type: azure-native:testbase/v20220401preview:TestBaseAccount

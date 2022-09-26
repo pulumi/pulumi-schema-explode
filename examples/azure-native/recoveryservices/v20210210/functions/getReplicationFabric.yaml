@@ -1,0 +1,46 @@
+$token: azure-native:recoveryservices/v20210210:getReplicationFabric
+description: Fabric definition.
+inputs:
+  properties:
+    fabricName:
+      type: string
+      description: Fabric name.
+    filter:
+      type: string
+      description: OData filter options.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group where the recovery services vault is present.
+    resourceName:
+      type: string
+      description: The name of the recovery services vault.
+  type: object
+  required:
+    - fabricName
+    - resourceGroupName
+    - resourceName
+outputs:
+  description: Fabric definition.
+  properties:
+    id:
+      type: string
+      description: Resource Id
+    location:
+      type: string
+      description: Resource Location
+    name:
+      type: string
+      description: Resource Name
+    properties:
+      type: object
+      $ref: "#/types/azure-native:recoveryservices/v20210210:FabricPropertiesResponse"
+      description: Fabric related data.
+    type:
+      type: string
+      description: Resource Type
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - type

@@ -1,0 +1,47 @@
+$token: azure-native:network/v20210801:getExpressRouteCircuitAuthorization
+description: Authorization in an ExpressRouteCircuit resource.
+inputs:
+  properties:
+    authorizationName:
+      type: string
+      description: The name of the authorization.
+    circuitName:
+      type: string
+      description: The name of the express route circuit.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - authorizationName
+    - circuitName
+    - resourceGroupName
+outputs:
+  description: Authorization in an ExpressRouteCircuit resource.
+  properties:
+    authorizationKey:
+      type: string
+      description: The authorization key.
+    authorizationUseStatus:
+      type: string
+      description: The authorization use status.
+    etag:
+      type: string
+      description: A unique read-only string that changes whenever the resource is updated.
+    id:
+      type: string
+      description: Resource ID.
+    name:
+      type: string
+      description: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+    provisioningState:
+      type: string
+      description: The provisioning state of the authorization resource.
+    type:
+      type: string
+      description: Type of the resource.
+  type: object
+  required:
+    - etag
+    - provisioningState
+    - type

@@ -1,0 +1,26 @@
+$token: azure-native:insights/v20180301:MetricAlertMultipleResourceMultipleMetricCriteriaResponse
+description: Specifies the metric alert criteria for multiple resource that has multiple metric criteria.
+properties:
+  allOf:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:insights/v20180301:DynamicMetricCriteriaResponse"
+        - type: object
+          $ref: "#/types/azure-native:insights/v20180301:MetricCriteriaResponse"
+      discriminator:
+        propertyName: criterionType
+        mapping:
+          DynamicThresholdCriterion: "#/types/azure-native:insights/v20180301:DynamicMetricCriteriaResponse"
+          StaticThresholdCriterion: "#/types/azure-native:insights/v20180301:MetricCriteriaResponse"
+    description: "the list of multiple metric criteria for this 'all of' operation. "
+  odataType:
+    type: string
+    description: |-
+      specifies the type of the alert criteria.
+      Expected value is 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria'.
+    const: Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria
+type: object
+required:
+  - odataType

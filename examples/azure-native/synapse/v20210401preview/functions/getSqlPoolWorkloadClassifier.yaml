@@ -1,0 +1,62 @@
+$token: azure-native:synapse/v20210401preview:getSqlPoolWorkloadClassifier
+description: Workload classifier operations for a data warehouse
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    sqlPoolName:
+      type: string
+      description: SQL pool name
+    workloadClassifierName:
+      type: string
+      description: The name of the workload classifier.
+    workloadGroupName:
+      type: string
+      description: The name of the workload group.
+    workspaceName:
+      type: string
+      description: The name of the workspace
+  type: object
+  required:
+    - resourceGroupName
+    - sqlPoolName
+    - workloadClassifierName
+    - workloadGroupName
+    - workspaceName
+outputs:
+  description: Workload classifier operations for a data warehouse
+  properties:
+    context:
+      type: string
+      description: The workload classifier context.
+    endTime:
+      type: string
+      description: The workload classifier end time for classification.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    importance:
+      type: string
+      description: The workload classifier importance.
+    label:
+      type: string
+      description: The workload classifier label.
+    memberName:
+      type: string
+      description: The workload classifier member name.
+    name:
+      type: string
+      description: The name of the resource
+    startTime:
+      type: string
+      description: The workload classifier start time for classification.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - id
+    - memberName
+    - name
+    - type

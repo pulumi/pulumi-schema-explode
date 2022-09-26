@@ -1,0 +1,165 @@
+$token: azure-native:botservice:listChannelWithKeys
+description: |-
+  The ARM channel of list channel with keys operation response.
+  API Version: 2021-03-01.
+inputs:
+  properties:
+    channelName:
+      type: string
+      description: The name of the Channel resource.
+    resourceGroupName:
+      type: string
+      description: The name of the Bot resource group in the user subscription.
+    resourceName:
+      type: string
+      description: The name of the Bot resource.
+  type: object
+  required:
+    - channelName
+    - resourceGroupName
+    - resourceName
+outputs:
+  description: The ARM channel of list channel with keys operation response.
+  properties:
+    changedTime:
+      type: string
+      description: Changed time of the resource
+    entityTag:
+      type: string
+      description: Entity tag of the resource
+    etag:
+      type: string
+      description: Entity Tag
+    id:
+      type: string
+      description: Specifies the resource ID.
+    kind:
+      type: string
+      description: Required. Gets or sets the Kind of the resource.
+    location:
+      type: string
+      description: Specifies the location of the resource.
+    name:
+      type: string
+      description: Specifies the name of the resource.
+    properties:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:botservice:AlexaChannelResponse"
+        - type: object
+          $ref: "#/types/azure-native:botservice:DirectLineChannelResponse"
+        - type: object
+          $ref: "#/types/azure-native:botservice:DirectLineSpeechChannelResponse"
+        - type: object
+          $ref: "#/types/azure-native:botservice:EmailChannelResponse"
+        - type: object
+          $ref: "#/types/azure-native:botservice:FacebookChannelResponse"
+        - type: object
+          $ref: "#/types/azure-native:botservice:KikChannelResponse"
+        - type: object
+          $ref: "#/types/azure-native:botservice:LineChannelResponse"
+        - type: object
+          $ref: "#/types/azure-native:botservice:MsTeamsChannelResponse"
+        - type: object
+          $ref: "#/types/azure-native:botservice:SkypeChannelResponse"
+        - type: object
+          $ref: "#/types/azure-native:botservice:SlackChannelResponse"
+        - type: object
+          $ref: "#/types/azure-native:botservice:SmsChannelResponse"
+        - type: object
+          $ref: "#/types/azure-native:botservice:TelegramChannelResponse"
+        - type: object
+          $ref: "#/types/azure-native:botservice:WebChatChannelResponse"
+      discriminator:
+        propertyName: channelName
+        mapping:
+          AlexaChannel: "#/types/azure-native:botservice:AlexaChannelResponse"
+          DirectLineChannel: "#/types/azure-native:botservice:DirectLineChannelResponse"
+          DirectLineSpeechChannel: "#/types/azure-native:botservice:DirectLineSpeechChannelResponse"
+          EmailChannel: "#/types/azure-native:botservice:EmailChannelResponse"
+          FacebookChannel: "#/types/azure-native:botservice:FacebookChannelResponse"
+          KikChannel: "#/types/azure-native:botservice:KikChannelResponse"
+          LineChannel: "#/types/azure-native:botservice:LineChannelResponse"
+          MsTeamsChannel: "#/types/azure-native:botservice:MsTeamsChannelResponse"
+          SkypeChannel: "#/types/azure-native:botservice:SkypeChannelResponse"
+          SlackChannel: "#/types/azure-native:botservice:SlackChannelResponse"
+          SmsChannel: "#/types/azure-native:botservice:SmsChannelResponse"
+          TelegramChannel: "#/types/azure-native:botservice:TelegramChannelResponse"
+          WebChatChannel: "#/types/azure-native:botservice:WebChatChannelResponse"
+      description: The set of properties specific to bot channel resource
+    provisioningState:
+      type: string
+      description: Provisioning state of the resource
+    resource:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:botservice:AlexaChannelResponse"
+        - type: object
+          $ref: "#/types/azure-native:botservice:DirectLineChannelResponse"
+        - type: object
+          $ref: "#/types/azure-native:botservice:DirectLineSpeechChannelResponse"
+        - type: object
+          $ref: "#/types/azure-native:botservice:EmailChannelResponse"
+        - type: object
+          $ref: "#/types/azure-native:botservice:FacebookChannelResponse"
+        - type: object
+          $ref: "#/types/azure-native:botservice:KikChannelResponse"
+        - type: object
+          $ref: "#/types/azure-native:botservice:LineChannelResponse"
+        - type: object
+          $ref: "#/types/azure-native:botservice:MsTeamsChannelResponse"
+        - type: object
+          $ref: "#/types/azure-native:botservice:SkypeChannelResponse"
+        - type: object
+          $ref: "#/types/azure-native:botservice:SlackChannelResponse"
+        - type: object
+          $ref: "#/types/azure-native:botservice:SmsChannelResponse"
+        - type: object
+          $ref: "#/types/azure-native:botservice:TelegramChannelResponse"
+        - type: object
+          $ref: "#/types/azure-native:botservice:WebChatChannelResponse"
+      discriminator:
+        propertyName: channelName
+        mapping:
+          AlexaChannel: "#/types/azure-native:botservice:AlexaChannelResponse"
+          DirectLineChannel: "#/types/azure-native:botservice:DirectLineChannelResponse"
+          DirectLineSpeechChannel: "#/types/azure-native:botservice:DirectLineSpeechChannelResponse"
+          EmailChannel: "#/types/azure-native:botservice:EmailChannelResponse"
+          FacebookChannel: "#/types/azure-native:botservice:FacebookChannelResponse"
+          KikChannel: "#/types/azure-native:botservice:KikChannelResponse"
+          LineChannel: "#/types/azure-native:botservice:LineChannelResponse"
+          MsTeamsChannel: "#/types/azure-native:botservice:MsTeamsChannelResponse"
+          SkypeChannel: "#/types/azure-native:botservice:SkypeChannelResponse"
+          SlackChannel: "#/types/azure-native:botservice:SlackChannelResponse"
+          SmsChannel: "#/types/azure-native:botservice:SmsChannelResponse"
+          TelegramChannel: "#/types/azure-native:botservice:TelegramChannelResponse"
+          WebChatChannel: "#/types/azure-native:botservice:WebChatChannelResponse"
+      description: The set of properties specific to bot channel resource
+    setting:
+      type: object
+      $ref: "#/types/azure-native:botservice:ChannelSettingsResponse"
+      description: Channel settings
+    sku:
+      type: object
+      $ref: "#/types/azure-native:botservice:SkuResponse"
+      description: Gets or sets the SKU of the resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Contains resource tags defined as key/value pairs.
+    type:
+      type: string
+      description: Specifies the type of the resource.
+    zones:
+      type: array
+      items:
+        type: string
+      description: Entity zones
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - type
+    - zones

@@ -1,0 +1,41 @@
+$token: azure-native:hybridnetwork/v20210501:NetworkFunctionRoleConfiguration
+description: Network function role configuration.
+properties:
+  customProfile:
+    type: object
+    $ref: "#/types/azure-native:hybridnetwork/v20210501:CustomProfile"
+    description: Specifies the custom settings for the virtual machine.
+  networkInterfaces:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:hybridnetwork/v20210501:NetworkInterface"
+    description: The network interface configurations.
+  osProfile:
+    type: object
+    $ref: "#/types/azure-native:hybridnetwork/v20210501:OsProfile"
+    description: Specifies the operating system settings for the role instance. This value can be updated during the deployment of network function.
+  roleName:
+    type: string
+    description: The name of the network function role.
+  roleType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:hybridnetwork/v20210501:NetworkFunctionRoleConfigurationType"
+    description: Role type.
+  storageProfile:
+    type: object
+    $ref: "#/types/azure-native:hybridnetwork/v20210501:StorageProfile"
+    description: Specifies the storage settings for the virtual machine disks.
+  userDataParameters:
+    $ref: pulumi.json#/Any
+    description: The user parameters for customers. The format of user data parameters has to be matched with the provided user data template.
+  userDataTemplate:
+    $ref: pulumi.json#/Any
+    description: The user data template for customers. This is a json schema template describing the format and data type of user data parameters.
+  virtualMachineSize:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:hybridnetwork/v20210501:VirtualMachineSizeTypes"
+    description: The size of the virtual machine.
+type: object

@@ -1,0 +1,65 @@
+$token: azure-native:media/v20180330preview:getStreamingLocator
+description: A Streaming Locator resource
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: The Media Services account name.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group within the Azure subscription.
+    streamingLocatorName:
+      type: string
+      description: The Streaming Locator name.
+  type: object
+  required:
+    - accountName
+    - resourceGroupName
+    - streamingLocatorName
+outputs:
+  description: A Streaming Locator resource
+  properties:
+    assetName:
+      type: string
+      description: Asset Name
+    contentKeys:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:media/v20180330preview:StreamingLocatorUserDefinedContentKeyResponse"
+      description: ContentKeys used by this Streaming Locator
+    created:
+      type: string
+      description: Creation time of Streaming Locator
+    defaultContentKeyPolicyName:
+      type: string
+      description: Default ContentKeyPolicy used by this Streaming Locator
+    endTime:
+      type: string
+      description: EndTime of Streaming Locator
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource.
+    name:
+      type: string
+      description: The name of the resource.
+    startTime:
+      type: string
+      description: StartTime of Streaming Locator
+    streamingLocatorId:
+      type: string
+      description: StreamingLocatorId of Streaming Locator
+    streamingPolicyName:
+      type: string
+      description: "Streaming policy name used by this streaming locator. Either specify the name of streaming policy you created or use one of the predefined streaming polices. The predefined streaming policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_SecureStreaming' and 'Predefined_SecureStreamingWithFairPlay'"
+    type:
+      type: string
+      description: The type of the resource.
+  type: object
+  required:
+    - assetName
+    - created
+    - id
+    - name
+    - streamingPolicyName
+    - type

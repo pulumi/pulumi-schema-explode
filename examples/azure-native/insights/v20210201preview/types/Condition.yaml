@@ -1,0 +1,39 @@
+$token: azure-native:insights/v20210201preview:Condition
+description: A condition of the scheduled query rule.
+properties:
+  dimensions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:insights/v20210201preview:Dimension"
+    description: List of Dimensions conditions
+  failingPeriods:
+    type: object
+    $ref: "#/types/azure-native:insights/v20210201preview:ConditionFailingPeriods"
+    description: The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
+  metricMeasureColumn:
+    type: string
+    description: The column containing the metric measure number. Relevant only for rules of the kind LogAlert.
+  metricName:
+    type: string
+    description: The name of the metric to be sent. Relevant and required only for rules of the kind LogToMetric.
+  operator:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:insights/v20210201preview:ConditionOperator"
+    description: The criteria operator. Relevant and required only for rules of the kind LogAlert.
+  query:
+    type: string
+    description: Log query alert
+  resourceIdColumn:
+    type: string
+    description: The column containing the resource id. The content of the column must be a uri formatted as resource id. Relevant only for rules of the kind LogAlert.
+  threshold:
+    type: number
+    description: the criteria threshold value that activates the alert. Relevant and required only for rules of the kind LogAlert.
+  timeAggregation:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:insights/v20210201preview:TimeAggregation"
+    description: Aggregation type. Relevant and required only for rules of the kind LogAlert.
+type: object

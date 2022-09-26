@@ -1,0 +1,71 @@
+$token: azure-native:datashare/v20191101:Account
+description: An account data transfer object.
+properties:
+  createdAt:
+    type: string
+    description: Time at which the account was created.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:datashare/v20191101:IdentityResponse"
+    description: Identity Info on the Account
+  location:
+    type: string
+    description: Location of the azure resource.
+  name:
+    type: string
+    description: Name of the azure resource
+  provisioningState:
+    type: string
+    description: Provisioning state of the Account
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Tags on the azure resource.
+  type:
+    type: string
+    description: Type of the azure resource
+  userEmail:
+    type: string
+    description: Email of the user who created the resource
+  userName:
+    type: string
+    description: Name of the user who created the resource
+type: object
+required:
+  - createdAt
+  - identity
+  - name
+  - provisioningState
+  - type
+  - userEmail
+  - userName
+inputProperties:
+  accountName:
+    type: string
+    description: The name of the share account.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:datashare/v20191101:Identity"
+    description: Identity Info on the Account
+  location:
+    type: string
+    description: Location of the azure resource.
+  resourceGroupName:
+    type: string
+    description: The resource group name.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Tags on the azure resource.
+requiredInputs:
+  - identity
+  - resourceGroupName
+aliases:
+  - type: azure-native:datashare:Account
+  - type: azure-native:datashare/v20181101preview:Account
+  - type: azure-native:datashare/v20200901:Account
+  - type: azure-native:datashare/v20201001preview:Account
+  - type: azure-native:datashare/v20210801:Account
+deprecationMessage: Version 2019-11-01 will be removed in v2 of the provider.

@@ -1,0 +1,19 @@
+$token: azure-native:cdn/v20190615preview:UrlRewriteActionParametersResponse
+description: Defines the parameters for the url rewrite action.
+properties:
+  destination:
+    type: string
+    description: "Define the destination path for be used in the rewrite. This will overwrite the source pattern "
+  odataType:
+    type: string
+  preserveUnmatchedPath:
+    type: boolean
+    description: "If True, the remaining path after the source pattern will be appended to the new destination path.  "
+  sourcePattern:
+    type: string
+    description: define a request URI pattern that identifies the type of requests that may be rewritten. Currently, source pattern uses a prefix-based match. To match all URL paths, use "/" as the source pattern value. To match only the root directory and re-write this path, use the origin path field
+type: object
+required:
+  - destination
+  - odataType
+  - sourcePattern

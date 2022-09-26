@@ -1,0 +1,58 @@
+$token: azure-native:devcenter/v20220801preview:Catalog
+description: Represents a catalog.
+properties:
+  adoGit:
+    type: object
+    $ref: "#/types/azure-native:devcenter/v20220801preview:GitCatalogResponse"
+    description: Properties for an Azure DevOps catalog type.
+  gitHub:
+    type: object
+    $ref: "#/types/azure-native:devcenter/v20220801preview:GitCatalogResponse"
+    description: Properties for a GitHub catalog type.
+  lastSyncTime:
+    type: string
+    description: When the catalog was last synced.
+  name:
+    type: string
+    description: The name of the resource
+  provisioningState:
+    type: string
+    description: The provisioning state of the resource.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:devcenter/v20220801preview:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - lastSyncTime
+  - name
+  - provisioningState
+  - systemData
+  - type
+inputProperties:
+  adoGit:
+    type: object
+    $ref: "#/types/azure-native:devcenter/v20220801preview:GitCatalog"
+    description: Properties for an Azure DevOps catalog type.
+  catalogName:
+    type: string
+    description: The name of the Catalog.
+  devCenterName:
+    type: string
+    description: The name of the devcenter.
+  gitHub:
+    type: object
+    $ref: "#/types/azure-native:devcenter/v20220801preview:GitCatalog"
+    description: Properties for a GitHub catalog type.
+  resourceGroupName:
+    type: string
+    description: Name of the resource group within the Azure subscription.
+requiredInputs:
+  - devCenterName
+  - resourceGroupName
+aliases:
+  - type: azure-native:devcenter:Catalog
+  - type: azure-native:devcenter/v20220901preview:Catalog

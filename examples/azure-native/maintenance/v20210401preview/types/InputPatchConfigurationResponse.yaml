@@ -1,0 +1,27 @@
+$token: azure-native:maintenance/v20210401preview:InputPatchConfigurationResponse
+description: Input configuration for a patch run
+properties:
+  linuxParameters:
+    type: object
+    $ref: "#/types/azure-native:maintenance/v20210401preview:InputLinuxParametersResponse"
+    description: Input parameters specific to patching Linux machine. For Windows machines, do not pass this property.
+  postTasks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:maintenance/v20210401preview:TaskPropertiesResponse"
+    description: "List of post tasks. e.g. [{'source' :'runbook', 'taskScope': 'Resource', 'parameters': { 'arg1': 'value1'}}]"
+  preTasks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:maintenance/v20210401preview:TaskPropertiesResponse"
+    description: "List of pre tasks. e.g. [{'source' :'runbook', 'taskScope': 'Global', 'parameters': { 'arg1': 'value1'}}]"
+  rebootSetting:
+    type: string
+    description: Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed.
+  windowsParameters:
+    type: object
+    $ref: "#/types/azure-native:maintenance/v20210401preview:InputWindowsParametersResponse"
+    description: Input parameters specific to patching a Windows machine. For Linux machines, do not pass this property.
+type: object

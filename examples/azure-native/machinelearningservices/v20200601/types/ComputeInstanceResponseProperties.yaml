@@ -1,0 +1,48 @@
+$token: azure-native:machinelearningservices/v20200601:ComputeInstanceResponseProperties
+description: Compute Instance properties
+properties:
+  applicationSharingPolicy:
+    type: string
+    description: Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
+    default: Shared
+  applications:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20200601:ComputeInstanceApplicationResponse"
+    description: Describes available applications and their endpoints on this ComputeInstance.
+  connectivityEndpoints:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20200601:ComputeInstanceConnectivityEndpointsResponse"
+    description: Describes all connectivity endpoints available for this ComputeInstance.
+  createdBy:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20200601:ComputeInstanceCreatedByResponse"
+    description: Describes information on user who created this ComputeInstance.
+  errors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20200601:MachineLearningServiceErrorResponse"
+    description: Collection of errors encountered on this ComputeInstance.
+  sshSettings:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20200601:ComputeInstanceSshSettingsResponse"
+    description: Specifies policy and settings for SSH access.
+  state:
+    type: string
+    description: The current state of this ComputeInstance.
+  subnet:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20200601:ResourceIdResponse"
+    description: Virtual network subnet resource ID the compute nodes belong to.
+  vmSize:
+    type: string
+    description: Virtual Machine Size
+type: object
+required:
+  - applications
+  - connectivityEndpoints
+  - createdBy
+  - errors
+  - state

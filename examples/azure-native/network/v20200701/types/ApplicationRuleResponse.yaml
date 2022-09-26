@@ -1,0 +1,62 @@
+$token: azure-native:network/v20200701:ApplicationRuleResponse
+description: Rule of type application.
+properties:
+  description:
+    type: string
+    description: Description of the rule.
+  destinationAddresses:
+    type: array
+    items:
+      type: string
+    description: List of destination IP addresses or Service Tags.
+  fqdnTags:
+    type: array
+    items:
+      type: string
+    description: List of FQDN Tags for this rule.
+  name:
+    type: string
+    description: Name of the rule.
+  protocols:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20200701:FirewallPolicyRuleApplicationProtocolResponse"
+    description: Array of Application Protocols.
+  ruleType:
+    type: string
+    description: |-
+      Rule Type.
+      Expected value is 'ApplicationRule'.
+    const: ApplicationRule
+  sourceAddresses:
+    type: array
+    items:
+      type: string
+    description: List of source IP addresses for this rule.
+  sourceIpGroups:
+    type: array
+    items:
+      type: string
+    description: List of source IpGroups for this rule.
+  targetFqdns:
+    type: array
+    items:
+      type: string
+    description: List of FQDNs for this rule.
+  targetUrls:
+    type: array
+    items:
+      type: string
+    description: List of Urls for this rule condition.
+  terminateTLS:
+    type: boolean
+    description: Terminate TLS connections for this rule.
+  webCategories:
+    type: array
+    items:
+      type: string
+    description: List of destination azure web categories.
+type: object
+required:
+  - ruleType

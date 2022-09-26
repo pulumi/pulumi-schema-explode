@@ -1,0 +1,38 @@
+$token: azure-native:network/v20220101:listNetworkManagerEffectiveSecurityAdminRules
+description: Result of the request to list networkManagerEffectiveSecurityAdminRules. It contains a list of groups and a skiptoken to get the next set of results.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    skipToken:
+      type: string
+      description: When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
+    virtualNetworkName:
+      type: string
+      description: The name of the virtual network.
+  type: object
+  required:
+    - resourceGroupName
+    - virtualNetworkName
+outputs:
+  description: Result of the request to list networkManagerEffectiveSecurityAdminRules. It contains a list of groups and a skiptoken to get the next set of results.
+  properties:
+    skipToken:
+      type: string
+      description: When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
+    value:
+      type: array
+      items:
+        oneOf:
+          - type: object
+            $ref: "#/types/azure-native:network/v20220101:EffectiveDefaultSecurityAdminRuleResponse"
+          - type: object
+            $ref: "#/types/azure-native:network/v20220101:EffectiveSecurityAdminRuleResponse"
+        discriminator:
+          propertyName: kind
+          mapping:
+            Custom: "#/types/azure-native:network/v20220101:EffectiveSecurityAdminRuleResponse"
+            Default: "#/types/azure-native:network/v20220101:EffectiveDefaultSecurityAdminRuleResponse"
+      description: Gets a page of NetworkManagerEffectiveSecurityAdminRules
+  type: object

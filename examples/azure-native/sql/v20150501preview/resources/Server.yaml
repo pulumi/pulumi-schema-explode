@@ -1,0 +1,87 @@
+$token: azure-native:sql/v20150501preview:Server
+description: An Azure SQL Database server.
+properties:
+  administratorLogin:
+    type: string
+    description: Administrator username for the server. Once created it cannot be changed.
+  fullyQualifiedDomainName:
+    type: string
+    description: The fully qualified domain name of the server.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:sql/v20150501preview:ResourceIdentityResponse"
+    description: The Azure Active Directory identity of the server.
+  kind:
+    type: string
+    description: Kind of sql server. This is metadata used for the Azure portal experience.
+  location:
+    type: string
+    description: Resource location.
+  name:
+    type: string
+    description: Resource name.
+  state:
+    type: string
+    description: The state of the server.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: Resource type.
+  version:
+    type: string
+    description: The version of the server.
+type: object
+required:
+  - fullyQualifiedDomainName
+  - kind
+  - location
+  - name
+  - state
+  - type
+inputProperties:
+  administratorLogin:
+    type: string
+    description: Administrator username for the server. Once created it cannot be changed.
+  administratorLoginPassword:
+    type: string
+    description: The administrator login password (required for server creation).
+  identity:
+    type: object
+    $ref: "#/types/azure-native:sql/v20150501preview:ResourceIdentity"
+    description: The Azure Active Directory identity of the server.
+  location:
+    type: string
+    description: Resource location.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  serverName:
+    type: string
+    description: The name of the server.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  version:
+    type: string
+    description: The version of the server.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:sql:Server
+  - type: azure-native:sql/v20140401:Server
+  - type: azure-native:sql/v20190601preview:Server
+  - type: azure-native:sql/v20200202preview:Server
+  - type: azure-native:sql/v20200801preview:Server
+  - type: azure-native:sql/v20201101preview:Server
+  - type: azure-native:sql/v20210201preview:Server
+  - type: azure-native:sql/v20210501preview:Server
+  - type: azure-native:sql/v20210801preview:Server
+  - type: azure-native:sql/v20211101:Server
+  - type: azure-native:sql/v20211101preview:Server
+  - type: azure-native:sql/v20220201preview:Server

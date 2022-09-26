@@ -1,0 +1,14 @@
+$token: azure-native:containerregistry/v20190501:RetentionPolicy
+description: The retention policy for a container registry.
+properties:
+  days:
+    type: integer
+    description: The number of days to retain an untagged manifest after which it gets purged.
+    default: 7
+  status:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:containerregistry/v20190501:PolicyStatus"
+    description: The value that indicates whether the policy is enabled or not.
+    default: disabled
+type: object

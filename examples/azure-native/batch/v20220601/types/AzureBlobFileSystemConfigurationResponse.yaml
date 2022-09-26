@@ -1,0 +1,27 @@
+$token: azure-native:batch/v20220601:AzureBlobFileSystemConfigurationResponse
+properties:
+  accountKey:
+    type: string
+    description: This property is mutually exclusive with both sasKey and identity; exactly one must be specified.
+  accountName:
+    type: string
+  blobfuseOptions:
+    type: string
+    description: These are 'net use' options in Windows and 'mount' options in Linux.
+  containerName:
+    type: string
+  identityReference:
+    type: object
+    $ref: "#/types/azure-native:batch/v20220601:ComputeNodeIdentityReferenceResponse"
+    description: This property is mutually exclusive with both accountKey and sasKey; exactly one must be specified.
+  relativeMountPath:
+    type: string
+    description: All file systems are mounted relative to the Batch mounts directory, accessible via the AZ_BATCH_NODE_MOUNTS_DIR environment variable.
+  sasKey:
+    type: string
+    description: This property is mutually exclusive with both accountKey and identity; exactly one must be specified.
+type: object
+required:
+  - accountName
+  - containerName
+  - relativeMountPath

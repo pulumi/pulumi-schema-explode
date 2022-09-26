@@ -1,0 +1,28 @@
+$token: azure-native:peering/v20190801preview:DirectConnection
+description: The properties that define a direct connection.
+properties:
+  bandwidthInMbps:
+    type: integer
+    description: The bandwidth of the connection.
+  bgpSession:
+    type: object
+    $ref: "#/types/azure-native:peering/v20190801preview:BgpSession"
+    description: The BGP session associated with the connection.
+  connectionIdentifier:
+    type: string
+    description: The unique identifier (GUID) for the connection.
+  peeringDBFacilityId:
+    type: integer
+    description: The PeeringDB.com ID of the facility at which the connection has to be set up.
+  provisionedBandwidthInMbps:
+    type: integer
+    description: The bandwidth that is actually provisioned.
+  sessionAddressProvider:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:peering/v20190801preview:SessionAddressProvider"
+    description: The field indicating if Microsoft provides session ip addresses.
+  useForPeeringService:
+    type: boolean
+    description: The flag that indicates whether or not the connection is used for peering service.
+type: object

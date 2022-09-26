@@ -1,0 +1,56 @@
+$token: azure-native:machinelearningservices/v20210301preview:AzurePostgreSqlContents
+description: Azure Postgre SQL datastore configuration.
+properties:
+  contentsType:
+    type: string
+    description: |-
+      Enum to determine the datastore contents type.
+      Expected value is 'AzurePostgreSql'.
+    const: AzurePostgreSql
+  credentials:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:AccountKeyDatastoreCredentials"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:CertificateDatastoreCredentials"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:NoneDatastoreCredentials"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:SasDatastoreCredentials"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:ServicePrincipalDatastoreCredentials"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:SqlAdminDatastoreCredentials"
+    discriminator:
+      propertyName: credentialsType
+      mapping:
+        AccountKey: "#/types/azure-native:machinelearningservices/v20210301preview:AccountKeyDatastoreCredentials"
+        Certificate: "#/types/azure-native:machinelearningservices/v20210301preview:CertificateDatastoreCredentials"
+        None: "#/types/azure-native:machinelearningservices/v20210301preview:NoneDatastoreCredentials"
+        Sas: "#/types/azure-native:machinelearningservices/v20210301preview:SasDatastoreCredentials"
+        ServicePrincipal: "#/types/azure-native:machinelearningservices/v20210301preview:ServicePrincipalDatastoreCredentials"
+        SqlAdmin: "#/types/azure-native:machinelearningservices/v20210301preview:SqlAdminDatastoreCredentials"
+    description: "[Required] Account credentials."
+  databaseName:
+    type: string
+    description: "[Required] Azure SQL database name."
+  enableSSL:
+    type: boolean
+    description: Whether the Azure PostgreSQL server requires SSL.
+  endpoint:
+    type: string
+    description: "[Required] Azure cloud endpoint for the database."
+  portNumber:
+    type: integer
+    description: "[Required] Azure SQL server port."
+  serverName:
+    type: string
+    description: "[Required] Azure SQL server name."
+type: object
+required:
+  - contentsType
+  - credentials
+  - databaseName
+  - endpoint
+  - portNumber
+  - serverName

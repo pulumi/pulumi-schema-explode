@@ -1,0 +1,108 @@
+$token: azure-native:mobilenetwork/v20220301preview:Site
+description: Site resource.
+properties:
+  createdAt:
+    type: string
+    description: The timestamp of resource creation (UTC).
+  createdBy:
+    type: string
+    description: The identity that created the resource.
+  createdByType:
+    type: string
+    description: The type of identity that created the resource.
+  lastModifiedAt:
+    type: string
+    description: The timestamp of resource last modification (UTC)
+  lastModifiedBy:
+    type: string
+    description: The identity that last modified the resource.
+  lastModifiedByType:
+    type: string
+    description: The type of identity that last modified the resource.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  name:
+    type: string
+    description: The name of the resource
+  networkFunctions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:mobilenetwork/v20220301preview:SubResourceResponse"
+    description: An array of ids of the network functions deployed on the site, maintained by the user.
+  provisioningState:
+    type: string
+    description: "The provisioning state of the site resource. **TODO**: Confirm if this is needed"
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:mobilenetwork/v20220301preview:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - location
+  - name
+  - provisioningState
+  - systemData
+  - type
+inputProperties:
+  createdAt:
+    type: string
+    description: The timestamp of resource creation (UTC).
+  createdBy:
+    type: string
+    description: The identity that created the resource.
+  createdByType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:mobilenetwork/v20220301preview:CreatedByType"
+    description: The type of identity that created the resource.
+  lastModifiedAt:
+    type: string
+    description: The timestamp of resource last modification (UTC)
+  lastModifiedBy:
+    type: string
+    description: The identity that last modified the resource.
+  lastModifiedByType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:mobilenetwork/v20220301preview:CreatedByType"
+    description: The type of identity that last modified the resource.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  mobileNetworkName:
+    type: string
+    description: The name of the mobile network.
+  networkFunctions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:mobilenetwork/v20220301preview:SubResource"
+    description: An array of ids of the network functions deployed on the site, maintained by the user.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  siteName:
+    type: string
+    description: The name of the mobile network site.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - mobileNetworkName
+  - resourceGroupName
+aliases:
+  - type: azure-native:mobilenetwork:Site
+  - type: azure-native:mobilenetwork/v20220101preview:Site
+  - type: azure-native:mobilenetwork/v20220401preview:Site

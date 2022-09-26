@@ -1,0 +1,237 @@
+$token: azure-native:network/v20200401:VirtualNetworkGatewayConnection
+description: A common class for general resource information.
+properties:
+  authorizationKey:
+    type: string
+    description: The authorizationKey.
+  connectionProtocol:
+    type: string
+    description: Connection protocol used for this connection.
+  connectionStatus:
+    type: string
+    description: Virtual Network Gateway connection status.
+  connectionType:
+    type: string
+    description: Gateway connection type.
+  dpdTimeoutSeconds:
+    type: integer
+    description: The dead peer detection timeout of this connection in seconds.
+  egressBytesTransferred:
+    type: number
+    description: The egress bytes transferred in this connection.
+  enableBgp:
+    type: boolean
+    description: EnableBgp flag.
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  expressRouteGatewayBypass:
+    type: boolean
+    description: Bypass ExpressRoute Gateway for data forwarding.
+  ingressBytesTransferred:
+    type: number
+    description: The ingress bytes transferred in this connection.
+  ipsecPolicies:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20200401:IpsecPolicyResponse"
+    description: The IPSec Policies to be considered by this connection.
+  localNetworkGateway2:
+    type: object
+    $ref: "#/types/azure-native:network/v20200401:LocalNetworkGatewayResponse"
+    description: The reference to local network gateway resource.
+  location:
+    type: string
+    description: Resource location.
+  name:
+    type: string
+    description: Resource name.
+  peer:
+    type: object
+    $ref: "#/types/azure-native:network/v20200401:SubResourceResponse"
+    description: The reference to peerings resource.
+  provisioningState:
+    type: string
+    description: The provisioning state of the virtual network gateway connection resource.
+  resourceGuid:
+    type: string
+    description: The resource GUID property of the virtual network gateway connection resource.
+  routingWeight:
+    type: integer
+    description: The routing weight.
+  sharedKey:
+    type: string
+    description: The IPSec shared key.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  trafficSelectorPolicies:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20200401:TrafficSelectorPolicyResponse"
+    description: The Traffic Selector Policies to be considered by this connection.
+  tunnelConnectionStatus:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20200401:TunnelConnectionHealthResponse"
+    description: Collection of all tunnels' connection health status.
+  type:
+    type: string
+    description: Resource type.
+  useLocalAzureIpAddress:
+    type: boolean
+    description: Use private local Azure IP for the connection.
+  usePolicyBasedTrafficSelectors:
+    type: boolean
+    description: Enable policy-based traffic selectors.
+  virtualNetworkGateway1:
+    type: object
+    $ref: "#/types/azure-native:network/v20200401:VirtualNetworkGatewayResponse"
+    description: The reference to virtual network gateway resource.
+  virtualNetworkGateway2:
+    type: object
+    $ref: "#/types/azure-native:network/v20200401:VirtualNetworkGatewayResponse"
+    description: The reference to virtual network gateway resource.
+type: object
+required:
+  - connectionStatus
+  - connectionType
+  - egressBytesTransferred
+  - etag
+  - ingressBytesTransferred
+  - name
+  - provisioningState
+  - resourceGuid
+  - tunnelConnectionStatus
+  - type
+  - virtualNetworkGateway1
+inputProperties:
+  authorizationKey:
+    type: string
+    description: The authorizationKey.
+  connectionProtocol:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20200401:VirtualNetworkGatewayConnectionProtocol"
+    description: Connection protocol used for this connection.
+  connectionType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20200401:VirtualNetworkGatewayConnectionType"
+    description: Gateway connection type.
+  dpdTimeoutSeconds:
+    type: integer
+    description: The dead peer detection timeout of this connection in seconds.
+  enableBgp:
+    type: boolean
+    description: EnableBgp flag.
+  expressRouteGatewayBypass:
+    type: boolean
+    description: Bypass ExpressRoute Gateway for data forwarding.
+  id:
+    type: string
+    description: Resource ID.
+  ipsecPolicies:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20200401:IpsecPolicy"
+    description: The IPSec Policies to be considered by this connection.
+  localNetworkGateway2:
+    type: object
+    $ref: "#/types/azure-native:network/v20200401:LocalNetworkGateway"
+    description: The reference to local network gateway resource.
+  location:
+    type: string
+    description: Resource location.
+  peer:
+    type: object
+    $ref: "#/types/azure-native:network/v20200401:SubResource"
+    description: The reference to peerings resource.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  routingWeight:
+    type: integer
+    description: The routing weight.
+  sharedKey:
+    type: string
+    description: The IPSec shared key.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  trafficSelectorPolicies:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20200401:TrafficSelectorPolicy"
+    description: The Traffic Selector Policies to be considered by this connection.
+  useLocalAzureIpAddress:
+    type: boolean
+    description: Use private local Azure IP for the connection.
+  usePolicyBasedTrafficSelectors:
+    type: boolean
+    description: Enable policy-based traffic selectors.
+  virtualNetworkGateway1:
+    type: object
+    $ref: "#/types/azure-native:network/v20200401:VirtualNetworkGateway"
+    description: The reference to virtual network gateway resource.
+  virtualNetworkGateway2:
+    type: object
+    $ref: "#/types/azure-native:network/v20200401:VirtualNetworkGateway"
+    description: The reference to virtual network gateway resource.
+  virtualNetworkGatewayConnectionName:
+    type: string
+    description: The name of the virtual network gateway connection.
+requiredInputs:
+  - connectionType
+  - resourceGroupName
+  - virtualNetworkGateway1
+aliases:
+  - type: azure-native:network:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20150615:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20160330:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20160601:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20160901:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20161201:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20170301:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20170601:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20170801:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20170901:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20171001:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20171101:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20180101:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20180201:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20180401:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20180601:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20180701:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20180801:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20181001:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20181101:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20181201:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20190201:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20190401:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20190601:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20190701:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20190801:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20190901:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20191101:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20191201:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20200301:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20200501:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20200601:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20200701:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20200801:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20201101:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20210201:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20210301:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20210501:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20210801:VirtualNetworkGatewayConnection
+  - type: azure-native:network/v20220101:VirtualNetworkGatewayConnection

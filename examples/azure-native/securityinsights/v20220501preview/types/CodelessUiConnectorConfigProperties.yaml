@@ -1,0 +1,69 @@
+$token: azure-native:securityinsights/v20220501preview:CodelessUiConnectorConfigProperties
+description: Config to describe the instructions blade
+properties:
+  availability:
+    type: object
+    $ref: "#/types/azure-native:securityinsights/v20220501preview:Availability"
+    description: Connector Availability Status
+  connectivityCriteria:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:securityinsights/v20220501preview:CodelessUiConnectorConfigPropertiesConnectivityCriteria"
+    description: Define the way the connector check connectivity
+  customImage:
+    type: string
+    description: An optional custom image to be used when displaying the connector within Azure Sentinel's connector's gallery
+  dataTypes:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:securityinsights/v20220501preview:CodelessUiConnectorConfigPropertiesDataTypes"
+    description: Data types to check for last data received
+  descriptionMarkdown:
+    type: string
+    description: Connector description
+  graphQueries:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:securityinsights/v20220501preview:CodelessUiConnectorConfigPropertiesGraphQueries"
+    description: The graph query to show the current data status
+  graphQueriesTableName:
+    type: string
+    description: Name of the table the connector will insert the data to
+  instructionSteps:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:securityinsights/v20220501preview:CodelessUiConnectorConfigPropertiesInstructionSteps"
+    description: Instruction steps to enable the connector
+  permissions:
+    type: object
+    $ref: "#/types/azure-native:securityinsights/v20220501preview:Permissions"
+    description: Permissions required for the connector
+  publisher:
+    type: string
+    description: Connector publisher name
+  sampleQueries:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:securityinsights/v20220501preview:CodelessUiConnectorConfigPropertiesSampleQueries"
+    description: The sample queries for the connector
+  title:
+    type: string
+    description: Connector blade title
+type: object
+required:
+  - availability
+  - connectivityCriteria
+  - dataTypes
+  - descriptionMarkdown
+  - graphQueries
+  - graphQueriesTableName
+  - instructionSteps
+  - permissions
+  - publisher
+  - sampleQueries
+  - title

@@ -1,0 +1,69 @@
+$token: azure-native:blueprint:getPublishedBlueprint
+description: |-
+  Represents a published blueprint.
+  API Version: 2018-11-01-preview.
+inputs:
+  properties:
+    blueprintName:
+      type: string
+      description: Name of the blueprint definition.
+    resourceScope:
+      type: string
+      description: "The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}')."
+    versionId:
+      type: string
+      description: Version of the published blueprint definition.
+  type: object
+  required:
+    - blueprintName
+    - resourceScope
+    - versionId
+outputs:
+  description: Represents a published blueprint.
+  properties:
+    blueprintName:
+      type: string
+      description: Name of the published blueprint definition.
+    changeNotes:
+      type: string
+      description: Version-specific change notes.
+    description:
+      type: string
+      description: Multi-line explain this resource.
+    displayName:
+      type: string
+      description: One-liner string explain this resource.
+    id:
+      type: string
+      description: String Id used to locate any resource on Azure.
+    name:
+      type: string
+      description: Name of this resource.
+    parameters:
+      type: object
+      additionalProperties:
+        type: object
+        $ref: "#/types/azure-native:blueprint:ParameterDefinitionResponse"
+      description: Parameters required by this blueprint definition.
+    resourceGroups:
+      type: object
+      additionalProperties:
+        type: object
+        $ref: "#/types/azure-native:blueprint:ResourceGroupDefinitionResponse"
+      description: Resource group placeholders defined by this blueprint definition.
+    status:
+      type: object
+      $ref: "#/types/azure-native:blueprint:BlueprintStatusResponse"
+      description: Status of the blueprint. This field is readonly.
+    targetScope:
+      type: string
+      description: The scope where this blueprint definition can be assigned.
+    type:
+      type: string
+      description: Type of this resource.
+  type: object
+  required:
+    - id
+    - name
+    - status
+    - type

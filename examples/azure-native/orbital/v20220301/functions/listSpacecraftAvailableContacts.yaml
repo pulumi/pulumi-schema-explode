@@ -1,0 +1,46 @@
+$token: azure-native:orbital/v20220301:listSpacecraftAvailableContacts
+description: Response for the ListAvailableContacts API service call.
+inputs:
+  properties:
+    contactProfile:
+      type: object
+      $ref: "#/types/azure-native:orbital/v20220301:ContactParametersContactProfile"
+      description: The reference to the contact profile resource.
+    endTime:
+      type: string
+      description: End time of a contact (ISO 8601 UTC standard).
+    groundStationName:
+      type: string
+      description: Name of Azure Ground Station.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    spacecraftName:
+      type: string
+      description: Spacecraft ID.
+    startTime:
+      type: string
+      description: Start time of a contact (ISO 8601 UTC standard).
+  type: object
+  required:
+    - contactProfile
+    - endTime
+    - groundStationName
+    - resourceGroupName
+    - spacecraftName
+    - startTime
+outputs:
+  description: Response for the ListAvailableContacts API service call.
+  properties:
+    nextLink:
+      type: string
+      description: The URL to get the next set of results.
+    value:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:orbital/v20220301:AvailableContactsResponse"
+      description: A list of available contacts.
+  type: object
+  required:
+    - nextLink

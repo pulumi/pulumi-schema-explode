@@ -1,0 +1,23 @@
+$token: azure-native:containerservice/v20220702preview:ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscaler
+properties:
+  controlledValues:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:containerservice/v20220702preview:ControlledValues"
+    description: Controls which resource value autoscaler will change. Default value is RequestsAndLimits.
+    default: RequestsAndLimits
+  enabled:
+    type: boolean
+    description: Whether to enable VPA. Default value is false.
+    default: false
+  updateMode:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:containerservice/v20220702preview:UpdateMode"
+    description: "Each update mode level is a superset of the lower levels. Off<Initial<Recreate<=Auto. For example: if UpdateMode is Initial, it means VPA sets the recommended resources in the VerticalPodAutoscaler Custom Resource (from UpdateMode Off) and also assigns resources on pod creation (from Initial). The default value is Off."
+    default: Off
+type: object
+required:
+  - controlledValues
+  - enabled
+  - updateMode

@@ -1,0 +1,73 @@
+$token: azure-native:datashare/v20191101:getScheduledTrigger
+description: A type of trigger based on schedule
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: The name of the share account.
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+    shareSubscriptionName:
+      type: string
+      description: The name of the shareSubscription.
+    triggerName:
+      type: string
+      description: The name of the trigger.
+  type: object
+  required:
+    - accountName
+    - resourceGroupName
+    - shareSubscriptionName
+    - triggerName
+outputs:
+  description: A type of trigger based on schedule
+  properties:
+    createdAt:
+      type: string
+      description: Time at which the trigger was created.
+    id:
+      type: string
+      description: The resource id of the azure resource
+    kind:
+      type: string
+      description: |-
+        Kind of synchronization on trigger.
+        Expected value is 'ScheduleBased'.
+      const: ScheduleBased
+    name:
+      type: string
+      description: Name of the azure resource
+    provisioningState:
+      type: string
+      description: Gets the provisioning state
+    recurrenceInterval:
+      type: string
+      description: Recurrence Interval
+    synchronizationMode:
+      type: string
+      description: Synchronization mode
+    synchronizationTime:
+      type: string
+      description: Synchronization time
+    triggerStatus:
+      type: string
+      description: Gets the trigger state
+    type:
+      type: string
+      description: Type of the azure resource
+    userName:
+      type: string
+      description: Name of the user who created the trigger.
+  type: object
+  required:
+    - createdAt
+    - id
+    - kind
+    - name
+    - provisioningState
+    - recurrenceInterval
+    - synchronizationTime
+    - triggerStatus
+    - type
+    - userName

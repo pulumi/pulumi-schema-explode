@@ -1,0 +1,64 @@
+$token: azure-native:automation:getSourceControl
+description: |-
+  Definition of the source control.
+  API Version: 2019-06-01.
+inputs:
+  properties:
+    automationAccountName:
+      type: string
+      description: The name of the automation account.
+    resourceGroupName:
+      type: string
+      description: Name of an Azure Resource group.
+    sourceControlName:
+      type: string
+      description: The name of source control.
+  type: object
+  required:
+    - automationAccountName
+    - resourceGroupName
+    - sourceControlName
+outputs:
+  description: Definition of the source control.
+  properties:
+    autoSync:
+      type: boolean
+      description: The auto sync of the source control. Default is false.
+    branch:
+      type: string
+      description: The repo branch of the source control. Include branch as empty string for VsoTfvc.
+    creationTime:
+      type: string
+      description: The creation time.
+    description:
+      type: string
+      description: The description.
+    folderPath:
+      type: string
+      description: The folder path of the source control.
+    id:
+      type: string
+      description: Fully qualified resource Id for the resource
+    lastModifiedTime:
+      type: string
+      description: The last modified time.
+    name:
+      type: string
+      description: The name of the resource
+    publishRunbook:
+      type: boolean
+      description: The auto publish of the source control. Default is true.
+    repoUrl:
+      type: string
+      description: The repo url of the source control.
+    sourceType:
+      type: string
+      description: The source type. Must be one of VsoGit, VsoTfvc, GitHub.
+    type:
+      type: string
+      description: The type of the resource.
+  type: object
+  required:
+    - id
+    - name
+    - type

@@ -1,0 +1,29 @@
+$token: azure-native:cache/v20210601:RedisInstanceDetailsResponse
+description: Details of single instance of redis.
+properties:
+  isMaster:
+    type: boolean
+    description: Specifies whether the instance is a primary node.
+  isPrimary:
+    type: boolean
+    description: Specifies whether the instance is a primary node.
+  nonSslPort:
+    type: integer
+    description: If enableNonSslPort is true, provides Redis instance Non-SSL port.
+  shardId:
+    type: integer
+    description: If clustering is enabled, the Shard ID of Redis Instance
+  sslPort:
+    type: integer
+    description: Redis instance SSL port.
+  zone:
+    type: string
+    description: If the Cache uses availability zones, specifies availability zone where this instance is located.
+type: object
+required:
+  - isMaster
+  - isPrimary
+  - nonSslPort
+  - shardId
+  - sslPort
+  - zone

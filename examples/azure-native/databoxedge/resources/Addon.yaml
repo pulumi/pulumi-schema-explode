@@ -1,0 +1,58 @@
+$token: azure-native:databoxedge:Addon
+description: |-
+  Role Addon
+  API Version: 2020-12-01.
+properties:
+  kind:
+    type: string
+    description: Addon type.
+  name:
+    type: string
+    description: The object name.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:databoxedge:SystemDataResponse"
+    description: Addon type
+  type:
+    type: string
+    description: The hierarchical type of the object.
+type: object
+required:
+  - kind
+  - name
+  - systemData
+  - type
+inputProperties:
+  addonName:
+    type: string
+    description: The addon name.
+  deviceName:
+    type: string
+    description: The device name.
+  kind:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:databoxedge:AddonType"
+    description: Addon type.
+  resourceGroupName:
+    type: string
+    description: The resource group name.
+  roleName:
+    type: string
+    description: The role name.
+requiredInputs:
+  - deviceName
+  - kind
+  - resourceGroupName
+  - roleName
+aliases:
+  - type: azure-native:databoxedge/v20200901:Addon
+  - type: azure-native:databoxedge/v20200901preview:Addon
+  - type: azure-native:databoxedge/v20201201:Addon
+  - type: azure-native:databoxedge/v20210201:Addon
+  - type: azure-native:databoxedge/v20210201preview:Addon
+  - type: azure-native:databoxedge/v20210601:Addon
+  - type: azure-native:databoxedge/v20210601preview:Addon
+  - type: azure-native:databoxedge/v20220301:Addon
+  - type: azure-native:databoxedge/v20220401preview:Addon
+deprecationMessage: "Please use one of the variants: ArcAddon, IoTAddon."

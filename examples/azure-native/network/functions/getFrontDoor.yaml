@@ -1,0 +1,104 @@
+$token: azure-native:network:getFrontDoor
+description: |-
+  Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
+  API Version: 2020-05-01.
+inputs:
+  properties:
+    frontDoorName:
+      type: string
+      description: Name of the Front Door which is globally unique.
+    resourceGroupName:
+      type: string
+      description: Name of the Resource group within the Azure subscription.
+  type: object
+  required:
+    - frontDoorName
+    - resourceGroupName
+outputs:
+  description: Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
+  properties:
+    backendPools:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network:BackendPoolResponse"
+      description: Backend pools available to routing rules.
+    backendPoolsSettings:
+      type: object
+      $ref: "#/types/azure-native:network:BackendPoolsSettingsResponse"
+      description: Settings for all backendPools
+    cname:
+      type: string
+      description: The host that each frontendEndpoint must CNAME to.
+    enabledState:
+      type: string
+      description: Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
+    friendlyName:
+      type: string
+      description: A friendly name for the frontDoor
+    frontdoorId:
+      type: string
+      description: The Id of the frontdoor.
+    frontendEndpoints:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network:FrontendEndpointResponse"
+      description: Frontend endpoints available to routing rules.
+    healthProbeSettings:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network:HealthProbeSettingsModelResponse"
+      description: Health probe settings associated with this Front Door instance.
+    id:
+      type: string
+      description: Resource ID.
+    loadBalancingSettings:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network:LoadBalancingSettingsModelResponse"
+      description: Load balancing settings associated with this Front Door instance.
+    location:
+      type: string
+      description: Resource location.
+    name:
+      type: string
+      description: Resource name.
+    provisioningState:
+      type: string
+      description: Provisioning state of the Front Door.
+    resourceState:
+      type: string
+      description: Resource status of the Front Door.
+    routingRules:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network:RoutingRuleResponse"
+      description: Routing rules associated with this Front Door.
+    rulesEngines:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network:RulesEngineResponse"
+      description: Rules Engine Configurations available to routing rules.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - cname
+    - frontdoorId
+    - id
+    - name
+    - provisioningState
+    - resourceState
+    - rulesEngines
+    - type

@@ -1,0 +1,53 @@
+$token: azure-native:dataprotection/v20220501:ScheduleBasedBackupCriteria
+description: Schedule based backup criteria
+properties:
+  absoluteCriteria:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:dataprotection/v20220501:AbsoluteMarker"
+    description: "it contains absolute values like \"AllBackup\" / \"FirstOfDay\" / \"FirstOfWeek\" / \"FirstOfMonth\"\r
+
+      and should be part of AbsoluteMarker enum"
+  daysOfMonth:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:dataprotection/v20220501:Day"
+    description: This is day of the month from 1 to 28 other wise last of month
+  daysOfTheWeek:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:dataprotection/v20220501:DayOfWeek"
+    description: It should be Sunday/Monday/T..../Saturday
+  monthsOfYear:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:dataprotection/v20220501:Month"
+    description: It should be January/February/....../December
+  objectType:
+    type: string
+    description: |-
+      Type of the specific object - used for deserializing
+      Expected value is 'ScheduleBasedBackupCriteria'.
+    const: ScheduleBasedBackupCriteria
+  scheduleTimes:
+    type: array
+    items:
+      type: string
+    description: List of schedule times for backup
+  weeksOfTheMonth:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:dataprotection/v20220501:WeekNumber"
+    description: It should be First/Second/Third/Fourth/Last
+type: object
+required:
+  - objectType

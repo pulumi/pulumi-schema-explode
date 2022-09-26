@@ -1,0 +1,65 @@
+$token: azure-native:eventgrid/v20211015preview:getChannel
+description: Channel info.
+inputs:
+  properties:
+    channelName:
+      type: string
+      description: Name of the channel.
+    partnerNamespaceName:
+      type: string
+      description: Name of the partner namespace.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group within the partners subscription.
+  type: object
+  required:
+    - channelName
+    - partnerNamespaceName
+    - resourceGroupName
+outputs:
+  description: Channel info.
+  properties:
+    channelType:
+      type: string
+      description: The type of the event channel which represents the  direction flow of events.
+    expirationTimeIfNotActivatedUtc:
+      type: string
+      description: "Expiration time of the channel. If this timer expires while the corresponding partner topic is never activated,\r
+
+        the channel and corresponding partner topic are deleted."
+    id:
+      type: string
+      description: Fully qualified identifier of the resource.
+    messageForActivation:
+      type: string
+      description: Context or helpful message that can be used during the approval process by the subscriber.
+    name:
+      type: string
+      description: Name of the resource.
+    partnerDestinationInfo:
+      type: object
+      $ref: "#/types/azure-native:eventgrid/v20211015preview:WebhookPartnerDestinationInfoResponse"
+      description: This property should be populated when channelType is PartnerDestination and represents information about the partner destination resource corresponding to the channel.
+    partnerTopicInfo:
+      type: object
+      $ref: "#/types/azure-native:eventgrid/v20211015preview:PartnerTopicInfoResponse"
+      description: This property should be populated when channelType is PartnerTopic and represents information about the partner topic resource corresponding to the channel.
+    provisioningState:
+      type: string
+      description: Provisioning state of the channel.
+    readinessState:
+      type: string
+      description: The readiness state of the corresponding partner topic.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:eventgrid/v20211015preview:SystemDataResponse"
+      description: The system metadata relating to Channel resource.
+    type:
+      type: string
+      description: Type of the resource.
+  type: object
+  required:
+    - id
+    - name
+    - systemData
+    - type

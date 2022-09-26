@@ -1,0 +1,48 @@
+$token: azure-native:devtestlab/v20160515:Schedule
+description: A schedule.
+properties:
+  dailyRecurrence:
+    type: object
+    $ref: "#/types/azure-native:devtestlab/v20160515:DayDetails"
+    description: If the schedule will occur once each day of the week, specify the daily recurrence.
+  hourlyRecurrence:
+    type: object
+    $ref: "#/types/azure-native:devtestlab/v20160515:HourDetails"
+    description: If the schedule will occur multiple times a day, specify the hourly recurrence.
+  location:
+    type: string
+    description: The location of the resource.
+  notificationSettings:
+    type: object
+    $ref: "#/types/azure-native:devtestlab/v20160515:NotificationSettings"
+    description: Notification settings.
+  provisioningState:
+    type: string
+    description: The provisioning status of the resource.
+  status:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:devtestlab/v20160515:EnableStatus"
+    description: The status of the schedule (i.e. Enabled, Disabled)
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+  targetResourceId:
+    type: string
+    description: The resource ID to which the schedule belongs
+  taskType:
+    type: string
+    description: The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
+  timeZoneId:
+    type: string
+    description: The time zone ID (e.g. Pacific Standard time).
+  uniqueIdentifier:
+    type: string
+    description: The unique immutable identifier of a resource (Guid).
+  weeklyRecurrence:
+    type: object
+    $ref: "#/types/azure-native:devtestlab/v20160515:WeekDetails"
+    description: If the schedule will occur only some days of the week, specify the weekly recurrence.
+type: object

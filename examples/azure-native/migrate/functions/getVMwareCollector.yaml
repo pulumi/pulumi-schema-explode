@@ -1,0 +1,39 @@
+$token: azure-native:migrate:getVMwareCollector
+description: |-
+  
+  API Version: 2019-10-01.
+inputs:
+  properties:
+    projectName:
+      type: string
+      description: Name of the Azure Migrate project.
+    resourceGroupName:
+      type: string
+      description: Name of the Azure Resource Group that project is part of.
+    vmWareCollectorName:
+      type: string
+      description: Unique name of a VMware collector within a project.
+  type: object
+  required:
+    - projectName
+    - resourceGroupName
+    - vmWareCollectorName
+outputs:
+  properties:
+    eTag:
+      type: string
+    id:
+      type: string
+    name:
+      type: string
+    properties:
+      type: object
+      $ref: "#/types/azure-native:migrate:CollectorPropertiesResponse"
+    type:
+      type: string
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - type

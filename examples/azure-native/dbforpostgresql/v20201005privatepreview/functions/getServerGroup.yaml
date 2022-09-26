@@ -1,0 +1,112 @@
+$token: azure-native:dbforpostgresql/v20201005privatepreview:getServerGroup
+description: Represents a server group for create.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    serverGroupName:
+      type: string
+      description: The name of the server group.
+  type: object
+  required:
+    - resourceGroupName
+    - serverGroupName
+outputs:
+  description: Represents a server group for create.
+  properties:
+    administratorLogin:
+      type: string
+      description: The administrator's login name of servers in server group. Can only be specified when the server is being created (and is required for creation).
+    availabilityZone:
+      type: string
+      description: Availability Zone information of the server group.
+    backupRetentionDays:
+      type: integer
+      description: The backup retention days for server group.
+    citusVersion:
+      type: string
+      description: The Citus version of server group.
+    delegatedSubnetArguments:
+      type: object
+      $ref: "#/types/azure-native:dbforpostgresql/v20201005privatepreview:ServerGroupPropertiesResponseDelegatedSubnetArguments"
+      description: The delegated subnet arguments for a server group.
+    earliestRestoreTime:
+      type: string
+      description: The earliest restore point time (ISO8601 format) for server group.
+    enableMx:
+      type: boolean
+      description: If Citus MX is enabled or not for the server group.
+    enableShardsOnCoordinator:
+      type: boolean
+      description: If shards on coordinator is enabled or not for the server group.
+    enableZfs:
+      type: boolean
+      description: If ZFS compression is enabled or not for the server group.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    maintenanceWindow:
+      type: object
+      $ref: "#/types/azure-native:dbforpostgresql/v20201005privatepreview:MaintenanceWindowResponse"
+      description: Maintenance window of a server group.
+    name:
+      type: string
+      description: The name of the resource
+    postgresqlVersion:
+      type: string
+      description: The PostgreSQL version of server group.
+    privateDnsZoneArguments:
+      type: object
+      $ref: "#/types/azure-native:dbforpostgresql/v20201005privatepreview:ServerGroupPropertiesResponsePrivateDnsZoneArguments"
+      description: The private dns zone arguments for a server group.
+    readReplicas:
+      type: array
+      items:
+        type: string
+      description: The array of read replica server groups.
+    resourceProviderType:
+      type: string
+      description: The resource provider type of server group.
+    serverRoleGroups:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:dbforpostgresql/v20201005privatepreview:ServerRoleGroupResponse"
+      description: The list of server role groups.
+    sourceServerGroup:
+      type: string
+      description: The source server group id for read replica server groups.
+    standbyAvailabilityZone:
+      type: string
+      description: Standby Availability Zone information of the server group.
+    state:
+      type: string
+      description: A state of a server group that is visible to user.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:dbforpostgresql/v20201005privatepreview:SystemDataResponse"
+      description: The system metadata relating to this resource
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - earliestRestoreTime
+    - id
+    - location
+    - name
+    - readReplicas
+    - resourceProviderType
+    - sourceServerGroup
+    - state
+    - systemData
+    - type

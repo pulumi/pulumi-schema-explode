@@ -1,0 +1,22 @@
+$token: azure-native:datamigration/v20220330preview:SqlDbMigrationStatusDetailsResponse
+description: Detailed status of current Sql Db migration.
+properties:
+  listOfCopyProgressDetails:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration/v20220330preview:CopyProgressDetailsResponse"
+    description: Details on progress of ADF copy activities.
+  migrationState:
+    type: string
+    description: Current State of Migration.
+  sqlDataCopyErrors:
+    type: array
+    items:
+      type: string
+    description: Sql Data Copy errors, if any.
+type: object
+required:
+  - listOfCopyProgressDetails
+  - migrationState
+  - sqlDataCopyErrors

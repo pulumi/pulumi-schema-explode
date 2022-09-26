@@ -1,0 +1,43 @@
+$token: azure-native:recoveryservices/v20210210:NetworkMappingPropertiesResponse
+description: Network Mapping Properties.
+properties:
+  fabricSpecificSettings:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210210:AzureToAzureNetworkMappingSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210210:VmmToAzureNetworkMappingSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210210:VmmToVmmNetworkMappingSettingsResponse"
+    discriminator:
+      propertyName: instanceType
+      mapping:
+        AzureToAzure: "#/types/azure-native:recoveryservices/v20210210:AzureToAzureNetworkMappingSettingsResponse"
+        VmmToAzure: "#/types/azure-native:recoveryservices/v20210210:VmmToAzureNetworkMappingSettingsResponse"
+        VmmToVmm: "#/types/azure-native:recoveryservices/v20210210:VmmToVmmNetworkMappingSettingsResponse"
+    description: The fabric specific settings.
+  primaryFabricFriendlyName:
+    type: string
+    description: The primary fabric friendly name.
+  primaryNetworkFriendlyName:
+    type: string
+    description: The primary network friendly name.
+  primaryNetworkId:
+    type: string
+    description: The primary network id for network mapping.
+  recoveryFabricArmId:
+    type: string
+    description: The recovery fabric ARM id.
+  recoveryFabricFriendlyName:
+    type: string
+    description: The recovery fabric friendly name.
+  recoveryNetworkFriendlyName:
+    type: string
+    description: The recovery network friendly name.
+  recoveryNetworkId:
+    type: string
+    description: The recovery network id for network mapping.
+  state:
+    type: string
+    description: The pairing state for network mapping.
+type: object

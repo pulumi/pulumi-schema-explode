@@ -1,0 +1,39 @@
+$token: azure-native:documentdb/v20210415:IndexingPolicy
+description: Cosmos DB indexing policy
+properties:
+  automatic:
+    type: boolean
+    description: Indicates if the indexing policy is automatic
+  compositeIndexes:
+    type: array
+    items:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:documentdb/v20210415:CompositePath"
+    description: List of composite path list
+  excludedPaths:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:documentdb/v20210415:ExcludedPath"
+    description: List of paths to exclude from indexing
+  includedPaths:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:documentdb/v20210415:IncludedPath"
+    description: List of paths to include in the indexing
+  indexingMode:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:documentdb/v20210415:IndexingMode"
+    description: Indicates the indexing mode.
+    default: consistent
+  spatialIndexes:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:documentdb/v20210415:SpatialSpec"
+    description: List of spatial specifics
+type: object

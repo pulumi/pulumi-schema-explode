@@ -1,0 +1,26 @@
+$token: azure-native:databox/v20190901:DestinationManagedDiskDetailsResponse
+description: Details for the destination compute disks.
+properties:
+  accountId:
+    type: string
+    description: Arm Id of the destination where the data has to be moved.
+  dataDestinationType:
+    type: string
+    description: |-
+      Data Destination Type.
+      Expected value is 'ManagedDisk'.
+    const: ManagedDisk
+  resourceGroupId:
+    type: string
+    description: Destination Resource Group Id where the Compute disks should be created.
+  sharePassword:
+    type: string
+    description: Share password to be shared by all shares in SA.
+  stagingStorageAccountId:
+    type: string
+    description: Arm Id of the storage account that can be used to copy the vhd for staging.
+type: object
+required:
+  - dataDestinationType
+  - resourceGroupId
+  - stagingStorageAccountId

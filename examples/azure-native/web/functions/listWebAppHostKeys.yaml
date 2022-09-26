@@ -1,0 +1,33 @@
+$token: azure-native:web:listWebAppHostKeys
+description: |-
+  Functions host level keys.
+  API Version: 2020-12-01.
+inputs:
+  properties:
+    name:
+      type: string
+      description: Site name.
+    resourceGroupName:
+      type: string
+      description: Name of the resource group to which the resource belongs.
+  type: object
+  required:
+    - name
+    - resourceGroupName
+outputs:
+  description: Functions host level keys.
+  properties:
+    functionKeys:
+      type: object
+      additionalProperties:
+        type: string
+      description: Host level function keys.
+    masterKey:
+      type: string
+      description: Secret key.
+    systemKeys:
+      type: object
+      additionalProperties:
+        type: string
+      description: System keys.
+  type: object

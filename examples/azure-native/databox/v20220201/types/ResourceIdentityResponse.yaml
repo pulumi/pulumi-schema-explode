@@ -1,0 +1,23 @@
+$token: azure-native:databox/v20220201:ResourceIdentityResponse
+description: Msi identity details of the resource
+properties:
+  principalId:
+    type: string
+    description: Service Principal Id backing the Msi
+  tenantId:
+    type: string
+    description: Home Tenant Id
+  type:
+    type: string
+    description: Identity type
+    default: None
+  userAssignedIdentities:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:databox/v20220201:UserAssignedIdentityResponse"
+    description: User Assigned Identities
+type: object
+required:
+  - principalId
+  - tenantId

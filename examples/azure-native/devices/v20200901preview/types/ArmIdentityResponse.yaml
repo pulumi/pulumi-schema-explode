@@ -1,0 +1,22 @@
+$token: azure-native:devices/v20200901preview:ArmIdentityResponse
+description: The set of ARM identities associated with the IoT DPS resource.
+properties:
+  identityType:
+    type: string
+    description: "Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned."
+  principalId:
+    type: string
+    description: Principal Id
+  tenantId:
+    type: string
+    description: Tenant Id
+  userAssignedIdentities:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:devices/v20200901preview:ArmUserIdentityResponse"
+    description: The set of UserAssigned identities associated with the IoT DPS resource.
+type: object
+required:
+  - principalId
+  - tenantId

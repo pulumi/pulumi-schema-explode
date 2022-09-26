@@ -1,0 +1,17 @@
+$token: azure-native:hdinsight/v20210601:PrivateLinkServiceConnectionState
+description: The private link service connection state.
+properties:
+  actionsRequired:
+    type: string
+    description: Whether there is further actions.
+  description:
+    type: string
+    description: The optional description of the status.
+  status:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:hdinsight/v20210601:PrivateLinkServiceConnectionStatus"
+    description: The concrete private link service connection.
+type: object
+required:
+  - status

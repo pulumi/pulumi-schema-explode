@@ -1,0 +1,22 @@
+$token: azure-native:datafactory/v20180601:SnowflakeImportCopyCommandResponse
+description: Snowflake import command settings.
+properties:
+  additionalCopyOptions:
+    type: object
+    additionalProperties:
+      $ref: pulumi.json#/Any
+    description: "Additional copy options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: \"additionalCopyOptions\": { \"DATE_FORMAT\": \"MM/DD/YYYY\", \"TIME_FORMAT\": \"'HH24:MI:SS.FF'\" }"
+  additionalFormatOptions:
+    type: object
+    additionalProperties:
+      $ref: pulumi.json#/Any
+    description: "Additional format options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: \"additionalFormatOptions\": { \"FORCE\": \"TRUE\", \"LOAD_UNCERTAIN_FILES\": \"'FALSE'\" }"
+  type:
+    type: string
+    description: |-
+      The import setting type.
+      Expected value is 'SnowflakeImportCopyCommand'.
+    const: SnowflakeImportCopyCommand
+type: object
+required:
+  - type

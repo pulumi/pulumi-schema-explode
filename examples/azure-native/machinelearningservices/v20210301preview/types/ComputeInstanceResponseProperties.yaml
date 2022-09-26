@@ -1,0 +1,73 @@
+$token: azure-native:machinelearningservices/v20210301preview:ComputeInstanceResponseProperties
+description: Compute Instance properties
+properties:
+  applicationSharingPolicy:
+    type: string
+    description: Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
+    default: Shared
+  applications:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20210301preview:ComputeInstanceApplicationResponse"
+    description: Describes available applications and their endpoints on this ComputeInstance.
+  computeInstanceAuthorizationType:
+    type: string
+    description: The Compute Instance Authorization type. Available values are personal (default).
+    default: personal
+  connectivityEndpoints:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20210301preview:ComputeInstanceConnectivityEndpointsResponse"
+    description: Describes all connectivity endpoints available for this ComputeInstance.
+  createdBy:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20210301preview:ComputeInstanceCreatedByResponse"
+    description: Describes information on user who created this ComputeInstance.
+  enableNodePublicIp:
+    type: boolean
+    description: "Enable or disable node public IP address provisioning. Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs."
+    default: true
+  errors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20210301preview:ErrorResponseResponse"
+    description: Collection of errors encountered on this ComputeInstance.
+  lastOperation:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20210301preview:ComputeInstanceLastOperationResponse"
+    description: The last operation on ComputeInstance.
+  personalComputeInstanceSettings:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20210301preview:PersonalComputeInstanceSettingsResponse"
+    description: Settings for a personal compute instance.
+  schedules:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20210301preview:ComputeSchedulesResponse"
+    description: The list of schedules to be applied on the compute instance.
+  setupScripts:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20210301preview:SetupScriptsResponse"
+    description: Details of customized scripts to execute for setting up the cluster.
+  sshSettings:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20210301preview:ComputeInstanceSshSettingsResponse"
+    description: Specifies policy and settings for SSH access.
+  state:
+    type: string
+    description: The current state of this ComputeInstance.
+  subnet:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20210301preview:ResourceIdResponse"
+    description: Virtual network subnet resource ID the compute nodes belong to.
+  vmSize:
+    type: string
+    description: Virtual Machine Size
+type: object
+required:
+  - applications
+  - connectivityEndpoints
+  - createdBy
+  - errors
+  - lastOperation
+  - state

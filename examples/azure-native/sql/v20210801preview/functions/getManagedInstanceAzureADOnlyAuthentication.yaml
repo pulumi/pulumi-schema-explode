@@ -1,0 +1,39 @@
+$token: azure-native:sql/v20210801preview:getManagedInstanceAzureADOnlyAuthentication
+description: Azure Active Directory only authentication.
+inputs:
+  properties:
+    authenticationName:
+      type: string
+      description: The name of server azure active directory only authentication.
+    managedInstanceName:
+      type: string
+      description: The name of the managed instance.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  type: object
+  required:
+    - authenticationName
+    - managedInstanceName
+    - resourceGroupName
+outputs:
+  description: Azure Active Directory only authentication.
+  properties:
+    azureADOnlyAuthentication:
+      type: boolean
+      description: Azure Active Directory only Authentication enabled.
+    id:
+      type: string
+      description: Resource ID.
+    name:
+      type: string
+      description: Resource name.
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - azureADOnlyAuthentication
+    - id
+    - name
+    - type

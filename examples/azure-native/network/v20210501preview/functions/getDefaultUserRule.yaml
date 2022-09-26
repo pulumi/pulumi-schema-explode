@@ -1,0 +1,108 @@
+$token: azure-native:network/v20210501preview:getDefaultUserRule
+description: Network security default user rule.
+inputs:
+  properties:
+    configurationName:
+      type: string
+      description: The name of the network manager Security Configuration.
+    networkManagerName:
+      type: string
+      description: The name of the network manager.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    ruleCollectionName:
+      type: string
+      description: The name of the network manager security Configuration rule collection.
+    ruleName:
+      type: string
+      description: The name of the rule.
+  type: object
+  required:
+    - configurationName
+    - networkManagerName
+    - resourceGroupName
+    - ruleCollectionName
+    - ruleName
+outputs:
+  description: Network security default user rule.
+  properties:
+    description:
+      type: string
+      description: A description for this rule. Restricted to 140 chars.
+    destinationPortRanges:
+      type: array
+      items:
+        type: string
+      description: The destination port ranges.
+    destinations:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20210501preview:AddressPrefixItemResponse"
+      description: The destination address prefixes. CIDR or destination IP ranges.
+    direction:
+      type: string
+      description: Indicates if the traffic matched against the rule in inbound or outbound.
+    displayName:
+      type: string
+      description: A friendly name for the rule.
+    etag:
+      type: string
+      description: A unique read-only string that changes whenever the resource is updated.
+    flag:
+      type: string
+      description: Default rule flag.
+    id:
+      type: string
+      description: Resource ID.
+    kind:
+      type: string
+      description: |-
+        Whether the rule is custom or default.
+        Expected value is 'Default'.
+      const: Default
+    name:
+      type: string
+      description: Resource name.
+    protocol:
+      type: string
+      description: Network protocol this rule applies to.
+    provisioningState:
+      type: string
+      description: The provisioning state of the security configuration user rule resource.
+    sourcePortRanges:
+      type: array
+      items:
+        type: string
+      description: The source port ranges.
+    sources:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20210501preview:AddressPrefixItemResponse"
+      description: The CIDR or source IP ranges.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:network/v20210501preview:SystemDataResponse"
+      description: The system metadata related to this resource.
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - description
+    - destinationPortRanges
+    - destinations
+    - direction
+    - displayName
+    - etag
+    - id
+    - kind
+    - name
+    - protocol
+    - provisioningState
+    - sourcePortRanges
+    - sources
+    - systemData
+    - type

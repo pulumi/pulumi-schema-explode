@@ -1,0 +1,56 @@
+$token: azure-native:chaos/v20220701preview:Target
+description: Model that represents a Target resource.
+properties:
+  location:
+    type: string
+    description: Location of the target resource.
+  name:
+    type: string
+    description: The name of the resource
+  properties:
+    $ref: pulumi.json#/Any
+    description: The properties of the target resource.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:chaos/v20220701preview:SystemDataResponse"
+    description: The system metadata of the target resource.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - name
+  - properties
+  - systemData
+  - type
+inputProperties:
+  location:
+    type: string
+    description: Location of the target resource.
+  parentProviderNamespace:
+    type: string
+    description: String that represents a resource provider namespace.
+  parentResourceName:
+    type: string
+    description: String that represents a resource name.
+  parentResourceType:
+    type: string
+    description: String that represents a resource type.
+  properties:
+    $ref: pulumi.json#/Any
+    description: The properties of the target resource.
+  resourceGroupName:
+    type: string
+    description: String that represents an Azure resource group.
+  targetName:
+    type: string
+    description: String that represents a Target resource name.
+requiredInputs:
+  - parentProviderNamespace
+  - parentResourceName
+  - parentResourceType
+  - properties
+  - resourceGroupName
+aliases:
+  - type: azure-native:chaos:Target
+  - type: azure-native:chaos/v20210915preview:Target

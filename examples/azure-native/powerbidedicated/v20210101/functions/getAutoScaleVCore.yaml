@@ -1,0 +1,59 @@
+$token: azure-native:powerbidedicated/v20210101:getAutoScaleVCore
+description: Represents an instance of an auto scale v-core resource.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
+    vcoreName:
+      type: string
+      description: The name of the auto scale v-core. It must be a minimum of 3 characters, and a maximum of 63.
+  type: object
+  required:
+    - resourceGroupName
+    - vcoreName
+outputs:
+  description: Represents an instance of an auto scale v-core resource.
+  properties:
+    capacityLimit:
+      type: integer
+      description: The maximum capacity of an auto scale v-core resource.
+    capacityObjectId:
+      type: string
+      description: The object ID of the capacity resource associated with the auto scale v-core resource.
+    id:
+      type: string
+      description: An identifier that represents the PowerBI Dedicated resource.
+    location:
+      type: string
+      description: Location of the PowerBI Dedicated resource.
+    name:
+      type: string
+      description: The name of the PowerBI Dedicated resource.
+    provisioningState:
+      type: string
+      description: The current deployment state of an auto scale v-core resource. The provisioningState is to indicate states for resource provisioning.
+    sku:
+      type: object
+      $ref: "#/types/azure-native:powerbidedicated/v20210101:AutoScaleVCoreSkuResponse"
+      description: The SKU of the auto scale v-core resource.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:powerbidedicated/v20210101:SystemDataResponse"
+      description: Metadata pertaining to creation and last modification of the resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Key-value pairs of additional resource provisioning properties.
+    type:
+      type: string
+      description: The type of the PowerBI Dedicated resource.
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - provisioningState
+    - sku
+    - type

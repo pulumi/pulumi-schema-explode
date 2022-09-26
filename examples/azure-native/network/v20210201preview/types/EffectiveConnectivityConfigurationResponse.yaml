@@ -1,0 +1,46 @@
+$token: azure-native:network/v20210201preview:EffectiveConnectivityConfigurationResponse
+description: The network manager effective connectivity configuration
+properties:
+  appliesToGroups:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210201preview:ConnectivityGroupItemResponse"
+    description: Groups for configuration
+  configurationGroups:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210201preview:ConfigurationGroupResponse"
+    description: Effective configuration groups.
+  connectivityTopology:
+    type: string
+    description: Connectivity topology type.
+  deleteExistingPeering:
+    type: string
+    description: Flag if need to remove current existing peerings.
+  description:
+    type: string
+    description: A description of the connectivity configuration.
+  displayName:
+    type: string
+    description: A friendly name for the resource.
+  hubs:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210201preview:HubResponse"
+    description: List of hubItems
+  id:
+    type: string
+    description: Resource ID.
+  isGlobal:
+    type: string
+    description: Flag if global mesh is supported.
+  provisioningState:
+    type: string
+    description: The provisioning state of the connectivity configuration resource.
+type: object
+required:
+  - connectivityTopology
+  - provisioningState

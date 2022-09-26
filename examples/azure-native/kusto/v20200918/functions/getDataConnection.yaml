@@ -1,0 +1,47 @@
+$token: azure-native:kusto/v20200918:getDataConnection
+description: Class representing an data connection.
+inputs:
+  properties:
+    clusterName:
+      type: string
+      description: The name of the Kusto cluster.
+    dataConnectionName:
+      type: string
+      description: The name of the data connection.
+    databaseName:
+      type: string
+      description: The name of the database in the Kusto cluster.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group containing the Kusto cluster.
+  type: object
+  required:
+    - clusterName
+    - dataConnectionName
+    - databaseName
+    - resourceGroupName
+outputs:
+  description: Class representing an data connection.
+  properties:
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    kind:
+      type: string
+      description: Kind of the endpoint for the data connection
+    location:
+      type: string
+      description: Resource location.
+    name:
+      type: string
+      description: The name of the resource
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - id
+    - kind
+    - name
+    - type
+deprecationMessage: "Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection."

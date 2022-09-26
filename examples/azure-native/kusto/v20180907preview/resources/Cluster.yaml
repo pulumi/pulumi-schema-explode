@@ -1,0 +1,94 @@
+$token: azure-native:kusto/v20180907preview:Cluster
+description: Class representing a Kusto cluster.
+properties:
+  dataIngestionUri:
+    type: string
+    description: The cluster data ingestion URI.
+  etag:
+    type: string
+    description: An ETag of the resource created.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  name:
+    type: string
+    description: The name of the resource
+  provisioningState:
+    type: string
+    description: The provisioned state of the resource.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:kusto/v20180907preview:AzureSkuResponse"
+    description: The SKU of the cluster.
+  state:
+    type: string
+    description: The state of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  trustedExternalTenants:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:kusto/v20180907preview:TrustedExternalTenantResponse"
+    description: The cluster's external tenants.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  uri:
+    type: string
+    description: The cluster URI.
+type: object
+required:
+  - dataIngestionUri
+  - etag
+  - location
+  - name
+  - provisioningState
+  - sku
+  - state
+  - type
+  - uri
+inputProperties:
+  clusterName:
+    type: string
+    description: The name of the Kusto cluster.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  resourceGroupName:
+    type: string
+    description: The name of the resource group containing the Kusto cluster.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:kusto/v20180907preview:AzureSku"
+    description: The SKU of the cluster.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  trustedExternalTenants:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:kusto/v20180907preview:TrustedExternalTenant"
+    description: The cluster's external tenants.
+requiredInputs:
+  - resourceGroupName
+  - sku
+aliases:
+  - type: azure-native:kusto:Cluster
+  - type: azure-native:kusto/v20170907privatepreview:Cluster
+  - type: azure-native:kusto/v20190121:Cluster
+  - type: azure-native:kusto/v20190515:Cluster
+  - type: azure-native:kusto/v20190907:Cluster
+  - type: azure-native:kusto/v20191109:Cluster
+  - type: azure-native:kusto/v20200215:Cluster
+  - type: azure-native:kusto/v20200614:Cluster
+  - type: azure-native:kusto/v20200918:Cluster
+  - type: azure-native:kusto/v20210101:Cluster
+  - type: azure-native:kusto/v20210827:Cluster
+  - type: azure-native:kusto/v20220201:Cluster

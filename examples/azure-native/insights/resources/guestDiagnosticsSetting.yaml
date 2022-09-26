@@ -1,0 +1,65 @@
+$token: azure-native:insights:guestDiagnosticsSetting
+description: |-
+  Virtual machine guest diagnostics settings resource.
+  API Version: 2018-06-01-preview.
+properties:
+  dataSources:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:insights:DataSourceResponse"
+    description: the array of data source object which are configured to collect and send data
+  location:
+    type: string
+    description: Resource location
+  name:
+    type: string
+    description: Azure resource name
+  osType:
+    type: string
+    description: Operating system type for the configuration
+  proxySetting:
+    type: string
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  type:
+    type: string
+    description: Azure resource type
+type: object
+required:
+  - location
+  - name
+  - type
+inputProperties:
+  dataSources:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:insights:DataSource"
+    description: the array of data source object which are configured to collect and send data
+  diagnosticSettingsName:
+    type: string
+    description: The name of the diagnostic setting.
+  location:
+    type: string
+    description: Resource location
+  osType:
+    type: string
+    description: Operating system type for the configuration
+  proxySetting:
+    type: string
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:insights/v20180601preview:guestDiagnosticsSetting

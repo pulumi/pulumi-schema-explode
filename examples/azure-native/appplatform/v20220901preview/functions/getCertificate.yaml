@@ -1,0 +1,53 @@
+$token: azure-native:appplatform/v20220901preview:getCertificate
+description: Certificate resource payload.
+inputs:
+  properties:
+    certificateName:
+      type: string
+      description: The name of the certificate resource.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    serviceName:
+      type: string
+      description: The name of the Service resource.
+  type: object
+  required:
+    - certificateName
+    - resourceGroupName
+    - serviceName
+outputs:
+  description: Certificate resource payload.
+  properties:
+    id:
+      type: string
+      description: Fully qualified resource Id for the resource.
+    name:
+      type: string
+      description: The name of the resource.
+    properties:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:appplatform/v20220901preview:ContentCertificatePropertiesResponse"
+        - type: object
+          $ref: "#/types/azure-native:appplatform/v20220901preview:KeyVaultCertificatePropertiesResponse"
+      discriminator:
+        propertyName: type
+        mapping:
+          ContentCertificate: "#/types/azure-native:appplatform/v20220901preview:ContentCertificatePropertiesResponse"
+          KeyVaultCertificate: "#/types/azure-native:appplatform/v20220901preview:KeyVaultCertificatePropertiesResponse"
+      description: Properties of the certificate resource payload.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:appplatform/v20220901preview:SystemDataResponse"
+      description: Metadata pertaining to creation and last modification of the resource.
+    type:
+      type: string
+      description: The type of the resource.
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - systemData
+    - type

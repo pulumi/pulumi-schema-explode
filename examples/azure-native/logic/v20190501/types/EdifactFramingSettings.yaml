@@ -1,0 +1,49 @@
+$token: azure-native:logic/v20190501:EdifactFramingSettings
+description: The Edifact agreement framing settings.
+properties:
+  characterEncoding:
+    type: string
+    description: The character encoding.
+  characterSet:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:logic/v20190501:EdifactCharacterSet"
+    description: The EDIFACT frame setting characterSet.
+  componentSeparator:
+    type: integer
+    description: The component separator.
+  dataElementSeparator:
+    type: integer
+    description: The data element separator.
+  decimalPointIndicator:
+    $ref: "#/types/azure-native:logic/v20190501:EdifactDecimalIndicator"
+    description: The EDIFACT frame setting decimal indicator.
+  protocolVersion:
+    type: integer
+    description: The protocol version.
+  releaseIndicator:
+    type: integer
+    description: The release indicator.
+  repetitionSeparator:
+    type: integer
+    description: The repetition separator.
+  segmentTerminator:
+    type: integer
+    description: The segment terminator.
+  segmentTerminatorSuffix:
+    $ref: "#/types/azure-native:logic/v20190501:SegmentTerminatorSuffix"
+    description: The EDIFACT frame setting segment terminator suffix.
+  serviceCodeListDirectoryVersion:
+    type: string
+    description: The service code list directory version.
+type: object
+required:
+  - characterSet
+  - componentSeparator
+  - dataElementSeparator
+  - decimalPointIndicator
+  - protocolVersion
+  - releaseIndicator
+  - repetitionSeparator
+  - segmentTerminator
+  - segmentTerminatorSuffix

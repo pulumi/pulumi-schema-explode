@@ -1,0 +1,29 @@
+$token: azure-native:storage/v20210601:ImmutabilityPolicyPropertiesResponse
+description: The properties of an ImmutabilityPolicy of a blob container.
+properties:
+  allowProtectedAppendWrites:
+    type: boolean
+    description: This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API.
+  allowProtectedAppendWritesAll:
+    type: boolean
+    description: This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API. The 'allowProtectedAppendWrites' and 'allowProtectedAppendWritesAll' properties are mutually exclusive.
+  etag:
+    type: string
+    description: ImmutabilityPolicy Etag.
+  immutabilityPeriodSinceCreationInDays:
+    type: integer
+    description: The immutability period for the blobs in the container since the policy creation, in days.
+  state:
+    type: string
+    description: "The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked."
+  updateHistory:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:storage/v20210601:UpdateHistoryPropertyResponse"
+    description: The ImmutabilityPolicy update history of the blob container.
+type: object
+required:
+  - etag
+  - state
+  - updateHistory

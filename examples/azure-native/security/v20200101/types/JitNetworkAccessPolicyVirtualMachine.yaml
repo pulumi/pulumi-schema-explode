@@ -1,0 +1,18 @@
+$token: azure-native:security/v20200101:JitNetworkAccessPolicyVirtualMachine
+properties:
+  id:
+    type: string
+    description: Resource ID of the virtual machine that is linked to this policy
+  ports:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:security/v20200101:JitNetworkAccessPortRule"
+    description: Port configurations for the virtual machine
+  publicIpAddress:
+    type: string
+    description: Public IP address of the Azure Firewall that is linked to this policy, if applicable
+type: object
+required:
+  - id
+  - ports

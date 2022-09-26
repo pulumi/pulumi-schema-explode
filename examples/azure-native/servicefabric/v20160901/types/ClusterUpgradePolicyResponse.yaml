@@ -1,0 +1,44 @@
+$token: azure-native:servicefabric/v20160901:ClusterUpgradePolicyResponse
+description: Cluster upgrade policy
+properties:
+  deltaHealthPolicy:
+    type: object
+    $ref: "#/types/azure-native:servicefabric/v20160901:ClusterUpgradeDeltaHealthPolicyResponse"
+    description: Delta health policy
+  forceRestart:
+    type: boolean
+    description: Force node to restart or not
+  healthCheckRetryTimeout:
+    type: string
+    description: The length of time that health checks can fail continuously,it represents .Net TimeSpan
+  healthCheckStableDuration:
+    type: string
+    description: The length of time that health checks must pass continuously,it represents .Net TimeSpan
+  healthCheckWaitDuration:
+    type: string
+    description: The length of time to wait after completing an upgrade domain before performing health checks, it represents .Net TimeSpan
+  healthPolicy:
+    type: object
+    $ref: "#/types/azure-native:servicefabric/v20160901:ClusterHealthPolicyResponse"
+    description: Cluster health Policy
+  overrideUserUpgradePolicy:
+    type: boolean
+    description: Use the user defined upgrade policy or not
+  upgradeDomainTimeout:
+    type: string
+    description: The timeout for any upgrade domain,it represents .Net TimeSpan
+  upgradeReplicaSetCheckTimeout:
+    type: string
+    description: Timeout for replica set upgrade to complete,it represents .Net TimeSpan
+  upgradeTimeout:
+    type: string
+    description: The upgrade timeout,it represents .Net TimeSpan
+type: object
+required:
+  - healthCheckRetryTimeout
+  - healthCheckStableDuration
+  - healthCheckWaitDuration
+  - healthPolicy
+  - upgradeDomainTimeout
+  - upgradeReplicaSetCheckTimeout
+  - upgradeTimeout

@@ -1,0 +1,66 @@
+$token: azure-native:sql/v20201101preview:getInstanceFailoverGroup
+description: An instance failover group.
+inputs:
+  properties:
+    failoverGroupName:
+      type: string
+      description: The name of the failover group.
+    locationName:
+      type: string
+      description: The name of the region where the resource is located.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  type: object
+  required:
+    - failoverGroupName
+    - locationName
+    - resourceGroupName
+outputs:
+  description: An instance failover group.
+  properties:
+    id:
+      type: string
+      description: Resource ID.
+    managedInstancePairs:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:sql/v20201101preview:ManagedInstancePairInfoResponse"
+      description: List of managed instance pairs in the failover group.
+    name:
+      type: string
+      description: Resource name.
+    partnerRegions:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:sql/v20201101preview:PartnerRegionInfoResponse"
+      description: Partner region information for the failover group.
+    readOnlyEndpoint:
+      type: object
+      $ref: "#/types/azure-native:sql/v20201101preview:InstanceFailoverGroupReadOnlyEndpointResponse"
+      description: Read-only endpoint of the failover group instance.
+    readWriteEndpoint:
+      type: object
+      $ref: "#/types/azure-native:sql/v20201101preview:InstanceFailoverGroupReadWriteEndpointResponse"
+      description: Read-write endpoint of the failover group instance.
+    replicationRole:
+      type: string
+      description: Local replication role of the failover group instance.
+    replicationState:
+      type: string
+      description: Replication state of the failover group instance.
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - id
+    - managedInstancePairs
+    - name
+    - partnerRegions
+    - readWriteEndpoint
+    - replicationRole
+    - replicationState
+    - type

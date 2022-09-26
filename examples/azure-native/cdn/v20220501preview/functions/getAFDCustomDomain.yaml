@@ -1,0 +1,81 @@
+$token: azure-native:cdn/v20220501preview:getAFDCustomDomain
+description: Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
+inputs:
+  properties:
+    customDomainName:
+      type: string
+      description: Name of the domain under the profile which is unique globally.
+    profileName:
+      type: string
+      description: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+    resourceGroupName:
+      type: string
+      description: Name of the Resource group within the Azure subscription.
+  type: object
+  required:
+    - customDomainName
+    - profileName
+    - resourceGroupName
+outputs:
+  description: Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
+  properties:
+    azureDnsZone:
+      type: object
+      $ref: "#/types/azure-native:cdn/v20220501preview:ResourceReferenceResponse"
+      description: Resource reference to the Azure DNS zone
+    deploymentStatus:
+      type: string
+    domainValidationState:
+      type: string
+      description: Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step. DCV stands for DomainControlValidation.
+    extendedProperties:
+      type: object
+      additionalProperties:
+        type: string
+      description: Key-Value pair representing migration properties for domains.
+    hostName:
+      type: string
+      description: The host name of the domain. Must be a domain name.
+    id:
+      type: string
+      description: Resource ID.
+    name:
+      type: string
+      description: Resource name.
+    preValidatedCustomDomainResourceId:
+      type: object
+      $ref: "#/types/azure-native:cdn/v20220501preview:ResourceReferenceResponse"
+      description: Resource reference to the Azure resource where custom domain ownership was prevalidated
+    profileName:
+      type: string
+      description: The name of the profile which holds the domain.
+    provisioningState:
+      type: string
+      description: Provisioning status
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:cdn/v20220501preview:SystemDataResponse"
+      description: Read only system data
+    tlsSettings:
+      type: object
+      $ref: "#/types/azure-native:cdn/v20220501preview:AFDDomainHttpsParametersResponse"
+      description: The configuration specifying how to enable HTTPS for the domain - using AzureFrontDoor managed certificate or user's own certificate. If not specified, enabling ssl uses AzureFrontDoor managed certificate by default.
+    type:
+      type: string
+      description: Resource type.
+    validationProperties:
+      type: object
+      $ref: "#/types/azure-native:cdn/v20220501preview:DomainValidationPropertiesResponse"
+      description: Values the customer needs to validate domain ownership
+  type: object
+  required:
+    - deploymentStatus
+    - domainValidationState
+    - hostName
+    - id
+    - name
+    - profileName
+    - provisioningState
+    - systemData
+    - type
+    - validationProperties

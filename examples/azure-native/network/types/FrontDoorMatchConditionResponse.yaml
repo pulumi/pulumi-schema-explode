@@ -1,0 +1,30 @@
+$token: azure-native:network:FrontDoorMatchConditionResponse
+description: Define a match condition.
+properties:
+  matchValue:
+    type: array
+    items:
+      type: string
+    description: List of possible match values.
+  matchVariable:
+    type: string
+    description: Request variable to compare with.
+  negateCondition:
+    type: boolean
+    description: Describes if the result of this condition should be negated.
+  operator:
+    type: string
+    description: Comparison type to use for matching with the variable value.
+  selector:
+    type: string
+    description: Match against a specific key from the QueryString, PostArgs, RequestHeader or Cookies variables. Default is null.
+  transforms:
+    type: array
+    items:
+      type: string
+    description: List of transforms.
+type: object
+required:
+  - matchValue
+  - matchVariable
+  - operator

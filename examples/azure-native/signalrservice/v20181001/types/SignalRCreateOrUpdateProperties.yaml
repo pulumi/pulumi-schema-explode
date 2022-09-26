@@ -1,0 +1,29 @@
+$token: azure-native:signalrservice/v20181001:SignalRCreateOrUpdateProperties
+description: Settings used to provision or configure the resource.
+properties:
+  cors:
+    type: object
+    $ref: "#/types/azure-native:signalrservice/v20181001:SignalRCorsSettings"
+    description: Cross-Origin Resource Sharing (CORS) settings.
+  features:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:signalrservice/v20181001:SignalRFeature"
+    description: "List of SignalR featureFlags. e.g. ServiceMode.\r
+
+      \r
+
+      FeatureFlags that are not included in the parameters for the update operation will not be modified.\r
+
+      And the response will only include featureFlags that are explicitly set. \r
+
+      When a featureFlag is not explicitly set, SignalR service will use its globally default value. \r
+
+      But keep in mind, the default value doesn't mean \"false\". It varies in terms of different FeatureFlags."
+  hostNamePrefix:
+    type: string
+    description: "Prefix for the hostName of the SignalR service. Retained for future use.\r
+
+      The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net."
+type: object

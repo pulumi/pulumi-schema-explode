@@ -1,0 +1,51 @@
+$token: azure-native:insights:PrivateEndpointConnection
+description: |-
+  A private endpoint connection
+  API Version: 2019-10-17-preview.
+properties:
+  name:
+    type: string
+    description: Azure resource name
+  privateEndpoint:
+    type: object
+    $ref: "#/types/azure-native:insights:PrivateEndpointPropertyResponse"
+    description: Private endpoint which the connection belongs to.
+  privateLinkServiceConnectionState:
+    type: object
+    $ref: "#/types/azure-native:insights:PrivateLinkServiceConnectionStatePropertyResponse"
+    description: Connection state of the private endpoint connection.
+  provisioningState:
+    type: string
+    description: State of the private endpoint connection.
+  type:
+    type: string
+    description: Azure resource type
+type: object
+required:
+  - name
+  - provisioningState
+  - type
+inputProperties:
+  privateEndpoint:
+    type: object
+    $ref: "#/types/azure-native:insights:PrivateEndpointProperty"
+    description: Private endpoint which the connection belongs to.
+  privateEndpointConnectionName:
+    type: string
+    description: The name of the private endpoint connection.
+  privateLinkServiceConnectionState:
+    type: object
+    $ref: "#/types/azure-native:insights:PrivateLinkServiceConnectionStateProperty"
+    description: Connection state of the private endpoint connection.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  scopeName:
+    type: string
+    description: The name of the Azure Monitor PrivateLinkScope resource.
+requiredInputs:
+  - resourceGroupName
+  - scopeName
+aliases:
+  - type: azure-native:insights/v20191017preview:PrivateEndpointConnection
+  - type: azure-native:insights/v20210701preview:PrivateEndpointConnection

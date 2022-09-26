@@ -1,0 +1,27 @@
+$token: azure-native:datafactory/v20180601:SelfHostedIntegrationRuntime
+description: Self-hosted integration runtime.
+properties:
+  description:
+    type: string
+    description: Integration runtime description.
+  linkedInfo:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:LinkedIntegrationRuntimeKeyAuthorization"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:LinkedIntegrationRuntimeRbacAuthorization"
+    discriminator:
+      propertyName: authorizationType
+      mapping:
+        Key: "#/types/azure-native:datafactory/v20180601:LinkedIntegrationRuntimeKeyAuthorization"
+        RBAC: "#/types/azure-native:datafactory/v20180601:LinkedIntegrationRuntimeRbacAuthorization"
+    description: The base definition of a linked integration runtime.
+  type:
+    type: string
+    description: |-
+      The type of integration runtime.
+      Expected value is 'SelfHosted'.
+    const: SelfHosted
+type: object
+required:
+  - type

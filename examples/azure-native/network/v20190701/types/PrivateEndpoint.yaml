@@ -1,0 +1,34 @@
+$token: azure-native:network/v20190701:PrivateEndpoint
+description: Private endpoint resource.
+properties:
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  id:
+    type: string
+    description: Resource ID.
+  location:
+    type: string
+    description: Resource location.
+  manualPrivateLinkServiceConnections:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20190701:PrivateLinkServiceConnection"
+    description: A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
+  privateLinkServiceConnections:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20190701:PrivateLinkServiceConnection"
+    description: A grouping of information about the connection to the remote resource.
+  subnet:
+    type: object
+    $ref: "#/types/azure-native:network/v20190701:Subnet"
+    description: The ID of the subnet from which the private IP will be allocated.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+type: object

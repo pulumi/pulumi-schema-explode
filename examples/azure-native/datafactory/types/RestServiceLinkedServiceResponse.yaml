@@ -1,0 +1,114 @@
+$token: azure-native:datafactory:RestServiceLinkedServiceResponse
+description: Rest Service linked service.
+properties:
+  aadResourceId:
+    $ref: pulumi.json#/Any
+    description: The resource you are requesting authorization to use.
+  annotations:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: List of tags that can be used for describing the linked service.
+  authHeaders:
+    $ref: pulumi.json#/Any
+    description: "The additional HTTP headers in the request to RESTful API used for authorization. Type: object (or Expression with resultType object)."
+  authenticationType:
+    type: string
+    description: Type of authentication used to connect to the REST service.
+  azureCloudType:
+    $ref: pulumi.json#/Any
+    description: "Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string)."
+  clientId:
+    $ref: pulumi.json#/Any
+    description: "The client ID associated with your application. Type: string (or Expression with resultType string)."
+  clientSecret:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureKeyVaultSecretReferenceResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SecureStringResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        AzureKeyVaultSecret: "#/types/azure-native:datafactory:AzureKeyVaultSecretReferenceResponse"
+        SecureString: "#/types/azure-native:datafactory:SecureStringResponse"
+    description: The client secret associated with your application.
+  connectVia:
+    type: object
+    $ref: "#/types/azure-native:datafactory:IntegrationRuntimeReferenceResponse"
+    description: The integration runtime reference.
+  credential:
+    type: object
+    $ref: "#/types/azure-native:datafactory:CredentialReferenceResponse"
+    description: The credential reference containing authentication information.
+  description:
+    type: string
+    description: Linked service description.
+  enableServerCertificateValidation:
+    $ref: pulumi.json#/Any
+    description: "Whether to validate server side SSL certificate when connecting to the endpoint.The default value is true. Type: boolean (or Expression with resultType boolean)."
+  encryptedCredential:
+    $ref: pulumi.json#/Any
+    description: "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string)."
+  parameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:datafactory:ParameterSpecificationResponse"
+    description: Parameters for linked service.
+  password:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureKeyVaultSecretReferenceResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SecureStringResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        AzureKeyVaultSecret: "#/types/azure-native:datafactory:AzureKeyVaultSecretReferenceResponse"
+        SecureString: "#/types/azure-native:datafactory:SecureStringResponse"
+    description: The password used in Basic authentication type.
+  resource:
+    $ref: pulumi.json#/Any
+    description: "The target service or resource to which the access will be requested. Type: string (or Expression with resultType string)."
+  scope:
+    $ref: pulumi.json#/Any
+    description: "The scope of the access required. It describes what kind of access will be requested. Type: string (or Expression with resultType string)."
+  servicePrincipalId:
+    $ref: pulumi.json#/Any
+    description: The application's client ID used in AadServicePrincipal authentication type.
+  servicePrincipalKey:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureKeyVaultSecretReferenceResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SecureStringResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        AzureKeyVaultSecret: "#/types/azure-native:datafactory:AzureKeyVaultSecretReferenceResponse"
+        SecureString: "#/types/azure-native:datafactory:SecureStringResponse"
+    description: The application's key used in AadServicePrincipal authentication type.
+  tenant:
+    $ref: pulumi.json#/Any
+    description: The tenant information (domain name or tenant ID) used in AadServicePrincipal authentication type under which your application resides.
+  tokenEndpoint:
+    $ref: pulumi.json#/Any
+    description: "The token endpoint of the authorization server to acquire access token. Type: string (or Expression with resultType string)."
+  type:
+    type: string
+    description: |-
+      Type of linked service.
+      Expected value is 'RestService'.
+    const: RestService
+  url:
+    $ref: pulumi.json#/Any
+    description: The base URL of the REST service.
+  userName:
+    $ref: pulumi.json#/Any
+    description: The user name used in Basic authentication type.
+type: object
+required:
+  - authenticationType
+  - type
+  - url

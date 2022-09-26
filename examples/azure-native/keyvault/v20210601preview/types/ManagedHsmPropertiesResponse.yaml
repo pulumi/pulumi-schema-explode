@@ -1,0 +1,58 @@
+$token: azure-native:keyvault/v20210601preview:ManagedHsmPropertiesResponse
+description: Properties of the managed HSM Pool
+properties:
+  createMode:
+    type: string
+    description: The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
+  enablePurgeProtection:
+    type: boolean
+    description: Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible.
+    default: true
+  enableSoftDelete:
+    type: boolean
+    description: Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. If it's not set to any value(true or false) when creating new managed HSM pool, it will be set to true by default. Once set to true, it cannot be reverted to false.
+    default: true
+  hsmUri:
+    type: string
+    description: The URI of the managed hsm pool for performing operations on keys.
+  initialAdminObjectIds:
+    type: array
+    items:
+      type: string
+    description: Array of initial administrators object ids for this managed hsm pool.
+  networkAcls:
+    type: object
+    $ref: "#/types/azure-native:keyvault/v20210601preview:MHSMNetworkRuleSetResponse"
+    description: Rules governing the accessibility of the key vault from specific network locations.
+  privateEndpointConnections:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:keyvault/v20210601preview:MHSMPrivateEndpointConnectionItemResponse"
+    description: List of private endpoint connections associated with the managed hsm pool.
+  provisioningState:
+    type: string
+    description: Provisioning state.
+  publicNetworkAccess:
+    type: string
+    description: Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+  scheduledPurgeDate:
+    type: string
+    description: The scheduled purge date in UTC.
+  softDeleteRetentionInDays:
+    type: integer
+    description: softDelete data retention days. It accepts >=7 and <=90.
+    default: 90
+  statusMessage:
+    type: string
+    description: Resource Status Message.
+  tenantId:
+    type: string
+    description: The Azure Active Directory tenant ID that should be used for authenticating requests to the managed HSM pool.
+type: object
+required:
+  - hsmUri
+  - privateEndpointConnections
+  - provisioningState
+  - scheduledPurgeDate
+  - statusMessage

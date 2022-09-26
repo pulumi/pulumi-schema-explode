@@ -1,0 +1,69 @@
+$token: azure-native:kusto/v20220201:Script
+description: Class representing a database script.
+properties:
+  continueOnErrors:
+    type: boolean
+    description: Flag that indicates whether to continue if one of the command fails.
+    default: false
+  forceUpdateTag:
+    type: string
+    description: A unique string. If changed the script will be applied again.
+  name:
+    type: string
+    description: The name of the resource
+  provisioningState:
+    type: string
+    description: The provisioned state of the resource.
+  scriptUrl:
+    type: string
+    description: The url to the KQL script blob file. Must not be used together with scriptContent property
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:kusto/v20220201:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - name
+  - provisioningState
+  - systemData
+  - type
+inputProperties:
+  clusterName:
+    type: string
+    description: The name of the Kusto cluster.
+  continueOnErrors:
+    type: boolean
+    description: Flag that indicates whether to continue if one of the command fails.
+    default: false
+  databaseName:
+    type: string
+    description: The name of the database in the Kusto cluster.
+  forceUpdateTag:
+    type: string
+    description: A unique string. If changed the script will be applied again.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group containing the Kusto cluster.
+  scriptContent:
+    type: string
+    description: The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with scriptUrl and scriptUrlSasToken properties.
+  scriptName:
+    type: string
+    description: The name of the Kusto database script.
+  scriptUrl:
+    type: string
+    description: The url to the KQL script blob file. Must not be used together with scriptContent property
+  scriptUrlSasToken:
+    type: string
+    description: The SaS token that provide read access to the file which contain the script. Must be provided when using scriptUrl property.
+requiredInputs:
+  - clusterName
+  - databaseName
+  - resourceGroupName
+aliases:
+  - type: azure-native:kusto:Script
+  - type: azure-native:kusto/v20210101:Script
+  - type: azure-native:kusto/v20210827:Script

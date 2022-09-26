@@ -1,0 +1,13 @@
+$token: azure-native:compute/v20210401:KeyForDiskEncryptionSetResponse
+description: Key Vault Key Url to be used for server side encryption of Managed Disks and Snapshots
+properties:
+  keyUrl:
+    type: string
+    description: Fully versioned Key Url pointing to a key in KeyVault. Version segment of the Url is required regardless of rotationToLatestKeyVersionEnabled value.
+  sourceVault:
+    type: object
+    $ref: "#/types/azure-native:compute/v20210401:SourceVaultResponse"
+    description: Resource id of the KeyVault containing the key or secret. This property is optional and cannot be used if the KeyVault subscription is not the same as the Disk Encryption Set subscription.
+type: object
+required:
+  - keyUrl

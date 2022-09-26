@@ -1,0 +1,23 @@
+$token: azure-native:hybridcompute/v20210128preview:MachineProperties
+description: Describes the properties of a hybrid machine.
+properties:
+  clientPublicKey:
+    type: string
+    description: Public Key that the client provides to be used during initial resource onboarding
+  extensions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:hybridcompute/v20210128preview:MachineExtensionInstanceView"
+    description: Machine Extensions information
+  locationData:
+    type: object
+    $ref: "#/types/azure-native:hybridcompute/v20210128preview:LocationData"
+    description: Metadata pertaining to the geographic location of the resource.
+  privateLinkScopeResourceId:
+    type: string
+    description: The resource id of the private link scope this machine is assigned to, if any.
+  vmId:
+    type: string
+    description: Specifies the hybrid machine unique ID.
+type: object

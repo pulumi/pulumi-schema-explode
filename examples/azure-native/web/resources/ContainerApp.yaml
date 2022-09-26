@@ -1,0 +1,84 @@
+$token: azure-native:web:ContainerApp
+description: |-
+  Container App.
+  API Version: 2021-03-01.
+properties:
+  configuration:
+    type: object
+    $ref: "#/types/azure-native:web:ConfigurationResponse"
+    description: Non versioned Container App configuration properties.
+  kind:
+    type: string
+    description: Kind of resource.
+  kubeEnvironmentId:
+    type: string
+    description: Resource ID of the Container App's KubeEnvironment.
+  latestRevisionFqdn:
+    type: string
+    description: Fully Qualified Domain Name of the latest revision of the Container App.
+  latestRevisionName:
+    type: string
+    description: Name of the latest revision of the Container App.
+  location:
+    type: string
+    description: Resource Location.
+  name:
+    type: string
+    description: Resource Name.
+  provisioningState:
+    type: string
+    description: Provisioning state of the Container App.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  template:
+    type: object
+    $ref: "#/types/azure-native:web:TemplateResponse"
+    description: Container App versioned application definition.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - latestRevisionFqdn
+  - latestRevisionName
+  - location
+  - name
+  - provisioningState
+  - type
+inputProperties:
+  configuration:
+    type: object
+    $ref: "#/types/azure-native:web:Configuration"
+    description: Non versioned Container App configuration properties.
+  kind:
+    type: string
+    description: Kind of resource.
+  kubeEnvironmentId:
+    type: string
+    description: Resource ID of the Container App's KubeEnvironment.
+  location:
+    type: string
+    description: Resource Location.
+  name:
+    type: string
+    description: Name of the Container App.
+  resourceGroupName:
+    type: string
+    description: Name of the resource group to which the resource belongs.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  template:
+    type: object
+    $ref: "#/types/azure-native:web:Template"
+    description: Container App versioned application definition.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:web/v20210301:ContainerApp
+  - type: azure-native:web/v20220301:ContainerApp

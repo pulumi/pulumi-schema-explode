@@ -1,0 +1,17 @@
+$token: azure-native:containerinstance/v20181001:ResourceRequests
+description: The resource requests.
+properties:
+  cpu:
+    type: number
+    description: The CPU request of this container instance.
+  gpu:
+    type: object
+    $ref: "#/types/azure-native:containerinstance/v20181001:GpuResource"
+    description: The GPU request of this container instance.
+  memoryInGB:
+    type: number
+    description: The memory request in GB of this container instance.
+type: object
+required:
+  - cpu
+  - memoryInGB

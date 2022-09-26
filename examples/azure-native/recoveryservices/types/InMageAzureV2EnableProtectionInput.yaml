@@ -1,0 +1,75 @@
+$token: azure-native:recoveryservices:InMageAzureV2EnableProtectionInput
+description: VMware Azure specific enable protection input.
+properties:
+  diskEncryptionSetId:
+    type: string
+    description: The DiskEncryptionSet ARM ID.
+  diskType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:recoveryservices:DiskAccountType"
+    description: The DiskType.
+  disksToInclude:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:recoveryservices:InMageAzureV2DiskInputDetails"
+    description: The disks to include list.
+  enableRdpOnTargetOption:
+    type: string
+    description: The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
+  instanceType:
+    type: string
+    description: |-
+      The class type.
+      Expected value is 'InMageAzureV2'.
+    const: InMageAzureV2
+  logStorageAccountId:
+    type: string
+    description: The storage account to be used for logging during replication.
+  masterTargetId:
+    type: string
+    description: The Master target Id.
+  multiVmGroupId:
+    type: string
+    description: The multi vm group Id.
+  multiVmGroupName:
+    type: string
+    description: The multi vm group name.
+  processServerId:
+    type: string
+    description: The Process Server Id.
+  runAsAccountId:
+    type: string
+    description: The CS account Id.
+  storageAccountId:
+    type: string
+    description: The storage account name.
+  targetAvailabilitySetId:
+    type: string
+    description: The availability set ARM Id.
+  targetAvailabilityZone:
+    type: string
+    description: The target availability zone.
+  targetAzureNetworkId:
+    type: string
+    description: The selected target Azure network Id.
+  targetAzureSubnetId:
+    type: string
+    description: The selected target Azure subnet Id.
+  targetAzureV1ResourceGroupId:
+    type: string
+    description: The Id of the target resource group (for classic deployment) in which the failover VM is to be created.
+  targetAzureV2ResourceGroupId:
+    type: string
+    description: The Id of the target resource group (for resource manager deployment) in which the failover VM is to be created.
+  targetAzureVmName:
+    type: string
+    description: The target azure Vm Name.
+  targetProximityPlacementGroupId:
+    type: string
+    description: The proximity placement group ARM Id.
+  targetVmSize:
+    type: string
+    description: The target VM size.
+type: object

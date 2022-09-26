@@ -1,0 +1,29 @@
+$token: azure-native:media/v20180601preview:StreamingLocatorContentKeyResponse
+description: Class for content key in Streaming Locator
+properties:
+  id:
+    type: string
+    description: ID of Content Key
+  label:
+    type: string
+    description: Label of Content Key
+  policyName:
+    type: string
+    description: ContentKeyPolicy used by Content Key
+  tracks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:media/v20180601preview:TrackSelectionResponse"
+    description: Tracks which use this Content Key
+  type:
+    type: string
+    description: Encryption type of Content Key
+  value:
+    type: string
+    description: Value of Content Key
+type: object
+required:
+  - id
+  - policyName
+  - type

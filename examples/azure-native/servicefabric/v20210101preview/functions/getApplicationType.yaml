@@ -1,0 +1,52 @@
+$token: azure-native:servicefabric/v20210101preview:getApplicationType
+description: The application type name resource
+inputs:
+  properties:
+    applicationTypeName:
+      type: string
+      description: The name of the application type name resource.
+    clusterName:
+      type: string
+      description: The name of the cluster resource.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - applicationTypeName
+    - clusterName
+    - resourceGroupName
+outputs:
+  description: The application type name resource
+  properties:
+    id:
+      type: string
+      description: Azure resource identifier.
+    location:
+      type: string
+      description: Resource location depends on the parent resource.
+    name:
+      type: string
+      description: Azure resource name.
+    provisioningState:
+      type: string
+      description: The current deployment or provisioning state, which only appears in the response.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:servicefabric/v20210101preview:SystemDataResponse"
+      description: Metadata pertaining to creation and last modification of the resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Azure resource tags.
+    type:
+      type: string
+      description: Azure resource type.
+  type: object
+  required:
+    - id
+    - name
+    - provisioningState
+    - systemData
+    - type

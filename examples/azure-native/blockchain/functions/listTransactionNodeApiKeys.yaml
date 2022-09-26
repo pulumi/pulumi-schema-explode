@@ -1,0 +1,30 @@
+$token: azure-native:blockchain:listTransactionNodeApiKeys
+description: |-
+  Collection of the API key payload which is exposed in the response of the resource provider.
+  API Version: 2018-06-01-preview.
+inputs:
+  properties:
+    blockchainMemberName:
+      type: string
+      description: Blockchain member name.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    transactionNodeName:
+      type: string
+      description: Transaction node name.
+  type: object
+  required:
+    - blockchainMemberName
+    - resourceGroupName
+    - transactionNodeName
+outputs:
+  description: Collection of the API key payload which is exposed in the response of the resource provider.
+  properties:
+    keys:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:blockchain:ApiKeyResponse"
+      description: Gets or sets the collection of API key.
+  type: object

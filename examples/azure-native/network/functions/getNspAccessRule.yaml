@@ -1,0 +1,78 @@
+$token: azure-native:network:getNspAccessRule
+description: |-
+  The NSP access rule resource
+  API Version: 2021-02-01-preview.
+inputs:
+  properties:
+    accessRuleName:
+      type: string
+      description: The name of the NSP access rule.
+    networkSecurityPerimeterName:
+      type: string
+      description: The name of the network security perimeter.
+    profileName:
+      type: string
+      description: The name of the NSP profile.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - accessRuleName
+    - networkSecurityPerimeterName
+    - profileName
+    - resourceGroupName
+outputs:
+  description: The NSP access rule resource
+  properties:
+    addressPrefixes:
+      type: array
+      items:
+        type: string
+      description: Inbound address prefixes (IPv4/IPv6)
+    direction:
+      type: string
+      description: Direction that specifies whether the access rules is inbound/outbound.
+    fullyQualifiedDomainNames:
+      type: array
+      items:
+        type: string
+      description: Outbound rules fully qualified domain name format.
+    id:
+      type: string
+      description: Resource ID.
+    location:
+      type: string
+      description: Resource location.
+    name:
+      type: string
+      description: Resource name.
+    networkSecurityPerimeters:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network:PerimeterBasedAccessRuleResponse"
+      description: Inbound rule specified by the perimeter id.
+    provisioningState:
+      type: string
+      description: The provisioning state of the scope assignment resource.
+    subscriptions:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network:SubscriptionIdResponse"
+      description: List of subscription ids
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - id
+    - name
+    - provisioningState
+    - type

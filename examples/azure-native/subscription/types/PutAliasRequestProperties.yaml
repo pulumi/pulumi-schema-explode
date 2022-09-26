@@ -1,0 +1,21 @@
+$token: azure-native:subscription:PutAliasRequestProperties
+description: Put subscription properties.
+properties:
+  billingScope:
+    type: string
+    description: Determines whether subscription is fieldLed, partnerLed or LegacyEA
+  displayName:
+    type: string
+    description: The friendly name of the subscription.
+  resellerId:
+    type: string
+    description: Reseller ID, basically MPN Id
+  subscriptionId:
+    type: string
+    description: This parameter can be used to create alias for existing subscription Id
+  workload:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:subscription:Workload"
+    description: The workload type of the subscription. It can be either Production or DevTest.
+type: object

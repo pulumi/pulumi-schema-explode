@@ -106,9 +106,14 @@ function writeTokenSpec(
   context: Context
 ): void {
   const [provider, modulePath, name] = token.split(":");
-  const [module] = modulePath.split("/");
+  const [module, submodule] = modulePath.split("/");
+  const ignoreSubmodule =
+    submodule === undefined ||
+    submodule.localeCompare(name, undefined, { sensitivity: "base" }) === 0;
+  const dir = ignoreSubmodule
+    ? path.join(module, type)
+    : path.join(module, submodule, type);
   const { description, spec } = formatForOutput(token, fn);
-  const dir = path.join(module, type);
   context.writeData(path.join(dir, name), spec);
   if (description !== undefined) {
     context.write(path.join(dir, `${name}.md`), description);

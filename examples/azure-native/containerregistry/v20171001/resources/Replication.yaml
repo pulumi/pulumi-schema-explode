@@ -1,0 +1,63 @@
+$token: azure-native:containerregistry/v20171001:Replication
+description: An object that represents a replication for a container registry.
+properties:
+  location:
+    type: string
+    description: The location of the resource. This cannot be changed after the resource is created.
+  name:
+    type: string
+    description: The name of the resource.
+  provisioningState:
+    type: string
+    description: The provisioning state of the replication at the time the operation was called.
+  status:
+    type: object
+    $ref: "#/types/azure-native:containerregistry/v20171001:StatusResponse"
+    description: The status of the replication at the time the operation was called.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - location
+  - name
+  - provisioningState
+  - status
+  - type
+inputProperties:
+  location:
+    type: string
+    description: The location of the resource. This cannot be changed after the resource is created.
+  registryName:
+    type: string
+    description: The name of the container registry.
+  replicationName:
+    type: string
+    description: The name of the replication.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group to which the container registry belongs.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+requiredInputs:
+  - registryName
+  - resourceGroupName
+aliases:
+  - type: azure-native:containerregistry:Replication
+  - type: azure-native:containerregistry/v20170601preview:Replication
+  - type: azure-native:containerregistry/v20190501:Replication
+  - type: azure-native:containerregistry/v20191201preview:Replication
+  - type: azure-native:containerregistry/v20201101preview:Replication
+  - type: azure-native:containerregistry/v20210601preview:Replication
+  - type: azure-native:containerregistry/v20210801preview:Replication
+  - type: azure-native:containerregistry/v20210901:Replication
+  - type: azure-native:containerregistry/v20211201preview:Replication
+  - type: azure-native:containerregistry/v20220201preview:Replication

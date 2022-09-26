@@ -1,0 +1,53 @@
+$token: azure-native:storagemover/v20220701preview:getEndpoint
+description: The Endpoint resource, which contains information about file sources and targets.
+inputs:
+  properties:
+    endpointName:
+      type: string
+      description: The name of the Endpoint resource.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    storageMoverName:
+      type: string
+      description: The name of the Storage Mover resource.
+  type: object
+  required:
+    - endpointName
+    - resourceGroupName
+    - storageMoverName
+outputs:
+  description: The Endpoint resource, which contains information about file sources and targets.
+  properties:
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    name:
+      type: string
+      description: The name of the resource
+    properties:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:storagemover/v20220701preview:AzureStorageBlobContainerEndpointPropertiesResponse"
+        - type: object
+          $ref: "#/types/azure-native:storagemover/v20220701preview:NfsMountEndpointPropertiesResponse"
+      discriminator:
+        propertyName: endpointType
+        mapping:
+          AzureStorageBlobContainer: "#/types/azure-native:storagemover/v20220701preview:AzureStorageBlobContainerEndpointPropertiesResponse"
+          NfsMount: "#/types/azure-native:storagemover/v20220701preview:NfsMountEndpointPropertiesResponse"
+      description: The resource specific properties for the Storage Mover resource.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:storagemover/v20220701preview:SystemDataResponse"
+      description: Resource system metadata.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - systemData
+    - type

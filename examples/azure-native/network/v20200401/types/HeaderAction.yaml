@@ -1,0 +1,18 @@
+$token: azure-native:network/v20200401:HeaderAction
+description: An action that can manipulate an http header.
+properties:
+  headerActionType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20200401:HeaderActionType"
+    description: Which type of manipulation to apply to the header.
+  headerName:
+    type: string
+    description: The name of the header this action will apply to.
+  value:
+    type: string
+    description: The value to update the given header name with. This value is not used if the actionType is Delete.
+type: object
+required:
+  - headerActionType
+  - headerName

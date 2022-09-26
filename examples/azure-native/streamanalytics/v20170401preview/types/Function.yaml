@@ -1,0 +1,19 @@
+$token: azure-native:streamanalytics/v20170401preview:Function
+description: A function object, containing all information associated with the named function. All functions are contained under a streaming job.
+properties:
+  name:
+    type: string
+    description: Resource name
+  properties:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20170401preview:AggregateFunctionProperties"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20170401preview:ScalarFunctionProperties"
+    discriminator:
+      propertyName: type
+      mapping:
+        Aggregate: "#/types/azure-native:streamanalytics/v20170401preview:AggregateFunctionProperties"
+        Scalar: "#/types/azure-native:streamanalytics/v20170401preview:ScalarFunctionProperties"
+    description: The properties that are associated with a function.
+type: object

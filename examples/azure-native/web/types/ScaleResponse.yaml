@@ -1,0 +1,16 @@
+$token: azure-native:web:ScaleResponse
+description: Container App scaling configurations.
+properties:
+  maxReplicas:
+    type: integer
+    description: Optional. Maximum number of container replicas. Defaults to 10 if not set.
+  minReplicas:
+    type: integer
+    description: Optional. Minimum number of container replicas.
+  rules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:web:ScaleRuleResponse"
+    description: Scaling rules.
+type: object

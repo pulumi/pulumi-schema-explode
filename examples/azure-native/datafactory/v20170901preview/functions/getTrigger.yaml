@@ -1,0 +1,62 @@
+$token: azure-native:datafactory/v20170901preview:getTrigger
+description: Trigger resource type.
+inputs:
+  properties:
+    factoryName:
+      type: string
+      description: The factory name.
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+    triggerName:
+      type: string
+      description: The trigger name.
+  type: object
+  required:
+    - factoryName
+    - resourceGroupName
+    - triggerName
+outputs:
+  description: Trigger resource type.
+  properties:
+    etag:
+      type: string
+      description: Etag identifies change in the resource.
+    id:
+      type: string
+      description: The resource identifier.
+    name:
+      type: string
+      description: The resource name.
+    properties:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:datafactory/v20170901preview:BlobEventsTriggerResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory/v20170901preview:BlobTriggerResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory/v20170901preview:MultiplePipelineTriggerResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory/v20170901preview:ScheduleTriggerResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory/v20170901preview:TumblingWindowTriggerResponse"
+      discriminator:
+        propertyName: type
+        mapping:
+          BlobEventsTrigger: "#/types/azure-native:datafactory/v20170901preview:BlobEventsTriggerResponse"
+          BlobTrigger: "#/types/azure-native:datafactory/v20170901preview:BlobTriggerResponse"
+          MultiplePipelineTrigger: "#/types/azure-native:datafactory/v20170901preview:MultiplePipelineTriggerResponse"
+          ScheduleTrigger: "#/types/azure-native:datafactory/v20170901preview:ScheduleTriggerResponse"
+          TumblingWindowTrigger: "#/types/azure-native:datafactory/v20170901preview:TumblingWindowTriggerResponse"
+      description: Properties of the trigger.
+    type:
+      type: string
+      description: The resource type.
+  type: object
+  required:
+    - etag
+    - id
+    - name
+    - properties
+    - type
+deprecationMessage: Version 2017-09-01-preview will be removed in v2 of the provider.

@@ -1,0 +1,35 @@
+$token: azure-native:sql/v20200202preview:JobStepOutputResponse
+description: The output configuration of a job step.
+properties:
+  credential:
+    type: string
+    description: The resource ID of the credential to use to connect to the output destination.
+  databaseName:
+    type: string
+    description: The output destination database.
+  resourceGroupName:
+    type: string
+    description: The output destination resource group.
+  schemaName:
+    type: string
+    description: The output destination schema.
+    default: dbo
+  serverName:
+    type: string
+    description: The output destination server name.
+  subscriptionId:
+    type: string
+    description: The output destination subscription id.
+  tableName:
+    type: string
+    description: The output destination table.
+  type:
+    type: string
+    description: The output destination type.
+    default: SqlDatabase
+type: object
+required:
+  - credential
+  - databaseName
+  - serverName
+  - tableName

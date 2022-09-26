@@ -1,0 +1,58 @@
+$token: azure-native:avs/v20211201:getWorkloadNetworkPortMirroring
+description: NSX Port Mirroring
+inputs:
+  properties:
+    portMirroringId:
+      type: string
+      description: NSX Port Mirroring identifier. Generally the same as the Port Mirroring display name
+    privateCloudName:
+      type: string
+      description: Name of the private cloud
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+  type: object
+  required:
+    - portMirroringId
+    - privateCloudName
+    - resourceGroupName
+outputs:
+  description: NSX Port Mirroring
+  properties:
+    destination:
+      type: string
+      description: Destination VM Group.
+    direction:
+      type: string
+      description: Direction of port mirroring profile.
+    displayName:
+      type: string
+      description: Display name of the port mirroring profile.
+    id:
+      type: string
+      description: Resource ID.
+    name:
+      type: string
+      description: Resource name.
+    provisioningState:
+      type: string
+      description: The provisioning state
+    revision:
+      type: number
+      description: NSX revision number.
+    source:
+      type: string
+      description: Source VM Group.
+    status:
+      type: string
+      description: Port Mirroring Status.
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - id
+    - name
+    - provisioningState
+    - status
+    - type

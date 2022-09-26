@@ -1,0 +1,19 @@
+$token: azure-native:databoxedge/v20210601:NodeInfoResponse
+description: Kubernetes node info
+properties:
+  ipConfiguration:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:databoxedge/v20210601:KubernetesIPConfigurationResponse"
+    description: IP Configuration of the Kubernetes node.
+  name:
+    type: string
+    description: Node name.
+  type:
+    type: string
+    description: Node type - Master/Worker
+type: object
+required:
+  - name
+  - type

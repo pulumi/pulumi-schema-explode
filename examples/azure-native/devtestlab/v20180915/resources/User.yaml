@@ -1,0 +1,73 @@
+$token: azure-native:devtestlab/v20180915:User
+description: Profile of a lab user.
+properties:
+  createdDate:
+    type: string
+    description: The creation date of the user profile.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:devtestlab/v20180915:UserIdentityResponse"
+    description: The identity of the user.
+  location:
+    type: string
+    description: The location of the resource.
+  name:
+    type: string
+    description: The name of the resource.
+  provisioningState:
+    type: string
+    description: The provisioning status of the resource.
+  secretStore:
+    type: object
+    $ref: "#/types/azure-native:devtestlab/v20180915:UserSecretStoreResponse"
+    description: The secret store of the user.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+  type:
+    type: string
+    description: The type of the resource.
+  uniqueIdentifier:
+    type: string
+    description: The unique immutable identifier of a resource (Guid).
+type: object
+required:
+  - createdDate
+  - name
+  - provisioningState
+  - type
+  - uniqueIdentifier
+inputProperties:
+  identity:
+    type: object
+    $ref: "#/types/azure-native:devtestlab/v20180915:UserIdentity"
+    description: The identity of the user.
+  labName:
+    type: string
+    description: The name of the lab.
+  location:
+    type: string
+    description: The location of the resource.
+  name:
+    type: string
+    description: The name of the user profile.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  secretStore:
+    type: object
+    $ref: "#/types/azure-native:devtestlab/v20180915:UserSecretStore"
+    description: The secret store of the user.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+requiredInputs:
+  - labName
+  - resourceGroupName
+aliases:
+  - type: azure-native:devtestlab:User
+  - type: azure-native:devtestlab/v20160515:User

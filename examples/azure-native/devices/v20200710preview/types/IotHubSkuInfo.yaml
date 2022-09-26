@@ -1,0 +1,14 @@
+$token: azure-native:devices/v20200710preview:IotHubSkuInfo
+description: Information about the SKU of the IoT hub.
+properties:
+  capacity:
+    type: number
+    description: "The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits."
+  name:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:devices/v20200710preview:IotHubSku"
+    description: The name of the SKU.
+type: object
+required:
+  - name

@@ -1,0 +1,117 @@
+$token: azure-native:desktopvirtualization/v20210309preview:MSIXPackage
+description: Schema for MSIX Package properties.
+properties:
+  displayName:
+    type: string
+    description: "User friendly Name to be displayed in the portal. "
+  imagePath:
+    type: string
+    description: VHD/CIM image path on Network Share.
+  isActive:
+    type: boolean
+    description: "Make this version of the package the active one across the hostpool. "
+  isRegularRegistration:
+    type: boolean
+    description: Specifies how to register Package in feed.
+  lastUpdated:
+    type: string
+    description: "Date Package was last updated, found in the appxmanifest.xml. "
+  name:
+    type: string
+    description: The name of the resource
+  packageApplications:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:desktopvirtualization/v20210309preview:MsixPackageApplicationsResponse"
+    description: "List of package applications. "
+  packageDependencies:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:desktopvirtualization/v20210309preview:MsixPackageDependenciesResponse"
+    description: "List of package dependencies. "
+  packageFamilyName:
+    type: string
+    description: "Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. "
+  packageName:
+    type: string
+    description: "Package Name from appxmanifest.xml. "
+  packageRelativePath:
+    type: string
+    description: "Relative Path to the package inside the image. "
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  version:
+    type: string
+    description: "Package Version found in the appxmanifest.xml. "
+type: object
+required:
+  - name
+  - type
+inputProperties:
+  displayName:
+    type: string
+    description: "User friendly Name to be displayed in the portal. "
+  hostPoolName:
+    type: string
+    description: The name of the host pool within the specified resource group
+  imagePath:
+    type: string
+    description: VHD/CIM image path on Network Share.
+  isActive:
+    type: boolean
+    description: "Make this version of the package the active one across the hostpool. "
+  isRegularRegistration:
+    type: boolean
+    description: Specifies how to register Package in feed.
+  lastUpdated:
+    type: string
+    description: "Date Package was last updated, found in the appxmanifest.xml. "
+  msixPackageFullName:
+    type: string
+    description: The version specific package full name of the MSIX package within specified hostpool
+  packageApplications:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:desktopvirtualization/v20210309preview:MsixPackageApplications"
+    description: "List of package applications. "
+  packageDependencies:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:desktopvirtualization/v20210309preview:MsixPackageDependencies"
+    description: "List of package dependencies. "
+  packageFamilyName:
+    type: string
+    description: "Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. "
+  packageName:
+    type: string
+    description: "Package Name from appxmanifest.xml. "
+  packageRelativePath:
+    type: string
+    description: "Relative Path to the package inside the image. "
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  version:
+    type: string
+    description: "Package Version found in the appxmanifest.xml. "
+requiredInputs:
+  - hostPoolName
+  - resourceGroupName
+aliases:
+  - type: azure-native:desktopvirtualization:MSIXPackage
+  - type: azure-native:desktopvirtualization/v20200921preview:MSIXPackage
+  - type: azure-native:desktopvirtualization/v20201019preview:MSIXPackage
+  - type: azure-native:desktopvirtualization/v20201102preview:MSIXPackage
+  - type: azure-native:desktopvirtualization/v20201110preview:MSIXPackage
+  - type: azure-native:desktopvirtualization/v20210114preview:MSIXPackage
+  - type: azure-native:desktopvirtualization/v20210201preview:MSIXPackage
+  - type: azure-native:desktopvirtualization/v20210401preview:MSIXPackage
+  - type: azure-native:desktopvirtualization/v20210712:MSIXPackage
+  - type: azure-native:desktopvirtualization/v20210903preview:MSIXPackage
+  - type: azure-native:desktopvirtualization/v20220210preview:MSIXPackage
+  - type: azure-native:desktopvirtualization/v20220401preview:MSIXPackage

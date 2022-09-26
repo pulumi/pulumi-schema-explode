@@ -1,0 +1,30 @@
+$token: azure-native:cdn/v20171012:DeliveryRuleResponse
+description: A rule that specifies a set of actions and conditions
+properties:
+  actions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:cdn/v20171012:DeliveryRuleCacheExpirationActionResponse"
+    description: A list of actions that are executed when all the conditions of a rule are satisfied.
+  conditions:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:cdn/v20171012:DeliveryRuleUrlFileExtensionConditionResponse"
+        - type: object
+          $ref: "#/types/azure-native:cdn/v20171012:DeliveryRuleUrlPathConditionResponse"
+      discriminator:
+        propertyName: name
+        mapping:
+          UrlFileExtension: "#/types/azure-native:cdn/v20171012:DeliveryRuleUrlFileExtensionConditionResponse"
+          UrlPath: "#/types/azure-native:cdn/v20171012:DeliveryRuleUrlPathConditionResponse"
+    description: A list of conditions that must be matched for the actions to be executed
+  order:
+    type: integer
+    description: The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
+type: object
+required:
+  - actions
+  - order

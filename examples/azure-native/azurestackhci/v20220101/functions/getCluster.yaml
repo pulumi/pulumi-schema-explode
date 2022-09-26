@@ -1,0 +1,110 @@
+$token: azure-native:azurestackhci/v20220101:getCluster
+description: Cluster details.
+inputs:
+  properties:
+    clusterName:
+      type: string
+      description: The name of the cluster.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+  type: object
+  required:
+    - clusterName
+    - resourceGroupName
+outputs:
+  description: Cluster details.
+  properties:
+    aadClientId:
+      type: string
+      description: App id of cluster AAD identity.
+    aadTenantId:
+      type: string
+      description: Tenant id of cluster AAD identity.
+    billingModel:
+      type: string
+      description: Type of billing applied to the resource.
+    cloudId:
+      type: string
+      description: Unique, immutable resource id.
+    cloudManagementEndpoint:
+      type: string
+      description: Endpoint configured for management from the Azure portal.
+    createdAt:
+      type: string
+      description: The timestamp of resource creation (UTC).
+    createdBy:
+      type: string
+      description: The identity that created the resource.
+    createdByType:
+      type: string
+      description: The type of identity that created the resource.
+    desiredProperties:
+      type: object
+      $ref: "#/types/azure-native:azurestackhci/v20220101:ClusterDesiredPropertiesResponse"
+      description: Desired properties of the cluster.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    lastBillingTimestamp:
+      type: string
+      description: Most recent billing meter timestamp.
+    lastModifiedAt:
+      type: string
+      description: The timestamp of resource last modification (UTC)
+    lastModifiedBy:
+      type: string
+      description: The identity that last modified the resource.
+    lastModifiedByType:
+      type: string
+      description: The type of identity that last modified the resource.
+    lastSyncTimestamp:
+      type: string
+      description: Most recent cluster sync timestamp.
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    name:
+      type: string
+      description: The name of the resource
+    provisioningState:
+      type: string
+      description: Provisioning state.
+    registrationTimestamp:
+      type: string
+      description: First cluster sync timestamp.
+    reportedProperties:
+      type: object
+      $ref: "#/types/azure-native:azurestackhci/v20220101:ClusterReportedPropertiesResponse"
+      description: Properties reported by cluster agent.
+    status:
+      type: string
+      description: Status of the cluster agent.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    trialDaysRemaining:
+      type: number
+      description: Number of days remaining in the trial period.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - aadClientId
+    - aadTenantId
+    - billingModel
+    - cloudId
+    - id
+    - lastBillingTimestamp
+    - lastSyncTimestamp
+    - location
+    - name
+    - provisioningState
+    - registrationTimestamp
+    - reportedProperties
+    - status
+    - trialDaysRemaining
+    - type

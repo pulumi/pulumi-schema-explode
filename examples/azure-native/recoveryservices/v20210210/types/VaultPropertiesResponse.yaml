@@ -1,0 +1,32 @@
+$token: azure-native:recoveryservices/v20210210:VaultPropertiesResponse
+description: Properties of the vault.
+properties:
+  encryption:
+    type: object
+    $ref: "#/types/azure-native:recoveryservices/v20210210:VaultPropertiesResponseEncryption"
+    description: Customer Managed Key details of the resource.
+  privateEndpointConnections:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:recoveryservices/v20210210:PrivateEndpointConnectionVaultPropertiesResponse"
+    description: List of private endpoint connection.
+  privateEndpointStateForBackup:
+    type: string
+    description: Private endpoint state for backup.
+  privateEndpointStateForSiteRecovery:
+    type: string
+    description: Private endpoint state for site recovery.
+  provisioningState:
+    type: string
+    description: Provisioning State.
+  upgradeDetails:
+    type: object
+    $ref: "#/types/azure-native:recoveryservices/v20210210:UpgradeDetailsResponse"
+    description: Details for upgrading vault.
+type: object
+required:
+  - privateEndpointConnections
+  - privateEndpointStateForBackup
+  - privateEndpointStateForSiteRecovery
+  - provisioningState

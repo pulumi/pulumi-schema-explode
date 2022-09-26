@@ -1,0 +1,86 @@
+$token: azure-native:devtestlab/v20160515:NotificationChannel
+description: A notification.
+properties:
+  createdDate:
+    type: string
+    description: The creation date of the notification channel.
+  description:
+    type: string
+    description: Description of notification.
+  events:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:devtestlab/v20160515:EventResponse"
+    description: The list of event for which this notification is enabled.
+  location:
+    type: string
+    description: The location of the resource.
+  name:
+    type: string
+    description: The name of the resource.
+  provisioningState:
+    type: string
+    description: The provisioning status of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+  type:
+    type: string
+    description: The type of the resource.
+  uniqueIdentifier:
+    type: string
+    description: The unique immutable identifier of a resource (Guid).
+  webHookUrl:
+    type: string
+    description: The webhook URL to send notifications to.
+type: object
+required:
+  - createdDate
+  - name
+  - type
+inputProperties:
+  description:
+    type: string
+    description: Description of notification.
+  events:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:devtestlab/v20160515:Event"
+    description: The list of event for which this notification is enabled.
+  labName:
+    type: string
+    description: The name of the lab.
+  location:
+    type: string
+    description: The location of the resource.
+  name:
+    type: string
+    description: The name of the notificationChannel.
+  provisioningState:
+    type: string
+    description: The provisioning status of the resource.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+  uniqueIdentifier:
+    type: string
+    description: The unique immutable identifier of a resource (Guid).
+  webHookUrl:
+    type: string
+    description: The webhook URL to send notifications to.
+requiredInputs:
+  - labName
+  - resourceGroupName
+aliases:
+  - type: azure-native:devtestlab:NotificationChannel
+  - type: azure-native:devtestlab/v20180915:NotificationChannel
+deprecationMessage: Version 2016-05-15 will be removed in v2 of the provider.

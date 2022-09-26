@@ -1,0 +1,58 @@
+$token: azure-native:hdinsight:ApplicationPropertiesResponse
+description: The HDInsight cluster application GET response.
+properties:
+  applicationState:
+    type: string
+    description: The application state.
+  applicationType:
+    type: string
+    description: The application type.
+  computeProfile:
+    type: object
+    $ref: "#/types/azure-native:hdinsight:ComputeProfileResponse"
+    description: The list of roles in the cluster.
+  createdDate:
+    type: string
+    description: The application create date time.
+  errors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:hdinsight:ErrorsResponse"
+    description: The list of errors.
+  httpsEndpoints:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:hdinsight:ApplicationGetHttpsEndpointResponse"
+    description: The list of application HTTPS endpoints.
+  installScriptActions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:hdinsight:RuntimeScriptActionResponse"
+    description: The list of install script actions.
+  marketplaceIdentifier:
+    type: string
+    description: The marketplace identifier.
+  provisioningState:
+    type: string
+    description: The provisioning state of the application.
+  sshEndpoints:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:hdinsight:ApplicationGetEndpointResponse"
+    description: The list of application SSH endpoints.
+  uninstallScriptActions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:hdinsight:RuntimeScriptActionResponse"
+    description: The list of uninstall script actions.
+type: object
+required:
+  - applicationState
+  - createdDate
+  - marketplaceIdentifier
+  - provisioningState

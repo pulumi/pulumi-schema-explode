@@ -1,0 +1,39 @@
+$token: azure-native:management/v20200501:ManagementGroupSubscription
+description: The details of subscription under management group.
+properties:
+  displayName:
+    type: string
+    description: The friendly name of the subscription.
+  name:
+    type: string
+    description: The stringified id of the subscription. For example, 00000000-0000-0000-0000-000000000000
+  parent:
+    type: object
+    $ref: "#/types/azure-native:management/v20200501:DescendantParentGroupInfoResponse"
+    description: The ID of the parent management group.
+  state:
+    type: string
+    description: The state of the subscription.
+  tenant:
+    type: string
+    description: The AAD Tenant ID associated with the subscription. For example, 00000000-0000-0000-0000-000000000000
+  type:
+    type: string
+    description: The type of the resource.  For example, Microsoft.Management/managementGroups/subscriptions
+type: object
+required:
+  - name
+  - type
+inputProperties:
+  groupId:
+    type: string
+    description: Management Group ID.
+  subscriptionId:
+    type: string
+    description: Subscription ID.
+requiredInputs:
+  - groupId
+aliases:
+  - type: azure-native:management:ManagementGroupSubscription
+  - type: azure-native:management/v20201001:ManagementGroupSubscription
+  - type: azure-native:management/v20210401:ManagementGroupSubscription

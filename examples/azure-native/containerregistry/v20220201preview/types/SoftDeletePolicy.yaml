@@ -1,0 +1,14 @@
+$token: azure-native:containerregistry/v20220201preview:SoftDeletePolicy
+description: The soft delete policy for a container registry
+properties:
+  retentionDays:
+    type: integer
+    description: The number of days after which a soft-deleted item is permanently deleted.
+    default: 7
+  status:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:containerregistry/v20220201preview:PolicyStatus"
+    description: The value that indicates whether the policy is enabled or not.
+    default: disabled
+type: object

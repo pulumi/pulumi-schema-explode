@@ -1,0 +1,22 @@
+$token: azure-native:securityinsights/v20220401preview:FusionSourceSubTypeSettingResponse
+description: Represents a supported source subtype configuration under a source signal in Fusion detection.
+properties:
+  enabled:
+    type: boolean
+    description: Determines whether this source subtype under source signal is enabled or disabled in Fusion detection.
+  severityFilters:
+    type: object
+    $ref: "#/types/azure-native:securityinsights/v20220401preview:FusionSubTypeSeverityFilterResponse"
+    description: Severity configuration for a source subtype consumed in fusion detection.
+  sourceSubTypeDisplayName:
+    type: string
+    description: The display name of source subtype under a source signal consumed in Fusion detection.
+  sourceSubTypeName:
+    type: string
+    description: The Name of the source subtype under a given source signal in Fusion detection. Refer to Fusion alert rule template for supported values.
+type: object
+required:
+  - enabled
+  - severityFilters
+  - sourceSubTypeDisplayName
+  - sourceSubTypeName

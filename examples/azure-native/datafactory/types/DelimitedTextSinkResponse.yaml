@@ -1,0 +1,58 @@
+$token: azure-native:datafactory:DelimitedTextSinkResponse
+description: A copy activity DelimitedText sink.
+properties:
+  disableMetricsCollection:
+    $ref: pulumi.json#/Any
+    description: "If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean)."
+  formatSettings:
+    type: object
+    $ref: "#/types/azure-native:datafactory:DelimitedTextWriteSettingsResponse"
+    description: DelimitedText format settings.
+  maxConcurrentConnections:
+    $ref: pulumi.json#/Any
+    description: "The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer)."
+  sinkRetryCount:
+    $ref: pulumi.json#/Any
+    description: "Sink retry count. Type: integer (or Expression with resultType integer)."
+  sinkRetryWait:
+    $ref: pulumi.json#/Any
+    description: "Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9]))."
+  storeSettings:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureBlobFSWriteSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureBlobStorageWriteSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureDataLakeStoreWriteSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureFileStorageWriteSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:FileServerWriteSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SftpWriteSettingsResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        AzureBlobFSWriteSettings: "#/types/azure-native:datafactory:AzureBlobFSWriteSettingsResponse"
+        AzureBlobStorageWriteSettings: "#/types/azure-native:datafactory:AzureBlobStorageWriteSettingsResponse"
+        AzureDataLakeStoreWriteSettings: "#/types/azure-native:datafactory:AzureDataLakeStoreWriteSettingsResponse"
+        AzureFileStorageWriteSettings: "#/types/azure-native:datafactory:AzureFileStorageWriteSettingsResponse"
+        FileServerWriteSettings: "#/types/azure-native:datafactory:FileServerWriteSettingsResponse"
+        SftpWriteSettings: "#/types/azure-native:datafactory:SftpWriteSettingsResponse"
+    description: DelimitedText store settings.
+  type:
+    type: string
+    description: |-
+      Copy sink type.
+      Expected value is 'DelimitedTextSink'.
+    const: DelimitedTextSink
+  writeBatchSize:
+    $ref: pulumi.json#/Any
+    description: "Write batch size. Type: integer (or Expression with resultType integer), minimum: 0."
+  writeBatchTimeout:
+    $ref: pulumi.json#/Any
+    description: "Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9]))."
+type: object
+required:
+  - type

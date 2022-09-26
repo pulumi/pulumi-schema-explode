@@ -1,0 +1,45 @@
+$token: azure-native:eventhub/v20170401:getEventHubAuthorizationRule
+description: Single item in a List or Get AuthorizationRule operation
+inputs:
+  properties:
+    authorizationRuleName:
+      type: string
+      description: The authorization rule name.
+    eventHubName:
+      type: string
+      description: The Event Hub name
+    namespaceName:
+      type: string
+      description: The Namespace name
+    resourceGroupName:
+      type: string
+      description: Name of the resource group within the azure subscription.
+  type: object
+  required:
+    - authorizationRuleName
+    - eventHubName
+    - namespaceName
+    - resourceGroupName
+outputs:
+  description: Single item in a List or Get AuthorizationRule operation
+  properties:
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    name:
+      type: string
+      description: The name of the resource
+    rights:
+      type: array
+      items:
+        type: string
+      description: The rights associated with the rule.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - id
+    - name
+    - rights
+    - type

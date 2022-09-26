@@ -1,0 +1,66 @@
+$token: azure-native:datafactory:DataFlow
+description: |-
+  Data flow resource type.
+  API Version: 2018-06-01.
+properties:
+  etag:
+    type: string
+    description: Etag identifies change in the resource.
+  name:
+    type: string
+    description: The resource name.
+  properties:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory:FlowletResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:MappingDataFlowResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:WranglingDataFlowResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        Flowlet: "#/types/azure-native:datafactory:FlowletResponse"
+        MappingDataFlow: "#/types/azure-native:datafactory:MappingDataFlowResponse"
+        WranglingDataFlow: "#/types/azure-native:datafactory:WranglingDataFlowResponse"
+    description: Data flow properties.
+  type:
+    type: string
+    description: The resource type.
+type: object
+required:
+  - etag
+  - name
+  - properties
+  - type
+inputProperties:
+  dataFlowName:
+    type: string
+    description: The data flow name.
+  factoryName:
+    type: string
+    description: The factory name.
+  properties:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory:Flowlet"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:MappingDataFlow"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:WranglingDataFlow"
+    discriminator:
+      propertyName: type
+      mapping:
+        Flowlet: "#/types/azure-native:datafactory:Flowlet"
+        MappingDataFlow: "#/types/azure-native:datafactory:MappingDataFlow"
+        WranglingDataFlow: "#/types/azure-native:datafactory:WranglingDataFlow"
+    description: Data flow properties.
+  resourceGroupName:
+    type: string
+    description: The resource group name.
+requiredInputs:
+  - factoryName
+  - properties
+  - resourceGroupName
+aliases:
+  - type: azure-native:datafactory/v20180601:DataFlow

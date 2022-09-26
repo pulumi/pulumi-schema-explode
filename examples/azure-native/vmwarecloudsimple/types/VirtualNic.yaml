@@ -1,0 +1,32 @@
+$token: azure-native:vmwarecloudsimple:VirtualNic
+description: Virtual NIC model
+properties:
+  customization:
+    type: object
+    $ref: "#/types/azure-native:vmwarecloudsimple:GuestOSNICCustomization"
+    description: guest OS customization for nic
+  ipAddresses:
+    type: array
+    items:
+      type: string
+    description: NIC ip address
+  macAddress:
+    type: string
+    description: NIC MAC address
+  network:
+    type: object
+    $ref: "#/types/azure-native:vmwarecloudsimple:VirtualNetwork"
+    description: Virtual Network
+  nicType:
+    $ref: "#/types/azure-native:vmwarecloudsimple:NICType"
+    description: NIC type
+  powerOnBoot:
+    type: boolean
+    description: Is NIC powered on/off on boot
+  virtualNicId:
+    type: string
+    description: NIC id
+type: object
+required:
+  - network
+  - nicType

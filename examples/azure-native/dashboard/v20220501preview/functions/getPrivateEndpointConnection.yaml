@@ -1,0 +1,58 @@
+$token: azure-native:dashboard/v20220501preview:getPrivateEndpointConnection
+description: The Private Endpoint Connection resource.
+inputs:
+  properties:
+    privateEndpointConnectionName:
+      type: string
+      description: The private endpoint connection name of Azure Managed Grafana.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    workspaceName:
+      type: string
+      description: The workspace name of Azure Managed Grafana.
+  type: object
+  required:
+    - privateEndpointConnectionName
+    - resourceGroupName
+    - workspaceName
+outputs:
+  description: The Private Endpoint Connection resource.
+  properties:
+    groupIds:
+      type: array
+      items:
+        type: string
+      description: The private endpoint connection group ids.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    name:
+      type: string
+      description: The name of the resource
+    privateEndpoint:
+      type: object
+      $ref: "#/types/azure-native:dashboard/v20220501preview:PrivateEndpointResponse"
+      description: The resource of private end point.
+    privateLinkServiceConnectionState:
+      type: object
+      $ref: "#/types/azure-native:dashboard/v20220501preview:PrivateLinkServiceConnectionStateResponse"
+      description: A collection of information about the state of the connection between service consumer and provider.
+    provisioningState:
+      type: string
+      description: The provisioning state of the private endpoint connection resource.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:dashboard/v20220501preview:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - id
+    - name
+    - privateLinkServiceConnectionState
+    - provisioningState
+    - systemData
+    - type

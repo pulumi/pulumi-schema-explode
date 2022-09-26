@@ -1,0 +1,120 @@
+$token: azure-native:kubernetes/v20210301:ConnectedCluster
+description: Represents a connected cluster.
+properties:
+  agentPublicKeyCertificate:
+    type: string
+    description: Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
+  agentVersion:
+    type: string
+    description: Version of the agent running on the connected cluster resource
+  connectivityStatus:
+    type: string
+    description: Represents the connectivity status of the connected cluster.
+  distribution:
+    type: string
+    description: The Kubernetes distribution running on this connected cluster.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:kubernetes/v20210301:ConnectedClusterIdentityResponse"
+    description: The identity of the connected cluster.
+  infrastructure:
+    type: string
+    description: The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
+  kubernetesVersion:
+    type: string
+    description: The Kubernetes version of the connected cluster resource
+  lastConnectivityTime:
+    type: string
+    description: Time representing the last instance when heart beat was received from the cluster
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  managedIdentityCertificateExpirationTime:
+    type: string
+    description: Expiration time of the managed identity certificate
+  name:
+    type: string
+    description: The name of the resource
+  offering:
+    type: string
+    description: Connected cluster offering
+  provisioningState:
+    type: string
+    description: Provisioning state of the connected cluster resource.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:kubernetes/v20210301:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  totalCoreCount:
+    type: integer
+    description: Number of CPU cores present in the connected cluster resource
+  totalNodeCount:
+    type: integer
+    description: Number of nodes present in the connected cluster resource
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - agentPublicKeyCertificate
+  - agentVersion
+  - connectivityStatus
+  - identity
+  - kubernetesVersion
+  - lastConnectivityTime
+  - location
+  - managedIdentityCertificateExpirationTime
+  - name
+  - offering
+  - systemData
+  - totalCoreCount
+  - totalNodeCount
+  - type
+inputProperties:
+  agentPublicKeyCertificate:
+    type: string
+    description: Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
+  clusterName:
+    type: string
+    description: The name of the Kubernetes cluster on which get is called.
+  distribution:
+    type: string
+    description: The Kubernetes distribution running on this connected cluster.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:kubernetes/v20210301:ConnectedClusterIdentity"
+    description: The identity of the connected cluster.
+  infrastructure:
+    type: string
+    description: The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  provisioningState:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:kubernetes/v20210301:ProvisioningState"
+    description: Provisioning state of the connected cluster resource.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - agentPublicKeyCertificate
+  - identity
+  - resourceGroupName
+aliases:
+  - type: azure-native:kubernetes:ConnectedCluster
+  - type: azure-native:kubernetes/v20200101preview:ConnectedCluster
+  - type: azure-native:kubernetes/v20210401preview:ConnectedCluster
+  - type: azure-native:kubernetes/v20211001:ConnectedCluster
+  - type: azure-native:kubernetes/v20220501preview:ConnectedCluster

@@ -1,0 +1,125 @@
+$token: azure-native:mobilenetwork/v20220401preview:Sim
+description: SIM resource.
+properties:
+  createdAt:
+    type: string
+    description: The timestamp of resource creation (UTC).
+  createdBy:
+    type: string
+    description: The identity that created the resource.
+  createdByType:
+    type: string
+    description: The type of identity that created the resource.
+  deviceType:
+    type: string
+    description: An optional free-form text field that can be used to record the device type this SIM is associated with, for example 'Video camera'. The Azure portal allows SIMs to be grouped and filtered based on this value.
+  integratedCircuitCardIdentifier:
+    type: string
+    description: The integrated circuit card ID (ICCID) for the SIM.
+  internationalMobileSubscriberIdentity:
+    type: string
+    description: The international mobile subscriber identity (IMSI) for the SIM.
+  lastModifiedAt:
+    type: string
+    description: The timestamp of resource last modification (UTC)
+  lastModifiedBy:
+    type: string
+    description: The identity that last modified the resource.
+  lastModifiedByType:
+    type: string
+    description: The type of identity that last modified the resource.
+  name:
+    type: string
+    description: The name of the resource
+  provisioningState:
+    type: string
+    description: The provisioning state of the SIM resource.
+  simPolicy:
+    type: object
+    $ref: "#/types/azure-native:mobilenetwork/v20220401preview:SimPolicyResourceIdResponse"
+    description: The SIM policy used by this SIM.
+  simState:
+    type: string
+    description: The state of the SIM resource.
+  staticIpConfiguration:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:mobilenetwork/v20220401preview:SimStaticIpPropertiesResponse"
+    description: A list of static IP addresses assigned to this SIM. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:mobilenetwork/v20220401preview:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - internationalMobileSubscriberIdentity
+  - name
+  - provisioningState
+  - simState
+  - systemData
+  - type
+inputProperties:
+  authenticationKey:
+    type: string
+    description: The Ki value for the SIM.
+  createdAt:
+    type: string
+    description: The timestamp of resource creation (UTC).
+  createdBy:
+    type: string
+    description: The identity that created the resource.
+  createdByType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:mobilenetwork/v20220401preview:CreatedByType"
+    description: The type of identity that created the resource.
+  deviceType:
+    type: string
+    description: An optional free-form text field that can be used to record the device type this SIM is associated with, for example 'Video camera'. The Azure portal allows SIMs to be grouped and filtered based on this value.
+  integratedCircuitCardIdentifier:
+    type: string
+    description: The integrated circuit card ID (ICCID) for the SIM.
+  internationalMobileSubscriberIdentity:
+    type: string
+    description: The international mobile subscriber identity (IMSI) for the SIM.
+  lastModifiedAt:
+    type: string
+    description: The timestamp of resource last modification (UTC)
+  lastModifiedBy:
+    type: string
+    description: The identity that last modified the resource.
+  lastModifiedByType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:mobilenetwork/v20220401preview:CreatedByType"
+    description: The type of identity that last modified the resource.
+  operatorKeyCode:
+    type: string
+    description: The Opc value for the SIM.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  simGroupName:
+    type: string
+    description: The name of the SIM Group.
+  simName:
+    type: string
+    description: The name of the SIM.
+  simPolicy:
+    type: object
+    $ref: "#/types/azure-native:mobilenetwork/v20220401preview:SimPolicyResourceId"
+    description: The SIM policy used by this SIM.
+  staticIpConfiguration:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:mobilenetwork/v20220401preview:SimStaticIpProperties"
+    description: A list of static IP addresses assigned to this SIM. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
+requiredInputs:
+  - internationalMobileSubscriberIdentity
+  - resourceGroupName
+  - simGroupName

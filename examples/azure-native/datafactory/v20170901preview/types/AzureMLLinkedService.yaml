@@ -1,0 +1,71 @@
+$token: azure-native:datafactory/v20170901preview:AzureMLLinkedService
+description: Azure ML Web Service linked service.
+properties:
+  annotations:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: List of tags that can be used for describing the Dataset.
+  apiKey:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:AzureKeyVaultSecretReference"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:SecureString"
+    discriminator:
+      propertyName: type
+      mapping:
+        AzureKeyVaultSecret: "#/types/azure-native:datafactory/v20170901preview:AzureKeyVaultSecretReference"
+        SecureString: "#/types/azure-native:datafactory/v20170901preview:SecureString"
+    description: The API key for accessing the Azure ML model endpoint.
+  connectVia:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20170901preview:IntegrationRuntimeReference"
+    description: The integration runtime reference.
+  description:
+    type: string
+    description: Linked service description.
+  encryptedCredential:
+    $ref: pulumi.json#/Any
+    description: "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string)."
+  mlEndpoint:
+    $ref: pulumi.json#/Any
+    description: "The Batch Execution REST URL for an Azure ML Web Service endpoint. Type: string (or Expression with resultType string)."
+  parameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20170901preview:ParameterSpecification"
+    description: Parameters for linked service.
+  servicePrincipalId:
+    $ref: pulumi.json#/Any
+    description: "The ID of the service principal used to authenticate against the ARM-based updateResourceEndpoint of an Azure ML web service. Type: string (or Expression with resultType string)."
+  servicePrincipalKey:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:AzureKeyVaultSecretReference"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:SecureString"
+    discriminator:
+      propertyName: type
+      mapping:
+        AzureKeyVaultSecret: "#/types/azure-native:datafactory/v20170901preview:AzureKeyVaultSecretReference"
+        SecureString: "#/types/azure-native:datafactory/v20170901preview:SecureString"
+    description: The key of the service principal used to authenticate against the ARM-based updateResourceEndpoint of an Azure ML web service.
+  tenant:
+    $ref: pulumi.json#/Any
+    description: "The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string)."
+  type:
+    type: string
+    description: |-
+      Type of linked service.
+      Expected value is 'AzureML'.
+    const: AzureML
+  updateResourceEndpoint:
+    $ref: pulumi.json#/Any
+    description: "The Update Resource REST URL for an Azure ML Web Service endpoint. Type: string (or Expression with resultType string)."
+type: object
+required:
+  - apiKey
+  - mlEndpoint
+  - type

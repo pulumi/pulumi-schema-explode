@@ -1,0 +1,52 @@
+$token: azure-native:insights:RuleManagementEventDataSource
+description: A rule management event data source. The discriminator fields is always RuleManagementEventDataSource in this case.
+properties:
+  claims:
+    type: object
+    $ref: "#/types/azure-native:insights:RuleManagementEventClaimsDataSource"
+    description: the claims.
+  eventName:
+    type: string
+    description: the event name.
+  eventSource:
+    type: string
+    description: the event source.
+  legacyResourceId:
+    type: string
+    description: "the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule."
+  level:
+    type: string
+    description: the level.
+  metricNamespace:
+    type: string
+    description: the namespace of the metric.
+  odataType:
+    type: string
+    description: |-
+      specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+      Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource'.
+    const: Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource
+  operationName:
+    type: string
+    description: The name of the operation that should be checked for. If no name is provided, any operation will match.
+  resourceGroupName:
+    type: string
+    description: the resource group name.
+  resourceLocation:
+    type: string
+    description: the location of the resource.
+  resourceProviderName:
+    type: string
+    description: the resource provider name.
+  resourceUri:
+    type: string
+    description: "the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule."
+  status:
+    type: string
+    description: The status of the operation that should be checked for. If no status is provided, any status will match.
+  subStatus:
+    type: string
+    description: the substatus.
+type: object
+required:
+  - odataType

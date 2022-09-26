@@ -1,0 +1,27 @@
+$token: azure-native:cdn:CustomRuleResponse
+description: Defines the common attributes for a custom rule that can be included in a waf policy
+properties:
+  action:
+    type: string
+    description: Describes what action to be applied when rule matches
+  enabledState:
+    type: string
+    description: Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
+  matchConditions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:cdn:MatchConditionResponse"
+    description: List of match conditions.
+  name:
+    type: string
+    description: Defines the name of the custom rule
+  priority:
+    type: integer
+    description: Defines in what order this rule be evaluated in the overall list of custom rules
+type: object
+required:
+  - action
+  - matchConditions
+  - name
+  - priority

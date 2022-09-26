@@ -1,0 +1,50 @@
+$token: azure-native:machinelearningservices/v20210301preview:EnvironmentSpecificationVersionResponse
+description: "Environment specification version details.\r
+
+  <see href=\"https://repo2docker.readthedocs.io/en/latest/specification.html\" />"
+properties:
+  condaFile:
+    type: string
+    description: "Standard configuration file used by Conda that lets you install any kind of package, including Python, R, and C/C++ packages.\r
+
+      <see href=\"https://repo2docker.readthedocs.io/en/latest/config_files.html#environment-yml-install-a-conda-environment\" />"
+  description:
+    type: string
+    description: The asset description text.
+  docker:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:DockerBuildResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:DockerImageResponse"
+    discriminator:
+      propertyName: dockerSpecificationType
+      mapping:
+        Build: "#/types/azure-native:machinelearningservices/v20210301preview:DockerBuildResponse"
+        Image: "#/types/azure-native:machinelearningservices/v20210301preview:DockerImageResponse"
+    description: Configuration settings for Docker.
+  environmentSpecificationType:
+    type: string
+    description: "Environment specification is either user managed or curated by the Azure ML service\r
+
+      <see href=\"https://docs.microsoft.com/en-us/azure/machine-learning/resource-curated-environments\" />"
+  inferenceContainerProperties:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20210301preview:InferenceContainerPropertiesResponse"
+    description: Defines configuration specific to inference.
+  isAnonymous:
+    type: boolean
+    description: If the name version are system generated (anonymous registration).
+  properties:
+    type: object
+    additionalProperties:
+      type: string
+    description: The asset property dictionary.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Tag dictionary. Tags can be added, removed, and updated.
+type: object
+required:
+  - environmentSpecificationType

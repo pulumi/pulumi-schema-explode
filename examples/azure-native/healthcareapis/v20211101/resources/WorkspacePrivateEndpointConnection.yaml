@@ -1,0 +1,54 @@
+$token: azure-native:healthcareapis/v20211101:WorkspacePrivateEndpointConnection
+description: The Private Endpoint Connection resource.
+properties:
+  name:
+    type: string
+    description: The name of the resource
+  privateEndpoint:
+    type: object
+    $ref: "#/types/azure-native:healthcareapis/v20211101:PrivateEndpointResponse"
+    description: The resource of private end point.
+  privateLinkServiceConnectionState:
+    type: object
+    $ref: "#/types/azure-native:healthcareapis/v20211101:PrivateLinkServiceConnectionStateResponse"
+    description: A collection of information about the state of the connection between service consumer and provider.
+  provisioningState:
+    type: string
+    description: The provisioning state of the private endpoint connection resource.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:healthcareapis/v20211101:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - name
+  - privateLinkServiceConnectionState
+  - provisioningState
+  - systemData
+  - type
+inputProperties:
+  privateEndpointConnectionName:
+    type: string
+    description: The name of the private endpoint connection associated with the Azure resource
+  privateLinkServiceConnectionState:
+    type: object
+    $ref: "#/types/azure-native:healthcareapis/v20211101:PrivateLinkServiceConnectionState"
+    description: A collection of information about the state of the connection between service consumer and provider.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the service instance.
+  workspaceName:
+    type: string
+    description: The name of workspace resource.
+requiredInputs:
+  - privateLinkServiceConnectionState
+  - resourceGroupName
+  - workspaceName
+aliases:
+  - type: azure-native:healthcareapis:WorkspacePrivateEndpointConnection
+  - type: azure-native:healthcareapis/v20220131preview:WorkspacePrivateEndpointConnection
+  - type: azure-native:healthcareapis/v20220515:WorkspacePrivateEndpointConnection
+  - type: azure-native:healthcareapis/v20220601:WorkspacePrivateEndpointConnection

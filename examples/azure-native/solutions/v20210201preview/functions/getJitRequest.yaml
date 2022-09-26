@@ -1,0 +1,82 @@
+$token: azure-native:solutions/v20210201preview:getJitRequest
+description: Information about JIT request definition.
+inputs:
+  properties:
+    jitRequestName:
+      type: string
+      description: The name of the JIT request.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+  type: object
+  required:
+    - jitRequestName
+    - resourceGroupName
+outputs:
+  description: Information about JIT request definition.
+  properties:
+    applicationResourceId:
+      type: string
+      description: The parent application id.
+    createdBy:
+      type: object
+      $ref: "#/types/azure-native:solutions/v20210201preview:ApplicationClientDetailsResponse"
+      description: The client entity that created the JIT request.
+    id:
+      type: string
+      description: Resource ID
+    jitAuthorizationPolicies:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:solutions/v20210201preview:JitAuthorizationPoliciesResponse"
+      description: The JIT authorization policies.
+    jitRequestState:
+      type: string
+      description: The JIT request state.
+    jitSchedulingPolicy:
+      type: object
+      $ref: "#/types/azure-native:solutions/v20210201preview:JitSchedulingPolicyResponse"
+      description: The JIT request properties.
+    location:
+      type: string
+      description: Resource location
+    name:
+      type: string
+      description: Resource name
+    provisioningState:
+      type: string
+      description: The JIT request provisioning state.
+    publisherTenantId:
+      type: string
+      description: The publisher tenant id.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:solutions/v20210201preview:SystemDataResponse"
+      description: Metadata pertaining to creation and last modification of the resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    type:
+      type: string
+      description: Resource type
+    updatedBy:
+      type: object
+      $ref: "#/types/azure-native:solutions/v20210201preview:ApplicationClientDetailsResponse"
+      description: The client entity that last updated the JIT request.
+  type: object
+  required:
+    - applicationResourceId
+    - createdBy
+    - id
+    - jitAuthorizationPolicies
+    - jitRequestState
+    - jitSchedulingPolicy
+    - name
+    - provisioningState
+    - publisherTenantId
+    - systemData
+    - type
+    - updatedBy

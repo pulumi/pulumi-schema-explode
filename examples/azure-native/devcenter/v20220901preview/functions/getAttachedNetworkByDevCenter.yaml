@@ -1,0 +1,60 @@
+$token: azure-native:devcenter/v20220901preview:getAttachedNetworkByDevCenter
+description: Represents an attached NetworkConnection.
+inputs:
+  properties:
+    attachedNetworkConnectionName:
+      type: string
+      description: The name of the attached NetworkConnection.
+    devCenterName:
+      type: string
+      description: The name of the devcenter.
+    resourceGroupName:
+      type: string
+      description: Name of the resource group within the Azure subscription.
+  type: object
+  required:
+    - attachedNetworkConnectionName
+    - devCenterName
+    - resourceGroupName
+outputs:
+  description: Represents an attached NetworkConnection.
+  properties:
+    domainJoinType:
+      type: string
+      description: AAD Join type of the network. This is populated based on the referenced Network Connection.
+    healthCheckStatus:
+      type: string
+      description: Health check status values
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    name:
+      type: string
+      description: The name of the resource
+    networkConnectionId:
+      type: string
+      description: The resource ID of the NetworkConnection you want to attach.
+    networkConnectionLocation:
+      type: string
+      description: The geo-location where the NetworkConnection resource specified in 'networkConnectionResourceId' property lives.
+    provisioningState:
+      type: string
+      description: The provisioning state of the resource.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:devcenter/v20220901preview:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - domainJoinType
+    - healthCheckStatus
+    - id
+    - name
+    - networkConnectionId
+    - networkConnectionLocation
+    - provisioningState
+    - systemData
+    - type

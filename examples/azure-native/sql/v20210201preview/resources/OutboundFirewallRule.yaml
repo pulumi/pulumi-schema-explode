@@ -1,0 +1,36 @@
+$token: azure-native:sql/v20210201preview:OutboundFirewallRule
+description: An Azure SQL DB Server Outbound Firewall Rule.
+properties:
+  name:
+    type: string
+    description: Resource name.
+  provisioningState:
+    type: string
+    description: The state of the outbound rule.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - name
+  - provisioningState
+  - type
+inputProperties:
+  outboundRuleFqdn:
+    type: string
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  serverName:
+    type: string
+    description: The name of the server.
+requiredInputs:
+  - resourceGroupName
+  - serverName
+aliases:
+  - type: azure-native:sql:OutboundFirewallRule
+  - type: azure-native:sql/v20210501preview:OutboundFirewallRule
+  - type: azure-native:sql/v20210801preview:OutboundFirewallRule
+  - type: azure-native:sql/v20211101:OutboundFirewallRule
+  - type: azure-native:sql/v20211101preview:OutboundFirewallRule
+  - type: azure-native:sql/v20220201preview:OutboundFirewallRule

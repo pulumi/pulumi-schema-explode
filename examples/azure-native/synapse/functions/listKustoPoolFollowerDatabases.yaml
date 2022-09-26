@@ -1,0 +1,30 @@
+$token: azure-native:synapse:listKustoPoolFollowerDatabases
+description: |-
+  The list Kusto database principals operation response.
+  API Version: 2021-06-01-preview.
+inputs:
+  properties:
+    kustoPoolName:
+      type: string
+      description: The name of the Kusto pool.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    workspaceName:
+      type: string
+      description: The name of the workspace.
+  type: object
+  required:
+    - kustoPoolName
+    - resourceGroupName
+    - workspaceName
+outputs:
+  description: The list Kusto database principals operation response.
+  properties:
+    value:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:synapse:FollowerDatabaseDefinitionResponse"
+      description: The list of follower database result.
+  type: object

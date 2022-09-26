@@ -1,0 +1,57 @@
+$token: azure-native:network/v20200301:getSecurityPartnerProvider
+description: Security Partner Provider resource.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    securityPartnerProviderName:
+      type: string
+      description: The name of the Security Partner Provider.
+  type: object
+  required:
+    - resourceGroupName
+    - securityPartnerProviderName
+outputs:
+  description: Security Partner Provider resource.
+  properties:
+    connectionStatus:
+      type: string
+      description: The connection status with the Security Partner Provider.
+    etag:
+      type: string
+      description: A unique read-only string that changes whenever the resource is updated.
+    id:
+      type: string
+      description: Resource ID.
+    location:
+      type: string
+      description: Resource location.
+    name:
+      type: string
+      description: Resource name.
+    provisioningState:
+      type: string
+      description: The provisioning state of the Security Partner Provider resource.
+    securityProviderName:
+      type: string
+      description: The security provider name.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: Resource type.
+    virtualHub:
+      type: object
+      $ref: "#/types/azure-native:network/v20200301:SubResourceResponse"
+      description: The virtualHub to which the Security Partner Provider belongs.
+  type: object
+  required:
+    - connectionStatus
+    - etag
+    - name
+    - provisioningState
+    - type

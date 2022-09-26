@@ -1,0 +1,49 @@
+$token: azure-native:containerinstance:Container
+description: A container instance.
+properties:
+  command:
+    type: array
+    items:
+      type: string
+    description: The commands to execute within the container instance in exec form.
+  environmentVariables:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:containerinstance:EnvironmentVariable"
+    description: The environment variables to set in the container instance.
+  image:
+    type: string
+    description: The name of the image used to create the container instance.
+  livenessProbe:
+    type: object
+    $ref: "#/types/azure-native:containerinstance:ContainerProbe"
+    description: The liveness probe.
+  name:
+    type: string
+    description: The user-provided name of the container instance.
+  ports:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:containerinstance:ContainerPort"
+    description: The exposed ports on the container instance.
+  readinessProbe:
+    type: object
+    $ref: "#/types/azure-native:containerinstance:ContainerProbe"
+    description: The readiness probe.
+  resources:
+    type: object
+    $ref: "#/types/azure-native:containerinstance:ResourceRequirements"
+    description: The resource requirements of the container instance.
+  volumeMounts:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:containerinstance:VolumeMount"
+    description: The volume mounts available to the container instance.
+type: object
+required:
+  - image
+  - name
+  - resources

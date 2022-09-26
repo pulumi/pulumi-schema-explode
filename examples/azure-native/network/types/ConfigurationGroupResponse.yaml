@@ -1,0 +1,30 @@
+$token: azure-native:network:ConfigurationGroupResponse
+description: The network configuration group resource
+properties:
+  conditionalMembership:
+    type: string
+    description: Network group conditional filter.
+  description:
+    type: string
+    description: A description of the network group.
+  displayName:
+    type: string
+    description: A friendly name for the network group.
+  groupMembers:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network:GroupMembersItemResponse"
+    description: Group members of network group.
+  id:
+    type: string
+    description: Resource ID.
+  memberType:
+    type: string
+    description: Group member type.
+  provisioningState:
+    type: string
+    description: The provisioning state of the scope assignment resource.
+type: object
+required:
+  - provisioningState

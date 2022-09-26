@@ -1,0 +1,84 @@
+$token: azure-native:network/v20210201:getNatGateway
+description: Nat Gateway resource.
+inputs:
+  properties:
+    expand:
+      type: string
+      description: Expands referenced resources.
+    natGatewayName:
+      type: string
+      description: The name of the nat gateway.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - natGatewayName
+    - resourceGroupName
+outputs:
+  description: Nat Gateway resource.
+  properties:
+    etag:
+      type: string
+      description: A unique read-only string that changes whenever the resource is updated.
+    id:
+      type: string
+      description: Resource ID.
+    idleTimeoutInMinutes:
+      type: integer
+      description: The idle timeout of the nat gateway.
+    location:
+      type: string
+      description: Resource location.
+    name:
+      type: string
+      description: Resource name.
+    provisioningState:
+      type: string
+      description: The provisioning state of the NAT gateway resource.
+    publicIpAddresses:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20210201:SubResourceResponse"
+      description: An array of public ip addresses associated with the nat gateway resource.
+    publicIpPrefixes:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20210201:SubResourceResponse"
+      description: An array of public ip prefixes associated with the nat gateway resource.
+    resourceGuid:
+      type: string
+      description: The resource GUID property of the NAT gateway resource.
+    sku:
+      type: object
+      $ref: "#/types/azure-native:network/v20210201:NatGatewaySkuResponse"
+      description: The nat gateway SKU.
+    subnets:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20210201:SubResourceResponse"
+      description: An array of references to the subnets using this nat gateway resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: Resource type.
+    zones:
+      type: array
+      items:
+        type: string
+      description: A list of availability zones denoting the zone in which Nat Gateway should be deployed.
+  type: object
+  required:
+    - etag
+    - name
+    - provisioningState
+    - resourceGuid
+    - subnets
+    - type

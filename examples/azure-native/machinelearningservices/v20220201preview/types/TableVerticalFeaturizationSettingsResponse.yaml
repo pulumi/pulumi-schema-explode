@@ -1,0 +1,42 @@
+$token: azure-native:machinelearningservices/v20220201preview:TableVerticalFeaturizationSettingsResponse
+description: Featurization Configuration.
+properties:
+  blockedTransformers:
+    type: array
+    items:
+      type: string
+    description: These transformers shall not be used in featurization.
+  columnNameAndTypes:
+    type: object
+    additionalProperties:
+      type: string
+    description: Dictionary of column name and its type (int, float, string, datetime etc).
+  datasetLanguage:
+    type: string
+    description: Dataset language, useful for the text data.
+  dropColumns:
+    type: array
+    items:
+      type: string
+    description: Columns to be dropped from data during featurization.
+  enableDnnFeaturization:
+    type: boolean
+    description: Determines whether to use Dnn based featurizers for data featurization.
+    default: false
+  mode:
+    type: string
+    description: "Featurization mode - User can keep the default 'Auto' mode and AutoML will take care of necessary transformation of the data in featurization phase.\r
+
+      If 'Off' is selected then no featurization is done.\r
+
+      If 'Custom' is selected then user can specify additional inputs to customize how featurization is done."
+    default: Auto
+  transformerParams:
+    type: object
+    additionalProperties:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220201preview:ColumnTransformerResponse"
+    description: User can specify additional transformers to be used along with the columns to which it would be applied and parameters for the transformer constructor.
+type: object

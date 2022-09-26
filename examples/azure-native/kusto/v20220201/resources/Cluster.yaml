@@ -1,0 +1,272 @@
+$token: azure-native:kusto/v20220201:Cluster
+description: Class representing a Kusto cluster.
+properties:
+  acceptedAudiences:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:kusto/v20220201:AcceptedAudiencesResponse"
+    description: The cluster's accepted audiences.
+  allowedFqdnList:
+    type: array
+    items:
+      type: string
+    description: List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+  allowedIpRangeList:
+    type: array
+    items:
+      type: string
+    description: The list of ips in the format of CIDR allowed to connect to the cluster.
+  dataIngestionUri:
+    type: string
+    description: The cluster data ingestion URI.
+  enableAutoStop:
+    type: boolean
+    description: A boolean value that indicates if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+    default: true
+  enableDiskEncryption:
+    type: boolean
+    description: A boolean value that indicates if the cluster's disks are encrypted.
+    default: false
+  enableDoubleEncryption:
+    type: boolean
+    description: A boolean value that indicates if double encryption is enabled.
+    default: false
+  enablePurge:
+    type: boolean
+    description: A boolean value that indicates if the purge operations are enabled.
+    default: false
+  enableStreamingIngest:
+    type: boolean
+    description: A boolean value that indicates if the streaming ingest is enabled.
+    default: false
+  engineType:
+    type: string
+    description: The engine type
+    default: V3
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:kusto/v20220201:IdentityResponse"
+    description: The identity of the cluster, if configured.
+  keyVaultProperties:
+    type: object
+    $ref: "#/types/azure-native:kusto/v20220201:KeyVaultPropertiesResponse"
+    description: KeyVault properties for the cluster encryption.
+  languageExtensions:
+    type: object
+    $ref: "#/types/azure-native:kusto/v20220201:LanguageExtensionsListResponse"
+    description: List of the cluster's language extensions.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  name:
+    type: string
+    description: The name of the resource
+  optimizedAutoscale:
+    type: object
+    $ref: "#/types/azure-native:kusto/v20220201:OptimizedAutoscaleResponse"
+    description: Optimized auto scale definition.
+  privateEndpointConnections:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:kusto/v20220201:PrivateEndpointConnectionResponse"
+    description: A list of private endpoint connections.
+  provisioningState:
+    type: string
+    description: The provisioned state of the resource.
+  publicIPType:
+    type: string
+    description: Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6)
+    default: IPv4
+  publicNetworkAccess:
+    type: string
+    description: Public network access to the cluster is enabled by default. When disabled, only private endpoint connection to the cluster is allowed
+    default: Enabled
+  restrictOutboundNetworkAccess:
+    type: string
+    description: Whether or not to restrict outbound network access.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+    default: Disabled
+  sku:
+    type: object
+    $ref: "#/types/azure-native:kusto/v20220201:AzureSkuResponse"
+    description: The SKU of the cluster.
+  state:
+    type: string
+    description: The state of the resource.
+  stateReason:
+    type: string
+    description: The reason for the cluster's current state.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:kusto/v20220201:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  trustedExternalTenants:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:kusto/v20220201:TrustedExternalTenantResponse"
+    description: The cluster's external tenants.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  uri:
+    type: string
+    description: The cluster URI.
+  virtualNetworkConfiguration:
+    type: object
+    $ref: "#/types/azure-native:kusto/v20220201:VirtualNetworkConfigurationResponse"
+    description: Virtual network definition.
+  zones:
+    type: array
+    items:
+      type: string
+    description: The availability zones of the cluster.
+type: object
+required:
+  - dataIngestionUri
+  - etag
+  - languageExtensions
+  - location
+  - name
+  - privateEndpointConnections
+  - provisioningState
+  - sku
+  - state
+  - stateReason
+  - systemData
+  - type
+  - uri
+inputProperties:
+  acceptedAudiences:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:kusto/v20220201:AcceptedAudiences"
+    description: The cluster's accepted audiences.
+  allowedFqdnList:
+    type: array
+    items:
+      type: string
+    description: List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+  allowedIpRangeList:
+    type: array
+    items:
+      type: string
+    description: The list of ips in the format of CIDR allowed to connect to the cluster.
+  clusterName:
+    type: string
+    description: The name of the Kusto cluster.
+  enableAutoStop:
+    type: boolean
+    description: A boolean value that indicates if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+    default: true
+  enableDiskEncryption:
+    type: boolean
+    description: A boolean value that indicates if the cluster's disks are encrypted.
+    default: false
+  enableDoubleEncryption:
+    type: boolean
+    description: A boolean value that indicates if double encryption is enabled.
+    default: false
+  enablePurge:
+    type: boolean
+    description: A boolean value that indicates if the purge operations are enabled.
+    default: false
+  enableStreamingIngest:
+    type: boolean
+    description: A boolean value that indicates if the streaming ingest is enabled.
+    default: false
+  engineType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:kusto/v20220201:EngineType"
+    description: The engine type
+    default: V3
+  identity:
+    type: object
+    $ref: "#/types/azure-native:kusto/v20220201:Identity"
+    description: The identity of the cluster, if configured.
+  keyVaultProperties:
+    type: object
+    $ref: "#/types/azure-native:kusto/v20220201:KeyVaultProperties"
+    description: KeyVault properties for the cluster encryption.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  optimizedAutoscale:
+    type: object
+    $ref: "#/types/azure-native:kusto/v20220201:OptimizedAutoscale"
+    description: Optimized auto scale definition.
+  publicIPType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:kusto/v20220201:PublicIPType"
+    description: Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6)
+    default: IPv4
+  publicNetworkAccess:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:kusto/v20220201:PublicNetworkAccess"
+    description: Public network access to the cluster is enabled by default. When disabled, only private endpoint connection to the cluster is allowed
+    default: Enabled
+  resourceGroupName:
+    type: string
+    description: The name of the resource group containing the Kusto cluster.
+  restrictOutboundNetworkAccess:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:kusto/v20220201:ClusterNetworkAccessFlag"
+    description: Whether or not to restrict outbound network access.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+    default: Disabled
+  sku:
+    type: object
+    $ref: "#/types/azure-native:kusto/v20220201:AzureSku"
+    description: The SKU of the cluster.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  trustedExternalTenants:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:kusto/v20220201:TrustedExternalTenant"
+    description: The cluster's external tenants.
+  virtualClusterGraduationProperties:
+    type: string
+    description: Virtual Cluster graduation properties
+  virtualNetworkConfiguration:
+    type: object
+    $ref: "#/types/azure-native:kusto/v20220201:VirtualNetworkConfiguration"
+    description: Virtual network definition.
+  zones:
+    type: array
+    items:
+      type: string
+    description: The availability zones of the cluster.
+requiredInputs:
+  - resourceGroupName
+  - sku
+aliases:
+  - type: azure-native:kusto:Cluster
+  - type: azure-native:kusto/v20170907privatepreview:Cluster
+  - type: azure-native:kusto/v20180907preview:Cluster
+  - type: azure-native:kusto/v20190121:Cluster
+  - type: azure-native:kusto/v20190515:Cluster
+  - type: azure-native:kusto/v20190907:Cluster
+  - type: azure-native:kusto/v20191109:Cluster
+  - type: azure-native:kusto/v20200215:Cluster
+  - type: azure-native:kusto/v20200614:Cluster
+  - type: azure-native:kusto/v20200918:Cluster
+  - type: azure-native:kusto/v20210101:Cluster
+  - type: azure-native:kusto/v20210827:Cluster

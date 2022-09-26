@@ -1,0 +1,20 @@
+$token: azure-native:datafactory/v20180601:LinkedServiceReference
+description: Linked service reference type.
+properties:
+  parameters:
+    type: object
+    additionalProperties:
+      $ref: pulumi.json#/Any
+    description: Arguments for LinkedService.
+  referenceName:
+    type: string
+    description: Reference LinkedService name.
+  type:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:datafactory/v20180601:Type"
+    description: Linked service reference type.
+type: object
+required:
+  - referenceName
+  - type

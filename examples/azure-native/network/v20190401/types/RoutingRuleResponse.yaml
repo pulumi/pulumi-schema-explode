@@ -1,0 +1,50 @@
+$token: azure-native:network/v20190401:RoutingRuleResponse
+description: A routing rule represents a specification for traffic to treat and where to send it, along with health probe information.
+properties:
+  acceptedProtocols:
+    type: array
+    items:
+      type: string
+    description: Protocol schemes to match for this rule
+  enabledState:
+    type: string
+    description: Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
+  frontendEndpoints:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20190401:SubResourceResponse"
+    description: Frontend endpoints associated with this rule
+  id:
+    type: string
+    description: Resource ID.
+  name:
+    type: string
+    description: Resource name.
+  patternsToMatch:
+    type: array
+    items:
+      type: string
+    description: The route patterns of the rule.
+  resourceState:
+    type: string
+    description: Resource status.
+  routeConfiguration:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:network/v20190401:ForwardingConfigurationResponse"
+      - type: object
+        $ref: "#/types/azure-native:network/v20190401:RedirectConfigurationResponse"
+    discriminator:
+      propertyName: odataType
+      mapping:
+        "#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration": "#/types/azure-native:network/v20190401:ForwardingConfigurationResponse"
+        "#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration": "#/types/azure-native:network/v20190401:RedirectConfigurationResponse"
+    description: A reference to the routing configuration.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - resourceState
+  - type

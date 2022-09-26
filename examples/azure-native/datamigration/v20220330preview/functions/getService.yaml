@@ -1,0 +1,67 @@
+$token: azure-native:datamigration/v20220330preview:getService
+description: A Database Migration Service resource
+inputs:
+  properties:
+    groupName:
+      type: string
+      description: Name of the resource group
+    serviceName:
+      type: string
+      description: Name of the service
+  type: object
+  required:
+    - groupName
+    - serviceName
+outputs:
+  description: A Database Migration Service resource
+  properties:
+    autoStopDelay:
+      type: string
+      description: The time delay before the service is auto-stopped when idle.
+    deleteResourcesOnStop:
+      type: boolean
+      description: Whether service resources should be deleted when stopped. (Turned on by default)
+    etag:
+      type: string
+      description: HTTP strong entity tag value. Ignored if submitted
+    id:
+      type: string
+    kind:
+      type: string
+      description: The resource kind. Only 'vm' (the default) is supported.
+    location:
+      type: string
+    name:
+      type: string
+    provisioningState:
+      type: string
+      description: The resource's provisioning state
+    publicKey:
+      type: string
+      description: The public key of the service, used to encrypt secrets sent to the service
+    sku:
+      type: object
+      $ref: "#/types/azure-native:datamigration/v20220330preview:ServiceSkuResponse"
+      description: Service SKU
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:datamigration/v20220330preview:SystemDataResponse"
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+    type:
+      type: string
+    virtualNicId:
+      type: string
+      description: The ID of the Microsoft.Network/networkInterfaces resource which the service have
+    virtualSubnetId:
+      type: string
+      description: The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
+  type: object
+  required:
+    - id
+    - name
+    - provisioningState
+    - systemData
+    - type

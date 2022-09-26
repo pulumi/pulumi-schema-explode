@@ -1,0 +1,66 @@
+$token: azure-native:network/v20200401preview:getDnsResolver
+description: Describes a DNS resolver.
+inputs:
+  properties:
+    dnsResolverName:
+      type: string
+      description: The name of the DNS resolver.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+  type: object
+  required:
+    - dnsResolverName
+    - resourceGroupName
+outputs:
+  description: Describes a DNS resolver.
+  properties:
+    dnsResolverState:
+      type: string
+      description: The current status of the DNS resolver. This is a read-only property and any attempt to set this value will be ignored.
+    etag:
+      type: string
+      description: ETag of the DNS resolver.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    name:
+      type: string
+      description: The name of the resource
+    provisioningState:
+      type: string
+      description: The current provisioning state of the DNS resolver. This is a read-only property and any attempt to set this value will be ignored.
+    resourceGuid:
+      type: string
+      description: The resourceGuid property of the DNS resolver resource.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:network/v20200401preview:SystemDataResponse"
+      description: Metadata pertaining to creation and last modification of the resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+    virtualNetwork:
+      type: object
+      $ref: "#/types/azure-native:network/v20200401preview:SubResourceResponse"
+      description: The reference to the virtual network. This cannot be changed after creation.
+  type: object
+  required:
+    - dnsResolverState
+    - etag
+    - id
+    - location
+    - name
+    - provisioningState
+    - resourceGuid
+    - systemData
+    - type
+    - virtualNetwork

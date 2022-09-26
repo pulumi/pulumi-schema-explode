@@ -1,0 +1,59 @@
+$token: azure-native:devcenter/v20220801preview:DevCenter
+description: Represents a devcenter resource.
+properties:
+  identity:
+    type: object
+    $ref: "#/types/azure-native:devcenter/v20220801preview:ManagedServiceIdentityResponse"
+    description: Managed identity properties
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  name:
+    type: string
+    description: The name of the resource
+  provisioningState:
+    type: string
+    description: The provisioning state of the resource.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:devcenter/v20220801preview:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - location
+  - name
+  - provisioningState
+  - systemData
+  - type
+inputProperties:
+  devCenterName:
+    type: string
+    description: The name of the devcenter.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:devcenter/v20220801preview:ManagedServiceIdentity"
+    description: Managed identity properties
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  resourceGroupName:
+    type: string
+    description: Name of the resource group within the Azure subscription.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:devcenter:DevCenter
+  - type: azure-native:devcenter/v20220901preview:DevCenter

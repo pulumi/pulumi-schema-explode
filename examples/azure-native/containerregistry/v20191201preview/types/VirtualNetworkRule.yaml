@@ -1,0 +1,15 @@
+$token: azure-native:containerregistry/v20191201preview:VirtualNetworkRule
+description: Virtual network rule.
+properties:
+  action:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:containerregistry/v20191201preview:Action"
+    description: The action of virtual network rule.
+    default: Allow
+  virtualNetworkResourceId:
+    type: string
+    description: "Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}."
+type: object
+required:
+  - virtualNetworkResourceId

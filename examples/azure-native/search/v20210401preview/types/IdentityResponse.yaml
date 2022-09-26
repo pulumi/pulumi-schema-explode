@@ -1,0 +1,23 @@
+$token: azure-native:search/v20210401preview:IdentityResponse
+description: Details about the search service identity. A null value indicates that the search service has no identity assigned.
+properties:
+  principalId:
+    type: string
+    description: The principal ID of the system-assigned identity of the search service.
+  tenantId:
+    type: string
+    description: The tenant ID of the system-assigned identity of the search service.
+  type:
+    type: string
+    description: The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an identity created by the system and a set of user assigned identities. The type 'None' will remove all identities from the service.
+  userAssignedIdentities:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:search/v20210401preview:UserAssignedManagedIdentityResponse"
+    description: "The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'."
+type: object
+required:
+  - principalId
+  - tenantId
+  - type

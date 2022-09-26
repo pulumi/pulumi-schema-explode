@@ -1,0 +1,36 @@
+$token: azure-native:datafactory/v20180601:getFactoryGitHubAccessToken
+description: Get GitHub access token response definition.
+inputs:
+  properties:
+    factoryName:
+      type: string
+      description: The factory name.
+    gitHubAccessCode:
+      type: string
+      description: GitHub access code.
+    gitHubAccessTokenBaseUrl:
+      type: string
+      description: GitHub access token base URL.
+    gitHubClientId:
+      type: string
+      description: GitHub application client ID.
+    gitHubClientSecret:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20180601:GitHubClientSecret"
+      description: GitHub bring your own app client secret information.
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+  type: object
+  required:
+    - factoryName
+    - gitHubAccessCode
+    - gitHubAccessTokenBaseUrl
+    - resourceGroupName
+outputs:
+  description: Get GitHub access token response definition.
+  properties:
+    gitHubAccessToken:
+      type: string
+      description: GitHub access token.
+  type: object

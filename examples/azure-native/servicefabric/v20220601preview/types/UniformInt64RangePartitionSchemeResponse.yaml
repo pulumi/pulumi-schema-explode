@@ -1,0 +1,28 @@
+$token: azure-native:servicefabric/v20220601preview:UniformInt64RangePartitionSchemeResponse
+description: Describes a partitioning scheme where an integer range is allocated evenly across a number of partitions.
+properties:
+  count:
+    type: integer
+    description: The number of partitions.
+  highKey:
+    type: number
+    description: |
+      The upper bound of the partition key range that
+      should be split between the partition ‘Count’
+  lowKey:
+    type: number
+    description: |
+      The lower bound of the partition key range that
+      should be split between the partition ‘Count’
+  partitionScheme:
+    type: string
+    description: |-
+      Enumerates the ways that a service can be partitioned.
+      Expected value is 'UniformInt64Range'.
+    const: UniformInt64Range
+type: object
+required:
+  - count
+  - highKey
+  - lowKey
+  - partitionScheme

@@ -1,0 +1,21 @@
+$token: azure-native:web/v20150801:HostNameSslState
+description: Object that represents a SSL-enabled host name.
+properties:
+  name:
+    type: string
+    description: Host name
+  sslState:
+    $ref: "#/types/azure-native:web/v20150801:SslState"
+    description: SSL type
+  thumbprint:
+    type: string
+    description: SSL cert thumbprint
+  toUpdate:
+    type: boolean
+    description: Set this flag to update existing host name
+  virtualIP:
+    type: string
+    description: Virtual IP address assigned to the host name if IP based SSL is enabled
+type: object
+required:
+  - sslState

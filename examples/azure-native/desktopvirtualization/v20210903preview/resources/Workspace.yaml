@@ -1,0 +1,131 @@
+$token: azure-native:desktopvirtualization/v20210903preview:Workspace
+description: Represents a Workspace definition.
+properties:
+  applicationGroupReferences:
+    type: array
+    items:
+      type: string
+    description: List of applicationGroup resource Ids.
+  cloudPcResource:
+    type: boolean
+    description: Is cloud pc resource.
+  description:
+    type: string
+    description: Description of Workspace.
+  etag:
+    type: string
+    description: "The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. "
+  friendlyName:
+    type: string
+    description: Friendly name of Workspace.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:desktopvirtualization/v20210903preview:ResourceModelWithAllowedPropertySetResponseIdentity"
+  kind:
+    type: string
+    description: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  managedBy:
+    type: string
+    description: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+  name:
+    type: string
+    description: The name of the resource
+  objectId:
+    type: string
+    description: ObjectId of Workspace. (internal use)
+  plan:
+    type: object
+    $ref: "#/types/azure-native:desktopvirtualization/v20210903preview:ResourceModelWithAllowedPropertySetResponsePlan"
+  publicNetworkAccess:
+    type: string
+    description: Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+  sku:
+    type: object
+    $ref: "#/types/azure-native:desktopvirtualization/v20210903preview:ResourceModelWithAllowedPropertySetResponseSku"
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:desktopvirtualization/v20210903preview:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - cloudPcResource
+  - etag
+  - name
+  - objectId
+  - systemData
+  - type
+inputProperties:
+  applicationGroupReferences:
+    type: array
+    items:
+      type: string
+    description: List of applicationGroup resource Ids.
+  description:
+    type: string
+    description: Description of Workspace.
+  friendlyName:
+    type: string
+    description: Friendly name of Workspace.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:desktopvirtualization/v20210903preview:ResourceModelWithAllowedPropertySetIdentity"
+  kind:
+    type: string
+    description: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  managedBy:
+    type: string
+    description: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+  plan:
+    type: object
+    $ref: "#/types/azure-native:desktopvirtualization/v20210903preview:ResourceModelWithAllowedPropertySetPlan"
+  publicNetworkAccess:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:desktopvirtualization/v20210903preview:PublicNetworkAccess"
+    description: Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:desktopvirtualization/v20210903preview:ResourceModelWithAllowedPropertySetSku"
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  workspaceName:
+    type: string
+    description: The name of the workspace
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:desktopvirtualization:Workspace
+  - type: azure-native:desktopvirtualization/v20190123preview:Workspace
+  - type: azure-native:desktopvirtualization/v20190924preview:Workspace
+  - type: azure-native:desktopvirtualization/v20191210preview:Workspace
+  - type: azure-native:desktopvirtualization/v20200921preview:Workspace
+  - type: azure-native:desktopvirtualization/v20201019preview:Workspace
+  - type: azure-native:desktopvirtualization/v20201102preview:Workspace
+  - type: azure-native:desktopvirtualization/v20201110preview:Workspace
+  - type: azure-native:desktopvirtualization/v20210114preview:Workspace
+  - type: azure-native:desktopvirtualization/v20210201preview:Workspace
+  - type: azure-native:desktopvirtualization/v20210309preview:Workspace
+  - type: azure-native:desktopvirtualization/v20210401preview:Workspace
+  - type: azure-native:desktopvirtualization/v20210712:Workspace
+  - type: azure-native:desktopvirtualization/v20220210preview:Workspace
+  - type: azure-native:desktopvirtualization/v20220401preview:Workspace

@@ -1,0 +1,23 @@
+$token: azure-native:testbase/v20220401preview:getBillingHubServiceFreeHourBalance
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the resource.
+    testBaseAccountName:
+      type: string
+      description: The resource name of the Test Base Account.
+  type: object
+  required:
+    - resourceGroupName
+    - testBaseAccountName
+outputs:
+  properties:
+    incrementEntries:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:testbase/v20220401preview:BillingHubFreeHourIncrementEntryResponse"
+    totalRemainingFreeHours:
+      type: number
+  type: object

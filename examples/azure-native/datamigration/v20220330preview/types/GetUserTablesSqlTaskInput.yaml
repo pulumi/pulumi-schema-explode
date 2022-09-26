@@ -1,0 +1,19 @@
+$token: azure-native:datamigration/v20220330preview:GetUserTablesSqlTaskInput
+description: Input for the task that collects user tables for the given list of databases
+properties:
+  connectionInfo:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20220330preview:SqlConnectionInfo"
+    description: Connection information for SQL Server
+  encryptedKeyForSecureFields:
+    type: string
+    description: encrypted key for secure fields
+  selectedDatabases:
+    type: array
+    items:
+      type: string
+    description: List of database names to collect tables for
+type: object
+required:
+  - connectionInfo
+  - selectedDatabases

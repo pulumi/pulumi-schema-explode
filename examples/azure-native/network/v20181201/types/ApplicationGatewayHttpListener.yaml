@@ -1,0 +1,48 @@
+$token: azure-native:network/v20181201:ApplicationGatewayHttpListener
+description: Http listener of an application gateway.
+properties:
+  customErrorConfigurations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20181201:ApplicationGatewayCustomError"
+    description: Custom error configurations of the HTTP listener.
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  frontendIPConfiguration:
+    type: object
+    $ref: "#/types/azure-native:network/v20181201:SubResource"
+    description: Frontend IP configuration resource of an application gateway.
+  frontendPort:
+    type: object
+    $ref: "#/types/azure-native:network/v20181201:SubResource"
+    description: Frontend port resource of an application gateway.
+  hostName:
+    type: string
+    description: Host name of HTTP listener.
+  id:
+    type: string
+    description: Resource ID.
+  name:
+    type: string
+    description: Name of the HTTP listener that is unique within an Application Gateway.
+  protocol:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20181201:ApplicationGatewayProtocol"
+    description: Protocol of the HTTP listener. Possible values are 'Http' and 'Https'.
+  provisioningState:
+    type: string
+    description: "Provisioning state of the HTTP listener resource. Possible values are: 'Updating', 'Deleting', and 'Failed'."
+  requireServerNameIndication:
+    type: boolean
+    description: Applicable only if protocol is https. Enables SNI for multi-hosting.
+  sslCertificate:
+    type: object
+    $ref: "#/types/azure-native:network/v20181201:SubResource"
+    description: SSL certificate resource of an application gateway.
+  type:
+    type: string
+    description: Type of the resource.
+type: object

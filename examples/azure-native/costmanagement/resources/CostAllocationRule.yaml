@@ -1,0 +1,35 @@
+$token: azure-native:costmanagement:CostAllocationRule
+description: |-
+  The cost allocation rule model definition
+  API Version: 2020-03-01-preview.
+properties:
+  name:
+    type: string
+    description: Name of the rule. This is a read only value.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:costmanagement:CostAllocationRulePropertiesResponse"
+    description: Cost allocation rule properties
+  type:
+    type: string
+    description: Resource type of the rule. This is a read only value of Microsoft.CostManagement/CostAllocationRule.
+type: object
+required:
+  - name
+  - properties
+  - type
+inputProperties:
+  billingAccountId:
+    type: string
+    description: BillingAccount ID
+  properties:
+    type: object
+    $ref: "#/types/azure-native:costmanagement:CostAllocationRuleProperties"
+    description: Cost allocation rule properties
+  ruleName:
+    type: string
+    description: Cost allocation rule name. The name cannot include spaces or any non alphanumeric characters other than '_' and '-'. The max length is 260 characters.
+requiredInputs:
+  - billingAccountId
+aliases:
+  - type: azure-native:costmanagement/v20200301preview:CostAllocationRule

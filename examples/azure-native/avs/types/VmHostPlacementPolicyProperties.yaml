@@ -1,0 +1,38 @@
+$token: azure-native:avs:VmHostPlacementPolicyProperties
+description: VM-Host placement policy properties
+properties:
+  affinityType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:avs:AffinityType"
+    description: placement policy affinity type
+  displayName:
+    type: string
+    description: Display name of the placement policy
+  hostMembers:
+    type: array
+    items:
+      type: string
+    description: Host members list
+  state:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:avs:PlacementPolicyState"
+    description: Whether the placement policy is enabled or disabled
+  type:
+    type: string
+    description: |-
+      placement policy type
+      Expected value is 'VmHost'.
+    const: VmHost
+  vmMembers:
+    type: array
+    items:
+      type: string
+    description: Virtual machine members list
+type: object
+required:
+  - affinityType
+  - hostMembers
+  - type
+  - vmMembers

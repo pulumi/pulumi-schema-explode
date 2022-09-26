@@ -1,0 +1,53 @@
+$token: azure-native:deploymentmanager/v20180901preview:Step
+description: The resource representation of a rollout step.
+properties:
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  name:
+    type: string
+    description: The name of the resource
+  properties:
+    type: object
+    $ref: "#/types/azure-native:deploymentmanager/v20180901preview:WaitStepPropertiesResponse"
+    description: The properties that define the step.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - location
+  - name
+  - properties
+  - type
+inputProperties:
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  properties:
+    type: object
+    $ref: "#/types/azure-native:deploymentmanager/v20180901preview:WaitStepProperties"
+    description: The properties that define the step.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  stepName:
+    type: string
+    description: The name of the deployment step.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - properties
+  - resourceGroupName
+aliases:
+  - type: azure-native:deploymentmanager:Step
+  - type: azure-native:deploymentmanager/v20191101preview:Step
+deprecationMessage: Version 2018-09-01-preview will be removed in v2 of the provider.

@@ -1,0 +1,105 @@
+$token: azure-native:recoveryservices/v20210401:ProtectionIntent
+description: Base class for backup ProtectionIntent.
+properties:
+  eTag:
+    type: string
+    description: Optional ETag.
+  location:
+    type: string
+    description: Resource location.
+  name:
+    type: string
+    description: Resource name associated with the resource.
+  properties:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210401:AzureRecoveryServiceVaultProtectionIntentResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210401:AzureResourceProtectionIntentResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210401:AzureWorkloadAutoProtectionIntentResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210401:AzureWorkloadSQLAutoProtectionIntentResponse"
+    discriminator:
+      propertyName: protectionIntentItemType
+      mapping:
+        AzureResourceItem: "#/types/azure-native:recoveryservices/v20210401:AzureResourceProtectionIntentResponse"
+        AzureWorkloadAutoProtectionIntent: "#/types/azure-native:recoveryservices/v20210401:AzureWorkloadAutoProtectionIntentResponse"
+        AzureWorkloadSQLAutoProtectionIntent: "#/types/azure-native:recoveryservices/v20210401:AzureWorkloadSQLAutoProtectionIntentResponse"
+        RecoveryServiceVaultItem: "#/types/azure-native:recoveryservices/v20210401:AzureRecoveryServiceVaultProtectionIntentResponse"
+    description: ProtectionIntentResource properties
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+type: object
+required:
+  - name
+  - properties
+  - type
+inputProperties:
+  eTag:
+    type: string
+    description: Optional ETag.
+  fabricName:
+    type: string
+    description: Fabric name associated with the backup item.
+  intentObjectName:
+    type: string
+    description: Intent object name.
+  location:
+    type: string
+    description: Resource location.
+  properties:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210401:AzureRecoveryServiceVaultProtectionIntent"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210401:AzureResourceProtectionIntent"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210401:AzureWorkloadAutoProtectionIntent"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210401:AzureWorkloadSQLAutoProtectionIntent"
+    discriminator:
+      propertyName: protectionIntentItemType
+      mapping:
+        AzureResourceItem: "#/types/azure-native:recoveryservices/v20210401:AzureResourceProtectionIntent"
+        AzureWorkloadAutoProtectionIntent: "#/types/azure-native:recoveryservices/v20210401:AzureWorkloadAutoProtectionIntent"
+        AzureWorkloadSQLAutoProtectionIntent: "#/types/azure-native:recoveryservices/v20210401:AzureWorkloadSQLAutoProtectionIntent"
+        RecoveryServiceVaultItem: "#/types/azure-native:recoveryservices/v20210401:AzureRecoveryServiceVaultProtectionIntent"
+    description: ProtectionIntentResource properties
+  resourceGroupName:
+    type: string
+    description: The name of the resource group where the recovery services vault is present.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  vaultName:
+    type: string
+    description: The name of the recovery services vault.
+requiredInputs:
+  - fabricName
+  - resourceGroupName
+  - vaultName
+aliases:
+  - type: azure-native:recoveryservices:ProtectionIntent
+  - type: azure-native:recoveryservices/v20170701:ProtectionIntent
+  - type: azure-native:recoveryservices/v20210201:ProtectionIntent
+  - type: azure-native:recoveryservices/v20210201preview:ProtectionIntent
+  - type: azure-native:recoveryservices/v20210210:ProtectionIntent
+  - type: azure-native:recoveryservices/v20210301:ProtectionIntent
+  - type: azure-native:recoveryservices/v20210601:ProtectionIntent
+  - type: azure-native:recoveryservices/v20210701:ProtectionIntent
+  - type: azure-native:recoveryservices/v20210801:ProtectionIntent
+  - type: azure-native:recoveryservices/v20211001:ProtectionIntent
+  - type: azure-native:recoveryservices/v20211201:ProtectionIntent
+  - type: azure-native:recoveryservices/v20220101:ProtectionIntent
+  - type: azure-native:recoveryservices/v20220201:ProtectionIntent
+  - type: azure-native:recoveryservices/v20220301:ProtectionIntent
+  - type: azure-native:recoveryservices/v20220601preview:ProtectionIntent

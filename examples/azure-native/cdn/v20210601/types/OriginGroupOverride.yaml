@@ -1,0 +1,13 @@
+$token: azure-native:cdn/v20210601:OriginGroupOverride
+description: Defines the parameters for the origin group override configuration.
+properties:
+  forwardingProtocol:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:cdn/v20210601:ForwardingProtocol"
+    description: Protocol this rule will use when forwarding traffic to backends.
+  originGroup:
+    type: object
+    $ref: "#/types/azure-native:cdn/v20210601:ResourceReference"
+    description: defines the OriginGroup that would override the DefaultOriginGroup on route.
+type: object

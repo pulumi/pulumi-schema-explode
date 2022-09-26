@@ -1,0 +1,146 @@
+$token: azure-native:connectedvmwarevsphere/v20220110preview:getVirtualMachine
+description: Define the virtualMachine.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The Resource Group Name.
+    virtualMachineName:
+      type: string
+      description: Name of the virtual machine resource.
+  type: object
+  required:
+    - resourceGroupName
+    - virtualMachineName
+outputs:
+  description: Define the virtualMachine.
+  properties:
+    customResourceName:
+      type: string
+      description: Gets the name of the corresponding resource in Kubernetes.
+    extendedLocation:
+      type: object
+      $ref: "#/types/azure-native:connectedvmwarevsphere/v20220110preview:ExtendedLocationResponse"
+      description: Gets or sets the extended location.
+    firmwareType:
+      type: string
+      description: Firmware type
+    folderPath:
+      type: string
+      description: Gets or sets the folder path of the vm.
+    guestAgentProfile:
+      type: object
+      $ref: "#/types/azure-native:connectedvmwarevsphere/v20220110preview:GuestAgentProfileResponse"
+      description: Guest agent status properties.
+    hardwareProfile:
+      type: object
+      $ref: "#/types/azure-native:connectedvmwarevsphere/v20220110preview:HardwareProfileResponse"
+      description: Hardware properties.
+    id:
+      type: string
+      description: Gets or sets the Id.
+    identity:
+      type: object
+      $ref: "#/types/azure-native:connectedvmwarevsphere/v20220110preview:IdentityResponse"
+      description: The identity of the resource.
+    instanceUuid:
+      type: string
+      description: Gets or sets the instance uuid of the vm.
+    inventoryItemId:
+      type: string
+      description: Gets or sets the inventory Item ID for the virtual machine.
+    kind:
+      type: string
+      description: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+    location:
+      type: string
+      description: Gets or sets the location.
+    moName:
+      type: string
+      description: Gets or sets the vCenter Managed Object name for the virtual machine.
+    moRefId:
+      type: string
+      description: Gets or sets the vCenter MoRef (Managed Object Reference) ID for the virtual machine.
+    name:
+      type: string
+      description: Gets or sets the name.
+    networkProfile:
+      type: object
+      $ref: "#/types/azure-native:connectedvmwarevsphere/v20220110preview:NetworkProfileResponse"
+      description: Network properties.
+    osProfile:
+      type: object
+      $ref: "#/types/azure-native:connectedvmwarevsphere/v20220110preview:OsProfileResponse"
+      description: OS properties.
+    placementProfile:
+      type: object
+      $ref: "#/types/azure-native:connectedvmwarevsphere/v20220110preview:PlacementProfileResponse"
+      description: Placement properties.
+    powerState:
+      type: string
+      description: Gets the power state of the virtual machine.
+    provisioningState:
+      type: string
+      description: Gets or sets the provisioning state.
+    resourcePoolId:
+      type: string
+      description: "Gets or sets the ARM Id of the resourcePool resource on which this virtual machine will\r
+
+        deploy."
+    securityProfile:
+      type: object
+      $ref: "#/types/azure-native:connectedvmwarevsphere/v20220110preview:SecurityProfileResponse"
+      description: Gets the security profile.
+    smbiosUuid:
+      type: string
+      description: Gets or sets the SMBIOS UUID of the vm.
+    statuses:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:connectedvmwarevsphere/v20220110preview:ResourceStatusResponse"
+      description: The resource status information.
+    storageProfile:
+      type: object
+      $ref: "#/types/azure-native:connectedvmwarevsphere/v20220110preview:StorageProfileResponse"
+      description: Storage properties.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:connectedvmwarevsphere/v20220110preview:SystemDataResponse"
+      description: The system data.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Gets or sets the Resource tags.
+    templateId:
+      type: string
+      description: Gets or sets the ARM Id of the template resource to deploy the virtual machine.
+    type:
+      type: string
+      description: Gets or sets the type of the resource.
+    uuid:
+      type: string
+      description: Gets or sets a unique identifier for this resource.
+    vCenterId:
+      type: string
+      description: Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
+    vmId:
+      type: string
+      description: Gets or sets a unique identifier for the vm resource.
+  type: object
+  required:
+    - customResourceName
+    - folderPath
+    - id
+    - instanceUuid
+    - location
+    - moName
+    - name
+    - powerState
+    - provisioningState
+    - statuses
+    - systemData
+    - type
+    - uuid
+    - vmId

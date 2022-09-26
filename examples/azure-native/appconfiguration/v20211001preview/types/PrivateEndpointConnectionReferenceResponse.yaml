@@ -1,0 +1,30 @@
+$token: azure-native:appconfiguration/v20211001preview:PrivateEndpointConnectionReferenceResponse
+description: A reference to a related private endpoint connection.
+properties:
+  id:
+    type: string
+    description: The resource ID.
+  name:
+    type: string
+    description: The name of the resource.
+  privateEndpoint:
+    type: object
+    $ref: "#/types/azure-native:appconfiguration/v20211001preview:PrivateEndpointResponse"
+    description: The resource of private endpoint.
+  privateLinkServiceConnectionState:
+    type: object
+    $ref: "#/types/azure-native:appconfiguration/v20211001preview:PrivateLinkServiceConnectionStateResponse"
+    description: A collection of information about the state of the connection between service consumer and provider.
+  provisioningState:
+    type: string
+    description: The provisioning status of the private endpoint connection.
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - id
+  - name
+  - privateLinkServiceConnectionState
+  - provisioningState
+  - type

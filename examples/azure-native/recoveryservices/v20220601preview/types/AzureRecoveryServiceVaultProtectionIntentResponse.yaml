@@ -1,0 +1,27 @@
+$token: azure-native:recoveryservices/v20220601preview:AzureRecoveryServiceVaultProtectionIntentResponse
+description: Azure Recovery Services Vault specific protection intent item.
+properties:
+  backupManagementType:
+    type: string
+    description: Type of backup management for the backed up item.
+  itemId:
+    type: string
+    description: ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
+  policyId:
+    type: string
+    description: ID of the backup policy with which this item is backed up.
+  protectionIntentItemType:
+    type: string
+    description: |-
+      backup protectionIntent type.
+      Expected value is 'RecoveryServiceVaultItem'.
+    const: RecoveryServiceVaultItem
+  protectionState:
+    type: string
+    description: Backup state of this backup item.
+  sourceResourceId:
+    type: string
+    description: ARM ID of the resource to be backed up.
+type: object
+required:
+  - protectionIntentItemType

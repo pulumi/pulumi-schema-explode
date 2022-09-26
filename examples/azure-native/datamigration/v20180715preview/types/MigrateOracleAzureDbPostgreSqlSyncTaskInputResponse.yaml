@@ -1,0 +1,22 @@
+$token: azure-native:datamigration/v20180715preview:MigrateOracleAzureDbPostgreSqlSyncTaskInputResponse
+description: Input for the task that migrates Oracle databases to Azure Database for PostgreSQL for online migrations
+properties:
+  selectedDatabases:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration/v20180715preview:MigrateOracleAzureDbPostgreSqlSyncDatabaseInputResponse"
+    description: Databases to migrate
+  sourceConnectionInfo:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20180715preview:OracleConnectionInfoResponse"
+    description: Connection information for source Oracle
+  targetConnectionInfo:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20180715preview:PostgreSqlConnectionInfoResponse"
+    description: Connection information for target Azure Database for PostgreSQL
+type: object
+required:
+  - selectedDatabases
+  - sourceConnectionInfo
+  - targetConnectionInfo

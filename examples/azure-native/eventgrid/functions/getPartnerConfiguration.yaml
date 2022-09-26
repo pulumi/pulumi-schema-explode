@@ -1,0 +1,49 @@
+$token: azure-native:eventgrid:getPartnerConfiguration
+description: |-
+  Partner configuration information
+  API Version: 2021-10-15-preview.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group within the user's subscription.
+  type: object
+  required:
+    - resourceGroupName
+outputs:
+  description: Partner configuration information
+  properties:
+    id:
+      type: string
+      description: Fully qualified identifier of the resource.
+    location:
+      type: string
+      description: Location of the resource.
+    name:
+      type: string
+      description: Name of the resource.
+    partnerAuthorization:
+      type: object
+      $ref: "#/types/azure-native:eventgrid:PartnerAuthorizationResponse"
+      description: The details of authorized partners.
+    provisioningState:
+      type: string
+      description: Provisioning state of the partner configuration.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:eventgrid:SystemDataResponse"
+      description: The system metadata relating to partner configuration resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Tags of the resource.
+    type:
+      type: string
+      description: Type of the resource.
+  type: object
+  required:
+    - id
+    - name
+    - systemData
+    - type

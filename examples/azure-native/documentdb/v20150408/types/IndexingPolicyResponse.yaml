@@ -1,0 +1,23 @@
+$token: azure-native:documentdb/v20150408:IndexingPolicyResponse
+description: Cosmos DB indexing policy
+properties:
+  automatic:
+    type: boolean
+    description: Indicates if the indexing policy is automatic
+  excludedPaths:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:documentdb/v20150408:ExcludedPathResponse"
+    description: List of paths to exclude from indexing
+  includedPaths:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:documentdb/v20150408:IncludedPathResponse"
+    description: List of paths to include in the indexing
+  indexingMode:
+    type: string
+    description: Indicates the indexing mode.
+    default: Consistent
+type: object

@@ -1,0 +1,29 @@
+$token: azure-native:policyinsights/v20190701:listRemediationDeploymentsAtSubscription
+description: List of deployments for a remediation.
+inputs:
+  properties:
+    remediationName:
+      type: string
+      description: The name of the remediation.
+    top:
+      type: integer
+      description: Maximum number of records to return.
+  type: object
+  required:
+    - remediationName
+outputs:
+  description: List of deployments for a remediation.
+  properties:
+    nextLink:
+      type: string
+      description: The URL to get the next set of results.
+    value:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:policyinsights/v20190701:RemediationDeploymentResponse"
+      description: Array of deployments for the remediation.
+  type: object
+  required:
+    - nextLink
+    - value

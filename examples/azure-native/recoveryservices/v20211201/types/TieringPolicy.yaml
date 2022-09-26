@@ -1,0 +1,29 @@
+$token: azure-native:recoveryservices/v20211201:TieringPolicy
+description: "Tiering Policy for a target tier.\r
+
+  If the policy is not specified for a given target tier, service retains the existing configured tiering policy for that tier"
+properties:
+  duration:
+    type: integer
+    description: "Number of days/weeks/months/years to retain backups in current tier before tiering.\r
+
+      Used only if TieringMode is set to TierAfter"
+  durationType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:recoveryservices/v20211201:RetentionDurationType"
+    description: "Retention duration type: days/weeks/months/years\r
+
+      Used only if TieringMode is set to TierAfter"
+  tieringMode:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:recoveryservices/v20211201:TieringMode"
+    description: "Tiering Mode to control automatic tiering of recovery points. Supported values are:\r
+
+      1. TierRecommended: Tier all recovery points recommended to be tiered\r
+
+      2. TierAfter: Tier all recovery points after a fixed period, as specified in duration + durationType below.\r
+
+      3. DoNotTier: Do not tier any recovery points"
+type: object

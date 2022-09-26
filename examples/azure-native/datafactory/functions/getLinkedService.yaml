@@ -1,0 +1,387 @@
+$token: azure-native:datafactory:getLinkedService
+description: |-
+  Linked service resource type.
+  API Version: 2018-06-01.
+inputs:
+  properties:
+    factoryName:
+      type: string
+      description: The factory name.
+    linkedServiceName:
+      type: string
+      description: The linked service name.
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+  type: object
+  required:
+    - factoryName
+    - linkedServiceName
+    - resourceGroupName
+outputs:
+  description: Linked service resource type.
+  properties:
+    etag:
+      type: string
+      description: Etag identifies change in the resource.
+    id:
+      type: string
+      description: The resource identifier.
+    name:
+      type: string
+      description: The resource name.
+    properties:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:datafactory:AmazonMWSLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:AmazonRdsForOracleLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:AmazonRdsForSqlServerLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:AmazonRedshiftLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:AmazonS3CompatibleLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:AmazonS3LinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:AppFiguresLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:AsanaLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:AzureBatchLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:AzureBlobFSLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:AzureBlobStorageLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:AzureDataExplorerLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:AzureDataLakeAnalyticsLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:AzureDataLakeStoreLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:AzureDatabricksDeltaLakeLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:AzureDatabricksLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:AzureFileStorageLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:AzureFunctionLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:AzureKeyVaultLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:AzureMLLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:AzureMLServiceLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:AzureMariaDBLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:AzureMySqlLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:AzurePostgreSqlLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:AzureSearchLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:AzureSqlDWLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:AzureSqlDatabaseLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:AzureSqlMILinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:AzureStorageLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:AzureSynapseArtifactsLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:AzureTableStorageLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:CassandraLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:CommonDataServiceForAppsLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:ConcurLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:CosmosDbLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:CosmosDbMongoDbApiLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:CouchbaseLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:CustomDataSourceLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:DataworldLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:Db2LinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:DrillLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:DynamicsAXLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:DynamicsCrmLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:DynamicsLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:EloquaLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:FileServerLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:FtpServerLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:GoogleAdWordsLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:GoogleBigQueryLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:GoogleCloudStorageLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:GoogleSheetsLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:GreenplumLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:HBaseLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:HDInsightLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:HDInsightOnDemandLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:HdfsLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:HiveLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:HttpLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:HubspotLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:ImpalaLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:InformixLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:JiraLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:MagentoLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:MariaDBLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:MarketoLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:MicrosoftAccessLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:MongoDbAtlasLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:MongoDbLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:MongoDbV2LinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:MySqlLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:NetezzaLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:ODataLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:OdbcLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:Office365LinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:OracleCloudStorageLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:OracleLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:OracleServiceCloudLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:PaypalLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:PhoenixLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:PostgreSqlLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:PrestoLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:QuickBooksLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:QuickbaseLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:ResponsysLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:RestServiceLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:SalesforceLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:SalesforceMarketingCloudLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:SalesforceServiceCloudLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:SapBWLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:SapCloudForCustomerLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:SapEccLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:SapHanaLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:SapOdpLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:SapOpenHubLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:SapTableLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:ServiceNowLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:SftpServerLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:SharePointOnlineListLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:ShopifyLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:SmartsheetLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:SnowflakeLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:SparkLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:SqlServerLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:SquareLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:SybaseLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:TeamDeskLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:TeradataLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:TwilioLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:VerticaLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:WebLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:XeroLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:ZendeskLinkedServiceResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:ZohoLinkedServiceResponse"
+      discriminator:
+        propertyName: type
+        mapping:
+          AmazonMWS: "#/types/azure-native:datafactory:AmazonMWSLinkedServiceResponse"
+          AmazonRdsForOracle: "#/types/azure-native:datafactory:AmazonRdsForOracleLinkedServiceResponse"
+          AmazonRdsForSqlServer: "#/types/azure-native:datafactory:AmazonRdsForSqlServerLinkedServiceResponse"
+          AmazonRedshift: "#/types/azure-native:datafactory:AmazonRedshiftLinkedServiceResponse"
+          AmazonS3: "#/types/azure-native:datafactory:AmazonS3LinkedServiceResponse"
+          AmazonS3Compatible: "#/types/azure-native:datafactory:AmazonS3CompatibleLinkedServiceResponse"
+          AppFigures: "#/types/azure-native:datafactory:AppFiguresLinkedServiceResponse"
+          Asana: "#/types/azure-native:datafactory:AsanaLinkedServiceResponse"
+          AzureBatch: "#/types/azure-native:datafactory:AzureBatchLinkedServiceResponse"
+          AzureBlobFS: "#/types/azure-native:datafactory:AzureBlobFSLinkedServiceResponse"
+          AzureBlobStorage: "#/types/azure-native:datafactory:AzureBlobStorageLinkedServiceResponse"
+          AzureDataExplorer: "#/types/azure-native:datafactory:AzureDataExplorerLinkedServiceResponse"
+          AzureDataLakeAnalytics: "#/types/azure-native:datafactory:AzureDataLakeAnalyticsLinkedServiceResponse"
+          AzureDataLakeStore: "#/types/azure-native:datafactory:AzureDataLakeStoreLinkedServiceResponse"
+          AzureDatabricks: "#/types/azure-native:datafactory:AzureDatabricksLinkedServiceResponse"
+          AzureDatabricksDeltaLake: "#/types/azure-native:datafactory:AzureDatabricksDeltaLakeLinkedServiceResponse"
+          AzureFileStorage: "#/types/azure-native:datafactory:AzureFileStorageLinkedServiceResponse"
+          AzureFunction: "#/types/azure-native:datafactory:AzureFunctionLinkedServiceResponse"
+          AzureKeyVault: "#/types/azure-native:datafactory:AzureKeyVaultLinkedServiceResponse"
+          AzureML: "#/types/azure-native:datafactory:AzureMLLinkedServiceResponse"
+          AzureMLService: "#/types/azure-native:datafactory:AzureMLServiceLinkedServiceResponse"
+          AzureMariaDB: "#/types/azure-native:datafactory:AzureMariaDBLinkedServiceResponse"
+          AzureMySql: "#/types/azure-native:datafactory:AzureMySqlLinkedServiceResponse"
+          AzurePostgreSql: "#/types/azure-native:datafactory:AzurePostgreSqlLinkedServiceResponse"
+          AzureSearch: "#/types/azure-native:datafactory:AzureSearchLinkedServiceResponse"
+          AzureSqlDW: "#/types/azure-native:datafactory:AzureSqlDWLinkedServiceResponse"
+          AzureSqlDatabase: "#/types/azure-native:datafactory:AzureSqlDatabaseLinkedServiceResponse"
+          AzureSqlMI: "#/types/azure-native:datafactory:AzureSqlMILinkedServiceResponse"
+          AzureStorage: "#/types/azure-native:datafactory:AzureStorageLinkedServiceResponse"
+          AzureSynapseArtifacts: "#/types/azure-native:datafactory:AzureSynapseArtifactsLinkedServiceResponse"
+          AzureTableStorage: "#/types/azure-native:datafactory:AzureTableStorageLinkedServiceResponse"
+          Cassandra: "#/types/azure-native:datafactory:CassandraLinkedServiceResponse"
+          CommonDataServiceForApps: "#/types/azure-native:datafactory:CommonDataServiceForAppsLinkedServiceResponse"
+          Concur: "#/types/azure-native:datafactory:ConcurLinkedServiceResponse"
+          CosmosDb: "#/types/azure-native:datafactory:CosmosDbLinkedServiceResponse"
+          CosmosDbMongoDbApi: "#/types/azure-native:datafactory:CosmosDbMongoDbApiLinkedServiceResponse"
+          Couchbase: "#/types/azure-native:datafactory:CouchbaseLinkedServiceResponse"
+          CustomDataSource: "#/types/azure-native:datafactory:CustomDataSourceLinkedServiceResponse"
+          Dataworld: "#/types/azure-native:datafactory:DataworldLinkedServiceResponse"
+          Db2: "#/types/azure-native:datafactory:Db2LinkedServiceResponse"
+          Drill: "#/types/azure-native:datafactory:DrillLinkedServiceResponse"
+          Dynamics: "#/types/azure-native:datafactory:DynamicsLinkedServiceResponse"
+          DynamicsAX: "#/types/azure-native:datafactory:DynamicsAXLinkedServiceResponse"
+          DynamicsCrm: "#/types/azure-native:datafactory:DynamicsCrmLinkedServiceResponse"
+          Eloqua: "#/types/azure-native:datafactory:EloquaLinkedServiceResponse"
+          FileServer: "#/types/azure-native:datafactory:FileServerLinkedServiceResponse"
+          FtpServer: "#/types/azure-native:datafactory:FtpServerLinkedServiceResponse"
+          GoogleAdWords: "#/types/azure-native:datafactory:GoogleAdWordsLinkedServiceResponse"
+          GoogleBigQuery: "#/types/azure-native:datafactory:GoogleBigQueryLinkedServiceResponse"
+          GoogleCloudStorage: "#/types/azure-native:datafactory:GoogleCloudStorageLinkedServiceResponse"
+          GoogleSheets: "#/types/azure-native:datafactory:GoogleSheetsLinkedServiceResponse"
+          Greenplum: "#/types/azure-native:datafactory:GreenplumLinkedServiceResponse"
+          HBase: "#/types/azure-native:datafactory:HBaseLinkedServiceResponse"
+          HDInsight: "#/types/azure-native:datafactory:HDInsightLinkedServiceResponse"
+          HDInsightOnDemand: "#/types/azure-native:datafactory:HDInsightOnDemandLinkedServiceResponse"
+          Hdfs: "#/types/azure-native:datafactory:HdfsLinkedServiceResponse"
+          Hive: "#/types/azure-native:datafactory:HiveLinkedServiceResponse"
+          HttpServer: "#/types/azure-native:datafactory:HttpLinkedServiceResponse"
+          Hubspot: "#/types/azure-native:datafactory:HubspotLinkedServiceResponse"
+          Impala: "#/types/azure-native:datafactory:ImpalaLinkedServiceResponse"
+          Informix: "#/types/azure-native:datafactory:InformixLinkedServiceResponse"
+          Jira: "#/types/azure-native:datafactory:JiraLinkedServiceResponse"
+          Magento: "#/types/azure-native:datafactory:MagentoLinkedServiceResponse"
+          MariaDB: "#/types/azure-native:datafactory:MariaDBLinkedServiceResponse"
+          Marketo: "#/types/azure-native:datafactory:MarketoLinkedServiceResponse"
+          MicrosoftAccess: "#/types/azure-native:datafactory:MicrosoftAccessLinkedServiceResponse"
+          MongoDb: "#/types/azure-native:datafactory:MongoDbLinkedServiceResponse"
+          MongoDbAtlas: "#/types/azure-native:datafactory:MongoDbAtlasLinkedServiceResponse"
+          MongoDbV2: "#/types/azure-native:datafactory:MongoDbV2LinkedServiceResponse"
+          MySql: "#/types/azure-native:datafactory:MySqlLinkedServiceResponse"
+          Netezza: "#/types/azure-native:datafactory:NetezzaLinkedServiceResponse"
+          OData: "#/types/azure-native:datafactory:ODataLinkedServiceResponse"
+          Odbc: "#/types/azure-native:datafactory:OdbcLinkedServiceResponse"
+          Office365: "#/types/azure-native:datafactory:Office365LinkedServiceResponse"
+          Oracle: "#/types/azure-native:datafactory:OracleLinkedServiceResponse"
+          OracleCloudStorage: "#/types/azure-native:datafactory:OracleCloudStorageLinkedServiceResponse"
+          OracleServiceCloud: "#/types/azure-native:datafactory:OracleServiceCloudLinkedServiceResponse"
+          Paypal: "#/types/azure-native:datafactory:PaypalLinkedServiceResponse"
+          Phoenix: "#/types/azure-native:datafactory:PhoenixLinkedServiceResponse"
+          PostgreSql: "#/types/azure-native:datafactory:PostgreSqlLinkedServiceResponse"
+          Presto: "#/types/azure-native:datafactory:PrestoLinkedServiceResponse"
+          QuickBooks: "#/types/azure-native:datafactory:QuickBooksLinkedServiceResponse"
+          Quickbase: "#/types/azure-native:datafactory:QuickbaseLinkedServiceResponse"
+          Responsys: "#/types/azure-native:datafactory:ResponsysLinkedServiceResponse"
+          RestService: "#/types/azure-native:datafactory:RestServiceLinkedServiceResponse"
+          Salesforce: "#/types/azure-native:datafactory:SalesforceLinkedServiceResponse"
+          SalesforceMarketingCloud: "#/types/azure-native:datafactory:SalesforceMarketingCloudLinkedServiceResponse"
+          SalesforceServiceCloud: "#/types/azure-native:datafactory:SalesforceServiceCloudLinkedServiceResponse"
+          SapBW: "#/types/azure-native:datafactory:SapBWLinkedServiceResponse"
+          SapCloudForCustomer: "#/types/azure-native:datafactory:SapCloudForCustomerLinkedServiceResponse"
+          SapEcc: "#/types/azure-native:datafactory:SapEccLinkedServiceResponse"
+          SapHana: "#/types/azure-native:datafactory:SapHanaLinkedServiceResponse"
+          SapOdp: "#/types/azure-native:datafactory:SapOdpLinkedServiceResponse"
+          SapOpenHub: "#/types/azure-native:datafactory:SapOpenHubLinkedServiceResponse"
+          SapTable: "#/types/azure-native:datafactory:SapTableLinkedServiceResponse"
+          ServiceNow: "#/types/azure-native:datafactory:ServiceNowLinkedServiceResponse"
+          Sftp: "#/types/azure-native:datafactory:SftpServerLinkedServiceResponse"
+          SharePointOnlineList: "#/types/azure-native:datafactory:SharePointOnlineListLinkedServiceResponse"
+          Shopify: "#/types/azure-native:datafactory:ShopifyLinkedServiceResponse"
+          Smartsheet: "#/types/azure-native:datafactory:SmartsheetLinkedServiceResponse"
+          Snowflake: "#/types/azure-native:datafactory:SnowflakeLinkedServiceResponse"
+          Spark: "#/types/azure-native:datafactory:SparkLinkedServiceResponse"
+          SqlServer: "#/types/azure-native:datafactory:SqlServerLinkedServiceResponse"
+          Square: "#/types/azure-native:datafactory:SquareLinkedServiceResponse"
+          Sybase: "#/types/azure-native:datafactory:SybaseLinkedServiceResponse"
+          TeamDesk: "#/types/azure-native:datafactory:TeamDeskLinkedServiceResponse"
+          Teradata: "#/types/azure-native:datafactory:TeradataLinkedServiceResponse"
+          Twilio: "#/types/azure-native:datafactory:TwilioLinkedServiceResponse"
+          Vertica: "#/types/azure-native:datafactory:VerticaLinkedServiceResponse"
+          Web: "#/types/azure-native:datafactory:WebLinkedServiceResponse"
+          Xero: "#/types/azure-native:datafactory:XeroLinkedServiceResponse"
+          Zendesk: "#/types/azure-native:datafactory:ZendeskLinkedServiceResponse"
+          Zoho: "#/types/azure-native:datafactory:ZohoLinkedServiceResponse"
+      description: Properties of linked service.
+    type:
+      type: string
+      description: The resource type.
+  type: object
+  required:
+    - etag
+    - id
+    - name
+    - properties
+    - type

@@ -1,0 +1,27 @@
+$token: azure-native:providerhub:OperationsDefinition
+description: Properties of an Operation.
+properties:
+  actionType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:providerhub:OperationActionType"
+  display:
+    type: object
+    $ref: "#/types/azure-native:providerhub:OperationsDefinitionDisplay"
+    description: Display information of the operation.
+  isDataAction:
+    type: boolean
+    description: Indicates whether the operation applies to data-plane.
+  name:
+    type: string
+    description: Name of the operation.
+  origin:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:providerhub:OperationOrigins"
+  properties:
+    $ref: pulumi.json#/Any
+type: object
+required:
+  - display
+  - name

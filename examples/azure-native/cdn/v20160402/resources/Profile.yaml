@@ -1,0 +1,73 @@
+$token: azure-native:cdn/v20160402:Profile
+description: CDN profile represents the top level resource and the entry point into the CDN API. This allows users to set up a logical grouping of endpoints in addition to creating shared configuration settings and selecting pricing tiers and providers.
+properties:
+  location:
+    type: string
+    description: Resource location
+  name:
+    type: string
+    description: Resource name
+  provisioningState:
+    type: string
+    description: Provisioning status of the profile.
+  resourceState:
+    type: string
+    description: Resource status of the profile.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:cdn/v20160402:SkuResponse"
+    description: The SKU (pricing tier) of the CDN profile.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  type:
+    type: string
+    description: Resource type
+type: object
+required:
+  - location
+  - name
+  - provisioningState
+  - resourceState
+  - tags
+  - type
+inputProperties:
+  location:
+    type: string
+    description: Profile location
+  profileName:
+    type: string
+    description: Name of the CDN profile within the resource group.
+  resourceGroupName:
+    type: string
+    description: Name of the resource group within the Azure subscription.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:cdn/v20160402:Sku"
+    description: The SKU (pricing tier) of the CDN profile.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Profile tags
+requiredInputs:
+  - resourceGroupName
+  - sku
+aliases:
+  - type: azure-native:cdn:Profile
+  - type: azure-native:cdn/v20150601:Profile
+  - type: azure-native:cdn/v20161002:Profile
+  - type: azure-native:cdn/v20170402:Profile
+  - type: azure-native:cdn/v20171012:Profile
+  - type: azure-native:cdn/v20190415:Profile
+  - type: azure-native:cdn/v20190615:Profile
+  - type: azure-native:cdn/v20190615preview:Profile
+  - type: azure-native:cdn/v20191231:Profile
+  - type: azure-native:cdn/v20200331:Profile
+  - type: azure-native:cdn/v20200415:Profile
+  - type: azure-native:cdn/v20200901:Profile
+  - type: azure-native:cdn/v20210601:Profile
+  - type: azure-native:cdn/v20220501preview:Profile
+deprecationMessage: Version 2016-04-02 will be removed in v2 of the provider.

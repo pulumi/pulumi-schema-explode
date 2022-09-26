@@ -1,0 +1,66 @@
+$token: azure-native:avs/v20211201:Cluster
+description: A cluster resource
+properties:
+  clusterId:
+    type: integer
+    description: The identity
+  clusterSize:
+    type: integer
+    description: The cluster size
+  hosts:
+    type: array
+    items:
+      type: string
+    description: The hosts
+  name:
+    type: string
+    description: Resource name.
+  provisioningState:
+    type: string
+    description: The state of the cluster provisioning
+  sku:
+    type: object
+    $ref: "#/types/azure-native:avs/v20211201:SkuResponse"
+    description: The cluster SKU
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - clusterId
+  - name
+  - provisioningState
+  - sku
+  - type
+inputProperties:
+  clusterName:
+    type: string
+    description: Name of the cluster in the private cloud
+  clusterSize:
+    type: integer
+    description: The cluster size
+  hosts:
+    type: array
+    items:
+      type: string
+    description: The hosts
+  privateCloudName:
+    type: string
+    description: The name of the private cloud.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:avs/v20211201:Sku"
+    description: The cluster SKU
+requiredInputs:
+  - privateCloudName
+  - resourceGroupName
+  - sku
+aliases:
+  - type: azure-native:avs:Cluster
+  - type: azure-native:avs/v20200320:Cluster
+  - type: azure-native:avs/v20200717preview:Cluster
+  - type: azure-native:avs/v20210101preview:Cluster
+  - type: azure-native:avs/v20210601:Cluster

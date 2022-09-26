@@ -1,0 +1,16 @@
+$token: azure-native:videoanalyzer:StorageAccountResponse
+description: The details about the associated storage account.
+properties:
+  id:
+    type: string
+    description: The ID of the storage account resource. Video Analyzer relies on tables, queues, and blobs. The primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage).
+  identity:
+    type: object
+    $ref: "#/types/azure-native:videoanalyzer:ResourceIdentityResponse"
+    description: A managed identity that Video Analyzer will use to access the storage account.
+  status:
+    type: string
+    description: The current status of the storage account mapping.
+type: object
+required:
+  - status

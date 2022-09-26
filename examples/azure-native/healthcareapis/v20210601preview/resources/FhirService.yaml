@@ -1,0 +1,120 @@
+$token: azure-native:healthcareapis/v20210601preview:FhirService
+description: The description of Fhir Service
+properties:
+  accessPolicies:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:healthcareapis/v20210601preview:FhirServiceAccessPolicyEntryResponse"
+    description: Fhir Service access policies.
+  acrConfiguration:
+    type: object
+    $ref: "#/types/azure-native:healthcareapis/v20210601preview:FhirServiceAcrConfigurationResponse"
+    description: Fhir Service Azure container registry configuration.
+  authenticationConfiguration:
+    type: object
+    $ref: "#/types/azure-native:healthcareapis/v20210601preview:FhirServiceAuthenticationConfigurationResponse"
+    description: Fhir Service authentication configuration.
+  corsConfiguration:
+    type: object
+    $ref: "#/types/azure-native:healthcareapis/v20210601preview:FhirServiceCorsConfigurationResponse"
+    description: Fhir Service Cors configuration.
+  etag:
+    type: string
+    description: An etag associated with the resource, used for optimistic concurrency when editing it.
+  exportConfiguration:
+    type: object
+    $ref: "#/types/azure-native:healthcareapis/v20210601preview:FhirServiceExportConfigurationResponse"
+    description: Fhir Service export configuration.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:healthcareapis/v20210601preview:ServiceManagedIdentityResponseIdentity"
+    description: Setting indicating whether the service has a managed identity associated with it.
+  kind:
+    type: string
+    description: The kind of the service.
+  location:
+    type: string
+    description: The resource location.
+  name:
+    type: string
+    description: The resource name.
+  provisioningState:
+    type: string
+    description: The provisioning state.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:healthcareapis/v20210601preview:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The resource type.
+type: object
+required:
+  - name
+  - provisioningState
+  - systemData
+  - type
+inputProperties:
+  accessPolicies:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:healthcareapis/v20210601preview:FhirServiceAccessPolicyEntry"
+    description: Fhir Service access policies.
+  acrConfiguration:
+    type: object
+    $ref: "#/types/azure-native:healthcareapis/v20210601preview:FhirServiceAcrConfiguration"
+    description: Fhir Service Azure container registry configuration.
+  authenticationConfiguration:
+    type: object
+    $ref: "#/types/azure-native:healthcareapis/v20210601preview:FhirServiceAuthenticationConfiguration"
+    description: Fhir Service authentication configuration.
+  corsConfiguration:
+    type: object
+    $ref: "#/types/azure-native:healthcareapis/v20210601preview:FhirServiceCorsConfiguration"
+    description: Fhir Service Cors configuration.
+  exportConfiguration:
+    type: object
+    $ref: "#/types/azure-native:healthcareapis/v20210601preview:FhirServiceExportConfiguration"
+    description: Fhir Service export configuration.
+  fhirServiceName:
+    type: string
+    description: The name of FHIR Service resource.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:healthcareapis/v20210601preview:ServiceManagedIdentityIdentity"
+    description: Setting indicating whether the service has a managed identity associated with it.
+  kind:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:healthcareapis/v20210601preview:FhirServiceKind"
+    description: The kind of the service.
+  location:
+    type: string
+    description: The resource location.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the service instance.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  workspaceName:
+    type: string
+    description: The name of workspace resource.
+requiredInputs:
+  - resourceGroupName
+  - workspaceName
+aliases:
+  - type: azure-native:healthcareapis:FhirService
+  - type: azure-native:healthcareapis/v20211101:FhirService
+  - type: azure-native:healthcareapis/v20220131preview:FhirService
+  - type: azure-native:healthcareapis/v20220515:FhirService
+  - type: azure-native:healthcareapis/v20220601:FhirService

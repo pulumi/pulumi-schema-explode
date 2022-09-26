@@ -1,0 +1,106 @@
+$token: azure-native:datafactory:ExcelDataset
+description: Excel dataset.
+properties:
+  annotations:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: List of tags that can be used for describing the Dataset.
+  compression:
+    type: object
+    $ref: "#/types/azure-native:datafactory:DatasetCompression"
+    description: The data compression method used for the json dataset.
+  description:
+    type: string
+    description: Dataset description.
+  firstRowAsHeader:
+    $ref: pulumi.json#/Any
+    description: "When used as input, treat the first row of data as headers. When used as output,write the headers into the output as the first row of data. The default value is false. Type: boolean (or Expression with resultType boolean)."
+  folder:
+    type: object
+    $ref: "#/types/azure-native:datafactory:DatasetFolder"
+    description: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+  linkedServiceName:
+    type: object
+    $ref: "#/types/azure-native:datafactory:LinkedServiceReference"
+    description: Linked service reference.
+  location:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AmazonS3CompatibleLocation"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AmazonS3Location"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureBlobFSLocation"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureBlobStorageLocation"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureDataLakeStoreLocation"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureFileStorageLocation"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:FileServerLocation"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:FtpServerLocation"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:GoogleCloudStorageLocation"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:HdfsLocation"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:HttpServerLocation"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:OracleCloudStorageLocation"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SftpLocation"
+    discriminator:
+      propertyName: type
+      mapping:
+        AmazonS3CompatibleLocation: "#/types/azure-native:datafactory:AmazonS3CompatibleLocation"
+        AmazonS3Location: "#/types/azure-native:datafactory:AmazonS3Location"
+        AzureBlobFSLocation: "#/types/azure-native:datafactory:AzureBlobFSLocation"
+        AzureBlobStorageLocation: "#/types/azure-native:datafactory:AzureBlobStorageLocation"
+        AzureDataLakeStoreLocation: "#/types/azure-native:datafactory:AzureDataLakeStoreLocation"
+        AzureFileStorageLocation: "#/types/azure-native:datafactory:AzureFileStorageLocation"
+        FileServerLocation: "#/types/azure-native:datafactory:FileServerLocation"
+        FtpServerLocation: "#/types/azure-native:datafactory:FtpServerLocation"
+        GoogleCloudStorageLocation: "#/types/azure-native:datafactory:GoogleCloudStorageLocation"
+        HdfsLocation: "#/types/azure-native:datafactory:HdfsLocation"
+        HttpServerLocation: "#/types/azure-native:datafactory:HttpServerLocation"
+        OracleCloudStorageLocation: "#/types/azure-native:datafactory:OracleCloudStorageLocation"
+        SftpLocation: "#/types/azure-native:datafactory:SftpLocation"
+    description: The location of the excel storage.
+  nullValue:
+    $ref: pulumi.json#/Any
+    description: "The null value string. Type: string (or Expression with resultType string)."
+  parameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:datafactory:ParameterSpecification"
+    description: Parameters for dataset.
+  range:
+    $ref: pulumi.json#/Any
+    description: "The partial data of one sheet. Type: string (or Expression with resultType string)."
+  schema:
+    $ref: pulumi.json#/Any
+    description: "Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement."
+  sheetIndex:
+    $ref: pulumi.json#/Any
+    description: "The sheet index of excel file and default value is 0. Type: integer (or Expression with resultType integer)"
+  sheetName:
+    $ref: pulumi.json#/Any
+    description: "The sheet name of excel file. Type: string (or Expression with resultType string)."
+  structure:
+    $ref: pulumi.json#/Any
+    description: "Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement."
+  type:
+    type: string
+    description: |-
+      Type of dataset.
+      Expected value is 'Excel'.
+    const: Excel
+type: object
+required:
+  - linkedServiceName
+  - location
+  - type

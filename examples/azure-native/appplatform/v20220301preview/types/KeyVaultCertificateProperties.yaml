@@ -1,0 +1,27 @@
+$token: azure-native:appplatform/v20220301preview:KeyVaultCertificateProperties
+description: Properties of certificate imported from key vault.
+properties:
+  certVersion:
+    type: string
+    description: The certificate version of key vault.
+  excludePrivateKey:
+    type: boolean
+    description: Optional. If set to true, it will not import private key from key vault.
+    default: false
+  keyVaultCertName:
+    type: string
+    description: The certificate name of key vault.
+  type:
+    type: string
+    description: |-
+      The type of the certificate source.
+      Expected value is 'KeyVaultCertificate'.
+    const: KeyVaultCertificate
+  vaultUri:
+    type: string
+    description: The vault uri of user key vault.
+type: object
+required:
+  - keyVaultCertName
+  - type
+  - vaultUri

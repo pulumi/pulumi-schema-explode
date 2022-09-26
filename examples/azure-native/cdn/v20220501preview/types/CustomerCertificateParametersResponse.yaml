@@ -1,0 +1,44 @@
+$token: azure-native:cdn/v20220501preview:CustomerCertificateParametersResponse
+description: Customer Certificate used for https
+properties:
+  certificateAuthority:
+    type: string
+    description: Certificate issuing authority.
+  expirationDate:
+    type: string
+    description: Certificate expiration date.
+  secretSource:
+    type: object
+    $ref: "#/types/azure-native:cdn/v20220501preview:ResourceReferenceResponse"
+    description: Resource reference to the Azure Key Vault certificate. Expected to be in format of /subscriptions/{​​​​​​​​​subscriptionId}​​​​​​​​​/resourceGroups/{​​​​​​​​​resourceGroupName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​/providers/Microsoft.KeyVault/vaults/{vaultName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​/secrets/{certificateName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
+  secretVersion:
+    type: string
+    description: Version of the secret to be used
+  subject:
+    type: string
+    description: Subject name in the certificate.
+  subjectAlternativeNames:
+    type: array
+    items:
+      type: string
+    description: The list of SANs.
+  thumbprint:
+    type: string
+    description: Certificate thumbprint.
+  type:
+    type: string
+    description: |-
+      The type of the secret resource.
+      Expected value is 'CustomerCertificate'.
+    const: CustomerCertificate
+  useLatestVersion:
+    type: boolean
+    description: Whether to use the latest version for the certificate
+type: object
+required:
+  - certificateAuthority
+  - expirationDate
+  - secretSource
+  - subject
+  - thumbprint
+  - type

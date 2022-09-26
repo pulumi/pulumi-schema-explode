@@ -1,0 +1,19 @@
+$token: azure-native:insights/v20180601preview:DataSource
+description: Data source object contains configuration to collect telemetry and one or more sinks to send that telemetry data to
+properties:
+  configuration:
+    type: object
+    $ref: "#/types/azure-native:insights/v20180601preview:DataSourceConfiguration"
+  kind:
+    type: string
+    description: Datasource kind
+  sinks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:insights/v20180601preview:SinkConfiguration"
+type: object
+required:
+  - configuration
+  - kind
+  - sinks

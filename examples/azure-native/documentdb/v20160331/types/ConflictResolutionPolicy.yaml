@@ -1,0 +1,16 @@
+$token: azure-native:documentdb/v20160331:ConflictResolutionPolicy
+description: The conflict resolution policy for the container.
+properties:
+  conflictResolutionPath:
+    type: string
+    description: The conflict resolution path in the case of LastWriterWins mode.
+  conflictResolutionProcedure:
+    type: string
+    description: The procedure to resolve conflicts in the case of custom mode.
+  mode:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:documentdb/v20160331:ConflictResolutionMode"
+    description: Indicates the conflict resolution mode.
+    default: LastWriterWins
+type: object

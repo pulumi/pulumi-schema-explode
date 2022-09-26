@@ -1,0 +1,84 @@
+$token: azure-native:machinelearningservices/v20220601preview:WorkspaceConnection
+properties:
+  name:
+    type: string
+    description: The name of the resource
+  properties:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220601preview:ManagedIdentityAuthTypeWorkspaceConnectionPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220601preview:NoneAuthTypeWorkspaceConnectionPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220601preview:PATAuthTypeWorkspaceConnectionPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220601preview:SASAuthTypeWorkspaceConnectionPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220601preview:UsernamePasswordAuthTypeWorkspaceConnectionPropertiesResponse"
+    discriminator:
+      propertyName: authType
+      mapping:
+        ManagedIdentity: "#/types/azure-native:machinelearningservices/v20220601preview:ManagedIdentityAuthTypeWorkspaceConnectionPropertiesResponse"
+        None: "#/types/azure-native:machinelearningservices/v20220601preview:NoneAuthTypeWorkspaceConnectionPropertiesResponse"
+        PAT: "#/types/azure-native:machinelearningservices/v20220601preview:PATAuthTypeWorkspaceConnectionPropertiesResponse"
+        SAS: "#/types/azure-native:machinelearningservices/v20220601preview:SASAuthTypeWorkspaceConnectionPropertiesResponse"
+        UsernamePassword: "#/types/azure-native:machinelearningservices/v20220601preview:UsernamePasswordAuthTypeWorkspaceConnectionPropertiesResponse"
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - name
+  - properties
+  - systemData
+  - type
+inputProperties:
+  connectionName:
+    type: string
+    description: Friendly name of the workspace connection
+  properties:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220601preview:ManagedIdentityAuthTypeWorkspaceConnectionProperties"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220601preview:NoneAuthTypeWorkspaceConnectionProperties"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220601preview:PATAuthTypeWorkspaceConnectionProperties"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220601preview:SASAuthTypeWorkspaceConnectionProperties"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220601preview:UsernamePasswordAuthTypeWorkspaceConnectionProperties"
+    discriminator:
+      propertyName: authType
+      mapping:
+        ManagedIdentity: "#/types/azure-native:machinelearningservices/v20220601preview:ManagedIdentityAuthTypeWorkspaceConnectionProperties"
+        None: "#/types/azure-native:machinelearningservices/v20220601preview:NoneAuthTypeWorkspaceConnectionProperties"
+        PAT: "#/types/azure-native:machinelearningservices/v20220601preview:PATAuthTypeWorkspaceConnectionProperties"
+        SAS: "#/types/azure-native:machinelearningservices/v20220601preview:SASAuthTypeWorkspaceConnectionProperties"
+        UsernamePassword: "#/types/azure-native:machinelearningservices/v20220601preview:UsernamePasswordAuthTypeWorkspaceConnectionProperties"
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  workspaceName:
+    type: string
+    description: Name of Azure Machine Learning workspace.
+requiredInputs:
+  - properties
+  - resourceGroupName
+  - workspaceName
+aliases:
+  - type: azure-native:machinelearningservices:WorkspaceConnection
+  - type: azure-native:machinelearningservices/v20200601:WorkspaceConnection
+  - type: azure-native:machinelearningservices/v20200801:WorkspaceConnection
+  - type: azure-native:machinelearningservices/v20200901preview:WorkspaceConnection
+  - type: azure-native:machinelearningservices/v20210101:WorkspaceConnection
+  - type: azure-native:machinelearningservices/v20210301preview:WorkspaceConnection
+  - type: azure-native:machinelearningservices/v20210401:WorkspaceConnection
+  - type: azure-native:machinelearningservices/v20210701:WorkspaceConnection
+  - type: azure-native:machinelearningservices/v20220101preview:WorkspaceConnection
+  - type: azure-native:machinelearningservices/v20220201preview:WorkspaceConnection
+  - type: azure-native:machinelearningservices/v20220501:WorkspaceConnection

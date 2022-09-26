@@ -1,0 +1,49 @@
+$token: azure-native:appplatform/v20201101preview:CustomDomain
+description: Custom domain resource payload.
+properties:
+  name:
+    type: string
+    description: The name of the resource.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20201101preview:CustomDomainPropertiesResponse"
+    description: Properties of the custom domain resource.
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - name
+  - properties
+  - type
+inputProperties:
+  appName:
+    type: string
+    description: The name of the App resource.
+  domainName:
+    type: string
+    description: The name of the custom domain resource.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20201101preview:CustomDomainProperties"
+    description: Properties of the custom domain resource.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  serviceName:
+    type: string
+    description: The name of the Service resource.
+requiredInputs:
+  - appName
+  - resourceGroupName
+  - serviceName
+aliases:
+  - type: azure-native:appplatform:CustomDomain
+  - type: azure-native:appplatform/v20200701:CustomDomain
+  - type: azure-native:appplatform/v20210601preview:CustomDomain
+  - type: azure-native:appplatform/v20210901preview:CustomDomain
+  - type: azure-native:appplatform/v20220101preview:CustomDomain
+  - type: azure-native:appplatform/v20220301preview:CustomDomain
+  - type: azure-native:appplatform/v20220401:CustomDomain
+  - type: azure-native:appplatform/v20220501preview:CustomDomain
+  - type: azure-native:appplatform/v20220901preview:CustomDomain

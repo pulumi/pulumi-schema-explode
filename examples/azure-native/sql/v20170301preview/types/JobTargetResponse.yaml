@@ -1,0 +1,28 @@
+$token: azure-native:sql/v20170301preview:JobTargetResponse
+description: A job target, for example a specific database or a container of databases that is evaluated during job execution.
+properties:
+  databaseName:
+    type: string
+    description: The target database name.
+  elasticPoolName:
+    type: string
+    description: The target elastic pool name.
+  membershipType:
+    type: string
+    description: Whether the target is included or excluded from the group.
+    default: Include
+  refreshCredential:
+    type: string
+    description: The resource ID of the credential that is used during job execution to connect to the target and determine the list of databases inside the target.
+  serverName:
+    type: string
+    description: The target server name.
+  shardMapName:
+    type: string
+    description: The target shard map.
+  type:
+    type: string
+    description: The target type.
+type: object
+required:
+  - type

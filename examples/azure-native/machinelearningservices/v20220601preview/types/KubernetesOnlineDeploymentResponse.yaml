@@ -1,0 +1,87 @@
+$token: azure-native:machinelearningservices/v20220601preview:KubernetesOnlineDeploymentResponse
+description: Properties specific to a KubernetesOnlineDeployment.
+properties:
+  appInsightsEnabled:
+    type: boolean
+    description: If true, enables Application Insights logging.
+    default: false
+  codeConfiguration:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:CodeConfigurationResponse"
+    description: Code configuration for the endpoint deployment.
+  containerResourceRequirements:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:ContainerResourceRequirementsResponse"
+    description: The resource requirements for the container (cpu and memory).
+  description:
+    type: string
+    description: Description of the endpoint deployment.
+  egressPublicNetworkAccess:
+    type: string
+    description: "If Enabled, allow egress public network access. If Disabled, this will create secure egress. Default: Enabled."
+    default: Enabled
+  endpointComputeType:
+    type: string
+    description: |-
+      Enum to determine endpoint compute type.
+      Expected value is 'Kubernetes'.
+    const: Kubernetes
+  environmentId:
+    type: string
+    description: ARM resource ID of the environment specification for the endpoint deployment.
+  environmentVariables:
+    type: object
+    additionalProperties:
+      type: string
+    description: Environment variables configuration for the deployment.
+  instanceType:
+    type: string
+    description: Compute instance type.
+  livenessProbe:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:ProbeSettingsResponse"
+    description: Liveness probe monitors the health of the container regularly.
+  model:
+    type: string
+    description: The URI path to the model.
+  modelMountPath:
+    type: string
+    description: The path to mount the model in custom container.
+  properties:
+    type: object
+    additionalProperties:
+      type: string
+    description: Property dictionary. Properties can be added, but not removed or altered.
+  provisioningState:
+    type: string
+    description: Provisioning state for the endpoint deployment.
+  readinessProbe:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:ProbeSettingsResponse"
+    description: Readiness probe validates if the container is ready to serve traffic. The properties and defaults are the same as liveness probe.
+  requestSettings:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:OnlineRequestSettingsResponse"
+    description: Request settings for the deployment.
+  scaleSettings:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220601preview:DefaultScaleSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220601preview:TargetUtilizationScaleSettingsResponse"
+    discriminator:
+      propertyName: scaleType
+      mapping:
+        Default: "#/types/azure-native:machinelearningservices/v20220601preview:DefaultScaleSettingsResponse"
+        TargetUtilization: "#/types/azure-native:machinelearningservices/v20220601preview:TargetUtilizationScaleSettingsResponse"
+    description: "Scale settings for the deployment.\r
+
+      If it is null or not provided,\r
+
+      it defaults to TargetUtilizationScaleSettings for KubernetesOnlineDeployment\r
+
+      and to DefaultScaleSettings for ManagedOnlineDeployment."
+type: object
+required:
+  - endpointComputeType
+  - provisioningState

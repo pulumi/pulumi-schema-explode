@@ -1,0 +1,112 @@
+$token: azure-native:media/v20211101:getStreamingEndpoint
+description: The streaming endpoint.
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: The Media Services account name.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group within the Azure subscription.
+    streamingEndpointName:
+      type: string
+      description: The name of the streaming endpoint, maximum length is 24.
+  type: object
+  required:
+    - accountName
+    - resourceGroupName
+    - streamingEndpointName
+outputs:
+  description: The streaming endpoint.
+  properties:
+    accessControl:
+      type: object
+      $ref: "#/types/azure-native:media/v20211101:StreamingEndpointAccessControlResponse"
+      description: The access control definition of the streaming endpoint.
+    availabilitySetName:
+      type: string
+      description: This feature is deprecated, do not set a value for this property.
+    cdnEnabled:
+      type: boolean
+      description: The CDN enabled flag.
+    cdnProfile:
+      type: string
+      description: The CDN profile name.
+    cdnProvider:
+      type: string
+      description: The CDN provider name.
+    created:
+      type: string
+      description: The exact time the streaming endpoint was created.
+    crossSiteAccessPolicies:
+      type: object
+      $ref: "#/types/azure-native:media/v20211101:CrossSiteAccessPoliciesResponse"
+      description: The streaming endpoint access policies.
+    customHostNames:
+      type: array
+      items:
+        type: string
+      description: The custom host names of the streaming endpoint
+    description:
+      type: string
+      description: The streaming endpoint description.
+    freeTrialEndTime:
+      type: string
+      description: The free trial expiration time.
+    hostName:
+      type: string
+      description: The streaming endpoint host name.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    lastModified:
+      type: string
+      description: The exact time the streaming endpoint was last modified.
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    maxCacheAge:
+      type: number
+      description: Max cache age
+    name:
+      type: string
+      description: The name of the resource
+    provisioningState:
+      type: string
+      description: The provisioning state of the streaming endpoint.
+    resourceState:
+      type: string
+      description: The resource state of the streaming endpoint.
+    scaleUnits:
+      type: integer
+      description: The number of scale units. Use the Scale operation to adjust this value.
+    sku:
+      type: object
+      $ref: "#/types/azure-native:media/v20211101:ArmStreamingEndpointCurrentSkuResponse"
+      description: The streaming endpoint sku.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:media/v20211101:SystemDataResponse"
+      description: The system metadata relating to this resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - created
+    - freeTrialEndTime
+    - hostName
+    - id
+    - lastModified
+    - location
+    - name
+    - provisioningState
+    - resourceState
+    - scaleUnits
+    - systemData
+    - type

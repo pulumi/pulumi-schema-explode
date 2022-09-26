@@ -1,0 +1,43 @@
+$token: azure-native:compute/v20210301:getSshPublicKey
+description: Specifies information about the SSH public key.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    sshPublicKeyName:
+      type: string
+      description: The name of the SSH public key.
+  type: object
+  required:
+    - resourceGroupName
+    - sshPublicKeyName
+outputs:
+  description: Specifies information about the SSH public key.
+  properties:
+    id:
+      type: string
+      description: Resource Id
+    location:
+      type: string
+      description: Resource location
+    name:
+      type: string
+      description: Resource name
+    publicKey:
+      type: string
+      description: SSH public key used to authenticate to a virtual machine through ssh. If this property is not initially provided when the resource is created, the publicKey property will be populated when generateKeyPair is called. If the public key is provided upon resource creation, the provided public key needs to be at least 2048-bit and in ssh-rsa format.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    type:
+      type: string
+      description: Resource type
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - type

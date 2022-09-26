@@ -1,0 +1,99 @@
+$token: azure-native:machinelearningservices/v20220601preview:PrivateEndpointConnection
+description: The Private Endpoint Connection resource.
+properties:
+  identity:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:ManagedServiceIdentityResponse"
+    description: The identity of the resource.
+  location:
+    type: string
+    description: Specifies the location of the resource.
+  name:
+    type: string
+    description: The name of the resource
+  privateEndpoint:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:PrivateEndpointResponse"
+    description: The resource of private end point.
+  privateLinkServiceConnectionState:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:PrivateLinkServiceConnectionStateResponse"
+    description: A collection of information about the state of the connection between service consumer and provider.
+  provisioningState:
+    type: string
+    description: The provisioning state of the private endpoint connection resource.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:SkuResponse"
+    description: The sku of the workspace.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Contains resource tags defined as key/value pairs.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - name
+  - privateLinkServiceConnectionState
+  - provisioningState
+  - systemData
+  - type
+inputProperties:
+  identity:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:ManagedServiceIdentity"
+    description: The identity of the resource.
+  location:
+    type: string
+    description: Specifies the location of the resource.
+  privateEndpointConnectionName:
+    type: string
+    description: The name of the private endpoint connection associated with the workspace
+  privateLinkServiceConnectionState:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:PrivateLinkServiceConnectionState"
+    description: A collection of information about the state of the connection between service consumer and provider.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:Sku"
+    description: The sku of the workspace.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Contains resource tags defined as key/value pairs.
+  workspaceName:
+    type: string
+    description: Name of Azure Machine Learning workspace.
+requiredInputs:
+  - privateLinkServiceConnectionState
+  - resourceGroupName
+  - workspaceName
+aliases:
+  - type: azure-native:machinelearningservices:PrivateEndpointConnection
+  - type: azure-native:machinelearningservices/v20200101:PrivateEndpointConnection
+  - type: azure-native:machinelearningservices/v20200218preview:PrivateEndpointConnection
+  - type: azure-native:machinelearningservices/v20200301:PrivateEndpointConnection
+  - type: azure-native:machinelearningservices/v20200401:PrivateEndpointConnection
+  - type: azure-native:machinelearningservices/v20200501preview:PrivateEndpointConnection
+  - type: azure-native:machinelearningservices/v20200515preview:PrivateEndpointConnection
+  - type: azure-native:machinelearningservices/v20200601:PrivateEndpointConnection
+  - type: azure-native:machinelearningservices/v20200801:PrivateEndpointConnection
+  - type: azure-native:machinelearningservices/v20200901preview:PrivateEndpointConnection
+  - type: azure-native:machinelearningservices/v20210101:PrivateEndpointConnection
+  - type: azure-native:machinelearningservices/v20210301preview:PrivateEndpointConnection
+  - type: azure-native:machinelearningservices/v20210401:PrivateEndpointConnection
+  - type: azure-native:machinelearningservices/v20210701:PrivateEndpointConnection
+  - type: azure-native:machinelearningservices/v20220101preview:PrivateEndpointConnection
+  - type: azure-native:machinelearningservices/v20220201preview:PrivateEndpointConnection
+  - type: azure-native:machinelearningservices/v20220501:PrivateEndpointConnection

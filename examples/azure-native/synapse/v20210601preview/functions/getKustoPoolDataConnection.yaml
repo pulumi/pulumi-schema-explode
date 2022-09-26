@@ -1,0 +1,56 @@
+$token: azure-native:synapse/v20210601preview:getKustoPoolDataConnection
+description: Class representing a data connection.
+inputs:
+  properties:
+    dataConnectionName:
+      type: string
+      description: The name of the data connection.
+    databaseName:
+      type: string
+      description: The name of the database in the Kusto pool.
+    kustoPoolName:
+      type: string
+      description: The name of the Kusto pool.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    workspaceName:
+      type: string
+      description: The name of the workspace.
+  type: object
+  required:
+    - dataConnectionName
+    - databaseName
+    - kustoPoolName
+    - resourceGroupName
+    - workspaceName
+outputs:
+  description: Class representing a data connection.
+  properties:
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    kind:
+      type: string
+      description: Kind of the endpoint for the data connection
+    location:
+      type: string
+      description: Resource location.
+    name:
+      type: string
+      description: The name of the resource
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:synapse/v20210601preview:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - id
+    - kind
+    - name
+    - systemData
+    - type
+deprecationMessage: "Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection."

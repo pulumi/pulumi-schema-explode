@@ -1,0 +1,50 @@
+$token: azure-native:apimanagement/v20210401preview:AdditionalLocationResponse
+description: Description of an additional API Management resource location.
+properties:
+  disableGateway:
+    type: boolean
+    description: Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
+    default: false
+  gatewayRegionalUrl:
+    type: string
+    description: Gateway URL of the API Management service in the Region.
+  location:
+    type: string
+    description: The location name of the additional region among Azure Data center regions.
+  platformVersion:
+    type: string
+    description: Compute Platform Version running the service.
+  privateIPAddresses:
+    type: array
+    items:
+      type: string
+    description: Private Static Load Balanced IP addresses of the API Management service which is deployed in an Internal Virtual Network in a particular additional location. Available only for Basic, Standard, Premium and Isolated SKU.
+  publicIPAddresses:
+    type: array
+    items:
+      type: string
+    description: Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard, Premium and Isolated SKU.
+  publicIpAddressId:
+    type: string
+    description: Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the location. Supported only for Premium SKU being deployed in Virtual Network.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:apimanagement/v20210401preview:ApiManagementServiceSkuPropertiesResponse"
+    description: SKU properties of the API Management service.
+  virtualNetworkConfiguration:
+    type: object
+    $ref: "#/types/azure-native:apimanagement/v20210401preview:VirtualNetworkConfigurationResponse"
+    description: Virtual network configuration for the location.
+  zones:
+    type: array
+    items:
+      type: string
+    description: A list of availability zones denoting where the resource needs to come from.
+type: object
+required:
+  - gatewayRegionalUrl
+  - location
+  - platformVersion
+  - privateIPAddresses
+  - publicIPAddresses
+  - sku

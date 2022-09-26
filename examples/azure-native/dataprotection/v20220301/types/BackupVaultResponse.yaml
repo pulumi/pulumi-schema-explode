@@ -1,0 +1,25 @@
+$token: azure-native:dataprotection/v20220301:BackupVaultResponse
+description: Backup Vault
+properties:
+  provisioningState:
+    type: string
+    description: Provisioning state of the BackupVault resource
+  resourceMoveDetails:
+    type: object
+    $ref: "#/types/azure-native:dataprotection/v20220301:ResourceMoveDetailsResponse"
+    description: Resource move details for backup vault
+  resourceMoveState:
+    type: string
+    description: Resource move state for backup vault
+  storageSettings:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:dataprotection/v20220301:StorageSettingResponse"
+    description: Storage Settings
+type: object
+required:
+  - provisioningState
+  - resourceMoveDetails
+  - resourceMoveState
+  - storageSettings

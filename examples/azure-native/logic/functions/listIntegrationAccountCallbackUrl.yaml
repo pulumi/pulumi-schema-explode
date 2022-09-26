@@ -1,0 +1,31 @@
+$token: azure-native:logic:listIntegrationAccountCallbackUrl
+description: |-
+  The callback url.
+  API Version: 2019-05-01.
+inputs:
+  properties:
+    integrationAccountName:
+      type: string
+      description: The integration account name.
+    keyType:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:logic:KeyType"
+      description: The key type.
+    notAfter:
+      type: string
+      description: The expiry time.
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+  type: object
+  required:
+    - integrationAccountName
+    - resourceGroupName
+outputs:
+  description: The callback url.
+  properties:
+    value:
+      type: string
+      description: The URL value.
+  type: object

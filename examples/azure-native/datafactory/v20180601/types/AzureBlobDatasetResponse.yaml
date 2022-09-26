@@ -1,0 +1,81 @@
+$token: azure-native:datafactory/v20180601:AzureBlobDatasetResponse
+description: The Azure Blob storage.
+properties:
+  annotations:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: List of tags that can be used for describing the Dataset.
+  compression:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20180601:DatasetCompressionResponse"
+    description: The data compression method used for the blob storage.
+  description:
+    type: string
+    description: Dataset description.
+  fileName:
+    $ref: pulumi.json#/Any
+    description: "The name of the Azure Blob. Type: string (or Expression with resultType string)."
+  folder:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20180601:DatasetResponseFolder"
+    description: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+  folderPath:
+    $ref: pulumi.json#/Any
+    description: "The path of the Azure Blob storage. Type: string (or Expression with resultType string)."
+  format:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:AvroFormatResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:JsonFormatResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:OrcFormatResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:ParquetFormatResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:TextFormatResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        AvroFormat: "#/types/azure-native:datafactory/v20180601:AvroFormatResponse"
+        JsonFormat: "#/types/azure-native:datafactory/v20180601:JsonFormatResponse"
+        OrcFormat: "#/types/azure-native:datafactory/v20180601:OrcFormatResponse"
+        ParquetFormat: "#/types/azure-native:datafactory/v20180601:ParquetFormatResponse"
+        TextFormat: "#/types/azure-native:datafactory/v20180601:TextFormatResponse"
+    description: The format of the Azure Blob storage.
+  linkedServiceName:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20180601:LinkedServiceReferenceResponse"
+    description: Linked service reference.
+  modifiedDatetimeEnd:
+    $ref: pulumi.json#/Any
+    description: "The end of Azure Blob's modified datetime. Type: string (or Expression with resultType string)."
+  modifiedDatetimeStart:
+    $ref: pulumi.json#/Any
+    description: "The start of Azure Blob's modified datetime. Type: string (or Expression with resultType string)."
+  parameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20180601:ParameterSpecificationResponse"
+    description: Parameters for dataset.
+  schema:
+    $ref: pulumi.json#/Any
+    description: "Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement."
+  structure:
+    $ref: pulumi.json#/Any
+    description: "Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement."
+  tableRootLocation:
+    $ref: pulumi.json#/Any
+    description: "The root of blob path. Type: string (or Expression with resultType string)."
+  type:
+    type: string
+    description: |-
+      Type of dataset.
+      Expected value is 'AzureBlob'.
+    const: AzureBlob
+type: object
+required:
+  - linkedServiceName
+  - type

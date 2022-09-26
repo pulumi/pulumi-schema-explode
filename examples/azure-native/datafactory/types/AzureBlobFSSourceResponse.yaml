@@ -1,0 +1,33 @@
+$token: azure-native:datafactory:AzureBlobFSSourceResponse
+description: A copy activity Azure BlobFS source.
+properties:
+  disableMetricsCollection:
+    $ref: pulumi.json#/Any
+    description: "If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean)."
+  maxConcurrentConnections:
+    $ref: pulumi.json#/Any
+    description: "The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer)."
+  recursive:
+    $ref: pulumi.json#/Any
+    description: "If true, files under the folder path will be read recursively. Default is true. Type: boolean (or Expression with resultType boolean)."
+  skipHeaderLineCount:
+    $ref: pulumi.json#/Any
+    description: "Number of header lines to skip from each blob. Type: integer (or Expression with resultType integer)."
+  sourceRetryCount:
+    $ref: pulumi.json#/Any
+    description: "Source retry count. Type: integer (or Expression with resultType integer)."
+  sourceRetryWait:
+    $ref: pulumi.json#/Any
+    description: "Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9]))."
+  treatEmptyAsNull:
+    $ref: pulumi.json#/Any
+    description: "Treat empty as null. Type: boolean (or Expression with resultType boolean)."
+  type:
+    type: string
+    description: |-
+      Copy source type.
+      Expected value is 'AzureBlobFSSource'.
+    const: AzureBlobFSSource
+type: object
+required:
+  - type

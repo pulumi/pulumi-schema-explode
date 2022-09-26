@@ -1,0 +1,55 @@
+$token: azure-native:automanage/v20220504:ConfigurationProfile
+description: Definition of the configuration profile.
+properties:
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  name:
+    type: string
+    description: The name of the resource
+  properties:
+    type: object
+    $ref: "#/types/azure-native:automanage/v20220504:ConfigurationProfilePropertiesResponse"
+    description: Properties of the configuration profile.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:automanage/v20220504:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - location
+  - name
+  - properties
+  - systemData
+  - type
+inputProperties:
+  configurationProfileName:
+    type: string
+    description: Name of the configuration profile.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  properties:
+    type: object
+    $ref: "#/types/azure-native:automanage/v20220504:ConfigurationProfileProperties"
+    description: Properties of the configuration profile.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:automanage/v20210430preview:ConfigurationProfile

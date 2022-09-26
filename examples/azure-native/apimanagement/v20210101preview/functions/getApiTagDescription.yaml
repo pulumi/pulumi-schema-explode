@@ -1,0 +1,54 @@
+$token: azure-native:apimanagement/v20210101preview:getApiTagDescription
+description: Contract details.
+inputs:
+  properties:
+    apiId:
+      type: string
+      description: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    serviceName:
+      type: string
+      description: The name of the API Management service.
+    tagDescriptionId:
+      type: string
+      description: Tag description identifier. Used when creating tagDescription for API/Tag association. Based on API and Tag names.
+  type: object
+  required:
+    - apiId
+    - resourceGroupName
+    - serviceName
+    - tagDescriptionId
+outputs:
+  description: Contract details.
+  properties:
+    description:
+      type: string
+      description: Description of the Tag.
+    displayName:
+      type: string
+      description: Tag name.
+    externalDocsDescription:
+      type: string
+      description: Description of the external resources describing the tag.
+    externalDocsUrl:
+      type: string
+      description: Absolute URL of external resources describing the tag.
+    id:
+      type: string
+      description: Resource ID.
+    name:
+      type: string
+      description: Resource name.
+    tagId:
+      type: string
+      description: Identifier of the tag in the form of /tags/{tagId}
+    type:
+      type: string
+      description: Resource type for API Management resource.
+  type: object
+  required:
+    - id
+    - name
+    - type

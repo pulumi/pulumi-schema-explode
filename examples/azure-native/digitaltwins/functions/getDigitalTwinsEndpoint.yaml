@@ -1,0 +1,53 @@
+$token: azure-native:digitaltwins:getDigitalTwinsEndpoint
+description: |-
+  DigitalTwinsInstance endpoint resource.
+  API Version: 2020-12-01.
+inputs:
+  properties:
+    endpointName:
+      type: string
+      description: Name of Endpoint Resource.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the DigitalTwinsInstance.
+    resourceName:
+      type: string
+      description: The name of the DigitalTwinsInstance.
+  type: object
+  required:
+    - endpointName
+    - resourceGroupName
+    - resourceName
+outputs:
+  description: DigitalTwinsInstance endpoint resource.
+  properties:
+    id:
+      type: string
+      description: The resource identifier.
+    name:
+      type: string
+      description: Extension resource name.
+    properties:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:digitaltwins:EventGridResponse"
+        - type: object
+          $ref: "#/types/azure-native:digitaltwins:EventHubResponse"
+        - type: object
+          $ref: "#/types/azure-native:digitaltwins:ServiceBusResponse"
+      discriminator:
+        propertyName: endpointType
+        mapping:
+          EventGrid: "#/types/azure-native:digitaltwins:EventGridResponse"
+          EventHub: "#/types/azure-native:digitaltwins:EventHubResponse"
+          ServiceBus: "#/types/azure-native:digitaltwins:ServiceBusResponse"
+      description: DigitalTwinsInstance endpoint resource properties.
+    type:
+      type: string
+      description: The resource type.
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - type

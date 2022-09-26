@@ -1,0 +1,52 @@
+$token: azure-native:compute/v20190701:getGallery
+description: Specifies information about the Shared Image Gallery that you want to create or update.
+inputs:
+  properties:
+    galleryName:
+      type: string
+      description: The name of the Shared Image Gallery.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - galleryName
+    - resourceGroupName
+outputs:
+  description: Specifies information about the Shared Image Gallery that you want to create or update.
+  properties:
+    description:
+      type: string
+      description: The description of this Shared Image Gallery resource. This property is updatable.
+    id:
+      type: string
+      description: Resource Id
+    identifier:
+      type: object
+      $ref: "#/types/azure-native:compute/v20190701:GalleryIdentifierResponse"
+      description: Describes the gallery unique name.
+    location:
+      type: string
+      description: Resource location
+    name:
+      type: string
+      description: Resource name
+    provisioningState:
+      type: string
+      description: The provisioning state, which only appears in the response.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    type:
+      type: string
+      description: Resource type
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - provisioningState
+    - type
+deprecationMessage: Version 2019-07-01 will be removed in v2 of the provider.

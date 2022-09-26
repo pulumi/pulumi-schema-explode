@@ -1,0 +1,95 @@
+$token: azure-native:devices/v20200710preview:IotHubResource
+description: The description of the IoT hub.
+properties:
+  etag:
+    type: string
+    description: The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:devices/v20200710preview:ArmIdentityResponse"
+    description: The managed identities for the IotHub.
+  location:
+    type: string
+    description: The resource location.
+  name:
+    type: string
+    description: The resource name.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:devices/v20200710preview:IotHubPropertiesResponse"
+    description: IotHub properties
+  sku:
+    type: object
+    $ref: "#/types/azure-native:devices/v20200710preview:IotHubSkuInfoResponse"
+    description: IotHub SKU info
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The resource tags.
+  type:
+    type: string
+    description: The resource type.
+type: object
+required:
+  - location
+  - name
+  - properties
+  - sku
+  - type
+inputProperties:
+  identity:
+    type: object
+    $ref: "#/types/azure-native:devices/v20200710preview:ArmIdentity"
+    description: The managed identities for the IotHub.
+  location:
+    type: string
+    description: The resource location.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:devices/v20200710preview:IotHubProperties"
+    description: IotHub properties
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the IoT hub.
+  resourceName:
+    type: string
+    description: The name of the IoT hub.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:devices/v20200710preview:IotHubSkuInfo"
+    description: IotHub SKU info
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The resource tags.
+requiredInputs:
+  - resourceGroupName
+  - sku
+aliases:
+  - type: azure-native:devices:IotHubResource
+  - type: azure-native:devices/v20160203:IotHubResource
+  - type: azure-native:devices/v20170119:IotHubResource
+  - type: azure-native:devices/v20170701:IotHubResource
+  - type: azure-native:devices/v20180122:IotHubResource
+  - type: azure-native:devices/v20180401:IotHubResource
+  - type: azure-native:devices/v20181201preview:IotHubResource
+  - type: azure-native:devices/v20190322:IotHubResource
+  - type: azure-native:devices/v20190322preview:IotHubResource
+  - type: azure-native:devices/v20190701preview:IotHubResource
+  - type: azure-native:devices/v20191104:IotHubResource
+  - type: azure-native:devices/v20200301:IotHubResource
+  - type: azure-native:devices/v20200401:IotHubResource
+  - type: azure-native:devices/v20200615:IotHubResource
+  - type: azure-native:devices/v20200801:IotHubResource
+  - type: azure-native:devices/v20200831:IotHubResource
+  - type: azure-native:devices/v20200831preview:IotHubResource
+  - type: azure-native:devices/v20210201preview:IotHubResource
+  - type: azure-native:devices/v20210303preview:IotHubResource
+  - type: azure-native:devices/v20210331:IotHubResource
+  - type: azure-native:devices/v20210701:IotHubResource
+  - type: azure-native:devices/v20210701preview:IotHubResource
+  - type: azure-native:devices/v20210702:IotHubResource
+  - type: azure-native:devices/v20210702preview:IotHubResource
+  - type: azure-native:devices/v20220430preview:IotHubResource

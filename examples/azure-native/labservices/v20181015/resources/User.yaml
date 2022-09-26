@@ -1,0 +1,85 @@
+$token: azure-native:labservices/v20181015:User
+description: The User registered to a lab
+properties:
+  email:
+    type: string
+    description: The user email address, as it was specified during registration.
+  familyName:
+    type: string
+    description: The user family name, as it was specified during registration.
+  givenName:
+    type: string
+    description: The user given name, as it was specified during registration.
+  latestOperationResult:
+    type: object
+    $ref: "#/types/azure-native:labservices/v20181015:LatestOperationResultResponse"
+    description: "The details of the latest operation. ex: status, error"
+  location:
+    type: string
+    description: The location of the resource.
+  name:
+    type: string
+    description: The name of the resource.
+  provisioningState:
+    type: string
+    description: The provisioning status of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+  tenantId:
+    type: string
+    description: The user tenant ID, as it was specified during registration.
+  totalUsage:
+    type: string
+    description: How long the user has used his VMs in this lab
+  type:
+    type: string
+    description: The type of the resource.
+  uniqueIdentifier:
+    type: string
+    description: The unique immutable identifier of a resource (Guid).
+type: object
+required:
+  - email
+  - familyName
+  - givenName
+  - latestOperationResult
+  - name
+  - tenantId
+  - totalUsage
+  - type
+inputProperties:
+  labAccountName:
+    type: string
+    description: The name of the lab Account.
+  labName:
+    type: string
+    description: The name of the lab.
+  location:
+    type: string
+    description: The location of the resource.
+  provisioningState:
+    type: string
+    description: The provisioning status of the resource.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+  uniqueIdentifier:
+    type: string
+    description: The unique immutable identifier of a resource (Guid).
+  userName:
+    type: string
+    description: The name of the user.
+requiredInputs:
+  - labAccountName
+  - labName
+  - resourceGroupName
+aliases:
+  - type: azure-native:labservices:User

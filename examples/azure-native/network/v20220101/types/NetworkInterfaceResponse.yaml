@@ -1,0 +1,116 @@
+$token: azure-native:network/v20220101:NetworkInterfaceResponse
+description: A network interface in a resource group.
+properties:
+  auxiliaryMode:
+    type: string
+    description: Auxiliary mode of Network Interface resource.
+  dnsSettings:
+    type: object
+    $ref: "#/types/azure-native:network/v20220101:NetworkInterfaceDnsSettingsResponse"
+    description: The DNS settings in network interface.
+  dscpConfiguration:
+    type: object
+    $ref: "#/types/azure-native:network/v20220101:SubResourceResponse"
+    description: A reference to the dscp configuration to which the network interface is linked.
+  enableAcceleratedNetworking:
+    type: boolean
+    description: If the network interface is configured for accelerated networking. Not applicable to VM sizes which require accelerated networking.
+  enableIPForwarding:
+    type: boolean
+    description: Indicates whether IP forwarding is enabled on this network interface.
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  extendedLocation:
+    type: object
+    $ref: "#/types/azure-native:network/v20220101:ExtendedLocationResponse"
+    description: The extended location of the network interface.
+  hostedWorkloads:
+    type: array
+    items:
+      type: string
+    description: A list of references to linked BareMetal resources.
+  id:
+    type: string
+    description: Resource ID.
+  ipConfigurations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20220101:NetworkInterfaceIPConfigurationResponse"
+    description: A list of IPConfigurations of the network interface.
+  location:
+    type: string
+    description: Resource location.
+  macAddress:
+    type: string
+    description: The MAC address of the network interface.
+  migrationPhase:
+    type: string
+    description: Migration phase of Network Interface resource.
+  name:
+    type: string
+    description: Resource name.
+  networkSecurityGroup:
+    type: object
+    $ref: "#/types/azure-native:network/v20220101:NetworkSecurityGroupResponse"
+    description: The reference to the NetworkSecurityGroup resource.
+  nicType:
+    type: string
+    description: Type of Network Interface resource.
+  primary:
+    type: boolean
+    description: Whether this is a primary network interface on a virtual machine.
+  privateEndpoint:
+    type: object
+    $ref: "#/types/azure-native:network/v20220101:PrivateEndpointResponse"
+    description: A reference to the private endpoint to which the network interface is linked.
+  privateLinkService:
+    type: object
+    $ref: "#/types/azure-native:network/v20220101:PrivateLinkServiceResponse"
+    description: Privatelinkservice of the network interface resource.
+  provisioningState:
+    type: string
+    description: The provisioning state of the network interface resource.
+  resourceGuid:
+    type: string
+    description: The resource GUID property of the network interface resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  tapConfigurations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20220101:NetworkInterfaceTapConfigurationResponse"
+    description: A list of TapConfigurations of the network interface.
+  type:
+    type: string
+    description: Resource type.
+  virtualMachine:
+    type: object
+    $ref: "#/types/azure-native:network/v20220101:SubResourceResponse"
+    description: The reference to a virtual machine.
+  vnetEncryptionSupported:
+    type: boolean
+    description: Whether the virtual machine this nic is attached to supports encryption.
+  workloadType:
+    type: string
+    description: WorkloadType of the NetworkInterface for BareMetal resources
+type: object
+required:
+  - dscpConfiguration
+  - etag
+  - hostedWorkloads
+  - macAddress
+  - name
+  - primary
+  - privateEndpoint
+  - provisioningState
+  - resourceGuid
+  - tapConfigurations
+  - type
+  - virtualMachine
+  - vnetEncryptionSupported

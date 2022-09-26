@@ -1,0 +1,36 @@
+$token: azure-native:network/v20191001:FrontDoorMatchCondition
+description: Define a match condition.
+properties:
+  matchValue:
+    type: array
+    items:
+      type: string
+    description: List of possible match values.
+  matchVariable:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20191001:FrontDoorMatchVariable"
+    description: Request variable to compare with.
+  negateCondition:
+    type: boolean
+    description: Describes if the result of this condition should be negated.
+  operator:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20191001:Operator"
+    description: Comparison type to use for matching with the variable value.
+  selector:
+    type: string
+    description: Match against a specific key from the QueryString, PostArgs, RequestHeader or Cookies variables. Default is null.
+  transforms:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:network/v20191001:TransformType"
+    description: List of transforms.
+type: object
+required:
+  - matchValue
+  - matchVariable
+  - operator

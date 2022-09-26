@@ -1,0 +1,24 @@
+$token: azure-native:containerregistry/v20190601preview:SourceProperties
+description: The properties of the source code repository.
+properties:
+  branch:
+    type: string
+    description: The branch name of the source code.
+  repositoryUrl:
+    type: string
+    description: The full URL to the source code repository
+  sourceControlAuthProperties:
+    type: object
+    $ref: "#/types/azure-native:containerregistry/v20190601preview:AuthInfo"
+    description: "The authorization properties for accessing the source code repository and to set up\r
+
+      webhooks for notifications."
+  sourceControlType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:containerregistry/v20190601preview:SourceControlType"
+    description: The type of source control service.
+type: object
+required:
+  - repositoryUrl
+  - sourceControlType

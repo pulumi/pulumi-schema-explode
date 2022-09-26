@@ -1,0 +1,83 @@
+$token: azure-native:databoxedge:StorageAccount
+description: |-
+  Represents a Storage Account on the  Data Box Edge/Gateway device.
+  API Version: 2020-12-01.
+properties:
+  blobEndpoint:
+    type: string
+    description: BlobEndpoint of Storage Account
+  containerCount:
+    type: integer
+    description: The Container Count. Present only for Storage Accounts with DataPolicy set to Cloud.
+  dataPolicy:
+    type: string
+    description: Data policy of the storage Account.
+  description:
+    type: string
+    description: Description for the storage Account.
+  name:
+    type: string
+    description: The object name.
+  storageAccountCredentialId:
+    type: string
+    description: Storage Account Credential Id
+  storageAccountStatus:
+    type: string
+    description: Current status of the storage account
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:databoxedge:SystemDataResponse"
+    description: StorageAccount object on ASE device
+  type:
+    type: string
+    description: The hierarchical type of the object.
+type: object
+required:
+  - blobEndpoint
+  - containerCount
+  - dataPolicy
+  - name
+  - systemData
+  - type
+inputProperties:
+  dataPolicy:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:databoxedge:DataPolicy"
+    description: Data policy of the storage Account.
+  description:
+    type: string
+    description: Description for the storage Account.
+  deviceName:
+    type: string
+    description: The device name.
+  resourceGroupName:
+    type: string
+    description: The resource group name.
+  storageAccountCredentialId:
+    type: string
+    description: Storage Account Credential Id
+  storageAccountName:
+    type: string
+    description: The StorageAccount name.
+  storageAccountStatus:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:databoxedge:StorageAccountStatus"
+    description: Current status of the storage account
+requiredInputs:
+  - dataPolicy
+  - deviceName
+  - resourceGroupName
+aliases:
+  - type: azure-native:databoxedge/v20190801:StorageAccount
+  - type: azure-native:databoxedge/v20200501preview:StorageAccount
+  - type: azure-native:databoxedge/v20200901:StorageAccount
+  - type: azure-native:databoxedge/v20200901preview:StorageAccount
+  - type: azure-native:databoxedge/v20201201:StorageAccount
+  - type: azure-native:databoxedge/v20210201:StorageAccount
+  - type: azure-native:databoxedge/v20210201preview:StorageAccount
+  - type: azure-native:databoxedge/v20210601:StorageAccount
+  - type: azure-native:databoxedge/v20210601preview:StorageAccount
+  - type: azure-native:databoxedge/v20220301:StorageAccount
+  - type: azure-native:databoxedge/v20220401preview:StorageAccount

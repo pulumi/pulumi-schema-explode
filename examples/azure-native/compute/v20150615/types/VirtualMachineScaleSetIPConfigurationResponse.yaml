@@ -1,0 +1,29 @@
+$token: azure-native:compute/v20150615:VirtualMachineScaleSetIPConfigurationResponse
+description: Describes a virtual machine scale set network profile's IP configuration.
+properties:
+  id:
+    type: string
+    description: Resource Id
+  loadBalancerBackendAddressPools:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:compute/v20150615:SubResourceResponse"
+    description: The load balancer backend address pools.
+  loadBalancerInboundNatPools:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:compute/v20150615:SubResourceResponse"
+    description: The load balancer inbound nat pools.
+  name:
+    type: string
+    description: The IP configuration name.
+  subnet:
+    type: object
+    $ref: "#/types/azure-native:compute/v20150615:ApiEntityReferenceResponse"
+    description: The subnet.
+type: object
+required:
+  - name
+  - subnet

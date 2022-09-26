@@ -1,0 +1,57 @@
+$token: azure-native:datafactory:getDataFlow
+description: |-
+  Data flow resource type.
+  API Version: 2018-06-01.
+inputs:
+  properties:
+    dataFlowName:
+      type: string
+      description: The data flow name.
+    factoryName:
+      type: string
+      description: The factory name.
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+  type: object
+  required:
+    - dataFlowName
+    - factoryName
+    - resourceGroupName
+outputs:
+  description: Data flow resource type.
+  properties:
+    etag:
+      type: string
+      description: Etag identifies change in the resource.
+    id:
+      type: string
+      description: The resource identifier.
+    name:
+      type: string
+      description: The resource name.
+    properties:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:datafactory:FlowletResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:MappingDataFlowResponse"
+        - type: object
+          $ref: "#/types/azure-native:datafactory:WranglingDataFlowResponse"
+      discriminator:
+        propertyName: type
+        mapping:
+          Flowlet: "#/types/azure-native:datafactory:FlowletResponse"
+          MappingDataFlow: "#/types/azure-native:datafactory:MappingDataFlowResponse"
+          WranglingDataFlow: "#/types/azure-native:datafactory:WranglingDataFlowResponse"
+      description: Data flow properties.
+    type:
+      type: string
+      description: The resource type.
+  type: object
+  required:
+    - etag
+    - id
+    - name
+    - properties
+    - type

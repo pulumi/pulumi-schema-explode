@@ -1,0 +1,43 @@
+$token: azure-native:compute/v20200601:VirtualMachineScaleSetOSDisk
+description: Describes a virtual machine scale set operating system disk.
+properties:
+  caching:
+    $ref: "#/types/azure-native:compute/v20200601:CachingTypes"
+    description: "Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**"
+  createOption:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:compute/v20200601:DiskCreateOptionTypes"
+    description: "Specifies how the virtual machines in the scale set should be created.<br><br> The only allowed value is: **FromImage** \\u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described."
+  diffDiskSettings:
+    type: object
+    $ref: "#/types/azure-native:compute/v20200601:DiffDiskSettings"
+    description: Specifies the ephemeral disk Settings for the operating system disk used by the virtual machine scale set.
+  diskSizeGB:
+    type: integer
+    description: Specifies the size of the operating system disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
+  image:
+    type: object
+    $ref: "#/types/azure-native:compute/v20200601:VirtualHardDisk"
+    description: Specifies information about the unmanaged user image to base the scale set on.
+  managedDisk:
+    type: object
+    $ref: "#/types/azure-native:compute/v20200601:VirtualMachineScaleSetManagedDiskParameters"
+    description: The managed disk parameters.
+  name:
+    type: string
+    description: The disk name.
+  osType:
+    $ref: "#/types/azure-native:compute/v20200601:OperatingSystemTypes"
+    description: "This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**"
+  vhdContainers:
+    type: array
+    items:
+      type: string
+    description: Specifies the container urls that are used to store operating system disks for the scale set.
+  writeAcceleratorEnabled:
+    type: boolean
+    description: Specifies whether writeAccelerator should be enabled or disabled on the disk.
+type: object
+required:
+  - createOption

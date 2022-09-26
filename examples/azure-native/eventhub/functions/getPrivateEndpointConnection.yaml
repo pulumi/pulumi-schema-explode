@@ -1,0 +1,48 @@
+$token: azure-native:eventhub:getPrivateEndpointConnection
+description: |-
+  Properties of the PrivateEndpointConnection.
+  API Version: 2018-01-01-preview.
+inputs:
+  properties:
+    namespaceName:
+      type: string
+      description: The Namespace name
+    privateEndpointConnectionName:
+      type: string
+      description: The PrivateEndpointConnection name
+    resourceGroupName:
+      type: string
+      description: Name of the resource group within the azure subscription.
+  type: object
+  required:
+    - namespaceName
+    - privateEndpointConnectionName
+    - resourceGroupName
+outputs:
+  description: Properties of the PrivateEndpointConnection.
+  properties:
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    name:
+      type: string
+      description: The name of the resource
+    privateEndpoint:
+      type: object
+      $ref: "#/types/azure-native:eventhub:PrivateEndpointResponse"
+      description: The Private Endpoint resource for this Connection.
+    privateLinkServiceConnectionState:
+      type: object
+      $ref: "#/types/azure-native:eventhub:ConnectionStateResponse"
+      description: Details about the state of the connection.
+    provisioningState:
+      type: string
+      description: Provisioning state of the Private Endpoint Connection.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - id
+    - name
+    - type

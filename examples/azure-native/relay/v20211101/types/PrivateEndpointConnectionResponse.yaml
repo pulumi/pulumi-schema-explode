@@ -1,0 +1,37 @@
+$token: azure-native:relay/v20211101:PrivateEndpointConnectionResponse
+description: Properties of the PrivateEndpointConnection.
+properties:
+  id:
+    type: string
+    description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  name:
+    type: string
+    description: The name of the resource
+  privateEndpoint:
+    type: object
+    $ref: "#/types/azure-native:relay/v20211101:PrivateEndpointResponse"
+    description: The Private Endpoint resource for this Connection.
+  privateLinkServiceConnectionState:
+    type: object
+    $ref: "#/types/azure-native:relay/v20211101:ConnectionStateResponse"
+    description: Details about the state of the connection.
+  provisioningState:
+    type: string
+    description: Provisioning state of the Private Endpoint Connection.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:relay/v20211101:SystemDataResponse"
+    description: The system meta data relating to this resource.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+type: object
+required:
+  - id
+  - location
+  - name
+  - systemData
+  - type

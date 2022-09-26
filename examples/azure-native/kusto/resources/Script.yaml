@@ -1,0 +1,71 @@
+$token: azure-native:kusto:Script
+description: |-
+  Class representing a database script.
+  API Version: 2021-01-01.
+properties:
+  continueOnErrors:
+    type: boolean
+    description: Flag that indicates whether to continue if one of the command fails.
+    default: false
+  forceUpdateTag:
+    type: string
+    description: A unique string. If changed the script will be applied again.
+  name:
+    type: string
+    description: The name of the resource
+  provisioningState:
+    type: string
+    description: The provisioned state of the resource.
+  scriptUrl:
+    type: string
+    description: The url to the KQL script blob file.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:kusto:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - name
+  - provisioningState
+  - scriptUrl
+  - systemData
+  - type
+inputProperties:
+  clusterName:
+    type: string
+    description: The name of the Kusto cluster.
+  continueOnErrors:
+    type: boolean
+    description: Flag that indicates whether to continue if one of the command fails.
+    default: false
+  databaseName:
+    type: string
+    description: The name of the database in the Kusto cluster.
+  forceUpdateTag:
+    type: string
+    description: A unique string. If changed the script will be applied again.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group containing the Kusto cluster.
+  scriptName:
+    type: string
+    description: The name of the Kusto database script.
+  scriptUrl:
+    type: string
+    description: The url to the KQL script blob file.
+  scriptUrlSasToken:
+    type: string
+    description: The SaS token.
+requiredInputs:
+  - clusterName
+  - databaseName
+  - resourceGroupName
+  - scriptUrl
+  - scriptUrlSasToken
+aliases:
+  - type: azure-native:kusto/v20210101:Script
+  - type: azure-native:kusto/v20210827:Script
+  - type: azure-native:kusto/v20220201:Script

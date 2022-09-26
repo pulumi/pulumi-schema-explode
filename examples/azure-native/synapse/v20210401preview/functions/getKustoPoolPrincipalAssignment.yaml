@@ -1,0 +1,71 @@
+$token: azure-native:synapse/v20210401preview:getKustoPoolPrincipalAssignment
+description: Class representing a cluster principal assignment.
+inputs:
+  properties:
+    kustoPoolName:
+      type: string
+      description: The name of the Kusto pool.
+    principalAssignmentName:
+      type: string
+      description: The name of the Kusto principalAssignment.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    workspaceName:
+      type: string
+      description: The name of the workspace
+  type: object
+  required:
+    - kustoPoolName
+    - principalAssignmentName
+    - resourceGroupName
+    - workspaceName
+outputs:
+  description: Class representing a cluster principal assignment.
+  properties:
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    name:
+      type: string
+      description: The name of the resource
+    principalId:
+      type: string
+      description: The principal ID assigned to the cluster principal. It can be a user email, application ID, or security group name.
+    principalName:
+      type: string
+      description: The principal name
+    principalType:
+      type: string
+      description: Principal type.
+    provisioningState:
+      type: string
+      description: The provisioned state of the resource.
+    role:
+      type: string
+      description: Cluster principal role.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:synapse/v20210401preview:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    tenantId:
+      type: string
+      description: The tenant id of the principal
+    tenantName:
+      type: string
+      description: The tenant name of the principal
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - id
+    - name
+    - principalId
+    - principalName
+    - principalType
+    - provisioningState
+    - role
+    - systemData
+    - tenantName
+    - type

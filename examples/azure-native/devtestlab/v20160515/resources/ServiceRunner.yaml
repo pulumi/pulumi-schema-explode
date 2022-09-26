@@ -1,0 +1,54 @@
+$token: azure-native:devtestlab/v20160515:ServiceRunner
+description: A container for a managed identity to execute DevTest lab services.
+properties:
+  identity:
+    type: object
+    $ref: "#/types/azure-native:devtestlab/v20160515:IdentityPropertiesResponse"
+    description: The identity of the resource.
+  location:
+    type: string
+    description: The location of the resource.
+  name:
+    type: string
+    description: The name of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - name
+  - type
+inputProperties:
+  identity:
+    type: object
+    $ref: "#/types/azure-native:devtestlab/v20160515:IdentityProperties"
+    description: The identity of the resource.
+  labName:
+    type: string
+    description: The name of the lab.
+  location:
+    type: string
+    description: The location of the resource.
+  name:
+    type: string
+    description: The name of the service runner.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+requiredInputs:
+  - labName
+  - resourceGroupName
+aliases:
+  - type: azure-native:devtestlab:ServiceRunner
+  - type: azure-native:devtestlab/v20180915:ServiceRunner
+deprecationMessage: Version 2016-05-15 will be removed in v2 of the provider.

@@ -1,0 +1,60 @@
+$token: azure-native:kusto:getPrivateEndpointConnection
+description: |-
+  A private endpoint connection
+  API Version: 2021-08-27.
+inputs:
+  properties:
+    clusterName:
+      type: string
+      description: The name of the Kusto cluster.
+    privateEndpointConnectionName:
+      type: string
+      description: The name of the private endpoint connection.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group containing the Kusto cluster.
+  type: object
+  required:
+    - clusterName
+    - privateEndpointConnectionName
+    - resourceGroupName
+outputs:
+  description: A private endpoint connection
+  properties:
+    groupId:
+      type: string
+      description: Group id of the private endpoint.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    name:
+      type: string
+      description: The name of the resource
+    privateEndpoint:
+      type: object
+      $ref: "#/types/azure-native:kusto:PrivateEndpointPropertyResponse"
+      description: Private endpoint which the connection belongs to.
+    privateLinkServiceConnectionState:
+      type: object
+      $ref: "#/types/azure-native:kusto:PrivateLinkServiceConnectionStatePropertyResponse"
+      description: Connection State of the Private Endpoint Connection.
+    provisioningState:
+      type: string
+      description: Provisioning state of the private endpoint.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:kusto:SystemDataResponse"
+      description: Metadata pertaining to creation and last modification of the resource.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - groupId
+    - id
+    - name
+    - privateEndpoint
+    - privateLinkServiceConnectionState
+    - provisioningState
+    - systemData
+    - type

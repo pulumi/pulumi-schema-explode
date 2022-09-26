@@ -1,0 +1,18 @@
+$token: azure-native:security:RecommendationConfigurationProperties
+description: The type of IoT Security recommendation.
+properties:
+  recommendationType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:security:RecommendationType"
+    description: The type of IoT Security recommendation.
+  status:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:security:RecommendationConfigStatus"
+    description: Recommendation status. When the recommendation status is disabled recommendations are not generated.
+    default: Enabled
+type: object
+required:
+  - recommendationType
+  - status

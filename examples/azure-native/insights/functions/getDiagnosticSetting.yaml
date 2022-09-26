@@ -1,0 +1,63 @@
+$token: azure-native:insights:getDiagnosticSetting
+description: |-
+  The diagnostic setting resource.
+  API Version: 2017-05-01-preview.
+inputs:
+  properties:
+    name:
+      type: string
+      description: The name of the diagnostic setting.
+    resourceUri:
+      type: string
+      description: The identifier of the resource.
+  type: object
+  required:
+    - name
+    - resourceUri
+outputs:
+  description: The diagnostic setting resource.
+  properties:
+    eventHubAuthorizationRuleId:
+      type: string
+      description: The resource Id for the event hub authorization rule.
+    eventHubName:
+      type: string
+      description: The name of the event hub. If none is specified, the default event hub will be selected.
+    id:
+      type: string
+      description: Azure resource Id
+    logAnalyticsDestinationType:
+      type: string
+      description: "A string indicating whether the export to Log Analytics should use the default destination type, i.e. AzureDiagnostics, or use a destination type constructed as follows: <normalized service identity>_<normalized category name>. Possible values are: Dedicated and null (null is default.)"
+    logs:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:insights:LogSettingsResponse"
+      description: The list of logs settings.
+    metrics:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:insights:MetricSettingsResponse"
+      description: The list of metric settings.
+    name:
+      type: string
+      description: Azure resource name
+    serviceBusRuleId:
+      type: string
+      description: The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
+    storageAccountId:
+      type: string
+      description: The resource ID of the storage account to which you would like to send Diagnostic Logs.
+    type:
+      type: string
+      description: Azure resource type
+    workspaceId:
+      type: string
+      description: "The full ARM resource ID of the Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2"
+  type: object
+  required:
+    - id
+    - name
+    - type

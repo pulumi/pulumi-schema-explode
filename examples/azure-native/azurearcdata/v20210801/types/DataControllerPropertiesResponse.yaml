@@ -1,0 +1,44 @@
+$token: azure-native:azurearcdata/v20210801:DataControllerPropertiesResponse
+description: The data controller properties.
+properties:
+  basicLoginInformation:
+    type: object
+    $ref: "#/types/azure-native:azurearcdata/v20210801:BasicLoginInformationResponse"
+    description: Username and password for basic login authentication.
+  clusterId:
+    type: string
+    description: If a CustomLocation is provided, this contains the ARM id of the connected cluster the custom location belongs to.
+  extensionId:
+    type: string
+    description: If a CustomLocation is provided, this contains the ARM id of the extension the custom location belongs to.
+  infrastructure:
+    type: string
+    description: The infrastructure the data controller is running on.
+    default: other
+  k8sRaw:
+    $ref: pulumi.json#/Any
+    description: The raw kubernetes information
+  lastUploadedDate:
+    type: string
+    description: Last uploaded date from Kubernetes cluster. Defaults to current date time
+  logAnalyticsWorkspaceConfig:
+    type: object
+    $ref: "#/types/azure-native:azurearcdata/v20210801:LogAnalyticsWorkspaceConfigResponse"
+    description: Log analytics workspace id and primary key
+  onPremiseProperty:
+    type: object
+    $ref: "#/types/azure-native:azurearcdata/v20210801:OnPremisePropertyResponse"
+    description: Properties from the Kubernetes data controller
+  provisioningState:
+    type: string
+  uploadServicePrincipal:
+    type: object
+    $ref: "#/types/azure-native:azurearcdata/v20210801:UploadServicePrincipalResponse"
+    description: Service principal for uploading billing, metrics and logs.
+  uploadWatermark:
+    type: object
+    $ref: "#/types/azure-native:azurearcdata/v20210801:UploadWatermarkResponse"
+    description: Properties on upload watermark.  Mostly timestamp for each upload data type
+type: object
+required:
+  - provisioningState

@@ -1,0 +1,23 @@
+$token: azure-native:storage/v20210801:ManagementPolicyRule
+description: An object that wraps the Lifecycle rule. Each rule is uniquely defined by name.
+properties:
+  definition:
+    type: object
+    $ref: "#/types/azure-native:storage/v20210801:ManagementPolicyDefinition"
+    description: An object that defines the Lifecycle rule.
+  enabled:
+    type: boolean
+    description: Rule is enabled if set to true.
+  name:
+    type: string
+    description: A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+  type:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:storage/v20210801:RuleType"
+    description: The valid value is Lifecycle
+type: object
+required:
+  - definition
+  - name
+  - type

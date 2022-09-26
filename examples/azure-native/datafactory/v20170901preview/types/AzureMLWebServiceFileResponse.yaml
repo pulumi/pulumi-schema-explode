@@ -1,0 +1,14 @@
+$token: azure-native:datafactory/v20170901preview:AzureMLWebServiceFileResponse
+description: Azure ML WebService Input/Output file
+properties:
+  filePath:
+    $ref: pulumi.json#/Any
+    description: "The relative file path, including container name, in the Azure Blob Storage specified by the LinkedService. Type: string (or Expression with resultType string)."
+  linkedServiceName:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20170901preview:LinkedServiceReferenceResponse"
+    description: Reference to an Azure Storage LinkedService, where Azure ML WebService Input/Output file located.
+type: object
+required:
+  - filePath
+  - linkedServiceName

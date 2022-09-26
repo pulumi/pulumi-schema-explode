@@ -1,0 +1,52 @@
+$token: azure-native:web/v20160601:CustomApiPropertiesDefinition
+description: Custom API properties
+properties:
+  apiDefinitions:
+    type: object
+    $ref: "#/types/azure-native:web/v20160601:ApiResourceDefinitions"
+    description: API Definitions
+  apiType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:web/v20160601:ApiType"
+    description: The API type
+  backendService:
+    type: object
+    $ref: "#/types/azure-native:web/v20160601:ApiResourceBackendService"
+    description: The API backend service
+  brandColor:
+    type: string
+    description: Brand color
+  capabilities:
+    type: array
+    items:
+      type: string
+    description: The custom API capabilities
+  connectionParameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:web/v20160601:ConnectionParameter"
+    description: Connection parameters
+  description:
+    type: string
+    description: The custom API description
+  displayName:
+    type: string
+    description: The display name
+  iconUri:
+    type: string
+    description: The icon URI
+  runtimeUrls:
+    type: array
+    items:
+      type: string
+    description: Runtime URLs
+  swagger:
+    $ref: pulumi.json#/Any
+    description: The JSON representation of the swagger
+  wsdlDefinition:
+    type: object
+    $ref: "#/types/azure-native:web/v20160601:WsdlDefinition"
+    description: The WSDL definition
+type: object

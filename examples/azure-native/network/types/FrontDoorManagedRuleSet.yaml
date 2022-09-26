@@ -1,0 +1,30 @@
+$token: azure-native:network:FrontDoorManagedRuleSet
+description: Defines a managed rule set.
+properties:
+  exclusions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network:ManagedRuleExclusion"
+    description: Describes the exclusions that are applied to all rules in the set.
+  ruleGroupOverrides:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network:FrontDoorManagedRuleGroupOverride"
+    description: Defines the rule group overrides to apply to the rule set.
+  ruleSetAction:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network:ManagedRuleSetActionType"
+    description: Defines the action to take when a managed rule set score threshold is met.
+  ruleSetType:
+    type: string
+    description: Defines the rule set type to use.
+  ruleSetVersion:
+    type: string
+    description: Defines the version of the rule set to use.
+type: object
+required:
+  - ruleSetType
+  - ruleSetVersion

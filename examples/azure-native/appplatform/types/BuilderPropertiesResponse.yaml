@@ -1,0 +1,19 @@
+$token: azure-native:appplatform:BuilderPropertiesResponse
+description: KPack Builder properties payload
+properties:
+  buildpackGroups:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:appplatform:BuildpacksGroupPropertiesResponse"
+    description: Builder buildpack groups.
+  provisioningState:
+    type: string
+    description: Builder provision status.
+  stack:
+    type: object
+    $ref: "#/types/azure-native:appplatform:StackPropertiesResponse"
+    description: Builder cluster stack property.
+type: object
+required:
+  - provisioningState

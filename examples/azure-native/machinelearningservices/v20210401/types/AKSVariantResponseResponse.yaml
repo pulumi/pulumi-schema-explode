@@ -1,0 +1,46 @@
+$token: azure-native:machinelearningservices/v20210401:AKSVariantResponseResponse
+description: The response for an AKS variant.
+properties:
+  computeType:
+    type: string
+    description: |-
+      The compute environment type for the service.
+      Expected value is 'Custom'.
+    const: Custom
+  deploymentType:
+    type: string
+    description: The deployment type for the service.
+  description:
+    type: string
+    description: The service description.
+  error:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20210401:ServiceResponseBaseResponseError"
+    description: The error details.
+  isDefault:
+    type: boolean
+    description: Is this the default variant.
+  kvTags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The service tag dictionary. Tags are mutable.
+  properties:
+    type: object
+    additionalProperties:
+      type: string
+    description: The service property dictionary. Properties are immutable.
+  state:
+    type: string
+    description: The current state of the service.
+  trafficPercentile:
+    type: number
+    description: The amount of traffic variant receives.
+  type:
+    type: string
+    description: The type of the variant.
+type: object
+required:
+  - computeType
+  - error
+  - state

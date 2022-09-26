@@ -1,0 +1,24 @@
+$token: azure-native:azurearcdata:PostgresInstancePropertiesResponse
+description: Postgres Instance properties.
+properties:
+  admin:
+    type: string
+    description: The instance admin
+  basicLoginInformation:
+    type: object
+    $ref: "#/types/azure-native:azurearcdata:BasicLoginInformationResponse"
+    description: Username and password for basic authentication.
+  dataControllerId:
+    type: string
+    description: The data controller id
+  k8sRaw:
+    $ref: pulumi.json#/Any
+    description: The raw kubernetes information
+  lastUploadedDate:
+    type: string
+    description: Last uploaded date from Kubernetes cluster. Defaults to current date time
+  provisioningState:
+    type: string
+type: object
+required:
+  - provisioningState

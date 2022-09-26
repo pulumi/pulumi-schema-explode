@@ -1,0 +1,33 @@
+$token: azure-native:providerhub/v20210501preview:ResourceTypeRegistration
+properties:
+  name:
+    type: string
+    description: The name of the resource
+  properties:
+    type: object
+    $ref: "#/types/azure-native:providerhub/v20210501preview:ResourceTypeRegistrationResponseProperties"
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - name
+  - properties
+  - type
+inputProperties:
+  properties:
+    type: object
+    $ref: "#/types/azure-native:providerhub/v20210501preview:ResourceTypeRegistrationProperties"
+  providerNamespace:
+    type: string
+    description: The name of the resource provider hosted within ProviderHub.
+  resourceType:
+    type: string
+    description: The resource type.
+requiredInputs:
+  - providerNamespace
+aliases:
+  - type: azure-native:providerhub:ResourceTypeRegistration
+  - type: azure-native:providerhub/v20201120:ResourceTypeRegistration
+  - type: azure-native:providerhub/v20210601preview:ResourceTypeRegistration
+  - type: azure-native:providerhub/v20210901preview:ResourceTypeRegistration

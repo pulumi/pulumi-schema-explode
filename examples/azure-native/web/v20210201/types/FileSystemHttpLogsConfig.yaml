@@ -1,0 +1,19 @@
+$token: azure-native:web/v20210201:FileSystemHttpLogsConfig
+description: Http logs to file system configuration.
+properties:
+  enabled:
+    type: boolean
+    description: True if configuration is enabled, false if it is disabled and null if configuration is not set.
+  retentionInDays:
+    type: integer
+    description: |-
+      Retention in days.
+      Remove files older than X days.
+      0 or lower means no retention.
+  retentionInMb:
+    type: integer
+    description: |-
+      Maximum size in megabytes that http log files can use.
+      When reached old log files will be removed to make space for new ones.
+      Value can range between 25 and 100.
+type: object

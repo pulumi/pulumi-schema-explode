@@ -1,0 +1,50 @@
+$token: azure-native:cache:PatchSchedule
+description: |-
+  Response to put/get patch schedules for Redis cache.
+  API Version: 2020-06-01.
+properties:
+  name:
+    type: string
+    description: Resource name.
+  scheduleEntries:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:cache:ScheduleEntryResponse"
+    description: List of patch schedules for a Redis cache.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - name
+  - scheduleEntries
+  - type
+inputProperties:
+  default:
+    type: string
+    description: Default string modeled as parameter for auto generation to work correctly.
+  name:
+    type: string
+    description: The name of the Redis cache.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  scheduleEntries:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:cache:ScheduleEntry"
+    description: List of patch schedules for a Redis cache.
+requiredInputs:
+  - name
+  - resourceGroupName
+  - scheduleEntries
+aliases:
+  - type: azure-native:cache/v20171001:PatchSchedule
+  - type: azure-native:cache/v20180301:PatchSchedule
+  - type: azure-native:cache/v20190701:PatchSchedule
+  - type: azure-native:cache/v20200601:PatchSchedule
+  - type: azure-native:cache/v20201201:PatchSchedule
+  - type: azure-native:cache/v20210601:PatchSchedule
+  - type: azure-native:cache/v20220501:PatchSchedule

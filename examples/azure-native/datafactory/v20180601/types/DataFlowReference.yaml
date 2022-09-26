@@ -1,0 +1,23 @@
+$token: azure-native:datafactory/v20180601:DataFlowReference
+description: Data flow reference type.
+properties:
+  datasetParameters:
+    $ref: pulumi.json#/Any
+    description: Reference data flow parameters from dataset.
+  parameters:
+    type: object
+    additionalProperties:
+      $ref: pulumi.json#/Any
+    description: Data flow parameters
+  referenceName:
+    type: string
+    description: Reference data flow name.
+  type:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:datafactory/v20180601:DataFlowReferenceType"
+    description: Data flow reference type.
+type: object
+required:
+  - referenceName
+  - type

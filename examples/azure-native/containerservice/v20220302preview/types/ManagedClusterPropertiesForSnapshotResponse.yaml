@@ -1,0 +1,20 @@
+$token: azure-native:containerservice/v20220302preview:ManagedClusterPropertiesForSnapshotResponse
+description: managed cluster properties for snapshot, these properties are read only.
+properties:
+  enableRbac:
+    type: boolean
+    description: Whether the cluster has enabled Kubernetes Role-Based Access Control or not.
+  kubernetesVersion:
+    type: string
+    description: The current kubernetes version.
+  networkProfile:
+    type: object
+    $ref: "#/types/azure-native:containerservice/v20220302preview:NetworkProfileForSnapshotResponse"
+    description: The current network profile.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:containerservice/v20220302preview:ManagedClusterSKUResponse"
+    description: The current managed cluster sku.
+type: object
+required:
+  - networkProfile

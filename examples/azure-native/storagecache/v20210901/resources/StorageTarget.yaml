@@ -1,0 +1,111 @@
+$token: azure-native:storagecache/v20210901:StorageTarget
+description: Type of the Storage Target.
+properties:
+  blobNfs:
+    type: object
+    $ref: "#/types/azure-native:storagecache/v20210901:BlobNfsTargetResponse"
+    description: Properties when targetType is blobNfs.
+  clfs:
+    type: object
+    $ref: "#/types/azure-native:storagecache/v20210901:ClfsTargetResponse"
+    description: Properties when targetType is clfs.
+  junctions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:storagecache/v20210901:NamespaceJunctionResponse"
+    description: List of Cache namespace junctions to target for namespace associations.
+  location:
+    type: string
+    description: Region name string.
+  name:
+    type: string
+    description: Name of the Storage Target.
+  nfs3:
+    type: object
+    $ref: "#/types/azure-native:storagecache/v20210901:Nfs3TargetResponse"
+    description: Properties when targetType is nfs3.
+  provisioningState:
+    type: string
+    description: ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+  state:
+    type: string
+    description: Storage target operational state.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:storagecache/v20210901:SystemDataResponse"
+    description: The system meta data relating to this resource.
+  targetType:
+    type: string
+    description: Type of the Storage Target.
+  type:
+    type: string
+    description: Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
+  unknown:
+    type: object
+    $ref: "#/types/azure-native:storagecache/v20210901:UnknownTargetResponse"
+    description: Properties when targetType is unknown.
+type: object
+required:
+  - location
+  - name
+  - provisioningState
+  - systemData
+  - targetType
+  - type
+inputProperties:
+  blobNfs:
+    type: object
+    $ref: "#/types/azure-native:storagecache/v20210901:BlobNfsTarget"
+    description: Properties when targetType is blobNfs.
+  cacheName:
+    type: string
+    description: Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+  clfs:
+    type: object
+    $ref: "#/types/azure-native:storagecache/v20210901:ClfsTarget"
+    description: Properties when targetType is clfs.
+  junctions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:storagecache/v20210901:NamespaceJunction"
+    description: List of Cache namespace junctions to target for namespace associations.
+  nfs3:
+    type: object
+    $ref: "#/types/azure-native:storagecache/v20210901:Nfs3Target"
+    description: Properties when targetType is nfs3.
+  resourceGroupName:
+    type: string
+    description: Target resource group.
+  state:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:storagecache/v20210901:OperationalStateType"
+    description: Storage target operational state.
+  storageTargetName:
+    type: string
+    description: Name of Storage Target.
+  targetType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:storagecache/v20210901:StorageTargetType"
+    description: Type of the Storage Target.
+  unknown:
+    type: object
+    $ref: "#/types/azure-native:storagecache/v20210901:UnknownTarget"
+    description: Properties when targetType is unknown.
+requiredInputs:
+  - cacheName
+  - resourceGroupName
+  - targetType
+aliases:
+  - type: azure-native:storagecache:StorageTarget
+  - type: azure-native:storagecache/v20190801preview:StorageTarget
+  - type: azure-native:storagecache/v20191101:StorageTarget
+  - type: azure-native:storagecache/v20200301:StorageTarget
+  - type: azure-native:storagecache/v20201001:StorageTarget
+  - type: azure-native:storagecache/v20210301:StorageTarget
+  - type: azure-native:storagecache/v20210501:StorageTarget
+  - type: azure-native:storagecache/v20220101:StorageTarget
+  - type: azure-native:storagecache/v20220501:StorageTarget

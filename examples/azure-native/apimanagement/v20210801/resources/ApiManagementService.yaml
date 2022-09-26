@@ -1,0 +1,287 @@
+$token: azure-native:apimanagement/v20210801:ApiManagementService
+description: A single API Management service resource in List or Get response.
+properties:
+  additionalLocations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:apimanagement/v20210801:AdditionalLocationResponse"
+    description: Additional datacenter locations of the API Management service.
+  apiVersionConstraint:
+    type: object
+    $ref: "#/types/azure-native:apimanagement/v20210801:ApiVersionConstraintResponse"
+    description: Control Plane Apis version constraint for the API Management service.
+  certificates:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:apimanagement/v20210801:CertificateConfigurationResponse"
+    description: List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
+  createdAtUtc:
+    type: string
+    description: "Creation UTC date of the API Management service.The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard."
+  customProperties:
+    type: object
+    additionalProperties:
+      type: string
+    description: "Custom properties of the API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2).</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` can be used to disable just TLS 1.1 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` can be used to disable TLS 1.0 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Protocols.Server.Http2` can be used to enable HTTP2 protocol on an API Management service.</br>Not specifying any of these properties on PATCH operation will reset omitted properties' values to their defaults. For all the settings except Http2 the default value is `True` if the service was created on or before April 1st 2018 and `False` otherwise. Http2 setting's default value is `False`.</br></br>You can disable any of next ciphers by using settings `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.[cipher_name]`: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA. For example, `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256`:`false`. The default value is `true` for them.  Note: next ciphers can't be disabled since they are required by Azure CloudService internal components: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_256_GCM_SHA384"
+  developerPortalUrl:
+    type: string
+    description: DEveloper Portal endpoint URL of the API Management service.
+  disableGateway:
+    type: boolean
+    description: Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in master region.
+    default: false
+  enableClientCertificate:
+    type: boolean
+    description: Property only meant to be used for Consumption SKU Service. This enforces a client certificate to be presented on each request to the gateway. This also enables the ability to authenticate the certificate in the policy on the gateway.
+    default: false
+  etag:
+    type: string
+    description: ETag of the resource.
+  gatewayRegionalUrl:
+    type: string
+    description: Gateway URL of the API Management service in the Default Region.
+  gatewayUrl:
+    type: string
+    description: Gateway URL of the API Management service.
+  hostnameConfigurations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:apimanagement/v20210801:HostnameConfigurationResponse"
+    description: Custom hostname configuration of the API Management service.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:apimanagement/v20210801:ApiManagementServiceIdentityResponse"
+    description: Managed service identity of the Api Management service.
+  location:
+    type: string
+    description: Resource location.
+  managementApiUrl:
+    type: string
+    description: Management API endpoint URL of the API Management service.
+  name:
+    type: string
+    description: Resource name.
+  notificationSenderEmail:
+    type: string
+    description: Email address from which the notification will be sent.
+  platformVersion:
+    type: string
+    description: Compute Platform Version running the service in this location.
+  portalUrl:
+    type: string
+    description: Publisher portal endpoint Url of the API Management service.
+  privateEndpointConnections:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:apimanagement/v20210801:RemotePrivateEndpointConnectionWrapperResponse"
+    description: List of Private Endpoint Connections of this service.
+  privateIPAddresses:
+    type: array
+    items:
+      type: string
+    description: Private Static Load Balanced IP addresses of the API Management service in Primary region which is deployed in an Internal Virtual Network. Available only for Basic, Standard, Premium and Isolated SKU.
+  provisioningState:
+    type: string
+    description: "The current provisioning state of the API Management service which can be one of the following: Created/Activating/Succeeded/Updating/Failed/Stopped/Terminating/TerminationFailed/Deleted."
+  publicIPAddresses:
+    type: array
+    items:
+      type: string
+    description: Public Static Load Balanced IP addresses of the API Management service in Primary region. Available only for Basic, Standard, Premium and Isolated SKU.
+  publicIpAddressId:
+    type: string
+    description: Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the region. Supported only for Developer and Premium SKU being deployed in Virtual Network.
+  publicNetworkAccess:
+    type: string
+    description: Whether or not public endpoint access is allowed for this API Management service.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+  publisherEmail:
+    type: string
+    description: Publisher email.
+  publisherName:
+    type: string
+    description: Publisher name.
+  restore:
+    type: boolean
+    description: Undelete Api Management Service if it was previously soft-deleted. If this flag is specified and set to True all other properties will be ignored.
+    default: false
+  scmUrl:
+    type: string
+    description: SCM endpoint URL of the API Management service.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:apimanagement/v20210801:ApiManagementServiceSkuPropertiesResponse"
+    description: SKU properties of the API Management service.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:apimanagement/v20210801:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  targetProvisioningState:
+    type: string
+    description: The provisioning state of the API Management service, which is targeted by the long running operation started on the service.
+  type:
+    type: string
+    description: Resource type for API Management resource is set to Microsoft.ApiManagement.
+  virtualNetworkConfiguration:
+    type: object
+    $ref: "#/types/azure-native:apimanagement/v20210801:VirtualNetworkConfigurationResponse"
+    description: Virtual network configuration of the API Management service.
+  virtualNetworkType:
+    type: string
+    description: The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
+    default: None
+  zones:
+    type: array
+    items:
+      type: string
+    description: A list of availability zones denoting where the resource needs to come from.
+type: object
+required:
+  - createdAtUtc
+  - developerPortalUrl
+  - etag
+  - gatewayRegionalUrl
+  - gatewayUrl
+  - location
+  - managementApiUrl
+  - name
+  - platformVersion
+  - portalUrl
+  - privateIPAddresses
+  - provisioningState
+  - publicIPAddresses
+  - publisherEmail
+  - publisherName
+  - scmUrl
+  - sku
+  - systemData
+  - targetProvisioningState
+  - type
+inputProperties:
+  additionalLocations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:apimanagement/v20210801:AdditionalLocation"
+    description: Additional datacenter locations of the API Management service.
+  apiVersionConstraint:
+    type: object
+    $ref: "#/types/azure-native:apimanagement/v20210801:ApiVersionConstraint"
+    description: Control Plane Apis version constraint for the API Management service.
+  certificates:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:apimanagement/v20210801:CertificateConfiguration"
+    description: List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
+  customProperties:
+    type: object
+    additionalProperties:
+      type: string
+    description: "Custom properties of the API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2).</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` can be used to disable just TLS 1.1 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` can be used to disable TLS 1.0 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Protocols.Server.Http2` can be used to enable HTTP2 protocol on an API Management service.</br>Not specifying any of these properties on PATCH operation will reset omitted properties' values to their defaults. For all the settings except Http2 the default value is `True` if the service was created on or before April 1st 2018 and `False` otherwise. Http2 setting's default value is `False`.</br></br>You can disable any of next ciphers by using settings `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.[cipher_name]`: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA. For example, `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256`:`false`. The default value is `true` for them.  Note: next ciphers can't be disabled since they are required by Azure CloudService internal components: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_256_GCM_SHA384"
+  disableGateway:
+    type: boolean
+    description: Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in master region.
+    default: false
+  enableClientCertificate:
+    type: boolean
+    description: Property only meant to be used for Consumption SKU Service. This enforces a client certificate to be presented on each request to the gateway. This also enables the ability to authenticate the certificate in the policy on the gateway.
+    default: false
+  hostnameConfigurations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:apimanagement/v20210801:HostnameConfiguration"
+    description: Custom hostname configuration of the API Management service.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:apimanagement/v20210801:ApiManagementServiceIdentity"
+    description: Managed service identity of the Api Management service.
+  location:
+    type: string
+    description: Resource location.
+  notificationSenderEmail:
+    type: string
+    description: Email address from which the notification will be sent.
+  privateEndpointConnections:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:apimanagement/v20210801:RemotePrivateEndpointConnectionWrapper"
+    description: List of Private Endpoint Connections of this service.
+  publicIpAddressId:
+    type: string
+    description: Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the region. Supported only for Developer and Premium SKU being deployed in Virtual Network.
+  publicNetworkAccess:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:apimanagement/v20210801:PublicNetworkAccess"
+    description: Whether or not public endpoint access is allowed for this API Management service.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+  publisherEmail:
+    type: string
+    description: Publisher email.
+  publisherName:
+    type: string
+    description: Publisher name.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  restore:
+    type: boolean
+    description: Undelete Api Management Service if it was previously soft-deleted. If this flag is specified and set to True all other properties will be ignored.
+    default: false
+  serviceName:
+    type: string
+    description: The name of the API Management service.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:apimanagement/v20210801:ApiManagementServiceSkuProperties"
+    description: SKU properties of the API Management service.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  virtualNetworkConfiguration:
+    type: object
+    $ref: "#/types/azure-native:apimanagement/v20210801:VirtualNetworkConfiguration"
+    description: Virtual network configuration of the API Management service.
+  virtualNetworkType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:apimanagement/v20210801:VirtualNetworkType"
+    description: The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
+    default: None
+  zones:
+    type: array
+    items:
+      type: string
+    description: A list of availability zones denoting where the resource needs to come from.
+requiredInputs:
+  - publisherEmail
+  - publisherName
+  - resourceGroupName
+  - sku
+aliases:
+  - type: azure-native:apimanagement:ApiManagementService
+  - type: azure-native:apimanagement/v20160707:ApiManagementService
+  - type: azure-native:apimanagement/v20161010:ApiManagementService
+  - type: azure-native:apimanagement/v20170301:ApiManagementService
+  - type: azure-native:apimanagement/v20180101:ApiManagementService
+  - type: azure-native:apimanagement/v20180601preview:ApiManagementService
+  - type: azure-native:apimanagement/v20190101:ApiManagementService
+  - type: azure-native:apimanagement/v20191201:ApiManagementService
+  - type: azure-native:apimanagement/v20191201preview:ApiManagementService
+  - type: azure-native:apimanagement/v20200601preview:ApiManagementService
+  - type: azure-native:apimanagement/v20201201:ApiManagementService
+  - type: azure-native:apimanagement/v20210101preview:ApiManagementService
+  - type: azure-native:apimanagement/v20210401preview:ApiManagementService
+  - type: azure-native:apimanagement/v20211201preview:ApiManagementService

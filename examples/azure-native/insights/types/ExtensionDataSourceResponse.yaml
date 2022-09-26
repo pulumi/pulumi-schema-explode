@@ -1,0 +1,31 @@
+$token: azure-native:insights:ExtensionDataSourceResponse
+description: "Definition of which data will be collected from a separate VM extension that integrates with the Azure Monitor Agent.\r
+
+  Collected from either Windows and Linux machines, depending on which extension is defined."
+properties:
+  extensionName:
+    type: string
+    description: The name of the VM extension.
+  extensionSettings:
+    $ref: pulumi.json#/Any
+    description: The extension settings. The format is specific for particular extension.
+  inputDataSources:
+    type: array
+    items:
+      type: string
+    description: The list of data sources this extension needs data from.
+  name:
+    type: string
+    description: "A friendly name for the data source. \r
+
+      This name should be unique across all data sources (regardless of type) within the data collection rule."
+  streams:
+    type: array
+    items:
+      type: string
+    description: "List of streams that this data source will be sent to.\r
+
+      A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to."
+type: object
+required:
+  - extensionName

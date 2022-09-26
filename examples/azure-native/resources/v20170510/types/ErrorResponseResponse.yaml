@@ -1,0 +1,31 @@
+$token: azure-native:resources/v20170510:ErrorResponseResponse
+description: Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.)
+properties:
+  additionalInfo:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:resources/v20170510:ErrorAdditionalInfoResponse"
+    description: The error additional info.
+  code:
+    type: string
+    description: The error code.
+  details:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:resources/v20170510:ErrorResponseResponse"
+    description: The error details.
+  message:
+    type: string
+    description: The error message.
+  target:
+    type: string
+    description: The error target.
+type: object
+required:
+  - additionalInfo
+  - code
+  - details
+  - message
+  - target

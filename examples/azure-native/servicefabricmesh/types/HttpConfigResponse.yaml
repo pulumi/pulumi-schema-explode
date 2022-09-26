@@ -1,0 +1,20 @@
+$token: azure-native:servicefabricmesh:HttpConfigResponse
+description: Describes the http configuration for external connectivity for this network.
+properties:
+  hosts:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:servicefabricmesh:HttpHostConfigResponse"
+    description: description for routing.
+  name:
+    type: string
+    description: http gateway config name.
+  port:
+    type: integer
+    description: Specifies the port at which the service endpoint below needs to be exposed.
+type: object
+required:
+  - hosts
+  - name
+  - port

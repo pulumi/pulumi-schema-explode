@@ -1,0 +1,14 @@
+$token: azure-native:databoxedge/v20190801:OrderStatus
+description: Represents a single status change.
+properties:
+  comments:
+    type: string
+    description: Comments related to this status change.
+  status:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:databoxedge/v20190801:OrderState"
+    description: Status of the order as per the allowed status types.
+type: object
+required:
+  - status

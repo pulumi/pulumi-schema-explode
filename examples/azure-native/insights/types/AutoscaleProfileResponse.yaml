@@ -1,0 +1,29 @@
+$token: azure-native:insights:AutoscaleProfileResponse
+description: Autoscale profile.
+properties:
+  capacity:
+    type: object
+    $ref: "#/types/azure-native:insights:ScaleCapacityResponse"
+    description: the number of instances that can be used during this profile.
+  fixedDate:
+    type: object
+    $ref: "#/types/azure-native:insights:TimeWindowResponse"
+    description: the specific date-time for the profile. This element is not used if the Recurrence element is used.
+  name:
+    type: string
+    description: the name of the profile.
+  recurrence:
+    type: object
+    $ref: "#/types/azure-native:insights:RecurrenceResponse"
+    description: the repeating times at which this profile begins. This element is not used if the FixedDate element is used.
+  rules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:insights:ScaleRuleResponse"
+    description: the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
+type: object
+required:
+  - capacity
+  - name
+  - rules

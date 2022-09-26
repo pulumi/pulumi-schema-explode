@@ -1,0 +1,90 @@
+$token: azure-native:containerservice/v20180331:getManagedCluster
+description: Managed cluster.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    resourceName:
+      type: string
+      description: The name of the managed cluster resource.
+  type: object
+  required:
+    - resourceGroupName
+    - resourceName
+outputs:
+  description: Managed cluster.
+  properties:
+    aadProfile:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20180331:ManagedClusterAADProfileResponse"
+      description: Profile of Azure Active Directory configuration.
+    addonProfiles:
+      type: object
+      additionalProperties:
+        type: object
+        $ref: "#/types/azure-native:containerservice/v20180331:ManagedClusterAddonProfileResponse"
+      description: Profile of managed cluster add-on.
+    agentPoolProfiles:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:containerservice/v20180331:ManagedClusterAgentPoolProfileResponse"
+      description: Properties of the agent pool. Currently only one agent pool can exist.
+    dnsPrefix:
+      type: string
+      description: DNS prefix specified when creating the managed cluster.
+    enableRBAC:
+      type: boolean
+      description: Whether to enable Kubernetes Role-Based Access Control.
+    fqdn:
+      type: string
+      description: FQDN for the master pool.
+    id:
+      type: string
+      description: Resource Id
+    kubernetesVersion:
+      type: string
+      description: Version of Kubernetes specified when creating the managed cluster.
+    linuxProfile:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20180331:ContainerServiceLinuxProfileResponse"
+      description: Profile for Linux VMs in the container service cluster.
+    location:
+      type: string
+      description: Resource location
+    name:
+      type: string
+      description: Resource name
+    networkProfile:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20180331:ContainerServiceNetworkProfileResponse"
+      description: Profile of network configuration.
+    nodeResourceGroup:
+      type: string
+      description: Name of the resource group containing agent pool nodes.
+    provisioningState:
+      type: string
+      description: The current deployment or provisioning state, which only appears in the response.
+    servicePrincipalProfile:
+      type: object
+      $ref: "#/types/azure-native:containerservice/v20180331:ManagedClusterServicePrincipalProfileResponse"
+      description: Information about a service principal identity for the cluster to use for manipulating Azure APIs.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    type:
+      type: string
+      description: Resource type
+  type: object
+  required:
+    - fqdn
+    - id
+    - location
+    - name
+    - nodeResourceGroup
+    - provisioningState
+    - type
+deprecationMessage: Version 2018-03-31 will be removed in v2 of the provider.

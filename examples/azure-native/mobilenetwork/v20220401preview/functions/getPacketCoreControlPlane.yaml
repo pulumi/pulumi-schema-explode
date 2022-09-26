@@ -1,0 +1,102 @@
+$token: azure-native:mobilenetwork/v20220401preview:getPacketCoreControlPlane
+description: Packet core control plane resource.
+inputs:
+  properties:
+    packetCoreControlPlaneName:
+      type: string
+      description: The name of the packet core control plane.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+  type: object
+  required:
+    - packetCoreControlPlaneName
+    - resourceGroupName
+outputs:
+  description: Packet core control plane resource.
+  properties:
+    controlPlaneAccessInterface:
+      type: object
+      $ref: "#/types/azure-native:mobilenetwork/v20220401preview:InterfacePropertiesResponse"
+      description: The control plane interface on the access network. For 5G networks, this is the N2 interface. For 4G networks, this is the S1-MME interface.
+    coreNetworkTechnology:
+      type: string
+      description: The core network technology generation (5G core or EPC / 4G core).
+    createdAt:
+      type: string
+      description: The timestamp of resource creation (UTC).
+    createdBy:
+      type: string
+      description: The identity that created the resource.
+    createdByType:
+      type: string
+      description: The type of identity that created the resource.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    identity:
+      type: object
+      $ref: "#/types/azure-native:mobilenetwork/v20220401preview:ManagedServiceIdentityResponse"
+      description: The identity used to retrieve the ingress certificate from Azure key vault.
+    interopSettings:
+      $ref: pulumi.json#/Any
+      description: Settings to allow interoperability with third party components e.g. RANs and UEs.
+    lastModifiedAt:
+      type: string
+      description: The timestamp of resource last modification (UTC)
+    lastModifiedBy:
+      type: string
+      description: The identity that last modified the resource.
+    lastModifiedByType:
+      type: string
+      description: The type of identity that last modified the resource.
+    localDiagnosticsAccess:
+      type: object
+      $ref: "#/types/azure-native:mobilenetwork/v20220401preview:LocalDiagnosticsAccessConfigurationResponse"
+      description: The kubernetes ingress configuration to control access to packet core diagnostics over local APIs.
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    mobileNetwork:
+      type: object
+      $ref: "#/types/azure-native:mobilenetwork/v20220401preview:MobileNetworkResourceIdResponse"
+      description: Mobile network in which this packet core control plane is deployed.
+    name:
+      type: string
+      description: The name of the resource
+    platform:
+      type: object
+      $ref: "#/types/azure-native:mobilenetwork/v20220401preview:PlatformConfigurationResponse"
+      description: The platform where the packet core is deployed.
+    provisioningState:
+      type: string
+      description: The provisioning state of the packet core control plane resource.
+    sku:
+      type: string
+      description: The SKU defining the throughput and SIM allowances for this packet core control plane deployment.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:mobilenetwork/v20220401preview:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+    version:
+      type: string
+      description: The version of the packet core software that is deployed.
+  type: object
+  required:
+    - controlPlaneAccessInterface
+    - id
+    - location
+    - mobileNetwork
+    - name
+    - provisioningState
+    - sku
+    - systemData
+    - type

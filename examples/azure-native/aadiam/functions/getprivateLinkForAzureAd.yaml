@@ -1,0 +1,57 @@
+$token: azure-native:aadiam:getprivateLinkForAzureAd
+description: |-
+  PrivateLink Policy configuration object.
+  API Version: 2020-03-01.
+inputs:
+  properties:
+    policyName:
+      type: string
+      description: The name of the private link policy in Azure AD.
+    resourceGroupName:
+      type: string
+      description: Name of an Azure resource group.
+  type: object
+  required:
+    - policyName
+    - resourceGroupName
+outputs:
+  description: PrivateLink Policy configuration object.
+  properties:
+    allTenants:
+      type: boolean
+      description: Flag indicating whether all tenants are allowed
+    id:
+      type: string
+      description: String Id used to locate any resource on Azure.
+    name:
+      type: string
+      description: Name of this resource.
+    ownerTenantId:
+      type: string
+      description: Guid of the owner tenant
+    resourceGroup:
+      type: string
+      description: Name of the resource group
+    resourceName:
+      type: string
+      description: Name of the private link policy resource
+    subscriptionId:
+      type: string
+      description: Subscription Identifier
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    tenants:
+      type: array
+      items:
+        type: string
+      description: The list of tenantIds.
+    type:
+      type: string
+      description: Type of this resource.
+  type: object
+  required:
+    - id
+    - type

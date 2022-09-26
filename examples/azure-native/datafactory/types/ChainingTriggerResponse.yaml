@@ -1,0 +1,40 @@
+$token: azure-native:datafactory:ChainingTriggerResponse
+description: Trigger that allows the referenced pipeline to depend on other pipeline runs based on runDimension Name/Value pairs. Upstream pipelines should declare the same runDimension Name and their runs should have the values for those runDimensions. The referenced pipeline run would be triggered if the values for the runDimension match for all upstream pipeline runs.
+properties:
+  annotations:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: List of tags that can be used for describing the trigger.
+  dependsOn:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory:PipelineReferenceResponse"
+    description: Upstream Pipelines.
+  description:
+    type: string
+    description: Trigger description.
+  pipeline:
+    type: object
+    $ref: "#/types/azure-native:datafactory:TriggerPipelineReferenceResponse"
+    description: Pipeline for which runs are created when all upstream pipelines complete successfully.
+  runDimension:
+    type: string
+    description: Run Dimension property that needs to be emitted by upstream pipelines.
+  runtimeState:
+    type: string
+    description: Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
+  type:
+    type: string
+    description: |-
+      Trigger type.
+      Expected value is 'ChainingTrigger'.
+    const: ChainingTrigger
+type: object
+required:
+  - dependsOn
+  - pipeline
+  - runDimension
+  - runtimeState
+  - type

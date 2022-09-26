@@ -1,0 +1,38 @@
+$token: azure-native:containerregistry/v20190601preview:EncodedTaskStepResponse
+description: The properties of a encoded task step.
+properties:
+  baseImageDependencies:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:containerregistry/v20190601preview:BaseImageDependencyResponse"
+    description: List of base image dependencies for a step.
+  contextAccessToken:
+    type: string
+    description: The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+  contextPath:
+    type: string
+    description: The URL(absolute or relative) of the source context for the task step.
+  encodedTaskContent:
+    type: string
+    description: Base64 encoded value of the template/definition file content.
+  encodedValuesContent:
+    type: string
+    description: Base64 encoded value of the parameters/values file content.
+  type:
+    type: string
+    description: |-
+      The type of the step.
+      Expected value is 'EncodedTask'.
+    const: EncodedTask
+  values:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:containerregistry/v20190601preview:SetValueResponse"
+    description: The collection of overridable values that can be passed when running a task.
+type: object
+required:
+  - baseImageDependencies
+  - encodedTaskContent
+  - type

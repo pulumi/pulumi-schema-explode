@@ -1,0 +1,19 @@
+$token: azure-native:compute/v20220301:CapacityReservationInstanceViewWithNameResponse
+description: The instance view of a capacity reservation that includes the name of the capacity reservation. It is used for the response to the instance view of a capacity reservation group.
+properties:
+  name:
+    type: string
+    description: The name of the capacity reservation.
+  statuses:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:compute/v20220301:InstanceViewStatusResponse"
+    description: The resource status information.
+  utilizationInfo:
+    type: object
+    $ref: "#/types/azure-native:compute/v20220301:CapacityReservationUtilizationResponse"
+    description: Unutilized capacity of the capacity reservation.
+type: object
+required:
+  - name

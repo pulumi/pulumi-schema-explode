@@ -1,0 +1,110 @@
+$token: azure-native:batch:getBatchAccount
+description: |-
+  Contains information about an Azure Batch account.
+  API Version: 2021-01-01.
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: The name of the Batch account.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the Batch account.
+  type: object
+  required:
+    - accountName
+    - resourceGroupName
+outputs:
+  description: Contains information about an Azure Batch account.
+  properties:
+    accountEndpoint:
+      type: string
+      description: The account endpoint used to interact with the Batch service.
+    activeJobAndJobScheduleQuota:
+      type: integer
+    autoStorage:
+      type: object
+      $ref: "#/types/azure-native:batch:AutoStoragePropertiesResponse"
+      description: Contains information about the auto-storage account associated with a Batch account.
+    dedicatedCoreQuota:
+      type: integer
+      description: For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
+    dedicatedCoreQuotaPerVMFamily:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:batch:VirtualMachineFamilyCoreQuotaResponse"
+      description: A list of the dedicated core quota per Virtual Machine family for the Batch account. For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
+    dedicatedCoreQuotaPerVMFamilyEnforced:
+      type: boolean
+      description: Batch is transitioning its core quota system for dedicated cores to be enforced per Virtual Machine family. During this transitional phase, the dedicated core quota per Virtual Machine family may not yet be enforced. If this flag is false, dedicated core quota is enforced via the old dedicatedCoreQuota property on the account and does not consider Virtual Machine family. If this flag is true, dedicated core quota is enforced via the dedicatedCoreQuotaPerVMFamily property on the account, and the old dedicatedCoreQuota does not apply.
+    encryption:
+      type: object
+      $ref: "#/types/azure-native:batch:EncryptionPropertiesResponse"
+      description: Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
+    id:
+      type: string
+      description: The ID of the resource.
+    identity:
+      type: object
+      $ref: "#/types/azure-native:batch:BatchAccountIdentityResponse"
+      description: The identity of the Batch account.
+    keyVaultReference:
+      type: object
+      $ref: "#/types/azure-native:batch:KeyVaultReferenceResponse"
+      description: Identifies the Azure key vault associated with a Batch account.
+    location:
+      type: string
+      description: The location of the resource.
+    lowPriorityCoreQuota:
+      type: integer
+      description: For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
+    name:
+      type: string
+      description: The name of the resource.
+    poolAllocationMode:
+      type: string
+      description: The allocation mode for creating pools in the Batch account.
+    poolQuota:
+      type: integer
+    privateEndpointConnections:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:batch:PrivateEndpointConnectionResponse"
+      description: List of private endpoint connections associated with the Batch account
+    provisioningState:
+      type: string
+      description: The provisioned state of the resource
+    publicNetworkAccess:
+      type: string
+      description: If not specified, the default value is 'enabled'.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: The tags of the resource.
+    type:
+      type: string
+      description: The type of the resource.
+  type: object
+  required:
+    - accountEndpoint
+    - activeJobAndJobScheduleQuota
+    - autoStorage
+    - dedicatedCoreQuota
+    - dedicatedCoreQuotaPerVMFamily
+    - dedicatedCoreQuotaPerVMFamilyEnforced
+    - encryption
+    - id
+    - keyVaultReference
+    - location
+    - lowPriorityCoreQuota
+    - name
+    - poolAllocationMode
+    - poolQuota
+    - privateEndpointConnections
+    - provisioningState
+    - publicNetworkAccess
+    - tags
+    - type

@@ -1,0 +1,27 @@
+$token: azure-native:chaos:Branch
+description: Model that represents a branch in the step.
+properties:
+  actions:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:chaos:ContinuousAction"
+        - type: object
+          $ref: "#/types/azure-native:chaos:DelayAction"
+        - type: object
+          $ref: "#/types/azure-native:chaos:DiscreteAction"
+      discriminator:
+        propertyName: type
+        mapping:
+          continuous: "#/types/azure-native:chaos:ContinuousAction"
+          delay: "#/types/azure-native:chaos:DelayAction"
+          discrete: "#/types/azure-native:chaos:DiscreteAction"
+    description: List of actions.
+  name:
+    type: string
+    description: String of the branch name.
+type: object
+required:
+  - actions
+  - name

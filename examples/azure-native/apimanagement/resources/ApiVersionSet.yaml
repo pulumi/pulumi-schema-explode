@@ -1,0 +1,77 @@
+$token: azure-native:apimanagement:ApiVersionSet
+description: |-
+  Api Version Set Contract details.
+  API Version: 2020-12-01.
+properties:
+  description:
+    type: string
+    description: Description of API Version Set.
+  displayName:
+    type: string
+    description: Name of API Version Set
+  name:
+    type: string
+    description: Resource name.
+  type:
+    type: string
+    description: Resource type for API Management resource.
+  versionHeaderName:
+    type: string
+    description: Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
+  versionQueryName:
+    type: string
+    description: Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
+  versioningScheme:
+    type: string
+    description: An value that determines where the API Version identifier will be located in a HTTP request.
+type: object
+required:
+  - displayName
+  - name
+  - type
+  - versioningScheme
+inputProperties:
+  description:
+    type: string
+    description: Description of API Version Set.
+  displayName:
+    type: string
+    description: Name of API Version Set
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  serviceName:
+    type: string
+    description: The name of the API Management service.
+  versionHeaderName:
+    type: string
+    description: Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
+  versionQueryName:
+    type: string
+    description: Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
+  versionSetId:
+    type: string
+    description: Api Version Set identifier. Must be unique in the current API Management service instance.
+  versioningScheme:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:apimanagement:VersioningScheme"
+    description: An value that determines where the API Version identifier will be located in a HTTP request.
+requiredInputs:
+  - displayName
+  - resourceGroupName
+  - serviceName
+  - versioningScheme
+aliases:
+  - type: azure-native:apimanagement/v20170301:ApiVersionSet
+  - type: azure-native:apimanagement/v20180101:ApiVersionSet
+  - type: azure-native:apimanagement/v20180601preview:ApiVersionSet
+  - type: azure-native:apimanagement/v20190101:ApiVersionSet
+  - type: azure-native:apimanagement/v20191201:ApiVersionSet
+  - type: azure-native:apimanagement/v20191201preview:ApiVersionSet
+  - type: azure-native:apimanagement/v20200601preview:ApiVersionSet
+  - type: azure-native:apimanagement/v20201201:ApiVersionSet
+  - type: azure-native:apimanagement/v20210101preview:ApiVersionSet
+  - type: azure-native:apimanagement/v20210401preview:ApiVersionSet
+  - type: azure-native:apimanagement/v20210801:ApiVersionSet
+  - type: azure-native:apimanagement/v20211201preview:ApiVersionSet

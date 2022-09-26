@@ -1,0 +1,24 @@
+$token: azure-native:machinelearningservices/v20220201preview:TruncationSelectionPolicyResponse
+description: Defines an early termination policy that cancels a given percentage of runs at each evaluation interval.
+properties:
+  delayEvaluation:
+    type: integer
+    description: Number of intervals by which to delay the first evaluation.
+    default: 0
+  evaluationInterval:
+    type: integer
+    description: Interval (number of runs) between policy evaluations.
+    default: 0
+  policyType:
+    type: string
+    description: |-
+      
+      Expected value is 'TruncationSelection'.
+    const: TruncationSelection
+  truncationPercentage:
+    type: integer
+    description: The percentage of runs to cancel at each evaluation interval.
+    default: 0
+type: object
+required:
+  - policyType

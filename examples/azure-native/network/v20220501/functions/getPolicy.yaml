@@ -1,0 +1,86 @@
+$token: azure-native:network/v20220501:getPolicy
+description: Defines web application firewall policy.
+inputs:
+  properties:
+    policyName:
+      type: string
+      description: The name of the Web Application Firewall Policy.
+    resourceGroupName:
+      type: string
+      description: Name of the Resource group within the Azure subscription.
+  type: object
+  required:
+    - policyName
+    - resourceGroupName
+outputs:
+  description: Defines web application firewall policy.
+  properties:
+    customRules:
+      type: object
+      $ref: "#/types/azure-native:network/v20220501:CustomRuleListResponse"
+      description: Describes custom rules inside the policy.
+    etag:
+      type: string
+      description: Gets a unique read-only string that changes whenever the resource is updated.
+    frontendEndpointLinks:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20220501:FrontendEndpointLinkResponse"
+      description: Describes Frontend Endpoints associated with this Web Application Firewall policy.
+    id:
+      type: string
+      description: Resource ID.
+    location:
+      type: string
+      description: Resource location.
+    managedRules:
+      type: object
+      $ref: "#/types/azure-native:network/v20220501:ManagedRuleSetListResponse"
+      description: Describes managed rules inside the policy.
+    name:
+      type: string
+      description: Resource name.
+    policySettings:
+      type: object
+      $ref: "#/types/azure-native:network/v20220501:FrontDoorPolicySettingsResponse"
+      description: Describes settings for the policy.
+    provisioningState:
+      type: string
+      description: Provisioning state of the policy.
+    resourceState:
+      type: string
+    routingRuleLinks:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20220501:RoutingRuleLinkResponse"
+      description: Describes Routing Rules associated with this Web Application Firewall policy.
+    securityPolicyLinks:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20220501:SecurityPolicyLinkResponse"
+      description: Describes Security Policy associated with this Web Application Firewall policy.
+    sku:
+      type: object
+      $ref: "#/types/azure-native:network/v20220501:SkuResponse"
+      description: The pricing tier of web application firewall policy. Defaults to Classic_AzureFrontDoor if not specified.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - frontendEndpointLinks
+    - id
+    - name
+    - provisioningState
+    - resourceState
+    - routingRuleLinks
+    - securityPolicyLinks
+    - type

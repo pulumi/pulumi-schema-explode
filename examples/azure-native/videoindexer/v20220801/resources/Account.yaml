@@ -1,0 +1,91 @@
+$token: azure-native:videoindexer/v20220801:Account
+description: An Azure Video Indexer account.
+properties:
+  accountId:
+    type: string
+    description: The account's data-plane ID. This can be set only when connecting an existing classic account
+    default: 00000000-0000-0000-0000-000000000000
+  accountName:
+    type: string
+    description: The account's name
+  identity:
+    type: object
+    $ref: "#/types/azure-native:videoindexer/v20220801:ManagedServiceIdentityResponse"
+    description: Managed service identity (system assigned and/or user assigned identities)
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  mediaServices:
+    type: object
+    $ref: "#/types/azure-native:videoindexer/v20220801:MediaServicesForPutRequestResponse"
+    description: The media services details
+  name:
+    type: string
+    description: The name of the resource
+  provisioningState:
+    type: string
+    description: Gets the status of the account at the time the operation was called.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:videoindexer/v20220801:SystemDataResponse"
+    description: The system meta data relating to this resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  tenantId:
+    type: string
+    description: The account's tenant id
+  totalSecondsIndexed:
+    type: integer
+    description: An integer representing the total seconds that have been indexed on the account
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - accountName
+  - location
+  - name
+  - provisioningState
+  - systemData
+  - tenantId
+  - totalSecondsIndexed
+  - type
+inputProperties:
+  accountId:
+    type: string
+    description: The account's data-plane ID. This can be set only when connecting an existing classic account
+    default: 00000000-0000-0000-0000-000000000000
+  accountName:
+    type: string
+    description: The name of the Azure Video Indexer account.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:videoindexer/v20220801:ManagedServiceIdentity"
+    description: Managed service identity (system assigned and/or user assigned identities)
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  mediaServices:
+    type: object
+    $ref: "#/types/azure-native:videoindexer/v20220801:MediaServicesForPutRequest"
+    description: The media services details
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:videoindexer:Account
+  - type: azure-native:videoindexer/v20211018preview:Account
+  - type: azure-native:videoindexer/v20211027preview:Account
+  - type: azure-native:videoindexer/v20211110preview:Account
+  - type: azure-native:videoindexer/v20220413preview:Account
+  - type: azure-native:videoindexer/v20220720preview:Account

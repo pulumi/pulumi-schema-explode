@@ -1,0 +1,25 @@
+$token: azure-native:compute/v20181001:VirtualMachineExtensionInstanceView
+description: The instance view of a virtual machine extension.
+properties:
+  name:
+    type: string
+    description: The virtual machine extension name.
+  statuses:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:compute/v20181001:InstanceViewStatus"
+    description: The resource status information.
+  substatuses:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:compute/v20181001:InstanceViewStatus"
+    description: The resource status information.
+  type:
+    type: string
+    description: Specifies the type of the extension; an example is "CustomScriptExtension".
+  typeHandlerVersion:
+    type: string
+    description: Specifies the version of the script handler.
+type: object

@@ -1,0 +1,58 @@
+$token: azure-native:networkfunction/v20220501:getCollectorPolicy
+description: Collector policy resource.
+inputs:
+  properties:
+    azureTrafficCollectorName:
+      type: string
+      description: Azure Traffic Collector name
+    collectorPolicyName:
+      type: string
+      description: Collector Policy Name
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - azureTrafficCollectorName
+    - collectorPolicyName
+    - resourceGroupName
+outputs:
+  description: Collector policy resource.
+  properties:
+    emissionPolicies:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:networkfunction/v20220501:EmissionPoliciesPropertiesFormatResponse"
+      description: Emission policies.
+    etag:
+      type: string
+      description: A unique read-only string that changes whenever the resource is updated.
+    id:
+      type: string
+      description: Azure resource Id
+    ingestionPolicy:
+      type: object
+      $ref: "#/types/azure-native:networkfunction/v20220501:IngestionPolicyPropertiesFormatResponse"
+      description: Ingestion policies.
+    name:
+      type: string
+      description: Azure resource name
+    provisioningState:
+      type: string
+      description: The provisioning state.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:networkfunction/v20220501:CollectorPolicyResponseSystemData"
+      description: Metadata pertaining to creation and last modification of the resource.
+    type:
+      type: string
+      description: Azure resource type
+  type: object
+  required:
+    - etag
+    - id
+    - name
+    - provisioningState
+    - systemData
+    - type

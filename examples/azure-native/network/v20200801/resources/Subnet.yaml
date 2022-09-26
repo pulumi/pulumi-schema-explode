@@ -1,0 +1,242 @@
+$token: azure-native:network/v20200801:Subnet
+description: Subnet in a virtual network resource.
+properties:
+  addressPrefix:
+    type: string
+    description: The address prefix for the subnet.
+  addressPrefixes:
+    type: array
+    items:
+      type: string
+    description: List of address prefixes for the subnet.
+  applicationGatewayIpConfigurations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20200801:ApplicationGatewayIPConfigurationResponse"
+    description: Application gateway IP configurations of virtual network resource.
+  delegations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20200801:DelegationResponse"
+    description: An array of references to the delegations on the subnet.
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  ipAllocations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20200801:SubResourceResponse"
+    description: Array of IpAllocation which reference this subnet.
+  ipConfigurationProfiles:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20200801:IPConfigurationProfileResponse"
+    description: Array of IP configuration profiles which reference this subnet.
+  ipConfigurations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20200801:IPConfigurationResponse"
+    description: An array of references to the network interface IP configurations using subnet.
+  name:
+    type: string
+    description: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+  natGateway:
+    type: object
+    $ref: "#/types/azure-native:network/v20200801:SubResourceResponse"
+    description: Nat gateway associated with this subnet.
+  networkSecurityGroup:
+    type: object
+    $ref: "#/types/azure-native:network/v20200801:NetworkSecurityGroupResponse"
+    description: The reference to the NetworkSecurityGroup resource.
+  privateEndpointNetworkPolicies:
+    type: string
+    description: Enable or Disable apply network policies on private end point in the subnet.
+    default: Enabled
+  privateEndpoints:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20200801:PrivateEndpointResponse"
+    description: An array of references to private endpoints.
+  privateLinkServiceNetworkPolicies:
+    type: string
+    description: Enable or Disable apply network policies on private link service in the subnet.
+    default: Enabled
+  provisioningState:
+    type: string
+    description: The provisioning state of the subnet resource.
+  purpose:
+    type: string
+    description: A read-only string identifying the intention of use for this subnet based on delegations and other user-defined properties.
+  resourceNavigationLinks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20200801:ResourceNavigationLinkResponse"
+    description: An array of references to the external resources using subnet.
+  routeTable:
+    type: object
+    $ref: "#/types/azure-native:network/v20200801:RouteTableResponse"
+    description: The reference to the RouteTable resource.
+  serviceAssociationLinks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20200801:ServiceAssociationLinkResponse"
+    description: An array of references to services injecting into this subnet.
+  serviceEndpointPolicies:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20200801:ServiceEndpointPolicyResponse"
+    description: An array of service endpoint policies.
+  serviceEndpoints:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20200801:ServiceEndpointPropertiesFormatResponse"
+    description: An array of service endpoints.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - etag
+  - ipConfigurationProfiles
+  - ipConfigurations
+  - privateEndpoints
+  - provisioningState
+  - purpose
+  - resourceNavigationLinks
+  - serviceAssociationLinks
+inputProperties:
+  addressPrefix:
+    type: string
+    description: The address prefix for the subnet.
+  addressPrefixes:
+    type: array
+    items:
+      type: string
+    description: List of address prefixes for the subnet.
+  applicationGatewayIpConfigurations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20200801:ApplicationGatewayIPConfiguration"
+    description: Application gateway IP configurations of virtual network resource.
+  delegations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20200801:Delegation"
+    description: An array of references to the delegations on the subnet.
+  id:
+    type: string
+    description: Resource ID.
+  ipAllocations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20200801:SubResource"
+    description: Array of IpAllocation which reference this subnet.
+  name:
+    type: string
+    description: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+  natGateway:
+    type: object
+    $ref: "#/types/azure-native:network/v20200801:SubResource"
+    description: Nat gateway associated with this subnet.
+  networkSecurityGroup:
+    type: object
+    $ref: "#/types/azure-native:network/v20200801:NetworkSecurityGroup"
+    description: The reference to the NetworkSecurityGroup resource.
+  privateEndpointNetworkPolicies:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20200801:VirtualNetworkPrivateEndpointNetworkPolicies"
+    description: Enable or Disable apply network policies on private end point in the subnet.
+    default: Enabled
+  privateLinkServiceNetworkPolicies:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20200801:VirtualNetworkPrivateLinkServiceNetworkPolicies"
+    description: Enable or Disable apply network policies on private link service in the subnet.
+    default: Enabled
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  routeTable:
+    type: object
+    $ref: "#/types/azure-native:network/v20200801:RouteTable"
+    description: The reference to the RouteTable resource.
+  serviceEndpointPolicies:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20200801:ServiceEndpointPolicy"
+    description: An array of service endpoint policies.
+  serviceEndpoints:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20200801:ServiceEndpointPropertiesFormat"
+    description: An array of service endpoints.
+  subnetName:
+    type: string
+    description: The name of the subnet.
+  type:
+    type: string
+    description: Resource type.
+  virtualNetworkName:
+    type: string
+    description: The name of the virtual network.
+requiredInputs:
+  - resourceGroupName
+  - virtualNetworkName
+aliases:
+  - type: azure-native:network:Subnet
+  - type: azure-native:network/v20150501preview:Subnet
+  - type: azure-native:network/v20150615:Subnet
+  - type: azure-native:network/v20160330:Subnet
+  - type: azure-native:network/v20160601:Subnet
+  - type: azure-native:network/v20160901:Subnet
+  - type: azure-native:network/v20161201:Subnet
+  - type: azure-native:network/v20170301:Subnet
+  - type: azure-native:network/v20170601:Subnet
+  - type: azure-native:network/v20170801:Subnet
+  - type: azure-native:network/v20170901:Subnet
+  - type: azure-native:network/v20171001:Subnet
+  - type: azure-native:network/v20171101:Subnet
+  - type: azure-native:network/v20180101:Subnet
+  - type: azure-native:network/v20180201:Subnet
+  - type: azure-native:network/v20180401:Subnet
+  - type: azure-native:network/v20180601:Subnet
+  - type: azure-native:network/v20180701:Subnet
+  - type: azure-native:network/v20180801:Subnet
+  - type: azure-native:network/v20181001:Subnet
+  - type: azure-native:network/v20181101:Subnet
+  - type: azure-native:network/v20181201:Subnet
+  - type: azure-native:network/v20190201:Subnet
+  - type: azure-native:network/v20190401:Subnet
+  - type: azure-native:network/v20190601:Subnet
+  - type: azure-native:network/v20190701:Subnet
+  - type: azure-native:network/v20190801:Subnet
+  - type: azure-native:network/v20190901:Subnet
+  - type: azure-native:network/v20191101:Subnet
+  - type: azure-native:network/v20191201:Subnet
+  - type: azure-native:network/v20200301:Subnet
+  - type: azure-native:network/v20200401:Subnet
+  - type: azure-native:network/v20200501:Subnet
+  - type: azure-native:network/v20200601:Subnet
+  - type: azure-native:network/v20200701:Subnet
+  - type: azure-native:network/v20201101:Subnet
+  - type: azure-native:network/v20210201:Subnet
+  - type: azure-native:network/v20210301:Subnet
+  - type: azure-native:network/v20210501:Subnet
+  - type: azure-native:network/v20210801:Subnet
+  - type: azure-native:network/v20220101:Subnet

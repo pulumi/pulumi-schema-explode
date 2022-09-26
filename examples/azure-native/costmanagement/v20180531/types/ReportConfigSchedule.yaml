@@ -1,0 +1,21 @@
+$token: azure-native:costmanagement/v20180531:ReportConfigSchedule
+description: The schedule associated with a report config.
+properties:
+  recurrence:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:costmanagement/v20180531:RecurrenceType"
+    description: The schedule recurrence.
+  recurrencePeriod:
+    type: object
+    $ref: "#/types/azure-native:costmanagement/v20180531:ReportConfigRecurrencePeriod"
+    description: Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+  status:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:costmanagement/v20180531:StatusType"
+    description: The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
+type: object
+required:
+  - recurrence
+  - recurrencePeriod

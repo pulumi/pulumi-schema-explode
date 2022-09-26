@@ -1,0 +1,84 @@
+$token: azure-native:app:getContainerApp
+description: |-
+  Container App.
+  API Version: 2022-03-01.
+inputs:
+  properties:
+    containerAppName:
+      type: string
+      description: Name of the Container App.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+  type: object
+  required:
+    - containerAppName
+    - resourceGroupName
+outputs:
+  description: Container App.
+  properties:
+    configuration:
+      type: object
+      $ref: "#/types/azure-native:app:ConfigurationResponse"
+      description: Non versioned Container App configuration properties.
+    customDomainVerificationId:
+      type: string
+      description: Id used to verify domain name ownership
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    identity:
+      type: object
+      $ref: "#/types/azure-native:app:ManagedServiceIdentityResponse"
+      description: managed identities for the Container App to interact with other Azure services without maintaining any secrets or credentials in code.
+    latestRevisionFqdn:
+      type: string
+      description: Fully Qualified Domain Name of the latest revision of the Container App.
+    latestRevisionName:
+      type: string
+      description: Name of the latest revision of the Container App.
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    managedEnvironmentId:
+      type: string
+      description: Resource ID of the Container App's environment.
+    name:
+      type: string
+      description: The name of the resource
+    outboundIPAddresses:
+      type: array
+      items:
+        type: string
+      description: Outbound IP Addresses for container app.
+    provisioningState:
+      type: string
+      description: Provisioning state of the Container App.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:app:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    template:
+      type: object
+      $ref: "#/types/azure-native:app:TemplateResponse"
+      description: Container App versioned application definition.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - customDomainVerificationId
+    - id
+    - latestRevisionFqdn
+    - latestRevisionName
+    - location
+    - name
+    - outboundIPAddresses
+    - provisioningState
+    - systemData
+    - type

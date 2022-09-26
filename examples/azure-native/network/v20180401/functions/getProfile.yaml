@@ -1,0 +1,62 @@
+$token: azure-native:network/v20180401:getProfile
+description: Class representing a Traffic Manager profile.
+inputs:
+  properties:
+    profileName:
+      type: string
+      description: The name of the Traffic Manager profile.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group containing the Traffic Manager profile.
+  type: object
+  required:
+    - profileName
+    - resourceGroupName
+outputs:
+  description: Class representing a Traffic Manager profile.
+  properties:
+    dnsConfig:
+      type: object
+      $ref: "#/types/azure-native:network/v20180401:DnsConfigResponse"
+      description: The DNS settings of the Traffic Manager profile.
+    endpoints:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20180401:EndpointResponse"
+      description: The list of endpoints in the Traffic Manager profile.
+    id:
+      type: string
+      description: Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
+    location:
+      type: string
+      description: The Azure Region where the resource lives
+    maxReturn:
+      type: number
+      description: Maximum number of endpoints to be returned for MultiValue routing type.
+    monitorConfig:
+      type: object
+      $ref: "#/types/azure-native:network/v20180401:MonitorConfigResponse"
+      description: The endpoint monitoring settings of the Traffic Manager profile.
+    name:
+      type: string
+      description: The name of the resource
+    profileStatus:
+      type: string
+      description: The status of the Traffic Manager profile.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    trafficRoutingMethod:
+      type: string
+      description: The traffic routing method of the Traffic Manager profile.
+    trafficViewEnrollmentStatus:
+      type: string
+      description: Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
+    type:
+      type: string
+      description: The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
+  type: object
+deprecationMessage: Version 2018-04-01 will be removed in v2 of the provider.

@@ -1,0 +1,23 @@
+$token: azure-native:eventhub/v20211101:CaptureDescription
+description: Properties to configure capture description for eventhub
+properties:
+  destination:
+    type: object
+    $ref: "#/types/azure-native:eventhub/v20211101:Destination"
+    description: Properties of Destination where capture will be stored. (Storage Account, Blob Names)
+  enabled:
+    type: boolean
+    description: "A value that indicates whether capture description is enabled. "
+  encoding:
+    $ref: "#/types/azure-native:eventhub/v20211101:EncodingCaptureDescription"
+    description: "Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version"
+  intervalInSeconds:
+    type: integer
+    description: The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
+  sizeLimitInBytes:
+    type: integer
+    description: The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
+  skipEmptyArchives:
+    type: boolean
+    description: A value that indicates whether to Skip Empty Archives
+type: object

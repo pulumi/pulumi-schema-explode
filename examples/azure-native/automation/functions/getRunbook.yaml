@@ -1,0 +1,100 @@
+$token: azure-native:automation:getRunbook
+description: |-
+  Definition of the runbook type.
+  API Version: 2019-06-01.
+inputs:
+  properties:
+    automationAccountName:
+      type: string
+      description: The name of the automation account.
+    resourceGroupName:
+      type: string
+      description: Name of an Azure Resource group.
+    runbookName:
+      type: string
+      description: The runbook name.
+  type: object
+  required:
+    - automationAccountName
+    - resourceGroupName
+    - runbookName
+outputs:
+  description: Definition of the runbook type.
+  properties:
+    creationTime:
+      type: string
+      description: Gets or sets the creation time.
+    description:
+      type: string
+      description: Gets or sets the description.
+    draft:
+      type: object
+      $ref: "#/types/azure-native:automation:RunbookDraftResponse"
+      description: Gets or sets the draft runbook properties.
+    etag:
+      type: string
+      description: Gets or sets the etag of the resource.
+    id:
+      type: string
+      description: Fully qualified resource Id for the resource
+    jobCount:
+      type: integer
+      description: Gets or sets the job count of the runbook.
+    lastModifiedBy:
+      type: string
+      description: Gets or sets the last modified by.
+    lastModifiedTime:
+      type: string
+      description: Gets or sets the last modified time.
+    location:
+      type: string
+      description: The Azure Region where the resource lives
+    logActivityTrace:
+      type: integer
+      description: Gets or sets the option to log activity trace of the runbook.
+    logProgress:
+      type: boolean
+      description: Gets or sets progress log option.
+    logVerbose:
+      type: boolean
+      description: Gets or sets verbose log option.
+    name:
+      type: string
+      description: The name of the resource
+    outputTypes:
+      type: array
+      items:
+        type: string
+      description: Gets or sets the runbook output types.
+    parameters:
+      type: object
+      additionalProperties:
+        type: object
+        $ref: "#/types/azure-native:automation:RunbookParameterResponse"
+      description: Gets or sets the runbook parameters.
+    provisioningState:
+      type: string
+      description: Gets or sets the provisioning state of the runbook.
+    publishContentLink:
+      type: object
+      $ref: "#/types/azure-native:automation:ContentLinkResponse"
+      description: Gets or sets the published runbook content link.
+    runbookType:
+      type: string
+      description: Gets or sets the type of the runbook.
+    state:
+      type: string
+      description: Gets or sets the state of the runbook.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource.
+  type: object
+  required:
+    - id
+    - name
+    - type

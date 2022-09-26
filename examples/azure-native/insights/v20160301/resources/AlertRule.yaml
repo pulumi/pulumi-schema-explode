@@ -1,0 +1,154 @@
+$token: azure-native:insights/v20160301:AlertRule
+description: The alert rule resource.
+properties:
+  action:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:insights/v20160301:RuleEmailActionResponse"
+      - type: object
+        $ref: "#/types/azure-native:insights/v20160301:RuleWebhookActionResponse"
+    discriminator:
+      propertyName: odataType
+      mapping:
+        Microsoft.Azure.Management.Insights.Models.RuleEmailAction: "#/types/azure-native:insights/v20160301:RuleEmailActionResponse"
+        Microsoft.Azure.Management.Insights.Models.RuleWebhookAction: "#/types/azure-native:insights/v20160301:RuleWebhookActionResponse"
+    description: action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+  actions:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:insights/v20160301:RuleEmailActionResponse"
+        - type: object
+          $ref: "#/types/azure-native:insights/v20160301:RuleWebhookActionResponse"
+      discriminator:
+        propertyName: odataType
+        mapping:
+          Microsoft.Azure.Management.Insights.Models.RuleEmailAction: "#/types/azure-native:insights/v20160301:RuleEmailActionResponse"
+          Microsoft.Azure.Management.Insights.Models.RuleWebhookAction: "#/types/azure-native:insights/v20160301:RuleWebhookActionResponse"
+    description: the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+  condition:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:insights/v20160301:LocationThresholdRuleConditionResponse"
+      - type: object
+        $ref: "#/types/azure-native:insights/v20160301:ManagementEventRuleConditionResponse"
+      - type: object
+        $ref: "#/types/azure-native:insights/v20160301:ThresholdRuleConditionResponse"
+    discriminator:
+      propertyName: odataType
+      mapping:
+        Microsoft.Azure.Management.Insights.Models.LocationThresholdRuleCondition: "#/types/azure-native:insights/v20160301:LocationThresholdRuleConditionResponse"
+        Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition: "#/types/azure-native:insights/v20160301:ManagementEventRuleConditionResponse"
+        Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition: "#/types/azure-native:insights/v20160301:ThresholdRuleConditionResponse"
+    description: the condition that results in the alert rule being activated.
+  description:
+    type: string
+    description: the description of the alert rule that will be included in the alert email.
+  isEnabled:
+    type: boolean
+    description: the flag that indicates whether the alert rule is enabled.
+  lastUpdatedTime:
+    type: string
+    description: Last time the rule was updated in ISO8601 format.
+  location:
+    type: string
+    description: Resource location
+  name:
+    type: string
+    description: Azure resource name
+  provisioningState:
+    type: string
+    description: the provisioning state.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  type:
+    type: string
+    description: Azure resource type
+type: object
+required:
+  - condition
+  - isEnabled
+  - lastUpdatedTime
+  - location
+  - name
+  - type
+inputProperties:
+  action:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:insights/v20160301:RuleEmailAction"
+      - type: object
+        $ref: "#/types/azure-native:insights/v20160301:RuleWebhookAction"
+    discriminator:
+      propertyName: odataType
+      mapping:
+        Microsoft.Azure.Management.Insights.Models.RuleEmailAction: "#/types/azure-native:insights/v20160301:RuleEmailAction"
+        Microsoft.Azure.Management.Insights.Models.RuleWebhookAction: "#/types/azure-native:insights/v20160301:RuleWebhookAction"
+    description: action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+  actions:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:insights/v20160301:RuleEmailAction"
+        - type: object
+          $ref: "#/types/azure-native:insights/v20160301:RuleWebhookAction"
+      discriminator:
+        propertyName: odataType
+        mapping:
+          Microsoft.Azure.Management.Insights.Models.RuleEmailAction: "#/types/azure-native:insights/v20160301:RuleEmailAction"
+          Microsoft.Azure.Management.Insights.Models.RuleWebhookAction: "#/types/azure-native:insights/v20160301:RuleWebhookAction"
+    description: the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+  condition:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:insights/v20160301:LocationThresholdRuleCondition"
+      - type: object
+        $ref: "#/types/azure-native:insights/v20160301:ManagementEventRuleCondition"
+      - type: object
+        $ref: "#/types/azure-native:insights/v20160301:ThresholdRuleCondition"
+    discriminator:
+      propertyName: odataType
+      mapping:
+        Microsoft.Azure.Management.Insights.Models.LocationThresholdRuleCondition: "#/types/azure-native:insights/v20160301:LocationThresholdRuleCondition"
+        Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition: "#/types/azure-native:insights/v20160301:ManagementEventRuleCondition"
+        Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition: "#/types/azure-native:insights/v20160301:ThresholdRuleCondition"
+    description: the condition that results in the alert rule being activated.
+  description:
+    type: string
+    description: the description of the alert rule that will be included in the alert email.
+  isEnabled:
+    type: boolean
+    description: the flag that indicates whether the alert rule is enabled.
+  location:
+    type: string
+    description: Resource location
+  name:
+    type: string
+    description: the name of the alert rule.
+  provisioningState:
+    type: string
+    description: the provisioning state.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  ruleName:
+    type: string
+    description: The name of the rule.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+requiredInputs:
+  - condition
+  - isEnabled
+  - name
+  - resourceGroupName
+aliases:
+  - type: azure-native:insights:AlertRule
+  - type: azure-native:insights/v20140401:AlertRule

@@ -1,0 +1,83 @@
+$token: azure-native:scvmm:getVmmServer
+description: |-
+  The VmmServers resource definition.
+  API Version: 2020-06-05-preview.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    vmmServerName:
+      type: string
+      description: Name of the VMMServer.
+  type: object
+  required:
+    - resourceGroupName
+    - vmmServerName
+outputs:
+  description: The VmmServers resource definition.
+  properties:
+    connectionStatus:
+      type: string
+      description: Gets or sets the connection status to the vmmServer.
+    credentials:
+      type: object
+      $ref: "#/types/azure-native:scvmm:VMMServerPropertiesResponseCredentials"
+      description: Credentials to connect to VMMServer.
+    errorMessage:
+      type: string
+      description: Gets or sets any error message if connection to vmmServer is having any issue.
+    extendedLocation:
+      type: object
+      $ref: "#/types/azure-native:scvmm:ExtendedLocationResponse"
+      description: The extended location.
+    fqdn:
+      type: string
+      description: Fqdn is the hostname/ip of the vmmServer.
+    id:
+      type: string
+      description: Resource Id
+    location:
+      type: string
+      description: Gets or sets the location.
+    name:
+      type: string
+      description: Resource Name
+    port:
+      type: integer
+      description: Port is the port on which the vmmServer is listening.
+    provisioningState:
+      type: string
+      description: Gets or sets the provisioning state.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:scvmm:SystemDataResponse"
+      description: The system data.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    type:
+      type: string
+      description: Resource Type
+    uuid:
+      type: string
+      description: Unique ID of vmmServer.
+    version:
+      type: string
+      description: Version is the version of the vmmSever.
+  type: object
+  required:
+    - connectionStatus
+    - errorMessage
+    - extendedLocation
+    - fqdn
+    - id
+    - location
+    - name
+    - provisioningState
+    - systemData
+    - type
+    - uuid
+    - version

@@ -1,0 +1,71 @@
+$token: azure-native:mixedreality/v20210301preview:getObjectAnchorsAccount
+description: ObjectAnchorsAccount Response.
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: Name of an Mixed Reality Account.
+    resourceGroupName:
+      type: string
+      description: Name of an Azure resource group.
+  type: object
+  required:
+    - accountName
+    - resourceGroupName
+outputs:
+  description: ObjectAnchorsAccount Response.
+  properties:
+    accountDomain:
+      type: string
+      description: Correspond domain name of certain Spatial Anchors Account
+    accountId:
+      type: string
+      description: unique id of certain account.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    identity:
+      type: object
+      $ref: "#/types/azure-native:mixedreality/v20210301preview:ObjectAnchorsAccountResponseIdentity"
+    kind:
+      type: object
+      $ref: "#/types/azure-native:mixedreality/v20210301preview:SkuResponse"
+      description: The kind of account, if supported
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    name:
+      type: string
+      description: The name of the resource
+    plan:
+      type: object
+      $ref: "#/types/azure-native:mixedreality/v20210301preview:IdentityResponse"
+      description: The plan associated with this account
+    sku:
+      type: object
+      $ref: "#/types/azure-native:mixedreality/v20210301preview:SkuResponse"
+      description: The sku associated with this account
+    storageAccountName:
+      type: string
+      description: The name of the storage account associated with this accountId
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:mixedreality/v20210301preview:SystemDataResponse"
+      description: The system metadata related to an object anchors account.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - accountDomain
+    - accountId
+    - id
+    - location
+    - name
+    - systemData
+    - type

@@ -1,0 +1,96 @@
+$token: azure-native:web:WebAppVnetConnectionSlot
+description: |-
+  Virtual Network information contract.
+  API Version: 2020-12-01.
+properties:
+  certBlob:
+    type: string
+    description: |-
+      A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
+      Point-To-Site VPN connection.
+  certThumbprint:
+    type: string
+    description: The client certificate thumbprint.
+  dnsServers:
+    type: string
+    description: DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
+  isSwift:
+    type: boolean
+    description: Flag that is used to denote if this is VNET injection
+  kind:
+    type: string
+    description: Kind of resource.
+  name:
+    type: string
+    description: Resource Name.
+  resyncRequired:
+    type: boolean
+    description: <code>true</code> if a resync is required; otherwise, <code>false</code>.
+  routes:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:web:VnetRouteResponse"
+    description: The routes that this Virtual Network connection uses.
+  type:
+    type: string
+    description: Resource type.
+  vnetResourceId:
+    type: string
+    description: The Virtual Network's resource ID.
+type: object
+required:
+  - certThumbprint
+  - name
+  - resyncRequired
+  - routes
+  - type
+inputProperties:
+  certBlob:
+    type: string
+    description: |-
+      A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
+      Point-To-Site VPN connection.
+  dnsServers:
+    type: string
+    description: DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
+  isSwift:
+    type: boolean
+    description: Flag that is used to denote if this is VNET injection
+  kind:
+    type: string
+    description: Kind of resource.
+  name:
+    type: string
+    description: Name of the app.
+  resourceGroupName:
+    type: string
+    description: Name of the resource group to which the resource belongs.
+  slot:
+    type: string
+    description: Name of the deployment slot. If a slot is not specified, the API will add or update connections for the production slot.
+  vnetName:
+    type: string
+    description: Name of an existing Virtual Network.
+  vnetResourceId:
+    type: string
+    description: The Virtual Network's resource ID.
+requiredInputs:
+  - name
+  - resourceGroupName
+  - slot
+aliases:
+  - type: azure-native:web/v20150801:WebAppVnetConnectionSlot
+  - type: azure-native:web/v20160801:WebAppVnetConnectionSlot
+  - type: azure-native:web/v20180201:WebAppVnetConnectionSlot
+  - type: azure-native:web/v20181101:WebAppVnetConnectionSlot
+  - type: azure-native:web/v20190801:WebAppVnetConnectionSlot
+  - type: azure-native:web/v20200601:WebAppVnetConnectionSlot
+  - type: azure-native:web/v20200901:WebAppVnetConnectionSlot
+  - type: azure-native:web/v20201001:WebAppVnetConnectionSlot
+  - type: azure-native:web/v20201201:WebAppVnetConnectionSlot
+  - type: azure-native:web/v20210101:WebAppVnetConnectionSlot
+  - type: azure-native:web/v20210115:WebAppVnetConnectionSlot
+  - type: azure-native:web/v20210201:WebAppVnetConnectionSlot
+  - type: azure-native:web/v20210301:WebAppVnetConnectionSlot
+  - type: azure-native:web/v20220301:WebAppVnetConnectionSlot

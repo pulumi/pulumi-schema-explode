@@ -1,0 +1,119 @@
+$token: azure-native:workloads:getPhpWorkload
+description: |-
+  Php workload resource
+  API Version: 2021-12-01-preview.
+inputs:
+  properties:
+    phpWorkloadName:
+      type: string
+      description: Php workload name
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+  type: object
+  required:
+    - phpWorkloadName
+    - resourceGroupName
+outputs:
+  description: Php workload resource
+  properties:
+    adminUserProfile:
+      type: object
+      $ref: "#/types/azure-native:workloads:UserProfileResponse"
+      description: Admin user profile used for VM and VMSS
+    appLocation:
+      type: string
+      description: The infra resources for PHP workload will be created in this location
+    backupProfile:
+      type: object
+      $ref: "#/types/azure-native:workloads:BackupProfileResponse"
+      description: Backup profile
+    cacheProfile:
+      type: object
+      $ref: "#/types/azure-native:workloads:CacheProfileResponse"
+      description: Cache profile
+    controllerProfile:
+      type: object
+      $ref: "#/types/azure-native:workloads:NodeProfileResponse"
+      description: Controller VM profile
+    databaseProfile:
+      type: object
+      $ref: "#/types/azure-native:workloads:DatabaseProfileResponse"
+      description: Database profile
+    fileshareProfile:
+      type: object
+      $ref: "#/types/azure-native:workloads:FileshareProfileResponse"
+      description: File share profile
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    identity:
+      type: object
+      $ref: "#/types/azure-native:workloads:PhpWorkloadResourceResponseIdentity"
+      description: Identity for the resource. Currently not supported
+    kind:
+      type: string
+      description: Indicates which kind of php workload this resource represent e.g WordPress
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    managedResourceGroupConfiguration:
+      type: object
+      $ref: "#/types/azure-native:workloads:ManagedRGConfigurationResponse"
+      description: Managed resource group configuration of the workload
+    name:
+      type: string
+      description: The name of the resource
+    networkProfile:
+      type: object
+      $ref: "#/types/azure-native:workloads:NetworkProfileResponse"
+      description: Network profile
+    phpProfile:
+      type: object
+      $ref: "#/types/azure-native:workloads:PhpProfileResponse"
+      description: PHP profile
+    provisioningState:
+      type: string
+      description: Php workload resource provisioning state
+    searchProfile:
+      type: object
+      $ref: "#/types/azure-native:workloads:SearchProfileResponse"
+      description: Search profile
+    siteProfile:
+      type: object
+      $ref: "#/types/azure-native:workloads:SiteProfileResponse"
+      description: Site profile
+    sku:
+      type: object
+      $ref: "#/types/azure-native:workloads:SkuResponse"
+      description: Php workloads SKU
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:workloads:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+    webNodesProfile:
+      type: object
+      $ref: "#/types/azure-native:workloads:VmssNodesProfileResponse"
+      description: VMSS web nodes profile
+  type: object
+  required:
+    - adminUserProfile
+    - appLocation
+    - controllerProfile
+    - databaseProfile
+    - id
+    - kind
+    - location
+    - name
+    - provisioningState
+    - systemData
+    - type
+    - webNodesProfile

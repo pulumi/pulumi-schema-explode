@@ -1,0 +1,101 @@
+$token: azure-native:network/v20180101:Route
+description: Route resource
+properties:
+  addressPrefix:
+    type: string
+    description: The destination CIDR to which the route applies.
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  name:
+    type: string
+    description: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+  nextHopIpAddress:
+    type: string
+    description: The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
+  nextHopType:
+    type: string
+    description: "The type of Azure hop the packet should be sent to. Possible values are: 'VirtualNetworkGateway', 'VnetLocal', 'Internet', 'VirtualAppliance', and 'None'"
+  provisioningState:
+    type: string
+    description: "The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'."
+type: object
+required:
+  - nextHopType
+inputProperties:
+  addressPrefix:
+    type: string
+    description: The destination CIDR to which the route applies.
+  id:
+    type: string
+    description: Resource ID.
+  name:
+    type: string
+    description: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+  nextHopIpAddress:
+    type: string
+    description: The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
+  nextHopType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20180101:RouteNextHopType"
+    description: "The type of Azure hop the packet should be sent to. Possible values are: 'VirtualNetworkGateway', 'VnetLocal', 'Internet', 'VirtualAppliance', and 'None'"
+  provisioningState:
+    type: string
+    description: "The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'."
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  routeName:
+    type: string
+    description: The name of the route.
+  routeTableName:
+    type: string
+    description: The name of the route table.
+requiredInputs:
+  - nextHopType
+  - resourceGroupName
+  - routeTableName
+aliases:
+  - type: azure-native:network:Route
+  - type: azure-native:network/v20150501preview:Route
+  - type: azure-native:network/v20150615:Route
+  - type: azure-native:network/v20160330:Route
+  - type: azure-native:network/v20160601:Route
+  - type: azure-native:network/v20160901:Route
+  - type: azure-native:network/v20161201:Route
+  - type: azure-native:network/v20170301:Route
+  - type: azure-native:network/v20170601:Route
+  - type: azure-native:network/v20170801:Route
+  - type: azure-native:network/v20170901:Route
+  - type: azure-native:network/v20171001:Route
+  - type: azure-native:network/v20171101:Route
+  - type: azure-native:network/v20180201:Route
+  - type: azure-native:network/v20180401:Route
+  - type: azure-native:network/v20180601:Route
+  - type: azure-native:network/v20180701:Route
+  - type: azure-native:network/v20180801:Route
+  - type: azure-native:network/v20181001:Route
+  - type: azure-native:network/v20181101:Route
+  - type: azure-native:network/v20181201:Route
+  - type: azure-native:network/v20190201:Route
+  - type: azure-native:network/v20190401:Route
+  - type: azure-native:network/v20190601:Route
+  - type: azure-native:network/v20190701:Route
+  - type: azure-native:network/v20190801:Route
+  - type: azure-native:network/v20190901:Route
+  - type: azure-native:network/v20191101:Route
+  - type: azure-native:network/v20191201:Route
+  - type: azure-native:network/v20200301:Route
+  - type: azure-native:network/v20200401:Route
+  - type: azure-native:network/v20200501:Route
+  - type: azure-native:network/v20200601:Route
+  - type: azure-native:network/v20200701:Route
+  - type: azure-native:network/v20200801:Route
+  - type: azure-native:network/v20201101:Route
+  - type: azure-native:network/v20210201:Route
+  - type: azure-native:network/v20210301:Route
+  - type: azure-native:network/v20210501:Route
+  - type: azure-native:network/v20210801:Route
+  - type: azure-native:network/v20220101:Route
+deprecationMessage: Version 2018-01-01 will be removed in v2 of the provider.

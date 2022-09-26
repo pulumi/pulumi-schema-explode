@@ -1,0 +1,44 @@
+$token: azure-native:recoveryservices/v20210701:DraDetailsResponse
+description: DRA details.
+properties:
+  biosId:
+    type: string
+    description: The DRA Bios Id.
+  forwardProtectedItemCount:
+    type: integer
+    description: The count of protected items which are protected in forward direction.
+  health:
+    type: string
+    description: The health.
+  healthErrors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:recoveryservices/v20210701:HealthErrorResponse"
+    description: The health errors.
+  id:
+    type: string
+    description: The DRA Id.
+  lastHeartbeatUtc:
+    type: string
+    description: The last heartbeat received from the DRA.
+  name:
+    type: string
+    description: The DRA name.
+  reverseProtectedItemCount:
+    type: integer
+    description: The count of protected items which are protected in reverse direction.
+  version:
+    type: string
+    description: The version.
+type: object
+required:
+  - biosId
+  - forwardProtectedItemCount
+  - health
+  - healthErrors
+  - id
+  - lastHeartbeatUtc
+  - name
+  - reverseProtectedItemCount
+  - version

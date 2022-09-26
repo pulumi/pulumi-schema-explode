@@ -1,0 +1,42 @@
+$token: azure-native:datafactory/v20180601:Office365Source
+description: A copy activity source for an Office 365 service.
+properties:
+  allowedGroups:
+    $ref: pulumi.json#/Any
+    description: "The groups containing all the users. Type: array of strings (or Expression with resultType array of strings)."
+  dateFilterColumn:
+    $ref: pulumi.json#/Any
+    description: 'The Column to apply the <paramref name="StartTime"/> and <paramref name="EndTime"/>. Type: string (or Expression with resultType string).'
+  disableMetricsCollection:
+    $ref: pulumi.json#/Any
+    description: "If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean)."
+  endTime:
+    $ref: pulumi.json#/Any
+    description: "End time of the requested range for this dataset. Type: string (or Expression with resultType string)."
+  maxConcurrentConnections:
+    $ref: pulumi.json#/Any
+    description: "The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer)."
+  outputColumns:
+    $ref: pulumi.json#/Any
+    description: 'The columns to be read out from the Office 365 table. Type: array of objects (or Expression with resultType array of objects). Example: [ { "name": "Id" }, { "name": "CreatedDateTime" } ]'
+  sourceRetryCount:
+    $ref: pulumi.json#/Any
+    description: "Source retry count. Type: integer (or Expression with resultType integer)."
+  sourceRetryWait:
+    $ref: pulumi.json#/Any
+    description: "Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9]))."
+  startTime:
+    $ref: pulumi.json#/Any
+    description: "Start time of the requested range for this dataset. Type: string (or Expression with resultType string)."
+  type:
+    type: string
+    description: |-
+      Copy source type.
+      Expected value is 'Office365Source'.
+    const: Office365Source
+  userScopeFilterUri:
+    $ref: pulumi.json#/Any
+    description: "The user scope uri. Type: string (or Expression with resultType string)."
+type: object
+required:
+  - type

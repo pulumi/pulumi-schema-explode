@@ -1,0 +1,18 @@
+$token: azure-native:media/v20210601:StorageAccount
+description: The storage account details.
+properties:
+  id:
+    type: string
+    description: The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:media/v20210601:ResourceIdentity"
+    description: The storage account identity.
+  type:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:media/v20210601:StorageAccountType"
+    description: The type of the storage account.
+type: object
+required:
+  - type

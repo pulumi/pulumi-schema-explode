@@ -1,0 +1,59 @@
+$token: azure-native:authorization/v20200501:ManagementLockByScope
+description: The lock information.
+properties:
+  level:
+    type: string
+    description: "The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it."
+  name:
+    type: string
+    description: The name of the lock.
+  notes:
+    type: string
+    description: Notes about the lock. Maximum of 512 characters.
+  owners:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:authorization/v20200501:ManagementLockOwnerResponse"
+    description: The owners of the lock.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:authorization/v20200501:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  type:
+    type: string
+    description: The resource type of the lock - Microsoft.Authorization/locks.
+type: object
+required:
+  - level
+  - name
+  - systemData
+  - type
+inputProperties:
+  level:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:authorization/v20200501:LockLevel"
+    description: "The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it."
+  lockName:
+    type: string
+    description: The name of lock.
+  notes:
+    type: string
+    description: Notes about the lock. Maximum of 512 characters.
+  owners:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:authorization/v20200501:ManagementLockOwner"
+    description: The owners of the lock.
+  scope:
+    type: string
+    description: The scope for the lock. When providing a scope for the assignment, use '/subscriptions/{subscriptionId}' for subscriptions, '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}' for resource groups, and '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePathIfPresent}/{resourceType}/{resourceName}' for resources.
+requiredInputs:
+  - level
+  - scope
+aliases:
+  - type: azure-native:authorization:ManagementLockByScope
+  - type: azure-native:authorization/v20160901:ManagementLockByScope
+  - type: azure-native:authorization/v20170401:ManagementLockByScope

@@ -1,0 +1,99 @@
+$token: azure-native:orbital/v20220301:ContactProfile
+description: Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
+properties:
+  autoTrackingConfiguration:
+    type: string
+    description: Auto-tracking configuration.
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  eventHubUri:
+    type: string
+    description: ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
+  links:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:orbital/v20220301:ContactProfileLinkResponse"
+    description: Links of the Contact Profile. Describes RF links, modem processing, and IP endpoints.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  minimumElevationDegrees:
+    type: number
+    description: Minimum viable elevation for the contact in decimal degrees. Used for listing the available contacts with a spacecraft at a given ground station.
+  minimumViableContactDuration:
+    type: string
+    description: Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
+  name:
+    type: string
+    description: The name of the resource
+  networkConfiguration:
+    type: object
+    $ref: "#/types/azure-native:orbital/v20220301:ContactProfilesPropertiesResponseNetworkConfiguration"
+    description: Network configuration of customer virtual network.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:orbital/v20220301:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - etag
+  - links
+  - location
+  - name
+  - networkConfiguration
+  - systemData
+  - type
+inputProperties:
+  autoTrackingConfiguration:
+    $ref: "#/types/azure-native:orbital/v20220301:AutoTrackingConfiguration"
+    description: Auto-tracking configuration.
+  contactProfileName:
+    type: string
+    description: Contact Profile name.
+  eventHubUri:
+    type: string
+    description: ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
+  links:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:orbital/v20220301:ContactProfileLink"
+    description: Links of the Contact Profile. Describes RF links, modem processing, and IP endpoints.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  minimumElevationDegrees:
+    type: number
+    description: Minimum viable elevation for the contact in decimal degrees. Used for listing the available contacts with a spacecraft at a given ground station.
+  minimumViableContactDuration:
+    type: string
+    description: Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
+  networkConfiguration:
+    type: object
+    $ref: "#/types/azure-native:orbital/v20220301:ContactProfilesPropertiesNetworkConfiguration"
+    description: Network configuration of customer virtual network.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - links
+  - networkConfiguration
+  - resourceGroupName
+aliases:
+  - type: azure-native:orbital:ContactProfile
+  - type: azure-native:orbital/v20210404preview:ContactProfile

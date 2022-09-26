@@ -1,0 +1,39 @@
+$token: azure-native:managedservices/v20180601preview:RegistrationAssignment
+description: Registration assignment.
+properties:
+  name:
+    type: string
+    description: Name of the registration assignment.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:managedservices/v20180601preview:RegistrationAssignmentPropertiesResponse"
+    description: Properties of a registration assignment.
+  type:
+    type: string
+    description: Type of the resource.
+type: object
+required:
+  - name
+  - properties
+  - type
+inputProperties:
+  properties:
+    type: object
+    $ref: "#/types/azure-native:managedservices/v20180601preview:RegistrationAssignmentProperties"
+    description: Properties of a registration assignment.
+  registrationAssignmentId:
+    type: string
+    description: Guid of the registration assignment.
+  scope:
+    type: string
+    description: Scope of the resource.
+requiredInputs:
+  - scope
+aliases:
+  - type: azure-native:managedservices:RegistrationAssignment
+  - type: azure-native:managedservices/v20190401preview:RegistrationAssignment
+  - type: azure-native:managedservices/v20190601:RegistrationAssignment
+  - type: azure-native:managedservices/v20190901:RegistrationAssignment
+  - type: azure-native:managedservices/v20200201preview:RegistrationAssignment
+  - type: azure-native:managedservices/v20220101preview:RegistrationAssignment
+deprecationMessage: Version 2018-06-01-preview will be removed in v2 of the provider.

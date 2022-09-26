@@ -1,0 +1,108 @@
+$token: azure-native:servicefabric/v20170701preview:Application
+description: The application resource.
+properties:
+  location:
+    type: string
+    description: Azure resource location.
+  maximumNodes:
+    type: number
+    description: The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
+    default: 0
+  metrics:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:servicefabric/v20170701preview:ApplicationMetricDescriptionResponse"
+    description: List of application capacity metric description.
+  minimumNodes:
+    type: number
+    description: The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
+  name:
+    type: string
+    description: Azure resource name.
+  parameters:
+    type: object
+    additionalProperties:
+      type: string
+    description: List of application parameters with overridden values from their default values specified in the application manifest.
+  provisioningState:
+    type: string
+    description: The current deployment or provisioning state, which only appears in the response
+  removeApplicationCapacity:
+    type: boolean
+    description: Remove the current application capacity settings.
+  type:
+    type: string
+    description: Azure resource type.
+  typeName:
+    type: string
+    description: The application type name as defined in the application manifest.
+  typeVersion:
+    type: string
+    description: The version of the application type as defined in the application manifest.
+  upgradePolicy:
+    type: object
+    $ref: "#/types/azure-native:servicefabric/v20170701preview:ApplicationUpgradePolicyResponse"
+    description: Describes the policy for a monitored application upgrade.
+type: object
+required:
+  - name
+  - provisioningState
+  - type
+inputProperties:
+  applicationName:
+    type: string
+    description: The name of the application resource.
+  clusterName:
+    type: string
+    description: The name of the cluster resource.
+  location:
+    type: string
+    description: Azure resource location.
+  maximumNodes:
+    type: number
+    description: The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
+    default: 0
+  metrics:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:servicefabric/v20170701preview:ApplicationMetricDescription"
+    description: List of application capacity metric description.
+  minimumNodes:
+    type: number
+    description: The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
+  parameters:
+    type: object
+    additionalProperties:
+      type: string
+    description: List of application parameters with overridden values from their default values specified in the application manifest.
+  removeApplicationCapacity:
+    type: boolean
+    description: Remove the current application capacity settings.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  typeName:
+    type: string
+    description: The application type name as defined in the application manifest.
+  typeVersion:
+    type: string
+    description: The version of the application type as defined in the application manifest.
+  upgradePolicy:
+    type: object
+    $ref: "#/types/azure-native:servicefabric/v20170701preview:ApplicationUpgradePolicy"
+    description: Describes the policy for a monitored application upgrade.
+requiredInputs:
+  - clusterName
+  - resourceGroupName
+aliases:
+  - type: azure-native:servicefabric:Application
+  - type: azure-native:servicefabric/v20190301:Application
+  - type: azure-native:servicefabric/v20190301preview:Application
+  - type: azure-native:servicefabric/v20190601preview:Application
+  - type: azure-native:servicefabric/v20191101preview:Application
+  - type: azure-native:servicefabric/v20200301:Application
+  - type: azure-native:servicefabric/v20201201preview:Application
+  - type: azure-native:servicefabric/v20210601:Application
+deprecationMessage: Version 2017-07-01-preview will be removed in v2 of the provider.

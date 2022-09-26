@@ -1,0 +1,32 @@
+$token: azure-native:recoveryservices:DraDetailsResponse
+description: DRA details.
+properties:
+  health:
+    type: string
+    description: The health of the DRA.
+  healthErrors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:recoveryservices:HealthErrorResponse"
+    description: The health errors.
+  id:
+    type: string
+    description: The DRA Id.
+  lastHeartbeatUtc:
+    type: string
+    description: The last heartbeat received from the DRA.
+  name:
+    type: string
+    description: The DRA name.
+  version:
+    type: string
+    description: The DRA version.
+type: object
+required:
+  - health
+  - healthErrors
+  - id
+  - lastHeartbeatUtc
+  - name
+  - version

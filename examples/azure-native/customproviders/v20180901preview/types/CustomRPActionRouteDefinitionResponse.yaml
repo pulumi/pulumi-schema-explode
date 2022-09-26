@@ -1,0 +1,16 @@
+$token: azure-native:customproviders/v20180901preview:CustomRPActionRouteDefinitionResponse
+description: The route definition for an action implemented by the custom resource provider.
+properties:
+  endpoint:
+    type: string
+    description: The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
+  name:
+    type: string
+    description: The name of the route definition. This becomes the name for the ARM extension (e.g. '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{name}')
+  routingType:
+    type: string
+    description: The routing types that are supported for action requests.
+type: object
+required:
+  - endpoint
+  - name

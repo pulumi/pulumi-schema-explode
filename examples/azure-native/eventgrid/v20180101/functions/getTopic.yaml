@@ -1,0 +1,49 @@
+$token: azure-native:eventgrid/v20180101:getTopic
+description: EventGrid Topic
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group within the user's subscription.
+    topicName:
+      type: string
+      description: Name of the topic
+  type: object
+  required:
+    - resourceGroupName
+    - topicName
+outputs:
+  description: EventGrid Topic
+  properties:
+    endpoint:
+      type: string
+      description: Endpoint for the topic.
+    id:
+      type: string
+      description: Fully qualified identifier of the resource
+    location:
+      type: string
+      description: Location of the resource
+    name:
+      type: string
+      description: Name of the resource
+    provisioningState:
+      type: string
+      description: Provisioning state of the topic.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Tags of the resource
+    type:
+      type: string
+      description: Type of the resource
+  type: object
+  required:
+    - endpoint
+    - id
+    - location
+    - name
+    - provisioningState
+    - type
+deprecationMessage: Version 2018-01-01 will be removed in v2 of the provider.

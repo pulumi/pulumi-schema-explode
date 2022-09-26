@@ -1,0 +1,39 @@
+$token: azure-native:datafactory/v20180601:FailActivityResponse
+description: This activity will fail within its own scope and output a custom error message and error code. The error message and code can provided either as a string literal or as an expression that can be evaluated to a string at runtime. The activity scope can be the whole pipeline or a control activity (e.g. foreach, switch, until), if the fail activity is contained in it.
+properties:
+  dependsOn:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20180601:ActivityDependencyResponse"
+    description: Activity depends on condition.
+  description:
+    type: string
+    description: Activity description.
+  errorCode:
+    $ref: pulumi.json#/Any
+    description: "The error code that categorizes the error type of the Fail activity. It can be dynamic content that's evaluated to a non empty/blank string at runtime. Type: string (or Expression with resultType string)."
+  message:
+    $ref: pulumi.json#/Any
+    description: "The error message that surfaced in the Fail activity. It can be dynamic content that's evaluated to a non empty/blank string at runtime. Type: string (or Expression with resultType string)."
+  name:
+    type: string
+    description: Activity name.
+  type:
+    type: string
+    description: |-
+      Type of activity.
+      Expected value is 'Fail'.
+    const: Fail
+  userProperties:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20180601:UserPropertyResponse"
+    description: Activity user properties.
+type: object
+required:
+  - errorCode
+  - message
+  - name
+  - type

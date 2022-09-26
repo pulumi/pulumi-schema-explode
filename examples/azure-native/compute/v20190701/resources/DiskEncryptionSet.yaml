@@ -1,0 +1,78 @@
+$token: azure-native:compute/v20190701:DiskEncryptionSet
+description: disk encryption set resource.
+properties:
+  activeKey:
+    type: object
+    $ref: "#/types/azure-native:compute/v20190701:KeyVaultAndKeyReferenceResponse"
+    description: The key vault key which is currently used by this disk encryption set.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:compute/v20190701:EncryptionSetIdentityResponse"
+    description: The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
+  location:
+    type: string
+    description: Resource location
+  name:
+    type: string
+    description: Resource name
+  previousKeys:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:compute/v20190701:KeyVaultAndKeyReferenceResponse"
+    description: A readonly collection of key vault keys previously used by this disk encryption set while a key rotation is in progress. It will be empty if there is no ongoing key rotation.
+  provisioningState:
+    type: string
+    description: The disk encryption set provisioning state.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  type:
+    type: string
+    description: Resource type
+type: object
+required:
+  - location
+  - name
+  - previousKeys
+  - provisioningState
+  - type
+inputProperties:
+  activeKey:
+    type: object
+    $ref: "#/types/azure-native:compute/v20190701:KeyVaultAndKeyReference"
+    description: The key vault key which is currently used by this disk encryption set.
+  diskEncryptionSetName:
+    type: string
+    description: The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:compute/v20190701:EncryptionSetIdentity"
+    description: The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
+  location:
+    type: string
+    description: Resource location
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:compute:DiskEncryptionSet
+  - type: azure-native:compute/v20191101:DiskEncryptionSet
+  - type: azure-native:compute/v20200501:DiskEncryptionSet
+  - type: azure-native:compute/v20200630:DiskEncryptionSet
+  - type: azure-native:compute/v20200930:DiskEncryptionSet
+  - type: azure-native:compute/v20201201:DiskEncryptionSet
+  - type: azure-native:compute/v20210401:DiskEncryptionSet
+  - type: azure-native:compute/v20210801:DiskEncryptionSet
+  - type: azure-native:compute/v20211201:DiskEncryptionSet
+  - type: azure-native:compute/v20220302:DiskEncryptionSet
+deprecationMessage: Version 2019-07-01 will be removed in v2 of the provider.

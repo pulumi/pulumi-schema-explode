@@ -1,0 +1,67 @@
+$token: azure-native:blueprint/v20171111preview:getTemplateArtifact
+description: Blueprint artifact deploys Azure resource manager template.
+inputs:
+  properties:
+    artifactName:
+      type: string
+      description: name of the artifact.
+    blueprintName:
+      type: string
+      description: name of the blueprint.
+    managementGroupName:
+      type: string
+      description: ManagementGroup where blueprint stores.
+  type: object
+  required:
+    - artifactName
+    - blueprintName
+    - managementGroupName
+outputs:
+  description: Blueprint artifact deploys Azure resource manager template.
+  properties:
+    dependsOn:
+      type: array
+      items:
+        type: string
+      description: Artifacts which need to be deployed before the specified artifact.
+    description:
+      type: string
+      description: Multi-line explain this resource.
+    displayName:
+      type: string
+      description: One-liner string explain this resource.
+    id:
+      type: string
+      description: String Id used to locate any resource on Azure.
+    kind:
+      type: string
+      description: |-
+        Specifies the kind of Blueprint artifact.
+        Expected value is 'template'.
+      const: template
+    name:
+      type: string
+      description: Name of this resource.
+    parameters:
+      type: object
+      additionalProperties:
+        type: object
+        $ref: "#/types/azure-native:blueprint/v20171111preview:ParameterValueBaseResponse"
+      description: Template parameter values.
+    resourceGroup:
+      type: string
+      description: If applicable, the name of the resource group placeholder to which the template will be deployed.
+    template:
+      $ref: pulumi.json#/Any
+      description: The Azure Resource Manager template body.
+    type:
+      type: string
+      description: Type of this resource.
+  type: object
+  required:
+    - id
+    - kind
+    - name
+    - parameters
+    - template
+    - type

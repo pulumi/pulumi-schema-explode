@@ -1,0 +1,65 @@
+$token: azure-native:network/v20160330:getVirtualNetwork
+description: Virtual Network resource
+inputs:
+  properties:
+    expand:
+      type: string
+      description: expand references resources.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    virtualNetworkName:
+      type: string
+      description: The name of the virtual network.
+  type: object
+  required:
+    - resourceGroupName
+    - virtualNetworkName
+outputs:
+  description: Virtual Network resource
+  properties:
+    addressSpace:
+      type: object
+      $ref: "#/types/azure-native:network/v20160330:AddressSpaceResponse"
+      description: Gets or sets AddressSpace that contains an array of IP address ranges that can be used by subnets
+    dhcpOptions:
+      type: object
+      $ref: "#/types/azure-native:network/v20160330:DhcpOptionsResponse"
+      description: Gets or sets DHCPOptions that contains an array of DNS servers available to VMs deployed in the virtual network
+    etag:
+      type: string
+      description: Gets a unique read-only string that changes whenever the resource is updated
+    id:
+      type: string
+      description: Resource Id
+    location:
+      type: string
+      description: Resource location
+    name:
+      type: string
+      description: Resource name
+    provisioningState:
+      type: string
+      description: Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+    resourceGuid:
+      type: string
+      description: Gets or sets resource GUID property of the VirtualNetwork resource
+    subnets:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20160330:SubnetResponse"
+      description: Gets or sets List of subnets in a VirtualNetwork
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    type:
+      type: string
+      description: Resource type
+  type: object
+  required:
+    - name
+    - type
+deprecationMessage: Version 2016-03-30 will be removed in v2 of the provider.

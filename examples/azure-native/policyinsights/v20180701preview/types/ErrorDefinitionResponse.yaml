@@ -1,0 +1,31 @@
+$token: azure-native:policyinsights/v20180701preview:ErrorDefinitionResponse
+description: Error definition.
+properties:
+  additionalInfo:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:policyinsights/v20180701preview:TypedErrorInfoResponse"
+    description: Additional scenario specific error details.
+  code:
+    type: string
+    description: Service specific error code which serves as the substatus for the HTTP error code.
+  details:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:policyinsights/v20180701preview:ErrorDefinitionResponse"
+    description: Internal error details.
+  message:
+    type: string
+    description: Description of the error.
+  target:
+    type: string
+    description: The target of the error.
+type: object
+required:
+  - additionalInfo
+  - code
+  - details
+  - message
+  - target

@@ -1,0 +1,56 @@
+$token: azure-native:compute/v20220103:GalleryApplicationVersionPublishingProfile
+description: The publishing profile of a gallery image version.
+properties:
+  advancedSettings:
+    type: object
+    additionalProperties:
+      type: string
+    description: Optional. Additional settings to pass to the vm-application-manager extension. For advanced use only.
+  enableHealthCheck:
+    type: boolean
+    description: Optional. Whether or not this application reports health.
+  endOfLifeDate:
+    type: string
+    description: The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
+  excludeFromLatest:
+    type: boolean
+    description: If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
+  manageActions:
+    type: object
+    $ref: "#/types/azure-native:compute/v20220103:UserArtifactManage"
+  replicaCount:
+    type: integer
+    description: The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
+  replicationMode:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:compute/v20220103:ReplicationMode"
+    description: Optional parameter which specifies the mode to be used for replication. This property is not updatable.
+  settings:
+    type: object
+    $ref: "#/types/azure-native:compute/v20220103:UserArtifactSettings"
+    description: Additional settings for the VM app that contains the target package and config file name when it is deployed to target VM or VM scale set.
+  source:
+    type: object
+    $ref: "#/types/azure-native:compute/v20220103:UserArtifactSource"
+    description: The source image from which the Image Version is going to be created.
+  storageAccountType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:compute/v20220103:StorageAccountType"
+    description: Specifies the storage account type to be used to store the image. This property is not updatable.
+  targetExtendedLocations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:compute/v20220103:GalleryTargetExtendedLocation"
+    description: The target extended locations where the Image Version is going to be replicated to. This property is updatable.
+  targetRegions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:compute/v20220103:TargetRegion"
+    description: The target regions where the Image Version is going to be replicated to. This property is updatable.
+type: object
+required:
+  - source

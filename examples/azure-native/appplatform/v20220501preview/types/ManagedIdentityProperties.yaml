@@ -1,0 +1,20 @@
+$token: azure-native:appplatform/v20220501preview:ManagedIdentityProperties
+description: Managed identity properties retrieved from ARM request headers.
+properties:
+  principalId:
+    type: string
+    description: Principal Id of system-assigned managed identity.
+  tenantId:
+    type: string
+    description: Tenant Id of system-assigned managed identity.
+  type:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:appplatform/v20220501preview:ManagedIdentityType"
+    description: Type of the managed identity
+  userAssignedIdentities:
+    type: object
+    additionalProperties:
+      $ref: pulumi.json#/Any
+    description: Properties of user-assigned managed identities
+type: object

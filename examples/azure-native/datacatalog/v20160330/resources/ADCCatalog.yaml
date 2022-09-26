@@ -1,0 +1,93 @@
+$token: azure-native:datacatalog/v20160330:ADCCatalog
+description: Azure Data Catalog.
+properties:
+  admins:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datacatalog/v20160330:PrincipalsResponse"
+    description: Azure data catalog admin list.
+  enableAutomaticUnitAdjustment:
+    type: boolean
+    description: Automatic unit adjustment enabled or not.
+  etag:
+    type: string
+    description: Resource etag
+  location:
+    type: string
+    description: Resource location
+  name:
+    type: string
+    description: Resource name
+  sku:
+    type: string
+    description: Azure data catalog SKU.
+  successfullyProvisioned:
+    type: boolean
+    description: Azure data catalog provision status.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  type:
+    type: string
+    description: Resource type
+  units:
+    type: integer
+    description: Azure data catalog units.
+  users:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datacatalog/v20160330:PrincipalsResponse"
+    description: Azure data catalog user list.
+type: object
+required:
+  - name
+  - type
+inputProperties:
+  admins:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datacatalog/v20160330:Principals"
+    description: Azure data catalog admin list.
+  catalogName:
+    type: string
+    description: The name of the data catalog in the specified subscription and resource group.
+  enableAutomaticUnitAdjustment:
+    type: boolean
+    description: Automatic unit adjustment enabled or not.
+  location:
+    type: string
+    description: Resource location
+  resourceGroupName:
+    type: string
+    description: The name of the resource group within the user's subscription. The name is case insensitive.
+  sku:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:datacatalog/v20160330:SkuType"
+    description: Azure data catalog SKU.
+  successfullyProvisioned:
+    type: boolean
+    description: Azure data catalog provision status.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  units:
+    type: integer
+    description: Azure data catalog units.
+  users:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datacatalog/v20160330:Principals"
+    description: Azure data catalog user list.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:datacatalog:ADCCatalog

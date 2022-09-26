@@ -1,0 +1,115 @@
+$token: azure-native:logic/v20160601:Agreement
+description: The integration account agreement.
+properties:
+  agreementType:
+    type: string
+    description: The agreement type.
+  changedTime:
+    type: string
+    description: The changed time.
+  content:
+    type: object
+    $ref: "#/types/azure-native:logic/v20160601:AgreementContentResponse"
+    description: The agreement content.
+  createdTime:
+    type: string
+    description: The created time.
+  guestIdentity:
+    type: object
+    $ref: "#/types/azure-native:logic/v20160601:BusinessIdentityResponse"
+    description: The business identity of the guest partner.
+  guestPartner:
+    type: string
+    description: The integration account partner that is set as guest partner for this agreement.
+  hostIdentity:
+    type: object
+    $ref: "#/types/azure-native:logic/v20160601:BusinessIdentityResponse"
+    description: The business identity of the host partner.
+  hostPartner:
+    type: string
+    description: The integration account partner that is set as host partner for this agreement.
+  location:
+    type: string
+    description: The resource location.
+  metadata:
+    $ref: pulumi.json#/Any
+    description: The metadata.
+  name:
+    type: string
+    description: Gets the resource name.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The resource tags.
+  type:
+    type: string
+    description: Gets the resource type.
+type: object
+required:
+  - agreementType
+  - changedTime
+  - content
+  - createdTime
+  - guestIdentity
+  - guestPartner
+  - hostIdentity
+  - hostPartner
+  - name
+  - type
+inputProperties:
+  agreementName:
+    type: string
+    description: The integration account agreement name.
+  agreementType:
+    $ref: "#/types/azure-native:logic/v20160601:AgreementType"
+    description: The agreement type.
+  content:
+    type: object
+    $ref: "#/types/azure-native:logic/v20160601:AgreementContent"
+    description: The agreement content.
+  guestIdentity:
+    type: object
+    $ref: "#/types/azure-native:logic/v20160601:BusinessIdentity"
+    description: The business identity of the guest partner.
+  guestPartner:
+    type: string
+    description: The integration account partner that is set as guest partner for this agreement.
+  hostIdentity:
+    type: object
+    $ref: "#/types/azure-native:logic/v20160601:BusinessIdentity"
+    description: The business identity of the host partner.
+  hostPartner:
+    type: string
+    description: The integration account partner that is set as host partner for this agreement.
+  integrationAccountName:
+    type: string
+    description: The integration account name.
+  location:
+    type: string
+    description: The resource location.
+  metadata:
+    $ref: pulumi.json#/Any
+    description: The metadata.
+  resourceGroupName:
+    type: string
+    description: The resource group name.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The resource tags.
+requiredInputs:
+  - agreementType
+  - content
+  - guestIdentity
+  - guestPartner
+  - hostIdentity
+  - hostPartner
+  - integrationAccountName
+  - resourceGroupName
+aliases:
+  - type: azure-native:logic:Agreement
+  - type: azure-native:logic/v20150801preview:Agreement
+  - type: azure-native:logic/v20180701preview:Agreement
+  - type: azure-native:logic/v20190501:Agreement

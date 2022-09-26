@@ -1,0 +1,99 @@
+$token: azure-native:machinelearningservices/v20220501:ComputeInstancePropertiesResponse
+description: Compute Instance properties
+properties:
+  applicationSharingPolicy:
+    type: string
+    description: Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
+    default: Shared
+  applications:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20220501:ComputeInstanceApplicationResponse"
+    description: Describes available applications and their endpoints on this ComputeInstance.
+  computeInstanceAuthorizationType:
+    type: string
+    description: The Compute Instance Authorization type. Available values are personal (default).
+    default: personal
+  connectivityEndpoints:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220501:ComputeInstanceConnectivityEndpointsResponse"
+    description: Describes all connectivity endpoints available for this ComputeInstance.
+  containers:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20220501:ComputeInstanceContainerResponse"
+    description: Describes informations of containers on this ComputeInstance.
+  createdBy:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220501:ComputeInstanceCreatedByResponse"
+    description: Describes information on user who created this ComputeInstance.
+  dataDisks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20220501:ComputeInstanceDataDiskResponse"
+    description: Describes informations of dataDisks on this ComputeInstance.
+  dataMounts:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20220501:ComputeInstanceDataMountResponse"
+    description: Describes informations of dataMounts on this ComputeInstance.
+  enableNodePublicIp:
+    type: boolean
+    description: "Enable or disable node public IP address provisioning. Possible values are: Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs."
+  errors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20220501:ErrorResponseResponse"
+    description: Collection of errors encountered on this ComputeInstance.
+  lastOperation:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220501:ComputeInstanceLastOperationResponse"
+    description: The last operation on ComputeInstance.
+  personalComputeInstanceSettings:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220501:PersonalComputeInstanceSettingsResponse"
+    description: Settings for a personal compute instance.
+  schedules:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220501:ComputeSchedulesResponse"
+    description: The list of schedules to be applied on the computes.
+  setupScripts:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220501:SetupScriptsResponse"
+    description: Details of customized scripts to execute for setting up the cluster.
+  sshSettings:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220501:ComputeInstanceSshSettingsResponse"
+    description: Specifies policy and settings for SSH access.
+  state:
+    type: string
+    description: The current state of this ComputeInstance.
+  subnet:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220501:ResourceIdResponse"
+    description: Virtual network subnet resource ID the compute nodes belong to.
+  versions:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220501:ComputeInstanceVersionResponse"
+    description: ComputeInstance version.
+  vmSize:
+    type: string
+    description: Virtual Machine Size
+type: object
+required:
+  - applications
+  - connectivityEndpoints
+  - containers
+  - createdBy
+  - dataDisks
+  - dataMounts
+  - errors
+  - lastOperation
+  - schedules
+  - state
+  - versions

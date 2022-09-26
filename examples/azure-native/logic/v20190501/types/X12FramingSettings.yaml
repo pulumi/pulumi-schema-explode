@@ -1,0 +1,35 @@
+$token: azure-native:logic/v20190501:X12FramingSettings
+description: The X12 agreement framing settings.
+properties:
+  characterSet:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:logic/v20190501:X12CharacterSet"
+    description: The X12 character set.
+  componentSeparator:
+    type: integer
+    description: The component separator.
+  dataElementSeparator:
+    type: integer
+    description: The data element separator.
+  replaceCharacter:
+    type: integer
+    description: The replacement character.
+  replaceSeparatorsInPayload:
+    type: boolean
+    description: The value indicating whether to replace separators in payload.
+  segmentTerminator:
+    type: integer
+    description: The segment terminator.
+  segmentTerminatorSuffix:
+    $ref: "#/types/azure-native:logic/v20190501:SegmentTerminatorSuffix"
+    description: The segment terminator suffix.
+type: object
+required:
+  - characterSet
+  - componentSeparator
+  - dataElementSeparator
+  - replaceCharacter
+  - replaceSeparatorsInPayload
+  - segmentTerminator
+  - segmentTerminatorSuffix

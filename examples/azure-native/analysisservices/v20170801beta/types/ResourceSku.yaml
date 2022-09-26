@@ -1,0 +1,18 @@
+$token: azure-native:analysisservices/v20170801beta:ResourceSku
+description: Represents the SKU name and Azure pricing tier for Analysis Services resource.
+properties:
+  capacity:
+    type: integer
+    description: The number of instances in the read only query pool.
+    default: 1
+  name:
+    type: string
+    description: Name of the SKU level.
+  tier:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:analysisservices/v20170801beta:SkuTier"
+    description: The name of the Azure pricing tier to which the SKU applies.
+type: object
+required:
+  - name

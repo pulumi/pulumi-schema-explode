@@ -1,0 +1,39 @@
+$token: azure-native:streamanalytics/v20170401preview:ScalarFunctionProperties
+description: The properties that are associated with a scalar function.
+properties:
+  binding:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20170401preview:AzureMachineLearningServiceFunctionBinding"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20170401preview:AzureMachineLearningStudioFunctionBinding"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20170401preview:CSharpFunctionBinding"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20170401preview:JavaScriptFunctionBinding"
+    discriminator:
+      propertyName: type
+      mapping:
+        Microsoft.MachineLearning/WebService: "#/types/azure-native:streamanalytics/v20170401preview:AzureMachineLearningStudioFunctionBinding"
+        Microsoft.MachineLearningServices: "#/types/azure-native:streamanalytics/v20170401preview:AzureMachineLearningServiceFunctionBinding"
+        Microsoft.StreamAnalytics/CLRUdf: "#/types/azure-native:streamanalytics/v20170401preview:CSharpFunctionBinding"
+        Microsoft.StreamAnalytics/JavascriptUdf: "#/types/azure-native:streamanalytics/v20170401preview:JavaScriptFunctionBinding"
+    description: The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
+  inputs:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:streamanalytics/v20170401preview:FunctionInput"
+  output:
+    type: object
+    $ref: "#/types/azure-native:streamanalytics/v20170401preview:FunctionOutput"
+    description: Describes the output of a function.
+  type:
+    type: string
+    description: |-
+      Indicates the type of function.
+      Expected value is 'Scalar'.
+    const: Scalar
+type: object
+required:
+  - type

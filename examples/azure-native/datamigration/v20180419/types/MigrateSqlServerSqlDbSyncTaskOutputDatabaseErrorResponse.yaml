@@ -1,0 +1,24 @@
+$token: azure-native:datamigration/v20180419:MigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponse
+properties:
+  errorMessage:
+    type: string
+    description: Error message
+  events:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration/v20180419:SyncMigrationDatabaseErrorEventResponse"
+    description: List of error events.
+  id:
+    type: string
+    description: Result identifier
+  resultType:
+    type: string
+    description: |-
+      Result type
+      Expected value is 'DatabaseLevelErrorOutput'.
+    const: DatabaseLevelErrorOutput
+type: object
+required:
+  - id
+  - resultType

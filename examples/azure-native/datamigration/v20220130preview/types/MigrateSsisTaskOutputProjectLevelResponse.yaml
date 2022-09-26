@@ -1,0 +1,50 @@
+$token: azure-native:datamigration/v20220130preview:MigrateSsisTaskOutputProjectLevelResponse
+properties:
+  endedOn:
+    type: string
+    description: Migration end time
+  exceptionsAndWarnings:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration/v20220130preview:ReportableExceptionResponse"
+    description: Migration exceptions and warnings
+  folderName:
+    type: string
+    description: Name of the folder
+  id:
+    type: string
+    description: Result identifier
+  message:
+    type: string
+    description: Migration progress message
+  projectName:
+    type: string
+    description: Name of the project
+  resultType:
+    type: string
+    description: |-
+      Result type
+      Expected value is 'SsisProjectLevelOutput'.
+    const: SsisProjectLevelOutput
+  stage:
+    type: string
+    description: Stage of SSIS migration.
+  startedOn:
+    type: string
+    description: Migration start time
+  state:
+    type: string
+    description: Current state of migration
+type: object
+required:
+  - endedOn
+  - exceptionsAndWarnings
+  - folderName
+  - id
+  - message
+  - projectName
+  - resultType
+  - stage
+  - startedOn
+  - state

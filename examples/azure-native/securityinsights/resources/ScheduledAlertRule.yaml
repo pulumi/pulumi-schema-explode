@@ -1,0 +1,170 @@
+$token: azure-native:securityinsights:ScheduledAlertRule
+description: |-
+  Represents scheduled alert rule.
+  API Version: 2020-01-01.
+properties:
+  alertRuleTemplateName:
+    type: string
+    description: The Name of the alert rule template used to create this rule.
+  description:
+    type: string
+    description: The description of the alert rule.
+  displayName:
+    type: string
+    description: The display name for alerts created by this alert rule.
+  enabled:
+    type: boolean
+    description: Determines whether this alert rule is enabled or disabled.
+  etag:
+    type: string
+    description: Etag of the azure resource
+  kind:
+    type: string
+    description: |-
+      The kind of the alert rule
+      Expected value is 'Scheduled'.
+    const: Scheduled
+  lastModifiedUtc:
+    type: string
+    description: The last time that this alert rule has been modified.
+  name:
+    type: string
+    description: Azure resource name
+  query:
+    type: string
+    description: The query that creates alerts for this rule.
+  queryFrequency:
+    type: string
+    description: The frequency (in ISO 8601 duration format) for this alert rule to run.
+  queryPeriod:
+    type: string
+    description: The period (in ISO 8601 duration format) that this alert rule looks at.
+  severity:
+    type: string
+    description: The severity for alerts created by this alert rule.
+  suppressionDuration:
+    type: string
+    description: The suppression (in ISO 8601 duration format) to wait since last time this alert rule been triggered.
+  suppressionEnabled:
+    type: boolean
+    description: Determines whether the suppression for this alert rule is enabled or disabled.
+  tactics:
+    type: array
+    items:
+      type: string
+    description: The tactics of the alert rule
+  triggerOperator:
+    type: string
+    description: The operation against the threshold that triggers alert rule.
+  triggerThreshold:
+    type: integer
+    description: The threshold triggers this alert rule.
+  type:
+    type: string
+    description: Azure resource type
+type: object
+required:
+  - displayName
+  - enabled
+  - kind
+  - lastModifiedUtc
+  - name
+  - query
+  - queryFrequency
+  - queryPeriod
+  - severity
+  - suppressionDuration
+  - suppressionEnabled
+  - triggerOperator
+  - triggerThreshold
+  - type
+inputProperties:
+  alertRuleTemplateName:
+    type: string
+    description: The Name of the alert rule template used to create this rule.
+  description:
+    type: string
+    description: The description of the alert rule.
+  displayName:
+    type: string
+    description: The display name for alerts created by this alert rule.
+  enabled:
+    type: boolean
+    description: Determines whether this alert rule is enabled or disabled.
+  kind:
+    type: string
+    description: |-
+      The kind of the alert rule
+      Expected value is 'Scheduled'.
+    const: Scheduled
+  query:
+    type: string
+    description: The query that creates alerts for this rule.
+  queryFrequency:
+    type: string
+    description: The frequency (in ISO 8601 duration format) for this alert rule to run.
+  queryPeriod:
+    type: string
+    description: The period (in ISO 8601 duration format) that this alert rule looks at.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group within the user's subscription. The name is case insensitive.
+  ruleId:
+    type: string
+    description: Alert rule ID
+  severity:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:securityinsights:AlertSeverity"
+    description: The severity for alerts created by this alert rule.
+  suppressionDuration:
+    type: string
+    description: The suppression (in ISO 8601 duration format) to wait since last time this alert rule been triggered.
+  suppressionEnabled:
+    type: boolean
+    description: Determines whether the suppression for this alert rule is enabled or disabled.
+  tactics:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:securityinsights:AttackTactic"
+    description: The tactics of the alert rule
+  triggerOperator:
+    $ref: "#/types/azure-native:securityinsights:TriggerOperator"
+    description: The operation against the threshold that triggers alert rule.
+  triggerThreshold:
+    type: integer
+    description: The threshold triggers this alert rule.
+  workspaceName:
+    type: string
+    description: The name of the workspace.
+requiredInputs:
+  - displayName
+  - enabled
+  - kind
+  - query
+  - queryFrequency
+  - queryPeriod
+  - resourceGroupName
+  - severity
+  - suppressionDuration
+  - suppressionEnabled
+  - triggerOperator
+  - triggerThreshold
+  - workspaceName
+aliases:
+  - type: azure-native:securityinsights/v20190101preview:ScheduledAlertRule
+  - type: azure-native:securityinsights/v20200101:ScheduledAlertRule
+  - type: azure-native:securityinsights/v20210301preview:ScheduledAlertRule
+  - type: azure-native:securityinsights/v20210901preview:ScheduledAlertRule
+  - type: azure-native:securityinsights/v20211001:ScheduledAlertRule
+  - type: azure-native:securityinsights/v20211001preview:ScheduledAlertRule
+  - type: azure-native:securityinsights/v20220101preview:ScheduledAlertRule
+  - type: azure-native:securityinsights/v20220401preview:ScheduledAlertRule
+  - type: azure-native:securityinsights/v20220501preview:ScheduledAlertRule
+  - type: azure-native:securityinsights/v20220601preview:ScheduledAlertRule
+  - type: azure-native:securityinsights/v20220701preview:ScheduledAlertRule
+  - type: azure-native:securityinsights/v20220801:ScheduledAlertRule
+  - type: azure-native:securityinsights/v20220801preview:ScheduledAlertRule
+  - type: azure-native:securityinsights/v20220901preview:ScheduledAlertRule

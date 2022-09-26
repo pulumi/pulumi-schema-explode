@@ -1,0 +1,26 @@
+$token: azure-native:app:Template
+description: |-
+  Container App versioned application definition.
+  Defines the desired state of an immutable revision.
+  Any changes to this section Will result in a new revision being created
+properties:
+  containers:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:app:Container"
+    description: List of container definitions for the Container App.
+  revisionSuffix:
+    type: string
+    description: User friendly suffix that is appended to the revision name
+  scale:
+    type: object
+    $ref: "#/types/azure-native:app:Scale"
+    description: Scaling properties for the Container App.
+  volumes:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:app:Volume"
+    description: List of volume definitions for the Container App.
+type: object

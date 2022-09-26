@@ -1,0 +1,64 @@
+$token: azure-native:kusto/v20210827:getAttachedDatabaseConfiguration
+description: Class representing an attached database configuration.
+inputs:
+  properties:
+    attachedDatabaseConfigurationName:
+      type: string
+      description: The name of the attached database configuration.
+    clusterName:
+      type: string
+      description: The name of the Kusto cluster.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group containing the Kusto cluster.
+  type: object
+  required:
+    - attachedDatabaseConfigurationName
+    - clusterName
+    - resourceGroupName
+outputs:
+  description: Class representing an attached database configuration.
+  properties:
+    attachedDatabaseNames:
+      type: array
+      items:
+        type: string
+      description: The list of databases from the clusterResourceId which are currently attached to the cluster.
+    clusterResourceId:
+      type: string
+      description: The resource id of the cluster where the databases you would like to attach reside.
+    databaseName:
+      type: string
+      description: The name of the database which you would like to attach, use * if you want to follow all current and future databases.
+    defaultPrincipalsModificationKind:
+      type: string
+      description: The default principals modification kind
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    location:
+      type: string
+      description: Resource location.
+    name:
+      type: string
+      description: The name of the resource
+    provisioningState:
+      type: string
+      description: The provisioned state of the resource.
+    tableLevelSharingProperties:
+      type: object
+      $ref: "#/types/azure-native:kusto/v20210827:TableLevelSharingPropertiesResponse"
+      description: Table level sharing specifications
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - attachedDatabaseNames
+    - clusterResourceId
+    - databaseName
+    - defaultPrincipalsModificationKind
+    - id
+    - name
+    - provisioningState
+    - type

@@ -1,0 +1,48 @@
+$token: azure-native:eventgrid/v20200401preview:EventChannelFilter
+description: Filter for the Event Channel.
+properties:
+  advancedFilters:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20200401preview:BoolEqualsAdvancedFilter"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20200401preview:NumberGreaterThanAdvancedFilter"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20200401preview:NumberGreaterThanOrEqualsAdvancedFilter"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20200401preview:NumberInAdvancedFilter"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20200401preview:NumberLessThanAdvancedFilter"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20200401preview:NumberLessThanOrEqualsAdvancedFilter"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20200401preview:NumberNotInAdvancedFilter"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20200401preview:StringBeginsWithAdvancedFilter"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20200401preview:StringContainsAdvancedFilter"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20200401preview:StringEndsWithAdvancedFilter"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20200401preview:StringInAdvancedFilter"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20200401preview:StringNotInAdvancedFilter"
+      discriminator:
+        propertyName: operatorType
+        mapping:
+          BoolEquals: "#/types/azure-native:eventgrid/v20200401preview:BoolEqualsAdvancedFilter"
+          NumberGreaterThan: "#/types/azure-native:eventgrid/v20200401preview:NumberGreaterThanAdvancedFilter"
+          NumberGreaterThanOrEquals: "#/types/azure-native:eventgrid/v20200401preview:NumberGreaterThanOrEqualsAdvancedFilter"
+          NumberIn: "#/types/azure-native:eventgrid/v20200401preview:NumberInAdvancedFilter"
+          NumberLessThan: "#/types/azure-native:eventgrid/v20200401preview:NumberLessThanAdvancedFilter"
+          NumberLessThanOrEquals: "#/types/azure-native:eventgrid/v20200401preview:NumberLessThanOrEqualsAdvancedFilter"
+          NumberNotIn: "#/types/azure-native:eventgrid/v20200401preview:NumberNotInAdvancedFilter"
+          StringBeginsWith: "#/types/azure-native:eventgrid/v20200401preview:StringBeginsWithAdvancedFilter"
+          StringContains: "#/types/azure-native:eventgrid/v20200401preview:StringContainsAdvancedFilter"
+          StringEndsWith: "#/types/azure-native:eventgrid/v20200401preview:StringEndsWithAdvancedFilter"
+          StringIn: "#/types/azure-native:eventgrid/v20200401preview:StringInAdvancedFilter"
+          StringNotIn: "#/types/azure-native:eventgrid/v20200401preview:StringNotInAdvancedFilter"
+    description: An array of advanced filters that are used for filtering event channels.
+type: object

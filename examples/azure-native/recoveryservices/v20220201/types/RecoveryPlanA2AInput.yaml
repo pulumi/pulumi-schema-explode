@@ -1,0 +1,26 @@
+$token: azure-native:recoveryservices/v20220201:RecoveryPlanA2AInput
+description: Recovery plan A2A input.
+properties:
+  instanceType:
+    type: string
+    description: |-
+      Gets the Instance type.
+      Expected value is 'A2A'.
+    const: A2A
+  primaryExtendedLocation:
+    type: object
+    $ref: "#/types/azure-native:recoveryservices/v20220201:ExtendedLocation"
+    description: The primary extended location.
+  primaryZone:
+    type: string
+    description: The primary zone.
+  recoveryExtendedLocation:
+    type: object
+    $ref: "#/types/azure-native:recoveryservices/v20220201:ExtendedLocation"
+    description: The recovery extended location.
+  recoveryZone:
+    type: string
+    description: The recovery zone.
+type: object
+required:
+  - instanceType

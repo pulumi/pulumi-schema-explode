@@ -1,0 +1,49 @@
+$token: azure-native:network/v20191101:getNetworkExperimentProfile
+description: Defines an Network Experiment Profile and lists of Experiments
+inputs:
+  properties:
+    profileName:
+      type: string
+      description: The Profile identifier associated with the Tenant and Partner
+    resourceGroupName:
+      type: string
+      description: Name of the Resource group within the Azure subscription.
+  type: object
+  required:
+    - profileName
+    - resourceGroupName
+outputs:
+  description: Defines an Network Experiment Profile and lists of Experiments
+  properties:
+    enabledState:
+      type: string
+      description: The state of the Experiment
+    etag:
+      type: string
+      description: Gets a unique read-only string that changes whenever the resource is updated.
+    id:
+      type: string
+      description: Resource ID.
+    location:
+      type: string
+      description: Resource location.
+    name:
+      type: string
+      description: Resource name.
+    resourceState:
+      type: string
+      description: Resource status.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - id
+    - name
+    - resourceState
+    - type

@@ -1,0 +1,100 @@
+$token: azure-native:containerregistry/v20180201preview:BuildTask
+description: The build task that has the resource properties and all build items. The build task will have all information to schedule a build against it.
+properties:
+  alias:
+    type: string
+    description: The alternative updatable name for a build task.
+  creationDate:
+    type: string
+    description: The creation date of build task.
+  location:
+    type: string
+    description: The location of the resource. This cannot be changed after the resource is created.
+  name:
+    type: string
+    description: The name of the resource.
+  platform:
+    type: object
+    $ref: "#/types/azure-native:containerregistry/v20180201preview:PlatformPropertiesResponse"
+    description: The platform properties against which the build has to happen.
+  provisioningState:
+    type: string
+    description: The provisioning state of the build task.
+  sourceRepository:
+    type: object
+    $ref: "#/types/azure-native:containerregistry/v20180201preview:SourceRepositoryPropertiesResponse"
+    description: The properties that describes the source(code) for the build task.
+  status:
+    type: string
+    description: The current status of build task.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+  timeout:
+    type: integer
+    description: Build timeout in seconds.
+    default: 3600
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - alias
+  - creationDate
+  - location
+  - name
+  - platform
+  - provisioningState
+  - sourceRepository
+  - type
+inputProperties:
+  alias:
+    type: string
+    description: The alternative updatable name for a build task.
+  buildTaskName:
+    type: string
+    description: The name of the container registry build task.
+  location:
+    type: string
+    description: The location of the resource. This cannot be changed after the resource is created.
+  platform:
+    type: object
+    $ref: "#/types/azure-native:containerregistry/v20180201preview:PlatformProperties"
+    description: The platform properties against which the build has to happen.
+  registryName:
+    type: string
+    description: The name of the container registry.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group to which the container registry belongs.
+  sourceRepository:
+    type: object
+    $ref: "#/types/azure-native:containerregistry/v20180201preview:SourceRepositoryProperties"
+    description: The properties that describes the source(code) for the build task.
+  status:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:containerregistry/v20180201preview:BuildTaskStatus"
+    description: The current status of build task.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+  timeout:
+    type: integer
+    description: Build timeout in seconds.
+    default: 3600
+requiredInputs:
+  - alias
+  - platform
+  - registryName
+  - resourceGroupName
+  - sourceRepository
+aliases:
+  - type: azure-native:containerregistry:BuildTask
+  - type: azure-native:containerregistry/v20180901:BuildTask
+  - type: azure-native:containerregistry/v20190401:BuildTask
+  - type: azure-native:containerregistry/v20190601preview:BuildTask

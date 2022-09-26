@@ -1,0 +1,72 @@
+$token: azure-native:machinelearningservices/v20220201preview:DataVersion
+description: Azure Resource Manager resource envelope.
+properties:
+  dataVersionBaseDetails:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220201preview:MLTableDataResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220201preview:UriFileDataVersionResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220201preview:UriFolderDataVersionResponse"
+    discriminator:
+      propertyName: dataType
+      mapping:
+        MLTable: "#/types/azure-native:machinelearningservices/v20220201preview:MLTableDataResponse"
+        UriFile: "#/types/azure-native:machinelearningservices/v20220201preview:UriFileDataVersionResponse"
+        UriFolder: "#/types/azure-native:machinelearningservices/v20220201preview:UriFolderDataVersionResponse"
+    description: "[Required] Additional attributes of the entity."
+  name:
+    type: string
+    description: The name of the resource
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220201preview:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - dataVersionBaseDetails
+  - name
+  - systemData
+  - type
+inputProperties:
+  dataVersionBaseDetails:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220201preview:MLTableData"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220201preview:UriFileDataVersion"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20220201preview:UriFolderDataVersion"
+    discriminator:
+      propertyName: dataType
+      mapping:
+        MLTable: "#/types/azure-native:machinelearningservices/v20220201preview:MLTableData"
+        UriFile: "#/types/azure-native:machinelearningservices/v20220201preview:UriFileDataVersion"
+        UriFolder: "#/types/azure-native:machinelearningservices/v20220201preview:UriFolderDataVersion"
+    description: "[Required] Additional attributes of the entity."
+  name:
+    type: string
+    description: Container name.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  version:
+    type: string
+    description: Version identifier.
+  workspaceName:
+    type: string
+    description: Name of Azure Machine Learning workspace.
+requiredInputs:
+  - dataVersionBaseDetails
+  - name
+  - resourceGroupName
+  - workspaceName
+aliases:
+  - type: azure-native:machinelearningservices:DataVersion
+  - type: azure-native:machinelearningservices/v20210301preview:DataVersion
+  - type: azure-native:machinelearningservices/v20220501:DataVersion
+  - type: azure-native:machinelearningservices/v20220601preview:DataVersion

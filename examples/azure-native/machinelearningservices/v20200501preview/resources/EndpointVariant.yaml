@@ -1,0 +1,106 @@
+$token: azure-native:machinelearningservices/v20200501preview:EndpointVariant
+description: Machine Learning service object wrapped into ARM resource envelope.
+properties:
+  identity:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20200501preview:IdentityResponse"
+    description: The identity of the resource.
+  location:
+    type: string
+    description: Specifies the location of the resource.
+  name:
+    type: string
+    description: Specifies the name of the resource.
+  properties:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20200501preview:ACIServiceResponseResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20200501preview:AKSServiceResponseResponse"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20200501preview:AKSVariantResponseResponse"
+    discriminator:
+      propertyName: computeType
+      mapping:
+        ACI: "#/types/azure-native:machinelearningservices/v20200501preview:ACIServiceResponseResponse"
+        AKS: "#/types/azure-native:machinelearningservices/v20200501preview:AKSServiceResponseResponse"
+        Custom: "#/types/azure-native:machinelearningservices/v20200501preview:AKSVariantResponseResponse"
+    description: Service properties
+  sku:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20200501preview:SkuResponse"
+    description: The sku of the workspace.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Contains resource tags defined as key/value pairs.
+  type:
+    type: string
+    description: Specifies the type of the resource.
+type: object
+required:
+  - name
+  - properties
+  - type
+inputProperties:
+  computeType:
+    type: string
+    description: |-
+      The compute environment type for the service.
+      Expected value is 'Custom'.
+    const: Custom
+  description:
+    type: string
+    description: The description of the service.
+  environmentImageRequest:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20200501preview:CreateServiceRequestEnvironmentImageRequest"
+    description: The Environment, models and assets needed for inferencing.
+  isDefault:
+    type: boolean
+    description: Is this the default variant.
+  keys:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20200501preview:CreateServiceRequestKeys"
+    description: The authentication keys.
+  kvTags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The service tag dictionary. Tags are mutable.
+  location:
+    type: string
+    description: The name of the Azure location/region.
+  properties:
+    type: object
+    additionalProperties:
+      type: string
+    description: The service properties dictionary. Properties are immutable.
+  resourceGroupName:
+    type: string
+    description: Name of the resource group in which workspace is located.
+  serviceName:
+    type: string
+    description: Name of the Azure Machine Learning service.
+  trafficPercentile:
+    type: number
+    description: The amount of traffic variant receives.
+  type:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearningservices/v20200501preview:VariantType"
+    description: The type of the variant.
+  workspaceName:
+    type: string
+    description: Name of Azure Machine Learning workspace.
+requiredInputs:
+  - computeType
+  - resourceGroupName
+  - workspaceName
+aliases:
+  - type: azure-native:machinelearningservices:EndpointVariant
+  - type: azure-native:machinelearningservices/v20200515preview:EndpointVariant
+  - type: azure-native:machinelearningservices/v20200901preview:EndpointVariant
+  - type: azure-native:machinelearningservices/v20210101:EndpointVariant
+  - type: azure-native:machinelearningservices/v20210401:EndpointVariant

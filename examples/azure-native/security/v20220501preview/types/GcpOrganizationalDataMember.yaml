@@ -1,0 +1,18 @@
+$token: azure-native:security/v20220501preview:GcpOrganizationalDataMember
+description: The gcpOrganization data for the member account
+properties:
+  managementProjectNumber:
+    type: string
+    description: The GCP management project number from organizational onboarding
+  organizationMembershipType:
+    type: string
+    description: |-
+      The multi cloud account's membership type in the organization
+      Expected value is 'Member'.
+    const: Member
+  parentHierarchyId:
+    type: string
+    description: If the multi cloud account is not of membership type organization, this will be the ID of the project's parent
+type: object
+required:
+  - organizationMembershipType

@@ -1,0 +1,28 @@
+$token: azure-native:network/v20200101:RulesEngineAction
+description: One or more actions that will execute, modifying the request and/or response.
+properties:
+  requestHeaderActions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20200101:HeaderAction"
+    description: A list of header actions to apply from the request from AFD to the origin.
+  responseHeaderActions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20200101:HeaderAction"
+    description: A list of header actions to apply from the response from AFD to the client.
+  routeConfigurationOverride:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:network/v20200101:ForwardingConfiguration"
+      - type: object
+        $ref: "#/types/azure-native:network/v20200101:RedirectConfiguration"
+    discriminator:
+      propertyName: odataType
+      mapping:
+        "#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration": "#/types/azure-native:network/v20200101:ForwardingConfiguration"
+        "#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration": "#/types/azure-native:network/v20200101:RedirectConfiguration"
+    description: Override the route configuration.
+type: object

@@ -1,0 +1,24 @@
+$token: azure-native:compute/v20211201:DiskCreateOption
+description: This enumerates the possible sources of a disk's creation.
+type: string
+enum:
+  - description: Create an empty data disk of a size given by diskSizeGB.
+    value: Empty
+  - description: Disk will be attached to a VM.
+    value: Attach
+  - description: Create a new disk from a platform image specified by the given imageReference or galleryImageReference.
+    value: FromImage
+  - description: Create a disk by importing from a blob specified by a sourceUri in a storage account specified by storageAccountId.
+    value: Import
+  - description: Create a new disk or snapshot by copying from a disk or snapshot specified by the given sourceResourceId.
+    value: Copy
+  - description: Create a new disk by copying from a backup recovery point.
+    value: Restore
+  - description: Create a new disk by obtaining a write token and using it to directly upload the contents of the disk.
+    value: Upload
+  - description: Create a new disk by using a deep copy process, where the resource creation is considered complete only after all data has been copied from the source.
+    value: CopyStart
+  - description: Similar to Import create option. Create a new Trusted Launch VM or Confidential VM supported disk by importing additional blob for VM guest state specified by securityDataUri in storage account specified by storageAccountId
+    value: ImportSecure
+  - description: Similar to Upload create option. Create a new Trusted Launch VM or Confidential VM supported disk and upload using write token in both disk and VM guest state
+    value: UploadPreparedSecure

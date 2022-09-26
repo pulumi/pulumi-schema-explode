@@ -1,0 +1,79 @@
+$token: azure-native:operationalinsights/v20151101preview:MachineGroup
+description: A user-defined logical grouping of machines.
+properties:
+  count:
+    type: integer
+    description: Count of machines in this group. The value of count may be bigger than the number of machines in case of the group has been truncated due to exceeding the max number of machines a group can handle.
+  displayName:
+    type: string
+    description: User defined name for the group
+  etag:
+    type: string
+    description: Resource ETAG.
+  groupType:
+    type: string
+    description: Type of the machine group
+  kind:
+    type: string
+    description: |-
+      Additional resource type qualifier.
+      Expected value is 'machineGroup'.
+    const: machineGroup
+  machines:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:operationalinsights/v20151101preview:MachineReferenceWithHintsResponse"
+    description: References of the machines in this group. The hints within each reference do not represent the current value of the corresponding fields. They are a snapshot created during the last time the machine group was updated.
+  name:
+    type: string
+    description: Resource name.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - displayName
+  - kind
+  - name
+  - type
+inputProperties:
+  count:
+    type: integer
+    description: Count of machines in this group. The value of count may be bigger than the number of machines in case of the group has been truncated due to exceeding the max number of machines a group can handle.
+  displayName:
+    type: string
+    description: User defined name for the group
+  groupType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:operationalinsights/v20151101preview:MachineGroupType"
+    description: Type of the machine group
+  kind:
+    type: string
+    description: |-
+      Additional resource type qualifier.
+      Expected value is 'machineGroup'.
+    const: machineGroup
+  machineGroupName:
+    type: string
+    description: Machine Group resource name.
+  machines:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:operationalinsights/v20151101preview:MachineReferenceWithHints"
+    description: References of the machines in this group. The hints within each reference do not represent the current value of the corresponding fields. They are a snapshot created during the last time the machine group was updated.
+  resourceGroupName:
+    type: string
+    description: Resource group name within the specified subscriptionId.
+  workspaceName:
+    type: string
+    description: OMS workspace containing the resources of interest.
+requiredInputs:
+  - displayName
+  - kind
+  - resourceGroupName
+  - workspaceName
+aliases:
+  - type: azure-native:operationalinsights:MachineGroup

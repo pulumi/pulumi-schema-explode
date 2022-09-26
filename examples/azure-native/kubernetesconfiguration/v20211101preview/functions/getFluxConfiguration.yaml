@@ -1,0 +1,108 @@
+$token: azure-native:kubernetesconfiguration/v20211101preview:getFluxConfiguration
+description: The Flux Configuration object returned in Get & Put response.
+inputs:
+  properties:
+    clusterName:
+      type: string
+      description: The name of the kubernetes cluster.
+    clusterResourceName:
+      type: string
+      description: The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
+    clusterRp:
+      type: string
+      description: The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
+    fluxConfigurationName:
+      type: string
+      description: Name of the Flux Configuration.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+  type: object
+  required:
+    - clusterName
+    - clusterResourceName
+    - clusterRp
+    - fluxConfigurationName
+    - resourceGroupName
+outputs:
+  description: The Flux Configuration object returned in Get & Put response.
+  properties:
+    complianceState:
+      type: string
+      description: Combined status of the Flux Kubernetes resources created by the fluxConfiguration or created by the managed objects.
+    configurationProtectedSettings:
+      type: object
+      additionalProperties:
+        type: string
+      description: Key-value pairs of protected configuration settings for the configuration
+    errorMessage:
+      type: string
+      description: Error message returned to the user in the case of provisioning failure.
+    gitRepository:
+      type: object
+      $ref: "#/types/azure-native:kubernetesconfiguration/v20211101preview:GitRepositoryDefinitionResponse"
+      description: Parameters to reconcile to the GitRepository source kind type.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    kustomizations:
+      type: object
+      additionalProperties:
+        type: object
+        $ref: "#/types/azure-native:kubernetesconfiguration/v20211101preview:KustomizationDefinitionResponse"
+      description: Array of kustomizations used to reconcile the artifact pulled by the source type on the cluster.
+    lastSourceSyncedAt:
+      type: string
+      description: Datetime the fluxConfiguration last synced its source on the cluster.
+    lastSourceSyncedCommitId:
+      type: string
+      description: Branch and SHA of the last source commit synced with the cluster.
+    name:
+      type: string
+      description: The name of the resource
+    namespace:
+      type: string
+      description: The namespace to which this configuration is installed to. Maximum of 253 lower case alphanumeric characters, hyphen and period only.
+      default: default
+    provisioningState:
+      type: string
+      description: Status of the creation of the fluxConfiguration.
+    repositoryPublicKey:
+      type: string
+      description: Public Key associated with this fluxConfiguration (either generated within the cluster or provided by the user).
+    scope:
+      type: string
+      description: Scope at which the operator will be installed.
+    sourceKind:
+      type: string
+      description: Source Kind to pull the configuration data from.
+    statuses:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:kubernetesconfiguration/v20211101preview:ObjectStatusDefinitionResponse"
+      description: Statuses of the Flux Kubernetes resources created by the fluxConfiguration or created by the managed objects provisioned by the fluxConfiguration.
+    suspend:
+      type: boolean
+      description: Whether this configuration should suspend its reconciliation of its kustomizations and sources.
+      default: false
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:kubernetesconfiguration/v20211101preview:SystemDataResponse"
+      description: Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - complianceState
+    - errorMessage
+    - id
+    - lastSourceSyncedAt
+    - lastSourceSyncedCommitId
+    - name
+    - provisioningState
+    - repositoryPublicKey
+    - statuses
+    - systemData
+    - type

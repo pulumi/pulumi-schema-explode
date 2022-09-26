@@ -1,0 +1,23 @@
+$token: azure-native:machinelearningservices/v20220601preview:CustomModelJobOutput
+properties:
+  description:
+    type: string
+    description: Description for the output.
+  jobOutputType:
+    type: string
+    description: |-
+      Enum to determine the Job Output Type.
+      Expected value is 'custom_model'.
+    const: custom_model
+  mode:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearningservices/v20220601preview:OutputDeliveryMode"
+    description: Output Asset Delivery Mode.
+    default: ReadWriteMount
+  uri:
+    type: string
+    description: Output Asset URI.
+type: object
+required:
+  - jobOutputType

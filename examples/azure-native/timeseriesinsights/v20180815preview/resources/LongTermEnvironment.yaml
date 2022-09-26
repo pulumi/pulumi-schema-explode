@@ -1,0 +1,123 @@
+$token: azure-native:timeseriesinsights/v20180815preview:LongTermEnvironment
+description: An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. LongTerm environments do not have set data retention limits.
+properties:
+  creationTime:
+    type: string
+    description: The time the resource was created.
+  dataAccessFqdn:
+    type: string
+    description: The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
+  dataAccessId:
+    type: string
+    description: An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
+  kind:
+    type: string
+    description: |-
+      The kind of the environment.
+      Expected value is 'LongTerm'.
+    const: LongTerm
+  location:
+    type: string
+    description: Resource location
+  name:
+    type: string
+    description: Resource name
+  provisioningState:
+    type: string
+    description: Provisioning state of the resource.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:timeseriesinsights/v20180815preview:SkuResponse"
+    description: The sku determines the type of environment, either standard (S1 or S2) or long-term (L1). For standard environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
+  status:
+    type: object
+    $ref: "#/types/azure-native:timeseriesinsights/v20180815preview:EnvironmentStatusResponse"
+    description: An object that represents the status of the environment, and its internal state in the Time Series Insights service.
+  storageConfiguration:
+    type: object
+    $ref: "#/types/azure-native:timeseriesinsights/v20180815preview:LongTermStorageConfigurationOutputResponse"
+    description: The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  timeSeriesIdProperties:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:timeseriesinsights/v20180815preview:TimeSeriesIdPropertyResponse"
+    description: The list of event properties which will be used to define the environment's time series id.
+  type:
+    type: string
+    description: Resource type
+  warmStoreConfiguration:
+    type: object
+    $ref: "#/types/azure-native:timeseriesinsights/v20180815preview:WarmStoreConfigurationPropertiesResponse"
+    description: The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
+type: object
+required:
+  - creationTime
+  - dataAccessFqdn
+  - dataAccessId
+  - kind
+  - location
+  - name
+  - provisioningState
+  - sku
+  - status
+  - storageConfiguration
+  - timeSeriesIdProperties
+  - type
+inputProperties:
+  environmentName:
+    type: string
+    description: Name of the environment
+  kind:
+    type: string
+    description: |-
+      The kind of the environment.
+      Expected value is 'LongTerm'.
+    const: LongTerm
+  location:
+    type: string
+    description: The location of the resource.
+  resourceGroupName:
+    type: string
+    description: Name of an Azure Resource group.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:timeseriesinsights/v20180815preview:Sku"
+    description: The sku determines the type of environment, either standard (S1 or S2) or long-term (L1). For standard environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
+  storageConfiguration:
+    type: object
+    $ref: "#/types/azure-native:timeseriesinsights/v20180815preview:LongTermStorageConfigurationInput"
+    description: The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Key-value pairs of additional properties for the resource.
+  timeSeriesIdProperties:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:timeseriesinsights/v20180815preview:TimeSeriesIdProperty"
+    description: The list of event properties which will be used to define the environment's time series id.
+  warmStoreConfiguration:
+    type: object
+    $ref: "#/types/azure-native:timeseriesinsights/v20180815preview:WarmStoreConfigurationProperties"
+    description: The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
+requiredInputs:
+  - kind
+  - resourceGroupName
+  - sku
+  - storageConfiguration
+  - timeSeriesIdProperties
+aliases:
+  - type: azure-native:timeseriesinsights:LongTermEnvironment
+  - type: azure-native:timeseriesinsights/v20170228preview:LongTermEnvironment
+  - type: azure-native:timeseriesinsights/v20171115:LongTermEnvironment
+  - type: azure-native:timeseriesinsights/v20200515:LongTermEnvironment
+  - type: azure-native:timeseriesinsights/v20210331preview:LongTermEnvironment
+  - type: azure-native:timeseriesinsights/v20210630preview:LongTermEnvironment

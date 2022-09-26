@@ -1,0 +1,93 @@
+$token: azure-native:storsimple/v20161001:IscsiDisk
+description: The iSCSI disk.
+properties:
+  accessControlRecords:
+    type: array
+    items:
+      type: string
+    description: The access control records.
+  dataPolicy:
+    type: string
+    description: The data policy.
+  description:
+    type: string
+    description: The description.
+  diskStatus:
+    type: string
+    description: The disk status.
+  localUsedCapacityInBytes:
+    type: number
+    description: The local used capacity in bytes.
+  monitoringStatus:
+    type: string
+    description: The monitoring.
+  name:
+    type: string
+    description: The name.
+  provisionedCapacityInBytes:
+    type: number
+    description: The provisioned capacity in bytes.
+  type:
+    type: string
+    description: The type.
+  usedCapacityInBytes:
+    type: number
+    description: The used capacity in bytes.
+type: object
+required:
+  - accessControlRecords
+  - dataPolicy
+  - diskStatus
+  - localUsedCapacityInBytes
+  - monitoringStatus
+  - name
+  - provisionedCapacityInBytes
+  - type
+  - usedCapacityInBytes
+inputProperties:
+  accessControlRecords:
+    type: array
+    items:
+      type: string
+    description: The access control records.
+  dataPolicy:
+    $ref: "#/types/azure-native:storsimple/v20161001:DataPolicy"
+    description: The data policy.
+  description:
+    type: string
+    description: The description.
+  deviceName:
+    type: string
+    description: The device name.
+  diskName:
+    type: string
+    description: The disk name.
+  diskStatus:
+    $ref: "#/types/azure-native:storsimple/v20161001:DiskStatus"
+    description: The disk status.
+  iscsiServerName:
+    type: string
+    description: The iSCSI server name.
+  managerName:
+    type: string
+    description: The manager name
+  monitoringStatus:
+    $ref: "#/types/azure-native:storsimple/v20161001:MonitoringStatus"
+    description: The monitoring.
+  provisionedCapacityInBytes:
+    type: number
+    description: The provisioned capacity in bytes.
+  resourceGroupName:
+    type: string
+    description: The resource group name
+requiredInputs:
+  - accessControlRecords
+  - dataPolicy
+  - deviceName
+  - diskStatus
+  - iscsiServerName
+  - managerName
+  - monitoringStatus
+  - provisionedCapacityInBytes
+  - resourceGroupName
+deprecationMessage: Version 2016-10-01 will be removed in v2 of the provider.

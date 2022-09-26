@@ -1,0 +1,62 @@
+$token: azure-native:storage/v20181101:BlobServiceProperties
+description: The properties of a storage account’s Blob service.
+properties:
+  cors:
+    type: object
+    $ref: "#/types/azure-native:storage/v20181101:CorsRulesResponse"
+    description: Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.
+  defaultServiceVersion:
+    type: string
+    description: DefaultServiceVersion indicates the default version to use for requests to the Blob service if an incoming request’s version is not specified. Possible values include version 2008-10-27 and all more recent versions.
+  deleteRetentionPolicy:
+    type: object
+    $ref: "#/types/azure-native:storage/v20181101:DeleteRetentionPolicyResponse"
+    description: The blob service properties for soft delete.
+  name:
+    type: string
+    description: The name of the resource
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - name
+  - type
+inputProperties:
+  accountName:
+    type: string
+    description: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+  blobServicesName:
+    type: string
+    description: The name of the blob Service within the specified storage account. Blob Service Name must be 'default'
+  cors:
+    type: object
+    $ref: "#/types/azure-native:storage/v20181101:CorsRules"
+    description: Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.
+  defaultServiceVersion:
+    type: string
+    description: DefaultServiceVersion indicates the default version to use for requests to the Blob service if an incoming request’s version is not specified. Possible values include version 2008-10-27 and all more recent versions.
+  deleteRetentionPolicy:
+    type: object
+    $ref: "#/types/azure-native:storage/v20181101:DeleteRetentionPolicy"
+    description: The blob service properties for soft delete.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group within the user's subscription. The name is case insensitive.
+requiredInputs:
+  - accountName
+  - resourceGroupName
+aliases:
+  - type: azure-native:storage:BlobServiceProperties
+  - type: azure-native:storage/v20180701:BlobServiceProperties
+  - type: azure-native:storage/v20190401:BlobServiceProperties
+  - type: azure-native:storage/v20190601:BlobServiceProperties
+  - type: azure-native:storage/v20200801preview:BlobServiceProperties
+  - type: azure-native:storage/v20210101:BlobServiceProperties
+  - type: azure-native:storage/v20210201:BlobServiceProperties
+  - type: azure-native:storage/v20210401:BlobServiceProperties
+  - type: azure-native:storage/v20210601:BlobServiceProperties
+  - type: azure-native:storage/v20210801:BlobServiceProperties
+  - type: azure-native:storage/v20210901:BlobServiceProperties
+  - type: azure-native:storage/v20220501:BlobServiceProperties
+deprecationMessage: Version 2018-11-01 will be removed in v2 of the provider.

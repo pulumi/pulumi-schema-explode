@@ -1,0 +1,11 @@
+$token: azure-native:azurearcdata/v20220301preview:SqlManagedInstanceK8sSpec
+description: The kubernetes spec information.
+properties:
+  replicas:
+    type: integer
+    description: This option specifies the number of SQL Managed Instance replicas that will be deployed in your Kubernetes cluster for high availability purposes. If sku.tier is BusinessCritical, allowed values are '2' or '3' with default of '3'. If sku.tier is GeneralPurpose, replicas must be '1'.
+  scheduling:
+    type: object
+    $ref: "#/types/azure-native:azurearcdata/v20220301preview:K8sScheduling"
+    description: The kubernetes scheduling information.
+type: object

@@ -1,0 +1,88 @@
+$token: azure-native:web/v20210101:WebAppSourceControl
+description: Source control configuration for an app.
+properties:
+  branch:
+    type: string
+    description: Name of branch to use for deployment.
+  deploymentRollbackEnabled:
+    type: boolean
+    description: <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
+  gitHubActionConfiguration:
+    type: object
+    $ref: "#/types/azure-native:web/v20210101:GitHubActionConfigurationResponse"
+    description: If GitHub Action is selected, than the associated configuration.
+  isGitHubAction:
+    type: boolean
+    description: <code>true</code> if this is deployed via GitHub action.
+  isManualIntegration:
+    type: boolean
+    description: <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
+  isMercurial:
+    type: boolean
+    description: <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.
+  kind:
+    type: string
+    description: Kind of resource.
+  name:
+    type: string
+    description: Resource Name.
+  repoUrl:
+    type: string
+    description: Repository or source control URL.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - name
+  - type
+inputProperties:
+  branch:
+    type: string
+    description: Name of branch to use for deployment.
+  deploymentRollbackEnabled:
+    type: boolean
+    description: <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
+  gitHubActionConfiguration:
+    type: object
+    $ref: "#/types/azure-native:web/v20210101:GitHubActionConfiguration"
+    description: If GitHub Action is selected, than the associated configuration.
+  isGitHubAction:
+    type: boolean
+    description: <code>true</code> if this is deployed via GitHub action.
+  isManualIntegration:
+    type: boolean
+    description: <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
+  isMercurial:
+    type: boolean
+    description: <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.
+  kind:
+    type: string
+    description: Kind of resource.
+  name:
+    type: string
+    description: Name of the app.
+  repoUrl:
+    type: string
+    description: Repository or source control URL.
+  resourceGroupName:
+    type: string
+    description: Name of the resource group to which the resource belongs.
+requiredInputs:
+  - name
+  - resourceGroupName
+aliases:
+  - type: azure-native:web:WebAppSourceControl
+  - type: azure-native:web/v20150801:WebAppSourceControl
+  - type: azure-native:web/v20160801:WebAppSourceControl
+  - type: azure-native:web/v20180201:WebAppSourceControl
+  - type: azure-native:web/v20181101:WebAppSourceControl
+  - type: azure-native:web/v20190801:WebAppSourceControl
+  - type: azure-native:web/v20200601:WebAppSourceControl
+  - type: azure-native:web/v20200901:WebAppSourceControl
+  - type: azure-native:web/v20201001:WebAppSourceControl
+  - type: azure-native:web/v20201201:WebAppSourceControl
+  - type: azure-native:web/v20210115:WebAppSourceControl
+  - type: azure-native:web/v20210201:WebAppSourceControl
+  - type: azure-native:web/v20210301:WebAppSourceControl
+  - type: azure-native:web/v20220301:WebAppSourceControl

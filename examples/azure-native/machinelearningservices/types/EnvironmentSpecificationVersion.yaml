@@ -1,0 +1,43 @@
+$token: azure-native:machinelearningservices:EnvironmentSpecificationVersion
+description: "Environment specification version details.\r
+
+  <see href=\"https://repo2docker.readthedocs.io/en/latest/specification.html\" />"
+properties:
+  condaFile:
+    type: string
+    description: "Standard configuration file used by Conda that lets you install any kind of package, including Python, R, and C/C++ packages.\r
+
+      <see href=\"https://repo2docker.readthedocs.io/en/latest/config_files.html#environment-yml-install-a-conda-environment\" />"
+  description:
+    type: string
+    description: The asset description text.
+  docker:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices:DockerBuild"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices:DockerImage"
+    discriminator:
+      propertyName: dockerSpecificationType
+      mapping:
+        Build: "#/types/azure-native:machinelearningservices:DockerBuild"
+        Image: "#/types/azure-native:machinelearningservices:DockerImage"
+    description: Configuration settings for Docker.
+  inferenceContainerProperties:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices:InferenceContainerProperties"
+    description: Defines configuration specific to inference.
+  isAnonymous:
+    type: boolean
+    description: If the name version are system generated (anonymous registration).
+  properties:
+    type: object
+    additionalProperties:
+      type: string
+    description: The asset property dictionary.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Tag dictionary. Tags can be added, removed, and updated.
+type: object

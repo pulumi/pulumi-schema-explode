@@ -1,0 +1,23 @@
+$token: azure-native:securityinsights/v20220901preview:PermissionsResourceProvider
+properties:
+  permissionsDisplayText:
+    type: string
+    description: Permission description text
+  provider:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:securityinsights/v20220901preview:ProviderName"
+    description: Provider name
+  providerDisplayName:
+    type: string
+    description: Permission provider display name
+  requiredPermissions:
+    type: object
+    $ref: "#/types/azure-native:securityinsights/v20220901preview:RequiredPermissions"
+    description: Required permissions for the connector
+  scope:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:securityinsights/v20220901preview:PermissionProviderScope"
+    description: Permission provider scope
+type: object

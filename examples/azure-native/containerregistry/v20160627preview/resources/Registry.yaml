@@ -1,0 +1,78 @@
+$token: azure-native:containerregistry/v20160627preview:Registry
+description: An object that represents a container registry.
+properties:
+  adminUserEnabled:
+    type: boolean
+    description: The value that indicates whether the admin user is enabled. This value is false by default.
+    default: false
+  creationDate:
+    type: string
+    description: The creation date of the container registry in ISO8601 format.
+  location:
+    type: string
+    description: The location of the resource. This cannot be changed after the resource is created.
+  loginServer:
+    type: string
+    description: The URL that can be used to log into the container registry.
+  name:
+    type: string
+    description: The name of the resource.
+  storageAccount:
+    type: object
+    $ref: "#/types/azure-native:containerregistry/v20160627preview:StorageAccountPropertiesResponse"
+    description: The properties of the storage account for the container registry. If specified, the storage account must be in the same physical location as the container registry.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - creationDate
+  - location
+  - loginServer
+  - name
+  - storageAccount
+  - type
+inputProperties:
+  adminUserEnabled:
+    type: boolean
+    description: The value that indicates whether the admin user is enabled. This value is false by default.
+    default: false
+  location:
+    type: string
+    description: The location of the resource. This cannot be changed after the resource is created.
+  registryName:
+    type: string
+    description: The name of the container registry.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group to which the container registry belongs.
+  storageAccount:
+    type: object
+    $ref: "#/types/azure-native:containerregistry/v20160627preview:StorageAccountProperties"
+    description: The properties of the storage account for the container registry. If specified, the storage account must be in the same physical location as the container registry.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+requiredInputs:
+  - resourceGroupName
+  - storageAccount
+aliases:
+  - type: azure-native:containerregistry:Registry
+  - type: azure-native:containerregistry/v20170301:Registry
+  - type: azure-native:containerregistry/v20170601preview:Registry
+  - type: azure-native:containerregistry/v20171001:Registry
+  - type: azure-native:containerregistry/v20190501:Registry
+  - type: azure-native:containerregistry/v20191201preview:Registry
+  - type: azure-native:containerregistry/v20201101preview:Registry
+  - type: azure-native:containerregistry/v20210601preview:Registry
+  - type: azure-native:containerregistry/v20210801preview:Registry
+  - type: azure-native:containerregistry/v20210901:Registry
+  - type: azure-native:containerregistry/v20211201preview:Registry
+  - type: azure-native:containerregistry/v20220201preview:Registry

@@ -1,0 +1,49 @@
+$token: azure-native:servicebus/v20150801:getQueueAuthorizationRule
+description: Description of a namespace authorization rule.
+inputs:
+  properties:
+    authorizationRuleName:
+      type: string
+      description: The authorization rule name.
+    namespaceName:
+      type: string
+      description: The namespace name
+    queueName:
+      type: string
+      description: The queue name.
+    resourceGroupName:
+      type: string
+      description: Name of the Resource group within the Azure subscription.
+  type: object
+  required:
+    - authorizationRuleName
+    - namespaceName
+    - queueName
+    - resourceGroupName
+outputs:
+  description: Description of a namespace authorization rule.
+  properties:
+    id:
+      type: string
+      description: Resource Id
+    location:
+      type: string
+      description: Resource location.
+    name:
+      type: string
+      description: Resource name
+    rights:
+      type: array
+      items:
+        type: string
+      description: The rights associated with the rule.
+    type:
+      type: string
+      description: Resource type
+  type: object
+  required:
+    - id
+    - name
+    - rights
+    - type
+deprecationMessage: Version 2015-08-01 will be removed in v2 of the provider.

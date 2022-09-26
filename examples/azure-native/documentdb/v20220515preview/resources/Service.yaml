@@ -1,0 +1,67 @@
+$token: azure-native:documentdb/v20220515preview:Service
+description: Properties for the database account.
+properties:
+  name:
+    type: string
+    description: The name of the database account.
+  properties:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:documentdb/v20220515preview:DataTransferServiceResourcePropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:documentdb/v20220515preview:GraphAPIComputeServiceResourcePropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:documentdb/v20220515preview:MaterializedViewsBuilderServiceResourcePropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:documentdb/v20220515preview:SqlDedicatedGatewayServiceResourcePropertiesResponse"
+    discriminator:
+      propertyName: serviceType
+      mapping:
+        DataTransfer: "#/types/azure-native:documentdb/v20220515preview:DataTransferServiceResourcePropertiesResponse"
+        GraphAPICompute: "#/types/azure-native:documentdb/v20220515preview:GraphAPIComputeServiceResourcePropertiesResponse"
+        MaterializedViewsBuilder: "#/types/azure-native:documentdb/v20220515preview:MaterializedViewsBuilderServiceResourcePropertiesResponse"
+        SqlDedicatedGateway: "#/types/azure-native:documentdb/v20220515preview:SqlDedicatedGatewayServiceResourcePropertiesResponse"
+    description: Services response resource.
+  type:
+    type: string
+    description: The type of Azure resource.
+type: object
+required:
+  - name
+  - properties
+  - type
+inputProperties:
+  accountName:
+    type: string
+    description: Cosmos DB database account name.
+  instanceCount:
+    type: integer
+    description: Instance count for the service.
+  instanceSize:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:documentdb/v20220515preview:ServiceSize"
+    description: Instance type for the service.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  serviceName:
+    type: string
+    description: Cosmos DB service name.
+  serviceType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:documentdb/v20220515preview:ServiceType"
+    description: ServiceType for the service.
+requiredInputs:
+  - accountName
+  - resourceGroupName
+aliases:
+  - type: azure-native:documentdb:Service
+  - type: azure-native:documentdb/v20210401preview:Service
+  - type: azure-native:documentdb/v20210701preview:Service
+  - type: azure-native:documentdb/v20211015preview:Service
+  - type: azure-native:documentdb/v20211115preview:Service
+  - type: azure-native:documentdb/v20220215preview:Service
+  - type: azure-native:documentdb/v20220515:Service
+  - type: azure-native:documentdb/v20220815:Service

@@ -1,0 +1,73 @@
+$token: azure-native:sql/v20140401:ServerAzureADAdministrator
+description: An server Active Directory Administrator.
+properties:
+  administratorType:
+    type: string
+    description: The type of administrator.
+  login:
+    type: string
+    description: The server administrator login value.
+  name:
+    type: string
+    description: Resource name.
+  sid:
+    type: string
+    description: The server administrator Sid (Secure ID).
+  tenantId:
+    type: string
+    description: The server Active Directory Administrator tenant id.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - administratorType
+  - login
+  - name
+  - sid
+  - tenantId
+  - type
+inputProperties:
+  administratorName:
+    type: string
+    description: Name of the server administrator resource.
+  administratorType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:sql/v20140401:AdministratorType"
+    description: The type of administrator.
+  login:
+    type: string
+    description: The server administrator login value.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  serverName:
+    type: string
+    description: The name of the server.
+  sid:
+    type: string
+    description: The server administrator Sid (Secure ID).
+  tenantId:
+    type: string
+    description: The server Active Directory Administrator tenant id.
+requiredInputs:
+  - administratorType
+  - login
+  - resourceGroupName
+  - serverName
+  - sid
+  - tenantId
+aliases:
+  - type: azure-native:sql:ServerAzureADAdministrator
+  - type: azure-native:sql/v20180601preview:ServerAzureADAdministrator
+  - type: azure-native:sql/v20190601preview:ServerAzureADAdministrator
+  - type: azure-native:sql/v20200202preview:ServerAzureADAdministrator
+  - type: azure-native:sql/v20200801preview:ServerAzureADAdministrator
+  - type: azure-native:sql/v20201101preview:ServerAzureADAdministrator
+  - type: azure-native:sql/v20210201preview:ServerAzureADAdministrator
+  - type: azure-native:sql/v20210501preview:ServerAzureADAdministrator
+  - type: azure-native:sql/v20210801preview:ServerAzureADAdministrator
+  - type: azure-native:sql/v20211101:ServerAzureADAdministrator
+  - type: azure-native:sql/v20211101preview:ServerAzureADAdministrator
+  - type: azure-native:sql/v20220201preview:ServerAzureADAdministrator

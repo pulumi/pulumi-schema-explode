@@ -1,0 +1,75 @@
+$token: azure-native:datafactory:HDInsightHiveActivity
+description: HDInsight Hive activity type.
+properties:
+  arguments:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: User specified arguments to HDInsightActivity.
+  defines:
+    type: object
+    additionalProperties:
+      $ref: pulumi.json#/Any
+    description: Allows user to specify defines for Hive job request.
+  dependsOn:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory:ActivityDependency"
+    description: Activity depends on condition.
+  description:
+    type: string
+    description: Activity description.
+  getDebugInfo:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:datafactory:HDInsightActivityDebugInfoOption"
+    description: Debug info option.
+  linkedServiceName:
+    type: object
+    $ref: "#/types/azure-native:datafactory:LinkedServiceReference"
+    description: Linked service reference.
+  name:
+    type: string
+    description: Activity name.
+  policy:
+    type: object
+    $ref: "#/types/azure-native:datafactory:ActivityPolicy"
+    description: Activity policy.
+  queryTimeout:
+    type: integer
+    description: Query timeout value (in minutes).  Effective when the HDInsight cluster is with ESP (Enterprise Security Package)
+  scriptLinkedService:
+    type: object
+    $ref: "#/types/azure-native:datafactory:LinkedServiceReference"
+    description: Script linked service reference.
+  scriptPath:
+    $ref: pulumi.json#/Any
+    description: "Script path. Type: string (or Expression with resultType string)."
+  storageLinkedServices:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory:LinkedServiceReference"
+    description: Storage linked service references.
+  type:
+    type: string
+    description: |-
+      Type of activity.
+      Expected value is 'HDInsightHive'.
+    const: HDInsightHive
+  userProperties:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory:UserProperty"
+    description: Activity user properties.
+  variables:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: User specified arguments under hivevar namespace.
+type: object
+required:
+  - name
+  - type

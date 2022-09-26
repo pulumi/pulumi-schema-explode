@@ -1,0 +1,36 @@
+$token: azure-native:insights/v20200501preview:ConditionResponse
+description: A condition of the scheduled query rule.
+properties:
+  dimensions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:insights/v20200501preview:DimensionResponse"
+    description: List of Dimensions conditions
+  failingPeriods:
+    type: object
+    $ref: "#/types/azure-native:insights/v20200501preview:ConditionResponseFailingPeriods"
+    description: The minimum number of violations required within the selected lookback time window required to raise an alert.
+  metricMeasureColumn:
+    type: string
+    description: The column containing the metric measure number.
+  operator:
+    type: string
+    description: The criteria operator.
+  query:
+    type: string
+    description: Log query alert
+  resourceIdColumn:
+    type: string
+    description: The column containing the resource id. The content of the column must be a uri formatted as resource id
+  threshold:
+    type: number
+    description: the criteria threshold value that activates the alert.
+  timeAggregation:
+    type: string
+    description: Aggregation type
+type: object
+required:
+  - operator
+  - threshold
+  - timeAggregation

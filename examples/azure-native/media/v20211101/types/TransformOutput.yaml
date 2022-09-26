@@ -1,0 +1,37 @@
+$token: azure-native:media/v20211101:TransformOutput
+description: Describes the properties of a TransformOutput, which are the rules to be applied while generating the desired output.
+properties:
+  onError:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:media/v20211101:OnErrorType"
+    description: A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
+  preset:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:media/v20211101:AudioAnalyzerPreset"
+      - type: object
+        $ref: "#/types/azure-native:media/v20211101:BuiltInStandardEncoderPreset"
+      - type: object
+        $ref: "#/types/azure-native:media/v20211101:FaceDetectorPreset"
+      - type: object
+        $ref: "#/types/azure-native:media/v20211101:StandardEncoderPreset"
+      - type: object
+        $ref: "#/types/azure-native:media/v20211101:VideoAnalyzerPreset"
+    discriminator:
+      propertyName: odataType
+      mapping:
+        "#Microsoft.Media.AudioAnalyzerPreset": "#/types/azure-native:media/v20211101:AudioAnalyzerPreset"
+        "#Microsoft.Media.BuiltInStandardEncoderPreset": "#/types/azure-native:media/v20211101:BuiltInStandardEncoderPreset"
+        "#Microsoft.Media.FaceDetectorPreset": "#/types/azure-native:media/v20211101:FaceDetectorPreset"
+        "#Microsoft.Media.StandardEncoderPreset": "#/types/azure-native:media/v20211101:StandardEncoderPreset"
+        "#Microsoft.Media.VideoAnalyzerPreset": "#/types/azure-native:media/v20211101:VideoAnalyzerPreset"
+    description: Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
+  relativePriority:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:media/v20211101:Priority"
+    description: Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
+type: object
+required:
+  - preset

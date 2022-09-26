@@ -1,0 +1,55 @@
+$token: azure-native:network/v20210201preview:NetworkSecurityPerimeter
+description: The Network Security Perimeter resource
+properties:
+  location:
+    type: string
+    description: Resource location.
+  name:
+    type: string
+    description: Resource name.
+  perimeterGuid:
+    type: string
+    description: perimeter guid of the network security perimeter.
+  provisioningState:
+    type: string
+    description: The provisioning state of the scope assignment resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - name
+  - perimeterGuid
+  - provisioningState
+  - type
+inputProperties:
+  id:
+    type: string
+    description: Resource ID.
+  location:
+    type: string
+    description: Resource location.
+  name:
+    type: string
+    description: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+  networkSecurityPerimeterName:
+    type: string
+    description: The name of the network security perimeter.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:network:NetworkSecurityPerimeter
+  - type: azure-native:network/v20210301preview:NetworkSecurityPerimeter

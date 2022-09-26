@@ -1,0 +1,126 @@
+$token: azure-native:webpubsub/v20210401preview:getWebPubSub
+description: A class represent a resource.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    resourceName:
+      type: string
+      description: The name of the resource.
+  type: object
+  required:
+    - resourceGroupName
+    - resourceName
+outputs:
+  description: A class represent a resource.
+  properties:
+    eventHandler:
+      type: object
+      $ref: "#/types/azure-native:webpubsub/v20210401preview:EventHandlerSettingsResponse"
+      description: The settings for event handler in webpubsub service.
+    externalIP:
+      type: string
+      description: The publicly accessible IP of the resource.
+    features:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:webpubsub/v20210401preview:WebPubSubFeatureResponse"
+      description: "List of the featureFlags.\r
+
+        \r
+
+        FeatureFlags that are not included in the parameters for the update operation will not be modified.\r
+
+        And the response will only include featureFlags that are explicitly set. \r
+
+        When a featureFlag is not explicitly set, its globally default value will be used\r
+
+        But keep in mind, the default value doesn't mean \"false\". It varies in terms of different FeatureFlags."
+    hostName:
+      type: string
+      description: FQDN of the service instance.
+    id:
+      type: string
+      description: Fully qualified resource Id for the resource.
+    identity:
+      type: object
+      $ref: "#/types/azure-native:webpubsub/v20210401preview:ManagedIdentityResponse"
+      description: The managed identity response
+    location:
+      type: string
+      description: The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
+    name:
+      type: string
+      description: The name of the resource.
+    networkACLs:
+      type: object
+      $ref: "#/types/azure-native:webpubsub/v20210401preview:WebPubSubNetworkACLsResponse"
+      description: Network ACLs
+    privateEndpointConnections:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:webpubsub/v20210401preview:PrivateEndpointConnectionResponse"
+      description: Private endpoint connections to the resource.
+    provisioningState:
+      type: string
+      description: Provisioning state of the resource.
+    publicNetworkAccess:
+      type: string
+      description: "Enable or disable public network access. Default to \"Enabled\".\r
+
+        When it's Enabled, network ACLs still apply.\r
+
+        When it's Disabled, public network access is always disabled no matter what you set in network ACLs."
+      default: Enabled
+    publicPort:
+      type: integer
+      description: The publicly accessible port of the resource which is designed for browser/client side usage.
+    serverPort:
+      type: integer
+      description: The publicly accessible port of the resource which is designed for customer server side usage.
+    sharedPrivateLinkResources:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:webpubsub/v20210401preview:SharedPrivateLinkResourceResponse"
+      description: The list of shared private link resources.
+    sku:
+      type: object
+      $ref: "#/types/azure-native:webpubsub/v20210401preview:ResourceSkuResponse"
+      description: The billing information of the resource.(e.g. Free, Standard)
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:webpubsub/v20210401preview:SystemDataResponse"
+      description: Metadata pertaining to creation and last modification of the resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Tags of the service which is a list of key value pairs that describe the resource.
+    tls:
+      type: object
+      $ref: "#/types/azure-native:webpubsub/v20210401preview:WebPubSubTlsSettingsResponse"
+      description: TLS settings.
+    type:
+      type: string
+      description: The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+    version:
+      type: string
+      description: Version of the resource. Probably you need the same or higher version of client SDKs.
+  type: object
+  required:
+    - externalIP
+    - hostName
+    - id
+    - name
+    - privateEndpointConnections
+    - provisioningState
+    - publicPort
+    - serverPort
+    - sharedPrivateLinkResources
+    - systemData
+    - type
+    - version

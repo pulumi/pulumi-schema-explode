@@ -1,0 +1,19 @@
+$token: azure-native:machinelearningservices/v20220601preview:EncryptionProperty
+properties:
+  identity:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:IdentityForCmk"
+    description: The identity that will be used to access the key vault for encryption at rest.
+  keyVaultProperties:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:EncryptionKeyVaultProperties"
+    description: Customer Key vault properties.
+  status:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearningservices/v20220601preview:EncryptionStatus"
+    description: Indicates whether or not the encryption is enabled for the workspace.
+type: object
+required:
+  - keyVaultProperties
+  - status

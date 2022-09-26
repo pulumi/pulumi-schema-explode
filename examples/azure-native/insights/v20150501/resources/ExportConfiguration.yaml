@@ -1,0 +1,121 @@
+$token: azure-native:insights/v20150501:ExportConfiguration
+description: Properties that define a Continuous Export configuration.
+properties:
+  applicationName:
+    type: string
+    description: The name of the Application Insights component.
+  containerName:
+    type: string
+    description: The name of the destination storage container.
+  destinationAccountId:
+    type: string
+    description: The name of destination account.
+  destinationStorageLocationId:
+    type: string
+    description: The destination account location ID.
+  destinationStorageSubscriptionId:
+    type: string
+    description: The destination storage account subscription ID.
+  destinationType:
+    type: string
+    description: The destination type.
+  exportId:
+    type: string
+    description: The unique ID of the export configuration inside an Application Insights component. It is auto generated when the Continuous Export configuration is created.
+  exportStatus:
+    type: string
+    description: This indicates current Continuous Export configuration status. The possible values are 'Preparing', 'Success', 'Failure'.
+  instrumentationKey:
+    type: string
+    description: The instrumentation key of the Application Insights component.
+  isUserEnabled:
+    type: string
+    description: This will be 'true' if the Continuous Export configuration is enabled, otherwise it will be 'false'.
+  lastGapTime:
+    type: string
+    description: The last time the Continuous Export configuration started failing.
+  lastSuccessTime:
+    type: string
+    description: The last time data was successfully delivered to the destination storage container for this Continuous Export configuration.
+  lastUserUpdate:
+    type: string
+    description: Last time the Continuous Export configuration was updated.
+  notificationQueueEnabled:
+    type: string
+    description: Deprecated
+  permanentErrorReason:
+    type: string
+    description: This is the reason the Continuous Export configuration started failing. It can be 'AzureStorageNotFound' or 'AzureStorageAccessDenied'.
+  recordTypes:
+    type: string
+    description: This comma separated list of document types that will be exported. The possible values include 'Requests', 'Event', 'Exceptions', 'Metrics', 'PageViews', 'PageViewPerformance', 'Rdd', 'PerformanceCounters', 'Availability', 'Messages'.
+  resourceGroup:
+    type: string
+    description: The resource group of the Application Insights component.
+  storageName:
+    type: string
+    description: The name of the destination storage account.
+  subscriptionId:
+    type: string
+    description: The subscription of the Application Insights component.
+type: object
+required:
+  - applicationName
+  - containerName
+  - destinationAccountId
+  - destinationStorageLocationId
+  - destinationStorageSubscriptionId
+  - destinationType
+  - exportId
+  - exportStatus
+  - instrumentationKey
+  - isUserEnabled
+  - lastGapTime
+  - lastSuccessTime
+  - lastUserUpdate
+  - permanentErrorReason
+  - resourceGroup
+  - storageName
+  - subscriptionId
+inputProperties:
+  destinationAccountId:
+    type: string
+    description: The name of destination storage account.
+  destinationAddress:
+    type: string
+    description: The SAS URL for the destination storage container. It must grant write permission.
+  destinationStorageLocationId:
+    type: string
+    description: The location ID of the destination storage container.
+  destinationStorageSubscriptionId:
+    type: string
+    description: The subscription ID of the destination storage container.
+  destinationType:
+    type: string
+    description: The Continuous Export destination type. This has to be 'Blob'.
+  exportId:
+    type: string
+    description: The Continuous Export configuration ID. This is unique within a Application Insights component.
+  isEnabled:
+    type: string
+    description: Set to 'true' to create a Continuous Export configuration as enabled, otherwise set it to 'false'.
+  notificationQueueEnabled:
+    type: string
+    description: Deprecated
+  notificationQueueUri:
+    type: string
+    description: Deprecated
+  recordTypes:
+    type: string
+    description: The document types to be exported, as comma separated values. Allowed values include 'Requests', 'Event', 'Exceptions', 'Metrics', 'PageViews', 'PageViewPerformance', 'Rdd', 'PerformanceCounters', 'Availability', 'Messages'.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  resourceName:
+    type: string
+    description: The name of the Application Insights component resource.
+requiredInputs:
+  - resourceGroupName
+  - resourceName
+aliases:
+  - type: azure-native:insights:ExportConfiguration

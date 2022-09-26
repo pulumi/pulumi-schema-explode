@@ -1,0 +1,52 @@
+$token: azure-native:hybridcontainerservice/v20220501preview:VirtualNetworksPropertiesResponse
+description: HybridAKSNetworkSpec defines the desired state of HybridAKSNetwork
+properties:
+  dhcpServers:
+    type: array
+    items:
+      type: string
+    description: Address of the DHCP servers associated with the network
+  dnsServers:
+    type: array
+    items:
+      type: string
+    description: Address of the DNS servers associated with the network
+  gateway:
+    type: string
+    description: Address of the Gateway associated with the network
+  infraVnetProfile:
+    type: object
+    $ref: "#/types/azure-native:hybridcontainerservice/v20220501preview:VirtualNetworksPropertiesResponseInfraVnetProfile"
+  ipAddressPrefix:
+    type: string
+    description: IP Address Prefix of the network
+  provisioningState:
+    type: string
+  status:
+    type: object
+    $ref: "#/types/azure-native:hybridcontainerservice/v20220501preview:VirtualNetworksPropertiesResponseStatus"
+    description: HybridAKSNetworkStatus defines the observed state of HybridAKSNetwork
+  vipPool:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:hybridcontainerservice/v20220501preview:VirtualNetworksPropertiesResponseVipPool"
+    description: Virtual IP Pool for Kubernetes
+  vlanID:
+    type: string
+    description: VLAN Id used by the network
+  vmipPool:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:hybridcontainerservice/v20220501preview:VirtualNetworksPropertiesResponseVmipPool"
+    description: IP Pool for Virtual Machines
+type: object
+required:
+  - dhcpServers
+  - dnsServers
+  - gateway
+  - ipAddressPrefix
+  - provisioningState
+  - status
+  - vlanID

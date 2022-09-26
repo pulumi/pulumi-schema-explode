@@ -1,0 +1,126 @@
+$token: azure-native:videoanalyzer:PipelineTopology
+properties:
+  description:
+    type: string
+    description: An optional description of the pipeline topology. It is recommended that the expected use of the topology to be described here.
+  kind:
+    type: string
+    description: Topology kind.
+  name:
+    type: string
+    description: The name of the resource
+  parameters:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:videoanalyzer:ParameterDeclarationResponse"
+    description: List of the topology parameter declarations. Parameters declared here can be referenced throughout the topology nodes through the use of "${PARAMETER_NAME}" string pattern. Parameters can have optional default values and can later be defined in individual instances of the pipeline.
+  processors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:videoanalyzer:EncoderProcessorResponse"
+    description: List of the topology processor nodes. Processor nodes enable pipeline data to be analyzed, processed or transformed.
+  sinks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:videoanalyzer:VideoSinkResponse"
+    description: List of the topology sink nodes. Sink nodes allow pipeline data to be stored or exported.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:videoanalyzer:SkuResponse"
+    description: Describes the properties of a SKU.
+  sources:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:videoanalyzer:RtspSourceResponse"
+        - type: object
+          $ref: "#/types/azure-native:videoanalyzer:VideoSourceResponse"
+      discriminator:
+        propertyName: type
+        mapping:
+          "#Microsoft.VideoAnalyzer.RtspSource": "#/types/azure-native:videoanalyzer:RtspSourceResponse"
+          "#Microsoft.VideoAnalyzer.VideoSource": "#/types/azure-native:videoanalyzer:VideoSourceResponse"
+    description: List of the topology source nodes. Source nodes enable external data to be ingested by the pipeline.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:videoanalyzer:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - kind
+  - name
+  - sinks
+  - sku
+  - sources
+  - systemData
+  - type
+inputProperties:
+  accountName:
+    type: string
+    description: The Azure Video Analyzer account name.
+  description:
+    type: string
+    description: An optional description of the pipeline topology. It is recommended that the expected use of the topology to be described here.
+  kind:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:videoanalyzer:Kind"
+    description: Topology kind.
+  parameters:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:videoanalyzer:ParameterDeclaration"
+    description: List of the topology parameter declarations. Parameters declared here can be referenced throughout the topology nodes through the use of "${PARAMETER_NAME}" string pattern. Parameters can have optional default values and can later be defined in individual instances of the pipeline.
+  pipelineTopologyName:
+    type: string
+    description: Pipeline topology unique identifier.
+  processors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:videoanalyzer:EncoderProcessor"
+    description: List of the topology processor nodes. Processor nodes enable pipeline data to be analyzed, processed or transformed.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  sinks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:videoanalyzer:VideoSink"
+    description: List of the topology sink nodes. Sink nodes allow pipeline data to be stored or exported.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:videoanalyzer:Sku"
+    description: Describes the properties of a SKU.
+  sources:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:videoanalyzer:RtspSource"
+        - type: object
+          $ref: "#/types/azure-native:videoanalyzer:VideoSource"
+      discriminator:
+        propertyName: type
+        mapping:
+          "#Microsoft.VideoAnalyzer.RtspSource": "#/types/azure-native:videoanalyzer:RtspSource"
+          "#Microsoft.VideoAnalyzer.VideoSource": "#/types/azure-native:videoanalyzer:VideoSource"
+    description: List of the topology source nodes. Source nodes enable external data to be ingested by the pipeline.
+requiredInputs:
+  - accountName
+  - kind
+  - resourceGroupName
+  - sinks
+  - sku
+  - sources
+aliases:
+  - type: azure-native:videoanalyzer/v20211101preview:PipelineTopology

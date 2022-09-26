@@ -1,0 +1,29 @@
+$token: azure-native:costmanagement/v20180801preview:ReportDataset
+description: The definition of data present in the report.
+properties:
+  aggregation:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:costmanagement/v20180801preview:ReportAggregation"
+    description: Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
+  configuration:
+    type: object
+    $ref: "#/types/azure-native:costmanagement/v20180801preview:ReportDatasetConfiguration"
+    description: Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
+  filter:
+    type: object
+    $ref: "#/types/azure-native:costmanagement/v20180801preview:ReportFilter"
+    description: Has filter expression to use in the report.
+  granularity:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:costmanagement/v20180801preview:GranularityType"
+    description: The granularity of rows in the report.
+  grouping:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:costmanagement/v20180801preview:ReportGrouping"
+    description: Array of group by expression to use in the report. Report can have up to 2 group by clauses.
+type: object

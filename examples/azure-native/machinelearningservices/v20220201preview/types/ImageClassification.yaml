@@ -1,0 +1,50 @@
+$token: azure-native:machinelearningservices/v20220201preview:ImageClassification
+description: "Image Classification. Multi-class image classification is used when an image is classified with only a single label\r
+
+  from a set of classes - e.g. each image is classified as either an image of a 'cat' or a 'dog' or a 'duck'."
+properties:
+  dataSettings:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220201preview:ImageVerticalDataSettings"
+    description: "[Required] Collection of registered Tabular Dataset Ids and other data settings required for training and validating models."
+  limitSettings:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220201preview:ImageLimitSettings"
+    description: "[Required] Limit settings for the AutoML job."
+  logVerbosity:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearningservices/v20220201preview:LogVerbosity"
+    description: Log verbosity for the job.
+    default: Info
+  modelSettings:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220201preview:ImageModelSettingsClassification"
+    description: Settings used for training the model.
+  primaryMetric:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearningservices/v20220201preview:ClassificationPrimaryMetrics"
+    description: Primary metric to optimize for this task.
+    default: Accuracy
+  searchSpace:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20220201preview:ImageModelDistributionSettingsClassification"
+    description: Search space for sampling different combinations of models and their hyperparameters.
+  sweepSettings:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220201preview:ImageSweepSettings"
+    description: Model sweeping and hyperparameter sweeping related settings.
+  taskType:
+    type: string
+    description: |-
+      AutoMLJob Task type.
+      Expected value is 'ImageClassification'.
+    const: ImageClassification
+type: object
+required:
+  - dataSettings
+  - limitSettings
+  - taskType

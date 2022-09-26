@@ -1,0 +1,80 @@
+$token: azure-native:security/v20200101:AdaptiveApplicationControl
+properties:
+  configurationStatus:
+    type: string
+    description: The configuration status of the machines group or machine or rule
+  enforcementMode:
+    type: string
+    description: The application control policy enforcement/protection mode of the machine group
+  issues:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:security/v20200101:AdaptiveApplicationControlIssueSummaryResponse"
+  location:
+    type: string
+    description: Location where the resource is stored
+  name:
+    type: string
+    description: Resource name
+  pathRecommendations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:security/v20200101:PathRecommendationResponse"
+  protectionMode:
+    type: object
+    $ref: "#/types/azure-native:security/v20200101:ProtectionModeResponse"
+    description: The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+  recommendationStatus:
+    type: string
+    description: The initial recommendation status of the machine group or machine
+  sourceSystem:
+    type: string
+    description: The source type of the machine group
+  type:
+    type: string
+    description: Resource type
+  vmRecommendations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:security/v20200101:VmRecommendationResponse"
+type: object
+required:
+  - configurationStatus
+  - issues
+  - location
+  - name
+  - recommendationStatus
+  - sourceSystem
+  - type
+inputProperties:
+  ascLocation:
+    type: string
+    description: The location where ASC stores the data of the subscription. can be retrieved from Get locations
+  enforcementMode:
+    type: string
+    description: The application control policy enforcement/protection mode of the machine group
+  groupName:
+    type: string
+    description: Name of an application control machine group
+  pathRecommendations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:security/v20200101:PathRecommendation"
+  protectionMode:
+    type: object
+    $ref: "#/types/azure-native:security/v20200101:ProtectionMode"
+    description: The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+  vmRecommendations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:security/v20200101:VmRecommendation"
+requiredInputs:
+  - ascLocation
+aliases:
+  - type: azure-native:security:AdaptiveApplicationControl
+  - type: azure-native:security/v20150601preview:AdaptiveApplicationControl

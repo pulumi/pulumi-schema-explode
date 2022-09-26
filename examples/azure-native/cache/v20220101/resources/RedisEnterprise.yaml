@@ -1,0 +1,96 @@
+$token: azure-native:cache/v20220101:RedisEnterprise
+description: Describes the RedisEnterprise cluster
+properties:
+  hostName:
+    type: string
+    description: DNS name of the cluster endpoint
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  minimumTlsVersion:
+    type: string
+    description: The minimum TLS version for the cluster to support, e.g. '1.2'
+  name:
+    type: string
+    description: The name of the resource
+  privateEndpointConnections:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:cache/v20220101:PrivateEndpointConnectionResponse"
+    description: List of private endpoint connections associated with the specified RedisEnterprise cluster
+  provisioningState:
+    type: string
+    description: Current provisioning status of the cluster
+  redisVersion:
+    type: string
+    description: Version of redis the cluster supports, e.g. '6'
+  resourceState:
+    type: string
+    description: Current resource status of the cluster
+  sku:
+    type: object
+    $ref: "#/types/azure-native:cache/v20220101:EnterpriseSkuResponse"
+    description: The SKU to create, which affects price, performance, and features.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  zones:
+    type: array
+    items:
+      type: string
+    description: The Availability Zones where this cluster will be deployed.
+type: object
+required:
+  - hostName
+  - location
+  - name
+  - privateEndpointConnections
+  - provisioningState
+  - redisVersion
+  - resourceState
+  - sku
+  - type
+inputProperties:
+  clusterName:
+    type: string
+    description: The name of the RedisEnterprise cluster.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  minimumTlsVersion:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:cache/v20220101:TlsVersion"
+    description: The minimum TLS version for the cluster to support, e.g. '1.2'
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:cache/v20220101:EnterpriseSku"
+    description: The SKU to create, which affects price, performance, and features.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  zones:
+    type: array
+    items:
+      type: string
+    description: The Availability Zones where this cluster will be deployed.
+requiredInputs:
+  - resourceGroupName
+  - sku
+aliases:
+  - type: azure-native:cache:RedisEnterprise
+  - type: azure-native:cache/v20201001preview:RedisEnterprise
+  - type: azure-native:cache/v20210201preview:RedisEnterprise
+  - type: azure-native:cache/v20210301:RedisEnterprise
+  - type: azure-native:cache/v20210801:RedisEnterprise

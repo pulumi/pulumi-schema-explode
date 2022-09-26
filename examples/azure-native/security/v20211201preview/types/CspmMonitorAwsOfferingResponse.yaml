@@ -1,0 +1,20 @@
+$token: azure-native:security/v20211201preview:CspmMonitorAwsOfferingResponse
+description: The CSPM monitoring for AWS offering
+properties:
+  description:
+    type: string
+    description: The offering description.
+  nativeCloudConnection:
+    type: object
+    $ref: "#/types/azure-native:security/v20211201preview:CspmMonitorAwsOfferingResponseNativeCloudConnection"
+    description: The native cloud connection configuration
+  offeringType:
+    type: string
+    description: |-
+      The type of the security offering.
+      Expected value is 'CspmMonitorAws'.
+    const: CspmMonitorAws
+type: object
+required:
+  - description
+  - offeringType

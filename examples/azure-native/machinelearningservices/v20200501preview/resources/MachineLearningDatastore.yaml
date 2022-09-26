@@ -1,0 +1,151 @@
+$token: azure-native:machinelearningservices/v20200501preview:MachineLearningDatastore
+description: Machine Learning datastore object wrapped into ARM resource envelope.
+properties:
+  identity:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20200501preview:IdentityResponse"
+    description: The identity of the resource.
+  location:
+    type: string
+    description: Specifies the location of the resource.
+  name:
+    type: string
+    description: Specifies the name of the resource.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20200501preview:DatastoreResponse"
+    description: Datastore properties
+  sku:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20200501preview:SkuResponse"
+    description: The sku of the workspace.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Contains resource tags defined as key/value pairs.
+  type:
+    type: string
+    description: Specifies the type of the resource.
+type: object
+required:
+  - name
+  - properties
+  - type
+inputProperties:
+  accountKey:
+    type: string
+    description: Account Key of storage account.
+  accountName:
+    type: string
+    description: The name of the storage account.
+  adlsResourceGroup:
+    type: string
+    description: The resource group the ADLS store belongs to. Defaults to selected resource group.
+  adlsSubscriptionId:
+    type: string
+    description: The ID of the subscription the ADLS store belongs to. Defaults to selected subscription.
+  authorityUrl:
+    type: string
+    description: Authority url used to authenticate the user.
+  clientId:
+    type: string
+    description: The service principal's client/application ID.
+  clientSecret:
+    type: string
+    description: The service principal's secret.
+  containerName:
+    type: string
+    description: The name of the azure blob container.
+  dataStoreType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearningservices/v20200501preview:DatastoreTypeArm"
+    description: Specifies datastore type.
+  databaseName:
+    type: string
+    description: The database name.
+  datastoreName:
+    type: string
+    description: The Datastore name.
+  description:
+    type: string
+    description: The description of the datastore.
+  endpoint:
+    type: string
+    description: The endpoint of the server.
+  enforceSSL:
+    type: boolean
+    description: This sets the ssl value of the server. Defaults to true if not set.
+    default: true
+  fileSystem:
+    type: string
+    description: The file system name of the ADLS Gen2.
+  includeSecret:
+    type: boolean
+    description: Include datastore secret in response.
+    default: true
+  name:
+    type: string
+    description: The name of the datastore.
+  password:
+    type: string
+    description: The password.
+  port:
+    type: string
+    description: The port number.
+  protocol:
+    type: string
+    description: The protocol to be used
+  resourceGroupName:
+    type: string
+    description: Name of the resource group in which workspace is located.
+  resourceUrl:
+    type: string
+    description: Determines what operations will be performed.
+  sasToken:
+    type: string
+    description: Sas Token of storage account.
+  serverName:
+    type: string
+    description: The SQL/MySQL/PostgreSQL server name
+  shareName:
+    type: string
+    description: The name of the file share.
+  skipValidation:
+    type: boolean
+    description: Skip validation that ensures data can be loaded from the dataset before registration.
+  storageAccountResourceGroup:
+    type: string
+    description: The resource group of the storage account. Defaults to selected resource group
+  storageAccountSubscriptionId:
+    type: string
+    description: The subscription ID of the storage account. Defaults to selected subscription
+  storeName:
+    type: string
+    description: The ADLS store name.
+  tenantId:
+    type: string
+    description: The service principal Tenant ID.
+  userId:
+    type: string
+    description: The user ID.
+  userName:
+    type: string
+    description: The username of the database user.
+  workspaceName:
+    type: string
+    description: Name of Azure Machine Learning workspace.
+  workspaceSystemAssignedIdentity:
+    type: boolean
+    description: If set to true, datastore support data access authenticated with Workspace MSI.
+requiredInputs:
+  - dataStoreType
+  - resourceGroupName
+  - workspaceName
+aliases:
+  - type: azure-native:machinelearningservices:MachineLearningDatastore
+  - type: azure-native:machinelearningservices/v20210301preview:MachineLearningDatastore
+  - type: azure-native:machinelearningservices/v20220201preview:MachineLearningDatastore
+  - type: azure-native:machinelearningservices/v20220501:MachineLearningDatastore
+  - type: azure-native:machinelearningservices/v20220601preview:MachineLearningDatastore

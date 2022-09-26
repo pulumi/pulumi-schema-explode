@@ -1,0 +1,32 @@
+$token: azure-native:datamigration/v20220130preview:MigrateMISyncCompleteCommandPropertiesResponse
+description: Properties for the command that completes online migration for an Azure SQL Database Managed Instance.
+properties:
+  commandType:
+    type: string
+    description: |-
+      Command type.
+      Expected value is 'Migrate.SqlServer.AzureDbSqlMi.Complete'.
+    const: Migrate.SqlServer.AzureDbSqlMi.Complete
+  errors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration/v20220130preview:ODataErrorResponse"
+    description: Array of errors. This is ignored if submitted.
+  input:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20220130preview:MigrateMISyncCompleteCommandInputResponse"
+    description: Command input
+  output:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20220130preview:MigrateMISyncCompleteCommandOutputResponse"
+    description: Command output. This is ignored if submitted.
+  state:
+    type: string
+    description: The state of the command. This is ignored if submitted.
+type: object
+required:
+  - commandType
+  - errors
+  - output
+  - state

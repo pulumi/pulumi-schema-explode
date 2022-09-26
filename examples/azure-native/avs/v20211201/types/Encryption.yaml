@@ -1,0 +1,13 @@
+$token: azure-native:avs/v20211201:Encryption
+description: The properties of customer managed encryption key
+properties:
+  keyVaultProperties:
+    type: object
+    $ref: "#/types/azure-native:avs/v20211201:EncryptionKeyVaultProperties"
+    description: The key vault where the encryption key is stored
+  status:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:avs/v20211201:EncryptionState"
+    description: Status of customer managed encryption key
+type: object

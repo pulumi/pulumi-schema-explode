@@ -1,0 +1,113 @@
+$token: azure-native:domainregistration:getDomain
+description: |-
+  Information about a domain.
+  API Version: 2020-10-01.
+inputs:
+  properties:
+    domainName:
+      type: string
+      description: Name of the domain.
+    resourceGroupName:
+      type: string
+      description: Name of the resource group to which the resource belongs.
+  type: object
+  required:
+    - domainName
+    - resourceGroupName
+outputs:
+  description: Information about a domain.
+  properties:
+    authCode:
+      type: string
+    autoRenew:
+      type: boolean
+      description: <code>true</code> if the domain should be automatically renewed; otherwise, <code>false</code>.
+      default: true
+    createdTime:
+      type: string
+      description: Domain creation timestamp.
+    dnsType:
+      type: string
+      description: Current DNS type
+    dnsZoneId:
+      type: string
+      description: Azure DNS Zone to use
+    domainNotRenewableReasons:
+      type: array
+      items:
+        type: string
+      description: Reasons why domain is not renewable.
+    expirationTime:
+      type: string
+      description: Domain expiration timestamp.
+    id:
+      type: string
+      description: Resource Id.
+    kind:
+      type: string
+      description: Kind of resource.
+    lastRenewedTime:
+      type: string
+      description: Timestamp when the domain was renewed last time.
+    location:
+      type: string
+      description: Resource Location.
+    managedHostNames:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:domainregistration:HostNameResponse"
+      description: All hostnames derived from the domain and assigned to Azure resources.
+    name:
+      type: string
+      description: Resource Name.
+    nameServers:
+      type: array
+      items:
+        type: string
+      description: Name servers.
+    privacy:
+      type: boolean
+      description: <code>true</code> if domain privacy is enabled for this domain; otherwise, <code>false</code>.
+    provisioningState:
+      type: string
+      description: Domain provisioning state.
+    readyForDnsRecordManagement:
+      type: boolean
+      description: |-
+        <code>true</code> if Azure can assign this domain to App Service apps; otherwise, <code>false</code>. This value will be <code>true</code> if domain registration status is active and 
+         it is hosted on name servers Azure has programmatic access to.
+    registrationStatus:
+      type: string
+      description: Domain registration status.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:domainregistration:SystemDataResponse"
+      description: The system metadata relating to this resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    targetDnsType:
+      type: string
+      description: Target DNS type (would be used for migration)
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - createdTime
+    - domainNotRenewableReasons
+    - expirationTime
+    - id
+    - lastRenewedTime
+    - location
+    - managedHostNames
+    - name
+    - nameServers
+    - provisioningState
+    - readyForDnsRecordManagement
+    - registrationStatus
+    - systemData
+    - type

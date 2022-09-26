@@ -1,0 +1,39 @@
+$token: azure-native:datafactory/v20180601:XmlReadSettingsResponse
+description: Xml read settings.
+properties:
+  compressionProperties:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:TarGZipReadSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:TarReadSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:ZipDeflateReadSettingsResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        TarGZipReadSettings: "#/types/azure-native:datafactory/v20180601:TarGZipReadSettingsResponse"
+        TarReadSettings: "#/types/azure-native:datafactory/v20180601:TarReadSettingsResponse"
+        ZipDeflateReadSettings: "#/types/azure-native:datafactory/v20180601:ZipDeflateReadSettingsResponse"
+    description: Compression settings.
+  detectDataType:
+    $ref: pulumi.json#/Any
+    description: "Indicates whether type detection is enabled when reading the xml files. Type: boolean (or Expression with resultType boolean)."
+  namespacePrefixes:
+    $ref: pulumi.json#/Any
+    description: 'Namespace uri to prefix mappings to override the prefixes in column names when namespace is enabled, if no prefix is defined for a namespace uri, the prefix of xml element/attribute name in the xml data file will be used. Example: "{"http://www.example.com/xml":"prefix"}" Type: object (or Expression with resultType object).'
+  namespaces:
+    $ref: pulumi.json#/Any
+    description: "Indicates whether namespace is enabled when reading the xml files. Type: boolean (or Expression with resultType boolean)."
+  type:
+    type: string
+    description: |-
+      The read setting type.
+      Expected value is 'XmlReadSettings'.
+    const: XmlReadSettings
+  validationMode:
+    $ref: pulumi.json#/Any
+    description: "Indicates what validation method is used when reading the xml files. Allowed values: 'none', 'xsd', or 'dtd'. Type: string (or Expression with resultType string)."
+type: object
+required:
+  - type

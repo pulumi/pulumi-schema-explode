@@ -1,0 +1,22 @@
+$token: azure-native:compute/v20211001:GalleryTargetExtendedLocation
+properties:
+  encryption:
+    type: object
+    $ref: "#/types/azure-native:compute/v20211001:EncryptionImages"
+    description: Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
+  extendedLocation:
+    type: object
+    $ref: "#/types/azure-native:compute/v20211001:GalleryExtendedLocation"
+    description: The name of the extended location.
+  extendedLocationReplicaCount:
+    type: integer
+    description: The number of replicas of the Image Version to be created per extended location. This property is updatable.
+  name:
+    type: string
+    description: The name of the region.
+  storageAccountType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:compute/v20211001:StorageAccountType"
+    description: Specifies the storage account type to be used to store the image. This property is not updatable.
+type: object

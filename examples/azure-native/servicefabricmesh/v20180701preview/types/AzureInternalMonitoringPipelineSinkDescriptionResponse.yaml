@@ -1,0 +1,33 @@
+$token: azure-native:servicefabricmesh/v20180701preview:AzureInternalMonitoringPipelineSinkDescriptionResponse
+description: Diagnostics settings for Geneva.
+properties:
+  accountName:
+    type: string
+    description: Azure Internal monitoring pipeline account.
+  autoKeyConfigUrl:
+    type: string
+    description: Azure Internal monitoring pipeline autokey associated with the certificate.
+  description:
+    type: string
+    description: A description of the sink.
+  fluentdConfigUrl:
+    $ref: pulumi.json#/Any
+    description: Azure Internal monitoring agent fluentd configuration.
+  kind:
+    type: string
+    description: |-
+      The kind of DiagnosticsSink.
+      Expected value is 'AzureInternalMonitoringPipeline'.
+    const: AzureInternalMonitoringPipeline
+  maConfigUrl:
+    type: string
+    description: Azure Internal monitoring agent configuration.
+  name:
+    type: string
+    description: Name of the sink. This value is referenced by DiagnosticsReferenceDescription
+  namespace:
+    type: string
+    description: Azure Internal monitoring pipeline account namespace.
+type: object
+required:
+  - kind

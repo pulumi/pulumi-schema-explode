@@ -1,0 +1,30 @@
+$token: azure-native:machinelearningservices/v20200515preview:listWorkspaceKeys
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: Name of the resource group in which workspace is located.
+    workspaceName:
+      type: string
+      description: Name of Azure Machine Learning workspace.
+  type: object
+  required:
+    - resourceGroupName
+    - workspaceName
+outputs:
+  properties:
+    appInsightsInstrumentationKey:
+      type: string
+    containerRegistryCredentials:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20200515preview:RegistryListCredentialsResultResponse"
+    userStorageKey:
+      type: string
+    userStorageResourceId:
+      type: string
+  type: object
+  required:
+    - appInsightsInstrumentationKey
+    - containerRegistryCredentials
+    - userStorageKey
+    - userStorageResourceId

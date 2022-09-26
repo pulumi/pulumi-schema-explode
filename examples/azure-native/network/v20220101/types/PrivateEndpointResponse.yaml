@@ -1,0 +1,80 @@
+$token: azure-native:network/v20220101:PrivateEndpointResponse
+description: Private endpoint resource.
+properties:
+  applicationSecurityGroups:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20220101:ApplicationSecurityGroupResponse"
+    description: Application security groups in which the private endpoint IP configuration is included.
+  customDnsConfigs:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20220101:CustomDnsConfigPropertiesFormatResponse"
+    description: An array of custom dns configurations.
+  customNetworkInterfaceName:
+    type: string
+    description: The custom name of the network interface attached to the private endpoint.
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  extendedLocation:
+    type: object
+    $ref: "#/types/azure-native:network/v20220101:ExtendedLocationResponse"
+    description: The extended location of the load balancer.
+  id:
+    type: string
+    description: Resource ID.
+  ipConfigurations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20220101:PrivateEndpointIPConfigurationResponse"
+    description: A list of IP configurations of the private endpoint. This will be used to map to the First Party Service's endpoints.
+  location:
+    type: string
+    description: Resource location.
+  manualPrivateLinkServiceConnections:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20220101:PrivateLinkServiceConnectionResponse"
+    description: A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
+  name:
+    type: string
+    description: Resource name.
+  networkInterfaces:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20220101:NetworkInterfaceResponse"
+    description: An array of references to the network interfaces created for this private endpoint.
+  privateLinkServiceConnections:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20220101:PrivateLinkServiceConnectionResponse"
+    description: A grouping of information about the connection to the remote resource.
+  provisioningState:
+    type: string
+    description: The provisioning state of the private endpoint resource.
+  subnet:
+    type: object
+    $ref: "#/types/azure-native:network/v20220101:SubnetResponse"
+    description: The ID of the subnet from which the private IP will be allocated.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - etag
+  - name
+  - networkInterfaces
+  - provisioningState
+  - type

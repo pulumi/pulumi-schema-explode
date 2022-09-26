@@ -1,0 +1,143 @@
+$token: azure-native:netapp/v20211001:VolumeGroupVolumeProperties
+description: Volume resource
+properties:
+  avsDataStore:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:netapp/v20211001:AvsDataStore"
+    description: Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
+    default: Disabled
+  backupId:
+    type: string
+    description: UUID v4 or resource identifier used to identify the Backup.
+  capacityPoolResourceId:
+    type: string
+    description: Pool Resource Id used in case of creating a volume through volume group
+  coolAccess:
+    type: boolean
+    description: Specifies whether Cool Access(tiering) is enabled for the volume.
+    default: false
+  coolnessPeriod:
+    type: integer
+    description: Specifies the number of days after which data that is not accessed by clients will be tiered.
+  creationToken:
+    type: string
+    description: A unique file path for the volume. Used when creating mount targets
+  dataProtection:
+    type: object
+    $ref: "#/types/azure-native:netapp/v20211001:VolumePropertiesDataProtection"
+    description: DataProtection type volumes include an object containing details of the replication
+  defaultGroupQuotaInKiBs:
+    type: number
+    description: Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
+    default: 0
+  defaultUserQuotaInKiBs:
+    type: number
+    description: Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
+    default: 0
+  enableSubvolumes:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:netapp/v20211001:EnableSubvolumes"
+    description: Flag indicating whether subvolume operations are enabled on the volume
+    default: Disabled
+  encryptionKeySource:
+    type: string
+    description: "Encryption Key Source. Possible values are: 'Microsoft.NetApp'"
+  exportPolicy:
+    type: object
+    $ref: "#/types/azure-native:netapp/v20211001:VolumePropertiesExportPolicy"
+    description: Set of export policy rules
+  isDefaultQuotaEnabled:
+    type: boolean
+    description: Specifies if default quota is enabled for the volume.
+    default: false
+  isRestoring:
+    type: boolean
+    description: Restoring
+  kerberosEnabled:
+    type: boolean
+    description: Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
+    default: false
+  ldapEnabled:
+    type: boolean
+    description: Specifies whether LDAP is enabled or not for a given NFS volume.
+    default: false
+  name:
+    type: string
+    description: Resource name
+  networkFeatures:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:netapp/v20211001:NetworkFeatures"
+    description: Basic network, or Standard features available to the volume.
+    default: Basic
+  placementRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:netapp/v20211001:PlacementKeyValuePairs"
+    description: Application specific placement rules for the particular volume
+  protocolTypes:
+    type: array
+    items:
+      type: string
+    description: Set of protocol types, default NFSv3, CIFS for SMB protocol
+  proximityPlacementGroup:
+    type: string
+    description: Proximity placement group associated with the volume
+  securityStyle:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:netapp/v20211001:SecurityStyle"
+    description: The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
+    default: unix
+  serviceLevel:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:netapp/v20211001:ServiceLevel"
+    description: The service level of the file system
+  smbContinuouslyAvailable:
+    type: boolean
+    description: Enables continuously available share property for smb volume. Only applicable for SMB volume
+    default: false
+  smbEncryption:
+    type: boolean
+    description: Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
+    default: false
+  snapshotDirectoryVisible:
+    type: boolean
+    description: If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
+    default: true
+  snapshotId:
+    type: string
+    description: UUID v4 or resource identifier used to identify the Snapshot.
+  subnetId:
+    type: string
+    description: The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  throughputMibps:
+    type: number
+  unixPermissions:
+    type: string
+    description: "UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users."
+    default: "0770"
+  usageThreshold:
+    type: number
+    description: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+    default: 107374182400
+  volumeSpecName:
+    type: string
+    description: Volume spec name is the application specific designation or identifier for the particular volume in a volume group for e.g. data, log
+  volumeType:
+    type: string
+    description: What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
+type: object
+required:
+  - creationToken
+  - subnetId
+  - usageThreshold

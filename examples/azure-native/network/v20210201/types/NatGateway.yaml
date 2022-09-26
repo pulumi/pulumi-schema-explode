@@ -1,0 +1,39 @@
+$token: azure-native:network/v20210201:NatGateway
+description: Nat Gateway resource.
+properties:
+  id:
+    type: string
+    description: Resource ID.
+  idleTimeoutInMinutes:
+    type: integer
+    description: The idle timeout of the nat gateway.
+  location:
+    type: string
+    description: Resource location.
+  publicIpAddresses:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210201:SubResource"
+    description: An array of public ip addresses associated with the nat gateway resource.
+  publicIpPrefixes:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20210201:SubResource"
+    description: An array of public ip prefixes associated with the nat gateway resource.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:network/v20210201:NatGatewaySku"
+    description: The nat gateway SKU.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  zones:
+    type: array
+    items:
+      type: string
+    description: A list of availability zones denoting the zone in which Nat Gateway should be deployed.
+type: object

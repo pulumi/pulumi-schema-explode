@@ -1,0 +1,71 @@
+$token: azure-native:datamigration/v20220330preview:MigrateSqlServerSqlDbSyncTaskPropertiesResponse
+description: Properties for the task that migrates on-prem SQL Server databases to Azure SQL Database for online migrations
+properties:
+  clientData:
+    type: object
+    additionalProperties:
+      type: string
+    description: Key value pairs of client data to attach meta data information to task
+  commands:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:datamigration/v20220330preview:MigrateMISyncCompleteCommandPropertiesResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration/v20220330preview:MigrateSyncCompleteCommandPropertiesResponse"
+      discriminator:
+        propertyName: commandType
+        mapping:
+          Migrate.SqlServer.AzureDbSqlMi.Complete: "#/types/azure-native:datamigration/v20220330preview:MigrateMISyncCompleteCommandPropertiesResponse"
+          Migrate.Sync.Complete.Database: "#/types/azure-native:datamigration/v20220330preview:MigrateSyncCompleteCommandPropertiesResponse"
+    description: Array of command properties.
+  errors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration/v20220330preview:ODataErrorResponse"
+    description: Array of errors. This is ignored if submitted.
+  input:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20220330preview:MigrateSqlServerSqlDbSyncTaskInputResponse"
+    description: Task input
+  output:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:datamigration/v20220330preview:MigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration/v20220330preview:MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration/v20220330preview:MigrateSqlServerSqlDbSyncTaskOutputErrorResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration/v20220330preview:MigrateSqlServerSqlDbSyncTaskOutputMigrationLevelResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration/v20220330preview:MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponse"
+      discriminator:
+        propertyName: resultType
+        mapping:
+          DatabaseLevelErrorOutput: "#/types/azure-native:datamigration/v20220330preview:MigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponse"
+          DatabaseLevelOutput: "#/types/azure-native:datamigration/v20220330preview:MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse"
+          ErrorOutput: "#/types/azure-native:datamigration/v20220330preview:MigrateSqlServerSqlDbSyncTaskOutputErrorResponse"
+          MigrationLevelOutput: "#/types/azure-native:datamigration/v20220330preview:MigrateSqlServerSqlDbSyncTaskOutputMigrationLevelResponse"
+          TableLevelOutput: "#/types/azure-native:datamigration/v20220330preview:MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponse"
+    description: Task output. This is ignored if submitted.
+  state:
+    type: string
+    description: The state of the task. This is ignored if submitted.
+  taskType:
+    type: string
+    description: |-
+      Task type.
+      Expected value is 'Migrate.SqlServer.AzureSqlDb.Sync'.
+    const: Migrate.SqlServer.AzureSqlDb.Sync
+type: object
+required:
+  - commands
+  - errors
+  - output
+  - state
+  - taskType

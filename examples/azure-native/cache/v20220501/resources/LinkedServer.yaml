@@ -1,0 +1,63 @@
+$token: azure-native:cache/v20220501:LinkedServer
+description: Response to put/get linked server (with properties) for Redis cache.
+properties:
+  linkedRedisCacheId:
+    type: string
+    description: Fully qualified resourceId of the linked redis cache.
+  linkedRedisCacheLocation:
+    type: string
+    description: Location of the linked redis cache.
+  name:
+    type: string
+    description: The name of the resource
+  provisioningState:
+    type: string
+    description: Terminal state of the link between primary and secondary redis cache.
+  serverRole:
+    type: string
+    description: Role of the linked server.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - linkedRedisCacheId
+  - linkedRedisCacheLocation
+  - name
+  - provisioningState
+  - serverRole
+  - type
+inputProperties:
+  linkedRedisCacheId:
+    type: string
+    description: Fully qualified resourceId of the linked redis cache.
+  linkedRedisCacheLocation:
+    type: string
+    description: Location of the linked redis cache.
+  linkedServerName:
+    type: string
+    description: The name of the linked server that is being added to the Redis cache.
+  name:
+    type: string
+    description: The name of the Redis cache.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  serverRole:
+    $ref: "#/types/azure-native:cache/v20220501:ReplicationRole"
+    description: Role of the linked server.
+requiredInputs:
+  - linkedRedisCacheId
+  - linkedRedisCacheLocation
+  - name
+  - resourceGroupName
+  - serverRole
+aliases:
+  - type: azure-native:cache:LinkedServer
+  - type: azure-native:cache/v20170201:LinkedServer
+  - type: azure-native:cache/v20171001:LinkedServer
+  - type: azure-native:cache/v20180301:LinkedServer
+  - type: azure-native:cache/v20190701:LinkedServer
+  - type: azure-native:cache/v20200601:LinkedServer
+  - type: azure-native:cache/v20201201:LinkedServer
+  - type: azure-native:cache/v20210601:LinkedServer

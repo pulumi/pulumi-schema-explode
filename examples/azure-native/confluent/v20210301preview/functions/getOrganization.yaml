@@ -1,0 +1,70 @@
+$token: azure-native:confluent/v20210301preview:getOrganization
+description: Organization resource.
+inputs:
+  properties:
+    organizationName:
+      type: string
+      description: Organization resource name
+    resourceGroupName:
+      type: string
+      description: Resource group name
+  type: object
+  required:
+    - organizationName
+    - resourceGroupName
+outputs:
+  description: Organization resource.
+  properties:
+    createdTime:
+      type: string
+      description: The creation time of the resource.
+    id:
+      type: string
+      description: The ARM id of the resource.
+    location:
+      type: string
+      description: Location of Organization resource
+    name:
+      type: string
+      description: The name of the resource.
+    offerDetail:
+      type: object
+      $ref: "#/types/azure-native:confluent/v20210301preview:OfferDetailResponse"
+      description: Confluent offer detail
+    organizationId:
+      type: string
+      description: Id of the Confluent organization.
+    provisioningState:
+      type: string
+      description: Provision states for confluent RP
+    ssoUrl:
+      type: string
+      description: SSO url for the Confluent organization.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:confluent/v20210301preview:SystemDataResponse"
+      description: Metadata pertaining to creation and last modification of the resource
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Organization resource tags
+    type:
+      type: string
+      description: The type of the resource.
+    userDetail:
+      type: object
+      $ref: "#/types/azure-native:confluent/v20210301preview:UserDetailResponse"
+      description: Subscriber detail
+  type: object
+  required:
+    - createdTime
+    - id
+    - name
+    - offerDetail
+    - organizationId
+    - provisioningState
+    - ssoUrl
+    - systemData
+    - type
+    - userDetail

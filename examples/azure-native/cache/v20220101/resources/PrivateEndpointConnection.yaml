@@ -1,0 +1,50 @@
+$token: azure-native:cache/v20220101:PrivateEndpointConnection
+description: The Private Endpoint Connection resource.
+properties:
+  name:
+    type: string
+    description: The name of the resource
+  privateEndpoint:
+    type: object
+    $ref: "#/types/azure-native:cache/v20220101:PrivateEndpointResponse"
+    description: The resource of private end point.
+  privateLinkServiceConnectionState:
+    type: object
+    $ref: "#/types/azure-native:cache/v20220101:PrivateLinkServiceConnectionStateResponse"
+    description: A collection of information about the state of the connection between service consumer and provider.
+  provisioningState:
+    type: string
+    description: The provisioning state of the private endpoint connection resource.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - name
+  - privateLinkServiceConnectionState
+  - provisioningState
+  - type
+inputProperties:
+  clusterName:
+    type: string
+    description: The name of the RedisEnterprise cluster.
+  privateEndpointConnectionName:
+    type: string
+    description: The name of the private endpoint connection associated with the Azure resource
+  privateLinkServiceConnectionState:
+    type: object
+    $ref: "#/types/azure-native:cache/v20220101:PrivateLinkServiceConnectionState"
+    description: A collection of information about the state of the connection between service consumer and provider.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+requiredInputs:
+  - clusterName
+  - privateLinkServiceConnectionState
+  - resourceGroupName
+aliases:
+  - type: azure-native:cache:PrivateEndpointConnection
+  - type: azure-native:cache/v20201001preview:PrivateEndpointConnection
+  - type: azure-native:cache/v20210201preview:PrivateEndpointConnection
+  - type: azure-native:cache/v20210301:PrivateEndpointConnection
+  - type: azure-native:cache/v20210801:PrivateEndpointConnection

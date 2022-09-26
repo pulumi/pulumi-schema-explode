@@ -1,0 +1,84 @@
+$token: azure-native:network/v20220201preview:ActiveDefaultSecurityUserRuleResponse
+description: Network security default user rule.
+properties:
+  commitTime:
+    type: string
+    description: Deployment time string.
+  configurationDescription:
+    type: string
+    description: A description of the security user configuration.
+  description:
+    type: string
+    description: A description for this rule. Restricted to 140 chars.
+  destinationPortRanges:
+    type: array
+    items:
+      type: string
+    description: The destination port ranges.
+  destinations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20220201preview:AddressPrefixItemResponse"
+    description: The destination address prefixes. CIDR or destination IP ranges.
+  direction:
+    type: string
+    description: Indicates if the traffic matched against the rule in inbound or outbound.
+  flag:
+    type: string
+    description: Default rule flag.
+  id:
+    type: string
+    description: Resource ID.
+  kind:
+    type: string
+    description: |-
+      Whether the rule is custom or default.
+      Expected value is 'Default'.
+    const: Default
+  protocol:
+    type: string
+    description: Network protocol this rule applies to.
+  provisioningState:
+    type: string
+    description: The provisioning state of the security configuration user rule resource.
+  region:
+    type: string
+    description: Deployment region.
+  ruleCollectionAppliesToGroups:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20220201preview:NetworkManagerSecurityGroupItemResponse"
+    description: Groups for rule collection
+  ruleCollectionDescription:
+    type: string
+    description: A description of the rule collection.
+  ruleGroups:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20220201preview:ConfigurationGroupResponse"
+    description: Effective configuration groups.
+  sourcePortRanges:
+    type: array
+    items:
+      type: string
+    description: The source port ranges.
+  sources:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20220201preview:AddressPrefixItemResponse"
+    description: The CIDR or source IP ranges.
+type: object
+required:
+  - description
+  - destinationPortRanges
+  - destinations
+  - direction
+  - kind
+  - protocol
+  - provisioningState
+  - sourcePortRanges
+  - sources

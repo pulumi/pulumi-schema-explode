@@ -1,0 +1,17 @@
+$token: azure-native:keyvault/v20200401preview:PrivateLinkServiceConnectionState
+description: An object that represents the approval state of the private link connection.
+properties:
+  actionsRequired:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:keyvault/v20200401preview:ActionsRequired"
+    description: A message indicating if changes on the service provider require any updates on the consumer.
+  description:
+    type: string
+    description: The reason for approval or rejection.
+  status:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:keyvault/v20200401preview:PrivateEndpointServiceConnectionStatus"
+    description: Indicates whether the connection has been approved, rejected or removed by the key vault owner.
+type: object

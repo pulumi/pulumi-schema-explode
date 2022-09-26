@@ -1,0 +1,221 @@
+$token: azure-native:web/v20201001:SiteConfig
+description: Configuration of an App Service app.
+properties:
+  acrUseManagedIdentityCreds:
+    type: boolean
+    description: Flag to use Managed Identity Creds for ACR pull
+  acrUserManagedIdentityID:
+    type: string
+    description: If using user managed identity, the user managed identity ClientId
+  alwaysOn:
+    type: boolean
+    description: <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
+  apiDefinition:
+    type: object
+    $ref: "#/types/azure-native:web/v20201001:ApiDefinitionInfo"
+    description: Information about the formal API definition for the app.
+  apiManagementConfig:
+    type: object
+    $ref: "#/types/azure-native:web/v20201001:ApiManagementConfig"
+    description: Azure API management settings linked to the app.
+  appCommandLine:
+    type: string
+    description: App command line to launch.
+  appSettings:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:web/v20201001:NameValuePair"
+    description: Application settings.
+  autoHealEnabled:
+    type: boolean
+    description: <code>true</code> if Auto Heal is enabled; otherwise, <code>false</code>.
+  autoHealRules:
+    type: object
+    $ref: "#/types/azure-native:web/v20201001:AutoHealRules"
+    description: Auto Heal rules.
+  autoSwapSlotName:
+    type: string
+    description: Auto-swap slot name.
+  connectionStrings:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:web/v20201001:ConnStringInfo"
+    description: Connection strings.
+  cors:
+    type: object
+    $ref: "#/types/azure-native:web/v20201001:CorsSettings"
+    description: Cross-Origin Resource Sharing (CORS) settings.
+  defaultDocuments:
+    type: array
+    items:
+      type: string
+    description: Default documents.
+  detailedErrorLoggingEnabled:
+    type: boolean
+    description: <code>true</code> if detailed error logging is enabled; otherwise, <code>false</code>.
+  documentRoot:
+    type: string
+    description: Document root.
+  experiments:
+    type: object
+    $ref: "#/types/azure-native:web/v20201001:Experiments"
+    description: This is work around for polymorphic types.
+  ftpsState:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:web/v20201001:FtpsState"
+    description: State of FTP / FTPS service
+  handlerMappings:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:web/v20201001:HandlerMapping"
+    description: Handler mappings.
+  healthCheckPath:
+    type: string
+    description: Health check path
+  http20Enabled:
+    type: boolean
+    description: "Http20Enabled: configures a web site to allow clients to connect over http2.0"
+    default: true
+  httpLoggingEnabled:
+    type: boolean
+    description: <code>true</code> if HTTP logging is enabled; otherwise, <code>false</code>.
+  ipSecurityRestrictions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:web/v20201001:IpSecurityRestriction"
+    description: IP security restrictions for main.
+  javaContainer:
+    type: string
+    description: Java container.
+  javaContainerVersion:
+    type: string
+    description: Java container version.
+  javaVersion:
+    type: string
+    description: Java version.
+  limits:
+    type: object
+    $ref: "#/types/azure-native:web/v20201001:SiteLimits"
+    description: Site limits.
+  linuxFxVersion:
+    type: string
+    description: Linux App Framework and version
+  loadBalancing:
+    $ref: "#/types/azure-native:web/v20201001:SiteLoadBalancing"
+    description: Site load balancing.
+  localMySqlEnabled:
+    type: boolean
+    description: <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
+    default: false
+  logsDirectorySizeLimit:
+    type: integer
+    description: HTTP logs directory size limit.
+  managedPipelineMode:
+    $ref: "#/types/azure-native:web/v20201001:ManagedPipelineMode"
+    description: Managed pipeline mode.
+  managedServiceIdentityId:
+    type: integer
+    description: Managed Service Identity Id
+  minTlsVersion:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:web/v20201001:SupportedTlsVersions"
+    description: "MinTlsVersion: configures the minimum version of TLS required for SSL requests"
+  netFrameworkVersion:
+    type: string
+    description: .NET Framework version.
+    default: v4.6
+  nodeVersion:
+    type: string
+    description: Version of Node.js.
+  numberOfWorkers:
+    type: integer
+    description: Number of workers.
+  phpVersion:
+    type: string
+    description: Version of PHP.
+  powerShellVersion:
+    type: string
+    description: Version of PowerShell.
+  preWarmedInstanceCount:
+    type: integer
+    description: |-
+      Number of preWarmed instances.
+      This setting only applies to the Consumption and Elastic Plans
+  publishingUsername:
+    type: string
+    description: Publishing user name.
+  push:
+    type: object
+    $ref: "#/types/azure-native:web/v20201001:PushSettings"
+    description: Push endpoint settings.
+  pythonVersion:
+    type: string
+    description: Version of Python.
+  remoteDebuggingEnabled:
+    type: boolean
+    description: <code>true</code> if remote debugging is enabled; otherwise, <code>false</code>.
+  remoteDebuggingVersion:
+    type: string
+    description: Remote debugging version.
+  requestTracingEnabled:
+    type: boolean
+    description: <code>true</code> if request tracing is enabled; otherwise, <code>false</code>.
+  requestTracingExpirationTime:
+    type: string
+    description: Request tracing expiration time.
+  scmIpSecurityRestrictions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:web/v20201001:IpSecurityRestriction"
+    description: IP security restrictions for scm.
+  scmIpSecurityRestrictionsUseMain:
+    type: boolean
+    description: IP security restrictions for scm to use main.
+  scmMinTlsVersion:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:web/v20201001:SupportedTlsVersions"
+    description: "ScmMinTlsVersion: configures the minimum version of TLS required for SSL requests for SCM site"
+  scmType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:web/v20201001:ScmType"
+    description: SCM type.
+  tracingOptions:
+    type: string
+    description: Tracing options.
+  use32BitWorkerProcess:
+    type: boolean
+    description: <code>true</code> to use 32-bit worker process; otherwise, <code>false</code>.
+  virtualApplications:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:web/v20201001:VirtualApplication"
+    description: Virtual applications.
+  vnetName:
+    type: string
+    description: Virtual Network name.
+  vnetPrivatePortsCount:
+    type: integer
+    description: The number of private ports assigned to this app. These will be assigned dynamically on runtime.
+  vnetRouteAllEnabled:
+    type: boolean
+    description: Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+  webSocketsEnabled:
+    type: boolean
+    description: <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
+  windowsFxVersion:
+    type: string
+    description: Xenon App Framework and version
+  xManagedServiceIdentityId:
+    type: integer
+    description: Explicit Managed Service Identity Id
+type: object

@@ -1,0 +1,37 @@
+$token: azure-native:network/v20201101:ExpressRouteConnectionResponse
+description: ExpressRouteConnection resource.
+properties:
+  authorizationKey:
+    type: string
+    description: Authorization key to establish the connection.
+  enableInternetSecurity:
+    type: boolean
+    description: Enable internet security.
+  expressRouteCircuitPeering:
+    type: object
+    $ref: "#/types/azure-native:network/v20201101:ExpressRouteCircuitPeeringIdResponse"
+    description: The ExpressRoute circuit peering.
+  expressRouteGatewayBypass:
+    type: boolean
+    description: Enable FastPath to vWan Firewall hub.
+  id:
+    type: string
+    description: Resource ID.
+  name:
+    type: string
+    description: The name of the resource.
+  provisioningState:
+    type: string
+    description: The provisioning state of the express route connection resource.
+  routingConfiguration:
+    type: object
+    $ref: "#/types/azure-native:network/v20201101:RoutingConfigurationResponse"
+    description: The Routing Configuration indicating the associated and propagated route tables on this connection.
+  routingWeight:
+    type: integer
+    description: The routing weight associated to the connection.
+type: object
+required:
+  - expressRouteCircuitPeering
+  - name
+  - provisioningState

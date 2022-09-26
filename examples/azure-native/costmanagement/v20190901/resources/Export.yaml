@@ -1,0 +1,73 @@
+$token: azure-native:costmanagement/v20190901:Export
+description: A export resource.
+properties:
+  definition:
+    type: object
+    $ref: "#/types/azure-native:costmanagement/v20190901:QueryDefinitionResponse"
+    description: Has definition for the export.
+  deliveryInfo:
+    type: object
+    $ref: "#/types/azure-native:costmanagement/v20190901:ExportDeliveryInfoResponse"
+    description: Has delivery information for the export.
+  format:
+    type: string
+    description: The format of the export being delivered.
+  name:
+    type: string
+    description: Resource name.
+  schedule:
+    type: object
+    $ref: "#/types/azure-native:costmanagement/v20190901:ExportScheduleResponse"
+    description: Has schedule information for the export.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - definition
+  - deliveryInfo
+  - name
+  - tags
+  - type
+inputProperties:
+  definition:
+    type: object
+    $ref: "#/types/azure-native:costmanagement/v20190901:QueryDefinition"
+    description: Has definition for the export.
+  deliveryInfo:
+    type: object
+    $ref: "#/types/azure-native:costmanagement/v20190901:ExportDeliveryInfo"
+    description: Has delivery information for the export.
+  exportName:
+    type: string
+    description: Export Name.
+  format:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:costmanagement/v20190901:FormatType"
+    description: The format of the export being delivered.
+  schedule:
+    type: object
+    $ref: "#/types/azure-native:costmanagement/v20190901:ExportSchedule"
+    description: Has schedule information for the export.
+  scope:
+    type: string
+    description: The scope associated with query and export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope and '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope..
+requiredInputs:
+  - definition
+  - deliveryInfo
+  - scope
+aliases:
+  - type: azure-native:costmanagement:Export
+  - type: azure-native:costmanagement/v20190101:Export
+  - type: azure-native:costmanagement/v20191001:Export
+  - type: azure-native:costmanagement/v20191101:Export
+  - type: azure-native:costmanagement/v20200601:Export
+  - type: azure-native:costmanagement/v20201201preview:Export
+  - type: azure-native:costmanagement/v20210101:Export
+  - type: azure-native:costmanagement/v20211001:Export

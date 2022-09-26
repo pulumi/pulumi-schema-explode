@@ -1,0 +1,61 @@
+$token: azure-native:sql/v20200801preview:Job
+description: A job.
+properties:
+  description:
+    type: string
+    description: User-defined description of the job.
+    default: ""
+  name:
+    type: string
+    description: Resource name.
+  schedule:
+    type: object
+    $ref: "#/types/azure-native:sql/v20200801preview:JobScheduleResponse"
+    description: Schedule properties of the job.
+  type:
+    type: string
+    description: Resource type.
+  version:
+    type: integer
+    description: The job version number.
+type: object
+required:
+  - name
+  - type
+  - version
+inputProperties:
+  description:
+    type: string
+    description: User-defined description of the job.
+    default: ""
+  jobAgentName:
+    type: string
+    description: The name of the job agent.
+  jobName:
+    type: string
+    description: The name of the job to get.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  schedule:
+    type: object
+    $ref: "#/types/azure-native:sql/v20200801preview:JobSchedule"
+    description: Schedule properties of the job.
+  serverName:
+    type: string
+    description: The name of the server.
+requiredInputs:
+  - jobAgentName
+  - resourceGroupName
+  - serverName
+aliases:
+  - type: azure-native:sql:Job
+  - type: azure-native:sql/v20170301preview:Job
+  - type: azure-native:sql/v20200202preview:Job
+  - type: azure-native:sql/v20201101preview:Job
+  - type: azure-native:sql/v20210201preview:Job
+  - type: azure-native:sql/v20210501preview:Job
+  - type: azure-native:sql/v20210801preview:Job
+  - type: azure-native:sql/v20211101:Job
+  - type: azure-native:sql/v20211101preview:Job
+  - type: azure-native:sql/v20220201preview:Job

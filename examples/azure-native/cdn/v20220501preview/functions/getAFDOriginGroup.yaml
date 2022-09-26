@@ -1,0 +1,65 @@
+$token: azure-native:cdn/v20220501preview:getAFDOriginGroup
+description: AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
+inputs:
+  properties:
+    originGroupName:
+      type: string
+      description: Name of the origin group which is unique within the endpoint.
+    profileName:
+      type: string
+      description: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+    resourceGroupName:
+      type: string
+      description: Name of the Resource group within the Azure subscription.
+  type: object
+  required:
+    - originGroupName
+    - profileName
+    - resourceGroupName
+outputs:
+  description: AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
+  properties:
+    deploymentStatus:
+      type: string
+    healthProbeSettings:
+      type: object
+      $ref: "#/types/azure-native:cdn/v20220501preview:HealthProbeParametersResponse"
+      description: Health probe settings to the origin that is used to determine the health of the origin.
+    id:
+      type: string
+      description: Resource ID.
+    loadBalancingSettings:
+      type: object
+      $ref: "#/types/azure-native:cdn/v20220501preview:LoadBalancingSettingsParametersResponse"
+      description: Load balancing settings for a backend pool
+    name:
+      type: string
+      description: Resource name.
+    profileName:
+      type: string
+      description: The name of the profile which holds the origin group.
+    provisioningState:
+      type: string
+      description: Provisioning status
+    sessionAffinityState:
+      type: string
+      description: Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:cdn/v20220501preview:SystemDataResponse"
+      description: Read only system data
+    trafficRestorationTimeToHealedOrNewEndpointsInMinutes:
+      type: integer
+      description: Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - deploymentStatus
+    - id
+    - name
+    - profileName
+    - provisioningState
+    - systemData
+    - type

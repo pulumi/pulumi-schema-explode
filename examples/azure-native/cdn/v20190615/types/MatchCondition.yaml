@@ -1,0 +1,36 @@
+$token: azure-native:cdn/v20190615:MatchCondition
+description: Define match conditions
+properties:
+  matchValue:
+    type: array
+    items:
+      type: string
+    description: List of possible match values.
+  matchVariable:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:cdn/v20190615:MatchVariable"
+    description: Match variable to compare against.
+  negateCondition:
+    type: boolean
+    description: Describes if the result of this condition should be negated.
+  operator:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:cdn/v20190615:Operator"
+    description: Describes operator to be matched
+  selector:
+    type: string
+    description: Selector can used to match a specific key for QueryString, Cookies, RequestHeader or PostArgs.
+  transforms:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:cdn/v20190615:TransformType"
+    description: List of transforms.
+type: object
+required:
+  - matchValue
+  - matchVariable
+  - operator

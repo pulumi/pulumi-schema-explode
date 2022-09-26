@@ -1,0 +1,26 @@
+$token: azure-native:network/v20190901:ApplicationGatewayFrontendIPConfiguration
+description: Frontend IP configuration of an application gateway.
+properties:
+  id:
+    type: string
+    description: Resource ID.
+  name:
+    type: string
+    description: Name of the frontend IP configuration that is unique within an Application Gateway.
+  privateIPAddress:
+    type: string
+    description: PrivateIPAddress of the network interface IP Configuration.
+  privateIPAllocationMethod:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20190901:IPAllocationMethod"
+    description: The private IP address allocation method.
+  publicIPAddress:
+    type: object
+    $ref: "#/types/azure-native:network/v20190901:SubResource"
+    description: Reference of the PublicIP resource.
+  subnet:
+    type: object
+    $ref: "#/types/azure-native:network/v20190901:SubResource"
+    description: Reference of the subnet resource.
+type: object

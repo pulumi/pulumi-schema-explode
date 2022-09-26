@@ -1,0 +1,17 @@
+$token: azure-native:databricks/v20210401preview:PrivateLinkServiceConnectionState
+description: The current state of a private endpoint connection
+properties:
+  actionRequired:
+    type: string
+    description: Actions required for a private endpoint connection
+  description:
+    type: string
+    description: The description for the current state of a private endpoint connection
+  status:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:databricks/v20210401preview:PrivateLinkServiceConnectionStatus"
+    description: The status of a private endpoint connection
+type: object
+required:
+  - status

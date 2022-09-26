@@ -1,0 +1,60 @@
+$token: azure-native:azurearcdata:getPostgresInstance
+description: |-
+  A Postgres Instance.
+  API Version: 2021-06-01-preview.
+inputs:
+  properties:
+    postgresInstanceName:
+      type: string
+      description: Name of Postgres Instance
+    resourceGroupName:
+      type: string
+      description: The name of the Azure resource group
+  type: object
+  required:
+    - postgresInstanceName
+    - resourceGroupName
+outputs:
+  description: A Postgres Instance.
+  properties:
+    extendedLocation:
+      type: object
+      $ref: "#/types/azure-native:azurearcdata:ExtendedLocationResponse"
+      description: The extendedLocation of the resource.
+    id:
+      type: string
+      description: Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    name:
+      type: string
+      description: The name of the resource
+    properties:
+      type: object
+      $ref: "#/types/azure-native:azurearcdata:PostgresInstancePropertiesResponse"
+      description: "null"
+    sku:
+      type: object
+      $ref: "#/types/azure-native:azurearcdata:PostgresInstanceSkuResponse"
+      description: Resource sku.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:azurearcdata:SystemDataResponse"
+      description: Read only system data
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - properties
+    - systemData
+    - type

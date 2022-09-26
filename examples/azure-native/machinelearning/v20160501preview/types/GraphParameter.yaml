@@ -1,0 +1,21 @@
+$token: azure-native:machinelearning/v20160501preview:GraphParameter
+description: Defines a global parameter in the graph.
+properties:
+  description:
+    type: string
+    description: Description of this graph parameter.
+  links:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:machinelearning/v20160501preview:GraphParameterLink"
+    description: Association links for this parameter to nodes in the graph.
+  type:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearning/v20160501preview:ParameterType"
+    description: Graph parameter's type.
+type: object
+required:
+  - links
+  - type

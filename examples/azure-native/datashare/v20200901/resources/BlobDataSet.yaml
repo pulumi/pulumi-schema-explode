@@ -1,0 +1,99 @@
+$token: azure-native:datashare/v20200901:BlobDataSet
+description: An Azure storage blob data set.
+properties:
+  containerName:
+    type: string
+    description: Container that has the file path.
+  dataSetId:
+    type: string
+    description: Unique id for identifying a data set resource
+  filePath:
+    type: string
+    description: File path within the source data set
+  kind:
+    type: string
+    description: |-
+      Kind of data set.
+      Expected value is 'Blob'.
+    const: Blob
+  name:
+    type: string
+    description: Name of the azure resource
+  resourceGroup:
+    type: string
+    description: Resource group of storage account
+  storageAccountName:
+    type: string
+    description: Storage account name of the source data set
+  subscriptionId:
+    type: string
+    description: Subscription id of storage account
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:datashare/v20200901:SystemDataResponse"
+    description: System Data of the Azure resource.
+  type:
+    type: string
+    description: Type of the azure resource
+type: object
+required:
+  - containerName
+  - dataSetId
+  - filePath
+  - kind
+  - name
+  - resourceGroup
+  - storageAccountName
+  - subscriptionId
+  - systemData
+  - type
+inputProperties:
+  accountName:
+    type: string
+    description: The name of the share account.
+  containerName:
+    type: string
+    description: Container that has the file path.
+  dataSetName:
+    type: string
+    description: The name of the dataSet.
+  filePath:
+    type: string
+    description: File path within the source data set
+  kind:
+    type: string
+    description: |-
+      Kind of data set.
+      Expected value is 'Blob'.
+    const: Blob
+  resourceGroup:
+    type: string
+    description: Resource group of storage account
+  resourceGroupName:
+    type: string
+    description: The resource group name.
+  shareName:
+    type: string
+    description: The name of the share to add the data set to.
+  storageAccountName:
+    type: string
+    description: Storage account name of the source data set
+  subscriptionId:
+    type: string
+    description: Subscription id of storage account
+requiredInputs:
+  - accountName
+  - containerName
+  - filePath
+  - kind
+  - resourceGroup
+  - resourceGroupName
+  - shareName
+  - storageAccountName
+  - subscriptionId
+aliases:
+  - type: azure-native:datashare:BlobDataSet
+  - type: azure-native:datashare/v20181101preview:BlobDataSet
+  - type: azure-native:datashare/v20191101:BlobDataSet
+  - type: azure-native:datashare/v20201001preview:BlobDataSet
+  - type: azure-native:datashare/v20210801:BlobDataSet

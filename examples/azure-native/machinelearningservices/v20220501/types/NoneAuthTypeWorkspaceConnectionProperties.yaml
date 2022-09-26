@@ -1,0 +1,26 @@
+$token: azure-native:machinelearningservices/v20220501:NoneAuthTypeWorkspaceConnectionProperties
+properties:
+  authType:
+    type: string
+    description: |-
+      Authentication type of the connection target
+      Expected value is 'None'.
+    const: None
+  category:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearningservices/v20220501:ConnectionCategory"
+    description: Category of the connection
+  target:
+    type: string
+  value:
+    type: string
+    description: Value details of the workspace connection.
+  valueFormat:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearningservices/v20220501:ValueFormat"
+    description: format for the workspace connection value
+type: object
+required:
+  - authType

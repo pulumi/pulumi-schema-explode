@@ -1,0 +1,22 @@
+$token: azure-native:logic:BatchConfigurationProperties
+description: The batch configuration properties definition.
+properties:
+  batchGroupName:
+    type: string
+    description: The name of the batch group.
+  changedTime:
+    type: string
+    description: The artifact changed time.
+  createdTime:
+    type: string
+    description: The artifact creation time.
+  metadata:
+    $ref: pulumi.json#/Any
+  releaseCriteria:
+    type: object
+    $ref: "#/types/azure-native:logic:BatchReleaseCriteria"
+    description: The batch release criteria.
+type: object
+required:
+  - batchGroupName
+  - releaseCriteria

@@ -1,0 +1,45 @@
+$token: azure-native:webpubsub:WebPubSubHub
+description: |-
+  A hub setting
+  API Version: 2021-10-01.
+properties:
+  name:
+    type: string
+    description: The name of the resource.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:webpubsub:WebPubSubHubPropertiesResponse"
+    description: Properties of a hub.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:webpubsub:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  type:
+    type: string
+    description: The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+type: object
+required:
+  - name
+  - properties
+  - systemData
+  - type
+inputProperties:
+  hubName:
+    type: string
+    description: The hub name.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:webpubsub:WebPubSubHubProperties"
+    description: Properties of a hub.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  resourceName:
+    type: string
+    description: The name of the resource.
+requiredInputs:
+  - properties
+  - resourceGroupName
+  - resourceName
+aliases:
+  - type: azure-native:webpubsub/v20211001:WebPubSubHub

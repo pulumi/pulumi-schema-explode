@@ -1,0 +1,40 @@
+$token: azure-native:devices/v20200301:getPrivateEndpointConnection
+description: The private endpoint connection of an IotHub
+inputs:
+  properties:
+    privateEndpointConnectionName:
+      type: string
+      description: The name of the private endpoint connection
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the IoT hub.
+    resourceName:
+      type: string
+      description: The name of the IoT hub.
+  type: object
+  required:
+    - privateEndpointConnectionName
+    - resourceGroupName
+    - resourceName
+outputs:
+  description: The private endpoint connection of an IotHub
+  properties:
+    id:
+      type: string
+      description: The resource identifier.
+    name:
+      type: string
+      description: The resource name.
+    properties:
+      type: object
+      $ref: "#/types/azure-native:devices/v20200301:PrivateEndpointConnectionPropertiesResponse"
+      description: The properties of a private endpoint connection
+    type:
+      type: string
+      description: The resource type.
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - type

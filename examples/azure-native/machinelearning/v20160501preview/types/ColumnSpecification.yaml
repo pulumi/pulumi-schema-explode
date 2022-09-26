@@ -1,0 +1,27 @@
+$token: azure-native:machinelearning/v20160501preview:ColumnSpecification
+description: "Swagger 2.0 schema for a column within the data table representing a web service input or output. See Swagger specification: http://swagger.io/specification/"
+properties:
+  enum:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: If the data type is categorical, this provides the list of accepted categories.
+  format:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearning/v20160501preview:ColumnFormat"
+    description: Additional format information for the data type.
+  type:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearning/v20160501preview:ColumnType"
+    description: Data type of the column.
+  xMsIsnullable:
+    type: boolean
+    description: Flag indicating if the type supports null values or not.
+  xMsIsordered:
+    type: boolean
+    description: Flag indicating whether the categories are treated as an ordered set or not, if this is a categorical column.
+type: object
+required:
+  - type

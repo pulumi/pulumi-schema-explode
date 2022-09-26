@@ -1,0 +1,55 @@
+$token: azure-native:servicebus:getDisasterRecoveryConfig
+description: |-
+  Single item in List or Get Alias(Disaster Recovery configuration) operation
+  API Version: 2017-04-01.
+inputs:
+  properties:
+    alias:
+      type: string
+      description: The Disaster Recovery configuration name
+    namespaceName:
+      type: string
+      description: The namespace name
+    resourceGroupName:
+      type: string
+      description: Name of the Resource group within the Azure subscription.
+  type: object
+  required:
+    - alias
+    - namespaceName
+    - resourceGroupName
+outputs:
+  description: Single item in List or Get Alias(Disaster Recovery configuration) operation
+  properties:
+    alternateName:
+      type: string
+      description: Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
+    id:
+      type: string
+      description: Resource Id
+    name:
+      type: string
+      description: Resource name
+    partnerNamespace:
+      type: string
+      description: ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
+    pendingReplicationOperationsCount:
+      type: number
+      description: Number of entities pending to be replicated.
+    provisioningState:
+      type: string
+      description: Provisioning state of the Alias(Disaster Recovery configuration) - possible values 'Accepted' or 'Succeeded' or 'Failed'
+    role:
+      type: string
+      description: role of namespace in GEO DR - possible values 'Primary' or 'PrimaryNotReplicating' or 'Secondary'
+    type:
+      type: string
+      description: Resource type
+  type: object
+  required:
+    - id
+    - name
+    - pendingReplicationOperationsCount
+    - provisioningState
+    - role
+    - type

@@ -1,0 +1,42 @@
+$token: azure-native:appplatform/v20220301preview:ServiceRegistry
+description: Service Registry resource
+properties:
+  name:
+    type: string
+    description: The name of the resource.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20220301preview:ServiceRegistryPropertiesResponse"
+    description: Service Registry properties payload
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20220301preview:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - name
+  - properties
+  - systemData
+  - type
+inputProperties:
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  serviceName:
+    type: string
+    description: The name of the Service resource.
+  serviceRegistryName:
+    type: string
+    description: The name of Service Registry.
+requiredInputs:
+  - resourceGroupName
+  - serviceName
+aliases:
+  - type: azure-native:appplatform:ServiceRegistry
+  - type: azure-native:appplatform/v20220101preview:ServiceRegistry
+  - type: azure-native:appplatform/v20220401:ServiceRegistry
+  - type: azure-native:appplatform/v20220501preview:ServiceRegistry
+  - type: azure-native:appplatform/v20220901preview:ServiceRegistry

@@ -1,0 +1,107 @@
+$token: azure-native:compute/v20180401:Snapshot
+description: Snapshot resource.
+properties:
+  creationData:
+    type: object
+    $ref: "#/types/azure-native:compute/v20180401:CreationDataResponse"
+    description: Disk source information. CreationData information cannot be changed after the disk has been created.
+  diskSizeGB:
+    type: integer
+    description: If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+  encryptionSettings:
+    type: object
+    $ref: "#/types/azure-native:compute/v20180401:EncryptionSettingsResponse"
+    description: Encryption settings for disk or snapshot
+  location:
+    type: string
+    description: Resource location
+  managedBy:
+    type: string
+    description: Unused. Always Null.
+  name:
+    type: string
+    description: Resource name
+  osType:
+    type: string
+    description: The Operating System type.
+  provisioningState:
+    type: string
+    description: The disk provisioning state.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:compute/v20180401:SnapshotSkuResponse"
+    description: The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  timeCreated:
+    type: string
+    description: The time when the disk was created.
+  type:
+    type: string
+    description: Resource type
+type: object
+required:
+  - creationData
+  - location
+  - managedBy
+  - name
+  - provisioningState
+  - timeCreated
+  - type
+inputProperties:
+  creationData:
+    type: object
+    $ref: "#/types/azure-native:compute/v20180401:CreationData"
+    description: Disk source information. CreationData information cannot be changed after the disk has been created.
+  diskSizeGB:
+    type: integer
+    description: If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+  encryptionSettings:
+    type: object
+    $ref: "#/types/azure-native:compute/v20180401:EncryptionSettings"
+    description: Encryption settings for disk or snapshot
+  location:
+    type: string
+    description: Resource location
+  osType:
+    $ref: "#/types/azure-native:compute/v20180401:OperatingSystemTypes"
+    description: The Operating System type.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:compute/v20180401:SnapshotSku"
+    description: The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
+  snapshotName:
+    type: string
+    description: The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+requiredInputs:
+  - creationData
+  - resourceGroupName
+aliases:
+  - type: azure-native:compute:Snapshot
+  - type: azure-native:compute/v20160430preview:Snapshot
+  - type: azure-native:compute/v20170330:Snapshot
+  - type: azure-native:compute/v20180601:Snapshot
+  - type: azure-native:compute/v20180930:Snapshot
+  - type: azure-native:compute/v20190301:Snapshot
+  - type: azure-native:compute/v20190701:Snapshot
+  - type: azure-native:compute/v20191101:Snapshot
+  - type: azure-native:compute/v20200501:Snapshot
+  - type: azure-native:compute/v20200630:Snapshot
+  - type: azure-native:compute/v20200930:Snapshot
+  - type: azure-native:compute/v20201201:Snapshot
+  - type: azure-native:compute/v20210401:Snapshot
+  - type: azure-native:compute/v20210801:Snapshot
+  - type: azure-native:compute/v20211201:Snapshot
+  - type: azure-native:compute/v20220302:Snapshot
+deprecationMessage: Version 2018-04-01 will be removed in v2 of the provider.

@@ -1,0 +1,45 @@
+$token: azure-native:logz/v20220101preview:MetricsSourceTagRule
+description: Capture metrics of Azure resources based on ARM tags.
+properties:
+  name:
+    type: string
+    description: Name of the rule set.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:logz/v20220101preview:MetricsTagRulesPropertiesResponse"
+    description: Definition of the properties for a TagRules resource.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:logz/v20220101preview:SystemDataResponse"
+    description: The system metadata relating to this resource
+  type:
+    type: string
+    description: The type of the rule set.
+type: object
+required:
+  - name
+  - properties
+  - systemData
+  - type
+inputProperties:
+  metricsSourceName:
+    type: string
+    description: Metrics Account resource name
+  monitorName:
+    type: string
+    description: Monitor resource name
+  properties:
+    type: object
+    $ref: "#/types/azure-native:logz/v20220101preview:MetricsTagRulesProperties"
+    description: Definition of the properties for a TagRules resource.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  ruleSetName:
+    type: string
+requiredInputs:
+  - metricsSourceName
+  - monitorName
+  - resourceGroupName
+aliases:
+  - type: azure-native:logz:MetricsSourceTagRule

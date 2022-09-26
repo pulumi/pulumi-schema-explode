@@ -1,0 +1,85 @@
+$token: azure-native:databoxedge/v20210601:PeriodicTimerEventTrigger
+description: Trigger details.
+properties:
+  customContextTag:
+    type: string
+    description: A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
+  kind:
+    type: string
+    description: |-
+      Trigger Kind.
+      Expected value is 'PeriodicTimerEvent'.
+    const: PeriodicTimerEvent
+  name:
+    type: string
+    description: The object name.
+  sinkInfo:
+    type: object
+    $ref: "#/types/azure-native:databoxedge/v20210601:RoleSinkInfoResponse"
+    description: Role Sink information.
+  sourceInfo:
+    type: object
+    $ref: "#/types/azure-native:databoxedge/v20210601:PeriodicTimerSourceInfoResponse"
+    description: Periodic timer details.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:databoxedge/v20210601:SystemDataResponse"
+    description: Trigger in DataBoxEdge Resource
+  type:
+    type: string
+    description: The hierarchical type of the object.
+type: object
+required:
+  - kind
+  - name
+  - sinkInfo
+  - sourceInfo
+  - systemData
+  - type
+inputProperties:
+  customContextTag:
+    type: string
+    description: A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
+  deviceName:
+    type: string
+    description: Creates or updates a trigger
+  kind:
+    type: string
+    description: |-
+      Trigger Kind.
+      Expected value is 'PeriodicTimerEvent'.
+    const: PeriodicTimerEvent
+  name:
+    type: string
+    description: The trigger name.
+  resourceGroupName:
+    type: string
+    description: The resource group name.
+  sinkInfo:
+    type: object
+    $ref: "#/types/azure-native:databoxedge/v20210601:RoleSinkInfo"
+    description: Role Sink information.
+  sourceInfo:
+    type: object
+    $ref: "#/types/azure-native:databoxedge/v20210601:PeriodicTimerSourceInfo"
+    description: Periodic timer details.
+requiredInputs:
+  - deviceName
+  - kind
+  - resourceGroupName
+  - sinkInfo
+  - sourceInfo
+aliases:
+  - type: azure-native:databoxedge:PeriodicTimerEventTrigger
+  - type: azure-native:databoxedge/v20190301:PeriodicTimerEventTrigger
+  - type: azure-native:databoxedge/v20190701:PeriodicTimerEventTrigger
+  - type: azure-native:databoxedge/v20190801:PeriodicTimerEventTrigger
+  - type: azure-native:databoxedge/v20200501preview:PeriodicTimerEventTrigger
+  - type: azure-native:databoxedge/v20200901:PeriodicTimerEventTrigger
+  - type: azure-native:databoxedge/v20200901preview:PeriodicTimerEventTrigger
+  - type: azure-native:databoxedge/v20201201:PeriodicTimerEventTrigger
+  - type: azure-native:databoxedge/v20210201:PeriodicTimerEventTrigger
+  - type: azure-native:databoxedge/v20210201preview:PeriodicTimerEventTrigger
+  - type: azure-native:databoxedge/v20210601preview:PeriodicTimerEventTrigger
+  - type: azure-native:databoxedge/v20220301:PeriodicTimerEventTrigger
+  - type: azure-native:databoxedge/v20220401preview:PeriodicTimerEventTrigger

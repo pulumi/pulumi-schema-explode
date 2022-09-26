@@ -1,0 +1,30 @@
+$token: azure-native:virtualmachineimages/v20190201preview:ImageTemplateSharedImageDistributorResponse
+description: Distribute via Shared Image Gallery.
+properties:
+  artifactTags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Tags that will be applied to the artifact once it has been created/updated by the distributor.
+  galleryImageId:
+    type: string
+    description: Resource Id of the Shared Image Gallery image
+  replicationRegions:
+    type: array
+    items:
+      type: string
+  runOutputName:
+    type: string
+    description: The name to be used for the associated RunOutput.
+  type:
+    type: string
+    description: |-
+      Type of distribution.
+      Expected value is 'SharedImage'.
+    const: SharedImage
+type: object
+required:
+  - galleryImageId
+  - replicationRegions
+  - runOutputName
+  - type

@@ -1,0 +1,39 @@
+$token: azure-native:datafactory:AzureBlobFSSink
+description: A copy activity Azure Data Lake Storage Gen2 sink.
+properties:
+  copyBehavior:
+    $ref: pulumi.json#/Any
+    description: The type of copy behavior for copy sink.
+  disableMetricsCollection:
+    $ref: pulumi.json#/Any
+    description: "If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean)."
+  maxConcurrentConnections:
+    $ref: pulumi.json#/Any
+    description: "The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer)."
+  metadata:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory:MetadataItem"
+    description: "Specify the custom metadata to be added to sink data. Type: array of objects (or Expression with resultType array of objects)."
+  sinkRetryCount:
+    $ref: pulumi.json#/Any
+    description: "Sink retry count. Type: integer (or Expression with resultType integer)."
+  sinkRetryWait:
+    $ref: pulumi.json#/Any
+    description: "Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9]))."
+  type:
+    type: string
+    description: |-
+      Copy sink type.
+      Expected value is 'AzureBlobFSSink'.
+    const: AzureBlobFSSink
+  writeBatchSize:
+    $ref: pulumi.json#/Any
+    description: "Write batch size. Type: integer (or Expression with resultType integer), minimum: 0."
+  writeBatchTimeout:
+    $ref: pulumi.json#/Any
+    description: "Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9]))."
+type: object
+required:
+  - type

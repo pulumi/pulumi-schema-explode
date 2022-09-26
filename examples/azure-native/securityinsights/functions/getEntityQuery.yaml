@@ -1,0 +1,54 @@
+$token: azure-native:securityinsights:getEntityQuery
+description: |-
+  Specific entity query.
+  API Version: 2021-03-01-preview.
+inputs:
+  properties:
+    entityQueryId:
+      type: string
+      description: entity query ID
+    operationalInsightsResourceProvider:
+      type: string
+      description: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    workspaceName:
+      type: string
+      description: The name of the workspace.
+  type: object
+  required:
+    - entityQueryId
+    - operationalInsightsResourceProvider
+    - resourceGroupName
+    - workspaceName
+outputs:
+  description: Specific entity query.
+  properties:
+    etag:
+      type: string
+      description: Etag of the azure resource
+    id:
+      type: string
+      description: Azure resource Id
+    kind:
+      type: string
+      description: the entity query kind
+    name:
+      type: string
+      description: Azure resource name
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:securityinsights:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    type:
+      type: string
+      description: Azure resource type
+  type: object
+  required:
+    - id
+    - kind
+    - name
+    - systemData
+    - type
+deprecationMessage: "Please use one of the variants: ActivityCustomEntityQuery."

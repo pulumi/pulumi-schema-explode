@@ -1,0 +1,21 @@
+$token: azure-native:labservices/v20220801:RecurrencePattern
+description: Recurrence pattern of a lab schedule.
+properties:
+  expirationDate:
+    type: string
+    description: When the recurrence will expire. This date is inclusive.
+  frequency:
+    $ref: "#/types/azure-native:labservices/v20220801:RecurrenceFrequency"
+    description: The frequency of the recurrence.
+  interval:
+    type: integer
+    description: The interval to invoke the schedule on. For example, interval = 2 and RecurrenceFrequency.Daily will run every 2 days. When no interval is supplied, an interval of 1 is used.
+  weekDays:
+    type: array
+    items:
+      $ref: "#/types/azure-native:labservices/v20220801:WeekDay"
+    description: The week days the schedule runs. Used for when the Frequency is set to Weekly.
+type: object
+required:
+  - expirationDate
+  - frequency

@@ -1,0 +1,52 @@
+$token: azure-native:containerregistry/v20191201preview:getPrivateEndpointConnection
+description: An object that represents a private endpoint connection for a container registry.
+inputs:
+  properties:
+    privateEndpointConnectionName:
+      type: string
+      description: The name of the private endpoint connection.
+    registryName:
+      type: string
+      description: The name of the container registry.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group to which the container registry belongs.
+  type: object
+  required:
+    - privateEndpointConnectionName
+    - registryName
+    - resourceGroupName
+outputs:
+  description: An object that represents a private endpoint connection for a container registry.
+  properties:
+    id:
+      type: string
+      description: The resource ID.
+    name:
+      type: string
+      description: The name of the resource.
+    privateEndpoint:
+      type: object
+      $ref: "#/types/azure-native:containerregistry/v20191201preview:PrivateEndpointResponse"
+      description: The resource of private endpoint.
+    privateLinkServiceConnectionState:
+      type: object
+      $ref: "#/types/azure-native:containerregistry/v20191201preview:PrivateLinkServiceConnectionStateResponse"
+      description: A collection of information about the state of the connection between service consumer and provider.
+    provisioningState:
+      type: string
+      description: The provisioning state of private endpoint connection resource.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:containerregistry/v20191201preview:SystemDataResponse"
+      description: Metadata pertaining to creation and last modification of the resource.
+    type:
+      type: string
+      description: The type of the resource.
+  type: object
+  required:
+    - id
+    - name
+    - provisioningState
+    - systemData
+    - type

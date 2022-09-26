@@ -1,0 +1,33 @@
+$token: azure-native:consumption/v20190501preview:NotificationResponse
+description: The notification associated with a budget.
+properties:
+  contactEmails:
+    type: array
+    items:
+      type: string
+    description: Email addresses to send the budget notification to when the threshold is exceeded.
+  contactGroups:
+    type: array
+    items:
+      type: string
+    description: Action groups to send the budget notification to when the threshold is exceeded.
+  contactRoles:
+    type: array
+    items:
+      type: string
+    description: Contact roles to send the budget notification to when the threshold is exceeded.
+  enabled:
+    type: boolean
+    description: The notification is enabled or not.
+  operator:
+    type: string
+    description: The comparison operator.
+  threshold:
+    type: number
+    description: Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
+type: object
+required:
+  - contactEmails
+  - enabled
+  - operator
+  - threshold

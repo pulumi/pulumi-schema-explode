@@ -1,0 +1,15 @@
+$token: azure-native:batch/v20220601:EndpointAccessProfileResponse
+description: Network access profile for Batch endpoint.
+properties:
+  defaultAction:
+    type: string
+    description: Default action for endpoint access. It is only applicable when publicNetworkAccess is enabled.
+  ipRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:batch/v20220601:IPRuleResponse"
+    description: Array of IP ranges to filter client IP address.
+type: object
+required:
+  - defaultAction

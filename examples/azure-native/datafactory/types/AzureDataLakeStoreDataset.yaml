@@ -1,0 +1,72 @@
+$token: azure-native:datafactory:AzureDataLakeStoreDataset
+description: Azure Data Lake Store dataset.
+properties:
+  annotations:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: List of tags that can be used for describing the Dataset.
+  compression:
+    type: object
+    $ref: "#/types/azure-native:datafactory:DatasetCompression"
+    description: The data compression method used for the item(s) in the Azure Data Lake Store.
+  description:
+    type: string
+    description: Dataset description.
+  fileName:
+    $ref: pulumi.json#/Any
+    description: "The name of the file in the Azure Data Lake Store. Type: string (or Expression with resultType string)."
+  folder:
+    type: object
+    $ref: "#/types/azure-native:datafactory:DatasetFolder"
+    description: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+  folderPath:
+    $ref: pulumi.json#/Any
+    description: "Path to the folder in the Azure Data Lake Store. Type: string (or Expression with resultType string)."
+  format:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AvroFormat"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:JsonFormat"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:OrcFormat"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:ParquetFormat"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:TextFormat"
+    discriminator:
+      propertyName: type
+      mapping:
+        AvroFormat: "#/types/azure-native:datafactory:AvroFormat"
+        JsonFormat: "#/types/azure-native:datafactory:JsonFormat"
+        OrcFormat: "#/types/azure-native:datafactory:OrcFormat"
+        ParquetFormat: "#/types/azure-native:datafactory:ParquetFormat"
+        TextFormat: "#/types/azure-native:datafactory:TextFormat"
+    description: The format of the Data Lake Store.
+  linkedServiceName:
+    type: object
+    $ref: "#/types/azure-native:datafactory:LinkedServiceReference"
+    description: Linked service reference.
+  parameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:datafactory:ParameterSpecification"
+    description: Parameters for dataset.
+  schema:
+    $ref: pulumi.json#/Any
+    description: "Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement."
+  structure:
+    $ref: pulumi.json#/Any
+    description: "Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement."
+  type:
+    type: string
+    description: |-
+      Type of dataset.
+      Expected value is 'AzureDataLakeStoreFile'.
+    const: AzureDataLakeStoreFile
+type: object
+required:
+  - linkedServiceName
+  - type

@@ -1,0 +1,39 @@
+$token: azure-native:workloads:DeploymentConfiguration
+description: Deployment Configuration.
+properties:
+  appLocation:
+    type: string
+    description: The geo-location where the SAP system is to be created.
+  configurationType:
+    type: string
+    description: |-
+      The configuration Type.
+      Expected value is 'Deployment'.
+    const: Deployment
+  infrastructureConfiguration:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:workloads:SingleServerConfiguration"
+      - type: object
+        $ref: "#/types/azure-native:workloads:ThreeTierConfiguration"
+    discriminator:
+      propertyName: deploymentType
+      mapping:
+        SingleServer: "#/types/azure-native:workloads:SingleServerConfiguration"
+        ThreeTier: "#/types/azure-native:workloads:ThreeTierConfiguration"
+    description: The infrastructure configuration.
+  softwareConfiguration:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:workloads:SAPInstallWithoutOSConfigSoftwareConfiguration"
+      - type: object
+        $ref: "#/types/azure-native:workloads:ServiceInitiatedSoftwareConfiguration"
+    discriminator:
+      propertyName: softwareInstallationType
+      mapping:
+        SAPInstallWithoutOSConfig: "#/types/azure-native:workloads:SAPInstallWithoutOSConfigSoftwareConfiguration"
+        ServiceInitiated: "#/types/azure-native:workloads:ServiceInitiatedSoftwareConfiguration"
+    description: The software configuration.
+type: object
+required:
+  - configurationType

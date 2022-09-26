@@ -1,0 +1,125 @@
+$token: azure-native:insights/v20210308:MyWorkbook
+description: An Application Insights private workbook definition.
+properties:
+  category:
+    type: string
+    description: Workbook category, as defined by the user at creation time.
+  displayName:
+    type: string
+    description: The user-defined name of the private workbook.
+  etag:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource etag
+  identity:
+    type: object
+    $ref: "#/types/azure-native:insights/v20210308:MyWorkbookManagedIdentityResponse"
+    description: Identity used for BYOS
+  kind:
+    type: string
+    description: The kind of workbook. Choices are user and shared.
+  location:
+    type: string
+    description: Resource location
+  name:
+    type: string
+    description: Azure resource name
+  serializedData:
+    type: string
+    description: Configuration of this particular private workbook. Configuration data is a string containing valid JSON
+  sourceId:
+    type: string
+    description: Optional resourceId for a source resource.
+  storageUri:
+    type: string
+    description: BYOS Storage Account URI
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:insights/v20210308:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  timeModified:
+    type: string
+    description: Date and time in UTC of the last modification that was made to this private workbook definition.
+  type:
+    type: string
+    description: Azure resource type
+  userId:
+    type: string
+    description: Unique user id of the specific user that owns this private workbook.
+  version:
+    type: string
+    description: This instance's version of the data model. This can change as new features are added that can be marked private workbook.
+type: object
+required:
+  - category
+  - displayName
+  - serializedData
+  - systemData
+  - timeModified
+  - userId
+inputProperties:
+  category:
+    type: string
+    description: Workbook category, as defined by the user at creation time.
+  displayName:
+    type: string
+    description: The user-defined name of the private workbook.
+  id:
+    type: string
+    description: Azure resource Id
+  identity:
+    type: object
+    $ref: "#/types/azure-native:insights/v20210308:MyWorkbookManagedIdentity"
+    description: Identity used for BYOS
+  kind:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:insights/v20210308:Kind"
+    description: The kind of workbook. Choices are user and shared.
+  location:
+    type: string
+    description: Resource location
+  name:
+    type: string
+    description: Azure resource name
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  resourceName:
+    type: string
+    description: The name of the Application Insights component resource.
+  serializedData:
+    type: string
+    description: Configuration of this particular private workbook. Configuration data is a string containing valid JSON
+  sourceId:
+    type: string
+    description: Optional resourceId for a source resource.
+  storageUri:
+    type: string
+    description: BYOS Storage Account URI
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  type:
+    type: string
+    description: Azure resource type
+  version:
+    type: string
+    description: This instance's version of the data model. This can change as new features are added that can be marked private workbook.
+requiredInputs:
+  - category
+  - displayName
+  - resourceGroupName
+  - serializedData
+aliases:
+  - type: azure-native:insights:MyWorkbook
+  - type: azure-native:insights/v20150501:MyWorkbook
+  - type: azure-native:insights/v20201020:MyWorkbook

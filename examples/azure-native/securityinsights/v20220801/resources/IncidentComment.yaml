@@ -1,0 +1,74 @@
+$token: azure-native:securityinsights/v20220801:IncidentComment
+description: Represents an incident comment
+properties:
+  author:
+    type: object
+    $ref: "#/types/azure-native:securityinsights/v20220801:ClientInfoResponse"
+    description: Describes the client that created the comment
+  createdTimeUtc:
+    type: string
+    description: The time the comment was created
+  etag:
+    type: string
+    description: Etag of the azure resource
+  lastModifiedTimeUtc:
+    type: string
+    description: The time the comment was updated
+  message:
+    type: string
+    description: The comment message
+  name:
+    type: string
+    description: The name of the resource
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:securityinsights/v20220801:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - author
+  - createdTimeUtc
+  - lastModifiedTimeUtc
+  - message
+  - name
+  - systemData
+  - type
+inputProperties:
+  incidentCommentId:
+    type: string
+    description: Incident comment ID
+  incidentId:
+    type: string
+    description: Incident ID
+  message:
+    type: string
+    description: The comment message
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  workspaceName:
+    type: string
+    description: The name of the workspace.
+requiredInputs:
+  - incidentId
+  - message
+  - resourceGroupName
+  - workspaceName
+aliases:
+  - type: azure-native:securityinsights:IncidentComment
+  - type: azure-native:securityinsights/v20190101preview:IncidentComment
+  - type: azure-native:securityinsights/v20210301preview:IncidentComment
+  - type: azure-native:securityinsights/v20210401:IncidentComment
+  - type: azure-native:securityinsights/v20210901preview:IncidentComment
+  - type: azure-native:securityinsights/v20211001:IncidentComment
+  - type: azure-native:securityinsights/v20211001preview:IncidentComment
+  - type: azure-native:securityinsights/v20220101preview:IncidentComment
+  - type: azure-native:securityinsights/v20220401preview:IncidentComment
+  - type: azure-native:securityinsights/v20220501preview:IncidentComment
+  - type: azure-native:securityinsights/v20220601preview:IncidentComment
+  - type: azure-native:securityinsights/v20220701preview:IncidentComment
+  - type: azure-native:securityinsights/v20220801preview:IncidentComment
+  - type: azure-native:securityinsights/v20220901preview:IncidentComment

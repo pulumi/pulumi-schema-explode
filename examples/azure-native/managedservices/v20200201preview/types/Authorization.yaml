@@ -1,0 +1,21 @@
+$token: azure-native:managedservices/v20200201preview:Authorization
+description: The Azure Active Directory principal identifier and Azure built-in role that describes the access the principal will receive on the delegated resource in the managed tenant.
+properties:
+  delegatedRoleDefinitionIds:
+    type: array
+    items:
+      type: string
+    description: The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other principals.
+  principalId:
+    type: string
+    description: The identifier of the Azure Active Directory principal.
+  principalIdDisplayName:
+    type: string
+    description: The display name of the Azure Active Directory principal.
+  roleDefinitionId:
+    type: string
+    description: The identifier of the Azure built-in role that defines the permissions that the Azure Active Directory principal will have on the projected scope.
+type: object
+required:
+  - principalId
+  - roleDefinitionId

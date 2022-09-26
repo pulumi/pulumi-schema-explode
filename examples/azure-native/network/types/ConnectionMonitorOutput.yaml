@@ -1,0 +1,13 @@
+$token: azure-native:network:ConnectionMonitorOutput
+description: Describes a connection monitor output destination.
+properties:
+  type:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network:OutputType"
+    description: Connection monitor output destination type. Currently, only "Workspace" is supported.
+  workspaceSettings:
+    type: object
+    $ref: "#/types/azure-native:network:ConnectionMonitorWorkspaceSettings"
+    description: Describes the settings for producing output into a log analytics workspace.
+type: object

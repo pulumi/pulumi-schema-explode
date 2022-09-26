@@ -1,0 +1,146 @@
+$token: azure-native:security/v20210601:AssessmentMetadataInSubscription
+description: Security assessment metadata response
+properties:
+  assessmentType:
+    type: string
+    description: BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
+  categories:
+    type: array
+    items:
+      type: string
+  description:
+    type: string
+    description: Human readable description of the assessment
+  displayName:
+    type: string
+    description: User friendly display name of the assessment
+  implementationEffort:
+    type: string
+    description: The implementation effort required to remediate this assessment
+  name:
+    type: string
+    description: Resource name
+  partnerData:
+    type: object
+    $ref: "#/types/azure-native:security/v20210601:SecurityAssessmentMetadataPartnerDataResponse"
+    description: Describes the partner that created the assessment
+  plannedDeprecationDate:
+    type: string
+  policyDefinitionId:
+    type: string
+    description: Azure resource ID of the policy definition that turns this assessment calculation on
+  preview:
+    type: boolean
+    description: True if this assessment is in preview release status
+  publishDates:
+    type: object
+    $ref: "#/types/azure-native:security/v20210601:SecurityAssessmentMetadataPropertiesResponseResponsePublishDates"
+  remediationDescription:
+    type: string
+    description: Human readable description of what you should do to mitigate this security issue
+  severity:
+    type: string
+    description: The severity level of the assessment
+  tactics:
+    type: array
+    items:
+      type: string
+  techniques:
+    type: array
+    items:
+      type: string
+  threats:
+    type: array
+    items:
+      type: string
+  type:
+    type: string
+    description: Resource type
+  userImpact:
+    type: string
+    description: The user impact of the assessment
+type: object
+required:
+  - assessmentType
+  - displayName
+  - name
+  - policyDefinitionId
+  - severity
+  - type
+inputProperties:
+  assessmentMetadataName:
+    type: string
+    description: The Assessment Key - Unique key for the assessment type
+  assessmentType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:security/v20210601:AssessmentType"
+    description: BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
+  categories:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:security/v20210601:Categories"
+  description:
+    type: string
+    description: Human readable description of the assessment
+  displayName:
+    type: string
+    description: User friendly display name of the assessment
+  implementationEffort:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:security/v20210601:ImplementationEffort"
+    description: The implementation effort required to remediate this assessment
+  partnerData:
+    type: object
+    $ref: "#/types/azure-native:security/v20210601:SecurityAssessmentMetadataPartnerData"
+    description: Describes the partner that created the assessment
+  plannedDeprecationDate:
+    type: string
+  preview:
+    type: boolean
+    description: True if this assessment is in preview release status
+  publishDates:
+    type: object
+    $ref: "#/types/azure-native:security/v20210601:SecurityAssessmentMetadataPropertiesResponsePublishDates"
+  remediationDescription:
+    type: string
+    description: Human readable description of what you should do to mitigate this security issue
+  severity:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:security/v20210601:Severity"
+    description: The severity level of the assessment
+  tactics:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:security/v20210601:Tactics"
+  techniques:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:security/v20210601:Techniques"
+  threats:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:security/v20210601:Threats"
+  userImpact:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:security/v20210601:UserImpact"
+    description: The user impact of the assessment
+requiredInputs:
+  - assessmentType
+  - displayName
+  - severity
+aliases:
+  - type: azure-native:security:AssessmentMetadataInSubscription
+  - type: azure-native:security/v20190101preview:AssessmentMetadataInSubscription
+  - type: azure-native:security/v20200101:AssessmentMetadataInSubscription

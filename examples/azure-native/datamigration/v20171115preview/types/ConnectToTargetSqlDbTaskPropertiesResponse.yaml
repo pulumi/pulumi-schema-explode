@@ -1,0 +1,34 @@
+$token: azure-native:datamigration/v20171115preview:ConnectToTargetSqlDbTaskPropertiesResponse
+description: Properties for the task that validates connection to SQL DB and target server requirements
+properties:
+  errors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration/v20171115preview:ODataErrorResponse"
+    description: Array of errors. This is ignored if submitted.
+  input:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20171115preview:ConnectToTargetSqlDbTaskInputResponse"
+    description: Task input
+  output:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration/v20171115preview:ConnectToTargetSqlDbTaskOutputResponse"
+    description: Task output. This is ignored if submitted.
+  state:
+    type: string
+    description: The state of the task. This is ignored if submitted.
+  taskType:
+    type: string
+    description: |-
+      Task type.
+      Expected value is 'ConnectToTarget.SqlDb'.
+    const: ConnectToTarget.SqlDb
+type: object
+required:
+  - errors
+  - output
+  - state
+  - taskType

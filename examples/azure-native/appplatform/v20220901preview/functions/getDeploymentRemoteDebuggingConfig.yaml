@@ -1,0 +1,32 @@
+$token: azure-native:appplatform/v20220901preview:getDeploymentRemoteDebuggingConfig
+description: Remote debugging config.
+inputs:
+  properties:
+    appName:
+      type: string
+      description: The name of the App resource.
+    deploymentName:
+      type: string
+      description: The name of the Deployment resource.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    serviceName:
+      type: string
+      description: The name of the Service resource.
+  type: object
+  required:
+    - appName
+    - deploymentName
+    - resourceGroupName
+    - serviceName
+outputs:
+  description: Remote debugging config.
+  properties:
+    enabled:
+      type: boolean
+      description: Indicate if remote debugging is enabled
+    port:
+      type: integer
+      description: Application debugging port
+  type: object

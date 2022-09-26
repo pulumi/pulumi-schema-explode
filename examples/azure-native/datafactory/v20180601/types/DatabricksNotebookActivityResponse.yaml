@@ -1,0 +1,55 @@
+$token: azure-native:datafactory/v20180601:DatabricksNotebookActivityResponse
+description: DatabricksNotebook activity.
+properties:
+  baseParameters:
+    type: object
+    additionalProperties:
+      $ref: pulumi.json#/Any
+    description: Base parameters to be used for each run of this job.If the notebook takes a parameter that is not specified, the default value from the notebook will be used.
+  dependsOn:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20180601:ActivityDependencyResponse"
+    description: Activity depends on condition.
+  description:
+    type: string
+    description: Activity description.
+  libraries:
+    type: array
+    items:
+      type: object
+      additionalProperties:
+        $ref: pulumi.json#/Any
+    description: A list of libraries to be installed on the cluster that will execute the job.
+  linkedServiceName:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20180601:LinkedServiceReferenceResponse"
+    description: Linked service reference.
+  name:
+    type: string
+    description: Activity name.
+  notebookPath:
+    $ref: pulumi.json#/Any
+    description: "The absolute path of the notebook to be run in the Databricks Workspace. This path must begin with a slash. Type: string (or Expression with resultType string)."
+  policy:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20180601:ActivityPolicyResponse"
+    description: Activity policy.
+  type:
+    type: string
+    description: |-
+      Type of activity.
+      Expected value is 'DatabricksNotebook'.
+    const: DatabricksNotebook
+  userProperties:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20180601:UserPropertyResponse"
+    description: Activity user properties.
+type: object
+required:
+  - name
+  - notebookPath
+  - type

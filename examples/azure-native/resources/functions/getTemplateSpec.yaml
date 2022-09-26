@@ -1,0 +1,66 @@
+$token: azure-native:resources:getTemplateSpec
+description: |-
+  Template Spec object.
+  API Version: 2022-02-01.
+inputs:
+  properties:
+    expand:
+      type: string
+      description: Allows for expansion of additional Template Spec details in the response. Optional.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    templateSpecName:
+      type: string
+      description: Name of the Template Spec.
+  type: object
+  required:
+    - resourceGroupName
+    - templateSpecName
+outputs:
+  description: Template Spec object.
+  properties:
+    description:
+      type: string
+      description: Template Spec description.
+    displayName:
+      type: string
+      description: Template Spec display name.
+    id:
+      type: string
+      description: String Id used to locate any resource on Azure.
+    location:
+      type: string
+      description: The location of the Template Spec. It cannot be changed after Template Spec creation. It must be one of the supported Azure locations.
+    metadata:
+      $ref: pulumi.json#/Any
+      description: The Template Spec metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
+    name:
+      type: string
+      description: Name of this resource.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:resources:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: Type of this resource.
+    versions:
+      type: object
+      additionalProperties:
+        type: object
+        $ref: "#/types/azure-native:resources:TemplateSpecVersionInfoResponse"
+      description: High-level information about the versions within this Template Spec. The keys are the version names. Only populated if the $expand query parameter is set to 'versions'.
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - systemData
+    - type
+    - versions

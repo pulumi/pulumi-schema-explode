@@ -1,0 +1,21 @@
+$token: azure-native:servicefabricmesh:ApplicationScopedVolume
+description: Describes a volume whose lifetime is scoped to the application's lifetime.
+properties:
+  creationParameters:
+    type: object
+    $ref: "#/types/azure-native:servicefabricmesh:ApplicationScopedVolumeCreationParametersServiceFabricVolumeDisk"
+    description: Describes parameters for creating application-scoped volumes.
+  destinationPath:
+    type: string
+    description: The path within the container at which the volume should be mounted. Only valid path characters are allowed.
+  name:
+    type: string
+    description: Name of the volume being referenced.
+  readOnly:
+    type: boolean
+    description: The flag indicating whether the volume is read only. Default is 'false'.
+type: object
+required:
+  - creationParameters
+  - destinationPath
+  - name

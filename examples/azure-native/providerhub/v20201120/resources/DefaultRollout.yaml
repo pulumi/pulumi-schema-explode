@@ -1,0 +1,36 @@
+$token: azure-native:providerhub/v20201120:DefaultRollout
+description: Default rollout definition.
+properties:
+  name:
+    type: string
+    description: The name of the resource
+  properties:
+    type: object
+    $ref: "#/types/azure-native:providerhub/v20201120:DefaultRolloutResponseProperties"
+    description: Properties of the rollout.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - name
+  - properties
+  - type
+inputProperties:
+  properties:
+    type: object
+    $ref: "#/types/azure-native:providerhub/v20201120:DefaultRolloutProperties"
+    description: Properties of the rollout.
+  providerNamespace:
+    type: string
+    description: The name of the resource provider hosted within ProviderHub.
+  rolloutName:
+    type: string
+    description: The rollout name.
+requiredInputs:
+  - providerNamespace
+aliases:
+  - type: azure-native:providerhub:DefaultRollout
+  - type: azure-native:providerhub/v20210501preview:DefaultRollout
+  - type: azure-native:providerhub/v20210601preview:DefaultRollout
+  - type: azure-native:providerhub/v20210901preview:DefaultRollout

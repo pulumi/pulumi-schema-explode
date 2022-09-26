@@ -1,0 +1,25 @@
+$token: azure-native:appplatform:AppResourceProperties
+description: App resource properties payload
+properties:
+  activeDeploymentName:
+    type: string
+    description: Name of the active deployment of the App
+  fqdn:
+    type: string
+    description: Fully qualified dns Name.
+  httpsOnly:
+    type: boolean
+    description: Indicate if only https is allowed.
+    default: false
+  persistentDisk:
+    type: object
+    $ref: "#/types/azure-native:appplatform:PersistentDisk"
+    description: Persistent disk settings
+  public:
+    type: boolean
+    description: Indicates whether the App exposes public endpoint
+  temporaryDisk:
+    type: object
+    $ref: "#/types/azure-native:appplatform:TemporaryDisk"
+    description: Temporary disk settings
+type: object

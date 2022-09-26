@@ -1,0 +1,80 @@
+$token: azure-native:streamanalytics/v20211001preview:StreamInputPropertiesResponse
+description: The properties that are associated with an input containing stream data.
+properties:
+  compression:
+    type: object
+    $ref: "#/types/azure-native:streamanalytics/v20211001preview:CompressionResponse"
+    description: Describes how input data is compressed
+  datasource:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:BlobStreamInputDataSourceResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:EventGridStreamInputDataSourceResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:EventHubStreamInputDataSourceResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:EventHubV2StreamInputDataSourceResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:GatewayMessageBusStreamInputDataSourceResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:IoTHubStreamInputDataSourceResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:RawStreamInputDataSourceResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        GatewayMessageBus: "#/types/azure-native:streamanalytics/v20211001preview:GatewayMessageBusStreamInputDataSourceResponse"
+        Microsoft.Devices/IotHubs: "#/types/azure-native:streamanalytics/v20211001preview:IoTHubStreamInputDataSourceResponse"
+        Microsoft.EventGrid/EventSubscriptions: "#/types/azure-native:streamanalytics/v20211001preview:EventGridStreamInputDataSourceResponse"
+        Microsoft.EventHub/EventHub: "#/types/azure-native:streamanalytics/v20211001preview:EventHubV2StreamInputDataSourceResponse"
+        Microsoft.ServiceBus/EventHub: "#/types/azure-native:streamanalytics/v20211001preview:EventHubStreamInputDataSourceResponse"
+        Microsoft.Storage/Blob: "#/types/azure-native:streamanalytics/v20211001preview:BlobStreamInputDataSourceResponse"
+        Raw: "#/types/azure-native:streamanalytics/v20211001preview:RawStreamInputDataSourceResponse"
+    description: Describes an input data source that contains stream data. Required on PUT (CreateOrReplace) requests.
+  diagnostics:
+    type: object
+    $ref: "#/types/azure-native:streamanalytics/v20211001preview:DiagnosticsResponse"
+    description: Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+  etag:
+    type: string
+    description: The current entity tag for the input. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+  partitionKey:
+    type: string
+    description: partitionKey Describes a key in the input data which is used for partitioning the input data
+  serialization:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:AvroSerializationResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:CsvSerializationResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:CustomClrSerializationResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:JsonSerializationResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20211001preview:ParquetSerializationResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        Avro: "#/types/azure-native:streamanalytics/v20211001preview:AvroSerializationResponse"
+        Csv: "#/types/azure-native:streamanalytics/v20211001preview:CsvSerializationResponse"
+        CustomClr: "#/types/azure-native:streamanalytics/v20211001preview:CustomClrSerializationResponse"
+        Json: "#/types/azure-native:streamanalytics/v20211001preview:JsonSerializationResponse"
+        Parquet: "#/types/azure-native:streamanalytics/v20211001preview:ParquetSerializationResponse"
+    description: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+  type:
+    type: string
+    description: |-
+      Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
+      Expected value is 'Stream'.
+    const: Stream
+  watermarkSettings:
+    type: object
+    $ref: "#/types/azure-native:streamanalytics/v20211001preview:InputWatermarkPropertiesResponse"
+    description: Settings which determine whether to read watermark events.
+type: object
+required:
+  - diagnostics
+  - etag
+  - type

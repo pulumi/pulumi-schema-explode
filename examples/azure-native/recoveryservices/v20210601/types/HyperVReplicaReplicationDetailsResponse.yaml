@@ -1,0 +1,40 @@
+$token: azure-native:recoveryservices/v20210601:HyperVReplicaReplicationDetailsResponse
+description: HyperV replica 2012 replication details.
+properties:
+  initialReplicationDetails:
+    type: object
+    $ref: "#/types/azure-native:recoveryservices/v20210601:InitialReplicationDetailsResponse"
+    description: Initial replication details.
+  instanceType:
+    type: string
+    description: |-
+      Gets the Instance type.
+      Expected value is 'HyperVReplica2012'.
+    const: HyperVReplica2012
+  lastReplicatedTime:
+    type: string
+    description: The Last replication time.
+  vMDiskDetails:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:recoveryservices/v20210601:DiskDetailsResponse"
+    description: VM disk details.
+  vmId:
+    type: string
+    description: The virtual machine Id.
+  vmNics:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:recoveryservices/v20210601:VMNicDetailsResponse"
+    description: The PE Network details.
+  vmProtectionState:
+    type: string
+    description: The protection state for the vm.
+  vmProtectionStateDescription:
+    type: string
+    description: The protection state description for the vm.
+type: object
+required:
+  - instanceType

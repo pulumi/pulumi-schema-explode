@@ -1,0 +1,80 @@
+$token: azure-native:appconfiguration/v20191001:ConfigurationStore
+description: The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
+properties:
+  creationDate:
+    type: string
+    description: The creation date of configuration store.
+  endpoint:
+    type: string
+    description: The DNS endpoint where the configuration store API will be available.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:appconfiguration/v20191001:ResourceIdentityResponse"
+    description: The managed identity information, if configured.
+  location:
+    type: string
+    description: The location of the resource. This cannot be changed after the resource is created.
+  name:
+    type: string
+    description: The name of the resource.
+  provisioningState:
+    type: string
+    description: The provisioning state of the configuration store.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:appconfiguration/v20191001:SkuResponse"
+    description: The sku of the configuration store.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - creationDate
+  - endpoint
+  - location
+  - name
+  - provisioningState
+  - sku
+  - type
+inputProperties:
+  configStoreName:
+    type: string
+    description: The name of the configuration store.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:appconfiguration/v20191001:ResourceIdentity"
+    description: The managed identity information, if configured.
+  location:
+    type: string
+    description: The location of the resource. This cannot be changed after the resource is created.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group to which the container registry belongs.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:appconfiguration/v20191001:Sku"
+    description: The sku of the configuration store.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+requiredInputs:
+  - resourceGroupName
+  - sku
+aliases:
+  - type: azure-native:appconfiguration:ConfigurationStore
+  - type: azure-native:appconfiguration/v20190201preview:ConfigurationStore
+  - type: azure-native:appconfiguration/v20191101preview:ConfigurationStore
+  - type: azure-native:appconfiguration/v20200601:ConfigurationStore
+  - type: azure-native:appconfiguration/v20200701preview:ConfigurationStore
+  - type: azure-native:appconfiguration/v20210301preview:ConfigurationStore
+  - type: azure-native:appconfiguration/v20211001preview:ConfigurationStore
+  - type: azure-native:appconfiguration/v20220301preview:ConfigurationStore
+  - type: azure-native:appconfiguration/v20220501:ConfigurationStore
+deprecationMessage: Version 2019-10-01 will be removed in v2 of the provider.

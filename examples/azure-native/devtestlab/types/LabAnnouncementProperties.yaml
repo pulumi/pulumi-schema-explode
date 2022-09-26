@@ -1,0 +1,21 @@
+$token: azure-native:devtestlab:LabAnnouncementProperties
+description: Properties of a lab's announcement banner
+properties:
+  enabled:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:devtestlab:EnableStatus"
+    description: Is the lab announcement active/enabled at this time?
+  expirationDate:
+    type: string
+    description: The time at which the announcement expires (null for never)
+  expired:
+    type: boolean
+    description: Has this announcement expired?
+  markdown:
+    type: string
+    description: The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
+  title:
+    type: string
+    description: The plain text title for the lab announcement
+type: object

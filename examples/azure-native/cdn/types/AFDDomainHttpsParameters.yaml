@@ -1,0 +1,18 @@
+$token: azure-native:cdn:AFDDomainHttpsParameters
+description: The JSON object that contains the properties to secure a domain.
+properties:
+  certificateType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:cdn:AfdCertificateType"
+    description: Defines the source of the SSL certificate.
+  minimumTlsVersion:
+    $ref: "#/types/azure-native:cdn:AfdMinimumTlsVersion"
+    description: TLS protocol version that will be used for Https
+  secret:
+    type: object
+    $ref: "#/types/azure-native:cdn:ResourceReference"
+    description: Resource reference to the secret. ie. subs/rg/profile/secret
+type: object
+required:
+  - certificateType

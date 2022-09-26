@@ -1,0 +1,54 @@
+$token: azure-native:securityinsights/v20220601preview:AnomalyTimelineItemResponse
+description: Represents anomaly timeline item.
+properties:
+  azureResourceId:
+    type: string
+    description: The anomaly azure resource id.
+  description:
+    type: string
+    description: The anomaly description.
+  displayName:
+    type: string
+    description: The anomaly name.
+  endTimeUtc:
+    type: string
+    description: The anomaly end time.
+  intent:
+    type: string
+    description: The intent of the anomaly.
+  kind:
+    type: string
+    description: |-
+      The entity query kind
+      Expected value is 'Anomaly'.
+    const: Anomaly
+  productName:
+    type: string
+    description: The anomaly product name.
+  reasons:
+    type: array
+    items:
+      type: string
+    description: The reasons that cause the anomaly.
+  startTimeUtc:
+    type: string
+    description: The anomaly start time.
+  techniques:
+    type: array
+    items:
+      type: string
+    description: The techniques of the anomaly.
+  timeGenerated:
+    type: string
+    description: The anomaly generated time.
+  vendor:
+    type: string
+    description: The name of the anomaly vendor.
+type: object
+required:
+  - azureResourceId
+  - displayName
+  - endTimeUtc
+  - kind
+  - startTimeUtc
+  - timeGenerated

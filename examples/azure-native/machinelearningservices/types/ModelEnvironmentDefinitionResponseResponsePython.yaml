@@ -1,0 +1,15 @@
+$token: azure-native:machinelearningservices:ModelEnvironmentDefinitionResponseResponsePython
+description: Settings for a Python environment.
+properties:
+  baseCondaEnvironment:
+    type: string
+  condaDependencies:
+    $ref: pulumi.json#/Any
+    description: A JObject containing Conda dependencies.
+  interpreterPath:
+    type: string
+    description: The python interpreter path to use if an environment build is not required. The path specified gets used to call the user script.
+  userManagedDependencies:
+    type: boolean
+    description: True means that AzureML reuses an existing python environment; False means that AzureML will create a python environment based on the Conda dependencies specification.
+type: object

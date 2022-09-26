@@ -1,0 +1,76 @@
+$token: azure-native:media/v20180601preview:StreamingPolicy
+description: A Streaming Policy resource
+properties:
+  commonEncryptionCbcs:
+    type: object
+    $ref: "#/types/azure-native:media/v20180601preview:CommonEncryptionCbcsResponse"
+    description: Configuration of CommonEncryptionCbcs
+  commonEncryptionCenc:
+    type: object
+    $ref: "#/types/azure-native:media/v20180601preview:CommonEncryptionCencResponse"
+    description: Configuration of CommonEncryptionCenc
+  created:
+    type: string
+    description: Creation time of Streaming Policy
+  defaultContentKeyPolicyName:
+    type: string
+    description: Default ContentKey used by current Streaming Policy
+  envelopeEncryption:
+    type: object
+    $ref: "#/types/azure-native:media/v20180601preview:EnvelopeEncryptionResponse"
+    description: Configuration of EnvelopeEncryption
+  name:
+    type: string
+    description: The name of the resource.
+  noEncryption:
+    type: object
+    $ref: "#/types/azure-native:media/v20180601preview:NoEncryptionResponse"
+    description: Configurations of NoEncryption
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - created
+  - name
+  - type
+inputProperties:
+  accountName:
+    type: string
+    description: The Media Services account name.
+  commonEncryptionCbcs:
+    type: object
+    $ref: "#/types/azure-native:media/v20180601preview:CommonEncryptionCbcs"
+    description: Configuration of CommonEncryptionCbcs
+  commonEncryptionCenc:
+    type: object
+    $ref: "#/types/azure-native:media/v20180601preview:CommonEncryptionCenc"
+    description: Configuration of CommonEncryptionCenc
+  defaultContentKeyPolicyName:
+    type: string
+    description: Default ContentKey used by current Streaming Policy
+  envelopeEncryption:
+    type: object
+    $ref: "#/types/azure-native:media/v20180601preview:EnvelopeEncryption"
+    description: Configuration of EnvelopeEncryption
+  noEncryption:
+    type: object
+    $ref: "#/types/azure-native:media/v20180601preview:NoEncryption"
+    description: Configurations of NoEncryption
+  resourceGroupName:
+    type: string
+    description: The name of the resource group within the Azure subscription.
+  streamingPolicyName:
+    type: string
+    description: The Streaming Policy name.
+requiredInputs:
+  - accountName
+  - resourceGroupName
+aliases:
+  - type: azure-native:media:StreamingPolicy
+  - type: azure-native:media/v20180330preview:StreamingPolicy
+  - type: azure-native:media/v20180701:StreamingPolicy
+  - type: azure-native:media/v20200501:StreamingPolicy
+  - type: azure-native:media/v20210601:StreamingPolicy
+  - type: azure-native:media/v20211101:StreamingPolicy
+  - type: azure-native:media/v20220801:StreamingPolicy

@@ -1,0 +1,71 @@
+$token: azure-native:azurestack/v20170601:listProductDetails
+description: Extended description about the product required for installing it into Azure Stack.
+inputs:
+  properties:
+    productName:
+      type: string
+      description: Name of the product.
+    registrationName:
+      type: string
+      description: Name of the Azure Stack registration.
+    resourceGroup:
+      type: string
+      description: Name of the resource group.
+  type: object
+  required:
+    - productName
+    - registrationName
+    - resourceGroup
+outputs:
+  description: Extended description about the product required for installing it into Azure Stack.
+  properties:
+    computeRole:
+      type: string
+      description: Specifies kind of compute role included in the package.
+    dataDiskImages:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:azurestack/v20170601:DataDiskImageResponse"
+      description: List of attached data disks.
+    galleryPackageBlobSasUri:
+      type: string
+      description: The URI to the .azpkg file that provides information required for showing product in the gallery.
+    isSystemExtension:
+      type: boolean
+      description: Specifies if product is a Virtual Machine Extension.
+    osDiskImage:
+      type: object
+      $ref: "#/types/azure-native:azurestack/v20170601:OsDiskImageResponse"
+      description: OS disk image used by product.
+    productKind:
+      type: string
+      description: Specifies the kind of the product (virtualMachine or virtualMachineExtension).
+    supportMultipleExtensions:
+      type: boolean
+      description: Indicates if specified product supports multiple extensions.
+    uri:
+      type: string
+      description: The URI.
+    version:
+      type: string
+      description: Specifies product version.
+    vmOsType:
+      type: string
+      description: Specifies operating system used by the product.
+    vmScaleSetEnabled:
+      type: boolean
+      description: Indicates if virtual machine Scale Set is enabled in the specified product.
+  type: object
+  required:
+    - computeRole
+    - dataDiskImages
+    - galleryPackageBlobSasUri
+    - isSystemExtension
+    - osDiskImage
+    - productKind
+    - supportMultipleExtensions
+    - uri
+    - version
+    - vmOsType
+    - vmScaleSetEnabled

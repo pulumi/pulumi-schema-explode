@@ -1,0 +1,34 @@
+$token: azure-native:network/v20190401:MatchCondition
+description: Define match conditions.
+properties:
+  matchValues:
+    type: array
+    items:
+      type: string
+    description: Match value.
+  matchVariables:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20190401:MatchVariable"
+    description: List of match variables.
+  negationConditon:
+    type: boolean
+    description: Describes if this is negate condition or not.
+  operator:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20190401:WebApplicationFirewallOperator"
+    description: Describes operator to be matched.
+  transforms:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:network/v20190401:WebApplicationFirewallTransform"
+    description: List of transforms.
+type: object
+required:
+  - matchValues
+  - matchVariables
+  - operator

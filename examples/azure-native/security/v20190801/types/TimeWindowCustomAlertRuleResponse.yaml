@@ -1,0 +1,36 @@
+$token: azure-native:security/v20190801:TimeWindowCustomAlertRuleResponse
+description: A custom alert rule that checks if the number of activities (depends on the custom alert type) in a time window is within the given range.
+properties:
+  description:
+    type: string
+    description: The description of the custom alert.
+  displayName:
+    type: string
+    description: The display name of the custom alert.
+  isEnabled:
+    type: boolean
+    description: Status of the custom alert.
+  maxThreshold:
+    type: integer
+    description: The maximum threshold.
+  minThreshold:
+    type: integer
+    description: The minimum threshold.
+  ruleType:
+    type: string
+    description: |-
+      The type of the custom alert rule.
+      Expected value is 'TimeWindowCustomAlertRule'.
+    const: TimeWindowCustomAlertRule
+  timeWindowSize:
+    type: string
+    description: The time window size in iso8601 format.
+type: object
+required:
+  - description
+  - displayName
+  - isEnabled
+  - maxThreshold
+  - minThreshold
+  - ruleType
+  - timeWindowSize

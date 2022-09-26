@@ -1,0 +1,31 @@
+$token: azure-native:iotsecurity:DeviceGroup
+description: |-
+  Device group
+  API Version: 2021-02-01-preview.
+properties:
+  name:
+    type: string
+    description: The name of the resource
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:iotsecurity:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - name
+  - systemData
+  - type
+inputProperties:
+  deviceGroupName:
+    type: string
+    description: Device group name
+  iotDefenderLocation:
+    type: string
+    description: Defender for IoT location
+requiredInputs:
+  - iotDefenderLocation
+aliases:
+  - type: azure-native:iotsecurity/v20210201preview:DeviceGroup

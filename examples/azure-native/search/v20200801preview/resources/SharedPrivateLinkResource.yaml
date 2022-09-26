@@ -1,0 +1,39 @@
+$token: azure-native:search/v20200801preview:SharedPrivateLinkResource
+description: Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
+properties:
+  name:
+    type: string
+    description: The name of the resource
+  properties:
+    type: object
+    $ref: "#/types/azure-native:search/v20200801preview:SharedPrivateLinkResourcePropertiesResponse"
+    description: Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - name
+  - properties
+  - type
+inputProperties:
+  properties:
+    type: object
+    $ref: "#/types/azure-native:search/v20200801preview:SharedPrivateLinkResourceProperties"
+    description: Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
+  searchServiceName:
+    type: string
+    description: The name of the Azure Cognitive Search service associated with the specified resource group.
+  sharedPrivateLinkResourceName:
+    type: string
+    description: The name of the shared private link resource managed by the Azure Cognitive Search service within the specified resource group.
+requiredInputs:
+  - resourceGroupName
+  - searchServiceName
+aliases:
+  - type: azure-native:search:SharedPrivateLinkResource
+  - type: azure-native:search/v20200801:SharedPrivateLinkResource
+  - type: azure-native:search/v20210401preview:SharedPrivateLinkResource

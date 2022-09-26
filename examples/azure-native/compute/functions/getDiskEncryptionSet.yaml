@@ -1,0 +1,71 @@
+$token: azure-native:compute:getDiskEncryptionSet
+description: |-
+  disk encryption set resource.
+  API Version: 2020-12-01.
+inputs:
+  properties:
+    diskEncryptionSetName:
+      type: string
+      description: The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - diskEncryptionSetName
+    - resourceGroupName
+outputs:
+  description: disk encryption set resource.
+  properties:
+    activeKey:
+      type: object
+      $ref: "#/types/azure-native:compute:KeyForDiskEncryptionSetResponse"
+      description: The key vault key which is currently used by this disk encryption set.
+    encryptionType:
+      type: string
+      description: The type of key used to encrypt the data of the disk.
+    id:
+      type: string
+      description: Resource Id
+    identity:
+      type: object
+      $ref: "#/types/azure-native:compute:EncryptionSetIdentityResponse"
+      description: The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
+    lastKeyRotationTimestamp:
+      type: string
+      description: The time when the active key of this disk encryption set was updated.
+    location:
+      type: string
+      description: Resource location
+    name:
+      type: string
+      description: Resource name
+    previousKeys:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:compute:KeyForDiskEncryptionSetResponse"
+      description: A readonly collection of key vault keys previously used by this disk encryption set while a key rotation is in progress. It will be empty if there is no ongoing key rotation.
+    provisioningState:
+      type: string
+      description: The disk encryption set provisioning state.
+    rotationToLatestKeyVersionEnabled:
+      type: boolean
+      description: Set this flag to true to enable auto-updating of this disk encryption set to the latest key version.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    type:
+      type: string
+      description: Resource type
+  type: object
+  required:
+    - id
+    - lastKeyRotationTimestamp
+    - location
+    - name
+    - previousKeys
+    - provisioningState
+    - type

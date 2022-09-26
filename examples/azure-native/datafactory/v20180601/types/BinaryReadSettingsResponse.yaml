@@ -1,0 +1,27 @@
+$token: azure-native:datafactory/v20180601:BinaryReadSettingsResponse
+description: Binary read settings.
+properties:
+  compressionProperties:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:TarGZipReadSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:TarReadSettingsResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:ZipDeflateReadSettingsResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        TarGZipReadSettings: "#/types/azure-native:datafactory/v20180601:TarGZipReadSettingsResponse"
+        TarReadSettings: "#/types/azure-native:datafactory/v20180601:TarReadSettingsResponse"
+        ZipDeflateReadSettings: "#/types/azure-native:datafactory/v20180601:ZipDeflateReadSettingsResponse"
+    description: Compression settings.
+  type:
+    type: string
+    description: |-
+      The read setting type.
+      Expected value is 'BinaryReadSettings'.
+    const: BinaryReadSettings
+type: object
+required:
+  - type

@@ -1,0 +1,29 @@
+$token: azure-native:insights/v20191017preview:PrivateEndpointConnectionResponse
+description: A private endpoint connection
+properties:
+  id:
+    type: string
+    description: Azure resource Id
+  name:
+    type: string
+    description: Azure resource name
+  privateEndpoint:
+    type: object
+    $ref: "#/types/azure-native:insights/v20191017preview:PrivateEndpointPropertyResponse"
+    description: Private endpoint which the connection belongs to.
+  privateLinkServiceConnectionState:
+    type: object
+    $ref: "#/types/azure-native:insights/v20191017preview:PrivateLinkServiceConnectionStatePropertyResponse"
+    description: Connection state of the private endpoint connection.
+  provisioningState:
+    type: string
+    description: State of the private endpoint connection.
+  type:
+    type: string
+    description: Azure resource type
+type: object
+required:
+  - id
+  - name
+  - provisioningState
+  - type

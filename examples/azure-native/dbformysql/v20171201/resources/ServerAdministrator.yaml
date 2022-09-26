@@ -1,0 +1,60 @@
+$token: azure-native:dbformysql/v20171201:ServerAdministrator
+description: Represents a and external administrator to be created.
+properties:
+  administratorType:
+    type: string
+    description: The type of administrator.
+  login:
+    type: string
+    description: The server administrator login account name.
+  name:
+    type: string
+    description: The name of the resource
+  sid:
+    type: string
+    description: The server administrator Sid (Secure ID).
+  tenantId:
+    type: string
+    description: The server Active Directory Administrator tenant id.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - administratorType
+  - login
+  - name
+  - sid
+  - tenantId
+  - type
+inputProperties:
+  administratorType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:dbformysql/v20171201:AdministratorType"
+    description: The type of administrator.
+  login:
+    type: string
+    description: The server administrator login account name.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  serverName:
+    type: string
+    description: The name of the server.
+  sid:
+    type: string
+    description: The server administrator Sid (Secure ID).
+  tenantId:
+    type: string
+    description: The server Active Directory Administrator tenant id.
+requiredInputs:
+  - administratorType
+  - login
+  - resourceGroupName
+  - serverName
+  - sid
+  - tenantId
+aliases:
+  - type: azure-native:dbformysql:ServerAdministrator
+  - type: azure-native:dbformysql/v20171201preview:ServerAdministrator

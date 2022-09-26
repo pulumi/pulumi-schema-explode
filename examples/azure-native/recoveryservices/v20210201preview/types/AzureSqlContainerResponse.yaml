@@ -1,0 +1,30 @@
+$token: azure-native:recoveryservices/v20210201preview:AzureSqlContainerResponse
+description: Azure Sql workload-specific container.
+properties:
+  backupManagementType:
+    type: string
+    description: Type of backup management for the container.
+  containerType:
+    type: string
+    description: "Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.\r
+
+      Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is\r
+
+      Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload\r
+
+      Backup is VMAppContainer
+
+      Expected value is 'AzureSqlContainer'."
+    const: AzureSqlContainer
+  friendlyName:
+    type: string
+    description: Friendly name of the container.
+  healthStatus:
+    type: string
+    description: Status of health of the container.
+  registrationStatus:
+    type: string
+    description: Status of registration of the container with the Recovery Services Vault.
+type: object
+required:
+  - containerType

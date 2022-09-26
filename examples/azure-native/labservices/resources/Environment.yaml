@@ -1,0 +1,112 @@
+$token: azure-native:labservices:Environment
+description: |-
+  Represents an environment instance
+  API Version: 2018-10-15.
+properties:
+  claimedByUserName:
+    type: string
+    description: The name or email address of the user who has claimed the environment
+  claimedByUserObjectId:
+    type: string
+    description: The AAD object Id of the user who has claimed the environment
+  claimedByUserPrincipalId:
+    type: string
+    description: The user principal Id of the user who has claimed the environment
+  isClaimed:
+    type: boolean
+    description: Is the environment claimed or not
+  lastKnownPowerState:
+    type: string
+    description: Last known power state of the environment
+  latestOperationResult:
+    type: object
+    $ref: "#/types/azure-native:labservices:LatestOperationResultResponse"
+    description: "The details of the latest operation. ex: status, error"
+  location:
+    type: string
+    description: The location of the resource.
+  name:
+    type: string
+    description: The name of the resource.
+  networkInterface:
+    type: object
+    $ref: "#/types/azure-native:labservices:NetworkInterfaceResponse"
+    description: Network details of the environment
+  passwordLastReset:
+    type: string
+    description: When the password was last reset on the environment.
+  provisioningState:
+    type: string
+    description: The provisioning status of the resource.
+  resourceSets:
+    type: object
+    $ref: "#/types/azure-native:labservices:ResourceSetResponse"
+    description: The set of a VM and the setting id it was created for
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+  totalUsage:
+    type: string
+    description: How long the environment has been used by a lab user
+  type:
+    type: string
+    description: The type of the resource.
+  uniqueIdentifier:
+    type: string
+    description: The unique immutable identifier of a resource (Guid).
+type: object
+required:
+  - claimedByUserName
+  - claimedByUserObjectId
+  - claimedByUserPrincipalId
+  - isClaimed
+  - lastKnownPowerState
+  - latestOperationResult
+  - name
+  - networkInterface
+  - passwordLastReset
+  - totalUsage
+  - type
+inputProperties:
+  environmentName:
+    type: string
+    description: The name of the environment.
+  environmentSettingName:
+    type: string
+    description: The name of the environment Setting.
+  labAccountName:
+    type: string
+    description: The name of the lab Account.
+  labName:
+    type: string
+    description: The name of the lab.
+  location:
+    type: string
+    description: The location of the resource.
+  provisioningState:
+    type: string
+    description: The provisioning status of the resource.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  resourceSets:
+    type: object
+    $ref: "#/types/azure-native:labservices:ResourceSet"
+    description: The set of a VM and the setting id it was created for
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+  uniqueIdentifier:
+    type: string
+    description: The unique immutable identifier of a resource (Guid).
+requiredInputs:
+  - environmentSettingName
+  - labAccountName
+  - labName
+  - resourceGroupName
+aliases:
+  - type: azure-native:labservices/v20181015:Environment

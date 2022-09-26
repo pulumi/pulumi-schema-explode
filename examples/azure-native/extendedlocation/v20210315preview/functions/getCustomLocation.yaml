@@ -1,0 +1,69 @@
+$token: azure-native:extendedlocation/v20210315preview:getCustomLocation
+description: Custom Locations definition.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    resourceName:
+      type: string
+      description: Custom Locations name.
+  type: object
+  required:
+    - resourceGroupName
+    - resourceName
+outputs:
+  description: Custom Locations definition.
+  properties:
+    authentication:
+      type: object
+      $ref: "#/types/azure-native:extendedlocation/v20210315preview:CustomLocationPropertiesResponseAuthentication"
+      description: This is optional input that contains the authentication that should be used to generate the namespace.
+    clusterExtensionIds:
+      type: array
+      items:
+        type: string
+      description: Contains the reference to the add-on that contains charts to deploy CRDs and operators.
+    displayName:
+      type: string
+      description: Display name for the Custom Locations location.
+    hostResourceId:
+      type: string
+      description: Connected Cluster or AKS Cluster. The Custom Locations RP will perform a checkAccess API for listAdminCredentials permissions.
+    hostType:
+      type: string
+      description: Type of host the Custom Locations is referencing (Kubernetes, etc...).
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    name:
+      type: string
+      description: The name of the resource
+    namespace:
+      type: string
+      description: Kubernetes namespace that will be created on the specified cluster.
+    provisioningState:
+      type: string
+      description: Provisioning State for the Custom Location.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:extendedlocation/v20210315preview:SystemDataResponse"
+      description: Metadata pertaining to creation and last modification of the resource
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - systemData
+    - type

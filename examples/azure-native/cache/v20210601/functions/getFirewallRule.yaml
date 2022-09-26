@@ -1,0 +1,43 @@
+$token: azure-native:cache/v20210601:getFirewallRule
+description: A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
+inputs:
+  properties:
+    cacheName:
+      type: string
+      description: The name of the Redis cache.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    ruleName:
+      type: string
+      description: The name of the firewall rule.
+  type: object
+  required:
+    - cacheName
+    - resourceGroupName
+    - ruleName
+outputs:
+  description: A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
+  properties:
+    endIP:
+      type: string
+      description: highest IP address included in the range
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    name:
+      type: string
+      description: The name of the resource
+    startIP:
+      type: string
+      description: lowest IP address included in the range
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - endIP
+    - id
+    - name
+    - startIP
+    - type

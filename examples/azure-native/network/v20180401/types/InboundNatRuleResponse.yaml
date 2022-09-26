@@ -1,0 +1,41 @@
+$token: azure-native:network/v20180401:InboundNatRuleResponse
+description: Inbound NAT rule of the load balancer.
+properties:
+  backendIPConfiguration:
+    type: object
+    $ref: "#/types/azure-native:network/v20180401:NetworkInterfaceIPConfigurationResponse"
+    description: A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backend IP.
+  backendPort:
+    type: integer
+    description: The port used for the internal endpoint. Acceptable values range from 1 to 65535.
+  enableFloatingIP:
+    type: boolean
+    description: Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  frontendIPConfiguration:
+    type: object
+    $ref: "#/types/azure-native:network/v20180401:SubResourceResponse"
+    description: A reference to frontend IP addresses.
+  frontendPort:
+    type: integer
+    description: The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
+  id:
+    type: string
+    description: Resource ID.
+  idleTimeoutInMinutes:
+    type: integer
+    description: The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
+  name:
+    type: string
+    description: Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
+  protocol:
+    type: string
+    description: The transport protocol for the endpoint. Possible values are 'Udp' or 'Tcp' or 'All'.
+  provisioningState:
+    type: string
+    description: "Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'."
+type: object
+required:
+  - backendIPConfiguration

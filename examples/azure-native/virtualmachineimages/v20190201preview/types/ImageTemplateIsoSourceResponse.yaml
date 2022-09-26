@@ -1,0 +1,20 @@
+$token: azure-native:virtualmachineimages/v20190201preview:ImageTemplateIsoSourceResponse
+description: Describes an image source that is an installation ISO. Currently only supports Red Hat Enterprise Linux 7.2-7.5 ISO's.
+properties:
+  sha256Checksum:
+    type: string
+    description: SHA256 Checksum of the ISO image.
+  sourceURI:
+    type: string
+    description: URI to get the ISO image. This URI has to be accessible to the resource provider at the time of the image template creation.
+  type:
+    type: string
+    description: |-
+      Specifies the type of source image you want to start with.
+      Expected value is 'ISO'.
+    const: ISO
+type: object
+required:
+  - sha256Checksum
+  - sourceURI
+  - type

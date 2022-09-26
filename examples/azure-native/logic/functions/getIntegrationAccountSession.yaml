@@ -1,0 +1,56 @@
+$token: azure-native:logic:getIntegrationAccountSession
+description: |-
+  The integration account session.
+  API Version: 2019-05-01.
+inputs:
+  properties:
+    integrationAccountName:
+      type: string
+      description: The integration account name.
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+    sessionName:
+      type: string
+      description: The integration account session name.
+  type: object
+  required:
+    - integrationAccountName
+    - resourceGroupName
+    - sessionName
+outputs:
+  description: The integration account session.
+  properties:
+    changedTime:
+      type: string
+      description: The changed time.
+    content:
+      $ref: pulumi.json#/Any
+      description: The session content.
+    createdTime:
+      type: string
+      description: The created time.
+    id:
+      type: string
+      description: The resource id.
+    location:
+      type: string
+      description: The resource location.
+    name:
+      type: string
+      description: Gets the resource name.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: The resource tags.
+    type:
+      type: string
+      description: Gets the resource type.
+  type: object
+  required:
+    - changedTime
+    - createdTime
+    - id
+    - name
+    - type

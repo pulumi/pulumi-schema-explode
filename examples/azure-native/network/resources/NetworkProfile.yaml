@@ -1,0 +1,99 @@
+$token: azure-native:network:NetworkProfile
+description: |-
+  Network profile resource.
+  API Version: 2020-11-01.
+properties:
+  containerNetworkInterfaceConfigurations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network:ContainerNetworkInterfaceConfigurationResponse"
+    description: List of chid container network interface configurations.
+  containerNetworkInterfaces:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network:ContainerNetworkInterfaceResponse"
+    description: List of child container network interfaces.
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  location:
+    type: string
+    description: Resource location.
+  name:
+    type: string
+    description: Resource name.
+  provisioningState:
+    type: string
+    description: The provisioning state of the network profile resource.
+  resourceGuid:
+    type: string
+    description: The resource GUID property of the network profile resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - containerNetworkInterfaces
+  - etag
+  - name
+  - provisioningState
+  - resourceGuid
+  - type
+inputProperties:
+  containerNetworkInterfaceConfigurations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network:ContainerNetworkInterfaceConfiguration"
+    description: List of chid container network interface configurations.
+  id:
+    type: string
+    description: Resource ID.
+  location:
+    type: string
+    description: Resource location.
+  networkProfileName:
+    type: string
+    description: The name of the network profile.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:network/v20180801:NetworkProfile
+  - type: azure-native:network/v20181001:NetworkProfile
+  - type: azure-native:network/v20181101:NetworkProfile
+  - type: azure-native:network/v20181201:NetworkProfile
+  - type: azure-native:network/v20190201:NetworkProfile
+  - type: azure-native:network/v20190401:NetworkProfile
+  - type: azure-native:network/v20190601:NetworkProfile
+  - type: azure-native:network/v20190701:NetworkProfile
+  - type: azure-native:network/v20190801:NetworkProfile
+  - type: azure-native:network/v20190901:NetworkProfile
+  - type: azure-native:network/v20191101:NetworkProfile
+  - type: azure-native:network/v20191201:NetworkProfile
+  - type: azure-native:network/v20200301:NetworkProfile
+  - type: azure-native:network/v20200401:NetworkProfile
+  - type: azure-native:network/v20200501:NetworkProfile
+  - type: azure-native:network/v20200601:NetworkProfile
+  - type: azure-native:network/v20200701:NetworkProfile
+  - type: azure-native:network/v20200801:NetworkProfile
+  - type: azure-native:network/v20201101:NetworkProfile
+  - type: azure-native:network/v20210201:NetworkProfile
+  - type: azure-native:network/v20210301:NetworkProfile
+  - type: azure-native:network/v20210501:NetworkProfile
+  - type: azure-native:network/v20210801:NetworkProfile
+  - type: azure-native:network/v20220101:NetworkProfile

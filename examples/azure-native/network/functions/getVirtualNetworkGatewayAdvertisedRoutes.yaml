@@ -1,0 +1,30 @@
+$token: azure-native:network:getVirtualNetworkGatewayAdvertisedRoutes
+description: |-
+  List of virtual network gateway routes.
+  API Version: 2020-11-01.
+inputs:
+  properties:
+    peer:
+      type: string
+      description: The IP address of the peer.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    virtualNetworkGatewayName:
+      type: string
+      description: The name of the virtual network gateway.
+  type: object
+  required:
+    - peer
+    - resourceGroupName
+    - virtualNetworkGatewayName
+outputs:
+  description: List of virtual network gateway routes.
+  properties:
+    value:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network:GatewayRouteResponse"
+      description: List of gateway routes.
+  type: object

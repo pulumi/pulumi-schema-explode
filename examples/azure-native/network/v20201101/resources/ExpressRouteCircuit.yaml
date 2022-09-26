@@ -1,0 +1,193 @@
+$token: azure-native:network/v20201101:ExpressRouteCircuit
+description: ExpressRouteCircuit resource.
+properties:
+  allowClassicOperations:
+    type: boolean
+    description: Allow classic operations.
+  authorizations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20201101:ExpressRouteCircuitAuthorizationResponse"
+    description: The list of authorizations.
+  bandwidthInGbps:
+    type: number
+    description: The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.
+  circuitProvisioningState:
+    type: string
+    description: The CircuitProvisioningState state of the resource.
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  expressRoutePort:
+    type: object
+    $ref: "#/types/azure-native:network/v20201101:SubResourceResponse"
+    description: The reference to the ExpressRoutePort resource when the circuit is provisioned on an ExpressRoutePort resource.
+  gatewayManagerEtag:
+    type: string
+    description: The GatewayManager Etag.
+  globalReachEnabled:
+    type: boolean
+    description: Flag denoting global reach status.
+  location:
+    type: string
+    description: Resource location.
+  name:
+    type: string
+    description: Resource name.
+  peerings:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20201101:ExpressRouteCircuitPeeringResponse"
+    description: The list of peerings.
+  provisioningState:
+    type: string
+    description: The provisioning state of the express route circuit resource.
+  serviceKey:
+    type: string
+    description: The ServiceKey.
+  serviceProviderNotes:
+    type: string
+    description: The ServiceProviderNotes.
+  serviceProviderProperties:
+    type: object
+    $ref: "#/types/azure-native:network/v20201101:ExpressRouteCircuitServiceProviderPropertiesResponse"
+    description: The ServiceProviderProperties.
+  serviceProviderProvisioningState:
+    type: string
+    description: The ServiceProviderProvisioningState state of the resource.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:network/v20201101:ExpressRouteCircuitSkuResponse"
+    description: The SKU.
+  stag:
+    type: integer
+    description: The identifier of the circuit traffic. Outer tag for QinQ encapsulation.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - etag
+  - name
+  - provisioningState
+  - stag
+  - type
+inputProperties:
+  allowClassicOperations:
+    type: boolean
+    description: Allow classic operations.
+  authorizations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20201101:ExpressRouteCircuitAuthorization"
+    description: The list of authorizations.
+  bandwidthInGbps:
+    type: number
+    description: The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.
+  circuitName:
+    type: string
+    description: The name of the circuit.
+  circuitProvisioningState:
+    type: string
+    description: The CircuitProvisioningState state of the resource.
+  expressRoutePort:
+    type: object
+    $ref: "#/types/azure-native:network/v20201101:SubResource"
+    description: The reference to the ExpressRoutePort resource when the circuit is provisioned on an ExpressRoutePort resource.
+  gatewayManagerEtag:
+    type: string
+    description: The GatewayManager Etag.
+  globalReachEnabled:
+    type: boolean
+    description: Flag denoting global reach status.
+  id:
+    type: string
+    description: Resource ID.
+  location:
+    type: string
+    description: Resource location.
+  peerings:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20201101:ExpressRouteCircuitPeering"
+    description: The list of peerings.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  serviceKey:
+    type: string
+    description: The ServiceKey.
+  serviceProviderNotes:
+    type: string
+    description: The ServiceProviderNotes.
+  serviceProviderProperties:
+    type: object
+    $ref: "#/types/azure-native:network/v20201101:ExpressRouteCircuitServiceProviderProperties"
+    description: The ServiceProviderProperties.
+  serviceProviderProvisioningState:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20201101:ServiceProviderProvisioningState"
+    description: The ServiceProviderProvisioningState state of the resource.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:network/v20201101:ExpressRouteCircuitSku"
+    description: The SKU.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:network:ExpressRouteCircuit
+  - type: azure-native:network/v20150501preview:ExpressRouteCircuit
+  - type: azure-native:network/v20150615:ExpressRouteCircuit
+  - type: azure-native:network/v20160330:ExpressRouteCircuit
+  - type: azure-native:network/v20160601:ExpressRouteCircuit
+  - type: azure-native:network/v20160901:ExpressRouteCircuit
+  - type: azure-native:network/v20161201:ExpressRouteCircuit
+  - type: azure-native:network/v20170301:ExpressRouteCircuit
+  - type: azure-native:network/v20170601:ExpressRouteCircuit
+  - type: azure-native:network/v20170801:ExpressRouteCircuit
+  - type: azure-native:network/v20170901:ExpressRouteCircuit
+  - type: azure-native:network/v20171001:ExpressRouteCircuit
+  - type: azure-native:network/v20171101:ExpressRouteCircuit
+  - type: azure-native:network/v20180101:ExpressRouteCircuit
+  - type: azure-native:network/v20180201:ExpressRouteCircuit
+  - type: azure-native:network/v20180401:ExpressRouteCircuit
+  - type: azure-native:network/v20180601:ExpressRouteCircuit
+  - type: azure-native:network/v20180701:ExpressRouteCircuit
+  - type: azure-native:network/v20180801:ExpressRouteCircuit
+  - type: azure-native:network/v20181001:ExpressRouteCircuit
+  - type: azure-native:network/v20181101:ExpressRouteCircuit
+  - type: azure-native:network/v20181201:ExpressRouteCircuit
+  - type: azure-native:network/v20190201:ExpressRouteCircuit
+  - type: azure-native:network/v20190401:ExpressRouteCircuit
+  - type: azure-native:network/v20190601:ExpressRouteCircuit
+  - type: azure-native:network/v20190701:ExpressRouteCircuit
+  - type: azure-native:network/v20190801:ExpressRouteCircuit
+  - type: azure-native:network/v20190901:ExpressRouteCircuit
+  - type: azure-native:network/v20191101:ExpressRouteCircuit
+  - type: azure-native:network/v20191201:ExpressRouteCircuit
+  - type: azure-native:network/v20200301:ExpressRouteCircuit
+  - type: azure-native:network/v20200401:ExpressRouteCircuit
+  - type: azure-native:network/v20200501:ExpressRouteCircuit
+  - type: azure-native:network/v20200601:ExpressRouteCircuit
+  - type: azure-native:network/v20200701:ExpressRouteCircuit
+  - type: azure-native:network/v20200801:ExpressRouteCircuit
+  - type: azure-native:network/v20210201:ExpressRouteCircuit
+  - type: azure-native:network/v20210301:ExpressRouteCircuit
+  - type: azure-native:network/v20210501:ExpressRouteCircuit
+  - type: azure-native:network/v20210801:ExpressRouteCircuit
+  - type: azure-native:network/v20220101:ExpressRouteCircuit

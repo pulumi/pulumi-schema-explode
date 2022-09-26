@@ -1,0 +1,21 @@
+$token: azure-native:labservices:ReferenceVmResponse
+description: Details of a Reference Vm
+properties:
+  password:
+    type: string
+    description: The password of the virtual machine. This will be set to null in GET resource API
+  userName:
+    type: string
+    description: The username of the virtual machine
+  vmResourceId:
+    type: string
+    description: VM resource Id for the environment
+  vmStateDetails:
+    type: object
+    $ref: "#/types/azure-native:labservices:VmStateDetailsResponse"
+    description: The state details for the reference virtual machine.
+type: object
+required:
+  - userName
+  - vmResourceId
+  - vmStateDetails

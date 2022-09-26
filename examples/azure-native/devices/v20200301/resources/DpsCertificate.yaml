@@ -1,0 +1,50 @@
+$token: azure-native:devices/v20200301:DpsCertificate
+description: The X509 Certificate.
+properties:
+  etag:
+    type: string
+    description: The entity tag.
+  name:
+    type: string
+    description: The name of the certificate.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:devices/v20200301:CertificatePropertiesResponse"
+    description: properties of a certificate
+  type:
+    type: string
+    description: The resource type.
+type: object
+required:
+  - etag
+  - name
+  - properties
+  - type
+inputProperties:
+  certificate:
+    type: string
+    description: Base-64 representation of the X509 leaf certificate .cer file or just .pem file content.
+  certificateName:
+    type: string
+    description: The name of the certificate create or update.
+  isVerified:
+    type: boolean
+    description: True indicates that the certificate will be created in verified state and proof of possession will not be required.
+  provisioningServiceName:
+    type: string
+    description: The name of the provisioning service.
+  resourceGroupName:
+    type: string
+    description: Resource group identifier.
+requiredInputs:
+  - provisioningServiceName
+  - resourceGroupName
+aliases:
+  - type: azure-native:devices:DpsCertificate
+  - type: azure-native:devices/v20170821preview:DpsCertificate
+  - type: azure-native:devices/v20171115:DpsCertificate
+  - type: azure-native:devices/v20180122:DpsCertificate
+  - type: azure-native:devices/v20200101:DpsCertificate
+  - type: azure-native:devices/v20200901preview:DpsCertificate
+  - type: azure-native:devices/v20211015:DpsCertificate
+  - type: azure-native:devices/v20220205:DpsCertificate

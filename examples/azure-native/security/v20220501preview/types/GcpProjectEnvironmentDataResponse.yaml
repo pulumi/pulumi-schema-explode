@@ -1,0 +1,28 @@
+$token: azure-native:security/v20220501preview:GcpProjectEnvironmentDataResponse
+description: The GCP project connector environment data
+properties:
+  environmentType:
+    type: string
+    description: |-
+      The type of the environment data.
+      Expected value is 'GcpProject'.
+    const: GcpProject
+  organizationalData:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:security/v20220501preview:GcpOrganizationalDataMemberResponse"
+      - type: object
+        $ref: "#/types/azure-native:security/v20220501preview:GcpOrganizationalDataOrganizationResponse"
+    discriminator:
+      propertyName: organizationMembershipType
+      mapping:
+        Member: "#/types/azure-native:security/v20220501preview:GcpOrganizationalDataMemberResponse"
+        Organization: "#/types/azure-native:security/v20220501preview:GcpOrganizationalDataOrganizationResponse"
+    description: The Gcp project's organizational data
+  projectDetails:
+    type: object
+    $ref: "#/types/azure-native:security/v20220501preview:GcpProjectDetailsResponse"
+    description: The Gcp project's details
+type: object
+required:
+  - environmentType

@@ -1,0 +1,27 @@
+$token: azure-native:servicefabric/v20210901privatepreview:LoadBalancingRuleResponse
+description: Describes a load balancing rule.
+properties:
+  backendPort:
+    type: integer
+    description: The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
+  frontendPort:
+    type: integer
+    description: The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534.
+  probePort:
+    type: integer
+    description: The prob port used by the load balancing rule. Acceptable values are between 1 and 65535.
+  probeProtocol:
+    type: string
+    description: the reference to the load balancer probe used by the load balancing rule.
+  probeRequestPath:
+    type: string
+    description: The probe request path. Only supported for HTTP/HTTPS probes.
+  protocol:
+    type: string
+    description: The reference to the transport protocol used by the load balancing rule.
+type: object
+required:
+  - backendPort
+  - frontendPort
+  - probeProtocol
+  - protocol

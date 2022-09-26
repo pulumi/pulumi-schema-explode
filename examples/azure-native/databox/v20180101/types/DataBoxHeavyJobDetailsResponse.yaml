@@ -1,0 +1,101 @@
+$token: azure-native:databox/v20180101:DataBoxHeavyJobDetailsResponse
+description: DataBoxHeavy Device Job Details
+properties:
+  chainOfCustodySasKey:
+    type: string
+    description: Shared access key to download the chain of custody logs
+  contactDetails:
+    type: object
+    $ref: "#/types/azure-native:databox/v20180101:ContactDetailsResponse"
+    description: Contact details for notification and shipping.
+  copyLogDetails:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:databox/v20180101:DataBoxAccountCopyLogDetailsResponse"
+        - type: object
+          $ref: "#/types/azure-native:databox/v20180101:DataBoxDiskCopyLogDetailsResponse"
+        - type: object
+          $ref: "#/types/azure-native:databox/v20180101:DataBoxHeavyAccountCopyLogDetailsResponse"
+      discriminator:
+        propertyName: copyLogDetailsType
+        mapping:
+          DataBox: "#/types/azure-native:databox/v20180101:DataBoxAccountCopyLogDetailsResponse"
+          DataBoxDisk: "#/types/azure-native:databox/v20180101:DataBoxDiskCopyLogDetailsResponse"
+          DataBoxHeavy: "#/types/azure-native:databox/v20180101:DataBoxHeavyAccountCopyLogDetailsResponse"
+    description: List of copy log details.
+  copyProgress:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:databox/v20180101:CopyProgressResponse"
+    description: Copy progress per account.
+  deliveryPackage:
+    type: object
+    $ref: "#/types/azure-native:databox/v20180101:PackageShippingDetailsResponse"
+    description: Delivery package shipping details.
+  destinationAccountDetails:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:databox/v20180101:DestinationManagedDiskDetailsResponse"
+        - type: object
+          $ref: "#/types/azure-native:databox/v20180101:DestinationStorageAccountDetailsResponse"
+      discriminator:
+        propertyName: dataDestinationType
+        mapping:
+          ManagedDisk: "#/types/azure-native:databox/v20180101:DestinationManagedDiskDetailsResponse"
+          StorageAccount: "#/types/azure-native:databox/v20180101:DestinationStorageAccountDetailsResponse"
+    description: Destination account details.
+  errorDetails:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:databox/v20180101:JobErrorDetailsResponse"
+    description: Error details for failure. This is optional.
+  expectedDataSizeInTeraBytes:
+    type: integer
+    description: The expected size of the data, which needs to be transferred in this job, in terabytes.
+  jobDetailsType:
+    type: string
+    description: |-
+      Indicates the type of job details.
+      Expected value is 'DataBoxHeavy'.
+    const: DataBoxHeavy
+  jobStages:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:databox/v20180101:JobStagesResponse"
+    description: List of stages that run in the job.
+  preferences:
+    type: object
+    $ref: "#/types/azure-native:databox/v20180101:PreferencesResponse"
+    description: Preferences for the order.
+  returnPackage:
+    type: object
+    $ref: "#/types/azure-native:databox/v20180101:PackageShippingDetailsResponse"
+    description: Return package shipping details.
+  reverseShipmentLabelSasKey:
+    type: string
+    description: Shared access key to download the return shipment label
+  shippingAddress:
+    type: object
+    $ref: "#/types/azure-native:databox/v20180101:ShippingAddressResponse"
+    description: Shipping address of the customer.
+type: object
+required:
+  - chainOfCustodySasKey
+  - contactDetails
+  - copyLogDetails
+  - copyProgress
+  - deliveryPackage
+  - destinationAccountDetails
+  - errorDetails
+  - jobDetailsType
+  - jobStages
+  - returnPackage
+  - reverseShipmentLabelSasKey
+  - shippingAddress

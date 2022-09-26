@@ -1,0 +1,18 @@
+$token: azure-native:datafactory:PolybaseSettings
+description: PolyBase settings.
+properties:
+  rejectSampleValue:
+    $ref: pulumi.json#/Any
+    description: "Determines the number of rows to attempt to retrieve before the PolyBase recalculates the percentage of rejected rows. Type: integer (or Expression with resultType integer), minimum: 0."
+  rejectType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:datafactory:PolybaseSettingsRejectType"
+    description: Reject type.
+  rejectValue:
+    $ref: pulumi.json#/Any
+    description: "Specifies the value or the percentage of rows that can be rejected before the query fails. Type: number (or Expression with resultType number), minimum: 0."
+  useTypeDefault:
+    $ref: pulumi.json#/Any
+    description: "Specifies how to handle missing values in delimited text files when PolyBase retrieves data from the text file. Type: boolean (or Expression with resultType boolean)."
+type: object

@@ -1,0 +1,22 @@
+$token: azure-native:containerregistry/v20220201preview:KeyVaultPropertiesResponse
+properties:
+  identity:
+    type: string
+    description: The client id of the identity which will be used to access key vault.
+  keyIdentifier:
+    type: string
+    description: Key vault uri to access the encryption key.
+  keyRotationEnabled:
+    type: boolean
+    description: Auto key rotation status for a CMK enabled registry.
+  lastKeyRotationTimestamp:
+    type: string
+    description: Timestamp of the last successful key rotation.
+  versionedKeyIdentifier:
+    type: string
+    description: The fully qualified key identifier that includes the version of the key that is actually used for encryption.
+type: object
+required:
+  - keyRotationEnabled
+  - lastKeyRotationTimestamp
+  - versionedKeyIdentifier

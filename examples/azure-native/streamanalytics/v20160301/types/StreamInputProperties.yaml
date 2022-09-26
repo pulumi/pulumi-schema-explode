@@ -1,0 +1,42 @@
+$token: azure-native:streamanalytics/v20160301:StreamInputProperties
+description: The properties that are associated with an input containing stream data.
+properties:
+  datasource:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20160301:BlobStreamInputDataSource"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20160301:EventHubStreamInputDataSource"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20160301:IoTHubStreamInputDataSource"
+    discriminator:
+      propertyName: type
+      mapping:
+        Microsoft.Devices/IotHubs: "#/types/azure-native:streamanalytics/v20160301:IoTHubStreamInputDataSource"
+        Microsoft.ServiceBus/EventHub: "#/types/azure-native:streamanalytics/v20160301:EventHubStreamInputDataSource"
+        Microsoft.Storage/Blob: "#/types/azure-native:streamanalytics/v20160301:BlobStreamInputDataSource"
+    description: Describes an input data source that contains stream data. Required on PUT (CreateOrReplace) requests.
+  serialization:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20160301:AvroSerialization"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20160301:CsvSerialization"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20160301:JsonSerialization"
+    discriminator:
+      propertyName: type
+      mapping:
+        Avro: "#/types/azure-native:streamanalytics/v20160301:AvroSerialization"
+        Csv: "#/types/azure-native:streamanalytics/v20160301:CsvSerialization"
+        Json: "#/types/azure-native:streamanalytics/v20160301:JsonSerialization"
+    description: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+  type:
+    type: string
+    description: |-
+      Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
+      Expected value is 'Stream'.
+    const: Stream
+type: object
+required:
+  - type

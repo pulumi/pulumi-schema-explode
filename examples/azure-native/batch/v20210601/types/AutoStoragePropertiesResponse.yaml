@@ -1,0 +1,21 @@
+$token: azure-native:batch/v20210601:AutoStoragePropertiesResponse
+description: Contains information about the auto-storage account associated with a Batch account.
+properties:
+  authenticationMode:
+    type: string
+    description: The authentication mode which the Batch service will use to manage the auto-storage account.
+    default: StorageKeys
+  lastKeySync:
+    type: string
+    description: The UTC time at which storage keys were last synchronized with the Batch account.
+  nodeIdentityReference:
+    type: object
+    $ref: "#/types/azure-native:batch/v20210601:ComputeNodeIdentityReferenceResponse"
+    description: The identity referenced here must be assigned to pools which have compute nodes that need access to auto-storage.
+  storageAccountId:
+    type: string
+    description: The resource ID of the storage account to be used for auto-storage account.
+type: object
+required:
+  - lastKeySync
+  - storageAccountId

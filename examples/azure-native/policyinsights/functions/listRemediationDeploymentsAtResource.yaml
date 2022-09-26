@@ -1,0 +1,35 @@
+$token: azure-native:policyinsights:listRemediationDeploymentsAtResource
+description: |-
+  List of deployments for a remediation.
+  API Version: 2019-07-01.
+inputs:
+  properties:
+    remediationName:
+      type: string
+      description: The name of the remediation.
+    resourceId:
+      type: string
+      description: Resource ID.
+    top:
+      type: integer
+      description: Maximum number of records to return.
+  type: object
+  required:
+    - remediationName
+    - resourceId
+outputs:
+  description: List of deployments for a remediation.
+  properties:
+    nextLink:
+      type: string
+      description: The URL to get the next set of results.
+    value:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:policyinsights:RemediationDeploymentResponse"
+      description: Array of deployments for the remediation.
+  type: object
+  required:
+    - nextLink
+    - value

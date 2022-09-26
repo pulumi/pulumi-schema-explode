@@ -1,0 +1,74 @@
+$token: azure-native:securityinsights:OfficeDataConnector
+description: |-
+  Represents office data connector.
+  API Version: 2020-01-01.
+properties:
+  dataTypes:
+    type: object
+    $ref: "#/types/azure-native:securityinsights:OfficeDataConnectorDataTypesResponse"
+    description: The available data types for the connector.
+  etag:
+    type: string
+    description: Etag of the azure resource
+  kind:
+    type: string
+    description: |-
+      The kind of the data connector
+      Expected value is 'Office365'.
+    const: Office365
+  name:
+    type: string
+    description: Azure resource name
+  tenantId:
+    type: string
+    description: The tenant id to connect to, and get the data from.
+  type:
+    type: string
+    description: Azure resource type
+type: object
+required:
+  - kind
+  - name
+  - type
+inputProperties:
+  dataConnectorId:
+    type: string
+    description: Connector ID
+  dataTypes:
+    type: object
+    $ref: "#/types/azure-native:securityinsights:OfficeDataConnectorDataTypes"
+    description: The available data types for the connector.
+  kind:
+    type: string
+    description: |-
+      The kind of the data connector
+      Expected value is 'Office365'.
+    const: Office365
+  resourceGroupName:
+    type: string
+    description: The name of the resource group within the user's subscription. The name is case insensitive.
+  tenantId:
+    type: string
+    description: The tenant id to connect to, and get the data from.
+  workspaceName:
+    type: string
+    description: The name of the workspace.
+requiredInputs:
+  - kind
+  - resourceGroupName
+  - workspaceName
+aliases:
+  - type: azure-native:securityinsights/v20190101preview:OfficeDataConnector
+  - type: azure-native:securityinsights/v20200101:OfficeDataConnector
+  - type: azure-native:securityinsights/v20210301preview:OfficeDataConnector
+  - type: azure-native:securityinsights/v20210901preview:OfficeDataConnector
+  - type: azure-native:securityinsights/v20211001:OfficeDataConnector
+  - type: azure-native:securityinsights/v20211001preview:OfficeDataConnector
+  - type: azure-native:securityinsights/v20220101preview:OfficeDataConnector
+  - type: azure-native:securityinsights/v20220401preview:OfficeDataConnector
+  - type: azure-native:securityinsights/v20220501preview:OfficeDataConnector
+  - type: azure-native:securityinsights/v20220601preview:OfficeDataConnector
+  - type: azure-native:securityinsights/v20220701preview:OfficeDataConnector
+  - type: azure-native:securityinsights/v20220801:OfficeDataConnector
+  - type: azure-native:securityinsights/v20220801preview:OfficeDataConnector
+  - type: azure-native:securityinsights/v20220901preview:OfficeDataConnector

@@ -1,0 +1,58 @@
+$token: azure-native:edgeorder/v20220501preview:getAddress
+description: Address Resource.
+inputs:
+  properties:
+    addressName:
+      type: string
+      description: The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+  type: object
+  required:
+    - addressName
+    - resourceGroupName
+outputs:
+  description: Address Resource.
+  properties:
+    addressValidationStatus:
+      type: string
+      description: Status of address validation.
+    contactDetails:
+      type: object
+      $ref: "#/types/azure-native:edgeorder/v20220501preview:ContactDetailsResponse"
+      description: Contact details for the address.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    name:
+      type: string
+      description: The name of the resource
+    shippingAddress:
+      type: object
+      $ref: "#/types/azure-native:edgeorder/v20220501preview:ShippingAddressResponse"
+      description: Shipping details for the address.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:edgeorder/v20220501preview:SystemDataResponse"
+      description: Represents resource creation and update time.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - addressValidationStatus
+    - contactDetails
+    - id
+    - location
+    - name
+    - systemData
+    - type

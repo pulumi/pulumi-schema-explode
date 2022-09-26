@@ -1,0 +1,62 @@
+$token: azure-native:datafactory:PaypalLinkedService
+description: Paypal Service linked service.
+properties:
+  annotations:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: List of tags that can be used for describing the linked service.
+  clientId:
+    $ref: pulumi.json#/Any
+    description: The client ID associated with your PayPal application.
+  clientSecret:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureKeyVaultSecretReference"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SecureString"
+    discriminator:
+      propertyName: type
+      mapping:
+        AzureKeyVaultSecret: "#/types/azure-native:datafactory:AzureKeyVaultSecretReference"
+        SecureString: "#/types/azure-native:datafactory:SecureString"
+    description: The client secret associated with your PayPal application.
+  connectVia:
+    type: object
+    $ref: "#/types/azure-native:datafactory:IntegrationRuntimeReference"
+    description: The integration runtime reference.
+  description:
+    type: string
+    description: Linked service description.
+  encryptedCredential:
+    $ref: pulumi.json#/Any
+    description: "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string)."
+  host:
+    $ref: pulumi.json#/Any
+    description: The URL of the PayPal instance. (i.e. api.sandbox.paypal.com)
+  parameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:datafactory:ParameterSpecification"
+    description: Parameters for linked service.
+  type:
+    type: string
+    description: |-
+      Type of linked service.
+      Expected value is 'Paypal'.
+    const: Paypal
+  useEncryptedEndpoints:
+    $ref: pulumi.json#/Any
+    description: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+  useHostVerification:
+    $ref: pulumi.json#/Any
+    description: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
+  usePeerVerification:
+    $ref: pulumi.json#/Any
+    description: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+type: object
+required:
+  - clientId
+  - host
+  - type

@@ -1,0 +1,18 @@
+$token: azure-native:recoveryservices/v20211001:InMageRcmDisksDefaultInput
+description: InMageRcm disk input.
+properties:
+  diskEncryptionSetId:
+    type: string
+    description: The DiskEncryptionSet ARM Id.
+  diskType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:recoveryservices/v20211001:DiskAccountType"
+    description: The disk type.
+  logStorageAccountId:
+    type: string
+    description: The log storage account ARM Id.
+type: object
+required:
+  - diskType
+  - logStorageAccountId

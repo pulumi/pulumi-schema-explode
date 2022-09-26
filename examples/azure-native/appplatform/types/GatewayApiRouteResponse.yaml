@@ -1,0 +1,37 @@
+$token: azure-native:appplatform:GatewayApiRouteResponse
+description: API route config of the Spring Cloud Gateway
+properties:
+  description:
+    type: string
+    description: A description, will be applied to methods in the generated OpenAPI documentation.
+  filters:
+    type: array
+    items:
+      type: string
+    description: To modify the request before sending it to the target endpoint, or the received response.
+  order:
+    type: integer
+    description: Route processing order.
+  predicates:
+    type: array
+    items:
+      type: string
+    description: A number of conditions to evaluate a route for each request. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
+  ssoEnabled:
+    type: boolean
+    description: Enable sso validation.
+  tags:
+    type: array
+    items:
+      type: string
+    description: Classification tags, will be applied to methods in the generated OpenAPI documentation.
+  title:
+    type: string
+    description: A title, will be applied to methods in the generated OpenAPI documentation.
+  tokenRelay:
+    type: boolean
+    description: Pass currently-authenticated user's identity token to application service, default is 'false'
+  uri:
+    type: string
+    description: Full uri, will override `appName`.
+type: object

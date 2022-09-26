@@ -1,0 +1,75 @@
+$token: azure-native:automation/v20151031:AutomationAccount
+description: Definition of the automation account type.
+properties:
+  creationTime:
+    type: string
+    description: Gets the creation time.
+  description:
+    type: string
+    description: Gets or sets the description.
+  etag:
+    type: string
+    description: Gets or sets the etag of the resource.
+  lastModifiedBy:
+    type: string
+    description: Gets or sets the last modified by.
+  lastModifiedTime:
+    type: string
+    description: Gets the last modified time.
+  location:
+    type: string
+    description: The Azure Region where the resource lives
+  name:
+    type: string
+    description: The name of the resource
+  sku:
+    type: object
+    $ref: "#/types/azure-native:automation/v20151031:SkuResponse"
+    description: Gets or sets the SKU of account.
+  state:
+    type: string
+    description: Gets status of account.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - creationTime
+  - lastModifiedTime
+  - name
+  - state
+  - type
+inputProperties:
+  automationAccountName:
+    type: string
+    description: The name of the automation account.
+  location:
+    type: string
+    description: Gets or sets the location of the resource.
+  name:
+    type: string
+    description: Gets or sets name of the resource.
+  resourceGroupName:
+    type: string
+    description: Name of an Azure Resource group.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:automation/v20151031:Sku"
+    description: Gets or sets account SKU.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Gets or sets the tags attached to the resource.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:automation:AutomationAccount
+  - type: azure-native:automation/v20190601:AutomationAccount
+  - type: azure-native:automation/v20200113preview:AutomationAccount
+  - type: azure-native:automation/v20210622:AutomationAccount

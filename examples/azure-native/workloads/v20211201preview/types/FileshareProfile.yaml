@@ -1,0 +1,20 @@
+$token: azure-native:workloads/v20211201preview:FileshareProfile
+description: File share profile
+properties:
+  shareSizeInGB:
+    type: number
+    description: File share size in GB
+  shareType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:workloads/v20211201preview:FileShareType"
+    description: Share type
+  storageType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:workloads/v20211201preview:FileShareStorageType"
+    description: File share backing storage type
+type: object
+required:
+  - shareType
+  - storageType

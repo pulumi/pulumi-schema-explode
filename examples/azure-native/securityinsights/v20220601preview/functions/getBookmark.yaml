@@ -1,0 +1,105 @@
+$token: azure-native:securityinsights/v20220601preview:getBookmark
+description: Represents a bookmark in Azure Security Insights.
+inputs:
+  properties:
+    bookmarkId:
+      type: string
+      description: Bookmark ID
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    workspaceName:
+      type: string
+      description: The name of the workspace.
+  type: object
+  required:
+    - bookmarkId
+    - resourceGroupName
+    - workspaceName
+outputs:
+  description: Represents a bookmark in Azure Security Insights.
+  properties:
+    created:
+      type: string
+      description: The time the bookmark was created
+    createdBy:
+      type: object
+      $ref: "#/types/azure-native:securityinsights/v20220601preview:UserInfoResponse"
+      description: Describes a user that created the bookmark
+    displayName:
+      type: string
+      description: The display name of the bookmark
+    entityMappings:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:securityinsights/v20220601preview:BookmarkEntityMappingsResponse"
+      description: Describes the entity mappings of the bookmark
+    etag:
+      type: string
+      description: Etag of the azure resource
+    eventTime:
+      type: string
+      description: The bookmark event time
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    incidentInfo:
+      type: object
+      $ref: "#/types/azure-native:securityinsights/v20220601preview:IncidentInfoResponse"
+      description: Describes an incident that relates to bookmark
+    labels:
+      type: array
+      items:
+        type: string
+      description: List of labels relevant to this bookmark
+    name:
+      type: string
+      description: The name of the resource
+    notes:
+      type: string
+      description: The notes of the bookmark
+    query:
+      type: string
+      description: The query of the bookmark.
+    queryEndTime:
+      type: string
+      description: The end time for the query
+    queryResult:
+      type: string
+      description: The query result of the bookmark.
+    queryStartTime:
+      type: string
+      description: The start time for the query
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:securityinsights/v20220601preview:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    tactics:
+      type: array
+      items:
+        type: string
+      description: A list of relevant mitre attacks
+    techniques:
+      type: array
+      items:
+        type: string
+      description: A list of relevant mitre techniques
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+    updated:
+      type: string
+      description: The last time the bookmark was updated
+    updatedBy:
+      type: object
+      $ref: "#/types/azure-native:securityinsights/v20220601preview:UserInfoResponse"
+      description: Describes a user that updated the bookmark
+  type: object
+  required:
+    - displayName
+    - id
+    - name
+    - query
+    - systemData
+    - type

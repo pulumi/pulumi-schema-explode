@@ -1,0 +1,60 @@
+$token: azure-native:datafactory/v20180601:AppFiguresLinkedServiceResponse
+description: Linked service for AppFigures.
+properties:
+  annotations:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: List of tags that can be used for describing the linked service.
+  clientKey:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:AzureKeyVaultSecretReferenceResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:SecureStringResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        AzureKeyVaultSecret: "#/types/azure-native:datafactory/v20180601:AzureKeyVaultSecretReferenceResponse"
+        SecureString: "#/types/azure-native:datafactory/v20180601:SecureStringResponse"
+    description: The client key for the AppFigures source.
+  connectVia:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20180601:IntegrationRuntimeReferenceResponse"
+    description: The integration runtime reference.
+  description:
+    type: string
+    description: Linked service description.
+  parameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20180601:ParameterSpecificationResponse"
+    description: Parameters for linked service.
+  password:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:AzureKeyVaultSecretReferenceResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:SecureStringResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        AzureKeyVaultSecret: "#/types/azure-native:datafactory/v20180601:AzureKeyVaultSecretReferenceResponse"
+        SecureString: "#/types/azure-native:datafactory/v20180601:SecureStringResponse"
+    description: The password of the AppFigures source.
+  type:
+    type: string
+    description: |-
+      Type of linked service.
+      Expected value is 'AppFigures'.
+    const: AppFigures
+  userName:
+    $ref: pulumi.json#/Any
+    description: The username of the Appfigures source.
+type: object
+required:
+  - clientKey
+  - password
+  - type
+  - userName

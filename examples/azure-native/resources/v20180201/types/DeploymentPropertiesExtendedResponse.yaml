@@ -1,0 +1,62 @@
+$token: azure-native:resources/v20180201:DeploymentPropertiesExtendedResponse
+description: Deployment properties with additional details.
+properties:
+  correlationId:
+    type: string
+    description: The correlation ID of the deployment.
+  debugSetting:
+    type: object
+    $ref: "#/types/azure-native:resources/v20180201:DebugSettingResponse"
+    description: The debug setting of the deployment.
+  dependencies:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:resources/v20180201:DependencyResponse"
+    description: The list of deployment dependencies.
+  error:
+    type: object
+    $ref: "#/types/azure-native:resources/v20180201:ErrorResponseResponse"
+    description: The deployment error.
+  mode:
+    type: string
+    description: The deployment mode. Possible values are Incremental and Complete.
+  onErrorDeployment:
+    type: object
+    $ref: "#/types/azure-native:resources/v20180201:OnErrorDeploymentExtendedResponse"
+    description: The deployment on error behavior.
+  outputs:
+    $ref: pulumi.json#/Any
+    description: Key/value pairs that represent deployment output.
+  parameters:
+    $ref: pulumi.json#/Any
+    description: Deployment parameters. Use only one of Parameters or ParametersLink.
+  parametersLink:
+    type: object
+    $ref: "#/types/azure-native:resources/v20180201:ParametersLinkResponse"
+    description: The URI referencing the parameters. Use only one of Parameters or ParametersLink.
+  providers:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:resources/v20180201:ProviderResponse"
+    description: The list of resource providers needed for the deployment.
+  provisioningState:
+    type: string
+    description: The state of the provisioning.
+  template:
+    $ref: pulumi.json#/Any
+    description: The template content. Use only one of Template or TemplateLink.
+  templateLink:
+    type: object
+    $ref: "#/types/azure-native:resources/v20180201:TemplateLinkResponse"
+    description: The URI referencing the template. Use only one of Template or TemplateLink.
+  timestamp:
+    type: string
+    description: The timestamp of the template deployment.
+type: object
+required:
+  - correlationId
+  - error
+  - provisioningState
+  - timestamp

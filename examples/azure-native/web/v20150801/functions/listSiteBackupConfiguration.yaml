@@ -1,0 +1,57 @@
+$token: azure-native:web/v20150801:listSiteBackupConfiguration
+description: Description of a backup which will be performed
+inputs:
+  properties:
+    name:
+      type: string
+      description: Name of web app
+    resourceGroupName:
+      type: string
+      description: Name of resource group
+  type: object
+  required:
+    - name
+    - resourceGroupName
+outputs:
+  description: Description of a backup which will be performed
+  properties:
+    backupSchedule:
+      type: object
+      $ref: "#/types/azure-native:web/v20150801:BackupScheduleResponse"
+      description: Schedule for the backup if it is executed periodically
+    databases:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:web/v20150801:DatabaseBackupSettingResponse"
+      description: Databases included in the backup
+    enabled:
+      type: boolean
+      description: True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled
+    id:
+      type: string
+      description: Resource Id
+    kind:
+      type: string
+      description: Kind of resource
+    location:
+      type: string
+      description: Resource Location
+    name:
+      type: string
+      description: Resource Name
+    storageAccountUrl:
+      type: string
+      description: SAS URL to the container
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    type:
+      type: string
+      description: Resource type
+  type: object
+  required:
+    - location
+    - type

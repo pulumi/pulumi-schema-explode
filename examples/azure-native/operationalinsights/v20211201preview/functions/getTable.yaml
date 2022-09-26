@@ -1,0 +1,77 @@
+$token: azure-native:operationalinsights/v20211201preview:getTable
+description: Workspace data table definition.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    tableName:
+      type: string
+      description: The name of the table.
+    workspaceName:
+      type: string
+      description: The name of the workspace.
+  type: object
+  required:
+    - resourceGroupName
+    - tableName
+    - workspaceName
+outputs:
+  description: Workspace data table definition.
+  properties:
+    archiveRetentionInDays:
+      type: integer
+      description: The table data archive retention in days. Calculated as (totalRetentionInDays-retentionInDays)
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    lastPlanModifiedDate:
+      type: string
+      description: The timestamp that table plan was last modified (UTC).
+    name:
+      type: string
+      description: The name of the resource
+    plan:
+      type: string
+      description: Instruct the system how to handle and charge the logs ingested to this table.
+    provisioningState:
+      type: string
+      description: Table's current provisioning state. If set to 'updating', indicates a resource lock due to ongoing operation, forbidding any update to the table until the ongoing operation is concluded.
+    restoredLogs:
+      type: object
+      $ref: "#/types/azure-native:operationalinsights/v20211201preview:RestoredLogsResponse"
+      description: Parameters of the restore operation that initiated this table.
+    resultStatistics:
+      type: object
+      $ref: "#/types/azure-native:operationalinsights/v20211201preview:ResultStatisticsResponse"
+      description: Search job execution statistics.
+    retentionInDays:
+      type: integer
+      description: The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention.
+    schema:
+      type: object
+      $ref: "#/types/azure-native:operationalinsights/v20211201preview:SchemaResponse"
+      description: Table schema.
+    searchResults:
+      type: object
+      $ref: "#/types/azure-native:operationalinsights/v20211201preview:SearchResultsResponse"
+      description: Parameters of the search job that initiated this table.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:operationalinsights/v20211201preview:SystemDataResponse"
+      description: Metadata pertaining to creation and last modification of the resource.
+    totalRetentionInDays:
+      type: integer
+      description: The table total retention in days, between 4 and 2555. Setting this property to -1 will default to table retention.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - archiveRetentionInDays
+    - id
+    - lastPlanModifiedDate
+    - name
+    - provisioningState
+    - systemData
+    - type

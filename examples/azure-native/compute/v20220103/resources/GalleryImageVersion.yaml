@@ -1,0 +1,83 @@
+$token: azure-native:compute/v20220103:GalleryImageVersion
+description: Specifies information about the gallery image version that you want to create or update.
+properties:
+  location:
+    type: string
+    description: Resource location
+  name:
+    type: string
+    description: Resource name
+  provisioningState:
+    type: string
+    description: The provisioning state, which only appears in the response.
+  publishingProfile:
+    type: object
+    $ref: "#/types/azure-native:compute/v20220103:GalleryImageVersionPublishingProfileResponse"
+    description: The publishing profile of a gallery image Version.
+  replicationStatus:
+    type: object
+    $ref: "#/types/azure-native:compute/v20220103:ReplicationStatusResponse"
+    description: This is the replication status of the gallery image version.
+  storageProfile:
+    type: object
+    $ref: "#/types/azure-native:compute/v20220103:GalleryImageVersionStorageProfileResponse"
+    description: This is the storage profile of a Gallery Image Version.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  type:
+    type: string
+    description: Resource type
+type: object
+required:
+  - location
+  - name
+  - provisioningState
+  - replicationStatus
+  - storageProfile
+  - type
+inputProperties:
+  galleryImageName:
+    type: string
+    description: The name of the gallery image definition in which the Image Version is to be created.
+  galleryImageVersionName:
+    type: string
+    description: "The name of the gallery image version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>"
+  galleryName:
+    type: string
+    description: The name of the Shared Image Gallery in which the Image Definition resides.
+  location:
+    type: string
+    description: Resource location
+  publishingProfile:
+    type: object
+    $ref: "#/types/azure-native:compute/v20220103:GalleryImageVersionPublishingProfile"
+    description: The publishing profile of a gallery image Version.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  storageProfile:
+    type: object
+    $ref: "#/types/azure-native:compute/v20220103:GalleryImageVersionStorageProfile"
+    description: This is the storage profile of a Gallery Image Version.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+requiredInputs:
+  - galleryImageName
+  - galleryName
+  - resourceGroupName
+  - storageProfile
+aliases:
+  - type: azure-native:compute:GalleryImageVersion
+  - type: azure-native:compute/v20180601:GalleryImageVersion
+  - type: azure-native:compute/v20190301:GalleryImageVersion
+  - type: azure-native:compute/v20190701:GalleryImageVersion
+  - type: azure-native:compute/v20191201:GalleryImageVersion
+  - type: azure-native:compute/v20200930:GalleryImageVersion
+  - type: azure-native:compute/v20210701:GalleryImageVersion
+  - type: azure-native:compute/v20211001:GalleryImageVersion

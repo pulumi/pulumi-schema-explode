@@ -1,0 +1,24 @@
+$token: azure-native:providerhub/v20201120:SkuLocationInfo
+properties:
+  extendedLocations:
+    type: array
+    items:
+      type: string
+  location:
+    type: string
+  type:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:providerhub/v20201120:ExtendedLocationType"
+  zoneDetails:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:providerhub/v20201120:SkuZoneDetail"
+  zones:
+    type: array
+    items:
+      type: string
+type: object
+required:
+  - location

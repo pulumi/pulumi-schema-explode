@@ -1,0 +1,112 @@
+$token: azure-native:network/v20160901:RouteTable
+description: Route table resource.
+properties:
+  etag:
+    type: string
+    description: Gets a unique read-only string that changes whenever the resource is updated.
+  location:
+    type: string
+    description: Resource location.
+  name:
+    type: string
+    description: Resource name.
+  provisioningState:
+    type: string
+    description: "The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'."
+  routes:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20160901:RouteResponse"
+    description: Collection of routes contained within a route table.
+  subnets:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20160901:SubnetResponse"
+    description: A collection of references to subnets.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - name
+  - subnets
+  - type
+inputProperties:
+  id:
+    type: string
+    description: Resource ID.
+  location:
+    type: string
+    description: Resource location.
+  provisioningState:
+    type: string
+    description: "The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'."
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  routeTableName:
+    type: string
+    description: The name of the route table.
+  routes:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20160901:Route"
+    description: Collection of routes contained within a route table.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:network:RouteTable
+  - type: azure-native:network/v20150501preview:RouteTable
+  - type: azure-native:network/v20150615:RouteTable
+  - type: azure-native:network/v20160330:RouteTable
+  - type: azure-native:network/v20160601:RouteTable
+  - type: azure-native:network/v20161201:RouteTable
+  - type: azure-native:network/v20170301:RouteTable
+  - type: azure-native:network/v20170601:RouteTable
+  - type: azure-native:network/v20170801:RouteTable
+  - type: azure-native:network/v20170901:RouteTable
+  - type: azure-native:network/v20171001:RouteTable
+  - type: azure-native:network/v20171101:RouteTable
+  - type: azure-native:network/v20180101:RouteTable
+  - type: azure-native:network/v20180201:RouteTable
+  - type: azure-native:network/v20180401:RouteTable
+  - type: azure-native:network/v20180601:RouteTable
+  - type: azure-native:network/v20180701:RouteTable
+  - type: azure-native:network/v20180801:RouteTable
+  - type: azure-native:network/v20181001:RouteTable
+  - type: azure-native:network/v20181101:RouteTable
+  - type: azure-native:network/v20181201:RouteTable
+  - type: azure-native:network/v20190201:RouteTable
+  - type: azure-native:network/v20190401:RouteTable
+  - type: azure-native:network/v20190601:RouteTable
+  - type: azure-native:network/v20190701:RouteTable
+  - type: azure-native:network/v20190801:RouteTable
+  - type: azure-native:network/v20190901:RouteTable
+  - type: azure-native:network/v20191101:RouteTable
+  - type: azure-native:network/v20191201:RouteTable
+  - type: azure-native:network/v20200301:RouteTable
+  - type: azure-native:network/v20200401:RouteTable
+  - type: azure-native:network/v20200501:RouteTable
+  - type: azure-native:network/v20200601:RouteTable
+  - type: azure-native:network/v20200701:RouteTable
+  - type: azure-native:network/v20200801:RouteTable
+  - type: azure-native:network/v20201101:RouteTable
+  - type: azure-native:network/v20210201:RouteTable
+  - type: azure-native:network/v20210301:RouteTable
+  - type: azure-native:network/v20210501:RouteTable
+  - type: azure-native:network/v20210801:RouteTable
+  - type: azure-native:network/v20220101:RouteTable
+deprecationMessage: Version 2016-09-01 will be removed in v2 of the provider.

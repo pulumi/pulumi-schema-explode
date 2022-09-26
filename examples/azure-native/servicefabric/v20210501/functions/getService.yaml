@@ -1,0 +1,65 @@
+$token: azure-native:servicefabric/v20210501:getService
+description: The service resource.
+inputs:
+  properties:
+    applicationName:
+      type: string
+      description: The name of the application resource.
+    clusterName:
+      type: string
+      description: The name of the cluster resource.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    serviceName:
+      type: string
+      description: The name of the service resource in the format of {applicationName}~{serviceName}.
+  type: object
+  required:
+    - applicationName
+    - clusterName
+    - resourceGroupName
+    - serviceName
+outputs:
+  description: The service resource.
+  properties:
+    id:
+      type: string
+      description: Azure resource identifier.
+    location:
+      type: string
+      description: Resource location depends on the parent resource.
+    name:
+      type: string
+      description: Azure resource name.
+    properties:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:servicefabric/v20210501:StatefulServicePropertiesResponse"
+        - type: object
+          $ref: "#/types/azure-native:servicefabric/v20210501:StatelessServicePropertiesResponse"
+      discriminator:
+        propertyName: serviceKind
+        mapping:
+          Stateful: "#/types/azure-native:servicefabric/v20210501:StatefulServicePropertiesResponse"
+          Stateless: "#/types/azure-native:servicefabric/v20210501:StatelessServicePropertiesResponse"
+      description: The service resource properties.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:servicefabric/v20210501:SystemDataResponse"
+      description: Metadata pertaining to creation and last modification of the resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Azure resource tags.
+    type:
+      type: string
+      description: Azure resource type.
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - systemData
+    - type

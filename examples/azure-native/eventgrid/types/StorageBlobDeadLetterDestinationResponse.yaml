@@ -1,0 +1,18 @@
+$token: azure-native:eventgrid:StorageBlobDeadLetterDestinationResponse
+description: Information about the storage blob based dead letter destination.
+properties:
+  blobContainerName:
+    type: string
+    description: The name of the Storage blob container that is the destination of the deadletter events
+  endpointType:
+    type: string
+    description: |-
+      Type of the endpoint for the dead letter destination
+      Expected value is 'StorageBlob'.
+    const: StorageBlob
+  resourceId:
+    type: string
+    description: The Azure Resource ID of the storage account that is the destination of the deadletter events
+type: object
+required:
+  - endpointType

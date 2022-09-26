@@ -1,0 +1,56 @@
+$token: azure-native:machinelearningservices:LinkedService
+description: |-
+  Linked service.
+  API Version: 2020-09-01-preview.
+properties:
+  identity:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices:IdentityResponse"
+    description: Identity for the resource.
+  location:
+    type: string
+    description: location of the linked service.
+  name:
+    type: string
+    description: Friendly name of the linked service.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices:LinkedServicePropsResponse"
+    description: LinkedService specific properties.
+  type:
+    type: string
+    description: Resource type of linked service.
+type: object
+required:
+  - name
+  - properties
+  - type
+inputProperties:
+  identity:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices:Identity"
+    description: Identity for the resource.
+  linkName:
+    type: string
+    description: Friendly name of the linked workspace
+  location:
+    type: string
+    description: location of the linked service.
+  name:
+    type: string
+    description: Friendly name of the linked service
+  properties:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices:LinkedServiceProps"
+    description: LinkedService specific properties.
+  resourceGroupName:
+    type: string
+    description: Name of the resource group in which workspace is located.
+  workspaceName:
+    type: string
+    description: Name of Azure Machine Learning workspace.
+requiredInputs:
+  - resourceGroupName
+  - workspaceName
+aliases:
+  - type: azure-native:machinelearningservices/v20200901preview:LinkedService

@@ -1,0 +1,17 @@
+$token: azure-native:eventhub/v20211101:Encryption
+description: Properties to configure Encryption
+properties:
+  keySource:
+    $ref: "#/types/azure-native:eventhub/v20211101:KeySource"
+    description: Enumerates the possible value of keySource for Encryption
+    default: Microsoft.KeyVault
+  keyVaultProperties:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:eventhub/v20211101:KeyVaultProperties"
+    description: Properties of KeyVault
+  requireInfrastructureEncryption:
+    type: boolean
+    description: Enable Infrastructure Encryption (Double Encryption)
+type: object

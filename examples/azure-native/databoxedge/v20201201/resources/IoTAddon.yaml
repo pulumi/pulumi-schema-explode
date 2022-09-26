@@ -1,0 +1,95 @@
+$token: azure-native:databoxedge/v20201201:IoTAddon
+description: IoT Addon.
+properties:
+  hostPlatform:
+    type: string
+    description: Host OS supported by the IoT addon.
+  hostPlatformType:
+    type: string
+    description: Platform where the runtime is hosted.
+  ioTDeviceDetails:
+    type: object
+    $ref: "#/types/azure-native:databoxedge/v20201201:IoTDeviceInfoResponse"
+    description: IoT device metadata to which appliance needs to be connected.
+  ioTEdgeDeviceDetails:
+    type: object
+    $ref: "#/types/azure-native:databoxedge/v20201201:IoTDeviceInfoResponse"
+    description: IoT edge device to which the IoT Addon needs to be configured.
+  kind:
+    type: string
+    description: |-
+      Addon type.
+      Expected value is 'IotEdge'.
+    const: IotEdge
+  name:
+    type: string
+    description: The object name.
+  provisioningState:
+    type: string
+    description: Addon Provisioning State
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:databoxedge/v20201201:SystemDataResponse"
+    description: Addon type
+  type:
+    type: string
+    description: The hierarchical type of the object.
+  version:
+    type: string
+    description: Version of IoT running on the appliance.
+type: object
+required:
+  - hostPlatform
+  - hostPlatformType
+  - ioTDeviceDetails
+  - ioTEdgeDeviceDetails
+  - kind
+  - name
+  - provisioningState
+  - systemData
+  - type
+  - version
+inputProperties:
+  addonName:
+    type: string
+    description: The addon name.
+  deviceName:
+    type: string
+    description: The device name.
+  ioTDeviceDetails:
+    type: object
+    $ref: "#/types/azure-native:databoxedge/v20201201:IoTDeviceInfo"
+    description: IoT device metadata to which appliance needs to be connected.
+  ioTEdgeDeviceDetails:
+    type: object
+    $ref: "#/types/azure-native:databoxedge/v20201201:IoTDeviceInfo"
+    description: IoT edge device to which the IoT Addon needs to be configured.
+  kind:
+    type: string
+    description: |-
+      Addon type.
+      Expected value is 'IotEdge'.
+    const: IotEdge
+  resourceGroupName:
+    type: string
+    description: The resource group name.
+  roleName:
+    type: string
+    description: The role name.
+requiredInputs:
+  - deviceName
+  - ioTDeviceDetails
+  - ioTEdgeDeviceDetails
+  - kind
+  - resourceGroupName
+  - roleName
+aliases:
+  - type: azure-native:databoxedge:IoTAddon
+  - type: azure-native:databoxedge/v20200901:IoTAddon
+  - type: azure-native:databoxedge/v20200901preview:IoTAddon
+  - type: azure-native:databoxedge/v20210201:IoTAddon
+  - type: azure-native:databoxedge/v20210201preview:IoTAddon
+  - type: azure-native:databoxedge/v20210601:IoTAddon
+  - type: azure-native:databoxedge/v20210601preview:IoTAddon
+  - type: azure-native:databoxedge/v20220301:IoTAddon
+  - type: azure-native:databoxedge/v20220401preview:IoTAddon

@@ -1,0 +1,62 @@
+$token: azure-native:migrate/v20191001:ProjectPropertiesResponse
+description: Properties of a project.
+properties:
+  assessmentSolutionId:
+    type: string
+    description: Assessment solution ARM id tracked by Microsoft.Migrate/migrateProjects.
+  createdTimestamp:
+    type: string
+    description: Time when this project was created. Date-Time represented in ISO-8601 format.
+  customerStorageAccountArmId:
+    type: string
+    description: The ARM id of the storage account used for interactions when public access is disabled.
+  customerWorkspaceId:
+    type: string
+    description: The ARM id of service map workspace created by customer.
+  customerWorkspaceLocation:
+    type: string
+    description: Location of service map workspace created by customer.
+  lastAssessmentTimestamp:
+    type: string
+    description: Time when last assessment was created. Date-Time represented in ISO-8601 format. This value will be null until assessment is created.
+  numberOfAssessments:
+    type: integer
+    description: Number of assessments created in the project.
+  numberOfGroups:
+    type: integer
+    description: Number of groups created in the project.
+  numberOfMachines:
+    type: integer
+    description: Number of machines in the project.
+  privateEndpointConnections:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:migrate/v20191001:PrivateEndpointConnectionResponse"
+    description: The list of private endpoint connections to the project.
+  projectStatus:
+    type: string
+    description: Assessment project status.
+  provisioningState:
+    type: string
+    description: Provisioning state of the project.
+  publicNetworkAccess:
+    type: string
+    description: This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
+  serviceEndpoint:
+    type: string
+    description: Endpoint at which the collector agent can call agent REST API.
+  updatedTimestamp:
+    type: string
+    description: Time when this project was last updated. Date-Time represented in ISO-8601 format.
+type: object
+required:
+  - createdTimestamp
+  - lastAssessmentTimestamp
+  - numberOfAssessments
+  - numberOfGroups
+  - numberOfMachines
+  - privateEndpointConnections
+  - provisioningState
+  - serviceEndpoint
+  - updatedTimestamp

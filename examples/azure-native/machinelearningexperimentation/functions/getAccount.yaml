@@ -1,0 +1,80 @@
+$token: azure-native:machinelearningexperimentation:getAccount
+description: |-
+  An object that represents a machine learning team account.
+  API Version: 2017-05-01-preview.
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: The name of the machine learning team account.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group to which the machine learning team account belongs.
+  type: object
+  required:
+    - accountName
+    - resourceGroupName
+outputs:
+  description: An object that represents a machine learning team account.
+  properties:
+    accountId:
+      type: string
+      description: The immutable id associated with this team account.
+    creationDate:
+      type: string
+      description: The creation date of the machine learning team account in ISO8601 format.
+    description:
+      type: string
+      description: The description of this workspace.
+    discoveryUri:
+      type: string
+      description: The uri for this machine learning team account.
+    friendlyName:
+      type: string
+      description: The friendly name for this workspace. This will be the workspace name in the arm id when the workspace object gets created
+    id:
+      type: string
+      description: The resource ID.
+    keyVaultId:
+      type: string
+      description: The fully qualified arm id of the user key vault.
+    location:
+      type: string
+      description: The location of the resource. This cannot be changed after the resource is created.
+    name:
+      type: string
+      description: The name of the resource.
+    provisioningState:
+      type: string
+      description: The current deployment state of team account resource. The provisioningState is to indicate states for resource provisioning.
+    seats:
+      type: string
+      description: The no of users/seats who can access this team account. This property defines the charge on the team account.
+    storageAccount:
+      type: object
+      $ref: "#/types/azure-native:machinelearningexperimentation:StorageAccountPropertiesResponse"
+      description: The properties of the storage account for the machine learning team account.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: The tags of the resource.
+    type:
+      type: string
+      description: The type of the resource.
+    vsoAccountId:
+      type: string
+      description: The fully qualified arm id of the vso account to be used for this team account.
+  type: object
+  required:
+    - accountId
+    - creationDate
+    - discoveryUri
+    - id
+    - keyVaultId
+    - location
+    - name
+    - provisioningState
+    - storageAccount
+    - type
+    - vsoAccountId

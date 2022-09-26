@@ -1,0 +1,126 @@
+$token: azure-native:network/v20160601:getApplicationGateway
+description: ApplicationGateways resource
+inputs:
+  properties:
+    applicationGatewayName:
+      type: string
+      description: The name of the application gateway.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - applicationGatewayName
+    - resourceGroupName
+outputs:
+  description: ApplicationGateways resource
+  properties:
+    authenticationCertificates:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20160601:ApplicationGatewayAuthenticationCertificateResponse"
+      description: Authentication certificates of application gateway resource
+    backendAddressPools:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20160601:ApplicationGatewayBackendAddressPoolResponse"
+      description: Backend address pool of application gateway resource
+    backendHttpSettingsCollection:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20160601:ApplicationGatewayBackendHttpSettingsResponse"
+      description: Backend http settings of application gateway resource
+    etag:
+      type: string
+      description: A unique read-only string that changes whenever the resource is updated
+    frontendIPConfigurations:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20160601:ApplicationGatewayFrontendIPConfigurationResponse"
+      description: Frontend IP addresses of application gateway resource
+    frontendPorts:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20160601:ApplicationGatewayFrontendPortResponse"
+      description: Frontend ports of application gateway resource
+    gatewayIPConfigurations:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20160601:ApplicationGatewayIPConfigurationResponse"
+      description: Subnets of application gateway resource
+    httpListeners:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20160601:ApplicationGatewayHttpListenerResponse"
+      description: HTTP listeners of application gateway resource
+    id:
+      type: string
+      description: Resource Id
+    location:
+      type: string
+      description: Resource location
+    name:
+      type: string
+      description: Resource name
+    operationalState:
+      type: string
+      description: Operational state of application gateway resource
+    probes:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20160601:ApplicationGatewayProbeResponse"
+      description: Probes of application gateway resource
+    provisioningState:
+      type: string
+      description: Provisioning state of the ApplicationGateway resource Updating/Deleting/Failed
+    requestRoutingRules:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20160601:ApplicationGatewayRequestRoutingRuleResponse"
+      description: Request routing rules of application gateway resource
+    resourceGuid:
+      type: string
+      description: Resource guid property of the ApplicationGateway resource
+    sku:
+      type: object
+      $ref: "#/types/azure-native:network/v20160601:ApplicationGatewaySkuResponse"
+      description: Sku of application gateway resource
+    sslCertificates:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20160601:ApplicationGatewaySslCertificateResponse"
+      description: SSL certificates of application gateway resource
+    sslPolicy:
+      type: object
+      $ref: "#/types/azure-native:network/v20160601:ApplicationGatewaySslPolicyResponse"
+      description: SSL policy of application gateway resource
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    type:
+      type: string
+      description: Resource type
+    urlPathMaps:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20160601:ApplicationGatewayUrlPathMapResponse"
+      description: URL path map of application gateway resource
+  type: object
+  required:
+    - name
+    - operationalState
+    - type
+deprecationMessage: Version 2016-06-01 will be removed in v2 of the provider.

@@ -1,0 +1,23 @@
+$token: azure-native:resources/v20160201:DeploymentProperties
+description: Deployment properties.
+properties:
+  mode:
+    $ref: "#/types/azure-native:resources/v20160201:DeploymentMode"
+    description: The deployment mode.
+  parameters:
+    $ref: pulumi.json#/Any
+    description: Deployment parameters. It can be a JObject or a well formed JSON string. Use only one of Parameters or ParametersLink.
+  parametersLink:
+    type: object
+    $ref: "#/types/azure-native:resources/v20160201:ParametersLink"
+    description: The parameters URI. Use only one of Parameters or ParametersLink.
+  template:
+    $ref: pulumi.json#/Any
+    description: The template content. It can be a JObject or a well formed JSON string. Use only one of Template or TemplateLink.
+  templateLink:
+    type: object
+    $ref: "#/types/azure-native:resources/v20160201:TemplateLink"
+    description: The template URI. Use only one of Template or TemplateLink.
+type: object
+required:
+  - mode

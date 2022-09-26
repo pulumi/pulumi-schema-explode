@@ -1,0 +1,161 @@
+$token: azure-native:web/v20210301:AppServiceEnvironment
+description: App Service Environment ARM resource.
+properties:
+  clusterSettings:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:web/v20210301:NameValuePairResponse"
+    description: Custom settings for changing the behavior of the App Service Environment.
+  dedicatedHostCount:
+    type: integer
+    description: Dedicated Host Count
+  dnsSuffix:
+    type: string
+    description: DNS suffix of the App Service Environment.
+  frontEndScaleFactor:
+    type: integer
+    description: Scale factor for front-ends.
+  hasLinuxWorkers:
+    type: boolean
+    description: Flag that displays whether an ASE has linux workers or not
+  internalLoadBalancingMode:
+    type: string
+    description: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
+  ipsslAddressCount:
+    type: integer
+    description: Number of IP SSL addresses reserved for the App Service Environment.
+  kind:
+    type: string
+    description: Kind of resource.
+  location:
+    type: string
+    description: Resource Location.
+  maximumNumberOfMachines:
+    type: integer
+    description: Maximum number of VMs in the App Service Environment.
+  multiRoleCount:
+    type: integer
+    description: Number of front-end instances.
+  multiSize:
+    type: string
+    description: Front-end VM size, e.g. "Medium", "Large".
+  name:
+    type: string
+    description: Resource Name.
+  provisioningState:
+    type: string
+    description: Provisioning state of the App Service Environment.
+  status:
+    type: string
+    description: Current status of the App Service Environment.
+  suspended:
+    type: boolean
+    description: |-
+      <code>true</code> if the App Service Environment is suspended; otherwise, <code>false</code>. The environment can be suspended, e.g. when the management endpoint is no longer available
+       (most likely because NSG blocked the incoming traffic).
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: Resource type.
+  userWhitelistedIpRanges:
+    type: array
+    items:
+      type: string
+    description: User added ip ranges to whitelist on ASE db
+  virtualNetwork:
+    type: object
+    $ref: "#/types/azure-native:web/v20210301:VirtualNetworkProfileResponse"
+    description: Description of the Virtual Network.
+  zoneRedundant:
+    type: boolean
+    description: Whether or not this App Service Environment is zone-redundant.
+type: object
+required:
+  - hasLinuxWorkers
+  - location
+  - maximumNumberOfMachines
+  - multiRoleCount
+  - name
+  - provisioningState
+  - status
+  - suspended
+  - type
+  - virtualNetwork
+inputProperties:
+  clusterSettings:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:web/v20210301:NameValuePair"
+    description: Custom settings for changing the behavior of the App Service Environment.
+  dedicatedHostCount:
+    type: integer
+    description: Dedicated Host Count
+  dnsSuffix:
+    type: string
+    description: DNS suffix of the App Service Environment.
+  frontEndScaleFactor:
+    type: integer
+    description: Scale factor for front-ends.
+  internalLoadBalancingMode:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:web/v20210301:LoadBalancingMode"
+    description: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
+  ipsslAddressCount:
+    type: integer
+    description: Number of IP SSL addresses reserved for the App Service Environment.
+  kind:
+    type: string
+    description: Kind of resource.
+  location:
+    type: string
+    description: Resource Location.
+  multiSize:
+    type: string
+    description: Front-end VM size, e.g. "Medium", "Large".
+  name:
+    type: string
+    description: Name of the App Service Environment.
+  resourceGroupName:
+    type: string
+    description: Name of the resource group to which the resource belongs.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  userWhitelistedIpRanges:
+    type: array
+    items:
+      type: string
+    description: User added ip ranges to whitelist on ASE db
+  virtualNetwork:
+    type: object
+    $ref: "#/types/azure-native:web/v20210301:VirtualNetworkProfile"
+    description: Description of the Virtual Network.
+  zoneRedundant:
+    type: boolean
+    description: Whether or not this App Service Environment is zone-redundant.
+requiredInputs:
+  - resourceGroupName
+  - virtualNetwork
+aliases:
+  - type: azure-native:web:AppServiceEnvironment
+  - type: azure-native:web/v20150801:AppServiceEnvironment
+  - type: azure-native:web/v20160901:AppServiceEnvironment
+  - type: azure-native:web/v20180201:AppServiceEnvironment
+  - type: azure-native:web/v20190801:AppServiceEnvironment
+  - type: azure-native:web/v20200601:AppServiceEnvironment
+  - type: azure-native:web/v20200901:AppServiceEnvironment
+  - type: azure-native:web/v20201001:AppServiceEnvironment
+  - type: azure-native:web/v20201201:AppServiceEnvironment
+  - type: azure-native:web/v20210101:AppServiceEnvironment
+  - type: azure-native:web/v20210115:AppServiceEnvironment
+  - type: azure-native:web/v20210201:AppServiceEnvironment
+  - type: azure-native:web/v20220301:AppServiceEnvironment

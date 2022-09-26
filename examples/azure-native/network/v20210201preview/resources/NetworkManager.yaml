@@ -1,0 +1,92 @@
+$token: azure-native:network/v20210201preview:NetworkManager
+description: The Managed Network resource
+properties:
+  description:
+    type: string
+    description: A description of the network manager.
+  displayName:
+    type: string
+    description: A friendly name for the network manager.
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  location:
+    type: string
+    description: Resource location.
+  name:
+    type: string
+    description: Resource name.
+  networkManagerScopeAccesses:
+    type: array
+    items:
+      type: string
+    description: Scope Access.
+  networkManagerScopes:
+    type: object
+    $ref: "#/types/azure-native:network/v20210201preview:NetworkManagerPropertiesResponseNetworkManagerScopes"
+    description: Scope of Network Manager.
+  provisioningState:
+    type: string
+    description: The provisioning state of the scope assignment resource.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:network/v20210201preview:SystemDataResponse"
+    description: The system metadata related to this resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - etag
+  - name
+  - provisioningState
+  - systemData
+  - type
+inputProperties:
+  description:
+    type: string
+    description: A description of the network manager.
+  displayName:
+    type: string
+    description: A friendly name for the network manager.
+  id:
+    type: string
+    description: Resource ID.
+  location:
+    type: string
+    description: Resource location.
+  networkManagerName:
+    type: string
+    description: The name of the network manager.
+  networkManagerScopeAccesses:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:network/v20210201preview:ConfigurationType"
+    description: Scope Access.
+  networkManagerScopes:
+    type: object
+    $ref: "#/types/azure-native:network/v20210201preview:NetworkManagerPropertiesNetworkManagerScopes"
+    description: Scope of Network Manager.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:network:NetworkManager
+  - type: azure-native:network/v20210501preview:NetworkManager
+  - type: azure-native:network/v20220101:NetworkManager
+  - type: azure-native:network/v20220201preview:NetworkManager
+  - type: azure-native:network/v20220401preview:NetworkManager

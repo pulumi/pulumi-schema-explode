@@ -1,0 +1,21 @@
+$token: azure-native:datamigration/v20210630:ValidateMigrationInputSqlServerSqlDbSyncTaskProperties
+description: Properties for task that validates migration input for SQL to Azure SQL DB sync migrations
+properties:
+  clientData:
+    type: object
+    additionalProperties:
+      type: string
+    description: Key value pairs of client data to attach meta data information to task
+  input:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20210630:ValidateSyncMigrationInputSqlServerTaskInput"
+    description: Task input
+  taskType:
+    type: string
+    description: |-
+      Task type.
+      Expected value is 'ValidateMigrationInput.SqlServer.SqlDb.Sync'.
+    const: ValidateMigrationInput.SqlServer.SqlDb.Sync
+type: object
+required:
+  - taskType

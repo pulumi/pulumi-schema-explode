@@ -1,0 +1,87 @@
+$token: azure-native:network/v20190901:NetworkInterfaceResponse
+description: A network interface in a resource group.
+properties:
+  dnsSettings:
+    type: object
+    $ref: "#/types/azure-native:network/v20190901:NetworkInterfaceDnsSettingsResponse"
+    description: The DNS settings in network interface.
+  enableAcceleratedNetworking:
+    type: boolean
+    description: If the network interface is accelerated networking enabled.
+  enableIPForwarding:
+    type: boolean
+    description: Indicates whether IP forwarding is enabled on this network interface.
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  hostedWorkloads:
+    type: array
+    items:
+      type: string
+    description: A list of references to linked BareMetal resources.
+  id:
+    type: string
+    description: Resource ID.
+  ipConfigurations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20190901:NetworkInterfaceIPConfigurationResponse"
+    description: A list of IPConfigurations of the network interface.
+  location:
+    type: string
+    description: Resource location.
+  macAddress:
+    type: string
+    description: The MAC address of the network interface.
+  name:
+    type: string
+    description: Resource name.
+  networkSecurityGroup:
+    type: object
+    $ref: "#/types/azure-native:network/v20190901:NetworkSecurityGroupResponse"
+    description: The reference of the NetworkSecurityGroup resource.
+  primary:
+    type: boolean
+    description: Whether this is a primary network interface on a virtual machine.
+  privateEndpoint:
+    type: object
+    $ref: "#/types/azure-native:network/v20190901:PrivateEndpointResponse"
+    description: A reference to the private endpoint to which the network interface is linked.
+  provisioningState:
+    type: string
+    description: The provisioning state of the network interface resource.
+  resourceGuid:
+    type: string
+    description: The resource GUID property of the network interface resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  tapConfigurations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20190901:NetworkInterfaceTapConfigurationResponse"
+    description: A list of TapConfigurations of the network interface.
+  type:
+    type: string
+    description: Resource type.
+  virtualMachine:
+    type: object
+    $ref: "#/types/azure-native:network/v20190901:SubResourceResponse"
+    description: The reference of a virtual machine.
+type: object
+required:
+  - etag
+  - hostedWorkloads
+  - macAddress
+  - name
+  - primary
+  - privateEndpoint
+  - provisioningState
+  - resourceGuid
+  - tapConfigurations
+  - type
+  - virtualMachine

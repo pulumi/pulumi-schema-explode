@@ -1,0 +1,32 @@
+$token: azure-native:security/v20211201preview:DefenderForContainersAwsOfferingResponse
+description: The Defender for Containers AWS offering
+properties:
+  cloudWatchToKinesis:
+    type: object
+    $ref: "#/types/azure-native:security/v20211201preview:DefenderForContainersAwsOfferingResponseCloudWatchToKinesis"
+    description: The cloudwatch to kinesis connection configuration
+  description:
+    type: string
+    description: The offering description.
+  kinesisToS3:
+    type: object
+    $ref: "#/types/azure-native:security/v20211201preview:DefenderForContainersAwsOfferingResponseKinesisToS3"
+    description: The kinesis to s3 connection configuration
+  kubernetesScubaReader:
+    type: object
+    $ref: "#/types/azure-native:security/v20211201preview:DefenderForContainersAwsOfferingResponseKubernetesScubaReader"
+    description: The kubernetes to scuba connection configuration
+  kubernetesService:
+    type: object
+    $ref: "#/types/azure-native:security/v20211201preview:DefenderForContainersAwsOfferingResponseKubernetesService"
+    description: The kubernetes service connection configuration
+  offeringType:
+    type: string
+    description: |-
+      The type of the security offering.
+      Expected value is 'DefenderForContainersAws'.
+    const: DefenderForContainersAws
+type: object
+required:
+  - description
+  - offeringType

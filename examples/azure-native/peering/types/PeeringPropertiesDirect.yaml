@@ -1,0 +1,19 @@
+$token: azure-native:peering:PeeringPropertiesDirect
+description: The properties that define a direct peering.
+properties:
+  connections:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:peering:DirectConnection"
+    description: The set of connections that constitute a direct peering.
+  directPeeringType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:peering:DirectPeeringType"
+    description: The type of direct peering.
+  peerAsn:
+    type: object
+    $ref: "#/types/azure-native:peering:SubResource"
+    description: The reference of the peer ASN.
+type: object

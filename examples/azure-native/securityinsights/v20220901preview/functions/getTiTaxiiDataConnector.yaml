@@ -1,0 +1,84 @@
+$token: azure-native:securityinsights/v20220901preview:getTiTaxiiDataConnector
+description: Data connector to pull Threat intelligence data from TAXII 2.0/2.1 server
+inputs:
+  properties:
+    dataConnectorId:
+      type: string
+      description: Connector ID
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    workspaceName:
+      type: string
+      description: The name of the workspace.
+  type: object
+  required:
+    - dataConnectorId
+    - resourceGroupName
+    - workspaceName
+outputs:
+  description: Data connector to pull Threat intelligence data from TAXII 2.0/2.1 server
+  properties:
+    collectionId:
+      type: string
+      description: The collection id of the TAXII server.
+    dataTypes:
+      type: object
+      $ref: "#/types/azure-native:securityinsights/v20220901preview:TiTaxiiDataConnectorDataTypesResponse"
+      description: The available data types for Threat Intelligence TAXII data connector.
+    etag:
+      type: string
+      description: Etag of the azure resource
+    friendlyName:
+      type: string
+      description: The friendly name for the TAXII server.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    kind:
+      type: string
+      description: |-
+        The kind of the data connector
+        Expected value is 'ThreatIntelligenceTaxii'.
+      const: ThreatIntelligenceTaxii
+    name:
+      type: string
+      description: The name of the resource
+    password:
+      type: string
+      description: The password for the TAXII server.
+    pollingFrequency:
+      type: string
+      description: The polling frequency for the TAXII server.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:securityinsights/v20220901preview:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    taxiiLookbackPeriod:
+      type: string
+      description: The lookback period for the TAXII server.
+    taxiiServer:
+      type: string
+      description: The API root for the TAXII server.
+    tenantId:
+      type: string
+      description: The tenant id to connect to, and get the data from.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+    userName:
+      type: string
+      description: The userName for the TAXII server.
+    workspaceId:
+      type: string
+      description: The workspace id.
+  type: object
+  required:
+    - dataTypes
+    - id
+    - kind
+    - name
+    - pollingFrequency
+    - systemData
+    - tenantId
+    - type

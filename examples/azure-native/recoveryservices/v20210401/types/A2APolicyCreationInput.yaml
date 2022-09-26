@@ -1,0 +1,26 @@
+$token: azure-native:recoveryservices/v20210401:A2APolicyCreationInput
+description: A2A Policy creation input.
+properties:
+  appConsistentFrequencyInMinutes:
+    type: integer
+    description: The app consistent snapshot frequency (in minutes).
+  crashConsistentFrequencyInMinutes:
+    type: integer
+    description: The crash consistent snapshot frequency (in minutes).
+  instanceType:
+    type: string
+    description: |-
+      The class type.
+      Expected value is 'A2A'.
+    const: A2A
+  multiVmSyncStatus:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:recoveryservices/v20210401:SetMultiVmSyncStatus"
+    description: A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
+  recoveryPointHistory:
+    type: integer
+    description: The duration in minutes until which the recovery points need to be stored.
+type: object
+required:
+  - multiVmSyncStatus

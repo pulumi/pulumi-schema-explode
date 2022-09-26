@@ -1,0 +1,65 @@
+$token: azure-native:security/v20150601preview:getAdaptiveApplicationControl
+inputs:
+  properties:
+    ascLocation:
+      type: string
+      description: The location where ASC stores the data of the subscription. can be retrieved from Get locations
+    groupName:
+      type: string
+      description: Name of an application control VM/server group
+  type: object
+  required:
+    - ascLocation
+    - groupName
+outputs:
+  properties:
+    configurationStatus:
+      type: string
+      description: The configuration status of the VM/server group or machine or rule on the machine
+    enforcementMode:
+      type: string
+      description: The application control policy enforcement/protection mode of the VM/server group
+    id:
+      type: string
+      description: Resource Id
+    issues:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:security/v20150601preview:AppWhitelistingIssueSummaryResponse"
+    location:
+      type: string
+      description: Location where the resource is stored
+    name:
+      type: string
+      description: Resource name
+    pathRecommendations:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:security/v20150601preview:PathRecommendationResponse"
+    protectionMode:
+      type: object
+      $ref: "#/types/azure-native:security/v20150601preview:ProtectionModeResponse"
+      description: The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+    recommendationStatus:
+      type: string
+      description: The recommendation status of the VM/server group or VM/server
+    sourceSystem:
+      type: string
+      description: The source type of the VM/server group
+    type:
+      type: string
+      description: Resource type
+    vmRecommendations:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:security/v20150601preview:VmRecommendationResponse"
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - type
+deprecationMessage: Version 2015-06-01-preview will be removed in v2 of the provider.

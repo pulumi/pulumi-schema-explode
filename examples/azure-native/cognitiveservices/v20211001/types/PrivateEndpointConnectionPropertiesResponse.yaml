@@ -1,0 +1,23 @@
+$token: azure-native:cognitiveservices/v20211001:PrivateEndpointConnectionPropertiesResponse
+description: Properties of the PrivateEndpointConnectProperties.
+properties:
+  groupIds:
+    type: array
+    items:
+      type: string
+    description: The private link resource group ids.
+  privateEndpoint:
+    type: object
+    $ref: "#/types/azure-native:cognitiveservices/v20211001:PrivateEndpointResponse"
+    description: The resource of private end point.
+  privateLinkServiceConnectionState:
+    type: object
+    $ref: "#/types/azure-native:cognitiveservices/v20211001:PrivateLinkServiceConnectionStateResponse"
+    description: A collection of information about the state of the connection between service consumer and provider.
+  provisioningState:
+    type: string
+    description: The provisioning state of the private endpoint connection resource.
+type: object
+required:
+  - privateLinkServiceConnectionState
+  - provisioningState

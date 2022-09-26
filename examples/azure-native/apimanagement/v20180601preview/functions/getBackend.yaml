@@ -1,0 +1,69 @@
+$token: azure-native:apimanagement/v20180601preview:getBackend
+description: Backend details.
+inputs:
+  properties:
+    backendId:
+      type: string
+      description: Identifier of the Backend entity. Must be unique in the current API Management service instance.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    serviceName:
+      type: string
+      description: The name of the API Management service.
+  type: object
+  required:
+    - backendId
+    - resourceGroupName
+    - serviceName
+outputs:
+  description: Backend details.
+  properties:
+    credentials:
+      type: object
+      $ref: "#/types/azure-native:apimanagement/v20180601preview:BackendCredentialsContractResponse"
+      description: Backend Credentials Contract Properties
+    description:
+      type: string
+      description: Backend Description.
+    id:
+      type: string
+      description: Resource ID.
+    name:
+      type: string
+      description: Resource name.
+    properties:
+      type: object
+      $ref: "#/types/azure-native:apimanagement/v20180601preview:BackendPropertiesResponse"
+      description: Backend Properties contract
+    protocol:
+      type: string
+      description: Backend communication protocol.
+    proxy:
+      type: object
+      $ref: "#/types/azure-native:apimanagement/v20180601preview:BackendProxyContractResponse"
+      description: Backend Proxy Contract Properties
+    resourceId:
+      type: string
+      description: Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+    title:
+      type: string
+      description: Backend Title.
+    tls:
+      type: object
+      $ref: "#/types/azure-native:apimanagement/v20180601preview:BackendTlsPropertiesResponse"
+      description: Backend TLS Properties
+    type:
+      type: string
+      description: Resource type for API Management resource.
+    url:
+      type: string
+      description: Runtime Url of the Backend.
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - protocol
+    - type
+    - url

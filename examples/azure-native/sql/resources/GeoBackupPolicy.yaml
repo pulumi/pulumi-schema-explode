@@ -1,0 +1,56 @@
+$token: azure-native:sql:GeoBackupPolicy
+description: |-
+  A database geo backup policy.
+  API Version: 2014-04-01.
+properties:
+  kind:
+    type: string
+    description: Kind of geo backup policy.  This is metadata used for the Azure portal experience.
+  location:
+    type: string
+    description: Backup policy location.
+  name:
+    type: string
+    description: Resource name.
+  state:
+    type: string
+    description: The state of the geo backup policy.
+  storageType:
+    type: string
+    description: The storage type of the geo backup policy.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - kind
+  - location
+  - name
+  - state
+  - storageType
+  - type
+inputProperties:
+  databaseName:
+    type: string
+    description: The name of the database.
+  geoBackupPolicyName:
+    type: string
+    description: The name of the geo backup policy.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  serverName:
+    type: string
+    description: The name of the server.
+  state:
+    $ref: "#/types/azure-native:sql:GeoBackupPolicyState"
+    description: The state of the geo backup policy.
+requiredInputs:
+  - databaseName
+  - resourceGroupName
+  - serverName
+  - state
+aliases:
+  - type: azure-native:sql/v20140401:GeoBackupPolicy
+  - type: azure-native:sql/v20211101:GeoBackupPolicy
+  - type: azure-native:sql/v20220201preview:GeoBackupPolicy

@@ -1,0 +1,114 @@
+$token: azure-native:datafactory/v20180601:DelimitedTextDatasetResponse
+description: Delimited text dataset.
+properties:
+  annotations:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: List of tags that can be used for describing the Dataset.
+  columnDelimiter:
+    $ref: pulumi.json#/Any
+    description: "The column delimiter. Type: string (or Expression with resultType string)."
+  compressionCodec:
+    $ref: pulumi.json#/Any
+    description: "The data compressionCodec. Type: string (or Expression with resultType string)."
+  compressionLevel:
+    $ref: pulumi.json#/Any
+    description: The data compression method used for DelimitedText.
+  description:
+    type: string
+    description: Dataset description.
+  encodingName:
+    $ref: pulumi.json#/Any
+    description: "The code page name of the preferred encoding. If miss, the default value is UTF-8, unless BOM denotes another Unicode encoding. Refer to the name column of the table in the following link to set supported values: https://msdn.microsoft.com/library/system.text.encoding.aspx. Type: string (or Expression with resultType string)."
+  escapeChar:
+    $ref: pulumi.json#/Any
+    description: "The escape character. Type: string (or Expression with resultType string)."
+  firstRowAsHeader:
+    $ref: pulumi.json#/Any
+    description: "When used as input, treat the first row of data as headers. When used as output,write the headers into the output as the first row of data. The default value is false. Type: boolean (or Expression with resultType boolean)."
+  folder:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20180601:DatasetResponseFolder"
+    description: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+  linkedServiceName:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20180601:LinkedServiceReferenceResponse"
+    description: Linked service reference.
+  location:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:AmazonS3CompatibleLocationResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:AmazonS3LocationResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:AzureBlobFSLocationResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:AzureBlobStorageLocationResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:AzureDataLakeStoreLocationResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:AzureFileStorageLocationResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:FileServerLocationResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:FtpServerLocationResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:GoogleCloudStorageLocationResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:HdfsLocationResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:HttpServerLocationResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:OracleCloudStorageLocationResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:SftpLocationResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        AmazonS3CompatibleLocation: "#/types/azure-native:datafactory/v20180601:AmazonS3CompatibleLocationResponse"
+        AmazonS3Location: "#/types/azure-native:datafactory/v20180601:AmazonS3LocationResponse"
+        AzureBlobFSLocation: "#/types/azure-native:datafactory/v20180601:AzureBlobFSLocationResponse"
+        AzureBlobStorageLocation: "#/types/azure-native:datafactory/v20180601:AzureBlobStorageLocationResponse"
+        AzureDataLakeStoreLocation: "#/types/azure-native:datafactory/v20180601:AzureDataLakeStoreLocationResponse"
+        AzureFileStorageLocation: "#/types/azure-native:datafactory/v20180601:AzureFileStorageLocationResponse"
+        FileServerLocation: "#/types/azure-native:datafactory/v20180601:FileServerLocationResponse"
+        FtpServerLocation: "#/types/azure-native:datafactory/v20180601:FtpServerLocationResponse"
+        GoogleCloudStorageLocation: "#/types/azure-native:datafactory/v20180601:GoogleCloudStorageLocationResponse"
+        HdfsLocation: "#/types/azure-native:datafactory/v20180601:HdfsLocationResponse"
+        HttpServerLocation: "#/types/azure-native:datafactory/v20180601:HttpServerLocationResponse"
+        OracleCloudStorageLocation: "#/types/azure-native:datafactory/v20180601:OracleCloudStorageLocationResponse"
+        SftpLocation: "#/types/azure-native:datafactory/v20180601:SftpLocationResponse"
+    description: The location of the delimited text storage.
+  nullValue:
+    $ref: pulumi.json#/Any
+    description: "The null value string. Type: string (or Expression with resultType string)."
+  parameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20180601:ParameterSpecificationResponse"
+    description: Parameters for dataset.
+  quoteChar:
+    $ref: pulumi.json#/Any
+    description: "The quote character. Type: string (or Expression with resultType string)."
+  rowDelimiter:
+    $ref: pulumi.json#/Any
+    description: "The row delimiter. Type: string (or Expression with resultType string)."
+  schema:
+    $ref: pulumi.json#/Any
+    description: "Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement."
+  structure:
+    $ref: pulumi.json#/Any
+    description: "Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement."
+  type:
+    type: string
+    description: |-
+      Type of dataset.
+      Expected value is 'DelimitedText'.
+    const: DelimitedText
+type: object
+required:
+  - linkedServiceName
+  - location
+  - type

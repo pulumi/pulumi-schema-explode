@@ -1,0 +1,19 @@
+$token: azure-native:servicelinker/v20220501:AzureResource
+description: The azure resource info when target service type is AzureResource
+properties:
+  id:
+    type: string
+    description: The Id of azure resource.
+  resourceProperties:
+    type: object
+    $ref: "#/types/azure-native:servicelinker/v20220501:AzureKeyVaultProperties"
+    description: The azure resource connection related properties.
+  type:
+    type: string
+    description: |-
+      The target service type.
+      Expected value is 'AzureResource'.
+    const: AzureResource
+type: object
+required:
+  - type

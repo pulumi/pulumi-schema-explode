@@ -1,0 +1,26 @@
+$token: azure-native:search/v20210401preview:SharedPrivateLinkResourceProperties
+description: Describes the properties of an existing Shared Private Link Resource managed by the Azure Cognitive Search service.
+properties:
+  groupId:
+    type: string
+    description: The group id from the provider of resource the shared private link resource is for.
+  privateLinkResourceId:
+    type: string
+    description: The resource id of the resource the shared private link resource is for.
+  provisioningState:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:search/v20210401preview:SharedPrivateLinkResourceProvisioningState"
+    description: The provisioning state of the shared private link resource. Can be Updating, Deleting, Failed, Succeeded, Incomplete or other yet to be documented value.
+  requestMessage:
+    type: string
+    description: The request message for requesting approval of the shared private link resource.
+  resourceRegion:
+    type: string
+    description: Optional. Can be used to specify the Azure Resource Manager location of the resource to which a shared private link is to be created. This is only required for those resources whose DNS configuration are regional (such as Azure Kubernetes Service).
+  status:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:search/v20210401preview:SharedPrivateLinkResourceStatus"
+    description: Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected or other yet to be documented value.
+type: object

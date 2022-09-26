@@ -1,0 +1,41 @@
+$token: azure-native:storsimple/v20161001:BackupScheduleGroup
+description: The Backup Schedule Group
+properties:
+  name:
+    type: string
+    description: The name.
+  startTime:
+    type: object
+    $ref: "#/types/azure-native:storsimple/v20161001:TimeResponse"
+    description: The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
+  type:
+    type: string
+    description: The type.
+type: object
+required:
+  - name
+  - startTime
+  - type
+inputProperties:
+  deviceName:
+    type: string
+    description: The name of the device.
+  managerName:
+    type: string
+    description: The manager name
+  resourceGroupName:
+    type: string
+    description: The resource group name
+  scheduleGroupName:
+    type: string
+    description: The name of the schedule group.
+  startTime:
+    type: object
+    $ref: "#/types/azure-native:storsimple/v20161001:Time"
+    description: The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
+requiredInputs:
+  - deviceName
+  - managerName
+  - resourceGroupName
+  - startTime
+deprecationMessage: Version 2016-10-01 will be removed in v2 of the provider.

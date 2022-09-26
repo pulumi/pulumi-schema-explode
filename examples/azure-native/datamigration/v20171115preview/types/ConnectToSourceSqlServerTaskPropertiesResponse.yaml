@@ -1,0 +1,42 @@
+$token: azure-native:datamigration/v20171115preview:ConnectToSourceSqlServerTaskPropertiesResponse
+description: Properties for the task that validates connection to SQL Server and also validates source server requirements
+properties:
+  errors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration/v20171115preview:ODataErrorResponse"
+    description: Array of errors. This is ignored if submitted.
+  input:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20171115preview:ConnectToSourceSqlServerTaskInputResponse"
+    description: Task input
+  output:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:datamigration/v20171115preview:ConnectToSourceSqlServerTaskOutputDatabaseLevelResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration/v20171115preview:ConnectToSourceSqlServerTaskOutputTaskLevelResponse"
+      discriminator:
+        propertyName: resultType
+        mapping:
+          DatabaseLevelOutput: "#/types/azure-native:datamigration/v20171115preview:ConnectToSourceSqlServerTaskOutputDatabaseLevelResponse"
+          TaskLevelOutput: "#/types/azure-native:datamigration/v20171115preview:ConnectToSourceSqlServerTaskOutputTaskLevelResponse"
+    description: Task output. This is ignored if submitted.
+  state:
+    type: string
+    description: The state of the task. This is ignored if submitted.
+  taskType:
+    type: string
+    description: |-
+      Task type.
+      Expected value is 'ConnectToSource.SqlServer'.
+    const: ConnectToSource.SqlServer
+type: object
+required:
+  - errors
+  - output
+  - state
+  - taskType

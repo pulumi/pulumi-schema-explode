@@ -1,0 +1,13 @@
+$token: azure-native:compute/v20220301:VMDiskSecurityProfile
+description: "Specifies the security profile settings for the managed disk. <br><br> NOTE: It can only be set for Confidential VMs"
+properties:
+  diskEncryptionSet:
+    type: object
+    $ref: "#/types/azure-native:compute/v20220301:DiskEncryptionSetParameters"
+    description: Specifies the customer managed disk encryption set resource id for the managed disk that is used for Customer Managed Key encrypted ConfidentialVM OS Disk and VMGuest blob.
+  securityEncryptionType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:compute/v20220301:SecurityEncryptionTypes"
+    description: "Specifies the EncryptionType of the managed disk. <br> It is set to DiskWithVMGuestState for encryption of the managed disk along with VMGuestState blob, and VMGuestStateOnly for encryption of just the VMGuestState blob. <br><br> NOTE: It can be set for only Confidential VMs."
+type: object

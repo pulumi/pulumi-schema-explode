@@ -1,0 +1,15 @@
+$token: azure-native:recoveryservices/v20210101:LogSchedulePolicyResponse
+description: Log policy schedule.
+properties:
+  scheduleFrequencyInMins:
+    type: integer
+    description: Frequency of the log schedule operation of this policy in minutes.
+  schedulePolicyType:
+    type: string
+    description: |-
+      This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+      Expected value is 'LogSchedulePolicy'.
+    const: LogSchedulePolicy
+type: object
+required:
+  - schedulePolicyType

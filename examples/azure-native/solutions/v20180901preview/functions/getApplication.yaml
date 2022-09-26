@@ -1,0 +1,123 @@
+$token: azure-native:solutions/v20180901preview:getApplication
+description: Information about managed application.
+inputs:
+  properties:
+    applicationName:
+      type: string
+      description: The name of the managed application.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+  type: object
+  required:
+    - applicationName
+    - resourceGroupName
+outputs:
+  description: Information about managed application.
+  properties:
+    applicationDefinitionId:
+      type: string
+      description: The fully qualified path of managed application definition Id.
+    artifacts:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:solutions/v20180901preview:ApplicationArtifactResponse"
+      description: The collection of managed application artifacts.
+    authorizations:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:solutions/v20180901preview:ApplicationAuthorizationResponse"
+      description: The  read-only authorizations property that is retrieved from the application package.
+    billingDetails:
+      type: object
+      $ref: "#/types/azure-native:solutions/v20180901preview:ApplicationBillingDetailsDefinitionResponse"
+      description: The managed application billing details.
+    createdBy:
+      type: object
+      $ref: "#/types/azure-native:solutions/v20180901preview:ApplicationClientDetailsResponse"
+      description: The client entity that created the JIT request.
+    customerSupport:
+      type: object
+      $ref: "#/types/azure-native:solutions/v20180901preview:ApplicationPackageContactResponse"
+      description: The read-only customer support property that is retrieved from the application package.
+    id:
+      type: string
+      description: Resource ID
+    identity:
+      type: object
+      $ref: "#/types/azure-native:solutions/v20180901preview:IdentityResponse"
+      description: The identity of the resource.
+    jitAccessPolicy:
+      type: object
+      $ref: "#/types/azure-native:solutions/v20180901preview:ApplicationJitAccessPolicyResponse"
+      description: The managed application Jit access policy.
+    kind:
+      type: string
+      description: The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
+    location:
+      type: string
+      description: Resource location
+    managedBy:
+      type: string
+      description: ID of the resource that manages this resource.
+    managedResourceGroupId:
+      type: string
+      description: The managed resource group Id.
+    name:
+      type: string
+      description: Resource name
+    outputs:
+      $ref: pulumi.json#/Any
+      description: Name and value pairs that define the managed application outputs.
+    parameters:
+      $ref: pulumi.json#/Any
+      description: Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
+    plan:
+      type: object
+      $ref: "#/types/azure-native:solutions/v20180901preview:PlanResponse"
+      description: The plan information.
+    provisioningState:
+      type: string
+      description: The managed application provisioning state.
+    publisherTenantId:
+      type: string
+      description: The publisher tenant Id.
+    sku:
+      type: object
+      $ref: "#/types/azure-native:solutions/v20180901preview:SkuResponse"
+      description: The SKU of the resource.
+    supportUrls:
+      type: object
+      $ref: "#/types/azure-native:solutions/v20180901preview:ApplicationPackageSupportUrlsResponse"
+      description: The read-only support URLs property that is retrieved from the application package.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    type:
+      type: string
+      description: Resource type
+    updatedBy:
+      type: object
+      $ref: "#/types/azure-native:solutions/v20180901preview:ApplicationClientDetailsResponse"
+      description: The client entity that last updated the JIT request.
+  type: object
+  required:
+    - artifacts
+    - authorizations
+    - billingDetails
+    - createdBy
+    - customerSupport
+    - id
+    - kind
+    - name
+    - outputs
+    - provisioningState
+    - publisherTenantId
+    - supportUrls
+    - type
+    - updatedBy
+deprecationMessage: Version 2018-09-01-preview will be removed in v2 of the provider.

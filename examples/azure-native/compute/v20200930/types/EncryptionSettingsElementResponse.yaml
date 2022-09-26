@@ -1,0 +1,12 @@
+$token: azure-native:compute/v20200930:EncryptionSettingsElementResponse
+description: Encryption settings for one disk volume.
+properties:
+  diskEncryptionKey:
+    type: object
+    $ref: "#/types/azure-native:compute/v20200930:KeyVaultAndSecretReferenceResponse"
+    description: Key Vault Secret Url and vault id of the disk encryption key
+  keyEncryptionKey:
+    type: object
+    $ref: "#/types/azure-native:compute/v20200930:KeyVaultAndKeyReferenceResponse"
+    description: Key Vault Key Url and vault id of the key encryption key. KeyEncryptionKey is optional and when provided is used to unwrap the disk encryption key.
+type: object

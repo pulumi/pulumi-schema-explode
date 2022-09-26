@@ -1,0 +1,57 @@
+$token: azure-native:dbforpostgresql/v20171201:Configuration
+description: Represents a Configuration.
+properties:
+  allowedValues:
+    type: string
+    description: Allowed values of the configuration.
+  dataType:
+    type: string
+    description: Data type of the configuration.
+  defaultValue:
+    type: string
+    description: Default value of the configuration.
+  description:
+    type: string
+    description: Description of the configuration.
+  name:
+    type: string
+    description: The name of the resource
+  source:
+    type: string
+    description: Source of the configuration.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  value:
+    type: string
+    description: Value of the configuration.
+type: object
+required:
+  - allowedValues
+  - dataType
+  - defaultValue
+  - description
+  - name
+  - type
+inputProperties:
+  configurationName:
+    type: string
+    description: The name of the server configuration.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  serverName:
+    type: string
+    description: The name of the server.
+  source:
+    type: string
+    description: Source of the configuration.
+  value:
+    type: string
+    description: Value of the configuration.
+requiredInputs:
+  - resourceGroupName
+  - serverName
+aliases:
+  - type: azure-native:dbforpostgresql:Configuration
+  - type: azure-native:dbforpostgresql/v20171201preview:Configuration

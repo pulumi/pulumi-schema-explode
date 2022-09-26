@@ -1,0 +1,57 @@
+$token: azure-native:delegatednetwork:getDelegatedSubnetServiceDetails
+description: |-
+  Represents an instance of a orchestrator.
+  API Version: 2021-03-15.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    resourceName:
+      type: string
+      description: The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
+  type: object
+  required:
+    - resourceGroupName
+    - resourceName
+outputs:
+  description: Represents an instance of a orchestrator.
+  properties:
+    controllerDetails:
+      type: object
+      $ref: "#/types/azure-native:delegatednetwork:ControllerDetailsResponse"
+      description: Properties of the controller.
+    id:
+      type: string
+      description: An identifier that represents the resource.
+    location:
+      type: string
+      description: Location of the resource.
+    name:
+      type: string
+      description: The name of the resource.
+    provisioningState:
+      type: string
+      description: The current state of dnc delegated subnet resource.
+    resourceGuid:
+      type: string
+      description: Resource guid.
+    subnetDetails:
+      type: object
+      $ref: "#/types/azure-native:delegatednetwork:SubnetDetailsResponse"
+      description: subnet details
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: The resource tags.
+    type:
+      type: string
+      description: The type of resource.
+  type: object
+  required:
+    - id
+    - name
+    - provisioningState
+    - resourceGuid
+    - type

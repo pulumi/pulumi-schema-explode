@@ -1,0 +1,59 @@
+$token: azure-native:machinelearning:CommitmentPlan
+description: |-
+  An Azure ML commitment plan resource.
+  API Version: 2016-05-01-preview.
+properties:
+  etag:
+    type: string
+    description: An entity tag used to enforce optimistic concurrency.
+  location:
+    type: string
+    description: Resource location.
+  name:
+    type: string
+    description: Resource name.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:machinelearning:CommitmentPlanPropertiesResponse"
+    description: The commitment plan properties.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:machinelearning:ResourceSkuResponse"
+    description: The commitment plan SKU.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: User-defined tags for the resource.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - location
+  - name
+  - properties
+  - type
+inputProperties:
+  commitmentPlanName:
+    type: string
+    description: The Azure ML commitment plan name.
+  location:
+    type: string
+    description: Resource location.
+  resourceGroupName:
+    type: string
+    description: The resource group name.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:machinelearning:ResourceSku"
+    description: The commitment plan SKU.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: User-defined tags for the resource.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:machinelearning/v20160501preview:CommitmentPlan

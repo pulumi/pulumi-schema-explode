@@ -1,0 +1,35 @@
+$token: azure-native:datafactory/v20180601:WaitActivity
+description: This activity suspends pipeline execution for the specified interval.
+properties:
+  dependsOn:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20180601:ActivityDependency"
+    description: Activity depends on condition.
+  description:
+    type: string
+    description: Activity description.
+  name:
+    type: string
+    description: Activity name.
+  type:
+    type: string
+    description: |-
+      Type of activity.
+      Expected value is 'Wait'.
+    const: Wait
+  userProperties:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20180601:UserProperty"
+    description: Activity user properties.
+  waitTimeInSeconds:
+    $ref: pulumi.json#/Any
+    description: Duration in seconds.
+type: object
+required:
+  - name
+  - type
+  - waitTimeInSeconds

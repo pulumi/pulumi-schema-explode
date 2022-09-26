@@ -1,0 +1,26 @@
+$token: azure-native:consumption/v20190401preview:Filters
+description: May be used to filter budgets by resource group, resource, or meter.
+properties:
+  meters:
+    type: array
+    items:
+      type: string
+    description: "The list of filters on meters (GUID), mandatory for budgets of usage category. "
+  resourceGroups:
+    type: array
+    items:
+      type: string
+    description: The list of filters on resource groups, allowed at subscription level only.
+  resources:
+    type: array
+    items:
+      type: string
+    description: The list of filters on resources.
+  tags:
+    type: object
+    additionalProperties:
+      type: array
+      items:
+        type: string
+    description: The dictionary of filters on tags.
+type: object

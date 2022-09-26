@@ -1,0 +1,51 @@
+$token: azure-native:importexport/v20200801:getJob
+description: Contains the job information.
+inputs:
+  properties:
+    jobName:
+      type: string
+      description: The name of the import/export job.
+    resourceGroupName:
+      type: string
+      description: The resource group name uniquely identifies the resource group within the user subscription.
+  type: object
+  required:
+    - jobName
+    - resourceGroupName
+outputs:
+  description: Contains the job information.
+  properties:
+    id:
+      type: string
+      description: Specifies the resource identifier of the job.
+    identity:
+      type: object
+      $ref: "#/types/azure-native:importexport/v20200801:IdentityDetailsResponse"
+      description: Specifies the job identity details
+    location:
+      type: string
+      description: Specifies the Azure location where the job is created.
+    name:
+      type: string
+      description: Specifies the name of the job.
+    properties:
+      type: object
+      $ref: "#/types/azure-native:importexport/v20200801:JobDetailsResponse"
+      description: Specifies the job properties
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:importexport/v20200801:SystemDataResponse"
+      description: SystemData of ImportExport Jobs.
+    tags:
+      $ref: pulumi.json#/Any
+      description: Specifies the tags that are assigned to the job.
+    type:
+      type: string
+      description: Specifies the type of the job resource.
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - systemData
+    - type

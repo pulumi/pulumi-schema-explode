@@ -1,0 +1,53 @@
+$token: azure-native:containerregistry/v20171001:getReplication
+description: An object that represents a replication for a container registry.
+inputs:
+  properties:
+    registryName:
+      type: string
+      description: The name of the container registry.
+    replicationName:
+      type: string
+      description: The name of the replication.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group to which the container registry belongs.
+  type: object
+  required:
+    - registryName
+    - replicationName
+    - resourceGroupName
+outputs:
+  description: An object that represents a replication for a container registry.
+  properties:
+    id:
+      type: string
+      description: The resource ID.
+    location:
+      type: string
+      description: The location of the resource. This cannot be changed after the resource is created.
+    name:
+      type: string
+      description: The name of the resource.
+    provisioningState:
+      type: string
+      description: The provisioning state of the replication at the time the operation was called.
+    status:
+      type: object
+      $ref: "#/types/azure-native:containerregistry/v20171001:StatusResponse"
+      description: The status of the replication at the time the operation was called.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: The tags of the resource.
+    type:
+      type: string
+      description: The type of the resource.
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - provisioningState
+    - status
+    - type

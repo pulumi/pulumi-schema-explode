@@ -1,0 +1,21 @@
+$token: azure-native:datamigration/v20210630:ValidateOracleAzureDbForPostgreSqlSyncTaskProperties
+description: Properties for the task that validates a migration for Oracle to Azure Database for PostgreSQL for online migrations
+properties:
+  clientData:
+    type: object
+    additionalProperties:
+      type: string
+    description: Key value pairs of client data to attach meta data information to task
+  input:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20210630:MigrateOracleAzureDbPostgreSqlSyncTaskInput"
+    description: Input for the task that migrates Oracle databases to Azure Database for PostgreSQL for online migrations
+  taskType:
+    type: string
+    description: |-
+      Task type.
+      Expected value is 'Validate.Oracle.AzureDbPostgreSql.Sync'.
+    const: Validate.Oracle.AzureDbPostgreSql.Sync
+type: object
+required:
+  - taskType

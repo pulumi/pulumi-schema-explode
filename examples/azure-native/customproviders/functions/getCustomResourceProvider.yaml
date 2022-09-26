@@ -1,0 +1,64 @@
+$token: azure-native:customproviders:getCustomResourceProvider
+description: |-
+  A manifest file that defines the custom resource provider resources.
+  API Version: 2018-09-01-preview.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    resourceProviderName:
+      type: string
+      description: The name of the resource provider.
+  type: object
+  required:
+    - resourceGroupName
+    - resourceProviderName
+outputs:
+  description: A manifest file that defines the custom resource provider resources.
+  properties:
+    actions:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:customproviders:CustomRPActionRouteDefinitionResponse"
+      description: A list of actions that the custom resource provider implements.
+    id:
+      type: string
+      description: Resource Id
+    location:
+      type: string
+      description: Resource location
+    name:
+      type: string
+      description: Resource name
+    provisioningState:
+      type: string
+      description: The provisioning state of the resource provider.
+    resourceTypes:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:customproviders:CustomRPResourceTypeRouteDefinitionResponse"
+      description: A list of resource types that the custom resource provider implements.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    type:
+      type: string
+      description: Resource type
+    validations:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:customproviders:CustomRPValidationsResponse"
+      description: A list of validations to run on the custom resource provider's requests.
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - provisioningState
+    - type

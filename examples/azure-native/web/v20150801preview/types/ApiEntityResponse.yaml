@@ -1,0 +1,74 @@
+$token: azure-native:web/v20150801preview:ApiEntityResponse
+description: API Management
+properties:
+  apiDefinitionUrl:
+    type: string
+    description: API definition Url - url where the swagger can be downloaded from
+  backendService:
+    type: object
+    $ref: "#/types/azure-native:web/v20150801preview:BackendServiceDefinitionResponse"
+    description: Backend service definition
+  capabilities:
+    type: array
+    items:
+      type: string
+    description: Capabilities
+  changedTime:
+    type: string
+    description: Timestamp of last connection change.
+  connectionParameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:web/v20150801preview:ConnectionParameterResponse"
+    description: Connection parameters
+  createdTime:
+    type: string
+    description: Timestamp of the connection creation
+  generalInformation:
+    type: object
+    $ref: "#/types/azure-native:web/v20150801preview:GeneralApiInformationResponse"
+    description: the URL path of this API when exposed via APIM
+  id:
+    type: string
+    description: Resource Id
+  kind:
+    type: string
+    description: Kind of resource
+  location:
+    type: string
+    description: Resource Location
+  metadata:
+    $ref: pulumi.json#/Any
+    description: Free form object for the data caller wants to store
+  name:
+    type: string
+    description: Resource Name
+  path:
+    type: string
+    description: the URL path of this API when exposed via APIM
+  policies:
+    type: object
+    $ref: "#/types/azure-native:web/v20150801preview:ApiPoliciesResponse"
+    description: API policies
+  protocols:
+    type: array
+    items:
+      type: string
+    description: Protocols supported by the front end - http/https
+  runtimeUrls:
+    type: array
+    items:
+      type: string
+    description: Read only property returning the runtime endpoints where the API can be called
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  type:
+    type: string
+    description: Resource type
+type: object
+required:
+  - location

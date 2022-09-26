@@ -1,0 +1,35 @@
+$token: azure-native:web:listConnectionConsentLinks
+description: |-
+  Collection of consent links
+  API Version: 2016-06-01.
+inputs:
+  properties:
+    connectionName:
+      type: string
+      description: Connection name
+    parameters:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:web:ConsentLinkParameterDefinition"
+      description: Collection of resources
+    resourceGroupName:
+      type: string
+      description: The resource group
+    subscriptionId:
+      type: string
+      description: Subscription Id
+  type: object
+  required:
+    - connectionName
+    - resourceGroupName
+outputs:
+  description: Collection of consent links
+  properties:
+    value:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:web:ConsentLinkDefinitionResponse"
+      description: Collection of resources
+  type: object

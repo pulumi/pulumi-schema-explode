@@ -1,0 +1,25 @@
+$token: azure-native:datamigration/v20211030preview:MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponse
+description: Input for the task that migrates PostgreSQL databases to Azure Database for PostgreSQL for online migrations
+properties:
+  encryptedKeyForSecureFields:
+    type: string
+    description: encrypted key for secure fields
+  selectedDatabases:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration/v20211030preview:MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponse"
+    description: Databases to migrate
+  sourceConnectionInfo:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20211030preview:PostgreSqlConnectionInfoResponse"
+    description: Connection information for source PostgreSQL
+  targetConnectionInfo:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20211030preview:PostgreSqlConnectionInfoResponse"
+    description: Connection information for target Azure Database for PostgreSQL
+type: object
+required:
+  - selectedDatabases
+  - sourceConnectionInfo
+  - targetConnectionInfo

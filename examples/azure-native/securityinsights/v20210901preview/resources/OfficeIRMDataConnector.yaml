@@ -1,0 +1,79 @@
+$token: azure-native:securityinsights/v20210901preview:OfficeIRMDataConnector
+description: Represents OfficeIRM (Microsoft Insider Risk Management) data connector.
+properties:
+  dataTypes:
+    type: object
+    $ref: "#/types/azure-native:securityinsights/v20210901preview:AlertsDataTypeOfDataConnectorResponse"
+    description: The available data types for the connector.
+  etag:
+    type: string
+    description: Etag of the azure resource
+  kind:
+    type: string
+    description: |-
+      The kind of the data connector
+      Expected value is 'OfficeIRM'.
+    const: OfficeIRM
+  name:
+    type: string
+    description: The name of the resource
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:securityinsights/v20210901preview:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  tenantId:
+    type: string
+    description: The tenant id to connect to, and get the data from.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - kind
+  - name
+  - systemData
+  - tenantId
+  - type
+inputProperties:
+  dataConnectorId:
+    type: string
+    description: Connector ID
+  dataTypes:
+    type: object
+    $ref: "#/types/azure-native:securityinsights/v20210901preview:AlertsDataTypeOfDataConnector"
+    description: The available data types for the connector.
+  kind:
+    type: string
+    description: |-
+      The kind of the data connector
+      Expected value is 'OfficeIRM'.
+    const: OfficeIRM
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  tenantId:
+    type: string
+    description: The tenant id to connect to, and get the data from.
+  workspaceName:
+    type: string
+    description: The name of the workspace.
+requiredInputs:
+  - kind
+  - resourceGroupName
+  - tenantId
+  - workspaceName
+aliases:
+  - type: azure-native:securityinsights:OfficeIRMDataConnector
+  - type: azure-native:securityinsights/v20190101preview:OfficeIRMDataConnector
+  - type: azure-native:securityinsights/v20200101:OfficeIRMDataConnector
+  - type: azure-native:securityinsights/v20210301preview:OfficeIRMDataConnector
+  - type: azure-native:securityinsights/v20211001:OfficeIRMDataConnector
+  - type: azure-native:securityinsights/v20211001preview:OfficeIRMDataConnector
+  - type: azure-native:securityinsights/v20220101preview:OfficeIRMDataConnector
+  - type: azure-native:securityinsights/v20220401preview:OfficeIRMDataConnector
+  - type: azure-native:securityinsights/v20220501preview:OfficeIRMDataConnector
+  - type: azure-native:securityinsights/v20220601preview:OfficeIRMDataConnector
+  - type: azure-native:securityinsights/v20220701preview:OfficeIRMDataConnector
+  - type: azure-native:securityinsights/v20220801:OfficeIRMDataConnector
+  - type: azure-native:securityinsights/v20220801preview:OfficeIRMDataConnector
+  - type: azure-native:securityinsights/v20220901preview:OfficeIRMDataConnector

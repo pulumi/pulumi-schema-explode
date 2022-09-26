@@ -1,0 +1,17 @@
+$token: azure-native:powerbidedicated:AutoScaleVCoreSku
+description: Represents the SKU name and Azure pricing tier for auto scale v-core resource.
+properties:
+  capacity:
+    type: integer
+    description: The capacity of an auto scale v-core resource.
+  name:
+    type: string
+    description: Name of the SKU level.
+  tier:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:powerbidedicated:VCoreSkuTier"
+    description: The name of the Azure pricing tier to which the SKU applies.
+type: object
+required:
+  - name

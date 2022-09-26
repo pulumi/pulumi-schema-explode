@@ -1,0 +1,20 @@
+$token: azure-native:security:AdditionalWorkspacesProperties
+description: Properties of the additional workspaces.
+properties:
+  dataTypes:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:security:AdditionalWorkspaceDataType"
+    description: List of data types sent to workspace
+  type:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:security:AdditionalWorkspaceType"
+    description: Workspace type.
+    default: Sentinel
+  workspace:
+    type: string
+    description: Workspace resource id
+type: object

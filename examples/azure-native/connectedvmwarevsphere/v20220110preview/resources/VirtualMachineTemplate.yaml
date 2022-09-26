@@ -1,0 +1,158 @@
+$token: azure-native:connectedvmwarevsphere/v20220110preview:VirtualMachineTemplate
+description: Define the virtualMachineTemplate.
+properties:
+  customResourceName:
+    type: string
+    description: Gets the name of the corresponding resource in Kubernetes.
+  disks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:connectedvmwarevsphere/v20220110preview:VirtualDiskResponse"
+    description: Gets or sets the disks the template.
+  extendedLocation:
+    type: object
+    $ref: "#/types/azure-native:connectedvmwarevsphere/v20220110preview:ExtendedLocationResponse"
+    description: Gets or sets the extended location.
+  firmwareType:
+    type: string
+    description: Firmware type
+  folderPath:
+    type: string
+    description: Gets or sets the folder path of the template.
+  inventoryItemId:
+    type: string
+    description: Gets or sets the inventory Item ID for the virtual machine template.
+  kind:
+    type: string
+    description: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+  location:
+    type: string
+    description: Gets or sets the location.
+  memorySizeMB:
+    type: integer
+    description: Gets or sets memory size in MBs for the template.
+  moName:
+    type: string
+    description: Gets or sets the vCenter Managed Object name for the virtual machine template.
+  moRefId:
+    type: string
+    description: "Gets or sets the vCenter MoRef (Managed Object Reference) ID for the virtual machine\r
+
+      template."
+  name:
+    type: string
+    description: Gets or sets the name.
+  networkInterfaces:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:connectedvmwarevsphere/v20220110preview:NetworkInterfaceResponse"
+    description: Gets or sets the network interfaces of the template.
+  numCPUs:
+    type: integer
+    description: Gets or sets the number of vCPUs for the template.
+  numCoresPerSocket:
+    type: integer
+    description: "Gets or sets the number of cores per socket for the template.\r
+
+      Defaults to 1 if unspecified."
+  osName:
+    type: string
+    description: Gets or sets os name.
+  osType:
+    type: string
+    description: Gets or sets the type of the os.
+  provisioningState:
+    type: string
+    description: Gets or sets the provisioning state.
+  statuses:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:connectedvmwarevsphere/v20220110preview:ResourceStatusResponse"
+    description: The resource status information.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:connectedvmwarevsphere/v20220110preview:SystemDataResponse"
+    description: The system data.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Gets or sets the Resource tags.
+  toolsVersion:
+    type: string
+    description: Gets or sets the current version of VMware Tools.
+  toolsVersionStatus:
+    type: string
+    description: Gets or sets the current version status of VMware Tools installed in the guest operating system.
+  type:
+    type: string
+    description: Gets or sets the type of the resource.
+  uuid:
+    type: string
+    description: Gets or sets a unique identifier for this resource.
+  vCenterId:
+    type: string
+    description: Gets or sets the ARM Id of the vCenter resource in which this template resides.
+type: object
+required:
+  - customResourceName
+  - disks
+  - firmwareType
+  - folderPath
+  - location
+  - memorySizeMB
+  - moName
+  - name
+  - networkInterfaces
+  - numCPUs
+  - numCoresPerSocket
+  - osName
+  - osType
+  - provisioningState
+  - statuses
+  - systemData
+  - toolsVersion
+  - toolsVersionStatus
+  - type
+  - uuid
+inputProperties:
+  extendedLocation:
+    type: object
+    $ref: "#/types/azure-native:connectedvmwarevsphere/v20220110preview:ExtendedLocation"
+    description: Gets or sets the extended location.
+  inventoryItemId:
+    type: string
+    description: Gets or sets the inventory Item ID for the virtual machine template.
+  kind:
+    type: string
+    description: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+  location:
+    type: string
+    description: Gets or sets the location.
+  moRefId:
+    type: string
+    description: "Gets or sets the vCenter MoRef (Managed Object Reference) ID for the virtual machine\r
+
+      template."
+  resourceGroupName:
+    type: string
+    description: The Resource Group Name.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Gets or sets the Resource tags.
+  vCenterId:
+    type: string
+    description: Gets or sets the ARM Id of the vCenter resource in which this template resides.
+  virtualMachineTemplateName:
+    type: string
+    description: Name of the virtual machine template resource.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:connectedvmwarevsphere:VirtualMachineTemplate
+  - type: azure-native:connectedvmwarevsphere/v20201001preview:VirtualMachineTemplate

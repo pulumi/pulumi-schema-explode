@@ -1,0 +1,61 @@
+$token: azure-native:iotcentral:getPrivateEndpointConnection
+description: |-
+  The private endpoint connection resource.
+  API Version: 2021-11-01-preview.
+inputs:
+  properties:
+    privateEndpointConnectionName:
+      type: string
+      description: The private endpoint connection name.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the IoT Central application.
+    resourceName:
+      type: string
+      description: The ARM resource name of the IoT Central application.
+  type: object
+  required:
+    - privateEndpointConnectionName
+    - resourceGroupName
+    - resourceName
+outputs:
+  description: The private endpoint connection resource.
+  properties:
+    groupIds:
+      type: array
+      items:
+        type: string
+      description: The group ids for the private endpoint resource.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    name:
+      type: string
+      description: The name of the resource
+    privateEndpoint:
+      type: object
+      $ref: "#/types/azure-native:iotcentral:PrivateEndpointResponse"
+      description: The private endpoint resource.
+    privateLinkServiceConnectionState:
+      type: object
+      $ref: "#/types/azure-native:iotcentral:PrivateLinkServiceConnectionStateResponse"
+      description: A collection of information about the state of the connection between service consumer and provider.
+    provisioningState:
+      type: string
+      description: The provisioning state of the private endpoint connection resource.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:iotcentral:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - groupIds
+    - id
+    - name
+    - privateLinkServiceConnectionState
+    - provisioningState
+    - systemData
+    - type

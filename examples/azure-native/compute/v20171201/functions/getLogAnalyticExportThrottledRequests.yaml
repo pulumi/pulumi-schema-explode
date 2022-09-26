@@ -1,0 +1,62 @@
+$token: azure-native:compute/v20171201:getLogAnalyticExportThrottledRequests
+description: LogAnalytics operation status response
+inputs:
+  properties:
+    blobContainerSasUri:
+      type: string
+      description: SAS Uri of the logging blob container to which LogAnalytics Api writes output logs to.
+    fromTime:
+      type: string
+      description: From time of the query
+    groupByOperationName:
+      type: boolean
+      description: Group query result by Operation Name.
+    groupByResourceName:
+      type: boolean
+      description: Group query result by Resource Name.
+    groupByThrottlePolicy:
+      type: boolean
+      description: Group query result by Throttle Policy applied.
+    location:
+      type: string
+      description: The location upon which virtual-machine-sizes is queried.
+    toTime:
+      type: string
+      description: To time of the query
+  type: object
+  required:
+    - blobContainerSasUri
+    - fromTime
+    - location
+    - toTime
+outputs:
+  description: LogAnalytics operation status response
+  properties:
+    endTime:
+      type: string
+      description: End time of the operation
+    error:
+      type: object
+      $ref: "#/types/azure-native:compute/v20171201:ApiErrorResponse"
+      description: Api error
+    name:
+      type: string
+      description: Operation ID
+    properties:
+      type: object
+      $ref: "#/types/azure-native:compute/v20171201:LogAnalyticsOutputResponse"
+      description: LogAnalyticsOutput
+    startTime:
+      type: string
+      description: Start time of the operation
+    status:
+      type: string
+      description: Operation status
+  type: object
+  required:
+    - endTime
+    - error
+    - name
+    - properties
+    - startTime
+    - status

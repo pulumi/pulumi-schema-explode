@@ -1,0 +1,37 @@
+$token: azure-native:machinelearningservices/v20220601preview:UriFolderDataVersion
+description: uri-folder data version entity
+properties:
+  dataType:
+    type: string
+    description: |-
+      Enum to determine the type of data.
+      Expected value is 'uri_folder'.
+    const: uri_folder
+  dataUri:
+    type: string
+    description: "[Required] Uri of the data. Usage/meaning depends on Microsoft.MachineLearning.ManagementFrontEnd.Contracts.V20220601Preview.Assets.DataVersionBase.DataType"
+  description:
+    type: string
+    description: The asset description text.
+  isAnonymous:
+    type: boolean
+    description: If the name version are system generated (anonymous registration).
+    default: false
+  isArchived:
+    type: boolean
+    description: Is the asset archived?
+    default: false
+  properties:
+    type: object
+    additionalProperties:
+      type: string
+    description: The asset property dictionary.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Tag dictionary. Tags can be added, removed, and updated.
+type: object
+required:
+  - dataType
+  - dataUri

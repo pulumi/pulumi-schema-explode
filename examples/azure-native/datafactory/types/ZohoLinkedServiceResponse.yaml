@@ -1,0 +1,60 @@
+$token: azure-native:datafactory:ZohoLinkedServiceResponse
+description: Zoho server linked service.
+properties:
+  accessToken:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureKeyVaultSecretReferenceResponse"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SecureStringResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        AzureKeyVaultSecret: "#/types/azure-native:datafactory:AzureKeyVaultSecretReferenceResponse"
+        SecureString: "#/types/azure-native:datafactory:SecureStringResponse"
+    description: The access token for Zoho authentication.
+  annotations:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: List of tags that can be used for describing the linked service.
+  connectVia:
+    type: object
+    $ref: "#/types/azure-native:datafactory:IntegrationRuntimeReferenceResponse"
+    description: The integration runtime reference.
+  connectionProperties:
+    $ref: pulumi.json#/Any
+    description: "Properties used to connect to Zoho. It is mutually exclusive with any other properties in the linked service. Type: object."
+  description:
+    type: string
+    description: Linked service description.
+  encryptedCredential:
+    $ref: pulumi.json#/Any
+    description: "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string)."
+  endpoint:
+    $ref: pulumi.json#/Any
+    description: The endpoint of the Zoho server. (i.e. crm.zoho.com/crm/private)
+  parameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:datafactory:ParameterSpecificationResponse"
+    description: Parameters for linked service.
+  type:
+    type: string
+    description: |-
+      Type of linked service.
+      Expected value is 'Zoho'.
+    const: Zoho
+  useEncryptedEndpoints:
+    $ref: pulumi.json#/Any
+    description: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+  useHostVerification:
+    $ref: pulumi.json#/Any
+    description: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
+  usePeerVerification:
+    $ref: pulumi.json#/Any
+    description: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+type: object
+required:
+  - type

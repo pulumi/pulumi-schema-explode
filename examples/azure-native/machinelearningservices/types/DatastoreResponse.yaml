@@ -1,0 +1,65 @@
+$token: azure-native:machinelearningservices:DatastoreResponse
+description: Machine Learning datastore object.
+properties:
+  azureDataLakeSection:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices:AzureDataLakeSectionResponse"
+  azureMySqlSection:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices:AzureMySqlSectionResponse"
+  azurePostgreSqlSection:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices:AzurePostgreSqlSectionResponse"
+  azureSqlDatabaseSection:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices:AzureSqlDatabaseSectionResponse"
+  azureStorageSection:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices:AzureStorageSectionResponse"
+  createdBy:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices:UserInfoResponse"
+    description: The User who created the datastore.
+  createdTime:
+    type: string
+    description: The date and time when the datastore was created.
+  dataStoreType:
+    type: string
+    description: The datastore type.
+  description:
+    type: string
+    description: Description of the datastore.
+  glusterFsSection:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices:GlusterFsSectionResponse"
+    description: Data specific to GlusterFS.
+  hasBeenValidated:
+    type: boolean
+    description: A read only property that denotes whether the service datastore has been validated with credentials.
+    default: false
+  linkedInfo:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices:LinkedInfoResponse"
+    description: Info about origin if it is linked.
+  modifiedBy:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices:UserInfoResponse"
+    description: The User who modified the datastore.
+  modifiedTime:
+    type: string
+    description: The date and time when the datastore was last modified.
+  name:
+    type: string
+    description: Name of the datastore.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Tags for this datastore.
+type: object
+required:
+  - createdBy
+  - createdTime
+  - modifiedBy
+  - modifiedTime
+  - tags

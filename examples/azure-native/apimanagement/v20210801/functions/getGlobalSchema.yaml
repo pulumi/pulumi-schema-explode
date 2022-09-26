@@ -1,0 +1,45 @@
+$token: azure-native:apimanagement/v20210801:getGlobalSchema
+description: Global Schema Contract details.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    schemaId:
+      type: string
+      description: Schema id identifier. Must be unique in the current API Management service instance.
+    serviceName:
+      type: string
+      description: The name of the API Management service.
+  type: object
+  required:
+    - resourceGroupName
+    - schemaId
+    - serviceName
+outputs:
+  description: Global Schema Contract details.
+  properties:
+    description:
+      type: string
+      description: Free-form schema entity description.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    name:
+      type: string
+      description: The name of the resource
+    schemaType:
+      type: string
+      description: Schema Type. Immutable.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+    value:
+      $ref: pulumi.json#/Any
+      description: Json-encoded string for non json-based schema.
+  type: object
+  required:
+    - id
+    - name
+    - schemaType
+    - type

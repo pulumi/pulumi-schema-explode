@@ -1,0 +1,23 @@
+$token: azure-native:resources/v20160901:ProviderResponse
+description: Resource provider information.
+properties:
+  id:
+    type: string
+    description: The provider ID.
+  namespace:
+    type: string
+    description: The namespace of the resource provider.
+  registrationState:
+    type: string
+    description: The registration state of the provider.
+  resourceTypes:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:resources/v20160901:ProviderResourceTypeResponse"
+    description: The collection of provider resource types.
+type: object
+required:
+  - id
+  - registrationState
+  - resourceTypes

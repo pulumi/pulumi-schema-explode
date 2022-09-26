@@ -1,0 +1,16 @@
+$token: azure-native:documentdb/v20220515preview:ClientEncryptionPolicy
+description: Cosmos DB client encryption policy.
+properties:
+  includedPaths:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:documentdb/v20220515preview:ClientEncryptionIncludedPath"
+    description: Paths of the item that need encryption along with path-specific settings.
+  policyFormatVersion:
+    type: integer
+    description: Version of the client encryption policy definition. Please note, user passed value is ignored. Default policy version is 1.
+    default: 1
+type: object
+required:
+  - includedPaths

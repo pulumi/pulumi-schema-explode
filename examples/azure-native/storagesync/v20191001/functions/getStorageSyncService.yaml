@@ -1,0 +1,49 @@
+$token: azure-native:storagesync/v20191001:getStorageSyncService
+description: Storage Sync Service object.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    storageSyncServiceName:
+      type: string
+      description: Name of Storage Sync Service resource.
+  type: object
+  required:
+    - resourceGroupName
+    - storageSyncServiceName
+outputs:
+  description: Storage Sync Service object.
+  properties:
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    name:
+      type: string
+      description: The name of the resource
+    storageSyncServiceStatus:
+      type: integer
+      description: Storage Sync service status.
+    storageSyncServiceUid:
+      type: string
+      description: Storage Sync service Uid
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - storageSyncServiceStatus
+    - storageSyncServiceUid
+    - type
+deprecationMessage: Version 2019-10-01 will be removed in v2 of the provider.

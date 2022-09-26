@@ -1,0 +1,91 @@
+$token: azure-native:cdn/v20210601:Profile
+description: A profile is a logical grouping of endpoints that share the same settings.
+properties:
+  frontDoorId:
+    type: string
+    description: The Id of the frontdoor.
+  kind:
+    type: string
+    description: Kind of the profile. Used by portal to differentiate traditional CDN profile and new AFD profile.
+  location:
+    type: string
+    description: Resource location.
+  name:
+    type: string
+    description: Resource name.
+  originResponseTimeoutSeconds:
+    type: integer
+    description: Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
+  provisioningState:
+    type: string
+    description: Provisioning status of the profile.
+  resourceState:
+    type: string
+    description: Resource status of the profile.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:cdn/v20210601:SkuResponse"
+    description: The pricing tier (defines Azure Front Door Standard or Premium or a CDN provider, feature list and rate) of the profile.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:cdn/v20210601:SystemDataResponse"
+    description: Read only system data
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - frontDoorId
+  - kind
+  - location
+  - name
+  - provisioningState
+  - resourceState
+  - sku
+  - systemData
+  - type
+inputProperties:
+  location:
+    type: string
+    description: Resource location.
+  originResponseTimeoutSeconds:
+    type: integer
+    description: Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
+  profileName:
+    type: string
+    description: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
+  resourceGroupName:
+    type: string
+    description: Name of the Resource group within the Azure subscription.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:cdn/v20210601:Sku"
+    description: The pricing tier (defines Azure Front Door Standard or Premium or a CDN provider, feature list and rate) of the profile.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - resourceGroupName
+  - sku
+aliases:
+  - type: azure-native:cdn:Profile
+  - type: azure-native:cdn/v20150601:Profile
+  - type: azure-native:cdn/v20160402:Profile
+  - type: azure-native:cdn/v20161002:Profile
+  - type: azure-native:cdn/v20170402:Profile
+  - type: azure-native:cdn/v20171012:Profile
+  - type: azure-native:cdn/v20190415:Profile
+  - type: azure-native:cdn/v20190615:Profile
+  - type: azure-native:cdn/v20190615preview:Profile
+  - type: azure-native:cdn/v20191231:Profile
+  - type: azure-native:cdn/v20200331:Profile
+  - type: azure-native:cdn/v20200415:Profile
+  - type: azure-native:cdn/v20200901:Profile
+  - type: azure-native:cdn/v20220501preview:Profile

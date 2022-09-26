@@ -1,0 +1,48 @@
+$token: azure-native:security:getConnector
+description: |-
+  The connector setting
+  API Version: 2020-01-01-preview.
+inputs:
+  properties:
+    connectorName:
+      type: string
+      description: Name of the cloud account connector
+  type: object
+  required:
+    - connectorName
+outputs:
+  description: The connector setting
+  properties:
+    authenticationDetails:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:security:AwAssumeRoleAuthenticationDetailsPropertiesResponse"
+        - type: object
+          $ref: "#/types/azure-native:security:AwsCredsAuthenticationDetailsPropertiesResponse"
+        - type: object
+          $ref: "#/types/azure-native:security:GcpCredentialsDetailsPropertiesResponse"
+      discriminator:
+        propertyName: authenticationType
+        mapping:
+          awsAssumeRole: "#/types/azure-native:security:AwAssumeRoleAuthenticationDetailsPropertiesResponse"
+          awsCreds: "#/types/azure-native:security:AwsCredsAuthenticationDetailsPropertiesResponse"
+          gcpCredentials: "#/types/azure-native:security:GcpCredentialsDetailsPropertiesResponse"
+      description: Settings for authentication management, these settings are relevant only for the cloud connector.
+    hybridComputeSettings:
+      type: object
+      $ref: "#/types/azure-native:security:HybridComputeSettingsPropertiesResponse"
+      description: Settings for hybrid compute management. These settings are relevant only for Arc autoProvision (Hybrid Compute).
+    id:
+      type: string
+      description: Resource Id
+    name:
+      type: string
+      description: Resource name
+    type:
+      type: string
+      description: Resource type
+  type: object
+  required:
+    - id
+    - name
+    - type

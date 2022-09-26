@@ -1,0 +1,82 @@
+$token: azure-native:storage/v20220501:listStorageAccountServiceSAS
+description: The List service SAS credentials operation response.
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+    cacheControl:
+      type: string
+      description: The response header override for cache control.
+    canonicalizedResource:
+      type: string
+      description: The canonical path to the signed resource.
+    contentDisposition:
+      type: string
+      description: The response header override for content disposition.
+    contentEncoding:
+      type: string
+      description: The response header override for content encoding.
+    contentLanguage:
+      type: string
+      description: The response header override for content language.
+    contentType:
+      type: string
+      description: The response header override for content type.
+    iPAddressOrRange:
+      type: string
+      description: An IP address or a range of IP addresses from which to accept requests.
+    identifier:
+      type: string
+      description: A unique value up to 64 characters in length that correlates to an access policy specified for the container, queue, or table.
+    keyToSign:
+      type: string
+      description: The key to sign the account SAS token with.
+    partitionKeyEnd:
+      type: string
+      description: The end of partition key.
+    partitionKeyStart:
+      type: string
+      description: The start of partition key.
+    permissions:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:storage/v20220501:Permissions"
+      description: "The signed permissions for the service SAS. Possible values include: Read (r), Write (w), Delete (d), List (l), Add (a), Create (c), Update (u) and Process (p)."
+    protocols:
+      $ref: "#/types/azure-native:storage/v20220501:HttpProtocol"
+      description: The protocol permitted for a request made with the account SAS.
+    resource:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:storage/v20220501:SignedResource"
+      description: "The signed services accessible with the service SAS. Possible values include: Blob (b), Container (c), File (f), Share (s)."
+    resourceGroupName:
+      type: string
+      description: The name of the resource group within the user's subscription. The name is case insensitive.
+    rowKeyEnd:
+      type: string
+      description: The end of row key.
+    rowKeyStart:
+      type: string
+      description: The start of row key.
+    sharedAccessExpiryTime:
+      type: string
+      description: The time at which the shared access signature becomes invalid.
+    sharedAccessStartTime:
+      type: string
+      description: The time at which the SAS becomes valid.
+  type: object
+  required:
+    - accountName
+    - canonicalizedResource
+    - resourceGroupName
+outputs:
+  description: The List service SAS credentials operation response.
+  properties:
+    serviceSasToken:
+      type: string
+      description: List service SAS credentials of specific resource.
+  type: object
+  required:
+    - serviceSasToken

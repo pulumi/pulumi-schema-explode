@@ -1,0 +1,54 @@
+$token: azure-native:machinelearningservices/v20220201preview:Classification
+description: Classification task in AutoML Table vertical.
+properties:
+  allowedModels:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:machinelearningservices/v20220201preview:ClassificationModels"
+    description: Allowed models for classification task.
+  blockedModels:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:machinelearningservices/v20220201preview:ClassificationModels"
+    description: Blocked models for classification task.
+  dataSettings:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220201preview:TableVerticalDataSettings"
+    description: Data inputs for AutoMLJob.
+  featurizationSettings:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220201preview:TableVerticalFeaturizationSettings"
+    description: Featurization inputs needed for AutoML job.
+  limitSettings:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220201preview:TableVerticalLimitSettings"
+    description: Execution constraints for AutoMLJob.
+  logVerbosity:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearningservices/v20220201preview:LogVerbosity"
+    description: Log verbosity for the job.
+    default: Info
+  primaryMetric:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearningservices/v20220201preview:ClassificationPrimaryMetrics"
+    description: Primary metric for the task.
+    default: AUCWeighted
+  taskType:
+    type: string
+    description: |-
+      AutoMLJob Task type.
+      Expected value is 'Classification'.
+    const: Classification
+  trainingSettings:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220201preview:TrainingSettings"
+    description: Inputs for training phase for an AutoML Job.
+type: object
+required:
+  - taskType

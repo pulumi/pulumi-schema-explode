@@ -1,0 +1,74 @@
+$token: azure-native:dataprotection:ResourceGuard
+description: |-
+  
+  API Version: 2021-10-01-preview.
+properties:
+  eTag:
+    type: string
+    description: Optional ETag.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:dataprotection:DppIdentityDetailsResponse"
+    description: Input Managed Identity Details
+  location:
+    type: string
+    description: Resource location.
+  name:
+    type: string
+    description: Resource name associated with the resource.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:dataprotection:ResourceGuardResponse"
+    description: ResourceGuardResource properties
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:dataprotection:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+type: object
+required:
+  - name
+  - properties
+  - systemData
+  - type
+inputProperties:
+  eTag:
+    type: string
+    description: Optional ETag.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:dataprotection:DppIdentityDetails"
+    description: Input Managed Identity Details
+  location:
+    type: string
+    description: Resource location.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group where the backup vault is present.
+  resourceGuardsName:
+    type: string
+    description: The name of ResourceGuard
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:dataprotection/v20210701:ResourceGuard
+  - type: azure-native:dataprotection/v20211001preview:ResourceGuard
+  - type: azure-native:dataprotection/v20211201preview:ResourceGuard
+  - type: azure-native:dataprotection/v20220101:ResourceGuard
+  - type: azure-native:dataprotection/v20220201preview:ResourceGuard
+  - type: azure-native:dataprotection/v20220301:ResourceGuard
+  - type: azure-native:dataprotection/v20220331preview:ResourceGuard
+  - type: azure-native:dataprotection/v20220401:ResourceGuard
+  - type: azure-native:dataprotection/v20220501:ResourceGuard

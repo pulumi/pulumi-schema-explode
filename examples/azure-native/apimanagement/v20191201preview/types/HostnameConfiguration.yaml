@@ -1,0 +1,36 @@
+$token: azure-native:apimanagement/v20191201preview:HostnameConfiguration
+description: Custom hostname configuration.
+properties:
+  certificate:
+    type: object
+    $ref: "#/types/azure-native:apimanagement/v20191201preview:CertificateInformation"
+    description: Certificate information.
+  certificatePassword:
+    type: string
+    description: Certificate Password.
+  defaultSslBinding:
+    type: boolean
+    description: Specify true to setup the certificate associated with this Hostname as the Default SSL Certificate. If a client does not send the SNI header, then this will be the certificate that will be challenged. The property is useful if a service has multiple custom hostname enabled and it needs to decide on the default ssl certificate. The setting only applied to Proxy Hostname Type.
+    default: false
+  encodedCertificate:
+    type: string
+    description: Base64 Encoded certificate.
+  hostName:
+    type: string
+    description: Hostname to configure on the Api Management service.
+  keyVaultId:
+    type: string
+    description: Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with MSI. The secret should be of type *application/x-pkcs12*
+  negotiateClientCertificate:
+    type: boolean
+    description: Specify true to always negotiate client certificate on the hostname. Default Value is false.
+    default: false
+  type:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:apimanagement/v20191201preview:HostnameType"
+    description: Hostname type.
+type: object
+required:
+  - hostName
+  - type

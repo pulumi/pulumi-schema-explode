@@ -1,0 +1,59 @@
+$token: azure-native:databox/v20211201:DataBoxCustomerDiskJobDetails
+description: Customer disk job details.
+properties:
+  contactDetails:
+    type: object
+    $ref: "#/types/azure-native:databox/v20211201:ContactDetails"
+    description: Contact details for notification and shipping.
+  dataExportDetails:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:databox/v20211201:DataExportDetails"
+    description: Details of the data to be exported from azure.
+  dataImportDetails:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:databox/v20211201:DataImportDetails"
+    description: Details of the data to be imported into azure.
+  enableManifestBackup:
+    type: boolean
+    description: Flag to indicate if disk manifest should be backed-up in the Storage Account.
+    default: false
+  expectedDataSizeInTeraBytes:
+    type: integer
+    description: The expected size of the data, which needs to be transferred in this job, in terabytes.
+  importDiskDetailsCollection:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:databox/v20211201:ImportDiskDetails"
+    description: Contains the map of disk serial number to the disk details for import jobs.
+  jobDetailsType:
+    type: string
+    description: |-
+      Indicates the type of job details.
+      Expected value is 'DataBoxCustomerDisk'.
+    const: DataBoxCustomerDisk
+  keyEncryptionKey:
+    type: object
+    $ref: "#/types/azure-native:databox/v20211201:KeyEncryptionKey"
+    description: Details about which key encryption type is being used.
+  preferences:
+    type: object
+    $ref: "#/types/azure-native:databox/v20211201:Preferences"
+    description: Preferences for the order.
+  returnToCustomerPackageDetails:
+    type: object
+    $ref: "#/types/azure-native:databox/v20211201:PackageCarrierDetails"
+    description: Return package shipping details.
+  shippingAddress:
+    type: object
+    $ref: "#/types/azure-native:databox/v20211201:ShippingAddress"
+    description: Shipping address of the customer.
+type: object
+required:
+  - contactDetails
+  - jobDetailsType
+  - returnToCustomerPackageDetails

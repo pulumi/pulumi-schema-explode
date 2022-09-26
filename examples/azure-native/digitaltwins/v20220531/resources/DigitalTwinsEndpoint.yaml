@@ -1,0 +1,69 @@
+$token: azure-native:digitaltwins/v20220531:DigitalTwinsEndpoint
+description: DigitalTwinsInstance endpoint resource.
+properties:
+  name:
+    type: string
+    description: Extension resource name.
+  properties:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:digitaltwins/v20220531:EventGridResponse"
+      - type: object
+        $ref: "#/types/azure-native:digitaltwins/v20220531:EventHubResponse"
+      - type: object
+        $ref: "#/types/azure-native:digitaltwins/v20220531:ServiceBusResponse"
+    discriminator:
+      propertyName: endpointType
+      mapping:
+        EventGrid: "#/types/azure-native:digitaltwins/v20220531:EventGridResponse"
+        EventHub: "#/types/azure-native:digitaltwins/v20220531:EventHubResponse"
+        ServiceBus: "#/types/azure-native:digitaltwins/v20220531:ServiceBusResponse"
+    description: DigitalTwinsInstance endpoint resource properties.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:digitaltwins/v20220531:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  type:
+    type: string
+    description: The resource type.
+type: object
+required:
+  - name
+  - properties
+  - systemData
+  - type
+inputProperties:
+  endpointName:
+    type: string
+    description: Name of Endpoint Resource.
+  properties:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:digitaltwins/v20220531:EventGrid"
+      - type: object
+        $ref: "#/types/azure-native:digitaltwins/v20220531:EventHub"
+      - type: object
+        $ref: "#/types/azure-native:digitaltwins/v20220531:ServiceBus"
+    discriminator:
+      propertyName: endpointType
+      mapping:
+        EventGrid: "#/types/azure-native:digitaltwins/v20220531:EventGrid"
+        EventHub: "#/types/azure-native:digitaltwins/v20220531:EventHub"
+        ServiceBus: "#/types/azure-native:digitaltwins/v20220531:ServiceBus"
+    description: DigitalTwinsInstance endpoint resource properties.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the DigitalTwinsInstance.
+  resourceName:
+    type: string
+    description: The name of the DigitalTwinsInstance.
+requiredInputs:
+  - properties
+  - resourceGroupName
+  - resourceName
+aliases:
+  - type: azure-native:digitaltwins:DigitalTwinsEndpoint
+  - type: azure-native:digitaltwins/v20200301preview:DigitalTwinsEndpoint
+  - type: azure-native:digitaltwins/v20201031:DigitalTwinsEndpoint
+  - type: azure-native:digitaltwins/v20201201:DigitalTwinsEndpoint
+  - type: azure-native:digitaltwins/v20210630preview:DigitalTwinsEndpoint

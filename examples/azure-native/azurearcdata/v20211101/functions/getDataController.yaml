@@ -1,0 +1,53 @@
+$token: azure-native:azurearcdata/v20211101:getDataController
+description: Data controller resource
+inputs:
+  properties:
+    dataControllerName:
+      type: string
+    resourceGroupName:
+      type: string
+      description: The name of the Azure resource group
+  type: object
+  required:
+    - dataControllerName
+    - resourceGroupName
+outputs:
+  description: Data controller resource
+  properties:
+    extendedLocation:
+      type: object
+      $ref: "#/types/azure-native:azurearcdata/v20211101:ExtendedLocationResponse"
+      description: The extendedLocation of the resource.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    name:
+      type: string
+      description: The name of the resource
+    properties:
+      type: object
+      $ref: "#/types/azure-native:azurearcdata/v20211101:DataControllerPropertiesResponse"
+      description: The data controller's properties
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:azurearcdata/v20211101:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - properties
+    - systemData
+    - type

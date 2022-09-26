@@ -1,0 +1,69 @@
+$token: azure-native:notificationhubs/v20160301:NotificationHubAuthorizationRule
+description: Description of a Namespace AuthorizationRules.
+properties:
+  location:
+    type: string
+    description: Resource location
+  name:
+    type: string
+    description: Resource name
+  rights:
+    type: array
+    items:
+      type: string
+    description: The rights associated with the rule.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:notificationhubs/v20160301:SkuResponse"
+    description: The sku of the created namespace
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  type:
+    type: string
+    description: Resource type
+type: object
+required:
+  - location
+  - name
+  - type
+inputProperties:
+  authorizationRuleName:
+    type: string
+    description: Authorization Rule Name.
+  location:
+    type: string
+    description: Resource location
+  namespaceName:
+    type: string
+    description: The namespace name.
+  notificationHubName:
+    type: string
+    description: The notification hub name.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:notificationhubs/v20160301:SharedAccessAuthorizationRuleProperties"
+    description: Properties of the Namespace AuthorizationRules.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:notificationhubs/v20160301:Sku"
+    description: The sku of the created namespace
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+requiredInputs:
+  - namespaceName
+  - notificationHubName
+  - properties
+  - resourceGroupName
+aliases:
+  - type: azure-native:notificationhubs:NotificationHubAuthorizationRule
+  - type: azure-native:notificationhubs/v20170401:NotificationHubAuthorizationRule
+deprecationMessage: Version 2016-03-01 will be removed in v2 of the provider.

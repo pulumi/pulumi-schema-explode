@@ -1,0 +1,49 @@
+$token: azure-native:recoveryservices/v20220801:InMageRcmFailbackProtectedDiskDetailsResponse
+description: InMageRcmFailback protected disk details.
+properties:
+  capacityInBytes:
+    type: number
+    description: The disk capacity in bytes.
+  dataPendingAtSourceAgentInMB:
+    type: number
+    description: The data pending at source agent in MB.
+  dataPendingInLogDataStoreInMB:
+    type: number
+    description: The data pending in log data store in MB.
+  diskId:
+    type: string
+    description: The disk Id (reported by source agent).
+  diskName:
+    type: string
+    description: The disk name.
+  diskUuid:
+    type: string
+    description: The disk Uuid (reported by vCenter).
+  irDetails:
+    type: object
+    $ref: "#/types/azure-native:recoveryservices/v20220801:InMageRcmFailbackSyncDetailsResponse"
+    description: The initial replication details.
+  isInitialReplicationComplete:
+    type: string
+    description: A value indicating whether initial replication is complete or not.
+  isOSDisk:
+    type: string
+    description: A value indicating whether the disk is the OS disk.
+  lastSyncTime:
+    type: string
+    description: The last sync time.
+  resyncDetails:
+    type: object
+    $ref: "#/types/azure-native:recoveryservices/v20220801:InMageRcmFailbackSyncDetailsResponse"
+    description: The resync details.
+type: object
+required:
+  - capacityInBytes
+  - dataPendingAtSourceAgentInMB
+  - dataPendingInLogDataStoreInMB
+  - diskId
+  - diskName
+  - diskUuid
+  - isInitialReplicationComplete
+  - isOSDisk
+  - lastSyncTime

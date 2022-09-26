@@ -1,0 +1,14 @@
+$token: azure-native:alertsmanagement/v20181102privatepreview:Scope
+description: Target scope for a given action rule. By default scope will be the subscription. User can also provide list of resource groups or list of resources from the scope subscription as well.
+properties:
+  type:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:alertsmanagement/v20181102privatepreview:ScopeType"
+    description: type of target scope
+  values:
+    type: array
+    items:
+      type: string
+    description: list of ARM IDs of the given scope type which will be the target of the given action rule.
+type: object

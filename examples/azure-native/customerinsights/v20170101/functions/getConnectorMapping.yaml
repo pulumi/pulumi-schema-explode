@@ -1,0 +1,98 @@
+$token: azure-native:customerinsights/v20170101:getConnectorMapping
+description: The connector mapping resource format.
+inputs:
+  properties:
+    connectorName:
+      type: string
+      description: The name of the connector.
+    hubName:
+      type: string
+      description: The name of the hub.
+    mappingName:
+      type: string
+      description: The name of the connector mapping.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - connectorName
+    - hubName
+    - mappingName
+    - resourceGroupName
+outputs:
+  description: The connector mapping resource format.
+  properties:
+    connectorMappingName:
+      type: string
+      description: The connector mapping name
+    connectorName:
+      type: string
+      description: The connector name.
+    connectorType:
+      type: string
+      description: Type of connector.
+    created:
+      type: string
+      description: The created time.
+    dataFormatId:
+      type: string
+      description: The DataFormat ID.
+    description:
+      type: string
+      description: The description of the connector mapping.
+    displayName:
+      type: string
+      description: Display name for the connector mapping.
+    entityType:
+      type: string
+      description: Defines which entity type the file should map to.
+    entityTypeName:
+      type: string
+      description: The mapping entity name.
+    id:
+      type: string
+      description: Resource ID.
+    lastModified:
+      type: string
+      description: The last modified time.
+    mappingProperties:
+      type: object
+      $ref: "#/types/azure-native:customerinsights/v20170101:ConnectorMappingPropertiesResponse"
+      description: The properties of the mapping.
+    name:
+      type: string
+      description: Resource name.
+    nextRunTime:
+      type: string
+      description: The next run time based on customer's settings.
+    runId:
+      type: string
+      description: The RunId.
+    state:
+      type: string
+      description: State of connector mapping.
+    tenantId:
+      type: string
+      description: The hub name.
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - connectorMappingName
+    - connectorName
+    - created
+    - dataFormatId
+    - entityType
+    - entityTypeName
+    - id
+    - lastModified
+    - mappingProperties
+    - name
+    - nextRunTime
+    - runId
+    - state
+    - tenantId
+    - type
+deprecationMessage: Version 2017-01-01 will be removed in v2 of the provider.

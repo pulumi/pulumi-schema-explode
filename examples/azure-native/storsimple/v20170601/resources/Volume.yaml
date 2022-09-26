@@ -1,0 +1,104 @@
+$token: azure-native:storsimple/v20170601:Volume
+description: The volume.
+properties:
+  accessControlRecordIds:
+    type: array
+    items:
+      type: string
+    description: The IDs of the access control records, associated with the volume.
+  backupPolicyIds:
+    type: array
+    items:
+      type: string
+    description: The IDs of the backup policies, in which this volume is part of.
+  backupStatus:
+    type: string
+    description: The backup status of the volume.
+  kind:
+    type: string
+    description: The Kind of the object. Currently only Series8000 is supported
+  monitoringStatus:
+    type: string
+    description: The monitoring status of the volume.
+  name:
+    type: string
+    description: The name of the object.
+  operationStatus:
+    type: string
+    description: The operation status on the volume.
+  sizeInBytes:
+    type: number
+    description: The size of the volume in bytes.
+  type:
+    type: string
+    description: The hierarchical type of the object.
+  volumeContainerId:
+    type: string
+    description: The ID of the volume container, in which this volume is created.
+  volumeStatus:
+    type: string
+    description: The volume status.
+  volumeType:
+    type: string
+    description: The type of the volume.
+type: object
+required:
+  - accessControlRecordIds
+  - backupPolicyIds
+  - backupStatus
+  - monitoringStatus
+  - name
+  - operationStatus
+  - sizeInBytes
+  - type
+  - volumeContainerId
+  - volumeStatus
+  - volumeType
+inputProperties:
+  accessControlRecordIds:
+    type: array
+    items:
+      type: string
+    description: The IDs of the access control records, associated with the volume.
+  deviceName:
+    type: string
+    description: The device name
+  kind:
+    $ref: "#/types/azure-native:storsimple/v20170601:Kind"
+    description: The Kind of the object. Currently only Series8000 is supported
+  managerName:
+    type: string
+    description: The manager name
+  monitoringStatus:
+    $ref: "#/types/azure-native:storsimple/v20170601:MonitoringStatus"
+    description: The monitoring status of the volume.
+  resourceGroupName:
+    type: string
+    description: The resource group name
+  sizeInBytes:
+    type: number
+    description: The size of the volume in bytes.
+  volumeContainerName:
+    type: string
+    description: The volume container name.
+  volumeName:
+    type: string
+    description: The volume name.
+  volumeStatus:
+    $ref: "#/types/azure-native:storsimple/v20170601:VolumeStatus"
+    description: The volume status.
+  volumeType:
+    $ref: "#/types/azure-native:storsimple/v20170601:VolumeType"
+    description: The type of the volume.
+requiredInputs:
+  - accessControlRecordIds
+  - deviceName
+  - managerName
+  - monitoringStatus
+  - resourceGroupName
+  - sizeInBytes
+  - volumeContainerName
+  - volumeStatus
+  - volumeType
+aliases:
+  - type: azure-native:storsimple:Volume

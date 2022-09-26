@@ -1,0 +1,28 @@
+$token: azure-native:authorization/v20201001:ApprovalStageResponse
+description: The approval stage.
+properties:
+  approvalStageTimeOutInDays:
+    type: integer
+    description: The time in days when approval request would be timed out
+  escalationApprovers:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:authorization/v20201001:UserSetResponse"
+    description: The escalation approver of the request.
+  escalationTimeInMinutes:
+    type: integer
+    description: The time in minutes when the approval request would be escalated if the primary approver does not approve
+  isApproverJustificationRequired:
+    type: boolean
+    description: Determines whether approver need to provide justification for his decision.
+  isEscalationEnabled:
+    type: boolean
+    description: The value determine whether escalation feature is enabled.
+  primaryApprovers:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:authorization/v20201001:UserSetResponse"
+    description: The primary approver of the request.
+type: object

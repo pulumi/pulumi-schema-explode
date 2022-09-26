@@ -1,0 +1,70 @@
+$token: azure-native:machinelearningservices/v20210401:AmlComputeResponseProperties
+description: AML Compute properties
+properties:
+  allocationState:
+    type: string
+    description: "Allocation state of the compute. Possible values are: steady - Indicates that the compute is not resizing. There are no changes to the number of compute nodes in the compute in progress. A compute enters this state when it is created and when no operations are being performed on the compute to change the number of compute nodes. resizing - Indicates that the compute is resizing; that is, compute nodes are being added to or removed from the compute."
+  allocationStateTransitionTime:
+    type: string
+    description: The time at which the compute entered its current allocation state.
+  currentNodeCount:
+    type: integer
+    description: The number of compute nodes currently assigned to the compute.
+  enableNodePublicIp:
+    type: boolean
+    description: "Enable or disable node public IP address provisioning. Possible values are: Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs."
+    default: true
+  errors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20210401:MachineLearningServiceErrorResponse"
+    description: Collection of errors encountered by various compute nodes during node setup.
+  isolatedNetwork:
+    type: boolean
+    description: Network is isolated or not
+  nodeStateCounts:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20210401:NodeStateCountsResponse"
+    description: Counts of various node states on the compute.
+  osType:
+    type: string
+    description: Compute OS Type
+    default: Linux
+  remoteLoginPortPublicAccess:
+    type: string
+    description: "State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled."
+    default: NotSpecified
+  scaleSettings:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20210401:ScaleSettingsResponse"
+    description: Scale settings for AML Compute
+  subnet:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20210401:ResourceIdResponse"
+    description: Virtual network subnet resource ID the compute nodes belong to.
+  targetNodeCount:
+    type: integer
+    description: The target number of compute nodes for the compute. If the allocationState is resizing, this property denotes the target node count for the ongoing resize operation. If the allocationState is steady, this property denotes the target node count for the previous resize operation.
+  userAccountCredentials:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20210401:UserAccountCredentialsResponse"
+    description: Credentials for an administrator user account that will be created on each compute node.
+  virtualMachineImage:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20210401:VirtualMachineImageResponse"
+    description: Virtual Machine image for AML Compute - windows only
+  vmPriority:
+    type: string
+    description: Virtual Machine priority
+  vmSize:
+    type: string
+    description: Virtual Machine Size
+type: object
+required:
+  - allocationState
+  - allocationStateTransitionTime
+  - currentNodeCount
+  - errors
+  - nodeStateCounts
+  - targetNodeCount

@@ -1,0 +1,57 @@
+$token: azure-native:recoveryservices/v20210401:DpmContainerResponse
+description: DPM workload-specific protection container.
+properties:
+  backupManagementType:
+    type: string
+    description: Type of backup management for the container.
+  canReRegister:
+    type: boolean
+    description: Specifies whether the container is re-registrable.
+  containerId:
+    type: string
+    description: ID of container.
+  containerType:
+    type: string
+    description: "Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.\r
+
+      Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is\r
+
+      Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload\r
+
+      Backup is VMAppContainer
+
+      Expected value is 'DPMContainer'."
+    const: DPMContainer
+  dpmAgentVersion:
+    type: string
+    description: Backup engine Agent version
+  dpmServers:
+    type: array
+    items:
+      type: string
+    description: List of BackupEngines protecting the container
+  extendedInfo:
+    type: object
+    $ref: "#/types/azure-native:recoveryservices/v20210401:DPMContainerExtendedInfoResponse"
+    description: Extended Info of the container.
+  friendlyName:
+    type: string
+    description: Friendly name of the container.
+  healthStatus:
+    type: string
+    description: Status of health of the container.
+  protectedItemCount:
+    type: number
+    description: Number of protected items in the BackupEngine
+  protectionStatus:
+    type: string
+    description: Protection status of the container.
+  registrationStatus:
+    type: string
+    description: Status of registration of the container with the Recovery Services Vault.
+  upgradeAvailable:
+    type: boolean
+    description: To check if upgrade available
+type: object
+required:
+  - containerType

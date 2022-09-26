@@ -1,0 +1,20 @@
+$token: azure-native:resources/v20190601preview:TemplateSpecTemplateArtifactResponse
+description: Represents a Template Spec artifact containing an embedded Azure Resource Manager template.
+properties:
+  kind:
+    type: string
+    description: |-
+      The kind of artifact.
+      Expected value is 'template'.
+    const: template
+  path:
+    type: string
+    description: A filesystem safe relative path of the artifact.
+  template:
+    $ref: pulumi.json#/Any
+    description: The Azure Resource Manager template.
+type: object
+required:
+  - kind
+  - path
+  - template

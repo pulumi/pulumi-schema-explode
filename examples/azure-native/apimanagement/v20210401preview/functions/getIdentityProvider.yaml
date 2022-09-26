@@ -1,0 +1,65 @@
+$token: azure-native:apimanagement/v20210401preview:getIdentityProvider
+description: Identity Provider details.
+inputs:
+  properties:
+    identityProviderName:
+      type: string
+      description: Identity Provider Type identifier.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    serviceName:
+      type: string
+      description: The name of the API Management service.
+  type: object
+  required:
+    - identityProviderName
+    - resourceGroupName
+    - serviceName
+outputs:
+  description: Identity Provider details.
+  properties:
+    allowedTenants:
+      type: array
+      items:
+        type: string
+      description: List of Allowed Tenants when configuring Azure Active Directory login.
+    authority:
+      type: string
+      description: OpenID Connect discovery endpoint hostname for AAD or AAD B2C.
+    clientId:
+      type: string
+      description: Client Id of the Application in the external Identity Provider. It is App ID for Facebook login, Client ID for Google login, App ID for Microsoft.
+    clientSecret:
+      type: string
+      description: Client secret of the Application in external Identity Provider, used to authenticate login request. For example, it is App Secret for Facebook login, API Key for Google login, Public Key for Microsoft. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    name:
+      type: string
+      description: The name of the resource
+    passwordResetPolicyName:
+      type: string
+      description: Password Reset Policy Name. Only applies to AAD B2C Identity Provider.
+    profileEditingPolicyName:
+      type: string
+      description: Profile Editing Policy Name. Only applies to AAD B2C Identity Provider.
+    signinPolicyName:
+      type: string
+      description: Signin Policy Name. Only applies to AAD B2C Identity Provider.
+    signinTenant:
+      type: string
+      description: The TenantId to use instead of Common when logging into Active Directory
+    signupPolicyName:
+      type: string
+      description: Signup Policy Name. Only applies to AAD B2C Identity Provider.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - clientId
+    - id
+    - name
+    - type

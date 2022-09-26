@@ -1,0 +1,151 @@
+$token: azure-native:kubernetesconfiguration/v20211101preview:Extension
+description: The Extension object.
+properties:
+  aksAssignedIdentity:
+    type: object
+    $ref: "#/types/azure-native:kubernetesconfiguration/v20211101preview:ExtensionResponseAksAssignedIdentity"
+    description: Identity of the Extension resource in an AKS cluster
+  autoUpgradeMinorVersion:
+    type: boolean
+    description: Flag to note if this extension participates in auto upgrade of minor version, or not.
+    default: true
+  configurationProtectedSettings:
+    type: object
+    additionalProperties:
+      type: string
+    description: Configuration settings that are sensitive, as name-value pairs for configuring this extension.
+  configurationSettings:
+    type: object
+    additionalProperties:
+      type: string
+    description: Configuration settings, as name-value pairs for configuring this extension.
+  customLocationSettings:
+    type: object
+    additionalProperties:
+      type: string
+    description: Custom Location settings properties.
+  errorInfo:
+    type: object
+    $ref: "#/types/azure-native:kubernetesconfiguration/v20211101preview:ErrorDetailResponse"
+    description: Error information from the Agent - e.g. errors during installation.
+  extensionType:
+    type: string
+    description: Type of the Extension, of which this resource is an instance of.  It must be one of the Extension Types registered with Microsoft.KubernetesConfiguration by the Extension publisher.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:kubernetesconfiguration/v20211101preview:IdentityResponse"
+    description: Identity of the Extension resource
+  name:
+    type: string
+    description: The name of the resource
+  packageUri:
+    type: string
+    description: Uri of the Helm package
+  provisioningState:
+    type: string
+    description: Status of installation of this extension.
+  releaseTrain:
+    type: string
+    description: ReleaseTrain this extension participates in for auto-upgrade (e.g. Stable, Preview, etc.) - only if autoUpgradeMinorVersion is 'true'.
+    default: Stable
+  scope:
+    type: object
+    $ref: "#/types/azure-native:kubernetesconfiguration/v20211101preview:ScopeResponse"
+    description: Scope at which the extension is installed.
+  statuses:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:kubernetesconfiguration/v20211101preview:ExtensionStatusResponse"
+    description: Status from this extension.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:kubernetesconfiguration/v20211101preview:SystemDataResponse"
+    description: Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  version:
+    type: string
+    description: Version of the extension for this extension, if it is 'pinned' to a specific version. autoUpgradeMinorVersion must be 'false'.
+type: object
+required:
+  - customLocationSettings
+  - errorInfo
+  - name
+  - packageUri
+  - provisioningState
+  - systemData
+  - type
+inputProperties:
+  aksAssignedIdentity:
+    type: object
+    $ref: "#/types/azure-native:kubernetesconfiguration/v20211101preview:ExtensionAksAssignedIdentity"
+    description: Identity of the Extension resource in an AKS cluster
+  autoUpgradeMinorVersion:
+    type: boolean
+    description: Flag to note if this extension participates in auto upgrade of minor version, or not.
+    default: true
+  clusterName:
+    type: string
+    description: The name of the kubernetes cluster.
+  clusterResourceName:
+    type: string
+    description: The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
+  clusterRp:
+    type: string
+    description: The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
+  configurationProtectedSettings:
+    type: object
+    additionalProperties:
+      type: string
+    description: Configuration settings that are sensitive, as name-value pairs for configuring this extension.
+  configurationSettings:
+    type: object
+    additionalProperties:
+      type: string
+    description: Configuration settings, as name-value pairs for configuring this extension.
+  extensionName:
+    type: string
+    description: Name of the Extension.
+  extensionType:
+    type: string
+    description: Type of the Extension, of which this resource is an instance of.  It must be one of the Extension Types registered with Microsoft.KubernetesConfiguration by the Extension publisher.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:kubernetesconfiguration/v20211101preview:Identity"
+    description: Identity of the Extension resource
+  releaseTrain:
+    type: string
+    description: ReleaseTrain this extension participates in for auto-upgrade (e.g. Stable, Preview, etc.) - only if autoUpgradeMinorVersion is 'true'.
+    default: Stable
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  scope:
+    type: object
+    $ref: "#/types/azure-native:kubernetesconfiguration/v20211101preview:Scope"
+    description: Scope at which the extension is installed.
+  statuses:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:kubernetesconfiguration/v20211101preview:ExtensionStatus"
+    description: Status from this extension.
+  version:
+    type: string
+    description: Version of the extension for this extension, if it is 'pinned' to a specific version. autoUpgradeMinorVersion must be 'false'.
+requiredInputs:
+  - clusterName
+  - clusterResourceName
+  - clusterRp
+  - resourceGroupName
+aliases:
+  - type: azure-native:kubernetesconfiguration:Extension
+  - type: azure-native:kubernetesconfiguration/v20200701preview:Extension
+  - type: azure-native:kubernetesconfiguration/v20210501preview:Extension
+  - type: azure-native:kubernetesconfiguration/v20210901:Extension
+  - type: azure-native:kubernetesconfiguration/v20220101preview:Extension
+  - type: azure-native:kubernetesconfiguration/v20220301:Extension
+  - type: azure-native:kubernetesconfiguration/v20220402preview:Extension
+  - type: azure-native:kubernetesconfiguration/v20220701:Extension

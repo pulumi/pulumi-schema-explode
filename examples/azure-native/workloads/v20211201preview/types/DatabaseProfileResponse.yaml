@@ -1,0 +1,45 @@
+$token: azure-native:workloads/v20211201preview:DatabaseProfileResponse
+description: Workload database profile
+properties:
+  backupRetentionDays:
+    type: integer
+    description: Backup retention days for the server
+  haEnabled:
+    type: string
+    description: Whether to enable HA for the server
+  serverName:
+    type: string
+    description: Database server name
+  serverResourceId:
+    type: string
+    description: Azure Database Server resource Id
+  sku:
+    type: string
+    description: The name of the server SKU, e.g. Standard_D32s_v4
+  sslEnforcementEnabled:
+    type: string
+    description: Whether to enable SSL enforcement on the database
+  storageInGB:
+    type: number
+    description: Database storage size in GB
+  storageIops:
+    type: number
+    description: Storage IOPS for the server
+  storageSku:
+    type: string
+    description: SKU name for database storage
+  tier:
+    type: string
+    description: Tier of the server SKU
+  type:
+    type: string
+    description: Database type
+  version:
+    type: string
+    description: Database version
+type: object
+required:
+  - serverResourceId
+  - sku
+  - tier
+  - type

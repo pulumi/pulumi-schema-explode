@@ -1,0 +1,61 @@
+$token: azure-native:signalrservice:SignalRCustomCertificate
+description: |-
+  A custom certificate.
+  API Version: 2022-02-01.
+properties:
+  keyVaultBaseUri:
+    type: string
+    description: Base uri of the KeyVault that stores certificate.
+  keyVaultSecretName:
+    type: string
+    description: Certificate secret name.
+  keyVaultSecretVersion:
+    type: string
+    description: Certificate secret version.
+  name:
+    type: string
+    description: The name of the resource.
+  provisioningState:
+    type: string
+    description: Provisioning state of the resource.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:signalrservice:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  type:
+    type: string
+    description: The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+type: object
+required:
+  - keyVaultBaseUri
+  - keyVaultSecretName
+  - name
+  - provisioningState
+  - systemData
+  - type
+inputProperties:
+  certificateName:
+    type: string
+    description: Custom certificate name
+  keyVaultBaseUri:
+    type: string
+    description: Base uri of the KeyVault that stores certificate.
+  keyVaultSecretName:
+    type: string
+    description: Certificate secret name.
+  keyVaultSecretVersion:
+    type: string
+    description: Certificate secret version.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  resourceName:
+    type: string
+    description: The name of the resource.
+requiredInputs:
+  - keyVaultBaseUri
+  - keyVaultSecretName
+  - resourceGroupName
+  - resourceName
+aliases:
+  - type: azure-native:signalrservice/v20220201:SignalRCustomCertificate

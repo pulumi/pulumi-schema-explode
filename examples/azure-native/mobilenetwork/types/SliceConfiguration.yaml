@@ -1,0 +1,22 @@
+$token: azure-native:mobilenetwork:SliceConfiguration
+description: Per-slice settings
+properties:
+  dataNetworkConfigurations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:mobilenetwork:DataNetworkConfiguration"
+    description: The allowed data networks and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
+  defaultDataNetwork:
+    type: object
+    $ref: "#/types/azure-native:mobilenetwork:DataNetworkResourceId"
+    description: The default data network to use if the UE does not explicitly specify it.  Configuration for this object must exist in the `dataNetworkConfigurations` map.
+  slice:
+    type: object
+    $ref: "#/types/azure-native:mobilenetwork:SliceResourceId"
+    description: A reference to the Slice that these settings apply to
+type: object
+required:
+  - dataNetworkConfigurations
+  - defaultDataNetwork
+  - slice

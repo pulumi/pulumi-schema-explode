@@ -1,0 +1,23 @@
+$token: azure-native:marketplace/v20211201:listPrivateStoreStopSellOffersPlansNotifications
+description: List of stop sell offers and plans notifications.
+inputs:
+  properties:
+    privateStoreId:
+      type: string
+      description: The store ID - must use the tenant ID
+    subscriptions:
+      type: array
+      items:
+        type: string
+  type: object
+  required:
+    - privateStoreId
+outputs:
+  description: List of stop sell offers and plans notifications.
+  properties:
+    stopSellNotifications:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:marketplace/v20211201:StopSellOffersPlansNotificationsListPropertiesResponse"
+  type: object

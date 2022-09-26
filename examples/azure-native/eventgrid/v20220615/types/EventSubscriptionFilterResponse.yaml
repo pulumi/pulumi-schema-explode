@@ -1,0 +1,95 @@
+$token: azure-native:eventgrid/v20220615:EventSubscriptionFilterResponse
+description: Filter for the Event Subscription.
+properties:
+  advancedFilters:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20220615:BoolEqualsAdvancedFilterResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20220615:IsNotNullAdvancedFilterResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20220615:IsNullOrUndefinedAdvancedFilterResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20220615:NumberGreaterThanAdvancedFilterResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20220615:NumberGreaterThanOrEqualsAdvancedFilterResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20220615:NumberInAdvancedFilterResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20220615:NumberInRangeAdvancedFilterResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20220615:NumberLessThanAdvancedFilterResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20220615:NumberLessThanOrEqualsAdvancedFilterResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20220615:NumberNotInAdvancedFilterResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20220615:NumberNotInRangeAdvancedFilterResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20220615:StringBeginsWithAdvancedFilterResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20220615:StringContainsAdvancedFilterResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20220615:StringEndsWithAdvancedFilterResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20220615:StringInAdvancedFilterResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20220615:StringNotBeginsWithAdvancedFilterResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20220615:StringNotContainsAdvancedFilterResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20220615:StringNotEndsWithAdvancedFilterResponse"
+        - type: object
+          $ref: "#/types/azure-native:eventgrid/v20220615:StringNotInAdvancedFilterResponse"
+      discriminator:
+        propertyName: operatorType
+        mapping:
+          BoolEquals: "#/types/azure-native:eventgrid/v20220615:BoolEqualsAdvancedFilterResponse"
+          IsNotNull: "#/types/azure-native:eventgrid/v20220615:IsNotNullAdvancedFilterResponse"
+          IsNullOrUndefined: "#/types/azure-native:eventgrid/v20220615:IsNullOrUndefinedAdvancedFilterResponse"
+          NumberGreaterThan: "#/types/azure-native:eventgrid/v20220615:NumberGreaterThanAdvancedFilterResponse"
+          NumberGreaterThanOrEquals: "#/types/azure-native:eventgrid/v20220615:NumberGreaterThanOrEqualsAdvancedFilterResponse"
+          NumberIn: "#/types/azure-native:eventgrid/v20220615:NumberInAdvancedFilterResponse"
+          NumberInRange: "#/types/azure-native:eventgrid/v20220615:NumberInRangeAdvancedFilterResponse"
+          NumberLessThan: "#/types/azure-native:eventgrid/v20220615:NumberLessThanAdvancedFilterResponse"
+          NumberLessThanOrEquals: "#/types/azure-native:eventgrid/v20220615:NumberLessThanOrEqualsAdvancedFilterResponse"
+          NumberNotIn: "#/types/azure-native:eventgrid/v20220615:NumberNotInAdvancedFilterResponse"
+          NumberNotInRange: "#/types/azure-native:eventgrid/v20220615:NumberNotInRangeAdvancedFilterResponse"
+          StringBeginsWith: "#/types/azure-native:eventgrid/v20220615:StringBeginsWithAdvancedFilterResponse"
+          StringContains: "#/types/azure-native:eventgrid/v20220615:StringContainsAdvancedFilterResponse"
+          StringEndsWith: "#/types/azure-native:eventgrid/v20220615:StringEndsWithAdvancedFilterResponse"
+          StringIn: "#/types/azure-native:eventgrid/v20220615:StringInAdvancedFilterResponse"
+          StringNotBeginsWith: "#/types/azure-native:eventgrid/v20220615:StringNotBeginsWithAdvancedFilterResponse"
+          StringNotContains: "#/types/azure-native:eventgrid/v20220615:StringNotContainsAdvancedFilterResponse"
+          StringNotEndsWith: "#/types/azure-native:eventgrid/v20220615:StringNotEndsWithAdvancedFilterResponse"
+          StringNotIn: "#/types/azure-native:eventgrid/v20220615:StringNotInAdvancedFilterResponse"
+    description: An array of advanced filters that are used for filtering event subscriptions.
+  enableAdvancedFilteringOnArrays:
+    type: boolean
+    description: Allows advanced filters to be evaluated against an array of values instead of expecting a singular value.
+  includedEventTypes:
+    type: array
+    items:
+      type: string
+    description: A list of applicable event types that need to be part of the event subscription. If it is desired to subscribe to all default event types, set the IncludedEventTypes to null.
+  isSubjectCaseSensitive:
+    type: boolean
+    description: "Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter\r
+
+      should be compared in a case sensitive manner."
+    default: false
+  subjectBeginsWith:
+    type: string
+    description: "An optional string to filter events for an event subscription based on a resource path prefix.\r
+
+      The format of this depends on the publisher of the events.\r
+
+      Wildcard characters are not supported in this path."
+  subjectEndsWith:
+    type: string
+    description: "An optional string to filter events for an event subscription based on a resource path suffix.\r
+
+      Wildcard characters are not supported in this path."
+type: object

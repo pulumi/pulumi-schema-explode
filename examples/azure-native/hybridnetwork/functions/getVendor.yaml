@@ -1,0 +1,40 @@
+$token: azure-native:hybridnetwork:getVendor
+description: |-
+  Vendor resource.
+  API Version: 2020-01-01-preview.
+inputs:
+  properties:
+    vendorName:
+      type: string
+      description: The name of the vendor.
+  type: object
+  required:
+    - vendorName
+outputs:
+  description: Vendor resource.
+  properties:
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    name:
+      type: string
+      description: The name of the resource
+    provisioningState:
+      type: string
+      description: The provisioning state of the vendor resource.
+    skus:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:hybridnetwork:SubResourceResponse"
+      description: A list of IDs of the vendor skus offered by the vendor.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - id
+    - name
+    - provisioningState
+    - skus
+    - type

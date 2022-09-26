@@ -1,0 +1,19 @@
+$token: azure-native:cdn/v20200415:GeoFilter
+description: Rules defining user's geo access within a CDN endpoint.
+properties:
+  action:
+    $ref: "#/types/azure-native:cdn/v20200415:GeoFilterActions"
+    description: Action of the geo filter, i.e. allow or block access.
+  countryCodes:
+    type: array
+    items:
+      type: string
+    description: Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
+  relativePath:
+    type: string
+    description: Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
+type: object
+required:
+  - action
+  - countryCodes
+  - relativePath

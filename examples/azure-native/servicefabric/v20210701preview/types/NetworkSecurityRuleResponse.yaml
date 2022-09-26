@@ -1,0 +1,48 @@
+$token: azure-native:servicefabric/v20210701preview:NetworkSecurityRuleResponse
+description: Describes a network security rule.
+properties:
+  access:
+    type: string
+    description: The network traffic is allowed or denied.
+  description:
+    type: string
+    description: Network security rule description.
+  destinationAddressPrefixes:
+    type: array
+    items:
+      type: string
+    description: The destination address prefixes. CIDR or destination IP ranges.
+  destinationPortRanges:
+    type: array
+    items:
+      type: string
+    description: The destination port ranges.
+  direction:
+    type: string
+    description: Network security rule direction.
+  name:
+    type: string
+    description: Network security rule name.
+  priority:
+    type: integer
+    description: The priority of the rule. The value can be in the range 1000 to 3000. Values outside this range are reserved for Service Fabric ManagerCluster Resource Provider. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+  protocol:
+    type: string
+    description: Network protocol this rule applies to.
+  sourceAddressPrefixes:
+    type: array
+    items:
+      type: string
+    description: The CIDR or source IP ranges.
+  sourcePortRanges:
+    type: array
+    items:
+      type: string
+    description: The source port ranges.
+type: object
+required:
+  - access
+  - direction
+  - name
+  - priority
+  - protocol

@@ -1,0 +1,41 @@
+$token: azure-native:machinelearningservices/v20210301preview:AzureDataLakeGen1Contents
+description: Azure Data Lake Gen1 datastore configuration.
+properties:
+  contentsType:
+    type: string
+    description: |-
+      Enum to determine the datastore contents type.
+      Expected value is 'AzureDataLakeGen1'.
+    const: AzureDataLakeGen1
+  credentials:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:AccountKeyDatastoreCredentials"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:CertificateDatastoreCredentials"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:NoneDatastoreCredentials"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:SasDatastoreCredentials"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:ServicePrincipalDatastoreCredentials"
+      - type: object
+        $ref: "#/types/azure-native:machinelearningservices/v20210301preview:SqlAdminDatastoreCredentials"
+    discriminator:
+      propertyName: credentialsType
+      mapping:
+        AccountKey: "#/types/azure-native:machinelearningservices/v20210301preview:AccountKeyDatastoreCredentials"
+        Certificate: "#/types/azure-native:machinelearningservices/v20210301preview:CertificateDatastoreCredentials"
+        None: "#/types/azure-native:machinelearningservices/v20210301preview:NoneDatastoreCredentials"
+        Sas: "#/types/azure-native:machinelearningservices/v20210301preview:SasDatastoreCredentials"
+        ServicePrincipal: "#/types/azure-native:machinelearningservices/v20210301preview:ServicePrincipalDatastoreCredentials"
+        SqlAdmin: "#/types/azure-native:machinelearningservices/v20210301preview:SqlAdminDatastoreCredentials"
+    description: "[Required] Account credentials."
+  storeName:
+    type: string
+    description: "[Required] Azure Data Lake store name."
+type: object
+required:
+  - contentsType
+  - credentials
+  - storeName

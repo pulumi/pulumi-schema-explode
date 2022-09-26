@@ -1,0 +1,35 @@
+$token: azure-native:streamanalytics/v20211001preview:PostgreSQLOutputDataSource
+description: Describes a PostgreSQL output data source.
+properties:
+  authenticationMode:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:streamanalytics/v20211001preview:AuthenticationMode"
+    description: Authentication Mode.
+  database:
+    type: string
+    description: The name of the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+  maxWriterCount:
+    type: number
+    description: Max Writer count, currently only 1(single writer) and 0(based on query partition) are available. Optional on PUT requests.
+  password:
+    type: string
+    description: The password that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+  server:
+    type: string
+    description: The name of the SQL server containing the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+  table:
+    type: string
+    description: The name of the table in the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+  type:
+    type: string
+    description: |-
+      Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+      Expected value is 'Microsoft.DBForPostgreSQL/servers/databases'.
+    const: Microsoft.DBForPostgreSQL/servers/databases
+  user:
+    type: string
+    description: The user name that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+type: object
+required:
+  - type

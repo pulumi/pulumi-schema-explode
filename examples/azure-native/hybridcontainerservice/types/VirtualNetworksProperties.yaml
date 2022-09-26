@@ -1,0 +1,19 @@
+$token: azure-native:hybridcontainerservice:VirtualNetworksProperties
+description: HybridAKSNetworkSpec defines the desired state of HybridAKSNetwork
+properties:
+  infraVnetProfile:
+    type: object
+    $ref: "#/types/azure-native:hybridcontainerservice:VirtualNetworksPropertiesInfraVnetProfile"
+  vipPool:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:hybridcontainerservice:VirtualNetworksPropertiesVipPool"
+    description: Virtual IP Pool for Kubernetes
+  vmipPool:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:hybridcontainerservice:VirtualNetworksPropertiesVmipPool"
+    description: IP Pool for Virtual Machines
+type: object

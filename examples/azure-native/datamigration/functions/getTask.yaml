@@ -1,0 +1,117 @@
+$token: azure-native:datamigration:getTask
+description: |-
+  A task resource
+  API Version: 2018-04-19.
+inputs:
+  properties:
+    expand:
+      type: string
+      description: Expand the response
+    groupName:
+      type: string
+      description: Name of the resource group
+    projectName:
+      type: string
+      description: Name of the project
+    serviceName:
+      type: string
+      description: Name of the service
+    taskName:
+      type: string
+      description: Name of the Task
+  type: object
+  required:
+    - groupName
+    - projectName
+    - serviceName
+    - taskName
+outputs:
+  description: A task resource
+  properties:
+    etag:
+      type: string
+      description: HTTP strong entity tag value. This is ignored if submitted.
+    id:
+      type: string
+      description: Resource ID.
+    name:
+      type: string
+      description: Resource name.
+    properties:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:datamigration:ConnectToSourcePostgreSqlSyncTaskPropertiesResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration:ConnectToSourceSqlServerSyncTaskPropertiesResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration:ConnectToSourceSqlServerTaskPropertiesResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration:ConnectToTargetAzureDbForMySqlTaskPropertiesResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration:ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration:ConnectToTargetSqlDbTaskPropertiesResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration:ConnectToTargetSqlMISyncTaskPropertiesResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration:ConnectToTargetSqlMITaskPropertiesResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration:ConnectToTargetSqlSqlDbSyncTaskPropertiesResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration:GetTdeCertificatesSqlTaskPropertiesResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration:GetUserTablesSqlSyncTaskPropertiesResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration:GetUserTablesSqlTaskPropertiesResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration:MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration:MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration:MigrateSqlServerSqlDbSyncTaskPropertiesResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration:MigrateSqlServerSqlDbTaskPropertiesResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration:MigrateSqlServerSqlMISyncTaskPropertiesResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration:MigrateSqlServerSqlMITaskPropertiesResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration:ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration:ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponse"
+        - type: object
+          $ref: "#/types/azure-native:datamigration:ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse"
+      discriminator:
+        propertyName: taskType
+        mapping:
+          ConnectToSource.PostgreSql.Sync: "#/types/azure-native:datamigration:ConnectToSourcePostgreSqlSyncTaskPropertiesResponse"
+          ConnectToSource.SqlServer: "#/types/azure-native:datamigration:ConnectToSourceSqlServerTaskPropertiesResponse"
+          ConnectToSource.SqlServer.Sync: "#/types/azure-native:datamigration:ConnectToSourceSqlServerSyncTaskPropertiesResponse"
+          ConnectToTarget.AzureDbForMySql: "#/types/azure-native:datamigration:ConnectToTargetAzureDbForMySqlTaskPropertiesResponse"
+          ConnectToTarget.AzureDbForPostgreSql.Sync: "#/types/azure-native:datamigration:ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponse"
+          ConnectToTarget.AzureSqlDbMI: "#/types/azure-native:datamigration:ConnectToTargetSqlMITaskPropertiesResponse"
+          ConnectToTarget.AzureSqlDbMI.Sync.LRS: "#/types/azure-native:datamigration:ConnectToTargetSqlMISyncTaskPropertiesResponse"
+          ConnectToTarget.SqlDb: "#/types/azure-native:datamigration:ConnectToTargetSqlDbTaskPropertiesResponse"
+          ConnectToTarget.SqlDb.Sync: "#/types/azure-native:datamigration:ConnectToTargetSqlSqlDbSyncTaskPropertiesResponse"
+          GetTDECertificates.Sql: "#/types/azure-native:datamigration:GetTdeCertificatesSqlTaskPropertiesResponse"
+          GetUserTables.AzureSqlDb.Sync: "#/types/azure-native:datamigration:GetUserTablesSqlSyncTaskPropertiesResponse"
+          GetUserTables.Sql: "#/types/azure-native:datamigration:GetUserTablesSqlTaskPropertiesResponse"
+          Migrate.MySql.AzureDbForMySql.Sync: "#/types/azure-native:datamigration:MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponse"
+          Migrate.PostgreSql.AzureDbForPostgreSql.Sync: "#/types/azure-native:datamigration:MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponse"
+          Migrate.SqlServer.AzureSqlDb.Sync: "#/types/azure-native:datamigration:MigrateSqlServerSqlDbSyncTaskPropertiesResponse"
+          Migrate.SqlServer.AzureSqlDbMI: "#/types/azure-native:datamigration:MigrateSqlServerSqlMITaskPropertiesResponse"
+          Migrate.SqlServer.AzureSqlDbMI.Sync.LRS: "#/types/azure-native:datamigration:MigrateSqlServerSqlMISyncTaskPropertiesResponse"
+          Migrate.SqlServer.SqlDb: "#/types/azure-native:datamigration:MigrateSqlServerSqlDbTaskPropertiesResponse"
+          ValidateMigrationInput.SqlServer.AzureSqlDbMI: "#/types/azure-native:datamigration:ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse"
+          ValidateMigrationInput.SqlServer.AzureSqlDbMI.Sync.LRS: "#/types/azure-native:datamigration:ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponse"
+          ValidateMigrationInput.SqlServer.SqlDb.Sync: "#/types/azure-native:datamigration:ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponse"
+      description: Custom task properties
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - type

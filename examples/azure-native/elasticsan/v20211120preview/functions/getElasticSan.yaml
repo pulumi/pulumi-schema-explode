@@ -1,0 +1,86 @@
+$token: azure-native:elasticsan/v20211120preview:getElasticSan
+description: Response for ElasticSan request.
+inputs:
+  properties:
+    elasticSanName:
+      type: string
+      description: The name of the ElasticSan.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+  type: object
+  required:
+    - elasticSanName
+    - resourceGroupName
+outputs:
+  description: Response for ElasticSan request.
+  properties:
+    availabilityZones:
+      type: array
+      items:
+        type: string
+      description: 'Logical zone for Elastic San resource; example: ["1"].'
+    baseSizeTiB:
+      type: number
+      description: Base size of the Elastic San appliance in TiB.
+    extendedCapacitySizeTiB:
+      type: number
+      description: Extended size of the Elastic San appliance in TiB.
+    id:
+      type: string
+      description: Azure resource identifier.
+    location:
+      type: string
+      description: The geo-location where the resource lives.
+    name:
+      type: string
+      description: Azure resource name.
+    provisioningState:
+      type: string
+      description: State of the operation on the resource.
+    sku:
+      type: object
+      $ref: "#/types/azure-native:elasticsan/v20211120preview:SkuResponse"
+      description: resource sku
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:elasticsan/v20211120preview:SystemDataResponse"
+      description: Resource metadata required by ARM RPC
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Azure resource tags.
+    totalIops:
+      type: number
+      description: Total Provisioned IOPS of the Elastic San appliance.
+    totalMBps:
+      type: number
+      description: Total Provisioned MBps Elastic San appliance.
+    totalSizeTiB:
+      type: number
+      description: Total size of the Elastic San appliance in TB.
+    totalVolumeSizeGiB:
+      type: number
+      description: Total size of the provisioned Volumes in GiB.
+    type:
+      type: string
+      description: Azure resource type.
+    volumeGroupCount:
+      type: number
+      description: Total number of volume groups in this Elastic San appliance.
+  type: object
+  required:
+    - baseSizeTiB
+    - extendedCapacitySizeTiB
+    - id
+    - name
+    - provisioningState
+    - sku
+    - systemData
+    - totalIops
+    - totalMBps
+    - totalSizeTiB
+    - totalVolumeSizeGiB
+    - type
+    - volumeGroupCount

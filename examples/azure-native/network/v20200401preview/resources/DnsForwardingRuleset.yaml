@@ -1,0 +1,71 @@
+$token: azure-native:network/v20200401preview:DnsForwardingRuleset
+description: Describes a DNS forwarding ruleset.
+properties:
+  dnsResolverOutboundEndpoints:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20200401preview:SubResourceResponse"
+    description: The reference to the DNS resolver outbound endpoints that are used to route DNS queries matching the forwarding rules in the ruleset to the target DNS servers.
+  etag:
+    type: string
+    description: ETag of the DNS forwarding ruleset.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  name:
+    type: string
+    description: The name of the resource
+  provisioningState:
+    type: string
+    description: The current provisioning state of the DNS forwarding ruleset. This is a read-only property and any attempt to set this value will be ignored.
+  resourceGuid:
+    type: string
+    description: The resourceGuid for the DNS forwarding ruleset.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:network/v20200401preview:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - etag
+  - location
+  - name
+  - provisioningState
+  - resourceGuid
+  - systemData
+  - type
+inputProperties:
+  dnsForwardingRulesetName:
+    type: string
+    description: The name of the DNS forwarding ruleset.
+  dnsResolverOutboundEndpoints:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20200401preview:SubResource"
+    description: The reference to the DNS resolver outbound endpoints that are used to route DNS queries matching the forwarding rules in the ruleset to the target DNS servers.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:network:DnsForwardingRuleset
+  - type: azure-native:network/v20220701:DnsForwardingRuleset

@@ -1,0 +1,29 @@
+$token: azure-native:network/v20170601:VirtualNetworkGatewayIPConfigurationResponse
+description: IP configuration for virtual network gateway
+properties:
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  id:
+    type: string
+    description: Resource ID.
+  name:
+    type: string
+    description: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+  privateIPAllocationMethod:
+    type: string
+    description: "The private IP allocation method. Possible values are: 'Static' and 'Dynamic'."
+  provisioningState:
+    type: string
+    description: "The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'."
+  publicIPAddress:
+    type: object
+    $ref: "#/types/azure-native:network/v20170601:SubResourceResponse"
+    description: The reference of the public IP resource.
+  subnet:
+    type: object
+    $ref: "#/types/azure-native:network/v20170601:SubResourceResponse"
+    description: The reference of the subnet resource.
+type: object
+required:
+  - provisioningState

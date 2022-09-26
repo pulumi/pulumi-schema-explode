@@ -1,0 +1,86 @@
+$token: azure-native:costmanagement:getCloudConnector
+description: |-
+  The Connector model definition
+  API Version: 2019-03-01-preview.
+inputs:
+  properties:
+    connectorName:
+      type: string
+      description: Connector Name.
+    expand:
+      type: string
+      description: May be used to expand the collectionInfo property. By default, collectionInfo is not included.
+  type: object
+  required:
+    - connectorName
+outputs:
+  description: The Connector model definition
+  properties:
+    billingModel:
+      type: string
+      description: Connector billing model
+    collectionInfo:
+      type: object
+      $ref: "#/types/azure-native:costmanagement:ConnectorCollectionInfoResponse"
+      description: Collection information
+    createdOn:
+      type: string
+      description: Connector definition creation datetime
+    credentialsKey:
+      type: string
+      description: Credentials authentication key (eg AWS ARN)
+    daysTrialRemaining:
+      type: integer
+      description: Number of days remaining of trial
+    defaultManagementGroupId:
+      type: string
+      description: Default ManagementGroupId
+    displayName:
+      type: string
+      description: Connector DisplayName
+    externalBillingAccountId:
+      type: string
+      description: Associated ExternalBillingAccountId
+    id:
+      type: string
+      description: Connector id
+    kind:
+      type: string
+      description: Connector kind (eg aws)
+    modifiedOn:
+      type: string
+      description: Connector last modified datetime
+    name:
+      type: string
+      description: Connector name
+    providerBillingAccountDisplayName:
+      type: string
+      description: The display name of the providerBillingAccountId as defined on the external provider
+    providerBillingAccountId:
+      type: string
+      description: Connector providerBillingAccountId, determined from credentials (eg AWS Consolidated account number)
+    reportId:
+      type: string
+      description: Identifying source report. (For AWS this is a CUR report name, defined with Daily and with Resources)
+    status:
+      type: string
+      description: Connector status
+    subscriptionId:
+      type: string
+      description: Billing SubscriptionId
+    type:
+      type: string
+      description: Connector type
+  type: object
+  required:
+    - collectionInfo
+    - createdOn
+    - daysTrialRemaining
+    - externalBillingAccountId
+    - id
+    - modifiedOn
+    - name
+    - providerBillingAccountDisplayName
+    - providerBillingAccountId
+    - status
+    - type

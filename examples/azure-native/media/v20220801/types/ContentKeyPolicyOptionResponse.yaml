@@ -1,0 +1,50 @@
+$token: azure-native:media/v20220801:ContentKeyPolicyOptionResponse
+description: Represents a policy option.
+properties:
+  configuration:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:media/v20220801:ContentKeyPolicyClearKeyConfigurationResponse"
+      - type: object
+        $ref: "#/types/azure-native:media/v20220801:ContentKeyPolicyFairPlayConfigurationResponse"
+      - type: object
+        $ref: "#/types/azure-native:media/v20220801:ContentKeyPolicyPlayReadyConfigurationResponse"
+      - type: object
+        $ref: "#/types/azure-native:media/v20220801:ContentKeyPolicyUnknownConfigurationResponse"
+      - type: object
+        $ref: "#/types/azure-native:media/v20220801:ContentKeyPolicyWidevineConfigurationResponse"
+    discriminator:
+      propertyName: odataType
+      mapping:
+        "#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration": "#/types/azure-native:media/v20220801:ContentKeyPolicyClearKeyConfigurationResponse"
+        "#Microsoft.Media.ContentKeyPolicyFairPlayConfiguration": "#/types/azure-native:media/v20220801:ContentKeyPolicyFairPlayConfigurationResponse"
+        "#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration": "#/types/azure-native:media/v20220801:ContentKeyPolicyPlayReadyConfigurationResponse"
+        "#Microsoft.Media.ContentKeyPolicyUnknownConfiguration": "#/types/azure-native:media/v20220801:ContentKeyPolicyUnknownConfigurationResponse"
+        "#Microsoft.Media.ContentKeyPolicyWidevineConfiguration": "#/types/azure-native:media/v20220801:ContentKeyPolicyWidevineConfigurationResponse"
+    description: The key delivery configuration.
+  name:
+    type: string
+    description: The Policy Option description.
+  policyOptionId:
+    type: string
+    description: The legacy Policy Option ID.
+  restriction:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:media/v20220801:ContentKeyPolicyOpenRestrictionResponse"
+      - type: object
+        $ref: "#/types/azure-native:media/v20220801:ContentKeyPolicyTokenRestrictionResponse"
+      - type: object
+        $ref: "#/types/azure-native:media/v20220801:ContentKeyPolicyUnknownRestrictionResponse"
+    discriminator:
+      propertyName: odataType
+      mapping:
+        "#Microsoft.Media.ContentKeyPolicyOpenRestriction": "#/types/azure-native:media/v20220801:ContentKeyPolicyOpenRestrictionResponse"
+        "#Microsoft.Media.ContentKeyPolicyTokenRestriction": "#/types/azure-native:media/v20220801:ContentKeyPolicyTokenRestrictionResponse"
+        "#Microsoft.Media.ContentKeyPolicyUnknownRestriction": "#/types/azure-native:media/v20220801:ContentKeyPolicyUnknownRestrictionResponse"
+    description: The requirements that must be met to deliver keys with this configuration
+type: object
+required:
+  - configuration
+  - policyOptionId
+  - restriction

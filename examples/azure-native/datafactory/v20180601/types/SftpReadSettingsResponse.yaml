@@ -1,0 +1,48 @@
+$token: azure-native:datafactory/v20180601:SftpReadSettingsResponse
+description: Sftp read settings.
+properties:
+  deleteFilesAfterCompletion:
+    $ref: pulumi.json#/Any
+    description: "Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean)."
+  disableChunking:
+    $ref: pulumi.json#/Any
+    description: "If true, disable parallel reading within each file. Default is false. Type: boolean (or Expression with resultType boolean)."
+  disableMetricsCollection:
+    $ref: pulumi.json#/Any
+    description: "If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean)."
+  enablePartitionDiscovery:
+    type: boolean
+    description: Indicates whether to enable partition discovery.
+  fileListPath:
+    $ref: pulumi.json#/Any
+    description: "Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string)."
+  maxConcurrentConnections:
+    $ref: pulumi.json#/Any
+    description: "The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer)."
+  modifiedDatetimeEnd:
+    $ref: pulumi.json#/Any
+    description: "The end of file's modified datetime. Type: string (or Expression with resultType string)."
+  modifiedDatetimeStart:
+    $ref: pulumi.json#/Any
+    description: "The start of file's modified datetime. Type: string (or Expression with resultType string)."
+  partitionRootPath:
+    $ref: pulumi.json#/Any
+    description: "Specify the root path where partition discovery starts from. Type: string (or Expression with resultType string)."
+  recursive:
+    $ref: pulumi.json#/Any
+    description: "If true, files under the folder path will be read recursively. Default is true. Type: boolean (or Expression with resultType boolean)."
+  type:
+    type: string
+    description: |-
+      The read setting type.
+      Expected value is 'SftpReadSettings'.
+    const: SftpReadSettings
+  wildcardFileName:
+    $ref: pulumi.json#/Any
+    description: "Sftp wildcardFileName. Type: string (or Expression with resultType string)."
+  wildcardFolderPath:
+    $ref: pulumi.json#/Any
+    description: "Sftp wildcardFolderPath. Type: string (or Expression with resultType string)."
+type: object
+required:
+  - type

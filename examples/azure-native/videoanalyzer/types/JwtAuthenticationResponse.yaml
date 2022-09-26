@@ -1,0 +1,42 @@
+$token: azure-native:videoanalyzer:JwtAuthenticationResponse
+description: Properties for access validation based on JSON Web Tokens (JWT).
+properties:
+  audiences:
+    type: array
+    items:
+      type: string
+    description: List of expected token audiences. Token audience is valid if it matches at least one of the given values.
+  claims:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:videoanalyzer:TokenClaimResponse"
+    description: List of additional token claims to be validated. Token must contains all claims and respective values for it to be valid.
+  issuers:
+    type: array
+    items:
+      type: string
+    description: List of expected token issuers. Token issuer is valid if it matches at least one of the given values.
+  keys:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:videoanalyzer:EccTokenKeyResponse"
+        - type: object
+          $ref: "#/types/azure-native:videoanalyzer:RsaTokenKeyResponse"
+      discriminator:
+        propertyName: type
+        mapping:
+          "#Microsoft.VideoAnalyzer.EccTokenKey": "#/types/azure-native:videoanalyzer:EccTokenKeyResponse"
+          "#Microsoft.VideoAnalyzer.RsaTokenKey": "#/types/azure-native:videoanalyzer:RsaTokenKeyResponse"
+    description: List of keys which can be used to validate access tokens. Having multiple keys allow for seamless key rotation of the token signing key. Token signature must match exactly one key.
+  type:
+    type: string
+    description: |-
+      The discriminator for derived types.
+      Expected value is '#Microsoft.VideoAnalyzer.JwtAuthentication'.
+    const: "#Microsoft.VideoAnalyzer.JwtAuthentication"
+type: object
+required:
+  - type

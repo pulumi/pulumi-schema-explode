@@ -1,0 +1,30 @@
+$token: azure-native:labservices:getGlobalUserOperationBatchStatus
+description: |-
+  Status Details of the long running operation for an environment
+  API Version: 2018-10-15.
+inputs:
+  properties:
+    urls:
+      type: array
+      items:
+        type: string
+      description: The operation url of long running operation
+    userName:
+      type: string
+      description: The name of the user.
+  type: object
+  required:
+    - urls
+    - userName
+outputs:
+  description: Status Details of the long running operation for an environment
+  properties:
+    items:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:labservices:OperationBatchStatusResponseItemResponse"
+      description: Gets a collection of items that contain the operation url and status.
+  type: object
+  required:
+    - items

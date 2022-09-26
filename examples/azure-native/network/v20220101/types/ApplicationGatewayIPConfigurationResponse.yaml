@@ -1,0 +1,27 @@
+$token: azure-native:network/v20220101:ApplicationGatewayIPConfigurationResponse
+description: IP configuration of an application gateway. Currently 1 public and 1 private IP configuration is allowed.
+properties:
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  id:
+    type: string
+    description: Resource ID.
+  name:
+    type: string
+    description: Name of the IP configuration that is unique within an Application Gateway.
+  provisioningState:
+    type: string
+    description: The provisioning state of the application gateway IP configuration resource.
+  subnet:
+    type: object
+    $ref: "#/types/azure-native:network/v20220101:SubResourceResponse"
+    description: Reference to the subnet resource. A subnet from where application gateway gets its private address.
+  type:
+    type: string
+    description: Type of the resource.
+type: object
+required:
+  - etag
+  - provisioningState
+  - type

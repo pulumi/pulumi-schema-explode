@@ -1,0 +1,81 @@
+$token: azure-native:network/v20190901:SecurityRuleResponse
+description: Network security rule.
+properties:
+  access:
+    type: string
+    description: The network traffic is allowed or denied.
+  description:
+    type: string
+    description: A description for this rule. Restricted to 140 chars.
+  destinationAddressPrefix:
+    type: string
+    description: The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
+  destinationAddressPrefixes:
+    type: array
+    items:
+      type: string
+    description: The destination address prefixes. CIDR or destination IP ranges.
+  destinationApplicationSecurityGroups:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20190901:ApplicationSecurityGroupResponse"
+    description: The application security group specified as destination.
+  destinationPortRange:
+    type: string
+    description: The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+  destinationPortRanges:
+    type: array
+    items:
+      type: string
+    description: The destination port ranges.
+  direction:
+    type: string
+    description: The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  id:
+    type: string
+    description: Resource ID.
+  name:
+    type: string
+    description: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+  priority:
+    type: integer
+    description: The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+  protocol:
+    type: string
+    description: Network protocol this rule applies to.
+  provisioningState:
+    type: string
+    description: The provisioning state of the security rule resource.
+  sourceAddressPrefix:
+    type: string
+    description: The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
+  sourceAddressPrefixes:
+    type: array
+    items:
+      type: string
+    description: The CIDR or source IP ranges.
+  sourceApplicationSecurityGroups:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20190901:ApplicationSecurityGroupResponse"
+    description: The application security group specified as source.
+  sourcePortRange:
+    type: string
+    description: The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+  sourcePortRanges:
+    type: array
+    items:
+      type: string
+    description: The source port ranges.
+type: object
+required:
+  - access
+  - direction
+  - etag
+  - protocol
+  - provisioningState

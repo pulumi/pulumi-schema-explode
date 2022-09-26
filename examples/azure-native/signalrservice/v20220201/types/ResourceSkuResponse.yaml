@@ -1,0 +1,39 @@
+$token: azure-native:signalrservice/v20220201:ResourceSkuResponse
+description: The billing information of the resource.
+properties:
+  capacity:
+    type: integer
+    description: "Optional, integer. The unit count of the resource. 1 by default.\r
+
+      \r
+
+      If present, following values are allowed:\r
+
+      \    Free: 1\r
+
+      \    Standard: 1,2,5,10,20,50,100"
+  family:
+    type: string
+    description: Not used. Retained for future use.
+  name:
+    type: string
+    description: "The name of the SKU. Required.\r
+
+      \r
+
+      Allowed values: Standard_S1, Free_F1"
+  size:
+    type: string
+    description: Not used. Retained for future use.
+  tier:
+    type: string
+    description: "Optional tier of this particular SKU. 'Standard' or 'Free'. \r
+
+      \r
+
+      `Basic` is deprecated, use `Standard` instead."
+type: object
+required:
+  - family
+  - name
+  - size

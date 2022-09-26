@@ -1,0 +1,61 @@
+$token: azure-native:securityinsights/v20190101preview:getTIDataConnector
+description: Data connector to pull threat intelligence data from TIP products.
+inputs:
+  properties:
+    dataConnectorId:
+      type: string
+      description: Connector ID
+    operationalInsightsResourceProvider:
+      type: string
+      description: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group within the user's subscription. The name is case insensitive.
+    workspaceName:
+      type: string
+      description: The name of the workspace.
+  type: object
+  required:
+    - dataConnectorId
+    - operationalInsightsResourceProvider
+    - resourceGroupName
+    - workspaceName
+outputs:
+  description: Data connector to pull threat intelligence data from TIP products.
+  properties:
+    dataTypes:
+      type: object
+      $ref: "#/types/azure-native:securityinsights/v20190101preview:TIDataConnectorDataTypesResponse"
+      description: The available data types for the connector.
+    etag:
+      type: string
+      description: Etag of the azure resource
+    id:
+      type: string
+      description: Azure resource Id
+    kind:
+      type: string
+      description: |-
+        
+        Expected value is 'ThreatIntelligence'.
+      const: ThreatIntelligence
+    name:
+      type: string
+      description: Azure resource name
+    tenantId:
+      type: string
+      description: The tenant id to connect to, and get the data from.
+    tipLookbackPeriod:
+      type: string
+      description: The lookback period for the feed to be imported.
+    type:
+      type: string
+      description: Azure resource type
+  type: object
+  required:
+    - dataTypes
+    - id
+    - kind
+    - name
+    - tenantId
+    - type

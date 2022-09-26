@@ -1,0 +1,56 @@
+$token: azure-native:machinelearningservices/v20200501preview:getMachineLearningDatastore
+description: Machine Learning datastore object wrapped into ARM resource envelope.
+inputs:
+  properties:
+    datastoreName:
+      type: string
+      description: The Datastore name.
+    resourceGroupName:
+      type: string
+      description: Name of the resource group in which workspace is located.
+    workspaceName:
+      type: string
+      description: Name of Azure Machine Learning workspace.
+  type: object
+  required:
+    - datastoreName
+    - resourceGroupName
+    - workspaceName
+outputs:
+  description: Machine Learning datastore object wrapped into ARM resource envelope.
+  properties:
+    id:
+      type: string
+      description: Specifies the resource ID.
+    identity:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20200501preview:IdentityResponse"
+      description: The identity of the resource.
+    location:
+      type: string
+      description: Specifies the location of the resource.
+    name:
+      type: string
+      description: Specifies the name of the resource.
+    properties:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20200501preview:DatastoreResponse"
+      description: Datastore properties
+    sku:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20200501preview:SkuResponse"
+      description: The sku of the workspace.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Contains resource tags defined as key/value pairs.
+    type:
+      type: string
+      description: Specifies the type of the resource.
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - type

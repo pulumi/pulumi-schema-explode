@@ -1,0 +1,37 @@
+$token: azure-native:datamigration/v20211030preview:BackupSetInfoResponse
+description: Information of backup set
+properties:
+  backupFinishedDate:
+    type: string
+    description: Date and time that the backup operation finished
+  backupSetId:
+    type: string
+    description: Id for the set of backup files
+  backupStartDate:
+    type: string
+    description: Date and time that the backup operation began
+  backupType:
+    type: string
+    description: Enum of the different backup types
+  databaseName:
+    type: string
+    description: Name of the database to which the backup set belongs
+  firstLsn:
+    type: string
+    description: First log sequence number of the backup file
+  isBackupRestored:
+    type: boolean
+    description: Whether the backup set is restored or not
+  lastLsn:
+    type: string
+    description: Last log sequence number of the backup file
+  lastModifiedTime:
+    type: string
+    description: Last modified time of the backup file in share location
+  listOfBackupFiles:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration/v20211030preview:BackupFileInfoResponse"
+    description: List of files in the backup set
+type: object

@@ -1,0 +1,61 @@
+$token: azure-native:deploymentmanager/v20180901preview:getServiceUnit
+description: Represents the response of a service unit resource.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    serviceName:
+      type: string
+      description: The name of the service resource.
+    serviceTopologyName:
+      type: string
+      description: The name of the service topology .
+    serviceUnitName:
+      type: string
+      description: The name of the service unit resource.
+  type: object
+  required:
+    - resourceGroupName
+    - serviceName
+    - serviceTopologyName
+    - serviceUnitName
+outputs:
+  description: Represents the response of a service unit resource.
+  properties:
+    artifacts:
+      type: object
+      $ref: "#/types/azure-native:deploymentmanager/v20180901preview:ServiceUnitArtifactsResponse"
+      description: The artifacts for the service unit.
+    deploymentMode:
+      type: string
+      description: Describes the type of ARM deployment to be performed on the resource.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    name:
+      type: string
+      description: The name of the resource
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    targetResourceGroup:
+      type: string
+      description: The Azure Resource Group to which the resources in the service unit belong to or should be deployed to.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - deploymentMode
+    - id
+    - location
+    - name
+    - targetResourceGroup
+    - type
+deprecationMessage: Version 2018-09-01-preview will be removed in v2 of the provider.

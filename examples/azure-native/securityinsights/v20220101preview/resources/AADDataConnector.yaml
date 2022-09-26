@@ -1,0 +1,79 @@
+$token: azure-native:securityinsights/v20220101preview:AADDataConnector
+description: Represents AAD (Azure Active Directory) data connector.
+properties:
+  dataTypes:
+    type: object
+    $ref: "#/types/azure-native:securityinsights/v20220101preview:AlertsDataTypeOfDataConnectorResponse"
+    description: The available data types for the connector.
+  etag:
+    type: string
+    description: Etag of the azure resource
+  kind:
+    type: string
+    description: |-
+      The kind of the data connector
+      Expected value is 'AzureActiveDirectory'.
+    const: AzureActiveDirectory
+  name:
+    type: string
+    description: The name of the resource
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:securityinsights/v20220101preview:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  tenantId:
+    type: string
+    description: The tenant id to connect to, and get the data from.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - kind
+  - name
+  - systemData
+  - tenantId
+  - type
+inputProperties:
+  dataConnectorId:
+    type: string
+    description: Connector ID
+  dataTypes:
+    type: object
+    $ref: "#/types/azure-native:securityinsights/v20220101preview:AlertsDataTypeOfDataConnector"
+    description: The available data types for the connector.
+  kind:
+    type: string
+    description: |-
+      The kind of the data connector
+      Expected value is 'AzureActiveDirectory'.
+    const: AzureActiveDirectory
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  tenantId:
+    type: string
+    description: The tenant id to connect to, and get the data from.
+  workspaceName:
+    type: string
+    description: The name of the workspace.
+requiredInputs:
+  - kind
+  - resourceGroupName
+  - tenantId
+  - workspaceName
+aliases:
+  - type: azure-native:securityinsights:AADDataConnector
+  - type: azure-native:securityinsights/v20190101preview:AADDataConnector
+  - type: azure-native:securityinsights/v20200101:AADDataConnector
+  - type: azure-native:securityinsights/v20210301preview:AADDataConnector
+  - type: azure-native:securityinsights/v20210901preview:AADDataConnector
+  - type: azure-native:securityinsights/v20211001:AADDataConnector
+  - type: azure-native:securityinsights/v20211001preview:AADDataConnector
+  - type: azure-native:securityinsights/v20220401preview:AADDataConnector
+  - type: azure-native:securityinsights/v20220501preview:AADDataConnector
+  - type: azure-native:securityinsights/v20220601preview:AADDataConnector
+  - type: azure-native:securityinsights/v20220701preview:AADDataConnector
+  - type: azure-native:securityinsights/v20220801:AADDataConnector
+  - type: azure-native:securityinsights/v20220801preview:AADDataConnector
+  - type: azure-native:securityinsights/v20220901preview:AADDataConnector

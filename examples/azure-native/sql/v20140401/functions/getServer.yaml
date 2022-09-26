@@ -1,0 +1,66 @@
+$token: azure-native:sql/v20140401:getServer
+description: Represents a server.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    serverName:
+      type: string
+      description: The name of the server.
+  type: object
+  required:
+    - resourceGroupName
+    - serverName
+outputs:
+  description: Represents a server.
+  properties:
+    administratorLogin:
+      type: string
+      description: Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
+    externalAdministratorLogin:
+      type: string
+      description: The display name of the Azure Active Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators
+    externalAdministratorSid:
+      type: string
+      description: The ID of the Active Azure Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators.
+    fullyQualifiedDomainName:
+      type: string
+      description: The fully qualified domain name of the server.
+    id:
+      type: string
+      description: Resource ID.
+    kind:
+      type: string
+      description: Kind of sql server.  This is metadata used for the Azure portal experience.
+    location:
+      type: string
+      description: Resource location.
+    name:
+      type: string
+      description: Resource name.
+    state:
+      type: string
+      description: The state of the server.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: Resource type.
+    version:
+      type: string
+      description: The version of the server.
+  type: object
+  required:
+    - externalAdministratorLogin
+    - externalAdministratorSid
+    - fullyQualifiedDomainName
+    - id
+    - kind
+    - location
+    - name
+    - state
+    - type

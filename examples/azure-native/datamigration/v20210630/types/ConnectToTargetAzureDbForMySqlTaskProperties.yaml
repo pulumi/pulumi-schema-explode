@@ -1,0 +1,21 @@
+$token: azure-native:datamigration/v20210630:ConnectToTargetAzureDbForMySqlTaskProperties
+description: Properties for the task that validates connection to Azure Database for MySQL and target server requirements
+properties:
+  clientData:
+    type: object
+    additionalProperties:
+      type: string
+    description: Key value pairs of client data to attach meta data information to task
+  input:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20210630:ConnectToTargetAzureDbForMySqlTaskInput"
+    description: Task input
+  taskType:
+    type: string
+    description: |-
+      Task type.
+      Expected value is 'ConnectToTarget.AzureDbForMySql'.
+    const: ConnectToTarget.AzureDbForMySql
+type: object
+required:
+  - taskType

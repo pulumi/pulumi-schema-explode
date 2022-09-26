@@ -1,0 +1,112 @@
+$token: azure-native:network/v20220401preview:getDefaultAdminRule
+description: Network default admin rule.
+inputs:
+  properties:
+    configurationName:
+      type: string
+      description: The name of the network manager Security Configuration.
+    networkManagerName:
+      type: string
+      description: The name of the network manager.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    ruleCollectionName:
+      type: string
+      description: The name of the network manager security Configuration rule collection.
+    ruleName:
+      type: string
+      description: The name of the rule.
+  type: object
+  required:
+    - configurationName
+    - networkManagerName
+    - resourceGroupName
+    - ruleCollectionName
+    - ruleName
+outputs:
+  description: Network default admin rule.
+  properties:
+    access:
+      type: string
+      description: Indicates the access allowed for this particular rule
+    description:
+      type: string
+      description: A description for this rule. Restricted to 140 chars.
+    destinationPortRanges:
+      type: array
+      items:
+        type: string
+      description: The destination port ranges.
+    destinations:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20220401preview:AddressPrefixItemResponse"
+      description: The destination address prefixes. CIDR or destination IP ranges.
+    direction:
+      type: string
+      description: Indicates if the traffic matched against the rule in inbound or outbound.
+    etag:
+      type: string
+      description: A unique read-only string that changes whenever the resource is updated.
+    flag:
+      type: string
+      description: Default rule flag.
+    id:
+      type: string
+      description: Resource ID.
+    kind:
+      type: string
+      description: |-
+        Whether the rule is custom or default.
+        Expected value is 'Default'.
+      const: Default
+    name:
+      type: string
+      description: Resource name.
+    priority:
+      type: integer
+      description: The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+    protocol:
+      type: string
+      description: Network protocol this rule applies to.
+    provisioningState:
+      type: string
+      description: The provisioning state of the resource.
+    sourcePortRanges:
+      type: array
+      items:
+        type: string
+      description: The source port ranges.
+    sources:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20220401preview:AddressPrefixItemResponse"
+      description: The CIDR or source IP ranges.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:network/v20220401preview:SystemDataResponse"
+      description: The system metadata related to this resource.
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - access
+    - description
+    - destinationPortRanges
+    - destinations
+    - direction
+    - etag
+    - id
+    - kind
+    - name
+    - priority
+    - protocol
+    - provisioningState
+    - sourcePortRanges
+    - sources
+    - systemData
+    - type

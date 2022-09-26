@@ -1,0 +1,20 @@
+$token: azure-native:network/v20210601:CacheConfiguration
+description: Caching settings for a caching-type route. To disable caching, do not provide a cacheConfiguration object.
+properties:
+  cacheDuration:
+    type: string
+    description: The duration for which the content needs to be cached. Allowed format is in ISO 8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations). HTTP requires the value to be no more than a year
+  dynamicCompression:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20210601:DynamicCompressionEnabled"
+    description: Whether to use dynamic compression for cached content
+  queryParameterStripDirective:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20210601:FrontDoorQuery"
+    description: Treatment of URL query terms when forming the cache key.
+  queryParameters:
+    type: string
+    description: query parameters to include or exclude (comma separated).
+type: object

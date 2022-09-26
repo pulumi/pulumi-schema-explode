@@ -1,0 +1,125 @@
+$token: azure-native:servicefabric/v20160901:getCluster
+description: The cluster resource
+inputs:
+  properties:
+    clusterName:
+      type: string
+      description: The name of the cluster resource
+    resourceGroupName:
+      type: string
+      description: The name of the resource group to which the resource belongs or get created
+  type: object
+  required:
+    - clusterName
+    - resourceGroupName
+outputs:
+  description: The cluster resource
+  properties:
+    availableClusterVersions:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:servicefabric/v20160901:ClusterVersionDetailsResponse"
+      description: The available cluster code version which the cluster can upgrade to, note that you must choose upgradeMode to manual to upgrade to
+    azureActiveDirectory:
+      type: object
+      $ref: "#/types/azure-native:servicefabric/v20160901:AzureActiveDirectoryResponse"
+      description: The settings to enable AAD authentication on the cluster
+    certificate:
+      type: object
+      $ref: "#/types/azure-native:servicefabric/v20160901:CertificateDescriptionResponse"
+      description: This primary certificate will be used as cluster node to node security, SSL certificate for cluster management endpoint and default admin client
+    clientCertificateCommonNames:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:servicefabric/v20160901:ClientCertificateCommonNameResponse"
+      description: " List of client certificates to whitelist based on common names"
+    clientCertificateThumbprints:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:servicefabric/v20160901:ClientCertificateThumbprintResponse"
+      description: The client thumbprint details ,it is used for client access for cluster operation
+    clusterCodeVersion:
+      type: string
+      description: The ServiceFabric code version running in your cluster
+    clusterEndpoint:
+      type: string
+      description: The endpoint for the cluster connecting to servicefabric resource provider
+    clusterId:
+      type: string
+      description: The unique identifier for the cluster resource
+    clusterState:
+      type: string
+      description: The state for the cluster
+    diagnosticsStorageAccountConfig:
+      type: object
+      $ref: "#/types/azure-native:servicefabric/v20160901:DiagnosticsStorageAccountConfigResponse"
+      description: The storage diagnostics account configuration details
+    fabricSettings:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:servicefabric/v20160901:SettingsSectionDescriptionResponse"
+      description: List of custom fabric settings to configure the cluster.
+    id:
+      type: string
+      description: Resource ID.
+    location:
+      type: string
+      description: Resource location.
+    managementEndpoint:
+      type: string
+      description: The http management endpoint of the cluster
+    name:
+      type: string
+      description: Resource name.
+    nodeTypes:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:servicefabric/v20160901:NodeTypeDescriptionResponse"
+      description: The list of node types that make up the cluster
+    provisioningState:
+      type: string
+      description: The provisioning state of the cluster resource
+    reliabilityLevel:
+      type: string
+      description: Cluster reliability level indicates replica set size of system service
+    reverseProxyCertificate:
+      type: object
+      $ref: "#/types/azure-native:servicefabric/v20160901:CertificateDescriptionResponse"
+      description: The server certificate used by reverse proxy
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: Resource type.
+    upgradeDescription:
+      type: object
+      $ref: "#/types/azure-native:servicefabric/v20160901:ClusterUpgradePolicyResponse"
+      description: The policy to use when upgrading the cluster.
+    upgradeMode:
+      type: string
+      description: Cluster upgrade mode indicates if fabric upgrade is initiated automatically by the system or not
+    vmImage:
+      type: string
+      description: The name of VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
+  type: object
+  required:
+    - availableClusterVersions
+    - clusterEndpoint
+    - clusterId
+    - clusterState
+    - id
+    - location
+    - managementEndpoint
+    - name
+    - nodeTypes
+    - provisioningState
+    - type
+deprecationMessage: Version 2016-09-01 will be removed in v2 of the provider.

@@ -1,0 +1,49 @@
+$token: azure-native:datashare/v20201001preview:getDataSet
+description: A DataSet data transfer object.
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: The name of the share account.
+    dataSetName:
+      type: string
+      description: The name of the dataSet.
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+    shareName:
+      type: string
+      description: The name of the share.
+  type: object
+  required:
+    - accountName
+    - dataSetName
+    - resourceGroupName
+    - shareName
+outputs:
+  description: A DataSet data transfer object.
+  properties:
+    id:
+      type: string
+      description: The resource id of the azure resource
+    kind:
+      type: string
+      description: Kind of data set.
+    name:
+      type: string
+      description: Name of the azure resource
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:datashare/v20201001preview:SystemDataResponse"
+      description: System Data of the Azure resource.
+    type:
+      type: string
+      description: Type of the azure resource
+  type: object
+  required:
+    - id
+    - kind
+    - name
+    - systemData
+    - type
+deprecationMessage: "Please use one of the variants: ADLSGen1FileDataSet, ADLSGen1FolderDataSet, ADLSGen2FileDataSet, ADLSGen2FileSystemDataSet, ADLSGen2FolderDataSet, ADLSGen2StorageAccountDataSet, BlobContainerDataSet, BlobDataSet, BlobFolderDataSet, BlobStorageAccountDataSet, KustoClusterDataSet, KustoDatabaseDataSet, SqlDBTableDataSet, SqlDWTableDataSet, SynapseWorkspaceSqlPoolTableDataSet."

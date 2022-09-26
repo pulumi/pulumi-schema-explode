@@ -1,0 +1,21 @@
+$token: azure-native:desktopvirtualization/v20220401preview:AgentUpdateProperties
+description: The session host configuration for updating agent, monitoring agent, and stack component.
+properties:
+  maintenanceWindowTimeZone:
+    type: string
+    description: Time zone for maintenance as defined in https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=net-5.0. Must be set if useLocalTime is true.
+  maintenanceWindows:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:desktopvirtualization/v20220401preview:MaintenanceWindowProperties"
+    description: List of maintenance windows. Maintenance windows are 2 hours long.
+  type:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:desktopvirtualization/v20220401preview:SessionHostComponentUpdateType"
+    description: The type of maintenance for session host components.
+  useSessionHostLocalTime:
+    type: boolean
+    description: Whether to use localTime of the virtual machine.
+type: object

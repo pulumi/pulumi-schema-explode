@@ -1,0 +1,34 @@
+$token: azure-native:documentdb/v20211115preview:MongoDBCollectionGetPropertiesResponseResource
+properties:
+  analyticalStorageTtl:
+    type: integer
+    description: Analytical TTL.
+  etag:
+    type: string
+    description: A system generated property representing the resource etag required for optimistic concurrency control.
+  id:
+    type: string
+    description: Name of the Cosmos DB MongoDB collection
+  indexes:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:documentdb/v20211115preview:MongoIndexResponse"
+    description: List of index keys
+  rid:
+    type: string
+    description: A system generated property. A unique identifier.
+  shardKey:
+    type: object
+    additionalProperties:
+      type: string
+    description: A key-value pair of shard keys to be applied for the request.
+  ts:
+    type: number
+    description: A system generated property that denotes the last updated timestamp of the resource.
+type: object
+required:
+  - etag
+  - id
+  - rid
+  - ts

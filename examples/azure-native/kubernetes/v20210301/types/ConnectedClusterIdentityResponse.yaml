@@ -1,0 +1,18 @@
+$token: azure-native:kubernetes/v20210301:ConnectedClusterIdentityResponse
+description: Identity for the connected cluster.
+properties:
+  principalId:
+    type: string
+    description: The principal id of connected cluster identity. This property will only be provided for a system assigned identity.
+  tenantId:
+    type: string
+    description: The tenant id associated with the connected cluster. This property will only be provided for a system assigned identity.
+  type:
+    type: string
+    description: The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
+    default: SystemAssigned
+type: object
+required:
+  - principalId
+  - tenantId
+  - type

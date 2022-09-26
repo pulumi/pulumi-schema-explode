@@ -1,0 +1,16 @@
+$token: azure-native:kusto/v20210827:Identity
+description: Identity for the resource.
+properties:
+  type:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:kusto/v20210827:IdentityType"
+    description: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
+  userAssignedIdentities:
+    type: object
+    additionalProperties:
+      $ref: pulumi.json#/Any
+    description: "The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'."
+type: object
+required:
+  - type

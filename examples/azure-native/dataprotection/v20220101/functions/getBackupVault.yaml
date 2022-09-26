@@ -1,0 +1,57 @@
+$token: azure-native:dataprotection/v20220101:getBackupVault
+description: Backup Vault Resource
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group where the backup vault is present.
+    vaultName:
+      type: string
+      description: The name of the backup vault.
+  type: object
+  required:
+    - resourceGroupName
+    - vaultName
+outputs:
+  description: Backup Vault Resource
+  properties:
+    eTag:
+      type: string
+      description: Optional ETag.
+    id:
+      type: string
+      description: Resource Id represents the complete path to the resource.
+    identity:
+      type: object
+      $ref: "#/types/azure-native:dataprotection/v20220101:DppIdentityDetailsResponse"
+      description: Input Managed Identity Details
+    location:
+      type: string
+      description: Resource location.
+    name:
+      type: string
+      description: Resource name associated with the resource.
+    properties:
+      type: object
+      $ref: "#/types/azure-native:dataprotection/v20220101:BackupVaultResponse"
+      description: BackupVaultResource properties
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:dataprotection/v20220101:SystemDataResponse"
+      description: Metadata pertaining to creation and last modification of the resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - properties
+    - systemData
+    - type

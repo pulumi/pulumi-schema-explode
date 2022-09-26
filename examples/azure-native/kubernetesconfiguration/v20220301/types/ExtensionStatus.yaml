@@ -1,0 +1,22 @@
+$token: azure-native:kubernetesconfiguration/v20220301:ExtensionStatus
+description: Status from the extension.
+properties:
+  code:
+    type: string
+    description: Status code provided by the Extension
+  displayStatus:
+    type: string
+    description: Short description of status of the extension.
+  level:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:kubernetesconfiguration/v20220301:LevelType"
+    description: Level of the status.
+    default: Information
+  message:
+    type: string
+    description: Detailed message of the status from the Extension.
+  time:
+    type: string
+    description: DateLiteral (per ISO8601) noting the time of installation status.
+type: object

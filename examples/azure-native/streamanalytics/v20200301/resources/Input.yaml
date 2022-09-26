@@ -1,0 +1,58 @@
+$token: azure-native:streamanalytics/v20200301:Input
+description: An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
+properties:
+  name:
+    type: string
+    description: Resource name
+  properties:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20200301:ReferenceInputPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20200301:StreamInputPropertiesResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        Reference: "#/types/azure-native:streamanalytics/v20200301:ReferenceInputPropertiesResponse"
+        Stream: "#/types/azure-native:streamanalytics/v20200301:StreamInputPropertiesResponse"
+    description: The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
+  type:
+    type: string
+    description: Resource type
+type: object
+required:
+  - properties
+  - type
+inputProperties:
+  inputName:
+    type: string
+    description: The name of the input.
+  jobName:
+    type: string
+    description: The name of the streaming job.
+  name:
+    type: string
+    description: Resource name
+  properties:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20200301:ReferenceInputProperties"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20200301:StreamInputProperties"
+    discriminator:
+      propertyName: type
+      mapping:
+        Reference: "#/types/azure-native:streamanalytics/v20200301:ReferenceInputProperties"
+        Stream: "#/types/azure-native:streamanalytics/v20200301:StreamInputProperties"
+    description: The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+requiredInputs:
+  - jobName
+  - resourceGroupName
+aliases:
+  - type: azure-native:streamanalytics:Input
+  - type: azure-native:streamanalytics/v20160301:Input
+  - type: azure-native:streamanalytics/v20170401preview:Input
+  - type: azure-native:streamanalytics/v20211001preview:Input

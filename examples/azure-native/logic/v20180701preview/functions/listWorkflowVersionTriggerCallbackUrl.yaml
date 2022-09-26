@@ -1,0 +1,60 @@
+$token: azure-native:logic/v20180701preview:listWorkflowVersionTriggerCallbackUrl
+description: The workflow trigger callback URL.
+inputs:
+  properties:
+    keyType:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:logic/v20180701preview:KeyType"
+      description: The key type.
+    notAfter:
+      type: string
+      description: The expiry time.
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+    triggerName:
+      type: string
+      description: The workflow trigger name.
+    versionId:
+      type: string
+      description: The workflow versionId.
+    workflowName:
+      type: string
+      description: The workflow name.
+  type: object
+  required:
+    - resourceGroupName
+    - triggerName
+    - versionId
+    - workflowName
+outputs:
+  description: The workflow trigger callback URL.
+  properties:
+    basePath:
+      type: string
+      description: Gets the workflow trigger callback URL base path.
+    method:
+      type: string
+      description: Gets the workflow trigger callback URL HTTP method.
+    queries:
+      type: object
+      $ref: "#/types/azure-native:logic/v20180701preview:WorkflowTriggerListCallbackUrlQueriesResponse"
+      description: Gets the workflow trigger callback URL query parameters.
+    relativePath:
+      type: string
+      description: Gets the workflow trigger callback URL relative path.
+    relativePathParameters:
+      type: array
+      items:
+        type: string
+      description: Gets the workflow trigger callback URL relative path parameters.
+    value:
+      type: string
+      description: Gets the workflow trigger callback URL.
+  type: object
+  required:
+    - basePath
+    - method
+    - relativePath
+    - value

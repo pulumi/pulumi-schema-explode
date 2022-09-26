@@ -1,0 +1,67 @@
+$token: azure-native:resources/v20200801:Deployment
+description: Deployment information.
+properties:
+  location:
+    type: string
+    description: the location of the deployment.
+  name:
+    type: string
+    description: The name of the deployment.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:resources/v20200801:DeploymentPropertiesExtendedResponse"
+    description: Deployment properties.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Deployment tags
+  type:
+    type: string
+    description: The type of the deployment.
+type: object
+required:
+  - name
+  - properties
+  - type
+inputProperties:
+  deploymentName:
+    type: string
+    description: The name of the deployment.
+  location:
+    type: string
+    description: The location to store the deployment data.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:resources/v20200801:DeploymentProperties"
+    description: The deployment properties.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group to deploy the resources to. The name is case insensitive. The resource group must already exist.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Deployment tags
+requiredInputs:
+  - properties
+  - resourceGroupName
+aliases:
+  - type: azure-native:resources:Deployment
+  - type: azure-native:resources/v20151101:Deployment
+  - type: azure-native:resources/v20160201:Deployment
+  - type: azure-native:resources/v20160701:Deployment
+  - type: azure-native:resources/v20160901:Deployment
+  - type: azure-native:resources/v20170510:Deployment
+  - type: azure-native:resources/v20180201:Deployment
+  - type: azure-native:resources/v20180501:Deployment
+  - type: azure-native:resources/v20190301:Deployment
+  - type: azure-native:resources/v20190501:Deployment
+  - type: azure-native:resources/v20190510:Deployment
+  - type: azure-native:resources/v20190701:Deployment
+  - type: azure-native:resources/v20190801:Deployment
+  - type: azure-native:resources/v20191001:Deployment
+  - type: azure-native:resources/v20200601:Deployment
+  - type: azure-native:resources/v20201001:Deployment
+  - type: azure-native:resources/v20210101:Deployment
+  - type: azure-native:resources/v20210401:Deployment

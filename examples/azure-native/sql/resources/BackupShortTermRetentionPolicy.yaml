@@ -1,0 +1,49 @@
+$token: azure-native:sql:BackupShortTermRetentionPolicy
+description: |-
+  A short term retention policy.
+  API Version: 2020-11-01-preview.
+properties:
+  name:
+    type: string
+    description: Resource name.
+  retentionDays:
+    type: integer
+    description: The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - name
+  - type
+inputProperties:
+  databaseName:
+    type: string
+    description: The name of the database.
+  policyName:
+    type: string
+    description: The policy name. Should always be "default".
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  retentionDays:
+    type: integer
+    description: The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
+  serverName:
+    type: string
+    description: The name of the server.
+requiredInputs:
+  - databaseName
+  - resourceGroupName
+  - serverName
+aliases:
+  - type: azure-native:sql/v20171001preview:BackupShortTermRetentionPolicy
+  - type: azure-native:sql/v20200202preview:BackupShortTermRetentionPolicy
+  - type: azure-native:sql/v20200801preview:BackupShortTermRetentionPolicy
+  - type: azure-native:sql/v20201101preview:BackupShortTermRetentionPolicy
+  - type: azure-native:sql/v20210201preview:BackupShortTermRetentionPolicy
+  - type: azure-native:sql/v20210501preview:BackupShortTermRetentionPolicy
+  - type: azure-native:sql/v20210801preview:BackupShortTermRetentionPolicy
+  - type: azure-native:sql/v20211101:BackupShortTermRetentionPolicy
+  - type: azure-native:sql/v20211101preview:BackupShortTermRetentionPolicy
+  - type: azure-native:sql/v20220201preview:BackupShortTermRetentionPolicy

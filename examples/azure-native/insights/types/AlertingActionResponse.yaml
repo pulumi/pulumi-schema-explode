@@ -1,0 +1,28 @@
+$token: azure-native:insights:AlertingActionResponse
+description: Specify action need to be taken when rule type is Alert
+properties:
+  aznsAction:
+    type: object
+    $ref: "#/types/azure-native:insights:AzNsActionGroupResponse"
+    description: Azure action group reference.
+  odataType:
+    type: string
+    description: |-
+      Specifies the action. Supported values - AlertingAction, LogToMetricAction
+      Expected value is 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction'.
+    const: Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction
+  severity:
+    type: string
+    description: Severity of the alert
+  throttlingInMin:
+    type: integer
+    description: time (in minutes) for which Alerts should be throttled or suppressed.
+  trigger:
+    type: object
+    $ref: "#/types/azure-native:insights:TriggerConditionResponse"
+    description: The trigger condition that results in the alert rule being.
+type: object
+required:
+  - odataType
+  - severity
+  - trigger

@@ -1,0 +1,36 @@
+$token: azure-native:migrate:MigrateProjectPropertiesResponse
+description: Class for migrate project properties.
+properties:
+  lastSummaryRefreshedTime:
+    type: string
+    description: Gets the last time the project summary was refreshed.
+  provisioningState:
+    type: string
+    description: Provisioning state of the migrate project.
+  refreshSummaryState:
+    type: string
+    description: Gets the refresh summary state.
+  registeredTools:
+    type: array
+    items:
+      type: string
+    description: Gets or sets the list of tools registered with the migrate project.
+  summary:
+    type: object
+    additionalProperties:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:migrate:DatabaseProjectSummaryResponse"
+        - type: object
+          $ref: "#/types/azure-native:migrate:ServersProjectSummaryResponse"
+      discriminator:
+        propertyName: instanceType
+        mapping:
+          Databases: "#/types/azure-native:migrate:DatabaseProjectSummaryResponse"
+          Servers: "#/types/azure-native:migrate:ServersProjectSummaryResponse"
+    description: Gets the summary of the migrate project.
+type: object
+required:
+  - lastSummaryRefreshedTime
+  - refreshSummaryState
+  - summary

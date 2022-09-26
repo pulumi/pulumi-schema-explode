@@ -1,0 +1,88 @@
+$token: azure-native:edgeorder/v20220501preview:ChildConfigurationResponse
+description: Child configuration object.
+properties:
+  availabilityInformation:
+    type: object
+    $ref: "#/types/azure-native:edgeorder/v20220501preview:AvailabilityInformationResponse"
+    description: Availability information of the product system.
+  childConfigurationType:
+    type: string
+    description: Child configuration type.
+  childConfigurationTypes:
+    type: array
+    items:
+      type: string
+    description: Different types of child configurations which exist for this configuration, these can be used to populate the child configuration filter.
+  costInformation:
+    type: object
+    $ref: "#/types/azure-native:edgeorder/v20220501preview:CostInformationResponse"
+    description: Cost information for the product system.
+  description:
+    type: object
+    $ref: "#/types/azure-native:edgeorder/v20220501preview:DescriptionResponse"
+    description: Description related to the product system.
+  dimensions:
+    type: object
+    $ref: "#/types/azure-native:edgeorder/v20220501preview:DimensionsResponse"
+    description: Dimensions of the configuration.
+  displayName:
+    type: string
+    description: Display Name for the product system.
+  filterableProperties:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:edgeorder/v20220501preview:FilterablePropertyResponse"
+    description: List of filters supported for a product.
+  fulfilledBy:
+    type: string
+    description: The entity responsible for fulfillment of the item at the given hierarchy level.
+  groupedChildConfigurations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:edgeorder/v20220501preview:GroupedChildConfigurationsResponse"
+    description: Child configurations present for the configuration after applying child configuration filter, grouped by the category name of the child configuration.
+  hierarchyInformation:
+    type: object
+    $ref: "#/types/azure-native:edgeorder/v20220501preview:HierarchyInformationResponse"
+    description: Hierarchy information of a product.
+  imageInformation:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:edgeorder/v20220501preview:ImageInformationResponse"
+    description: Image information for the product system.
+  isPartOfBaseConfiguration:
+    type: boolean
+    description: Flag to indicate if the child configuration is part of the base configuration, which means the customer need not pass this configuration in OptInAdditionalConfigurations while placing an order, it will be shipped by default.
+  maximumQuantity:
+    type: integer
+    description: Maximum quantity a customer can order while choosing this configuration.
+  minimumQuantity:
+    type: integer
+    description: Minimum quantity a customer can order while choosing this configuration.
+  specifications:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:edgeorder/v20220501preview:SpecificationResponse"
+    description: Specifications of the configuration.
+type: object
+required:
+  - availabilityInformation
+  - childConfigurationType
+  - childConfigurationTypes
+  - costInformation
+  - description
+  - dimensions
+  - displayName
+  - filterableProperties
+  - fulfilledBy
+  - groupedChildConfigurations
+  - hierarchyInformation
+  - imageInformation
+  - isPartOfBaseConfiguration
+  - maximumQuantity
+  - minimumQuantity
+  - specifications

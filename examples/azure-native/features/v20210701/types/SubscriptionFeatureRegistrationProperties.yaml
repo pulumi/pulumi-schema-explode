@@ -1,0 +1,20 @@
+$token: azure-native:features/v20210701:SubscriptionFeatureRegistrationProperties
+properties:
+  description:
+    type: string
+    description: The feature description.
+  metadata:
+    type: object
+    additionalProperties:
+      type: string
+    description: Key-value pairs for meta data.
+  shouldFeatureDisplayInPortal:
+    type: boolean
+    description: Indicates whether feature should be displayed in Portal.
+    default: false
+  state:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:features/v20210701:SubscriptionFeatureRegistrationState"
+    description: The state.
+type: object

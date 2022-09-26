@@ -1,0 +1,75 @@
+$token: azure-native:iotcentral/v20180901:getApp
+description: The IoT Central application.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the IoT Central application.
+    resourceName:
+      type: string
+      description: The ARM resource name of the IoT Central application.
+  type: object
+  required:
+    - resourceGroupName
+    - resourceName
+outputs:
+  description: The IoT Central application.
+  properties:
+    applicationId:
+      type: string
+      description: The ID of the application.
+    displayName:
+      type: string
+      description: The display name of the application.
+    geography:
+      type: string
+      description: The geography the application is in.
+    id:
+      type: string
+      description: The ARM resource identifier.
+    location:
+      type: string
+      description: The resource location.
+    name:
+      type: string
+      description: The ARM resource name.
+    sku:
+      type: object
+      $ref: "#/types/azure-native:iotcentral/v20180901:AppSkuInfoResponse"
+      description: A valid instance SKU.
+    state:
+      type: string
+      description: The current state of the application.
+    subdomain:
+      type: string
+      description: The subdomain of the application.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: The resource tags.
+    template:
+      type: string
+      description: The ID of the application template, which is a blueprint that defines the characteristics and behaviors of an application. Optional; if not specified, defaults to a blank blueprint and allows the application to be defined from scratch.
+    tenant:
+      type: string
+      description: The tenant ID the application belongs to.
+    thumbnailUrl:
+      type: string
+      description: The URI for the thumbnail image used in the application.
+    type:
+      type: string
+      description: The resource type.
+  type: object
+  required:
+    - applicationId
+    - geography
+    - id
+    - location
+    - name
+    - sku
+    - state
+    - tenant
+    - thumbnailUrl
+    - type
+deprecationMessage: Version 2018-09-01 will be removed in v2 of the provider.

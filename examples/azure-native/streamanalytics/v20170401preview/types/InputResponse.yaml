@@ -1,0 +1,28 @@
+$token: azure-native:streamanalytics/v20170401preview:InputResponse
+description: An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
+properties:
+  id:
+    type: string
+    description: Resource Id
+  name:
+    type: string
+    description: Resource name
+  properties:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20170401preview:ReferenceInputPropertiesResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics/v20170401preview:StreamInputPropertiesResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        Reference: "#/types/azure-native:streamanalytics/v20170401preview:ReferenceInputPropertiesResponse"
+        Stream: "#/types/azure-native:streamanalytics/v20170401preview:StreamInputPropertiesResponse"
+    description: The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
+  type:
+    type: string
+    description: Resource type
+type: object
+required:
+  - id
+  - type

@@ -1,0 +1,140 @@
+$token: azure-native:streamanalytics:Output
+description: |-
+  An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
+  API Version: 2016-03-01.
+properties:
+  datasource:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics:AzureDataLakeStoreOutputDataSourceResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics:AzureSqlDatabaseOutputDataSourceResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics:AzureTableOutputDataSourceResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics:BlobOutputDataSourceResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics:DocumentDbOutputDataSourceResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics:EventHubOutputDataSourceResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics:PowerBIOutputDataSourceResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics:ServiceBusQueueOutputDataSourceResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics:ServiceBusTopicOutputDataSourceResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        Microsoft.DataLake/Accounts: "#/types/azure-native:streamanalytics:AzureDataLakeStoreOutputDataSourceResponse"
+        Microsoft.ServiceBus/EventHub: "#/types/azure-native:streamanalytics:EventHubOutputDataSourceResponse"
+        Microsoft.ServiceBus/Queue: "#/types/azure-native:streamanalytics:ServiceBusQueueOutputDataSourceResponse"
+        Microsoft.ServiceBus/Topic: "#/types/azure-native:streamanalytics:ServiceBusTopicOutputDataSourceResponse"
+        Microsoft.Sql/Server/Database: "#/types/azure-native:streamanalytics:AzureSqlDatabaseOutputDataSourceResponse"
+        Microsoft.Storage/Blob: "#/types/azure-native:streamanalytics:BlobOutputDataSourceResponse"
+        Microsoft.Storage/DocumentDB: "#/types/azure-native:streamanalytics:DocumentDbOutputDataSourceResponse"
+        Microsoft.Storage/Table: "#/types/azure-native:streamanalytics:AzureTableOutputDataSourceResponse"
+        PowerBI: "#/types/azure-native:streamanalytics:PowerBIOutputDataSourceResponse"
+    description: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+  diagnostics:
+    type: object
+    $ref: "#/types/azure-native:streamanalytics:DiagnosticsResponse"
+    description: Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+  etag:
+    type: string
+    description: The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+  name:
+    type: string
+    description: Resource name
+  serialization:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics:AvroSerializationResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics:CsvSerializationResponse"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics:JsonSerializationResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        Avro: "#/types/azure-native:streamanalytics:AvroSerializationResponse"
+        Csv: "#/types/azure-native:streamanalytics:CsvSerializationResponse"
+        Json: "#/types/azure-native:streamanalytics:JsonSerializationResponse"
+    description: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+  type:
+    type: string
+    description: Resource type
+type: object
+required:
+  - diagnostics
+  - etag
+  - type
+inputProperties:
+  datasource:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics:AzureDataLakeStoreOutputDataSource"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics:AzureSqlDatabaseOutputDataSource"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics:AzureTableOutputDataSource"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics:BlobOutputDataSource"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics:DocumentDbOutputDataSource"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics:EventHubOutputDataSource"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics:PowerBIOutputDataSource"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics:ServiceBusQueueOutputDataSource"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics:ServiceBusTopicOutputDataSource"
+    discriminator:
+      propertyName: type
+      mapping:
+        Microsoft.DataLake/Accounts: "#/types/azure-native:streamanalytics:AzureDataLakeStoreOutputDataSource"
+        Microsoft.ServiceBus/EventHub: "#/types/azure-native:streamanalytics:EventHubOutputDataSource"
+        Microsoft.ServiceBus/Queue: "#/types/azure-native:streamanalytics:ServiceBusQueueOutputDataSource"
+        Microsoft.ServiceBus/Topic: "#/types/azure-native:streamanalytics:ServiceBusTopicOutputDataSource"
+        Microsoft.Sql/Server/Database: "#/types/azure-native:streamanalytics:AzureSqlDatabaseOutputDataSource"
+        Microsoft.Storage/Blob: "#/types/azure-native:streamanalytics:BlobOutputDataSource"
+        Microsoft.Storage/DocumentDB: "#/types/azure-native:streamanalytics:DocumentDbOutputDataSource"
+        Microsoft.Storage/Table: "#/types/azure-native:streamanalytics:AzureTableOutputDataSource"
+        PowerBI: "#/types/azure-native:streamanalytics:PowerBIOutputDataSource"
+    description: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+  jobName:
+    type: string
+    description: The name of the streaming job.
+  name:
+    type: string
+    description: Resource name
+  outputName:
+    type: string
+    description: The name of the output.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  serialization:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics:AvroSerialization"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics:CsvSerialization"
+      - type: object
+        $ref: "#/types/azure-native:streamanalytics:JsonSerialization"
+    discriminator:
+      propertyName: type
+      mapping:
+        Avro: "#/types/azure-native:streamanalytics:AvroSerialization"
+        Csv: "#/types/azure-native:streamanalytics:CsvSerialization"
+        Json: "#/types/azure-native:streamanalytics:JsonSerialization"
+    description: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+requiredInputs:
+  - jobName
+  - resourceGroupName
+aliases:
+  - type: azure-native:streamanalytics/v20160301:Output
+  - type: azure-native:streamanalytics/v20170401preview:Output
+  - type: azure-native:streamanalytics/v20200301:Output
+  - type: azure-native:streamanalytics/v20211001preview:Output

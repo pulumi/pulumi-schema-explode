@@ -1,0 +1,51 @@
+$token: azure-native:authorization/v20220401:getRoleDefinition
+description: Role definition.
+inputs:
+  properties:
+    roleDefinitionId:
+      type: string
+      description: The ID of the role definition.
+    scope:
+      type: string
+      description: The scope of the role definition.
+  type: object
+  required:
+    - roleDefinitionId
+    - scope
+outputs:
+  description: Role definition.
+  properties:
+    assignableScopes:
+      type: array
+      items:
+        type: string
+      description: Role definition assignable scopes.
+    description:
+      type: string
+      description: The role definition description.
+    id:
+      type: string
+      description: The role definition ID.
+    name:
+      type: string
+      description: The role definition name.
+    permissions:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:authorization/v20220401:PermissionResponse"
+      description: Role definition permissions.
+    roleName:
+      type: string
+      description: The role name.
+    roleType:
+      type: string
+      description: The role type.
+    type:
+      type: string
+      description: The role definition type.
+  type: object
+  required:
+    - id
+    - name
+    - type

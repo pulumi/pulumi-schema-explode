@@ -1,0 +1,14 @@
+$token: azure-native:containerinstance/v20180201preview:ContainerPort
+description: The port exposed on the container instance.
+properties:
+  port:
+    type: integer
+    description: The port number exposed within the container group.
+  protocol:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:containerinstance/v20180201preview:ContainerNetworkProtocol"
+    description: The protocol associated with the port.
+type: object
+required:
+  - port

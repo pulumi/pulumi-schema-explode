@@ -1,0 +1,116 @@
+$token: azure-native:synapse/v20210501:getWorkspace
+description: A workspace
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    workspaceName:
+      type: string
+      description: The name of the workspace
+  type: object
+  required:
+    - resourceGroupName
+    - workspaceName
+outputs:
+  description: A workspace
+  properties:
+    adlaResourceId:
+      type: string
+      description: The ADLA resource ID.
+    connectivityEndpoints:
+      type: object
+      additionalProperties:
+        type: string
+      description: Connectivity endpoints
+    cspWorkspaceAdminProperties:
+      type: object
+      $ref: "#/types/azure-native:synapse/v20210501:CspWorkspaceAdminPropertiesResponse"
+      description: Initial workspace AAD admin properties for a CSP subscription
+    defaultDataLakeStorage:
+      type: object
+      $ref: "#/types/azure-native:synapse/v20210501:DataLakeStorageAccountDetailsResponse"
+      description: Workspace default data lake storage account details
+    encryption:
+      type: object
+      $ref: "#/types/azure-native:synapse/v20210501:EncryptionDetailsResponse"
+      description: The encryption details of the workspace
+    extraProperties:
+      type: object
+      additionalProperties:
+        $ref: pulumi.json#/Any
+      description: Workspace level configs and feature flags
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    identity:
+      type: object
+      $ref: "#/types/azure-native:synapse/v20210501:ManagedIdentityResponse"
+      description: Identity of the workspace
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    managedResourceGroupName:
+      type: string
+      description: Workspace managed resource group. The resource group name uniquely identifies the resource group within the user subscriptionId. The resource group name must be no longer than 90 characters long, and must be alphanumeric characters (Char.IsLetterOrDigit()) and '-', '_', '(', ')' and'.'. Note that the name cannot end with '.'
+    managedVirtualNetwork:
+      type: string
+      description: Setting this to 'default' will ensure that all compute for this workspace is in a virtual network managed on behalf of the user.
+    managedVirtualNetworkSettings:
+      type: object
+      $ref: "#/types/azure-native:synapse/v20210501:ManagedVirtualNetworkSettingsResponse"
+      description: Managed Virtual Network Settings
+    name:
+      type: string
+      description: The name of the resource
+    privateEndpointConnections:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:synapse/v20210501:PrivateEndpointConnectionResponse"
+      description: Private endpoint connections to the workspace
+    provisioningState:
+      type: string
+      description: Resource provisioning state
+    publicNetworkAccess:
+      type: string
+      description: Enable or Disable public network access to workspace
+    purviewConfiguration:
+      type: object
+      $ref: "#/types/azure-native:synapse/v20210501:PurviewConfigurationResponse"
+      description: Purview Configuration
+    sqlAdministratorLogin:
+      type: string
+      description: Login for workspace SQL active directory administrator
+    sqlAdministratorLoginPassword:
+      type: string
+      description: SQL administrator login password
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+    virtualNetworkProfile:
+      type: object
+      $ref: "#/types/azure-native:synapse/v20210501:VirtualNetworkProfileResponse"
+      description: Virtual Network profile
+    workspaceRepositoryConfiguration:
+      type: object
+      $ref: "#/types/azure-native:synapse/v20210501:WorkspaceRepositoryConfigurationResponse"
+      description: Git integration settings
+    workspaceUID:
+      type: string
+      description: The workspace unique identifier
+  type: object
+  required:
+    - adlaResourceId
+    - extraProperties
+    - id
+    - location
+    - name
+    - provisioningState
+    - type
+    - workspaceUID

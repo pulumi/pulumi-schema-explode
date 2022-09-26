@@ -1,0 +1,26 @@
+$token: azure-native:portal:getConsoleWithLocation
+description: |-
+  Cloud shell console
+  API Version: 2018-10-01.
+inputs:
+  properties:
+    consoleName:
+      type: string
+      description: The name of the console
+    location:
+      type: string
+      description: The provider location
+  type: object
+  required:
+    - consoleName
+    - location
+outputs:
+  description: Cloud shell console
+  properties:
+    properties:
+      type: object
+      $ref: "#/types/azure-native:portal:ConsolePropertiesResponse"
+      description: Cloud shell console properties.
+  type: object
+  required:
+    - properties

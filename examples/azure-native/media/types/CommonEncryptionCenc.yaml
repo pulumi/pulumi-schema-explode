@@ -1,0 +1,22 @@
+$token: azure-native:media:CommonEncryptionCenc
+description: Class for envelope encryption scheme
+properties:
+  clearTracks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:media:TrackSelection"
+    description: Representing which tracks should not be encrypted
+  contentKeys:
+    type: object
+    $ref: "#/types/azure-native:media:StreamingPolicyContentKeys"
+    description: Representing default content key for each encryption scheme and separate content keys for specific tracks
+  drm:
+    type: object
+    $ref: "#/types/azure-native:media:CencDrmConfiguration"
+    description: Configuration of DRMs for CommonEncryptionCenc encryption scheme
+  enabledProtocols:
+    type: object
+    $ref: "#/types/azure-native:media:EnabledProtocols"
+    description: Representing supported protocols
+type: object

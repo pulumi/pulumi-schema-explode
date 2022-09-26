@@ -1,0 +1,20 @@
+$token: azure-native:media/v20211101:BuiltInStandardEncoderPresetResponse
+description: Describes a built-in preset for encoding the input video with the Standard Encoder.
+properties:
+  configurations:
+    type: object
+    $ref: "#/types/azure-native:media/v20211101:PresetConfigurationsResponse"
+    description: Optional configuration settings for encoder. Configurations is only supported for ContentAwareEncoding and H265ContentAwareEncoding BuiltInStandardEncoderPreset.
+  odataType:
+    type: string
+    description: |-
+      The discriminator for derived types.
+      Expected value is '#Microsoft.Media.BuiltInStandardEncoderPreset'.
+    const: "#Microsoft.Media.BuiltInStandardEncoderPreset"
+  presetName:
+    type: string
+    description: The built-in preset to be used for encoding videos.
+type: object
+required:
+  - odataType
+  - presetName

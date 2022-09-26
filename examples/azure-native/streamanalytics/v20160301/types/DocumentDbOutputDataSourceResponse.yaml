@@ -1,0 +1,30 @@
+$token: azure-native:streamanalytics/v20160301:DocumentDbOutputDataSourceResponse
+description: Describes a DocumentDB output data source.
+properties:
+  accountId:
+    type: string
+    description: The DocumentDB account name or ID. Required on PUT (CreateOrReplace) requests.
+  accountKey:
+    type: string
+    description: The account key for the DocumentDB account. Required on PUT (CreateOrReplace) requests.
+  collectionNamePattern:
+    type: string
+    description: The collection name pattern for the collections to be used. The collection name format can be constructed using the optional {partition} token, where partitions start from 0. See the DocumentDB section of https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for more information. Required on PUT (CreateOrReplace) requests.
+  database:
+    type: string
+    description: The name of the DocumentDB database. Required on PUT (CreateOrReplace) requests.
+  documentId:
+    type: string
+    description: The name of the field in output events used to specify the primary key which insert or update operations are based on.
+  partitionKey:
+    type: string
+    description: The name of the field in output events used to specify the key for partitioning output across collections. If 'collectionNamePattern' contains the {partition} token, this property is required to be specified.
+  type:
+    type: string
+    description: |-
+      Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+      Expected value is 'Microsoft.Storage/DocumentDB'.
+    const: Microsoft.Storage/DocumentDB
+type: object
+required:
+  - type

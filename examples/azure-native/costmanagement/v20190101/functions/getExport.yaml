@@ -1,0 +1,54 @@
+$token: azure-native:costmanagement/v20190101:getExport
+description: A export resource.
+inputs:
+  properties:
+    exportName:
+      type: string
+      description: Export Name.
+    scope:
+      type: string
+      description: The scope associated with export operations. This includes '/subscriptions/{subscriptionId}' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope.
+  type: object
+  required:
+    - exportName
+    - scope
+outputs:
+  description: A export resource.
+  properties:
+    definition:
+      type: object
+      $ref: "#/types/azure-native:costmanagement/v20190101:QueryDefinitionResponse"
+      description: Has definition for the export.
+    deliveryInfo:
+      type: object
+      $ref: "#/types/azure-native:costmanagement/v20190101:ExportDeliveryInfoResponse"
+      description: Has delivery information for the export.
+    format:
+      type: string
+      description: The format of the export being delivered.
+    id:
+      type: string
+      description: Resource Id.
+    name:
+      type: string
+      description: Resource name.
+    schedule:
+      type: object
+      $ref: "#/types/azure-native:costmanagement/v20190101:ExportScheduleResponse"
+      description: Has schedule information for the export.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - definition
+    - deliveryInfo
+    - id
+    - name
+    - tags
+    - type

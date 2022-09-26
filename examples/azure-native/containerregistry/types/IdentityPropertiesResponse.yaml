@@ -1,0 +1,25 @@
+$token: azure-native:containerregistry:IdentityPropertiesResponse
+description: Managed identity for the resource.
+properties:
+  principalId:
+    type: string
+    description: The principal ID of resource identity.
+  tenantId:
+    type: string
+    description: The tenant ID of resource.
+  type:
+    type: string
+    description: The identity type.
+  userAssignedIdentities:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:containerregistry:UserIdentityPropertiesResponse"
+    description: "The list of user identities associated with the resource. The user identity \r
+
+      dictionary key references will be ARM resource ids in the form: \r
+
+      '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/\r
+
+      \    providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'."
+type: object

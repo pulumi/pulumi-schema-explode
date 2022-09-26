@@ -1,0 +1,74 @@
+$token: azure-native:hardwaresecuritymodules/v20211130:getDedicatedHsm
+description: Resource information with extended details.
+inputs:
+  properties:
+    name:
+      type: string
+      description: The name of the dedicated HSM.
+    resourceGroupName:
+      type: string
+      description: The name of the Resource Group to which the dedicated hsm belongs.
+  type: object
+  required:
+    - name
+    - resourceGroupName
+outputs:
+  description: Resource information with extended details.
+  properties:
+    id:
+      type: string
+      description: The Azure Resource Manager resource ID for the dedicated HSM.
+    location:
+      type: string
+      description: The supported Azure location where the dedicated HSM should be created.
+    managementNetworkProfile:
+      type: object
+      $ref: "#/types/azure-native:hardwaresecuritymodules/v20211130:NetworkProfileResponse"
+      description: Specifies the management network interfaces of the dedicated hsm.
+    name:
+      type: string
+      description: The name of the dedicated HSM.
+    networkProfile:
+      type: object
+      $ref: "#/types/azure-native:hardwaresecuritymodules/v20211130:NetworkProfileResponse"
+      description: Specifies the network interfaces of the dedicated hsm.
+    provisioningState:
+      type: string
+      description: Provisioning state.
+    sku:
+      type: object
+      $ref: "#/types/azure-native:hardwaresecuritymodules/v20211130:SkuResponse"
+      description: SKU details
+    stampId:
+      type: string
+      description: This field will be used when RP does not support Availability zones.
+    statusMessage:
+      type: string
+      description: Resource Status Message.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:hardwaresecuritymodules/v20211130:SystemDataResponse"
+      description: Metadata pertaining to creation and last modification of the resource
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    type:
+      type: string
+      description: The resource type of the dedicated HSM.
+    zones:
+      type: array
+      items:
+        type: string
+      description: The Dedicated Hsm zones.
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - provisioningState
+    - sku
+    - statusMessage
+    - systemData
+    - type

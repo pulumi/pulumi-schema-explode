@@ -1,0 +1,72 @@
+$token: azure-native:videoanalyzer/v20211101preview:Video
+description: Represents a video resource within Azure Video Analyzer. Videos can be ingested from RTSP cameras through live pipelines or can be created by exporting sequences from existing captured video through a pipeline job. Videos ingested through live pipelines can be streamed through Azure Video Analyzer Player Widget or compatible players. Exported videos can be downloaded as MP4 files.
+properties:
+  archival:
+    type: object
+    $ref: "#/types/azure-native:videoanalyzer/v20211101preview:VideoArchivalResponse"
+    description: Video archival properties.
+  contentUrls:
+    type: object
+    $ref: "#/types/azure-native:videoanalyzer/v20211101preview:VideoContentUrlsResponse"
+    description: Set of URLs to the video content.
+  description:
+    type: string
+    description: Optional video description provided by the user. Value can be up to 2048 characters long.
+  flags:
+    type: object
+    $ref: "#/types/azure-native:videoanalyzer/v20211101preview:VideoFlagsResponse"
+    description: Video flags contain information about the available video actions and its dynamic properties based on the current video state.
+  mediaInfo:
+    type: object
+    $ref: "#/types/azure-native:videoanalyzer/v20211101preview:VideoMediaInfoResponse"
+    description: Contains information about the video and audio content.
+  name:
+    type: string
+    description: The name of the resource
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:videoanalyzer/v20211101preview:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  title:
+    type: string
+    description: Optional video title provided by the user. Value can be up to 256 characters long.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - contentUrls
+  - flags
+  - name
+  - systemData
+  - type
+inputProperties:
+  accountName:
+    type: string
+    description: The Azure Video Analyzer account name.
+  archival:
+    type: object
+    $ref: "#/types/azure-native:videoanalyzer/v20211101preview:VideoArchival"
+    description: Video archival properties.
+  description:
+    type: string
+    description: Optional video description provided by the user. Value can be up to 2048 characters long.
+  mediaInfo:
+    type: object
+    $ref: "#/types/azure-native:videoanalyzer/v20211101preview:VideoMediaInfo"
+    description: Contains information about the video and audio content.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  title:
+    type: string
+    description: Optional video title provided by the user. Value can be up to 256 characters long.
+  videoName:
+    type: string
+    description: The Video name.
+requiredInputs:
+  - accountName
+  - resourceGroupName
+aliases:
+  - type: azure-native:videoanalyzer:Video
+  - type: azure-native:videoanalyzer/v20210501preview:Video

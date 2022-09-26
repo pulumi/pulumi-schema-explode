@@ -1,0 +1,115 @@
+$token: azure-native:network/v20180801:getVirtualNetworkGatewayConnection
+description: A common class for general resource information
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    virtualNetworkGatewayConnectionName:
+      type: string
+      description: The name of the virtual network gateway connection.
+  type: object
+  required:
+    - resourceGroupName
+    - virtualNetworkGatewayConnectionName
+outputs:
+  description: A common class for general resource information
+  properties:
+    authorizationKey:
+      type: string
+      description: The authorizationKey.
+    connectionProtocol:
+      type: string
+      description: Connection protocol used for this connection
+    connectionStatus:
+      type: string
+      description: Virtual network Gateway connection status. Possible values are 'Unknown', 'Connecting', 'Connected' and 'NotConnected'.
+    connectionType:
+      type: string
+      description: "Gateway connection type. Possible values are: 'IPsec','Vnet2Vnet','ExpressRoute', and 'VPNClient."
+    egressBytesTransferred:
+      type: number
+      description: The egress bytes transferred in this connection.
+    enableBgp:
+      type: boolean
+      description: EnableBgp flag
+    etag:
+      type: string
+      description: Gets a unique read-only string that changes whenever the resource is updated.
+    expressRouteGatewayBypass:
+      type: boolean
+      description: Bypass ExpressRoute Gateway for data forwarding
+    id:
+      type: string
+      description: Resource ID.
+    ingressBytesTransferred:
+      type: number
+      description: The ingress bytes transferred in this connection.
+    ipsecPolicies:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20180801:IpsecPolicyResponse"
+      description: The IPSec Policies to be considered by this connection.
+    localNetworkGateway2:
+      type: object
+      $ref: "#/types/azure-native:network/v20180801:LocalNetworkGatewayResponse"
+      description: The reference to local network gateway resource.
+    location:
+      type: string
+      description: Resource location.
+    name:
+      type: string
+      description: Resource name.
+    peer:
+      type: object
+      $ref: "#/types/azure-native:network/v20180801:SubResourceResponse"
+      description: The reference to peerings resource.
+    provisioningState:
+      type: string
+      description: "The provisioning state of the VirtualNetworkGatewayConnection resource. Possible values are: 'Updating', 'Deleting', and 'Failed'."
+    resourceGuid:
+      type: string
+      description: The resource GUID property of the VirtualNetworkGatewayConnection resource.
+    routingWeight:
+      type: integer
+      description: The routing weight.
+    sharedKey:
+      type: string
+      description: The IPSec shared key.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    tunnelConnectionStatus:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20180801:TunnelConnectionHealthResponse"
+      description: Collection of all tunnels' connection health status.
+    type:
+      type: string
+      description: Resource type.
+    usePolicyBasedTrafficSelectors:
+      type: boolean
+      description: Enable policy-based traffic selectors.
+    virtualNetworkGateway1:
+      type: object
+      $ref: "#/types/azure-native:network/v20180801:VirtualNetworkGatewayResponse"
+      description: The reference to virtual network gateway resource.
+    virtualNetworkGateway2:
+      type: object
+      $ref: "#/types/azure-native:network/v20180801:VirtualNetworkGatewayResponse"
+      description: The reference to virtual network gateway resource.
+  type: object
+  required:
+    - connectionStatus
+    - connectionType
+    - egressBytesTransferred
+    - ingressBytesTransferred
+    - name
+    - provisioningState
+    - tunnelConnectionStatus
+    - type
+    - virtualNetworkGateway1

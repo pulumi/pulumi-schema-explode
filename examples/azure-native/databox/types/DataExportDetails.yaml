@@ -1,0 +1,29 @@
+$token: azure-native:databox:DataExportDetails
+description: Details of the data to be used for exporting data from azure.
+properties:
+  accountDetails:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:databox:ManagedDiskDetails"
+      - type: object
+        $ref: "#/types/azure-native:databox:StorageAccountDetails"
+    discriminator:
+      propertyName: dataAccountType
+      mapping:
+        ManagedDisk: "#/types/azure-native:databox:ManagedDiskDetails"
+        StorageAccount: "#/types/azure-native:databox:StorageAccountDetails"
+    description: Account details of the data to be transferred
+  logCollectionLevel:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:databox:LogCollectionLevel"
+    description: Level of the logs to be collected.
+    default: Error
+  transferConfiguration:
+    type: object
+    $ref: "#/types/azure-native:databox:TransferConfiguration"
+    description: Configuration for the data transfer.
+type: object
+required:
+  - accountDetails
+  - transferConfiguration

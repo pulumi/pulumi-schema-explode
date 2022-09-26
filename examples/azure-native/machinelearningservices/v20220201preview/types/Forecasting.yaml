@@ -1,0 +1,58 @@
+$token: azure-native:machinelearningservices/v20220201preview:Forecasting
+description: Forecasting task in AutoML Table vertical.
+properties:
+  allowedModels:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:machinelearningservices/v20220201preview:ForecastingModels"
+    description: Allowed models for forecasting task.
+  blockedModels:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:machinelearningservices/v20220201preview:ForecastingModels"
+    description: Blocked models for forecasting task.
+  dataSettings:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220201preview:TableVerticalDataSettings"
+    description: Data inputs for AutoMLJob.
+  featurizationSettings:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220201preview:TableVerticalFeaturizationSettings"
+    description: Featurization inputs needed for AutoML job.
+  forecastingSettings:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220201preview:ForecastingSettings"
+    description: Forecasting task specific inputs.
+  limitSettings:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220201preview:TableVerticalLimitSettings"
+    description: Execution constraints for AutoMLJob.
+  logVerbosity:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearningservices/v20220201preview:LogVerbosity"
+    description: Log verbosity for the job.
+    default: Info
+  primaryMetric:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearningservices/v20220201preview:ForecastingPrimaryMetrics"
+    description: Primary metric for forecasting task.
+    default: NormalizedRootMeanSquaredError
+  taskType:
+    type: string
+    description: |-
+      AutoMLJob Task type.
+      Expected value is 'Forecasting'.
+    const: Forecasting
+  trainingSettings:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220201preview:TrainingSettings"
+    description: Inputs for training phase for an AutoML Job.
+type: object
+required:
+  - taskType

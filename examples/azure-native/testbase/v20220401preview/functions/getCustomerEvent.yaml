@@ -1,0 +1,51 @@
+$token: azure-native:testbase/v20220401preview:getCustomerEvent
+description: The Customer Notification Event resource.
+inputs:
+  properties:
+    customerEventName:
+      type: string
+      description: The resource name of the Test Base Customer event.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the resource.
+    testBaseAccountName:
+      type: string
+      description: The resource name of the Test Base Account.
+  type: object
+  required:
+    - customerEventName
+    - resourceGroupName
+    - testBaseAccountName
+outputs:
+  description: The Customer Notification Event resource.
+  properties:
+    eventName:
+      type: string
+      description: The name of the event subscribed to.
+    id:
+      type: string
+      description: Resource ID.
+    name:
+      type: string
+      description: Resource name.
+    receivers:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:testbase/v20220401preview:NotificationEventReceiverResponse"
+      description: The notification event receivers.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:testbase/v20220401preview:SystemDataResponse"
+      description: The system metadata relating to this resource
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - eventName
+    - id
+    - name
+    - receivers
+    - systemData
+    - type

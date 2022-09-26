@@ -1,0 +1,25 @@
+$token: azure-native:costmanagement/v20200301preview:CostAllocationRulePropertiesResponse
+description: The properties of a cost allocation rule
+properties:
+  createdDate:
+    type: string
+    description: Time at which the rule was created. Rules that change cost for the same resource are applied in order of creation.
+  description:
+    type: string
+    description: Description of a cost allocation rule.
+  details:
+    type: object
+    $ref: "#/types/azure-native:costmanagement/v20200301preview:CostAllocationRuleDetailsResponse"
+    description: Resource information for the cost allocation rule
+  status:
+    type: string
+    description: Status of the rule
+  updatedDate:
+    type: string
+    description: Time at which the rule was last updated.
+type: object
+required:
+  - createdDate
+  - details
+  - status
+  - updatedDate

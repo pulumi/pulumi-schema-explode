@@ -1,0 +1,14 @@
+$token: azure-native:containerservice/v20170131:ContainerServiceLinuxProfile
+description: Profile for Linux VMs in the container service cluster.
+properties:
+  adminUsername:
+    type: string
+    description: The administrator username to use for Linux VMs.
+  ssh:
+    type: object
+    $ref: "#/types/azure-native:containerservice/v20170131:ContainerServiceSshConfiguration"
+    description: The ssh key configuration for Linux VMs.
+type: object
+required:
+  - adminUsername
+  - ssh

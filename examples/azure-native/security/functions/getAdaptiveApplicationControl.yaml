@@ -1,0 +1,71 @@
+$token: azure-native:security:getAdaptiveApplicationControl
+description: |-
+  
+  API Version: 2020-01-01.
+inputs:
+  properties:
+    ascLocation:
+      type: string
+      description: The location where ASC stores the data of the subscription. can be retrieved from Get locations
+    groupName:
+      type: string
+      description: Name of an application control machine group
+  type: object
+  required:
+    - ascLocation
+    - groupName
+outputs:
+  properties:
+    configurationStatus:
+      type: string
+      description: The configuration status of the machines group or machine or rule
+    enforcementMode:
+      type: string
+      description: The application control policy enforcement/protection mode of the machine group
+    id:
+      type: string
+      description: Resource Id
+    issues:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:security:AdaptiveApplicationControlIssueSummaryResponse"
+    location:
+      type: string
+      description: Location where the resource is stored
+    name:
+      type: string
+      description: Resource name
+    pathRecommendations:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:security:PathRecommendationResponse"
+    protectionMode:
+      type: object
+      $ref: "#/types/azure-native:security:ProtectionModeResponse"
+      description: The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+    recommendationStatus:
+      type: string
+      description: The initial recommendation status of the machine group or machine
+    sourceSystem:
+      type: string
+      description: The source type of the machine group
+    type:
+      type: string
+      description: Resource type
+    vmRecommendations:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:security:VmRecommendationResponse"
+  type: object
+  required:
+    - configurationStatus
+    - id
+    - issues
+    - location
+    - name
+    - recommendationStatus
+    - sourceSystem
+    - type

@@ -1,0 +1,74 @@
+$token: azure-native:healthbot/v20210610:Bot
+description: Azure Health Bot resource definition
+properties:
+  identity:
+    type: object
+    $ref: "#/types/azure-native:healthbot/v20210610:IdentityResponse"
+    description: The identity of the Azure Health Bot.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  name:
+    type: string
+    description: The name of the resource
+  properties:
+    type: object
+    $ref: "#/types/azure-native:healthbot/v20210610:HealthBotPropertiesResponse"
+    description: The set of properties specific to Azure Health Bot resource.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:healthbot/v20210610:SkuResponse"
+    description: SKU of the Azure Health Bot.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:healthbot/v20210610:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - location
+  - name
+  - properties
+  - sku
+  - systemData
+  - type
+inputProperties:
+  botName:
+    type: string
+    description: The name of the Bot resource.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:healthbot/v20210610:Identity"
+    description: The identity of the Azure Health Bot.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  resourceGroupName:
+    type: string
+    description: The name of the Bot resource group in the user subscription.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:healthbot/v20210610:Sku"
+    description: SKU of the Azure Health Bot.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - resourceGroupName
+  - sku
+aliases:
+  - type: azure-native:healthbot:Bot
+  - type: azure-native:healthbot/v20201020:Bot
+  - type: azure-native:healthbot/v20201020preview:Bot
+  - type: azure-native:healthbot/v20201208:Bot
+  - type: azure-native:healthbot/v20201208preview:Bot
+  - type: azure-native:healthbot/v20210824:Bot

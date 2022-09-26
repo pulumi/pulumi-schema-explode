@@ -1,0 +1,189 @@
+$token: azure-native:datamigration/v20180715preview:Project
+description: A project resource
+properties:
+  creationTime:
+    type: string
+    description: UTC Date and time when project was created
+  databasesInfo:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration/v20180715preview:DatabaseInfoResponse"
+    description: List of DatabaseInfo
+  location:
+    type: string
+    description: Resource location.
+  name:
+    type: string
+    description: Resource name.
+  provisioningState:
+    type: string
+    description: The project's provisioning state
+  sourceConnectionInfo:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20180715preview:MiSqlConnectionInfoResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20180715preview:MongoDbConnectionInfoResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20180715preview:MySqlConnectionInfoResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20180715preview:OracleConnectionInfoResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20180715preview:PostgreSqlConnectionInfoResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20180715preview:SqlConnectionInfoResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        MiSqlConnectionInfo: "#/types/azure-native:datamigration/v20180715preview:MiSqlConnectionInfoResponse"
+        MongoDbConnectionInfo: "#/types/azure-native:datamigration/v20180715preview:MongoDbConnectionInfoResponse"
+        MySqlConnectionInfo: "#/types/azure-native:datamigration/v20180715preview:MySqlConnectionInfoResponse"
+        OracleConnectionInfo: "#/types/azure-native:datamigration/v20180715preview:OracleConnectionInfoResponse"
+        PostgreSqlConnectionInfo: "#/types/azure-native:datamigration/v20180715preview:PostgreSqlConnectionInfoResponse"
+        SqlConnectionInfo: "#/types/azure-native:datamigration/v20180715preview:SqlConnectionInfoResponse"
+    description: Information for connecting to source
+  sourcePlatform:
+    type: string
+    description: Source platform for the project
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  targetConnectionInfo:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20180715preview:MiSqlConnectionInfoResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20180715preview:MongoDbConnectionInfoResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20180715preview:MySqlConnectionInfoResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20180715preview:OracleConnectionInfoResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20180715preview:PostgreSqlConnectionInfoResponse"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20180715preview:SqlConnectionInfoResponse"
+    discriminator:
+      propertyName: type
+      mapping:
+        MiSqlConnectionInfo: "#/types/azure-native:datamigration/v20180715preview:MiSqlConnectionInfoResponse"
+        MongoDbConnectionInfo: "#/types/azure-native:datamigration/v20180715preview:MongoDbConnectionInfoResponse"
+        MySqlConnectionInfo: "#/types/azure-native:datamigration/v20180715preview:MySqlConnectionInfoResponse"
+        OracleConnectionInfo: "#/types/azure-native:datamigration/v20180715preview:OracleConnectionInfoResponse"
+        PostgreSqlConnectionInfo: "#/types/azure-native:datamigration/v20180715preview:PostgreSqlConnectionInfoResponse"
+        SqlConnectionInfo: "#/types/azure-native:datamigration/v20180715preview:SqlConnectionInfoResponse"
+    description: Information for connecting to target
+  targetPlatform:
+    type: string
+    description: Target platform for the project
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - creationTime
+  - location
+  - name
+  - provisioningState
+  - sourcePlatform
+  - targetPlatform
+  - type
+inputProperties:
+  databasesInfo:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration/v20180715preview:DatabaseInfo"
+    description: List of DatabaseInfo
+  groupName:
+    type: string
+    description: Name of the resource group
+  location:
+    type: string
+    description: Resource location.
+  projectName:
+    type: string
+    description: Name of the project
+  serviceName:
+    type: string
+    description: Name of the service
+  sourceConnectionInfo:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20180715preview:MiSqlConnectionInfo"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20180715preview:MongoDbConnectionInfo"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20180715preview:MySqlConnectionInfo"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20180715preview:OracleConnectionInfo"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20180715preview:PostgreSqlConnectionInfo"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20180715preview:SqlConnectionInfo"
+    discriminator:
+      propertyName: type
+      mapping:
+        MiSqlConnectionInfo: "#/types/azure-native:datamigration/v20180715preview:MiSqlConnectionInfo"
+        MongoDbConnectionInfo: "#/types/azure-native:datamigration/v20180715preview:MongoDbConnectionInfo"
+        MySqlConnectionInfo: "#/types/azure-native:datamigration/v20180715preview:MySqlConnectionInfo"
+        OracleConnectionInfo: "#/types/azure-native:datamigration/v20180715preview:OracleConnectionInfo"
+        PostgreSqlConnectionInfo: "#/types/azure-native:datamigration/v20180715preview:PostgreSqlConnectionInfo"
+        SqlConnectionInfo: "#/types/azure-native:datamigration/v20180715preview:SqlConnectionInfo"
+    description: Information for connecting to source
+  sourcePlatform:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:datamigration/v20180715preview:ProjectSourcePlatform"
+    description: Source platform for the project
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  targetConnectionInfo:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20180715preview:MiSqlConnectionInfo"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20180715preview:MongoDbConnectionInfo"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20180715preview:MySqlConnectionInfo"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20180715preview:OracleConnectionInfo"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20180715preview:PostgreSqlConnectionInfo"
+      - type: object
+        $ref: "#/types/azure-native:datamigration/v20180715preview:SqlConnectionInfo"
+    discriminator:
+      propertyName: type
+      mapping:
+        MiSqlConnectionInfo: "#/types/azure-native:datamigration/v20180715preview:MiSqlConnectionInfo"
+        MongoDbConnectionInfo: "#/types/azure-native:datamigration/v20180715preview:MongoDbConnectionInfo"
+        MySqlConnectionInfo: "#/types/azure-native:datamigration/v20180715preview:MySqlConnectionInfo"
+        OracleConnectionInfo: "#/types/azure-native:datamigration/v20180715preview:OracleConnectionInfo"
+        PostgreSqlConnectionInfo: "#/types/azure-native:datamigration/v20180715preview:PostgreSqlConnectionInfo"
+        SqlConnectionInfo: "#/types/azure-native:datamigration/v20180715preview:SqlConnectionInfo"
+    description: Information for connecting to target
+  targetPlatform:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:datamigration/v20180715preview:ProjectTargetPlatform"
+    description: Target platform for the project
+requiredInputs:
+  - groupName
+  - serviceName
+  - sourcePlatform
+  - targetPlatform
+aliases:
+  - type: azure-native:datamigration:Project
+  - type: azure-native:datamigration/v20171115preview:Project
+  - type: azure-native:datamigration/v20180315preview:Project
+  - type: azure-native:datamigration/v20180331preview:Project
+  - type: azure-native:datamigration/v20180419:Project
+  - type: azure-native:datamigration/v20210630:Project
+  - type: azure-native:datamigration/v20211030preview:Project
+  - type: azure-native:datamigration/v20220130preview:Project
+  - type: azure-native:datamigration/v20220330preview:Project

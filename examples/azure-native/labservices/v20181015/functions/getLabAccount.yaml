@@ -1,0 +1,61 @@
+$token: azure-native:labservices/v20181015:getLabAccount
+description: Represents a lab account.
+inputs:
+  properties:
+    expand:
+      type: string
+      description: "Specify the $expand query. Example: 'properties($expand=sizeConfiguration)'"
+    labAccountName:
+      type: string
+      description: The name of the lab Account.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - labAccountName
+    - resourceGroupName
+outputs:
+  description: Represents a lab account.
+  properties:
+    enabledRegionSelection:
+      type: boolean
+      description: Represents if region selection is enabled
+    id:
+      type: string
+      description: The identifier of the resource.
+    latestOperationResult:
+      type: object
+      $ref: "#/types/azure-native:labservices/v20181015:LatestOperationResultResponse"
+      description: "The details of the latest operation. ex: status, error"
+    location:
+      type: string
+      description: The location of the resource.
+    name:
+      type: string
+      description: The name of the resource.
+    provisioningState:
+      type: string
+      description: The provisioning status of the resource.
+    sizeConfiguration:
+      type: object
+      $ref: "#/types/azure-native:labservices/v20181015:SizeConfigurationPropertiesResponse"
+      description: Represents the size configuration under the lab account
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: The tags of the resource.
+    type:
+      type: string
+      description: The type of the resource.
+    uniqueIdentifier:
+      type: string
+      description: The unique immutable identifier of a resource (Guid).
+  type: object
+  required:
+    - id
+    - latestOperationResult
+    - name
+    - sizeConfiguration
+    - type

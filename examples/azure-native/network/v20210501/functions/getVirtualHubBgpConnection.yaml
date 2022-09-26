@@ -1,0 +1,55 @@
+$token: azure-native:network/v20210501:getVirtualHubBgpConnection
+description: Virtual Appliance Site resource.
+inputs:
+  properties:
+    connectionName:
+      type: string
+      description: The name of the connection.
+    resourceGroupName:
+      type: string
+      description: The resource group name of the VirtualHub.
+    virtualHubName:
+      type: string
+      description: The name of the VirtualHub.
+  type: object
+  required:
+    - connectionName
+    - resourceGroupName
+    - virtualHubName
+outputs:
+  description: Virtual Appliance Site resource.
+  properties:
+    connectionState:
+      type: string
+      description: The current state of the VirtualHub to Peer.
+    etag:
+      type: string
+      description: A unique read-only string that changes whenever the resource is updated.
+    hubVirtualNetworkConnection:
+      type: object
+      $ref: "#/types/azure-native:network/v20210501:SubResourceResponse"
+      description: The reference to the HubVirtualNetworkConnection resource.
+    id:
+      type: string
+      description: Resource ID.
+    name:
+      type: string
+      description: Name of the connection.
+    peerAsn:
+      type: number
+      description: Peer ASN.
+    peerIp:
+      type: string
+      description: Peer IP.
+    provisioningState:
+      type: string
+      description: The provisioning state of the resource.
+    type:
+      type: string
+      description: Connection type.
+  type: object
+  required:
+    - connectionState
+    - etag
+    - provisioningState
+    - type

@@ -1,0 +1,81 @@
+$token: azure-native:costmanagement/v20201201preview:Export
+description: An export resource.
+properties:
+  definition:
+    type: object
+    $ref: "#/types/azure-native:costmanagement/v20201201preview:ExportDefinitionResponse"
+    description: Has the definition for the export.
+  deliveryInfo:
+    type: object
+    $ref: "#/types/azure-native:costmanagement/v20201201preview:ExportDeliveryInfoResponse"
+    description: Has delivery information for the export.
+  eTag:
+    type: string
+    description: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+  format:
+    type: string
+    description: The format of the export being delivered. Currently only 'Csv' is supported.
+  name:
+    type: string
+    description: Resource name.
+  nextRunTimeEstimate:
+    type: string
+    description: If the export has an active schedule, provides an estimate of the next execution time.
+  runHistory:
+    type: object
+    $ref: "#/types/azure-native:costmanagement/v20201201preview:ExportExecutionListResultResponse"
+    description: If requested, has the most recent execution history for the export.
+  schedule:
+    type: object
+    $ref: "#/types/azure-native:costmanagement/v20201201preview:ExportScheduleResponse"
+    description: Has schedule information for the export.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - definition
+  - deliveryInfo
+  - name
+  - nextRunTimeEstimate
+  - type
+inputProperties:
+  definition:
+    type: object
+    $ref: "#/types/azure-native:costmanagement/v20201201preview:ExportDefinition"
+    description: Has the definition for the export.
+  deliveryInfo:
+    type: object
+    $ref: "#/types/azure-native:costmanagement/v20201201preview:ExportDeliveryInfo"
+    description: Has delivery information for the export.
+  eTag:
+    type: string
+    description: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+  exportName:
+    type: string
+    description: Export Name.
+  format:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:costmanagement/v20201201preview:FormatType"
+    description: The format of the export being delivered. Currently only 'Csv' is supported.
+  schedule:
+    type: object
+    $ref: "#/types/azure-native:costmanagement/v20201201preview:ExportSchedule"
+    description: Has schedule information for the export.
+  scope:
+    type: string
+    description: The scope associated with export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope, and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/customers/{customerId}' specific for partners.
+requiredInputs:
+  - definition
+  - deliveryInfo
+  - scope
+aliases:
+  - type: azure-native:costmanagement:Export
+  - type: azure-native:costmanagement/v20190101:Export
+  - type: azure-native:costmanagement/v20190901:Export
+  - type: azure-native:costmanagement/v20191001:Export
+  - type: azure-native:costmanagement/v20191101:Export
+  - type: azure-native:costmanagement/v20200601:Export
+  - type: azure-native:costmanagement/v20210101:Export
+  - type: azure-native:costmanagement/v20211001:Export

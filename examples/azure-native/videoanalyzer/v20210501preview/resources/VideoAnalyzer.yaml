@@ -1,0 +1,86 @@
+$token: azure-native:videoanalyzer/v20210501preview:VideoAnalyzer
+description: A Video Analyzer account.
+properties:
+  encryption:
+    type: object
+    $ref: "#/types/azure-native:videoanalyzer/v20210501preview:AccountEncryptionResponse"
+    description: The account encryption properties.
+  endpoints:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:videoanalyzer/v20210501preview:EndpointResponse"
+    description: The list of endpoints associated with this resource.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:videoanalyzer/v20210501preview:VideoAnalyzerIdentityResponse"
+    description: The set of managed identities associated with the Video Analyzer resource.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  name:
+    type: string
+    description: The name of the resource
+  storageAccounts:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:videoanalyzer/v20210501preview:StorageAccountResponse"
+    description: The storage accounts for this resource.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:videoanalyzer/v20210501preview:SystemDataResponse"
+    description: The system data of the Video Analyzer account.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - encryption
+  - endpoints
+  - location
+  - name
+  - storageAccounts
+  - systemData
+  - type
+inputProperties:
+  accountName:
+    type: string
+    description: The Video Analyzer account name.
+  encryption:
+    type: object
+    $ref: "#/types/azure-native:videoanalyzer/v20210501preview:AccountEncryption"
+    description: The account encryption properties.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:videoanalyzer/v20210501preview:VideoAnalyzerIdentity"
+    description: The set of managed identities associated with the Video Analyzer resource.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  storageAccounts:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:videoanalyzer/v20210501preview:StorageAccount"
+    description: The storage accounts for this resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - encryption
+  - resourceGroupName
+  - storageAccounts
+aliases:
+  - type: azure-native:videoanalyzer:VideoAnalyzer
+  - type: azure-native:videoanalyzer/v20211101preview:VideoAnalyzer

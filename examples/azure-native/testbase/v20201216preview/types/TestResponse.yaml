@@ -1,0 +1,23 @@
+$token: azure-native:testbase/v20201216preview:TestResponse
+description: The definition of a Test.
+properties:
+  commands:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:testbase/v20201216preview:CommandResponse"
+    description: The commands used in the test.
+  isActive:
+    type: boolean
+    description: Indicates if this test is active.It doesn't schedule test for not active Test.
+  testType:
+    type: string
+    description: The type of the test.
+  validationRunStatus:
+    type: string
+    description: The status of the validation run of the package.
+type: object
+required:
+  - commands
+  - testType
+  - validationRunStatus

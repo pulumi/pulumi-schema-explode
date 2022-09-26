@@ -1,0 +1,54 @@
+$token: azure-native:network/v20190701:getRouteFilterRule
+description: Route Filter Rule Resource.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    routeFilterName:
+      type: string
+      description: The name of the route filter.
+    ruleName:
+      type: string
+      description: The name of the rule.
+  type: object
+  required:
+    - resourceGroupName
+    - routeFilterName
+    - ruleName
+outputs:
+  description: Route Filter Rule Resource.
+  properties:
+    access:
+      type: string
+      description: The access type of the rule.
+    communities:
+      type: array
+      items:
+        type: string
+      description: The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].
+    etag:
+      type: string
+      description: A unique read-only string that changes whenever the resource is updated.
+    id:
+      type: string
+      description: Resource ID.
+    location:
+      type: string
+      description: Resource location.
+    name:
+      type: string
+      description: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+    provisioningState:
+      type: string
+      description: The provisioning state of the route filter rule resource.
+    routeFilterRuleType:
+      type: string
+      description: The rule type of the rule.
+  type: object
+  required:
+    - access
+    - communities
+    - etag
+    - provisioningState
+    - routeFilterRuleType

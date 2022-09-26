@@ -1,0 +1,106 @@
+$token: azure-native:datamigration/v20171115preview:Project
+description: A project resource
+properties:
+  creationTime:
+    type: string
+    description: UTC Date and time when project was created
+  databasesInfo:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration/v20171115preview:DatabaseInfoResponse"
+    description: List of DatabaseInfo
+  location:
+    type: string
+    description: Resource location.
+  name:
+    type: string
+    description: Resource name.
+  provisioningState:
+    type: string
+    description: The project's provisioning state
+  sourceConnectionInfo:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20171115preview:SqlConnectionInfoResponse"
+    description: Information for connecting to source
+  sourcePlatform:
+    type: string
+    description: Source platform for the project
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  targetConnectionInfo:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20171115preview:SqlConnectionInfoResponse"
+    description: Information for connecting to target
+  targetPlatform:
+    type: string
+    description: Target platform for the project
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - creationTime
+  - location
+  - name
+  - provisioningState
+  - sourcePlatform
+  - targetPlatform
+  - type
+inputProperties:
+  databasesInfo:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration/v20171115preview:DatabaseInfo"
+    description: List of DatabaseInfo
+  groupName:
+    type: string
+    description: Name of the resource group
+  location:
+    type: string
+    description: Resource location.
+  projectName:
+    type: string
+    description: Name of the project
+  serviceName:
+    type: string
+    description: Name of the service
+  sourceConnectionInfo:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20171115preview:SqlConnectionInfo"
+    description: Information for connecting to source
+  sourcePlatform:
+    $ref: "#/types/azure-native:datamigration/v20171115preview:ProjectSourcePlatform"
+    description: Source platform for the project
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  targetConnectionInfo:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20171115preview:SqlConnectionInfo"
+    description: Information for connecting to target
+  targetPlatform:
+    $ref: "#/types/azure-native:datamigration/v20171115preview:ProjectTargetPlatform"
+    description: Target platform for the project
+requiredInputs:
+  - groupName
+  - serviceName
+  - sourcePlatform
+  - targetPlatform
+aliases:
+  - type: azure-native:datamigration:Project
+  - type: azure-native:datamigration/v20180315preview:Project
+  - type: azure-native:datamigration/v20180331preview:Project
+  - type: azure-native:datamigration/v20180419:Project
+  - type: azure-native:datamigration/v20180715preview:Project
+  - type: azure-native:datamigration/v20210630:Project
+  - type: azure-native:datamigration/v20211030preview:Project
+  - type: azure-native:datamigration/v20220130preview:Project
+  - type: azure-native:datamigration/v20220330preview:Project
+deprecationMessage: Version 2017-11-15-preview will be removed in v2 of the provider.

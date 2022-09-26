@@ -1,0 +1,13 @@
+$token: azure-native:hybridcontainerservice:ArcAgentProfile
+description: Defines the Arc Agent properties for the Provisioned clusters.
+properties:
+  agentAutoUpgrade:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:hybridcontainerservice:AutoUpgradeOptions"
+    description: Indicates whether the Arc agents on the provisioned clusters be upgraded automatically to the latest version. Defaults to Enabled.
+    default: Enabled
+  agentVersion:
+    type: string
+    description: Version of the Arc agents to be installed on the provisioned Provisioned cluster resource
+type: object

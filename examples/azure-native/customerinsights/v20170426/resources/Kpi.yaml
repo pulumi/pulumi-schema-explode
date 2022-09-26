@@ -1,0 +1,175 @@
+$token: azure-native:customerinsights/v20170426:Kpi
+description: The KPI resource format.
+properties:
+  aliases:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:customerinsights/v20170426:KpiAliasResponse"
+    description: The aliases.
+  calculationWindow:
+    type: string
+    description: The calculation window.
+  calculationWindowFieldName:
+    type: string
+    description: Name of calculation window field.
+  description:
+    type: object
+    additionalProperties:
+      type: string
+    description: Localized description for the KPI.
+  displayName:
+    type: object
+    additionalProperties:
+      type: string
+    description: Localized display name for the KPI.
+  entityType:
+    type: string
+    description: The mapping entity type.
+  entityTypeName:
+    type: string
+    description: The mapping entity name.
+  expression:
+    type: string
+    description: The computation expression for the KPI.
+  extracts:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:customerinsights/v20170426:KpiExtractResponse"
+    description: The KPI extracts.
+  filter:
+    type: string
+    description: The filter expression for the KPI.
+  function:
+    type: string
+    description: The computation function for the KPI.
+  groupBy:
+    type: array
+    items:
+      type: string
+    description: the group by properties for the KPI.
+  groupByMetadata:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:customerinsights/v20170426:KpiGroupByMetadataResponse"
+    description: The KPI GroupByMetadata.
+  kpiName:
+    type: string
+    description: The KPI name.
+  name:
+    type: string
+    description: Resource name.
+  participantProfilesMetadata:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:customerinsights/v20170426:KpiParticipantProfilesMetadataResponse"
+    description: The participant profiles.
+  provisioningState:
+    type: string
+    description: Provisioning state.
+  tenantId:
+    type: string
+    description: The hub name.
+  thresHolds:
+    type: object
+    $ref: "#/types/azure-native:customerinsights/v20170426:KpiThresholdsResponse"
+    description: The KPI thresholds.
+  type:
+    type: string
+    description: Resource type.
+  unit:
+    type: string
+    description: The unit of measurement for the KPI.
+type: object
+required:
+  - calculationWindow
+  - entityType
+  - entityTypeName
+  - expression
+  - function
+  - groupByMetadata
+  - kpiName
+  - name
+  - participantProfilesMetadata
+  - provisioningState
+  - tenantId
+  - type
+inputProperties:
+  aliases:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:customerinsights/v20170426:KpiAlias"
+    description: The aliases.
+  calculationWindow:
+    $ref: "#/types/azure-native:customerinsights/v20170426:CalculationWindowTypes"
+    description: The calculation window.
+  calculationWindowFieldName:
+    type: string
+    description: Name of calculation window field.
+  description:
+    type: object
+    additionalProperties:
+      type: string
+    description: Localized description for the KPI.
+  displayName:
+    type: object
+    additionalProperties:
+      type: string
+    description: Localized display name for the KPI.
+  entityType:
+    $ref: "#/types/azure-native:customerinsights/v20170426:EntityTypes"
+    description: The mapping entity type.
+  entityTypeName:
+    type: string
+    description: The mapping entity name.
+  expression:
+    type: string
+    description: The computation expression for the KPI.
+  extracts:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:customerinsights/v20170426:KpiExtract"
+    description: The KPI extracts.
+  filter:
+    type: string
+    description: The filter expression for the KPI.
+  function:
+    $ref: "#/types/azure-native:customerinsights/v20170426:KpiFunctions"
+    description: The computation function for the KPI.
+  groupBy:
+    type: array
+    items:
+      type: string
+    description: the group by properties for the KPI.
+  hubName:
+    type: string
+    description: The name of the hub.
+  kpiName:
+    type: string
+    description: The name of the KPI.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  thresHolds:
+    type: object
+    $ref: "#/types/azure-native:customerinsights/v20170426:KpiThresholds"
+    description: The KPI thresholds.
+  unit:
+    type: string
+    description: The unit of measurement for the KPI.
+requiredInputs:
+  - calculationWindow
+  - entityType
+  - entityTypeName
+  - expression
+  - function
+  - hubName
+  - resourceGroupName
+aliases:
+  - type: azure-native:customerinsights:Kpi
+  - type: azure-native:customerinsights/v20170101:Kpi

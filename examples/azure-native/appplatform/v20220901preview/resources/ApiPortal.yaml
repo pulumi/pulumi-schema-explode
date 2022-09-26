@@ -1,0 +1,53 @@
+$token: azure-native:appplatform/v20220901preview:ApiPortal
+description: API portal resource
+properties:
+  name:
+    type: string
+    description: The name of the resource.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20220901preview:ApiPortalPropertiesResponse"
+    description: API portal properties payload
+  sku:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20220901preview:SkuResponse"
+    description: Sku of the API portal resource
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20220901preview:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - name
+  - properties
+  - systemData
+  - type
+inputProperties:
+  apiPortalName:
+    type: string
+    description: The name of API portal.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20220901preview:ApiPortalProperties"
+    description: API portal properties payload
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  serviceName:
+    type: string
+    description: The name of the Service resource.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20220901preview:Sku"
+    description: Sku of the API portal resource
+requiredInputs:
+  - resourceGroupName
+  - serviceName
+aliases:
+  - type: azure-native:appplatform:ApiPortal
+  - type: azure-native:appplatform/v20220101preview:ApiPortal
+  - type: azure-native:appplatform/v20220301preview:ApiPortal
+  - type: azure-native:appplatform/v20220501preview:ApiPortal

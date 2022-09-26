@@ -1,0 +1,29 @@
+$token: azure-native:network/v20180401:VpnConnection
+description: VpnConnection Resource.
+properties:
+  enableBgp:
+    type: boolean
+    description: EnableBgp flag
+  id:
+    type: string
+    description: Resource ID.
+  ipsecPolicies:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20180401:IpsecPolicy"
+    description: The IPSec Policies to be considered by this connection.
+  name:
+    type: string
+    description: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+  remoteVpnSite:
+    type: object
+    $ref: "#/types/azure-native:network/v20180401:SubResource"
+    description: Id of the connected vpn site.
+  routingWeight:
+    type: integer
+    description: routing weight for vpn connection.
+  sharedKey:
+    type: string
+    description: SharedKey for the vpn connection.
+type: object

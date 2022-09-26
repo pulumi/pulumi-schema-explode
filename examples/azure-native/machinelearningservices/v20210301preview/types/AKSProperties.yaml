@@ -1,0 +1,36 @@
+$token: azure-native:machinelearningservices/v20210301preview:AKSProperties
+description: AKS properties
+properties:
+  agentCount:
+    type: integer
+    description: Number of agents
+  agentVmSize:
+    type: string
+    description: Agent virtual machine size
+  aksNetworkingConfiguration:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20210301preview:AksNetworkingConfiguration"
+    description: AKS networking configuration for vnet
+  clusterFqdn:
+    type: string
+    description: Cluster full qualified domain name
+  clusterPurpose:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearningservices/v20210301preview:ClusterPurpose"
+    description: Intended usage of the cluster
+    default: FastProd
+  loadBalancerSubnet:
+    type: string
+    description: Load Balancer Subnet
+  loadBalancerType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearningservices/v20210301preview:LoadBalancerType"
+    description: Load Balancer Type
+    default: PublicIp
+  sslConfiguration:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20210301preview:SslConfiguration"
+    description: SSL configuration
+type: object

@@ -1,0 +1,38 @@
+$token: azure-native:digitaltwins/v20201201:PrivateEndpointConnection
+description: The private endpoint connection of a Digital Twin.
+properties:
+  name:
+    type: string
+    description: The resource name.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:digitaltwins/v20201201:PrivateEndpointConnectionResponseProperties"
+  type:
+    type: string
+    description: The resource type.
+type: object
+required:
+  - name
+  - properties
+  - type
+inputProperties:
+  privateEndpointConnectionName:
+    type: string
+    description: The name of the private endpoint connection.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:digitaltwins/v20201201:PrivateEndpointConnectionProperties"
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the DigitalTwinsInstance.
+  resourceName:
+    type: string
+    description: The name of the DigitalTwinsInstance.
+requiredInputs:
+  - properties
+  - resourceGroupName
+  - resourceName
+aliases:
+  - type: azure-native:digitaltwins:PrivateEndpointConnection
+  - type: azure-native:digitaltwins/v20210630preview:PrivateEndpointConnection
+  - type: azure-native:digitaltwins/v20220531:PrivateEndpointConnection

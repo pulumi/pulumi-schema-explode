@@ -1,0 +1,121 @@
+$token: azure-native:devtestlab/v20180915:VirtualMachineSchedule
+description: A schedule.
+properties:
+  createdDate:
+    type: string
+    description: The creation date of the schedule.
+  dailyRecurrence:
+    type: object
+    $ref: "#/types/azure-native:devtestlab/v20180915:DayDetailsResponse"
+    description: If the schedule will occur once each day of the week, specify the daily recurrence.
+  hourlyRecurrence:
+    type: object
+    $ref: "#/types/azure-native:devtestlab/v20180915:HourDetailsResponse"
+    description: If the schedule will occur multiple times a day, specify the hourly recurrence.
+  location:
+    type: string
+    description: The location of the resource.
+  name:
+    type: string
+    description: The name of the resource.
+  notificationSettings:
+    type: object
+    $ref: "#/types/azure-native:devtestlab/v20180915:NotificationSettingsResponse"
+    description: Notification settings.
+  provisioningState:
+    type: string
+    description: The provisioning status of the resource.
+  status:
+    type: string
+    description: The status of the schedule (i.e. Enabled, Disabled)
+    default: Disabled
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+  targetResourceId:
+    type: string
+    description: The resource ID to which the schedule belongs
+  taskType:
+    type: string
+    description: The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
+  timeZoneId:
+    type: string
+    description: The time zone ID (e.g. Pacific Standard time).
+  type:
+    type: string
+    description: The type of the resource.
+  uniqueIdentifier:
+    type: string
+    description: The unique immutable identifier of a resource (Guid).
+  weeklyRecurrence:
+    type: object
+    $ref: "#/types/azure-native:devtestlab/v20180915:WeekDetailsResponse"
+    description: If the schedule will occur only some days of the week, specify the weekly recurrence.
+type: object
+required:
+  - createdDate
+  - name
+  - provisioningState
+  - type
+  - uniqueIdentifier
+inputProperties:
+  dailyRecurrence:
+    type: object
+    $ref: "#/types/azure-native:devtestlab/v20180915:DayDetails"
+    description: If the schedule will occur once each day of the week, specify the daily recurrence.
+  hourlyRecurrence:
+    type: object
+    $ref: "#/types/azure-native:devtestlab/v20180915:HourDetails"
+    description: If the schedule will occur multiple times a day, specify the hourly recurrence.
+  labName:
+    type: string
+    description: The name of the lab.
+  location:
+    type: string
+    description: The location of the resource.
+  name:
+    type: string
+    description: The name of the schedule.
+  notificationSettings:
+    type: object
+    $ref: "#/types/azure-native:devtestlab/v20180915:NotificationSettings"
+    description: Notification settings.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  status:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:devtestlab/v20180915:EnableStatus"
+    description: The status of the schedule (i.e. Enabled, Disabled)
+    default: Disabled
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+  targetResourceId:
+    type: string
+    description: The resource ID to which the schedule belongs
+  taskType:
+    type: string
+    description: The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
+  timeZoneId:
+    type: string
+    description: The time zone ID (e.g. Pacific Standard time).
+  virtualMachineName:
+    type: string
+    description: The name of the virtual machine.
+  weeklyRecurrence:
+    type: object
+    $ref: "#/types/azure-native:devtestlab/v20180915:WeekDetails"
+    description: If the schedule will occur only some days of the week, specify the weekly recurrence.
+requiredInputs:
+  - labName
+  - resourceGroupName
+  - virtualMachineName
+aliases:
+  - type: azure-native:devtestlab:VirtualMachineSchedule
+  - type: azure-native:devtestlab/v20160515:VirtualMachineSchedule

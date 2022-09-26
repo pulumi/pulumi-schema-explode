@@ -1,0 +1,31 @@
+$token: azure-native:datamigration/v20180315preview:MigrateSqlServerSqlMITaskInputResponse
+description: Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance.
+properties:
+  backupBlobShare:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20180315preview:BlobShareResponse"
+    description: SAS URI of Azure Storage Account Container to be used for storing backup files.
+  backupFileShare:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20180315preview:FileShareResponse"
+    description: Backup file share information for all selected databases.
+  selectedDatabases:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration/v20180315preview:MigrateSqlServerSqlMIDatabaseInputResponse"
+    description: Databases to migrate
+  sourceConnectionInfo:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20180315preview:SqlConnectionInfoResponse"
+    description: Information for connecting to source
+  targetConnectionInfo:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20180315preview:SqlConnectionInfoResponse"
+    description: Information for connecting to target
+type: object
+required:
+  - backupBlobShare
+  - selectedDatabases
+  - sourceConnectionInfo
+  - targetConnectionInfo

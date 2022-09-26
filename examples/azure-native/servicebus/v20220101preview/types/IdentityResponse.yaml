@@ -1,0 +1,22 @@
+$token: azure-native:servicebus/v20220101preview:IdentityResponse
+description: Properties to configure User Assigned Identities for Bring your Own Keys
+properties:
+  principalId:
+    type: string
+    description: ObjectId from the KeyVault
+  tenantId:
+    type: string
+    description: TenantId from the KeyVault
+  type:
+    type: string
+    description: Type of managed service identity.
+  userAssignedIdentities:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:servicebus/v20220101preview:UserAssignedIdentityResponse"
+    description: Properties for User Assigned Identities
+type: object
+required:
+  - principalId
+  - tenantId

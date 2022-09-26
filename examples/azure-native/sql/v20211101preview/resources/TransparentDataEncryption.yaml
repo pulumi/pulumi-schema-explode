@@ -1,0 +1,49 @@
+$token: azure-native:sql/v20211101preview:TransparentDataEncryption
+description: A logical database transparent data encryption state.
+properties:
+  name:
+    type: string
+    description: Resource name.
+  state:
+    type: string
+    description: Specifies the state of the transparent data encryption.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - name
+  - state
+  - type
+inputProperties:
+  databaseName:
+    type: string
+    description: The name of the logical database for which the security alert policy is defined.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  serverName:
+    type: string
+    description: The name of the server.
+  state:
+    $ref: "#/types/azure-native:sql/v20211101preview:TransparentDataEncryptionState"
+    description: Specifies the state of the transparent data encryption.
+  tdeName:
+    type: string
+    description: The name of the transparent data encryption configuration.
+requiredInputs:
+  - databaseName
+  - resourceGroupName
+  - serverName
+  - state
+aliases:
+  - type: azure-native:sql:TransparentDataEncryption
+  - type: azure-native:sql/v20140401:TransparentDataEncryption
+  - type: azure-native:sql/v20200202preview:TransparentDataEncryption
+  - type: azure-native:sql/v20200801preview:TransparentDataEncryption
+  - type: azure-native:sql/v20201101preview:TransparentDataEncryption
+  - type: azure-native:sql/v20210201preview:TransparentDataEncryption
+  - type: azure-native:sql/v20210501preview:TransparentDataEncryption
+  - type: azure-native:sql/v20210801preview:TransparentDataEncryption
+  - type: azure-native:sql/v20211101:TransparentDataEncryption
+  - type: azure-native:sql/v20220201preview:TransparentDataEncryption

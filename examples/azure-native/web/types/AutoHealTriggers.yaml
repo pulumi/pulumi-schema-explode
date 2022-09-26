@@ -1,0 +1,33 @@
+$token: azure-native:web:AutoHealTriggers
+description: Triggers for auto-heal.
+properties:
+  privateBytesInKB:
+    type: integer
+    description: A rule based on private bytes.
+  requests:
+    type: object
+    $ref: "#/types/azure-native:web:RequestsBasedTrigger"
+    description: A rule based on total requests.
+  slowRequests:
+    type: object
+    $ref: "#/types/azure-native:web:SlowRequestsBasedTrigger"
+    description: A rule based on request execution time.
+  slowRequestsWithPath:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:web:SlowRequestsBasedTrigger"
+    description: A rule based on multiple Slow Requests Rule with path
+  statusCodes:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:web:StatusCodesBasedTrigger"
+    description: A rule based on status codes.
+  statusCodesRange:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:web:StatusCodesRangeBasedTrigger"
+    description: A rule based on status codes ranges.
+type: object

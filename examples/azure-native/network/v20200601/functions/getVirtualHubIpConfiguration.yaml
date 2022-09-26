@@ -1,0 +1,55 @@
+$token: azure-native:network/v20200601:getVirtualHubIpConfiguration
+description: IpConfigurations.
+inputs:
+  properties:
+    ipConfigName:
+      type: string
+      description: The name of the ipconfig.
+    resourceGroupName:
+      type: string
+      description: The resource group name of the VirtualHub.
+    virtualHubName:
+      type: string
+      description: The name of the VirtualHub.
+  type: object
+  required:
+    - ipConfigName
+    - resourceGroupName
+    - virtualHubName
+outputs:
+  description: IpConfigurations.
+  properties:
+    etag:
+      type: string
+      description: A unique read-only string that changes whenever the resource is updated.
+    id:
+      type: string
+      description: Resource ID.
+    name:
+      type: string
+      description: Name of the Ip Configuration.
+    privateIPAddress:
+      type: string
+      description: The private IP address of the IP configuration.
+    privateIPAllocationMethod:
+      type: string
+      description: The private IP address allocation method.
+    provisioningState:
+      type: string
+      description: The provisioning state of the IP configuration resource.
+    publicIPAddress:
+      type: object
+      $ref: "#/types/azure-native:network/v20200601:PublicIPAddressResponse"
+      description: The reference to the public IP resource.
+    subnet:
+      type: object
+      $ref: "#/types/azure-native:network/v20200601:SubnetResponse"
+      description: The reference to the subnet resource.
+    type:
+      type: string
+      description: Ipconfiguration type.
+  type: object
+  required:
+    - etag
+    - provisioningState
+    - type

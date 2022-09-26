@@ -1,0 +1,49 @@
+$token: azure-native:eventhub/v20180101preview:getNamespaceNetworkRuleSet
+description: Description of topic resource.
+inputs:
+  properties:
+    namespaceName:
+      type: string
+      description: The Namespace name
+    resourceGroupName:
+      type: string
+      description: Name of the resource group within the azure subscription.
+  type: object
+  required:
+    - namespaceName
+    - resourceGroupName
+outputs:
+  description: Description of topic resource.
+  properties:
+    defaultAction:
+      type: string
+      description: Default Action for Network Rule Set
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    ipRules:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:eventhub/v20180101preview:NWRuleSetIpRulesResponse"
+      description: List of IpRules
+    name:
+      type: string
+      description: The name of the resource
+    trustedServiceAccessEnabled:
+      type: boolean
+      description: Value that indicates whether Trusted Service Access is Enabled or not.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+    virtualNetworkRules:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:eventhub/v20180101preview:NWRuleSetVirtualNetworkRulesResponse"
+      description: List VirtualNetwork Rules
+  type: object
+  required:
+    - id
+    - name
+    - type

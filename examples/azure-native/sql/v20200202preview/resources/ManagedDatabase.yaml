@@ -1,0 +1,122 @@
+$token: azure-native:sql/v20200202preview:ManagedDatabase
+description: A managed database resource.
+properties:
+  catalogCollation:
+    type: string
+    description: Collation of the metadata catalog.
+  collation:
+    type: string
+    description: Collation of the managed database.
+  creationDate:
+    type: string
+    description: Creation date of the database.
+  defaultSecondaryLocation:
+    type: string
+    description: Geo paired region.
+  earliestRestorePoint:
+    type: string
+    description: Earliest restore point in time for point in time restore.
+  failoverGroupId:
+    type: string
+    description: Instance Failover Group resource identifier that this managed database belongs to.
+  location:
+    type: string
+    description: Resource location.
+  name:
+    type: string
+    description: Resource name.
+  status:
+    type: string
+    description: Status of the database.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - creationDate
+  - defaultSecondaryLocation
+  - earliestRestorePoint
+  - failoverGroupId
+  - location
+  - name
+  - status
+  - type
+inputProperties:
+  autoCompleteRestore:
+    type: boolean
+    description: Whether to auto complete restore of this managed database.
+  catalogCollation:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:sql/v20200202preview:CatalogCollationType"
+    description: Collation of the metadata catalog.
+  collation:
+    type: string
+    description: Collation of the managed database.
+  createMode:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:sql/v20200202preview:ManagedDatabaseCreateMode"
+    description: "Managed database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. SourceDatabaseName, SourceManagedInstanceName and PointInTime must be specified. RestoreExternalBackup: Create a database by restoring from external backup files. Collation, StorageContainerUri and StorageContainerSasToken must be specified. Recovery: Creates a database by restoring a geo-replicated backup. RecoverableDatabaseId must be specified as the recoverable database resource ID to restore. RestoreLongTermRetentionBackup: Create a database by restoring from a long term retention backup (longTermRetentionBackupResourceId required)."
+  databaseName:
+    type: string
+    description: The name of the database.
+  lastBackupName:
+    type: string
+    description: Last backup file name for restore of this managed database.
+  location:
+    type: string
+    description: Resource location.
+  longTermRetentionBackupResourceId:
+    type: string
+    description: The name of the Long Term Retention backup to be used for restore of this managed database.
+  managedInstanceName:
+    type: string
+    description: The name of the managed instance.
+  recoverableDatabaseId:
+    type: string
+    description: The resource identifier of the recoverable database associated with create operation of this database.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  restorableDroppedDatabaseId:
+    type: string
+    description: The restorable dropped database resource id to restore when creating this database.
+  restorePointInTime:
+    type: string
+    description: Conditional. If createMode is PointInTimeRestore, this value is required. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
+  sourceDatabaseId:
+    type: string
+    description: The resource identifier of the source database associated with create operation of this database.
+  storageContainerSasToken:
+    type: string
+    description: Conditional. If createMode is RestoreExternalBackup, this value is required. Specifies the storage container sas token.
+  storageContainerUri:
+    type: string
+    description: Conditional. If createMode is RestoreExternalBackup, this value is required. Specifies the uri of the storage container where backups for this restore are stored.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - managedInstanceName
+  - resourceGroupName
+aliases:
+  - type: azure-native:sql:ManagedDatabase
+  - type: azure-native:sql/v20170301preview:ManagedDatabase
+  - type: azure-native:sql/v20180601preview:ManagedDatabase
+  - type: azure-native:sql/v20190601preview:ManagedDatabase
+  - type: azure-native:sql/v20200801preview:ManagedDatabase
+  - type: azure-native:sql/v20201101preview:ManagedDatabase
+  - type: azure-native:sql/v20210201preview:ManagedDatabase
+  - type: azure-native:sql/v20210501preview:ManagedDatabase
+  - type: azure-native:sql/v20210801preview:ManagedDatabase
+  - type: azure-native:sql/v20211101:ManagedDatabase
+  - type: azure-native:sql/v20211101preview:ManagedDatabase
+  - type: azure-native:sql/v20220201preview:ManagedDatabase

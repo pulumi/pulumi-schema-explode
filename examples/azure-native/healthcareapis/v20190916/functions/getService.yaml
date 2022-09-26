@@ -1,0 +1,57 @@
+$token: azure-native:healthcareapis/v20190916:getService
+description: The description of the service.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the service instance.
+    resourceName:
+      type: string
+      description: The name of the service instance.
+  type: object
+  required:
+    - resourceGroupName
+    - resourceName
+outputs:
+  description: The description of the service.
+  properties:
+    etag:
+      type: string
+      description: An etag associated with the resource, used for optimistic concurrency when editing it.
+    id:
+      type: string
+      description: The resource identifier.
+    identity:
+      type: object
+      $ref: "#/types/azure-native:healthcareapis/v20190916:ResourceResponseIdentity"
+      description: Setting indicating whether the service has a managed identity associated with it.
+    kind:
+      type: string
+      description: The kind of the service.
+    location:
+      type: string
+      description: The resource location.
+    name:
+      type: string
+      description: The resource name.
+    properties:
+      type: object
+      $ref: "#/types/azure-native:healthcareapis/v20190916:ServicesPropertiesResponse"
+      description: The common properties of a service.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: The resource tags.
+    type:
+      type: string
+      description: The resource type.
+  type: object
+  required:
+    - id
+    - kind
+    - location
+    - name
+    - properties
+    - type
+deprecationMessage: Version 2019-09-16 will be removed in v2 of the provider.

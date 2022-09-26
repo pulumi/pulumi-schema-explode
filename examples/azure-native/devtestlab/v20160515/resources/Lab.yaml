@@ -1,0 +1,103 @@
+$token: azure-native:devtestlab/v20160515:Lab
+description: A lab.
+properties:
+  artifactsStorageAccount:
+    type: string
+    description: The lab's artifact storage account.
+  createdDate:
+    type: string
+    description: The creation date of the lab.
+  defaultPremiumStorageAccount:
+    type: string
+    description: The lab's default premium storage account.
+  defaultStorageAccount:
+    type: string
+    description: The lab's default storage account.
+  labStorageType:
+    type: string
+    description: Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
+  location:
+    type: string
+    description: The location of the resource.
+  name:
+    type: string
+    description: The name of the resource.
+  premiumDataDiskStorageAccount:
+    type: string
+    description: The lab's premium data disk storage account.
+  premiumDataDisks:
+    type: string
+    description: "The setting to enable usage of premium data disks.\r
+
+      When its value is 'Enabled', creation of standard or premium data disks is allowed.\r
+
+      When its value is 'Disabled', only creation of standard data disks is allowed."
+  provisioningState:
+    type: string
+    description: The provisioning status of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+  type:
+    type: string
+    description: The type of the resource.
+  uniqueIdentifier:
+    type: string
+    description: The unique immutable identifier of a resource (Guid).
+  vaultName:
+    type: string
+    description: The lab's Key vault.
+type: object
+required:
+  - artifactsStorageAccount
+  - createdDate
+  - defaultPremiumStorageAccount
+  - defaultStorageAccount
+  - name
+  - premiumDataDiskStorageAccount
+  - type
+  - vaultName
+inputProperties:
+  labStorageType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:devtestlab/v20160515:StorageType"
+    description: Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
+  location:
+    type: string
+    description: The location of the resource.
+  name:
+    type: string
+    description: The name of the lab.
+  premiumDataDisks:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:devtestlab/v20160515:PremiumDataDisk"
+    description: "The setting to enable usage of premium data disks.\r
+
+      When its value is 'Enabled', creation of standard or premium data disks is allowed.\r
+
+      When its value is 'Disabled', only creation of standard data disks is allowed."
+  provisioningState:
+    type: string
+    description: The provisioning status of the resource.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+  uniqueIdentifier:
+    type: string
+    description: The unique immutable identifier of a resource (Guid).
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:devtestlab:Lab
+  - type: azure-native:devtestlab/v20150521preview:Lab
+  - type: azure-native:devtestlab/v20180915:Lab
+deprecationMessage: Version 2016-05-15 will be removed in v2 of the provider.

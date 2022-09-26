@@ -1,0 +1,36 @@
+$token: azure-native:datamigration/v20171115preview:SqlConnectionInfo
+description: Information for connecting to SQL database server
+properties:
+  additionalSettings:
+    type: string
+    description: Additional connection settings
+  authentication:
+    $ref: "#/types/azure-native:datamigration/v20171115preview:AuthenticationType"
+    description: Authentication type to use for connection
+  dataSource:
+    type: string
+    description: Data source in the format Protocol:MachineName\SQLServerInstanceName,PortNumber
+  encryptConnection:
+    type: boolean
+    description: Whether to encrypt the connection
+    default: true
+  password:
+    type: string
+    description: Password credential.
+  trustServerCertificate:
+    type: boolean
+    description: Whether to trust the server certificate
+    default: false
+  type:
+    type: string
+    description: |-
+      Type of connection info
+      Expected value is 'SqlConnectionInfo'.
+    const: SqlConnectionInfo
+  userName:
+    type: string
+    description: User name
+type: object
+required:
+  - dataSource
+  - type

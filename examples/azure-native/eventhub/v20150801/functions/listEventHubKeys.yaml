@@ -1,0 +1,47 @@
+$token: azure-native:eventhub/v20150801:listEventHubKeys
+description: Namespace/EventHub Connection String
+inputs:
+  properties:
+    authorizationRuleName:
+      type: string
+      description: The authorization rule name.
+    eventHubName:
+      type: string
+      description: The Event Hub name
+    namespaceName:
+      type: string
+      description: The Namespace name
+    resourceGroupName:
+      type: string
+      description: Name of the resource group within the azure subscription.
+  type: object
+  required:
+    - authorizationRuleName
+    - eventHubName
+    - namespaceName
+    - resourceGroupName
+outputs:
+  description: Namespace/EventHub Connection String
+  properties:
+    keyName:
+      type: string
+      description: A string that describes the AuthorizationRule.
+    primaryConnectionString:
+      type: string
+      description: Primary connection string of the created Namespace AuthorizationRule.
+    primaryKey:
+      type: string
+      description: A base64-encoded 256-bit primary key for signing and validating the SAS token.
+    secondaryConnectionString:
+      type: string
+      description: Secondary connection string of the created Namespace AuthorizationRule.
+    secondaryKey:
+      type: string
+      description: A base64-encoded 256-bit primary key for signing and validating the SAS token.
+  type: object
+  required:
+    - keyName
+    - primaryConnectionString
+    - primaryKey
+    - secondaryConnectionString
+    - secondaryKey

@@ -1,0 +1,21 @@
+$token: azure-native:costmanagement/v20180801preview:ConnectorCollectionInfoResponse
+description: Collection and ingestion information
+properties:
+  error:
+    type: object
+    $ref: "#/types/azure-native:costmanagement/v20180801preview:ConnectorCollectionErrorInfoResponse"
+    description: Error information of last collection
+  lastRun:
+    type: string
+    description: Last time the data acquisition process completed (even if no new data was found)
+  lastUpdated:
+    type: string
+    description: Last time the external data was updated into Azure
+  sourceLastUpdated:
+    type: string
+    description: Source timestamp of external data currently available in Azure (eg AWS last processed CUR file timestamp)
+type: object
+required:
+  - lastRun
+  - lastUpdated
+  - sourceLastUpdated

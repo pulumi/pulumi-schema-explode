@@ -1,0 +1,19 @@
+$token: azure-native:eventhub:Sku
+description: SKU parameters supplied to the create namespace operation
+properties:
+  capacity:
+    type: integer
+    description: The Event Hubs throughput units, value should be 0 to 20 throughput units.
+  name:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:eventhub:SkuName"
+    description: Name of this SKU.
+  tier:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:eventhub:SkuTier"
+    description: The billing tier of this particular SKU.
+type: object
+required:
+  - name

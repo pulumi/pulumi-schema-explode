@@ -1,0 +1,83 @@
+$token: azure-native:network/v20180101:getVirtualNetworkGateway
+description: A common class for general resource information
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    virtualNetworkGatewayName:
+      type: string
+      description: The name of the virtual network gateway.
+  type: object
+  required:
+    - resourceGroupName
+    - virtualNetworkGatewayName
+outputs:
+  description: A common class for general resource information
+  properties:
+    activeActive:
+      type: boolean
+      description: ActiveActive flag
+    bgpSettings:
+      type: object
+      $ref: "#/types/azure-native:network/v20180101:BgpSettingsResponse"
+      description: Virtual network gateway's BGP speaker settings.
+    enableBgp:
+      type: boolean
+      description: Whether BGP is enabled for this virtual network gateway or not.
+    etag:
+      type: string
+      description: Gets a unique read-only string that changes whenever the resource is updated.
+    gatewayDefaultSite:
+      type: object
+      $ref: "#/types/azure-native:network/v20180101:SubResourceResponse"
+      description: The reference of the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
+    gatewayType:
+      type: string
+      description: "The type of this virtual network gateway. Possible values are: 'Vpn' and 'ExpressRoute'."
+    id:
+      type: string
+      description: Resource ID.
+    ipConfigurations:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:network/v20180101:VirtualNetworkGatewayIPConfigurationResponse"
+      description: IP configurations for virtual network gateway.
+    location:
+      type: string
+      description: Resource location.
+    name:
+      type: string
+      description: Resource name.
+    provisioningState:
+      type: string
+      description: "The provisioning state of the VirtualNetworkGateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'."
+    resourceGuid:
+      type: string
+      description: The resource GUID property of the VirtualNetworkGateway resource.
+    sku:
+      type: object
+      $ref: "#/types/azure-native:network/v20180101:VirtualNetworkGatewaySkuResponse"
+      description: The reference of the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: Resource type.
+    vpnClientConfiguration:
+      type: object
+      $ref: "#/types/azure-native:network/v20180101:VpnClientConfigurationResponse"
+      description: The reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
+    vpnType:
+      type: string
+      description: "The type of this virtual network gateway. Possible values are: 'PolicyBased' and 'RouteBased'."
+  type: object
+  required:
+    - name
+    - provisioningState
+    - type
+deprecationMessage: Version 2018-01-01 will be removed in v2 of the provider.

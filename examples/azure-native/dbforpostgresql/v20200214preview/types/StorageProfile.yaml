@@ -1,0 +1,15 @@
+$token: azure-native:dbforpostgresql/v20200214preview:StorageProfile
+description: Storage Profile properties of a server
+properties:
+  backupRetentionDays:
+    type: integer
+    description: Backup retention days for the server.
+  geoRedundantBackup:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:dbforpostgresql/v20200214preview:GeoRedundantBackupEnum"
+    description: A value indicating whether Geo-Redundant backup is enabled on the server.
+  storageMB:
+    type: integer
+    description: Max storage allowed for a server.
+type: object

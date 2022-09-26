@@ -1,0 +1,98 @@
+$token: azure-native:logic:getWorkflow
+description: |-
+  The workflow type.
+  API Version: 2019-05-01.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+    workflowName:
+      type: string
+      description: The workflow name.
+  type: object
+  required:
+    - resourceGroupName
+    - workflowName
+outputs:
+  description: The workflow type.
+  properties:
+    accessControl:
+      type: object
+      $ref: "#/types/azure-native:logic:FlowAccessControlConfigurationResponse"
+      description: The access control configuration.
+    accessEndpoint:
+      type: string
+      description: Gets the access endpoint.
+    changedTime:
+      type: string
+      description: Gets the changed time.
+    createdTime:
+      type: string
+      description: Gets the created time.
+    definition:
+      $ref: pulumi.json#/Any
+      description: The definition.
+    endpointsConfiguration:
+      type: object
+      $ref: "#/types/azure-native:logic:FlowEndpointsConfigurationResponse"
+      description: The endpoints configuration.
+    id:
+      type: string
+      description: The resource id.
+    identity:
+      type: object
+      $ref: "#/types/azure-native:logic:ManagedServiceIdentityResponse"
+      description: Managed service identity properties.
+    integrationAccount:
+      type: object
+      $ref: "#/types/azure-native:logic:ResourceReferenceResponse"
+      description: The integration account.
+    integrationServiceEnvironment:
+      type: object
+      $ref: "#/types/azure-native:logic:ResourceReferenceResponse"
+      description: The integration service environment.
+    location:
+      type: string
+      description: The resource location.
+    name:
+      type: string
+      description: Gets the resource name.
+    parameters:
+      type: object
+      additionalProperties:
+        type: object
+        $ref: "#/types/azure-native:logic:WorkflowParameterResponse"
+      description: The parameters.
+    provisioningState:
+      type: string
+      description: Gets the provisioning state.
+    sku:
+      type: object
+      $ref: "#/types/azure-native:logic:SkuResponse"
+      description: The sku.
+    state:
+      type: string
+      description: The state.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: The resource tags.
+    type:
+      type: string
+      description: Gets the resource type.
+    version:
+      type: string
+      description: Gets the version.
+  type: object
+  required:
+    - accessEndpoint
+    - changedTime
+    - createdTime
+    - id
+    - name
+    - provisioningState
+    - sku
+    - type
+    - version

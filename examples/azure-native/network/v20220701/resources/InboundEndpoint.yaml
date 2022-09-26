@@ -1,0 +1,77 @@
+$token: azure-native:network/v20220701:InboundEndpoint
+description: Describes an inbound endpoint for a DNS resolver.
+properties:
+  etag:
+    type: string
+    description: ETag of the inbound endpoint.
+  ipConfigurations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20220701:InboundEndpointIPConfigurationResponse"
+    description: IP configurations for the inbound endpoint.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  name:
+    type: string
+    description: The name of the resource
+  provisioningState:
+    type: string
+    description: The current provisioning state of the inbound endpoint. This is a read-only property and any attempt to set this value will be ignored.
+  resourceGuid:
+    type: string
+    description: The resourceGuid property of the inbound endpoint resource.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:network/v20220701:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - etag
+  - ipConfigurations
+  - location
+  - name
+  - provisioningState
+  - resourceGuid
+  - systemData
+  - type
+inputProperties:
+  dnsResolverName:
+    type: string
+    description: The name of the DNS resolver.
+  inboundEndpointName:
+    type: string
+    description: The name of the inbound endpoint for the DNS resolver.
+  ipConfigurations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20220701:InboundEndpointIPConfiguration"
+    description: IP configurations for the inbound endpoint.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - dnsResolverName
+  - ipConfigurations
+  - resourceGroupName
+aliases:
+  - type: azure-native:network:InboundEndpoint
+  - type: azure-native:network/v20200401preview:InboundEndpoint

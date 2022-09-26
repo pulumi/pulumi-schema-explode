@@ -1,0 +1,46 @@
+$token: azure-native:datafactory:AzureDataExplorerCommandActivity
+description: Azure Data Explorer command activity.
+properties:
+  command:
+    $ref: pulumi.json#/Any
+    description: "A control command, according to the Azure Data Explorer command syntax. Type: string (or Expression with resultType string)."
+  commandTimeout:
+    $ref: pulumi.json#/Any
+    description: "Control command timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9]))..)"
+  dependsOn:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory:ActivityDependency"
+    description: Activity depends on condition.
+  description:
+    type: string
+    description: Activity description.
+  linkedServiceName:
+    type: object
+    $ref: "#/types/azure-native:datafactory:LinkedServiceReference"
+    description: Linked service reference.
+  name:
+    type: string
+    description: Activity name.
+  policy:
+    type: object
+    $ref: "#/types/azure-native:datafactory:ActivityPolicy"
+    description: Activity policy.
+  type:
+    type: string
+    description: |-
+      Type of activity.
+      Expected value is 'AzureDataExplorerCommand'.
+    const: AzureDataExplorerCommand
+  userProperties:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory:UserProperty"
+    description: Activity user properties.
+type: object
+required:
+  - command
+  - name
+  - type

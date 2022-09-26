@@ -1,0 +1,49 @@
+$token: azure-native:network/v20181101:IpsecPolicy
+description: An IPSec Policy configuration for a virtual network gateway connection
+properties:
+  dhGroup:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20181101:DhGroup"
+    description: The DH Groups used in IKE Phase 1 for initial SA.
+  ikeEncryption:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20181101:IkeEncryption"
+    description: The IKE encryption algorithm (IKE phase 2).
+  ikeIntegrity:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20181101:IkeIntegrity"
+    description: The IKE integrity algorithm (IKE phase 2).
+  ipsecEncryption:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20181101:IpsecEncryption"
+    description: The IPSec encryption algorithm (IKE phase 1).
+  ipsecIntegrity:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20181101:IpsecIntegrity"
+    description: The IPSec integrity algorithm (IKE phase 1).
+  pfsGroup:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20181101:PfsGroup"
+    description: The Pfs Groups used in IKE Phase 2 for new child SA.
+  saDataSizeKilobytes:
+    type: integer
+    description: The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for a site to site VPN tunnel.
+  saLifeTimeSeconds:
+    type: integer
+    description: The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for a site to site VPN tunnel.
+type: object
+required:
+  - dhGroup
+  - ikeEncryption
+  - ikeIntegrity
+  - ipsecEncryption
+  - ipsecIntegrity
+  - pfsGroup
+  - saDataSizeKilobytes
+  - saLifeTimeSeconds

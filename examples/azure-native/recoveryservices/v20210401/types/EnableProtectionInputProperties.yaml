@@ -1,0 +1,34 @@
+$token: azure-native:recoveryservices/v20210401:EnableProtectionInputProperties
+description: Enable protection input properties.
+properties:
+  policyId:
+    type: string
+    description: The Policy Id.
+  protectableItemId:
+    type: string
+    description: The protectable item Id.
+  providerSpecificDetails:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210401:A2ACrossClusterMigrationEnableProtectionInput"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210401:A2AEnableProtectionInput"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210401:HyperVReplicaAzureEnableProtectionInput"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210401:InMageAzureV2EnableProtectionInput"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210401:InMageEnableProtectionInput"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210401:InMageRcmEnableProtectionInput"
+    discriminator:
+      propertyName: instanceType
+      mapping:
+        A2A: "#/types/azure-native:recoveryservices/v20210401:A2AEnableProtectionInput"
+        A2ACrossClusterMigration: "#/types/azure-native:recoveryservices/v20210401:A2ACrossClusterMigrationEnableProtectionInput"
+        HyperVReplicaAzure: "#/types/azure-native:recoveryservices/v20210401:HyperVReplicaAzureEnableProtectionInput"
+        InMage: "#/types/azure-native:recoveryservices/v20210401:InMageEnableProtectionInput"
+        InMageAzureV2: "#/types/azure-native:recoveryservices/v20210401:InMageAzureV2EnableProtectionInput"
+        InMageRcm: "#/types/azure-native:recoveryservices/v20210401:InMageRcmEnableProtectionInput"
+    description: The ReplicationProviderInput. For HyperVReplicaAzure provider, it will be AzureEnableProtectionInput object. For San provider, it will be SanEnableProtectionInput object. For HyperVReplicaAzure provider, it can be null.
+type: object

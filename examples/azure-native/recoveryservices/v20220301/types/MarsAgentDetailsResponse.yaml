@@ -1,0 +1,44 @@
+$token: azure-native:recoveryservices/v20220301:MarsAgentDetailsResponse
+description: Mars agent details.
+properties:
+  biosId:
+    type: string
+    description: The Mars agent Bios Id.
+  fabricObjectId:
+    type: string
+    description: The fabric object Id.
+  fqdn:
+    type: string
+    description: The Mars agent Fqdn.
+  health:
+    type: string
+    description: The health of the Mars agent.
+  healthErrors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:recoveryservices/v20220301:HealthErrorResponse"
+    description: The health errors.
+  id:
+    type: string
+    description: The Mars agent Id.
+  lastHeartbeatUtc:
+    type: string
+    description: The last heartbeat received from the Mars agent.
+  name:
+    type: string
+    description: The Mars agent name.
+  version:
+    type: string
+    description: The version.
+type: object
+required:
+  - biosId
+  - fabricObjectId
+  - fqdn
+  - health
+  - healthErrors
+  - id
+  - lastHeartbeatUtc
+  - name
+  - version

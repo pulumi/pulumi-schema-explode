@@ -1,0 +1,34 @@
+$token: azure-native:security:AllowlistCustomAlertRuleResponse
+description: A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
+properties:
+  allowlistValues:
+    type: array
+    items:
+      type: string
+    description: The values to allow. The format of the values depends on the rule type.
+  description:
+    type: string
+    description: The description of the custom alert.
+  displayName:
+    type: string
+    description: The display name of the custom alert.
+  isEnabled:
+    type: boolean
+    description: Status of the custom alert.
+  ruleType:
+    type: string
+    description: |-
+      The type of the custom alert rule.
+      Expected value is 'AllowlistCustomAlertRule'.
+    const: AllowlistCustomAlertRule
+  valueType:
+    type: string
+    description: The value type of the items in the list.
+type: object
+required:
+  - allowlistValues
+  - description
+  - displayName
+  - isEnabled
+  - ruleType
+  - valueType

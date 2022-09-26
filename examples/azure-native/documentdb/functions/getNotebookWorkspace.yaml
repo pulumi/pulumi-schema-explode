@@ -1,0 +1,45 @@
+$token: azure-native:documentdb:getNotebookWorkspace
+description: |-
+  A notebook workspace resource
+  API Version: 2021-03-15.
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: Cosmos DB database account name.
+    notebookWorkspaceName:
+      type: string
+      description: The name of the notebook workspace resource.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+  type: object
+  required:
+    - accountName
+    - notebookWorkspaceName
+    - resourceGroupName
+outputs:
+  description: A notebook workspace resource
+  properties:
+    id:
+      type: string
+      description: The unique resource identifier of the database account.
+    name:
+      type: string
+      description: The name of the database account.
+    notebookServerEndpoint:
+      type: string
+      description: Specifies the endpoint of Notebook server.
+    status:
+      type: string
+      description: "Status of the notebook workspace. Possible values are: Creating, Online, Deleting, Failed, Updating."
+    type:
+      type: string
+      description: The type of Azure resource.
+  type: object
+  required:
+    - id
+    - name
+    - notebookServerEndpoint
+    - status
+    - type

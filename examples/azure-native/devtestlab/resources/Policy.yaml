@@ -1,0 +1,106 @@
+$token: azure-native:devtestlab:Policy
+description: |-
+  A Policy.
+  API Version: 2018-09-15.
+properties:
+  createdDate:
+    type: string
+    description: The creation date of the policy.
+  description:
+    type: string
+    description: The description of the policy.
+  evaluatorType:
+    type: string
+    description: The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
+  factData:
+    type: string
+    description: The fact data of the policy.
+  factName:
+    type: string
+    description: The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
+  location:
+    type: string
+    description: The location of the resource.
+  name:
+    type: string
+    description: The name of the resource.
+  provisioningState:
+    type: string
+    description: The provisioning status of the resource.
+  status:
+    type: string
+    description: The status of the policy.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+  threshold:
+    type: string
+    description: The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
+  type:
+    type: string
+    description: The type of the resource.
+  uniqueIdentifier:
+    type: string
+    description: The unique immutable identifier of a resource (Guid).
+type: object
+required:
+  - createdDate
+  - name
+  - provisioningState
+  - type
+  - uniqueIdentifier
+inputProperties:
+  description:
+    type: string
+    description: The description of the policy.
+  evaluatorType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:devtestlab:PolicyEvaluatorType"
+    description: The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
+  factData:
+    type: string
+    description: The fact data of the policy.
+  factName:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:devtestlab:PolicyFactName"
+    description: The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
+  labName:
+    type: string
+    description: The name of the lab.
+  location:
+    type: string
+    description: The location of the resource.
+  name:
+    type: string
+    description: The name of the policy.
+  policySetName:
+    type: string
+    description: The name of the policy set.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  status:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:devtestlab:PolicyStatus"
+    description: The status of the policy.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The tags of the resource.
+  threshold:
+    type: string
+    description: The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
+requiredInputs:
+  - labName
+  - policySetName
+  - resourceGroupName
+aliases:
+  - type: azure-native:devtestlab/v20150521preview:Policy
+  - type: azure-native:devtestlab/v20160515:Policy
+  - type: azure-native:devtestlab/v20180915:Policy

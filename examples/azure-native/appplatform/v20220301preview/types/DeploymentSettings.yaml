@@ -1,0 +1,24 @@
+$token: azure-native:appplatform/v20220301preview:DeploymentSettings
+description: Deployment settings payload
+properties:
+  addonConfigs:
+    type: object
+    additionalProperties:
+      type: object
+      additionalProperties:
+        $ref: pulumi.json#/Any
+    description: Collection of addons
+  containerProbeSettings:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20220301preview:ContainerProbeSettings"
+    description: Container liveness and readiness probe settings
+  environmentVariables:
+    type: object
+    additionalProperties:
+      type: string
+    description: Collection of environment variables
+  resourceRequests:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20220301preview:ResourceRequests"
+    description: The requested resource quantity for required CPU and Memory. It is recommended that using this field to represent the required CPU and Memory, the old field cpu and memoryInGB will be deprecated later.
+type: object

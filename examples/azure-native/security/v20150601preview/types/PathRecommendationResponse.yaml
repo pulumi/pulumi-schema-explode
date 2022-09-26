@@ -1,0 +1,35 @@
+$token: azure-native:security/v20150601preview:PathRecommendationResponse
+description: Represents a path that is recommended to be allowed and its properties
+properties:
+  action:
+    type: string
+    description: The recommendation action of the VM/server or rule
+  common:
+    type: boolean
+    description: Whether the path is commonly run on the machine
+  configurationStatus:
+    type: string
+    description: The configuration status of the VM/server group or machine or rule on the machine
+  fileType:
+    type: string
+    description: The type of the file (for Linux files - Executable is used)
+  path:
+    type: string
+    description: The full path to whitelist
+  publisherInfo:
+    type: object
+    $ref: "#/types/azure-native:security/v20150601preview:PublisherInfoResponse"
+    description: Represents the publisher information of a process/rule
+  type:
+    type: string
+    description: The type of the rule to be allowed
+  userSids:
+    type: array
+    items:
+      type: string
+  usernames:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:security/v20150601preview:UserRecommendationResponse"
+type: object

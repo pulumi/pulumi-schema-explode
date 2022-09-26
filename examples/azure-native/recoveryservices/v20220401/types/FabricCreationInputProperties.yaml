@@ -1,0 +1,19 @@
+$token: azure-native:recoveryservices/v20220401:FabricCreationInputProperties
+description: Properties of site details provided during the time of site creation.
+properties:
+  customDetails:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20220401:AzureFabricCreationInput"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20220401:InMageRcmFabricCreationInput"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20220401:VMwareV2FabricCreationInput"
+    discriminator:
+      propertyName: instanceType
+      mapping:
+        Azure: "#/types/azure-native:recoveryservices/v20220401:AzureFabricCreationInput"
+        InMageRcm: "#/types/azure-native:recoveryservices/v20220401:InMageRcmFabricCreationInput"
+        VMwareV2: "#/types/azure-native:recoveryservices/v20220401:VMwareV2FabricCreationInput"
+    description: Fabric provider specific creation input.
+type: object

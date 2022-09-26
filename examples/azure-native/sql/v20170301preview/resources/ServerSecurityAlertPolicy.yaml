@@ -1,0 +1,93 @@
+$token: azure-native:sql/v20170301preview:ServerSecurityAlertPolicy
+description: A server security alert policy.
+properties:
+  creationTime:
+    type: string
+    description: Specifies the UTC creation time of the policy.
+  disabledAlerts:
+    type: array
+    items:
+      type: string
+    description: "Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action"
+  emailAccountAdmins:
+    type: boolean
+    description: Specifies that the alert is sent to the account administrators.
+  emailAddresses:
+    type: array
+    items:
+      type: string
+    description: Specifies an array of e-mail addresses to which the alert is sent.
+  name:
+    type: string
+    description: Resource name.
+  retentionDays:
+    type: integer
+    description: Specifies the number of days to keep in the Threat Detection audit logs.
+  state:
+    type: string
+    description: Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database.
+  storageAccountAccessKey:
+    type: string
+    description: Specifies the identifier key of the Threat Detection audit storage account.
+  storageEndpoint:
+    type: string
+    description: Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - creationTime
+  - name
+  - state
+  - type
+inputProperties:
+  disabledAlerts:
+    type: array
+    items:
+      type: string
+    description: "Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action"
+  emailAccountAdmins:
+    type: boolean
+    description: Specifies that the alert is sent to the account administrators.
+  emailAddresses:
+    type: array
+    items:
+      type: string
+    description: Specifies an array of e-mail addresses to which the alert is sent.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  retentionDays:
+    type: integer
+    description: Specifies the number of days to keep in the Threat Detection audit logs.
+  securityAlertPolicyName:
+    type: string
+    description: The name of the threat detection policy.
+  serverName:
+    type: string
+    description: The name of the server.
+  state:
+    $ref: "#/types/azure-native:sql/v20170301preview:SecurityAlertPolicyState"
+    description: Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database.
+  storageAccountAccessKey:
+    type: string
+    description: Specifies the identifier key of the Threat Detection audit storage account.
+  storageEndpoint:
+    type: string
+    description: Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+requiredInputs:
+  - resourceGroupName
+  - serverName
+  - state
+aliases:
+  - type: azure-native:sql:ServerSecurityAlertPolicy
+  - type: azure-native:sql/v20200202preview:ServerSecurityAlertPolicy
+  - type: azure-native:sql/v20200801preview:ServerSecurityAlertPolicy
+  - type: azure-native:sql/v20201101preview:ServerSecurityAlertPolicy
+  - type: azure-native:sql/v20210201preview:ServerSecurityAlertPolicy
+  - type: azure-native:sql/v20210501preview:ServerSecurityAlertPolicy
+  - type: azure-native:sql/v20210801preview:ServerSecurityAlertPolicy
+  - type: azure-native:sql/v20211101:ServerSecurityAlertPolicy
+  - type: azure-native:sql/v20211101preview:ServerSecurityAlertPolicy
+  - type: azure-native:sql/v20220201preview:ServerSecurityAlertPolicy

@@ -1,0 +1,78 @@
+$token: azure-native:keyvault/v20210601preview:getKey
+description: The key resource.
+inputs:
+  properties:
+    keyName:
+      type: string
+      description: The name of the key to be retrieved.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group which contains the specified key vault.
+    vaultName:
+      type: string
+      description: The name of the vault which contains the key to be retrieved.
+  type: object
+  required:
+    - keyName
+    - resourceGroupName
+    - vaultName
+outputs:
+  description: The key resource.
+  properties:
+    attributes:
+      type: object
+      $ref: "#/types/azure-native:keyvault/v20210601preview:KeyAttributesResponse"
+      description: The attributes of the key.
+    curveName:
+      type: string
+      description: The elliptic curve name. For valid values, see JsonWebKeyCurveName.
+    id:
+      type: string
+      description: Fully qualified identifier of the key vault resource.
+    keyOps:
+      type: array
+      items:
+        type: string
+    keySize:
+      type: integer
+      description: "The key size in bits. For example: 2048, 3072, or 4096 for RSA."
+    keyUri:
+      type: string
+      description: The URI to retrieve the current version of the key.
+    keyUriWithVersion:
+      type: string
+      description: The URI to retrieve the specific version of the key.
+    kty:
+      type: string
+      description: The type of the key. For valid values, see JsonWebKeyType.
+    location:
+      type: string
+      description: Azure location of the key vault resource.
+    name:
+      type: string
+      description: Name of the key vault resource.
+    releasePolicy:
+      type: object
+      $ref: "#/types/azure-native:keyvault/v20210601preview:KeyReleasePolicyResponse"
+      description: Key release policy in response. It will be used for both output and input. Omitted if empty
+    rotationPolicy:
+      type: object
+      $ref: "#/types/azure-native:keyvault/v20210601preview:RotationPolicyResponse"
+      description: Key rotation policy in response. It will be used for both output and input. Omitted if empty
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Tags assigned to the key vault resource.
+    type:
+      type: string
+      description: Resource type of the key vault resource.
+  type: object
+  required:
+    - id
+    - keyUri
+    - keyUriWithVersion
+    - location
+    - name
+    - tags
+    - type

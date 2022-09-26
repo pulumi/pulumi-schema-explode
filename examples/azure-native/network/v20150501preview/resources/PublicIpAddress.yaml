@@ -1,0 +1,136 @@
+$token: azure-native:network/v20150501preview:PublicIpAddress
+description: PublicIPAddress resource
+properties:
+  dnsSettings:
+    type: object
+    $ref: "#/types/azure-native:network/v20150501preview:PublicIpAddressDnsSettingsResponse"
+    description: Gets or sets FQDN of the DNS record associated with the public IP address
+  etag:
+    type: string
+    description: Gets a unique read-only string that changes whenever the resource is updated
+  idleTimeoutInMinutes:
+    type: integer
+    description: Gets or sets the idle timeout of the public IP address
+  ipAddress:
+    type: string
+    description: Gets the assigned public IP address
+  ipConfiguration:
+    type: object
+    $ref: "#/types/azure-native:network/v20150501preview:SubResourceResponse"
+    description: Gets a reference to the network interface IP configurations using this public IP address
+  location:
+    type: string
+    description: Resource location
+  name:
+    type: string
+    description: Resource name
+  provisioningState:
+    type: string
+    description: Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+  publicIPAllocationMethod:
+    type: string
+    description: Gets or sets PublicIP allocation method (Static/Dynamic)
+  resourceGuid:
+    type: string
+    description: Gets or sets resource guid property of the PublicIP resource
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+  type:
+    type: string
+    description: Resource type
+type: object
+required:
+  - location
+  - name
+  - publicIPAllocationMethod
+  - type
+inputProperties:
+  dnsSettings:
+    type: object
+    $ref: "#/types/azure-native:network/v20150501preview:PublicIpAddressDnsSettings"
+    description: Gets or sets FQDN of the DNS record associated with the public IP address
+  idleTimeoutInMinutes:
+    type: integer
+    description: Gets or sets the idle timeout of the public IP address
+  ipAddress:
+    type: string
+    description: Gets the assigned public IP address
+  ipConfiguration:
+    type: object
+    $ref: "#/types/azure-native:network/v20150501preview:SubResource"
+    description: Gets a reference to the network interface IP configurations using this public IP address
+  location:
+    type: string
+    description: Resource location
+  provisioningState:
+    type: string
+    description: Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+  publicIPAllocationMethod:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20150501preview:IpAllocationMethod"
+    description: Gets or sets PublicIP allocation method (Static/Dynamic)
+  publicIpAddressName:
+    type: string
+    description: The name of the publicIpAddress.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  resourceGuid:
+    type: string
+    description: Gets or sets resource guid property of the PublicIP resource
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags
+requiredInputs:
+  - publicIPAllocationMethod
+  - publicIpAddressName
+  - resourceGroupName
+aliases:
+  - type: azure-native:network:PublicIpAddress
+  - type: azure-native:network/v20150615:PublicIpAddress
+  - type: azure-native:network/v20160330:PublicIpAddress
+  - type: azure-native:network/v20160601:PublicIpAddress
+  - type: azure-native:network/v20160901:PublicIpAddress
+  - type: azure-native:network/v20161201:PublicIpAddress
+  - type: azure-native:network/v20170301:PublicIpAddress
+  - type: azure-native:network/v20170601:PublicIpAddress
+  - type: azure-native:network/v20170801:PublicIpAddress
+  - type: azure-native:network/v20170901:PublicIpAddress
+  - type: azure-native:network/v20171001:PublicIpAddress
+  - type: azure-native:network/v20171101:PublicIpAddress
+  - type: azure-native:network/v20180101:PublicIpAddress
+  - type: azure-native:network/v20180201:PublicIpAddress
+  - type: azure-native:network/v20180401:PublicIpAddress
+  - type: azure-native:network/v20180601:PublicIpAddress
+  - type: azure-native:network/v20180701:PublicIpAddress
+  - type: azure-native:network/v20180801:PublicIpAddress
+  - type: azure-native:network/v20181001:PublicIpAddress
+  - type: azure-native:network/v20181101:PublicIpAddress
+  - type: azure-native:network/v20181201:PublicIpAddress
+  - type: azure-native:network/v20190201:PublicIpAddress
+  - type: azure-native:network/v20190401:PublicIpAddress
+  - type: azure-native:network/v20190601:PublicIpAddress
+  - type: azure-native:network/v20190701:PublicIpAddress
+  - type: azure-native:network/v20190801:PublicIpAddress
+  - type: azure-native:network/v20190901:PublicIpAddress
+  - type: azure-native:network/v20191101:PublicIpAddress
+  - type: azure-native:network/v20191201:PublicIpAddress
+  - type: azure-native:network/v20200301:PublicIpAddress
+  - type: azure-native:network/v20200401:PublicIpAddress
+  - type: azure-native:network/v20200501:PublicIpAddress
+  - type: azure-native:network/v20200601:PublicIpAddress
+  - type: azure-native:network/v20200701:PublicIpAddress
+  - type: azure-native:network/v20200801:PublicIpAddress
+  - type: azure-native:network/v20201101:PublicIpAddress
+  - type: azure-native:network/v20210201:PublicIpAddress
+  - type: azure-native:network/v20210301:PublicIpAddress
+  - type: azure-native:network/v20210501:PublicIpAddress
+  - type: azure-native:network/v20210801:PublicIpAddress
+  - type: azure-native:network/v20220101:PublicIpAddress
+deprecationMessage: Version 2015-05-01-preview will be removed in v2 of the provider.

@@ -1,0 +1,72 @@
+$token: azure-native:security:AlertsSuppressionRule
+description: |-
+  Describes the suppression rule
+  API Version: 2019-01-01-preview.
+properties:
+  alertType:
+    type: string
+    description: Type of the alert to automatically suppress. For all alert types, use '*'
+  comment:
+    type: string
+    description: Any comment regarding the rule
+  expirationDateUtc:
+    type: string
+    description: Expiration date of the rule, if value is not provided or provided as null this field will default to the maximum allowed expiration date.
+  lastModifiedUtc:
+    type: string
+    description: The last time this rule was modified
+  name:
+    type: string
+    description: Resource name
+  reason:
+    type: string
+    description: The reason for dismissing the alert
+  state:
+    type: string
+    description: Possible states of the rule
+  suppressionAlertsScope:
+    type: object
+    $ref: "#/types/azure-native:security:SuppressionAlertsScopeResponse"
+    description: The suppression conditions
+  type:
+    type: string
+    description: Resource type
+type: object
+required:
+  - alertType
+  - lastModifiedUtc
+  - name
+  - reason
+  - state
+  - type
+inputProperties:
+  alertType:
+    type: string
+    description: Type of the alert to automatically suppress. For all alert types, use '*'
+  alertsSuppressionRuleName:
+    type: string
+    description: The unique name of the suppression alert rule
+  comment:
+    type: string
+    description: Any comment regarding the rule
+  expirationDateUtc:
+    type: string
+    description: Expiration date of the rule, if value is not provided or provided as null this field will default to the maximum allowed expiration date.
+  reason:
+    type: string
+    description: The reason for dismissing the alert
+  state:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:security:RuleState"
+    description: Possible states of the rule
+  suppressionAlertsScope:
+    type: object
+    $ref: "#/types/azure-native:security:SuppressionAlertsScope"
+    description: The suppression conditions
+requiredInputs:
+  - alertType
+  - reason
+  - state
+aliases:
+  - type: azure-native:security/v20190101preview:AlertsSuppressionRule

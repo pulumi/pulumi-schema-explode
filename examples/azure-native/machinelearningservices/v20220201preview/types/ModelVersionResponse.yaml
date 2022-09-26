@@ -1,0 +1,41 @@
+$token: azure-native:machinelearningservices/v20220201preview:ModelVersionResponse
+description: Model asset version details.
+properties:
+  description:
+    type: string
+    description: The asset description text.
+  flavors:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20220201preview:FlavorDataResponse"
+    description: Mapping of model flavors to their properties.
+  isAnonymous:
+    type: boolean
+    description: If the name version are system generated (anonymous registration).
+    default: false
+  isArchived:
+    type: boolean
+    description: Is the asset archived?
+    default: false
+  jobName:
+    type: string
+    description: Name of the training job which produced this model
+  modelType:
+    type: string
+    description: The storage format for this entity. Used for NCD.
+    default: CustomModel
+  modelUri:
+    type: string
+    description: The URI path to the model contents.
+  properties:
+    type: object
+    additionalProperties:
+      type: string
+    description: The asset property dictionary.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Tag dictionary. Tags can be added, removed, and updated.
+type: object

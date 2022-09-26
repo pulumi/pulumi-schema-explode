@@ -1,0 +1,88 @@
+$token: azure-native:labservices:getLab
+description: |-
+  Represents a lab.
+  API Version: 2018-10-15.
+inputs:
+  properties:
+    expand:
+      type: string
+      description: "Specify the $expand query. Example: 'properties($select=maxUsersInLab)'"
+    labAccountName:
+      type: string
+      description: The name of the lab Account.
+    labName:
+      type: string
+      description: The name of the lab.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - labAccountName
+    - labName
+    - resourceGroupName
+outputs:
+  description: Represents a lab.
+  properties:
+    createdByObjectId:
+      type: string
+      description: Object id of the user that created the lab.
+    createdByUserPrincipalName:
+      type: string
+      description: Lab creator name
+    createdDate:
+      type: string
+      description: Creation date for the lab
+    id:
+      type: string
+      description: The identifier of the resource.
+    invitationCode:
+      type: string
+      description: Invitation code that users can use to join a lab.
+    latestOperationResult:
+      type: object
+      $ref: "#/types/azure-native:labservices:LatestOperationResultResponse"
+      description: "The details of the latest operation. ex: status, error"
+    location:
+      type: string
+      description: The location of the resource.
+    maxUsersInLab:
+      type: integer
+      description: Maximum number of users allowed in the lab.
+    name:
+      type: string
+      description: The name of the resource.
+    provisioningState:
+      type: string
+      description: The provisioning status of the resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: The tags of the resource.
+    type:
+      type: string
+      description: The type of the resource.
+    uniqueIdentifier:
+      type: string
+      description: The unique immutable identifier of a resource (Guid).
+    usageQuota:
+      type: string
+      description: Maximum duration a user can use an environment for in the lab.
+    userAccessMode:
+      type: string
+      description: Lab user access mode (open to all vs. restricted to those listed on the lab).
+    userQuota:
+      type: integer
+      description: Maximum value MaxUsersInLab can be set to, as specified by the service
+  type: object
+  required:
+    - createdByObjectId
+    - createdByUserPrincipalName
+    - createdDate
+    - id
+    - invitationCode
+    - latestOperationResult
+    - name
+    - type
+    - userQuota

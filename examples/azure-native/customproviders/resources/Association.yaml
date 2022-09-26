@@ -1,0 +1,36 @@
+$token: azure-native:customproviders:Association
+description: |-
+  The resource definition of this association.
+  API Version: 2018-09-01-preview.
+properties:
+  name:
+    type: string
+    description: The association name.
+  provisioningState:
+    type: string
+    description: The provisioning state of the association.
+  targetResourceId:
+    type: string
+    description: The REST resource instance of the target resource for this association.
+  type:
+    type: string
+    description: The association type.
+type: object
+required:
+  - name
+  - provisioningState
+  - type
+inputProperties:
+  associationName:
+    type: string
+    description: The name of the association.
+  scope:
+    type: string
+    description: The scope of the association. The scope can be any valid REST resource instance. For example, use '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}' for a virtual machine resource.
+  targetResourceId:
+    type: string
+    description: The REST resource instance of the target resource for this association.
+requiredInputs:
+  - scope
+aliases:
+  - type: azure-native:customproviders/v20180901preview:Association

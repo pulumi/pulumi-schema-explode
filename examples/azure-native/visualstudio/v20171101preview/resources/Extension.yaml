@@ -1,0 +1,64 @@
+$token: azure-native:visualstudio/v20171101preview:Extension
+description: The response to an extension resource GET request.
+properties:
+  location:
+    type: string
+    description: Resource location.
+  name:
+    type: string
+    description: Resource name.
+  plan:
+    type: object
+    $ref: "#/types/azure-native:visualstudio/v20171101preview:ExtensionResourcePlanResponse"
+    description: The extension plan that was purchased.
+  properties:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource properties.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - name
+  - properties
+  - type
+inputProperties:
+  accountResourceName:
+    type: string
+    description: The name of the Visual Studio Team Services account resource.
+  extensionResourceName:
+    type: string
+    description: The name of the extension.
+  location:
+    type: string
+    description: The Azure region of the Visual Studio account associated with this request (i.e 'southcentralus'.)
+  plan:
+    type: object
+    $ref: "#/types/azure-native:visualstudio/v20171101preview:ExtensionResourcePlan"
+    description: Extended information about the plan being purchased for this extension resource.
+  properties:
+    type: object
+    additionalProperties:
+      type: string
+    description: A dictionary of extended properties. This property is currently unused.
+  resourceGroupName:
+    type: string
+    description: Name of the resource group within the Azure subscription.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: A dictionary of user-defined tags to be stored with the extension resource.
+requiredInputs:
+  - accountResourceName
+  - resourceGroupName
+aliases:
+  - type: azure-native:visualstudio:Extension
+  - type: azure-native:visualstudio/v20140401preview:Extension

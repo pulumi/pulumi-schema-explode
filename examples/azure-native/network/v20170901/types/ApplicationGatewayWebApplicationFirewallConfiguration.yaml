@@ -1,0 +1,29 @@
+$token: azure-native:network/v20170901:ApplicationGatewayWebApplicationFirewallConfiguration
+description: Application gateway web application firewall configuration.
+properties:
+  disabledRuleGroups:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20170901:ApplicationGatewayFirewallDisabledRuleGroup"
+    description: The disabled rule groups.
+  enabled:
+    type: boolean
+    description: Whether the web application firewall is enabled or not.
+  firewallMode:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20170901:ApplicationGatewayFirewallMode"
+    description: Web application firewall mode.
+  ruleSetType:
+    type: string
+    description: "The type of the web application firewall rule set. Possible values are: 'OWASP'."
+  ruleSetVersion:
+    type: string
+    description: The version of the rule set type.
+type: object
+required:
+  - enabled
+  - firewallMode
+  - ruleSetType
+  - ruleSetVersion

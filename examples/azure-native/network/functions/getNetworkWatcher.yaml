@@ -1,0 +1,48 @@
+$token: azure-native:network:getNetworkWatcher
+description: |-
+  Network watcher in a resource group.
+  API Version: 2020-11-01.
+inputs:
+  properties:
+    networkWatcherName:
+      type: string
+      description: The name of the network watcher.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - networkWatcherName
+    - resourceGroupName
+outputs:
+  description: Network watcher in a resource group.
+  properties:
+    etag:
+      type: string
+      description: A unique read-only string that changes whenever the resource is updated.
+    id:
+      type: string
+      description: Resource ID.
+    location:
+      type: string
+      description: Resource location.
+    name:
+      type: string
+      description: Resource name.
+    provisioningState:
+      type: string
+      description: The provisioning state of the network watcher resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - etag
+    - name
+    - provisioningState
+    - type

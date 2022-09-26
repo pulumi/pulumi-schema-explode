@@ -1,0 +1,26 @@
+$token: azure-native:databox/v20210501:TransferFilterDetails
+description: Details of the filtering the transfer of data.
+properties:
+  azureFileFilterDetails:
+    type: object
+    $ref: "#/types/azure-native:databox/v20210501:AzureFileFilterDetails"
+    description: Filter details to transfer Azure files.
+  blobFilterDetails:
+    type: object
+    $ref: "#/types/azure-native:databox/v20210501:BlobFilterDetails"
+    description: Filter details to transfer blobs.
+  dataAccountType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:databox/v20210501:DataAccountType"
+    description: Type of the account of data.
+    default: StorageAccount
+  filterFileDetails:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:databox/v20210501:FilterFileDetails"
+    description: Details of the filter files to be used for data transfer.
+type: object
+required:
+  - dataAccountType

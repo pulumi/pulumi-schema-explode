@@ -1,0 +1,30 @@
+$token: azure-native:videoanalyzer/v20211101preview:EccTokenKey
+description: Required validation properties for tokens generated with Elliptical Curve algorithm.
+properties:
+  alg:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:videoanalyzer/v20211101preview:AccessPolicyEccAlgo"
+    description: "Elliptical curve algorithm to be used: ES256, ES384 or ES512."
+  kid:
+    type: string
+    description: JWT token key id. Validation keys are looked up based on the key id present on the JWT token header.
+  type:
+    type: string
+    description: |-
+      The discriminator for derived types.
+      Expected value is '#Microsoft.VideoAnalyzer.EccTokenKey'.
+    const: "#Microsoft.VideoAnalyzer.EccTokenKey"
+  x:
+    type: string
+    description: X coordinate.
+  y:
+    type: string
+    description: Y coordinate.
+type: object
+required:
+  - alg
+  - kid
+  - type
+  - x
+  - y

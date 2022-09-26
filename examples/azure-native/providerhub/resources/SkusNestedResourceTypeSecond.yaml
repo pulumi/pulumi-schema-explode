@@ -1,0 +1,48 @@
+$token: azure-native:providerhub:SkusNestedResourceTypeSecond
+description: |-
+  
+  API Version: 2020-11-20.
+properties:
+  name:
+    type: string
+    description: The name of the resource
+  properties:
+    type: object
+    $ref: "#/types/azure-native:providerhub:SkuResourceResponseProperties"
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - name
+  - properties
+  - type
+inputProperties:
+  nestedResourceTypeFirst:
+    type: string
+    description: The first child resource type.
+  nestedResourceTypeSecond:
+    type: string
+    description: The second child resource type.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:providerhub:SkuResourceProperties"
+  providerNamespace:
+    type: string
+    description: The name of the resource provider hosted within ProviderHub.
+  resourceType:
+    type: string
+    description: The resource type.
+  sku:
+    type: string
+    description: The SKU.
+requiredInputs:
+  - nestedResourceTypeFirst
+  - nestedResourceTypeSecond
+  - providerNamespace
+  - resourceType
+aliases:
+  - type: azure-native:providerhub/v20201120:SkusNestedResourceTypeSecond
+  - type: azure-native:providerhub/v20210501preview:SkusNestedResourceTypeSecond
+  - type: azure-native:providerhub/v20210601preview:SkusNestedResourceTypeSecond
+  - type: azure-native:providerhub/v20210901preview:SkusNestedResourceTypeSecond

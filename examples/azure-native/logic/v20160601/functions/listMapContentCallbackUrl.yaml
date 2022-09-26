@@ -1,0 +1,54 @@
+$token: azure-native:logic/v20160601:listMapContentCallbackUrl
+description: The workflow trigger callback URL.
+inputs:
+  properties:
+    integrationAccountName:
+      type: string
+      description: The integration account name.
+    keyType:
+      $ref: "#/types/azure-native:logic/v20160601:KeyType"
+      description: The key type.
+    mapName:
+      type: string
+      description: The integration account map name.
+    notAfter:
+      type: string
+      description: The expiry time.
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+  type: object
+  required:
+    - integrationAccountName
+    - mapName
+    - resourceGroupName
+outputs:
+  description: The workflow trigger callback URL.
+  properties:
+    basePath:
+      type: string
+      description: Gets the workflow trigger callback URL base path.
+    method:
+      type: string
+      description: Gets the workflow trigger callback URL HTTP method.
+    queries:
+      type: object
+      $ref: "#/types/azure-native:logic/v20160601:WorkflowTriggerListCallbackUrlQueriesResponse"
+      description: Gets the workflow trigger callback URL query parameters.
+    relativePath:
+      type: string
+      description: Gets the workflow trigger callback URL relative path.
+    relativePathParameters:
+      type: array
+      items:
+        type: string
+      description: Gets the workflow trigger callback URL relative path parameters.
+    value:
+      type: string
+      description: Gets the workflow trigger callback URL.
+  type: object
+  required:
+    - basePath
+    - method
+    - relativePath
+    - value

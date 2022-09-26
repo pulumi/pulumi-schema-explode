@@ -1,0 +1,55 @@
+$token: azure-native:hybridconnectivity/v20211006preview:getEndpoint
+description: The endpoint for the target resource.
+inputs:
+  properties:
+    endpointName:
+      type: string
+      description: The endpoint name.
+    resourceUri:
+      type: string
+      description: The fully qualified Azure Resource manager identifier of the resource to be connected.
+  type: object
+  required:
+    - endpointName
+    - resourceUri
+outputs:
+  description: The endpoint for the target resource.
+  properties:
+    createdAt:
+      type: string
+      description: The timestamp of resource creation (UTC).
+    createdBy:
+      type: string
+      description: The identity that created the resource.
+    createdByType:
+      type: string
+      description: The type of identity that created the resource.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    lastModifiedAt:
+      type: string
+      description: The timestamp of resource last modification (UTC)
+    lastModifiedBy:
+      type: string
+      description: The identity that last modified the resource.
+    lastModifiedByType:
+      type: string
+      description: The type of identity that last modified the resource.
+    name:
+      type: string
+      description: The name of the resource
+    provisioningState:
+      type: string
+    resourceId:
+      type: string
+      description: The resource Id of the connectivity endpoint (optional).
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - id
+    - name
+    - provisioningState
+    - type

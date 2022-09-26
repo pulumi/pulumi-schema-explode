@@ -1,0 +1,40 @@
+$token: azure-native:securityinsights/v20220601preview:BookmarkTimelineItemResponse
+description: Represents bookmark timeline item.
+properties:
+  azureResourceId:
+    type: string
+    description: The bookmark azure resource id.
+  createdBy:
+    type: object
+    $ref: "#/types/azure-native:securityinsights/v20220601preview:UserInfoResponse"
+    description: Describes a user that created the bookmark
+  displayName:
+    type: string
+    description: The bookmark display name.
+  endTimeUtc:
+    type: string
+    description: The bookmark end time.
+  eventTime:
+    type: string
+    description: The bookmark event time.
+  kind:
+    type: string
+    description: |-
+      The entity query kind
+      Expected value is 'Bookmark'.
+    const: Bookmark
+  labels:
+    type: array
+    items:
+      type: string
+    description: List of labels relevant to this bookmark
+  notes:
+    type: string
+    description: The notes of the bookmark
+  startTimeUtc:
+    type: string
+    description: The bookmark start time.
+type: object
+required:
+  - azureResourceId
+  - kind

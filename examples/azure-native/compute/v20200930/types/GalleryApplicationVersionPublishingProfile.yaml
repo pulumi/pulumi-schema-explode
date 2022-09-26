@@ -1,0 +1,36 @@
+$token: azure-native:compute/v20200930:GalleryApplicationVersionPublishingProfile
+description: The publishing profile of a gallery image version.
+properties:
+  enableHealthCheck:
+    type: boolean
+    description: Optional. Whether or not this application reports health.
+  endOfLifeDate:
+    type: string
+    description: The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
+  excludeFromLatest:
+    type: boolean
+    description: If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
+  manageActions:
+    type: object
+    $ref: "#/types/azure-native:compute/v20200930:UserArtifactManage"
+  replicaCount:
+    type: integer
+    description: The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
+  source:
+    type: object
+    $ref: "#/types/azure-native:compute/v20200930:UserArtifactSource"
+    description: The source image from which the Image Version is going to be created.
+  storageAccountType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:compute/v20200930:StorageAccountType"
+    description: Specifies the storage account type to be used to store the image. This property is not updatable.
+  targetRegions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:compute/v20200930:TargetRegion"
+    description: The target regions where the Image Version is going to be replicated to. This property is updatable.
+type: object
+required:
+  - source

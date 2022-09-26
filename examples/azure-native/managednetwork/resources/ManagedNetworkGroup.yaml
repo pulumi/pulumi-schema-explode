@@ -1,0 +1,100 @@
+$token: azure-native:managednetwork:ManagedNetworkGroup
+description: |-
+  The Managed Network Group resource
+  API Version: 2019-06-01-preview.
+properties:
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  kind:
+    type: string
+    description: Responsibility role under which this Managed Network Group will be created
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  managementGroups:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:managednetwork:ResourceIdResponse"
+    description: The collection of management groups covered by the Managed Network
+  name:
+    type: string
+    description: The name of the resource
+  provisioningState:
+    type: string
+    description: Provisioning state of the ManagedNetwork resource.
+  subnets:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:managednetwork:ResourceIdResponse"
+    description: The collection of  subnets covered by the Managed Network
+  subscriptions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:managednetwork:ResourceIdResponse"
+    description: The collection of subscriptions covered by the Managed Network
+  type:
+    type: string
+    description: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+  virtualNetworks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:managednetwork:ResourceIdResponse"
+    description: The collection of virtual nets covered by the Managed Network
+type: object
+required:
+  - etag
+  - name
+  - provisioningState
+  - type
+inputProperties:
+  kind:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:managednetwork:Kind"
+    description: Responsibility role under which this Managed Network Group will be created
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  managedNetworkGroupName:
+    type: string
+    description: The name of the Managed Network Group.
+  managedNetworkName:
+    type: string
+    description: The name of the Managed Network.
+  managementGroups:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:managednetwork:ResourceId"
+    description: The collection of management groups covered by the Managed Network
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  subnets:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:managednetwork:ResourceId"
+    description: The collection of  subnets covered by the Managed Network
+  subscriptions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:managednetwork:ResourceId"
+    description: The collection of subscriptions covered by the Managed Network
+  virtualNetworks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:managednetwork:ResourceId"
+    description: The collection of virtual nets covered by the Managed Network
+requiredInputs:
+  - managedNetworkName
+  - resourceGroupName
+aliases:
+  - type: azure-native:managednetwork/v20190601preview:ManagedNetworkGroup

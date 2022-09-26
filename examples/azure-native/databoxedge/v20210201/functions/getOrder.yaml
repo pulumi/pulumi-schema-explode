@@ -1,0 +1,78 @@
+$token: azure-native:databoxedge/v20210201:getOrder
+description: The order details.
+inputs:
+  properties:
+    deviceName:
+      type: string
+      description: The device name.
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+  type: object
+  required:
+    - deviceName
+    - resourceGroupName
+outputs:
+  description: The order details.
+  properties:
+    contactInformation:
+      type: object
+      $ref: "#/types/azure-native:databoxedge/v20210201:ContactDetailsResponse"
+      description: The contact details.
+    currentStatus:
+      type: object
+      $ref: "#/types/azure-native:databoxedge/v20210201:OrderStatusResponse"
+      description: Current status of the order.
+    deliveryTrackingInfo:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:databoxedge/v20210201:TrackingInfoResponse"
+      description: Tracking information for the package delivered to the customer whether it has an original or a replacement device.
+    id:
+      type: string
+      description: The path ID that uniquely identifies the object.
+    name:
+      type: string
+      description: The object name.
+    orderHistory:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:databoxedge/v20210201:OrderStatusResponse"
+      description: List of status changes in the order.
+    returnTrackingInfo:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:databoxedge/v20210201:TrackingInfoResponse"
+      description: Tracking information for the package returned from the customer whether it has an original or a replacement device.
+    serialNumber:
+      type: string
+      description: Serial number of the device.
+    shipmentType:
+      type: string
+      description: ShipmentType of the order
+    shippingAddress:
+      type: object
+      $ref: "#/types/azure-native:databoxedge/v20210201:AddressResponse"
+      description: The shipping address.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:databoxedge/v20210201:SystemDataResponse"
+      description: Order configured on ASE resource
+    type:
+      type: string
+      description: The hierarchical type of the object.
+  type: object
+  required:
+    - contactInformation
+    - currentStatus
+    - deliveryTrackingInfo
+    - id
+    - name
+    - orderHistory
+    - returnTrackingInfo
+    - serialNumber
+    - systemData
+    - type

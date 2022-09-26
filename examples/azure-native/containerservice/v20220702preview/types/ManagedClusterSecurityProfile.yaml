@@ -1,0 +1,24 @@
+$token: azure-native:containerservice/v20220702preview:ManagedClusterSecurityProfile
+description: Security profile for the container service cluster.
+properties:
+  azureKeyVaultKms:
+    type: object
+    $ref: "#/types/azure-native:containerservice/v20220702preview:AzureKeyVaultKms"
+    description: Azure Key Vault [key management service](https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/) settings for the security profile.
+  defender:
+    type: object
+    $ref: "#/types/azure-native:containerservice/v20220702preview:ManagedClusterSecurityProfileDefender"
+    description: Microsoft Defender settings for the security profile.
+  imageCleaner:
+    type: object
+    $ref: "#/types/azure-native:containerservice/v20220702preview:ManagedClusterSecurityProfileImageCleaner"
+    description: ImageCleaner settings for the security profile.
+  nodeRestriction:
+    type: object
+    $ref: "#/types/azure-native:containerservice/v20220702preview:ManagedClusterSecurityProfileNodeRestriction"
+    description: "[Node Restriction](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#noderestriction) settings for the security profile."
+  workloadIdentity:
+    type: object
+    $ref: "#/types/azure-native:containerservice/v20220702preview:ManagedClusterSecurityProfileWorkloadIdentity"
+    description: "[Workload Identity](https://azure.github.io/azure-workload-identity/docs/) settings for the security profile."
+type: object

@@ -1,0 +1,19 @@
+$token: azure-native:aad/v20210301:NotificationSettings
+description: Settings for notification
+properties:
+  additionalRecipients:
+    type: array
+    items:
+      type: string
+    description: The list of additional recipients
+  notifyDcAdmins:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:aad/v20210301:NotifyDcAdmins"
+    description: Should domain controller admins be notified
+  notifyGlobalAdmins:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:aad/v20210301:NotifyGlobalAdmins"
+    description: Should global admins be notified
+type: object

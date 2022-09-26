@@ -1,0 +1,21 @@
+$token: azure-native:datamigration/v20220130preview:ConnectToTargetAzureDbForPostgreSqlSyncTaskProperties
+description: Properties for the task that validates connection to Azure Database For PostgreSQL server and target server requirements for online migration
+properties:
+  clientData:
+    type: object
+    additionalProperties:
+      type: string
+    description: Key value pairs of client data to attach meta data information to task
+  input:
+    type: object
+    $ref: "#/types/azure-native:datamigration/v20220130preview:ConnectToTargetAzureDbForPostgreSqlSyncTaskInput"
+    description: Task input
+  taskType:
+    type: string
+    description: |-
+      Task type.
+      Expected value is 'ConnectToTarget.AzureDbForPostgreSql.Sync'.
+    const: ConnectToTarget.AzureDbForPostgreSql.Sync
+type: object
+required:
+  - taskType

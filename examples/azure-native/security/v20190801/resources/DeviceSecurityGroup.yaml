@@ -1,0 +1,73 @@
+$token: azure-native:security/v20190801:DeviceSecurityGroup
+description: The device security group resource
+properties:
+  allowlistRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:security/v20190801:AllowlistCustomAlertRuleResponse"
+    description: The allow-list custom alert rules.
+  denylistRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:security/v20190801:DenylistCustomAlertRuleResponse"
+    description: The deny-list custom alert rules.
+  name:
+    type: string
+    description: Resource name
+  thresholdRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:security/v20190801:ThresholdCustomAlertRuleResponse"
+    description: The list of custom alert threshold rules.
+  timeWindowRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:security/v20190801:TimeWindowCustomAlertRuleResponse"
+    description: The list of custom alert time-window rules.
+  type:
+    type: string
+    description: Resource type
+type: object
+required:
+  - name
+  - type
+inputProperties:
+  allowlistRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:security/v20190801:AllowlistCustomAlertRule"
+    description: The allow-list custom alert rules.
+  denylistRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:security/v20190801:DenylistCustomAlertRule"
+    description: The deny-list custom alert rules.
+  deviceSecurityGroupName:
+    type: string
+    description: The name of the device security group. Note that the name of the device security group is case insensitive.
+  resourceId:
+    type: string
+    description: The identifier of the resource.
+  thresholdRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:security/v20190801:ThresholdCustomAlertRule"
+    description: The list of custom alert threshold rules.
+  timeWindowRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:security/v20190801:TimeWindowCustomAlertRule"
+    description: The list of custom alert time-window rules.
+requiredInputs:
+  - resourceId
+aliases:
+  - type: azure-native:security:DeviceSecurityGroup
+  - type: azure-native:security/v20170801preview:DeviceSecurityGroup

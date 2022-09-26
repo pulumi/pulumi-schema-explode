@@ -1,0 +1,73 @@
+$token: azure-native:mobilenetwork:getPacketCoreDataPlane
+description: |-
+  Packet core data plane resource.
+  API Version: 2022-01-01-preview.
+inputs:
+  properties:
+    packetCoreControlPlaneName:
+      type: string
+      description: The name of the packet core control plane.
+    packetCoreDataPlaneName:
+      type: string
+      description: The name of the packet core data plane.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+  type: object
+  required:
+    - packetCoreControlPlaneName
+    - packetCoreDataPlaneName
+    - resourceGroupName
+outputs:
+  description: Packet core data plane resource.
+  properties:
+    createdAt:
+      type: string
+      description: The timestamp of resource creation (UTC).
+    createdBy:
+      type: string
+      description: The identity that created the resource.
+    createdByType:
+      type: string
+      description: The type of identity that created the resource.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    lastModifiedAt:
+      type: string
+      description: The timestamp of resource last modification (UTC)
+    lastModifiedBy:
+      type: string
+      description: The identity that last modified the resource.
+    lastModifiedByType:
+      type: string
+      description: The type of identity that last modified the resource.
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    name:
+      type: string
+      description: The name of the resource
+    provisioningState:
+      type: string
+      description: The provisioning state of the packet core data plane resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+    userPlaneAccessInterface:
+      type: object
+      $ref: "#/types/azure-native:mobilenetwork:InterfacePropertiesResponse"
+      description: The user plane interface on the access network. In 5G networks this is called as N3 interface whereas in 4G networks this is called the S1-U interface.
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - provisioningState
+    - type
+    - userPlaneAccessInterface

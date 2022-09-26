@@ -1,0 +1,52 @@
+$token: azure-native:logz:getMonitor
+description: |-
+  
+  API Version: 2020-10-01.
+inputs:
+  properties:
+    monitorName:
+      type: string
+      description: Monitor resource name
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+  type: object
+  required:
+    - monitorName
+    - resourceGroupName
+outputs:
+  properties:
+    id:
+      type: string
+      description: ARM id of the monitor resource.
+    identity:
+      type: object
+      $ref: "#/types/azure-native:logz:IdentityPropertiesResponse"
+    location:
+      type: string
+    name:
+      type: string
+      description: Name of the monitor resource.
+    properties:
+      type: object
+      $ref: "#/types/azure-native:logz:MonitorPropertiesResponse"
+      description: Properties specific to the monitor resource.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:logz:SystemDataResponse"
+      description: The system metadata relating to this resource
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+    type:
+      type: string
+      description: The type of the monitor resource.
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - properties
+    - systemData
+    - type

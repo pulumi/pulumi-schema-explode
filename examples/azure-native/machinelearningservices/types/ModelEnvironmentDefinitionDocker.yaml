@@ -1,0 +1,14 @@
+$token: azure-native:machinelearningservices:ModelEnvironmentDefinitionDocker
+description: The definition of a Docker container.
+properties:
+  baseDockerfile:
+    type: string
+    description: Base Dockerfile used for Docker-based runs. Mutually exclusive with BaseImage.
+  baseImage:
+    type: string
+    description: Base image used for Docker-based runs. Mutually exclusive with BaseDockerfile.
+  baseImageRegistry:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices:ModelDockerSectionBaseImageRegistry"
+    description: Image registry that contains the base image.
+type: object

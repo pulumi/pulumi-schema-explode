@@ -1,0 +1,198 @@
+$token: azure-native:datafactory/v20170901preview:LookupActivity
+description: Lookup activity.
+properties:
+  dataset:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20170901preview:DatasetReference"
+    description: Lookup activity dataset reference.
+  dependsOn:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20170901preview:ActivityDependency"
+    description: Activity depends on condition.
+  description:
+    type: string
+    description: Activity description.
+  firstRowOnly:
+    $ref: pulumi.json#/Any
+    description: "Whether to return first row or all rows. Default value is true. Type: boolean (or Expression with resultType boolean)."
+  linkedServiceName:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20170901preview:LinkedServiceReference"
+    description: Linked service reference.
+  name:
+    type: string
+    description: Activity name.
+  policy:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20170901preview:ActivityPolicy"
+    description: Activity policy.
+  source:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:AmazonMWSSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:AmazonRedshiftSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:AzureDataLakeStoreSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:AzureMySqlSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:AzurePostgreSqlSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:AzureTableSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:BlobSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:CassandraSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:ConcurSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:CouchbaseSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:DocumentDbCollectionSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:DrillSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:DynamicsSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:EloquaSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:FileSystemSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:GoogleBigQuerySource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:GreenplumSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:HBaseSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:HdfsSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:HiveSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:HttpSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:HubspotSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:ImpalaSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:JiraSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:MagentoSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:MariaDBSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:MarketoSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:MongoDbSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:NetezzaSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:OracleSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:PaypalSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:PhoenixSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:PrestoSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:QuickBooksSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:RelationalSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:ResponsysSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:SalesforceMarketingCloudSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:SalesforceSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:SapCloudForCustomerSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:SapEccSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:ServiceNowSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:ShopifySource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:SparkSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:SqlDWSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:SqlSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:SquareSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:VerticaSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:WebSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:XeroSource"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20170901preview:ZohoSource"
+    discriminator:
+      propertyName: type
+      mapping:
+        AmazonMWSSource: "#/types/azure-native:datafactory/v20170901preview:AmazonMWSSource"
+        AmazonRedshiftSource: "#/types/azure-native:datafactory/v20170901preview:AmazonRedshiftSource"
+        AzureDataLakeStoreSource: "#/types/azure-native:datafactory/v20170901preview:AzureDataLakeStoreSource"
+        AzureMySqlSource: "#/types/azure-native:datafactory/v20170901preview:AzureMySqlSource"
+        AzurePostgreSqlSource: "#/types/azure-native:datafactory/v20170901preview:AzurePostgreSqlSource"
+        AzureTableSource: "#/types/azure-native:datafactory/v20170901preview:AzureTableSource"
+        BlobSource: "#/types/azure-native:datafactory/v20170901preview:BlobSource"
+        CassandraSource: "#/types/azure-native:datafactory/v20170901preview:CassandraSource"
+        ConcurSource: "#/types/azure-native:datafactory/v20170901preview:ConcurSource"
+        CouchbaseSource: "#/types/azure-native:datafactory/v20170901preview:CouchbaseSource"
+        DocumentDbCollectionSource: "#/types/azure-native:datafactory/v20170901preview:DocumentDbCollectionSource"
+        DrillSource: "#/types/azure-native:datafactory/v20170901preview:DrillSource"
+        DynamicsSource: "#/types/azure-native:datafactory/v20170901preview:DynamicsSource"
+        EloquaSource: "#/types/azure-native:datafactory/v20170901preview:EloquaSource"
+        FileSystemSource: "#/types/azure-native:datafactory/v20170901preview:FileSystemSource"
+        GoogleBigQuerySource: "#/types/azure-native:datafactory/v20170901preview:GoogleBigQuerySource"
+        GreenplumSource: "#/types/azure-native:datafactory/v20170901preview:GreenplumSource"
+        HBaseSource: "#/types/azure-native:datafactory/v20170901preview:HBaseSource"
+        HdfsSource: "#/types/azure-native:datafactory/v20170901preview:HdfsSource"
+        HiveSource: "#/types/azure-native:datafactory/v20170901preview:HiveSource"
+        HttpSource: "#/types/azure-native:datafactory/v20170901preview:HttpSource"
+        HubspotSource: "#/types/azure-native:datafactory/v20170901preview:HubspotSource"
+        ImpalaSource: "#/types/azure-native:datafactory/v20170901preview:ImpalaSource"
+        JiraSource: "#/types/azure-native:datafactory/v20170901preview:JiraSource"
+        MagentoSource: "#/types/azure-native:datafactory/v20170901preview:MagentoSource"
+        MariaDBSource: "#/types/azure-native:datafactory/v20170901preview:MariaDBSource"
+        MarketoSource: "#/types/azure-native:datafactory/v20170901preview:MarketoSource"
+        MongoDbSource: "#/types/azure-native:datafactory/v20170901preview:MongoDbSource"
+        NetezzaSource: "#/types/azure-native:datafactory/v20170901preview:NetezzaSource"
+        OracleSource: "#/types/azure-native:datafactory/v20170901preview:OracleSource"
+        PaypalSource: "#/types/azure-native:datafactory/v20170901preview:PaypalSource"
+        PhoenixSource: "#/types/azure-native:datafactory/v20170901preview:PhoenixSource"
+        PrestoSource: "#/types/azure-native:datafactory/v20170901preview:PrestoSource"
+        QuickBooksSource: "#/types/azure-native:datafactory/v20170901preview:QuickBooksSource"
+        RelationalSource: "#/types/azure-native:datafactory/v20170901preview:RelationalSource"
+        ResponsysSource: "#/types/azure-native:datafactory/v20170901preview:ResponsysSource"
+        SalesforceMarketingCloudSource: "#/types/azure-native:datafactory/v20170901preview:SalesforceMarketingCloudSource"
+        SalesforceSource: "#/types/azure-native:datafactory/v20170901preview:SalesforceSource"
+        SapCloudForCustomerSource: "#/types/azure-native:datafactory/v20170901preview:SapCloudForCustomerSource"
+        SapEccSource: "#/types/azure-native:datafactory/v20170901preview:SapEccSource"
+        ServiceNowSource: "#/types/azure-native:datafactory/v20170901preview:ServiceNowSource"
+        ShopifySource: "#/types/azure-native:datafactory/v20170901preview:ShopifySource"
+        SparkSource: "#/types/azure-native:datafactory/v20170901preview:SparkSource"
+        SqlDWSource: "#/types/azure-native:datafactory/v20170901preview:SqlDWSource"
+        SqlSource: "#/types/azure-native:datafactory/v20170901preview:SqlSource"
+        SquareSource: "#/types/azure-native:datafactory/v20170901preview:SquareSource"
+        VerticaSource: "#/types/azure-native:datafactory/v20170901preview:VerticaSource"
+        WebSource: "#/types/azure-native:datafactory/v20170901preview:WebSource"
+        XeroSource: "#/types/azure-native:datafactory/v20170901preview:XeroSource"
+        ZohoSource: "#/types/azure-native:datafactory/v20170901preview:ZohoSource"
+    description: Dataset-specific source properties, same as copy activity source.
+  type:
+    type: string
+    description: |-
+      Type of activity.
+      Expected value is 'Lookup'.
+    const: Lookup
+type: object
+required:
+  - dataset
+  - name
+  - source
+  - type

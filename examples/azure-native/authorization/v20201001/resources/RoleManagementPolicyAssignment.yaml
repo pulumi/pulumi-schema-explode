@@ -1,0 +1,69 @@
+$token: azure-native:authorization/v20201001:RoleManagementPolicyAssignment
+description: Role management policy
+properties:
+  effectiveRules:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:authorization/v20201001:RoleManagementPolicyApprovalRuleResponse"
+        - type: object
+          $ref: "#/types/azure-native:authorization/v20201001:RoleManagementPolicyAuthenticationContextRuleResponse"
+        - type: object
+          $ref: "#/types/azure-native:authorization/v20201001:RoleManagementPolicyEnablementRuleResponse"
+        - type: object
+          $ref: "#/types/azure-native:authorization/v20201001:RoleManagementPolicyExpirationRuleResponse"
+        - type: object
+          $ref: "#/types/azure-native:authorization/v20201001:RoleManagementPolicyNotificationRuleResponse"
+      discriminator:
+        propertyName: ruleType
+        mapping:
+          RoleManagementPolicyApprovalRule: "#/types/azure-native:authorization/v20201001:RoleManagementPolicyApprovalRuleResponse"
+          RoleManagementPolicyAuthenticationContextRule: "#/types/azure-native:authorization/v20201001:RoleManagementPolicyAuthenticationContextRuleResponse"
+          RoleManagementPolicyEnablementRule: "#/types/azure-native:authorization/v20201001:RoleManagementPolicyEnablementRuleResponse"
+          RoleManagementPolicyExpirationRule: "#/types/azure-native:authorization/v20201001:RoleManagementPolicyExpirationRuleResponse"
+          RoleManagementPolicyNotificationRule: "#/types/azure-native:authorization/v20201001:RoleManagementPolicyNotificationRuleResponse"
+    description: The readonly computed rule applied to the policy.
+  name:
+    type: string
+    description: The role management policy name.
+  policyAssignmentProperties:
+    type: object
+    $ref: "#/types/azure-native:authorization/v20201001:PolicyAssignmentPropertiesResponse"
+    description: Additional properties of scope, role definition and policy
+  policyId:
+    type: string
+    description: The policy id role management policy assignment.
+  roleDefinitionId:
+    type: string
+    description: The role definition of management policy assignment.
+  scope:
+    type: string
+    description: The role management policy scope.
+  type:
+    type: string
+    description: The role management policy type.
+type: object
+required:
+  - effectiveRules
+  - name
+  - policyAssignmentProperties
+  - type
+inputProperties:
+  policyId:
+    type: string
+    description: The policy id role management policy assignment.
+  roleDefinitionId:
+    type: string
+    description: The role definition of management policy assignment.
+  roleManagementPolicyAssignmentName:
+    type: string
+    description: The name of format {guid_guid} the role management policy assignment to upsert.
+  scope:
+    type: string
+    description: The role management policy scope.
+requiredInputs:
+  - scope
+aliases:
+  - type: azure-native:authorization:RoleManagementPolicyAssignment
+  - type: azure-native:authorization/v20201001preview:RoleManagementPolicyAssignment

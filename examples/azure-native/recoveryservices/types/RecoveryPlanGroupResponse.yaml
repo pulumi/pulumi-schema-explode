@@ -1,0 +1,27 @@
+$token: azure-native:recoveryservices:RecoveryPlanGroupResponse
+description: Recovery plan group details.
+properties:
+  endGroupActions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:recoveryservices:RecoveryPlanActionResponse"
+    description: The end group actions.
+  groupType:
+    type: string
+    description: The group type.
+  replicationProtectedItems:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:recoveryservices:RecoveryPlanProtectedItemResponse"
+    description: The list of protected items.
+  startGroupActions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:recoveryservices:RecoveryPlanActionResponse"
+    description: The start group actions.
+type: object
+required:
+  - groupType

@@ -1,0 +1,58 @@
+$token: azure-native:devices/v20220205:IotDpsPropertiesDescriptionResponse
+description: the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope
+properties:
+  allocationPolicy:
+    type: string
+    description: Allocation policy to be used by this provisioning service.
+  authorizationPolicies:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:devices/v20220205:SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse"
+    description: List of authorization keys for a provisioning service.
+  deviceProvisioningHostName:
+    type: string
+    description: Device endpoint for this provisioning service.
+  enableDataResidency:
+    type: boolean
+    description: |-
+      Optional.
+      Indicates if the DPS instance has Data Residency enabled, removing the cross geo-pair disaster recovery.
+  idScope:
+    type: string
+    description: Unique identifier of this provisioning service.
+  iotHubs:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:devices/v20220205:IotHubDefinitionDescriptionResponse"
+    description: List of IoT hubs associated with this provisioning service.
+  ipFilterRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:devices/v20220205:TargetIpFilterRuleResponse"
+    description: The IP filter rules.
+  privateEndpointConnections:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:devices/v20220205:PrivateEndpointConnectionResponse"
+    description: Private endpoint connections created on this IotHub
+  provisioningState:
+    type: string
+    description: The ARM provisioning state of the provisioning service.
+  publicNetworkAccess:
+    type: string
+    description: Whether requests from Public Network are allowed
+  serviceOperationsHostName:
+    type: string
+    description: Service endpoint for provisioning service.
+  state:
+    type: string
+    description: Current state of the provisioning service.
+type: object
+required:
+  - deviceProvisioningHostName
+  - idScope
+  - serviceOperationsHostName

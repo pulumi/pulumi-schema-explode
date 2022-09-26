@@ -1,0 +1,54 @@
+$token: azure-native:containerservice:getSnapshot
+description: |-
+  A node pool snapshot resource.
+  API Version: 2021-08-01.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    resourceName:
+      type: string
+      description: The name of the managed cluster resource.
+  type: object
+  required:
+    - resourceGroupName
+    - resourceName
+outputs:
+  description: A node pool snapshot resource.
+  properties:
+    creationData:
+      type: object
+      $ref: "#/types/azure-native:containerservice:CreationDataResponse"
+      description: CreationData to be used to specify the source agent pool resource ID to create this snapshot.
+    id:
+      type: string
+      description: Resource Id
+    location:
+      type: string
+      description: Resource location
+    name:
+      type: string
+      description: Resource name
+    snapshotType:
+      type: string
+      description: The type of a snapshot. The default is NodePool.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:containerservice:SystemDataResponse"
+      description: The system metadata relating to this snapshot.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    type:
+      type: string
+      description: Resource type
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - systemData
+    - type

@@ -1,0 +1,77 @@
+$token: azure-native:media/v20180601preview:StandardEncoderPresetResponse
+description: Describes all the settings to be used when encoding the input video with the Standard Encoder.
+properties:
+  codecs:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:media/v20180601preview:AacAudioResponse"
+        - type: object
+          $ref: "#/types/azure-native:media/v20180601preview:AudioResponse"
+        - type: object
+          $ref: "#/types/azure-native:media/v20180601preview:CopyAudioResponse"
+        - type: object
+          $ref: "#/types/azure-native:media/v20180601preview:CopyVideoResponse"
+        - type: object
+          $ref: "#/types/azure-native:media/v20180601preview:H264VideoResponse"
+        - type: object
+          $ref: "#/types/azure-native:media/v20180601preview:ImageResponse"
+        - type: object
+          $ref: "#/types/azure-native:media/v20180601preview:JpgImageResponse"
+        - type: object
+          $ref: "#/types/azure-native:media/v20180601preview:PngImageResponse"
+        - type: object
+          $ref: "#/types/azure-native:media/v20180601preview:VideoResponse"
+      discriminator:
+        propertyName: odataType
+        mapping:
+          "#Microsoft.Media.AacAudio": "#/types/azure-native:media/v20180601preview:AacAudioResponse"
+          "#Microsoft.Media.Audio": "#/types/azure-native:media/v20180601preview:AudioResponse"
+          "#Microsoft.Media.CopyAudio": "#/types/azure-native:media/v20180601preview:CopyAudioResponse"
+          "#Microsoft.Media.CopyVideo": "#/types/azure-native:media/v20180601preview:CopyVideoResponse"
+          "#Microsoft.Media.H264Video": "#/types/azure-native:media/v20180601preview:H264VideoResponse"
+          "#Microsoft.Media.Image": "#/types/azure-native:media/v20180601preview:ImageResponse"
+          "#Microsoft.Media.JpgImage": "#/types/azure-native:media/v20180601preview:JpgImageResponse"
+          "#Microsoft.Media.PngImage": "#/types/azure-native:media/v20180601preview:PngImageResponse"
+          "#Microsoft.Media.Video": "#/types/azure-native:media/v20180601preview:VideoResponse"
+    description: The list of codecs to be used when encoding the input video.
+  filters:
+    type: object
+    $ref: "#/types/azure-native:media/v20180601preview:FiltersResponse"
+    description: One or more filtering operations that are applied to the input media before encoding.
+  formats:
+    type: array
+    items:
+      oneOf:
+        - type: object
+          $ref: "#/types/azure-native:media/v20180601preview:ImageFormatResponse"
+        - type: object
+          $ref: "#/types/azure-native:media/v20180601preview:JpgFormatResponse"
+        - type: object
+          $ref: "#/types/azure-native:media/v20180601preview:Mp4FormatResponse"
+        - type: object
+          $ref: "#/types/azure-native:media/v20180601preview:MultiBitrateFormatResponse"
+        - type: object
+          $ref: "#/types/azure-native:media/v20180601preview:PngFormatResponse"
+        - type: object
+          $ref: "#/types/azure-native:media/v20180601preview:TransportStreamFormatResponse"
+      discriminator:
+        propertyName: odataType
+        mapping:
+          "#Microsoft.Media.ImageFormat": "#/types/azure-native:media/v20180601preview:ImageFormatResponse"
+          "#Microsoft.Media.JpgFormat": "#/types/azure-native:media/v20180601preview:JpgFormatResponse"
+          "#Microsoft.Media.Mp4Format": "#/types/azure-native:media/v20180601preview:Mp4FormatResponse"
+          "#Microsoft.Media.MultiBitrateFormat": "#/types/azure-native:media/v20180601preview:MultiBitrateFormatResponse"
+          "#Microsoft.Media.PngFormat": "#/types/azure-native:media/v20180601preview:PngFormatResponse"
+          "#Microsoft.Media.TransportStreamFormat": "#/types/azure-native:media/v20180601preview:TransportStreamFormatResponse"
+    description: The list of outputs to be produced by the encoder.
+  odataType:
+    type: string
+    description: |-
+      The discriminator for derived types.
+      Expected value is '#Microsoft.Media.StandardEncoderPreset'.
+    const: "#Microsoft.Media.StandardEncoderPreset"
+type: object
+required:
+  - odataType

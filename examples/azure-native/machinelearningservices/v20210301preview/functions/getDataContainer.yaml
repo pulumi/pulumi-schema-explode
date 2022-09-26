@@ -1,0 +1,45 @@
+$token: azure-native:machinelearningservices/v20210301preview:getDataContainer
+description: Azure Resource Manager resource envelope.
+inputs:
+  properties:
+    name:
+      type: string
+      description: Container name.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    workspaceName:
+      type: string
+      description: Name of Azure Machine Learning workspace.
+  type: object
+  required:
+    - name
+    - resourceGroupName
+    - workspaceName
+outputs:
+  description: Azure Resource Manager resource envelope.
+  properties:
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    name:
+      type: string
+      description: The name of the resource
+    properties:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20210301preview:DataContainerResponse"
+      description: "[Required] Additional attributes of the entity."
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20210301preview:SystemDataResponse"
+      description: System data associated with resource provider
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - systemData
+    - type

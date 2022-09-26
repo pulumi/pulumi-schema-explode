@@ -1,0 +1,37 @@
+$token: azure-native:network:ApplicationGatewaySslProfileResponse
+description: SSL profile of an application gateway.
+properties:
+  clientAuthConfiguration:
+    type: object
+    $ref: "#/types/azure-native:network:ApplicationGatewayClientAuthConfigurationResponse"
+    description: Client authentication configuration of the application gateway resource.
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  id:
+    type: string
+    description: Resource ID.
+  name:
+    type: string
+    description: Name of the SSL profile that is unique within an Application Gateway.
+  provisioningState:
+    type: string
+    description: The provisioning state of the HTTP listener resource.
+  sslPolicy:
+    type: object
+    $ref: "#/types/azure-native:network:ApplicationGatewaySslPolicyResponse"
+    description: SSL policy of the application gateway resource.
+  trustedClientCertificates:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network:SubResourceResponse"
+    description: Array of references to application gateway trusted client certificates.
+  type:
+    type: string
+    description: Type of the resource.
+type: object
+required:
+  - etag
+  - provisioningState
+  - type

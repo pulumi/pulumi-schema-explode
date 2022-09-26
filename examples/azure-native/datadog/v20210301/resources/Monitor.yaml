@@ -1,0 +1,63 @@
+$token: azure-native:datadog/v20210301:Monitor
+properties:
+  identity:
+    type: object
+    $ref: "#/types/azure-native:datadog/v20210301:IdentityPropertiesResponse"
+  location:
+    type: string
+  name:
+    type: string
+    description: Name of the monitor resource.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:datadog/v20210301:MonitorPropertiesResponse"
+    description: Properties specific to the monitor resource.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:datadog/v20210301:ResourceSkuResponse"
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:datadog/v20210301:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+  type:
+    type: string
+    description: The type of the monitor resource.
+type: object
+required:
+  - location
+  - name
+  - properties
+  - systemData
+  - type
+inputProperties:
+  identity:
+    type: object
+    $ref: "#/types/azure-native:datadog/v20210301:IdentityProperties"
+  location:
+    type: string
+  monitorName:
+    type: string
+    description: Monitor resource name
+  properties:
+    type: object
+    $ref: "#/types/azure-native:datadog/v20210301:MonitorProperties"
+    description: Properties specific to the monitor resource.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:datadog/v20210301:ResourceSku"
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:datadog:Monitor
+  - type: azure-native:datadog/v20200201preview:Monitor

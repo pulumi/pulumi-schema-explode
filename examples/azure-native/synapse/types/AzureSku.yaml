@@ -1,0 +1,20 @@
+$token: azure-native:synapse:AzureSku
+description: Azure SKU definition.
+properties:
+  capacity:
+    type: integer
+    description: The number of instances of the cluster.
+  name:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:synapse:AzureSkuName"
+    description: SKU name.
+  tier:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:synapse:AzureSkuTier"
+    description: SKU tier.
+type: object
+required:
+  - name
+  - tier

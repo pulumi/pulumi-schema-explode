@@ -1,0 +1,106 @@
+$token: azure-native:kubernetesconfiguration:getExtension
+description: |-
+  The Extension Instance object.
+  API Version: 2020-07-01-preview.
+inputs:
+  properties:
+    clusterName:
+      type: string
+      description: The name of the kubernetes cluster.
+    clusterResourceName:
+      type: string
+      description: The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
+    clusterRp:
+      type: string
+      description: The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
+    extensionInstanceName:
+      type: string
+      description: Name of an instance of the Extension.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - clusterName
+    - clusterResourceName
+    - clusterRp
+    - extensionInstanceName
+    - resourceGroupName
+outputs:
+  description: The Extension Instance object.
+  properties:
+    autoUpgradeMinorVersion:
+      type: boolean
+      description: Flag to note if this instance participates in auto upgrade of minor version, or not.
+    configurationProtectedSettings:
+      type: object
+      additionalProperties:
+        type: string
+      description: Configuration settings that are sensitive, as name-value pairs for configuring this instance of the extension.
+    configurationSettings:
+      type: object
+      additionalProperties:
+        type: string
+      description: Configuration settings, as name-value pairs for configuring this instance of the extension.
+    creationTime:
+      type: string
+      description: DateLiteral (per ISO8601) noting the time the resource was created by the client (user).
+    errorInfo:
+      type: object
+      $ref: "#/types/azure-native:kubernetesconfiguration:ErrorDefinitionResponse"
+      description: Error information from the Agent - e.g. errors during installation.
+    extensionType:
+      type: string
+      description: Type of the Extension, of which this resource is an instance of.  It must be one of the Extension Types registered with Microsoft.KubernetesConfiguration by the Extension publisher.
+    id:
+      type: string
+      description: Resource Id
+    identity:
+      type: object
+      $ref: "#/types/azure-native:kubernetesconfiguration:ConfigurationIdentityResponse"
+      description: The identity of the configuration.
+    installState:
+      type: string
+      description: Status of installation of this instance of the extension.
+    lastModifiedTime:
+      type: string
+      description: DateLiteral (per ISO8601) noting the time the resource was modified by the client (user).
+    lastStatusTime:
+      type: string
+      description: DateLiteral (per ISO8601) noting the time of last status from the agent.
+    name:
+      type: string
+      description: Resource name
+    releaseTrain:
+      type: string
+      description: ReleaseTrain this extension instance participates in for auto-upgrade (e.g. Stable, Preview, etc.) - only if autoUpgradeMinorVersion is 'true'.
+    scope:
+      type: object
+      $ref: "#/types/azure-native:kubernetesconfiguration:ScopeResponse"
+      description: Scope at which the extension instance is installed.
+    statuses:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:kubernetesconfiguration:ExtensionStatusResponse"
+      description: Status from this instance of the extension.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:kubernetesconfiguration:SystemDataResponse"
+      description: Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
+    type:
+      type: string
+      description: Resource type
+    version:
+      type: string
+      description: Version of the extension for this extension instance, if it is 'pinned' to a specific version. autoUpgradeMinorVersion must be 'false'.
+  type: object
+  required:
+    - creationTime
+    - errorInfo
+    - id
+    - installState
+    - lastModifiedTime
+    - lastStatusTime
+    - name
+    - type

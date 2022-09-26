@@ -1,0 +1,67 @@
+$token: azure-native:network/v20190701:NetworkInterfaceIPConfiguration
+description: IPConfiguration in a network interface.
+properties:
+  applicationGatewayBackendAddressPools:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20190701:ApplicationGatewayBackendAddressPool"
+    description: The reference of ApplicationGatewayBackendAddressPool resource.
+  applicationSecurityGroups:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20190701:ApplicationSecurityGroup"
+    description: Application security groups in which the IP configuration is included.
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  id:
+    type: string
+    description: Resource ID.
+  loadBalancerBackendAddressPools:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20190701:BackendAddressPool"
+    description: The reference of LoadBalancerBackendAddressPool resource.
+  loadBalancerInboundNatRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20190701:InboundNatRule"
+    description: A list of references of LoadBalancerInboundNatRules.
+  name:
+    type: string
+    description: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+  primary:
+    type: boolean
+    description: Whether this is a primary customer address on the network interface.
+  privateIPAddress:
+    type: string
+    description: Private IP address of the IP configuration.
+  privateIPAddressVersion:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20190701:IPVersion"
+    description: Whether the specific IP configuration is IPv4 or IPv6. Default is IPv4.
+  privateIPAllocationMethod:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20190701:IPAllocationMethod"
+    description: The private IP address allocation method.
+  publicIPAddress:
+    type: object
+    $ref: "#/types/azure-native:network/v20190701:PublicIPAddress"
+    description: Public IP address bound to the IP configuration.
+  subnet:
+    type: object
+    $ref: "#/types/azure-native:network/v20190701:Subnet"
+    description: Subnet bound to the IP configuration.
+  virtualNetworkTaps:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20190701:VirtualNetworkTap"
+    description: The reference to Virtual Network Taps.
+type: object

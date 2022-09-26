@@ -1,0 +1,21 @@
+$token: azure-native:machinelearningservices/v20220601preview:Endpoint
+properties:
+  hostIp:
+    type: string
+    description: Host IP over which the application is exposed from the container
+  name:
+    type: string
+    description: Name of the Endpoint
+  protocol:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearningservices/v20220601preview:Protocol"
+    description: Protocol over which communication will happen over this endpoint
+    default: tcp
+  published:
+    type: integer
+    description: Port over which the application is exposed from container.
+  target:
+    type: integer
+    description: Application port inside the container.
+type: object

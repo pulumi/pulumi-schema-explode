@@ -1,0 +1,40 @@
+$token: azure-native:network:FirewallPolicyIntrusionDetectionBypassTrafficSpecifications
+description: Intrusion detection bypass traffic specification.
+properties:
+  description:
+    type: string
+    description: Description of the bypass traffic rule.
+  destinationAddresses:
+    type: array
+    items:
+      type: string
+    description: List of destination IP addresses or ranges for this rule.
+  destinationIpGroups:
+    type: array
+    items:
+      type: string
+    description: List of destination IpGroups for this rule.
+  destinationPorts:
+    type: array
+    items:
+      type: string
+    description: List of destination ports or ranges.
+  name:
+    type: string
+    description: Name of the bypass traffic rule.
+  protocol:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network:FirewallPolicyIntrusionDetectionProtocol"
+    description: The rule bypass protocol.
+  sourceAddresses:
+    type: array
+    items:
+      type: string
+    description: List of source IP addresses or ranges for this rule.
+  sourceIpGroups:
+    type: array
+    items:
+      type: string
+    description: List of source IpGroups for this rule.
+type: object

@@ -1,0 +1,21 @@
+$token: azure-native:datafactory/v20170901preview:PaypalSourceResponse
+description: A copy activity Paypal Service source.
+properties:
+  query:
+    $ref: pulumi.json#/Any
+    description: "A query to retrieve data from source. Type: string (or Expression with resultType string)."
+  sourceRetryCount:
+    $ref: pulumi.json#/Any
+    description: "Source retry count. Type: integer (or Expression with resultType integer)."
+  sourceRetryWait:
+    $ref: pulumi.json#/Any
+    description: "Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9]))."
+  type:
+    type: string
+    description: |-
+      Copy source type.
+      Expected value is 'PaypalSource'.
+    const: PaypalSource
+type: object
+required:
+  - type

@@ -1,0 +1,55 @@
+$token: azure-native:documentdb:getMongoDBResourceMongoRoleDefinition
+description: |-
+  An Azure Cosmos DB Mongo Role Definition.
+  API Version: 2021-10-15-preview.
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: Cosmos DB database account name.
+    mongoRoleDefinitionId:
+      type: string
+      description: The ID for the Role Definition {dbName.roleName}.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+  type: object
+  required:
+    - accountName
+    - mongoRoleDefinitionId
+    - resourceGroupName
+outputs:
+  description: An Azure Cosmos DB Mongo Role Definition.
+  properties:
+    databaseName:
+      type: string
+      description: The database name for which access is being granted for this Role Definition.
+    id:
+      type: string
+      description: The unique resource identifier of the database account.
+    name:
+      type: string
+      description: The name of the database account.
+    privileges:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:documentdb:PrivilegeResponse"
+      description: A set of privileges contained by the Role Definition. This will allow application of this Role Definition on the entire database account or any underlying Database / Collection. Scopes higher than Database are not enforceable as privilege.
+    roleName:
+      type: string
+      description: A user-friendly name for the Role Definition. Must be unique for the database account.
+    roles:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:documentdb:RoleResponse"
+      description: The set of roles inherited by this Role Definition.
+    type:
+      type: string
+      description: The type of Azure resource.
+  type: object
+  required:
+    - id
+    - name
+    - type

@@ -1,0 +1,61 @@
+$token: azure-native:resources/v20151101:getResource
+description: Resource information.
+inputs:
+  properties:
+    parentResourcePath:
+      type: string
+      description: Resource identity.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    resourceName:
+      type: string
+      description: Resource identity.
+    resourceProviderNamespace:
+      type: string
+      description: Resource identity.
+    resourceType:
+      type: string
+      description: Resource identity.
+  type: object
+  required:
+    - parentResourcePath
+    - resourceGroupName
+    - resourceName
+    - resourceProviderNamespace
+    - resourceType
+outputs:
+  description: Resource information.
+  properties:
+    id:
+      type: string
+      description: Resource Id
+    location:
+      type: string
+      description: Resource location
+    name:
+      type: string
+      description: Resource name
+    plan:
+      type: object
+      $ref: "#/types/azure-native:resources/v20151101:PlanResponse"
+      description: Gets or sets the plan of the resource.
+    properties:
+      $ref: pulumi.json#/Any
+      description: Gets or sets the resource properties.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    type:
+      type: string
+      description: Resource type
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - properties
+    - type
+deprecationMessage: Version 2015-11-01 will be removed in v2 of the provider.

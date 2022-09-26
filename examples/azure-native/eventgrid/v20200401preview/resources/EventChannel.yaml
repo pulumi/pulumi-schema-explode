@@ -1,0 +1,88 @@
+$token: azure-native:eventgrid/v20200401preview:EventChannel
+description: Event Channel.
+properties:
+  destination:
+    type: object
+    $ref: "#/types/azure-native:eventgrid/v20200401preview:EventChannelDestinationResponse"
+    description: Represents the destination of an event channel.
+  expirationTimeIfNotActivatedUtc:
+    type: string
+    description: "Expiration time of the event channel. If this timer expires while the corresponding partner topic is never activated,\r
+
+      the event channel and corresponding partner topic are deleted."
+  filter:
+    type: object
+    $ref: "#/types/azure-native:eventgrid/v20200401preview:EventChannelFilterResponse"
+    description: Information about the filter for the event channel.
+  name:
+    type: string
+    description: Name of the resource.
+  partnerTopicFriendlyDescription:
+    type: string
+    description: "Friendly description about the topic. This can be set by the publisher/partner to show custom description for the customer partner topic.\r
+
+      This will be helpful to remove any ambiguity of the origin of creation of the partner topic for the customer."
+  partnerTopicReadinessState:
+    type: string
+    description: The readiness state of the corresponding partner topic.
+  provisioningState:
+    type: string
+    description: Provisioning state of the event channel.
+  source:
+    type: object
+    $ref: "#/types/azure-native:eventgrid/v20200401preview:EventChannelSourceResponse"
+    description: Source of the event channel. This represents a unique resource in the partner's resource model.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:eventgrid/v20200401preview:SystemDataResponse"
+    description: The system metadata relating to Event Channel resource.
+  type:
+    type: string
+    description: Type of the resource.
+type: object
+required:
+  - name
+  - partnerTopicReadinessState
+  - provisioningState
+  - systemData
+  - type
+inputProperties:
+  destination:
+    type: object
+    $ref: "#/types/azure-native:eventgrid/v20200401preview:EventChannelDestination"
+    description: Represents the destination of an event channel.
+  eventChannelName:
+    type: string
+    description: Name of the event channel.
+  expirationTimeIfNotActivatedUtc:
+    type: string
+    description: "Expiration time of the event channel. If this timer expires while the corresponding partner topic is never activated,\r
+
+      the event channel and corresponding partner topic are deleted."
+  filter:
+    type: object
+    $ref: "#/types/azure-native:eventgrid/v20200401preview:EventChannelFilter"
+    description: Information about the filter for the event channel.
+  partnerNamespaceName:
+    type: string
+    description: Name of the partner namespace.
+  partnerTopicFriendlyDescription:
+    type: string
+    description: "Friendly description about the topic. This can be set by the publisher/partner to show custom description for the customer partner topic.\r
+
+      This will be helpful to remove any ambiguity of the origin of creation of the partner topic for the customer."
+  resourceGroupName:
+    type: string
+    description: The name of the resource group within the user's subscription.
+  source:
+    type: object
+    $ref: "#/types/azure-native:eventgrid/v20200401preview:EventChannelSource"
+    description: Source of the event channel. This represents a unique resource in the partner's resource model.
+requiredInputs:
+  - partnerNamespaceName
+  - resourceGroupName
+aliases:
+  - type: azure-native:eventgrid:EventChannel
+  - type: azure-native:eventgrid/v20201015preview:EventChannel
+  - type: azure-native:eventgrid/v20210601preview:EventChannel
+  - type: azure-native:eventgrid/v20211015preview:EventChannel

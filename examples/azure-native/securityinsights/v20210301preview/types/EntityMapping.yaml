@@ -1,0 +1,15 @@
+$token: azure-native:securityinsights/v20210301preview:EntityMapping
+description: Single entity mapping for the alert rule
+properties:
+  entityType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:securityinsights/v20210301preview:EntityMappingType"
+    description: The V3 type of the mapped entity
+  fieldMappings:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:securityinsights/v20210301preview:FieldMapping"
+    description: array of field mappings for the given entity mapping
+type: object

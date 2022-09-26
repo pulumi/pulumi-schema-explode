@@ -1,0 +1,21 @@
+$token: azure-native:appplatform/v20220401:ServiceRegistryPropertiesResponse
+description: Service Registry properties payload
+properties:
+  instances:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:appplatform/v20220401:ServiceRegistryInstanceResponse"
+    description: Collection of instances belong to Service Registry.
+  provisioningState:
+    type: string
+    description: State of the Service Registry.
+  resourceRequests:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20220401:ServiceRegistryResourceRequestsResponse"
+    description: The requested resource quantity for required CPU and Memory.
+type: object
+required:
+  - instances
+  - provisioningState
+  - resourceRequests

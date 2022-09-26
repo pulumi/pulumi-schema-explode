@@ -1,0 +1,56 @@
+$token: azure-native:peering/v20210601:RegisteredPrefix
+description: The customer's prefix that is registered by the peering service provider.
+properties:
+  errorMessage:
+    type: string
+    description: The error message associated with the validation state, if any.
+  name:
+    type: string
+    description: The name of the resource.
+  peeringServicePrefixKey:
+    type: string
+    description: The peering service prefix key that is to be shared with the customer.
+  prefix:
+    type: string
+    description: The customer's prefix from which traffic originates.
+  prefixValidationState:
+    type: string
+    description: The prefix validation state.
+  provisioningState:
+    type: string
+    description: The provisioning state of the resource.
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - errorMessage
+  - name
+  - peeringServicePrefixKey
+  - prefixValidationState
+  - provisioningState
+  - type
+inputProperties:
+  peeringName:
+    type: string
+    description: The name of the peering.
+  prefix:
+    type: string
+    description: The customer's prefix from which traffic originates.
+  registeredPrefixName:
+    type: string
+    description: The name of the registered prefix.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+requiredInputs:
+  - peeringName
+  - resourceGroupName
+aliases:
+  - type: azure-native:peering:RegisteredPrefix
+  - type: azure-native:peering/v20200101preview:RegisteredPrefix
+  - type: azure-native:peering/v20200401:RegisteredPrefix
+  - type: azure-native:peering/v20201001:RegisteredPrefix
+  - type: azure-native:peering/v20210101:RegisteredPrefix
+  - type: azure-native:peering/v20220101:RegisteredPrefix
+  - type: azure-native:peering/v20220601:RegisteredPrefix

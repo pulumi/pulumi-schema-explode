@@ -1,0 +1,76 @@
+$token: azure-native:devices/v20211015:IotDpsResource
+description: The description of the provisioning service.
+properties:
+  etag:
+    type: string
+    description: The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
+  location:
+    type: string
+    description: The resource location.
+  name:
+    type: string
+    description: The resource name.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:devices/v20211015:IotDpsPropertiesDescriptionResponse"
+    description: Service specific properties for a provisioning service
+  sku:
+    type: object
+    $ref: "#/types/azure-native:devices/v20211015:IotDpsSkuInfoResponse"
+    description: Sku info for a provisioning Service.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:devices/v20211015:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The resource tags.
+  type:
+    type: string
+    description: The resource type.
+type: object
+required:
+  - location
+  - name
+  - properties
+  - sku
+  - systemData
+  - type
+inputProperties:
+  location:
+    type: string
+    description: The resource location.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:devices/v20211015:IotDpsPropertiesDescription"
+    description: Service specific properties for a provisioning service
+  provisioningServiceName:
+    type: string
+    description: Name of provisioning service to create or update.
+  resourceGroupName:
+    type: string
+    description: Resource group identifier.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:devices/v20211015:IotDpsSkuInfo"
+    description: Sku info for a provisioning Service.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The resource tags.
+requiredInputs:
+  - properties
+  - resourceGroupName
+  - sku
+aliases:
+  - type: azure-native:devices:IotDpsResource
+  - type: azure-native:devices/v20170821preview:IotDpsResource
+  - type: azure-native:devices/v20171115:IotDpsResource
+  - type: azure-native:devices/v20180122:IotDpsResource
+  - type: azure-native:devices/v20200101:IotDpsResource
+  - type: azure-native:devices/v20200301:IotDpsResource
+  - type: azure-native:devices/v20200901preview:IotDpsResource
+  - type: azure-native:devices/v20220205:IotDpsResource

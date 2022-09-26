@@ -1,0 +1,198 @@
+$token: azure-native:dbforpostgresql/v20200214preview:Server
+description: Represents a server.
+properties:
+  administratorLogin:
+    type: string
+    description: The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+  availabilityZone:
+    type: string
+    description: availability Zone information of the server.
+  byokEnforcement:
+    type: string
+    description: Status showing whether the data encryption is enabled with customer-managed keys.
+  delegatedSubnetArguments:
+    type: object
+    $ref: "#/types/azure-native:dbforpostgresql/v20200214preview:ServerPropertiesResponseDelegatedSubnetArguments"
+  displayName:
+    type: string
+    description: The display name of a server.
+  earliestRestoreDate:
+    type: string
+    description: The earliest restore point time (ISO8601 format) for server.
+  fullyQualifiedDomainName:
+    type: string
+    description: The fully qualified domain name of a server.
+  haEnabled:
+    type: string
+    description: stand by count value can be either enabled or disabled
+  haState:
+    type: string
+    description: A state of a HA server that is visible to user.
+  identity:
+    type: object
+    $ref: "#/types/azure-native:dbforpostgresql/v20200214preview:IdentityResponse"
+    description: The Azure Active Directory identity of the server.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  logBackupStorageSku:
+    type: string
+    description: The log backup storage sku of the server.
+  maintenanceWindow:
+    type: object
+    $ref: "#/types/azure-native:dbforpostgresql/v20200214preview:MaintenanceWindowResponse"
+    description: Maintenance window of a server.
+  minorVersion:
+    type: string
+    description: The minor version of the server.
+  name:
+    type: string
+    description: The name of the resource
+  pointInTimeUTC:
+    type: string
+    description: Restore point creation time (ISO8601 format), specifying the time to restore from.
+  privateDnsZoneArguments:
+    type: object
+    $ref: "#/types/azure-native:dbforpostgresql/v20200214preview:ServerPropertiesResponsePrivateDnsZoneArguments"
+  publicNetworkAccess:
+    type: string
+    description: public network access is enabled or not
+  sku:
+    type: object
+    $ref: "#/types/azure-native:dbforpostgresql/v20200214preview:SkuResponse"
+    description: The SKU (pricing tier) of the server.
+  sourceResourceGroupName:
+    type: string
+    description: The resource group name of source serve PostgreSQL server name to restore from.
+  sourceServerName:
+    type: string
+    description: The source PostgreSQL server name to restore from.
+  sourceSubscriptionId:
+    type: string
+    description: The subscription id of source serve PostgreSQL server name to restore from.
+  standbyAvailabilityZone:
+    type: string
+    description: availability Zone information of the server.
+  standbyCount:
+    type: integer
+    description: The number of standbys.
+  state:
+    type: string
+    description: A state of a server that is visible to user.
+  storageProfile:
+    type: object
+    $ref: "#/types/azure-native:dbforpostgresql/v20200214preview:StorageProfileResponse"
+    description: Storage profile of a server.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  version:
+    type: string
+    description: PostgreSQL Server version.
+type: object
+required:
+  - byokEnforcement
+  - earliestRestoreDate
+  - fullyQualifiedDomainName
+  - haState
+  - location
+  - minorVersion
+  - name
+  - publicNetworkAccess
+  - standbyAvailabilityZone
+  - state
+  - type
+inputProperties:
+  administratorLogin:
+    type: string
+    description: The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+  administratorLoginPassword:
+    type: string
+    description: The administrator login password (required for server creation).
+  availabilityZone:
+    type: string
+    description: availability Zone information of the server.
+  createMode:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:dbforpostgresql/v20200214preview:CreateMode"
+    description: The mode to create a new PostgreSQL server.
+  delegatedSubnetArguments:
+    type: object
+    $ref: "#/types/azure-native:dbforpostgresql/v20200214preview:ServerPropertiesDelegatedSubnetArguments"
+  displayName:
+    type: string
+    description: The display name of a server.
+  haEnabled:
+    $ref: "#/types/azure-native:dbforpostgresql/v20200214preview:HAEnabledEnum"
+    description: stand by count value can be either enabled or disabled
+  identity:
+    type: object
+    $ref: "#/types/azure-native:dbforpostgresql/v20200214preview:Identity"
+    description: The Azure Active Directory identity of the server.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  logBackupStorageSku:
+    type: string
+    description: The log backup storage sku of the server.
+  maintenanceWindow:
+    type: object
+    $ref: "#/types/azure-native:dbforpostgresql/v20200214preview:MaintenanceWindow"
+    description: Maintenance window of a server.
+  pointInTimeUTC:
+    type: string
+    description: Restore point creation time (ISO8601 format), specifying the time to restore from.
+  privateDnsZoneArguments:
+    type: object
+    $ref: "#/types/azure-native:dbforpostgresql/v20200214preview:ServerPropertiesPrivateDnsZoneArguments"
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  serverName:
+    type: string
+    description: The name of the server.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:dbforpostgresql/v20200214preview:Sku"
+    description: The SKU (pricing tier) of the server.
+  sourceResourceGroupName:
+    type: string
+    description: The resource group name of source serve PostgreSQL server name to restore from.
+  sourceServerName:
+    type: string
+    description: The source PostgreSQL server name to restore from.
+  sourceSubscriptionId:
+    type: string
+    description: The subscription id of source serve PostgreSQL server name to restore from.
+  standbyCount:
+    type: integer
+    description: The number of standbys.
+  storageProfile:
+    type: object
+    $ref: "#/types/azure-native:dbforpostgresql/v20200214preview:StorageProfile"
+    description: Storage profile of a server.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  version:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:dbforpostgresql/v20200214preview:ServerVersion"
+    description: PostgreSQL Server version.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:dbforpostgresql/v20200214privatepreview:Server
+  - type: azure-native:dbforpostgresql/v20210410privatepreview:Server
+  - type: azure-native:dbforpostgresql/v20210601:Server
+  - type: azure-native:dbforpostgresql/v20210601preview:Server
+  - type: azure-native:dbforpostgresql/v20210615privatepreview:Server
+  - type: azure-native:dbforpostgresql/v20220120preview:Server

@@ -1,0 +1,18 @@
+$token: azure-native:servicefabricmesh/v20180901preview:AutoScalingResourceMetric
+description: Describes the resource that is used for triggering auto scaling.
+properties:
+  kind:
+    type: string
+    description: |-
+      Enumerates the metrics that are used for triggering auto scaling.
+      Expected value is 'Resource'.
+    const: Resource
+  name:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:servicefabricmesh/v20180901preview:AutoScalingResourceMetricName"
+    description: Name of the resource.
+type: object
+required:
+  - kind
+  - name

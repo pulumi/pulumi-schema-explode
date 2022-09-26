@@ -1,0 +1,41 @@
+$token: azure-native:relay/v20160701:listHybridConnectionKeys
+description: Namespace/Relay Connection String
+inputs:
+  properties:
+    authorizationRuleName:
+      type: string
+      description: The authorizationRule name.
+    hybridConnectionName:
+      type: string
+      description: The hybrid connection name.
+    namespaceName:
+      type: string
+      description: The Namespace Name
+    resourceGroupName:
+      type: string
+      description: Name of the Resource group within the Azure subscription.
+  type: object
+  required:
+    - authorizationRuleName
+    - hybridConnectionName
+    - namespaceName
+    - resourceGroupName
+outputs:
+  description: Namespace/Relay Connection String
+  properties:
+    keyName:
+      type: string
+      description: A string that describes the authorization rule
+    primaryConnectionString:
+      type: string
+      description: PrimaryConnectionString of the created Namespace AuthorizationRule.
+    primaryKey:
+      type: string
+      description: A base64-encoded 256-bit primary key for signing and validating the SAS token
+    secondaryConnectionString:
+      type: string
+      description: SecondaryConnectionString of the created Namespace AuthorizationRule
+    secondaryKey:
+      type: string
+      description: A base64-encoded 256-bit secondary key for signing and validating the SAS token
+  type: object

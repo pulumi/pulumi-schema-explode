@@ -1,0 +1,40 @@
+$token: azure-native:recoveryservices/v20210601:CreatePolicyInputProperties
+description: Policy creation properties.
+properties:
+  providerSpecificInput:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210601:A2ACrossClusterMigrationPolicyCreationInput"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210601:A2APolicyCreationInput"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210601:HyperVReplicaAzurePolicyInput"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210601:HyperVReplicaBluePolicyInput"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210601:HyperVReplicaPolicyInput"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210601:InMageAzureV2PolicyInput"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210601:InMagePolicyInput"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210601:InMageRcmFailbackPolicyCreationInput"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210601:InMageRcmPolicyCreationInput"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210601:VMwareCbtPolicyCreationInput"
+    discriminator:
+      propertyName: instanceType
+      mapping:
+        A2A: "#/types/azure-native:recoveryservices/v20210601:A2APolicyCreationInput"
+        A2ACrossClusterMigration: "#/types/azure-native:recoveryservices/v20210601:A2ACrossClusterMigrationPolicyCreationInput"
+        HyperVReplica2012: "#/types/azure-native:recoveryservices/v20210601:HyperVReplicaPolicyInput"
+        HyperVReplica2012R2: "#/types/azure-native:recoveryservices/v20210601:HyperVReplicaBluePolicyInput"
+        HyperVReplicaAzure: "#/types/azure-native:recoveryservices/v20210601:HyperVReplicaAzurePolicyInput"
+        InMage: "#/types/azure-native:recoveryservices/v20210601:InMagePolicyInput"
+        InMageAzureV2: "#/types/azure-native:recoveryservices/v20210601:InMageAzureV2PolicyInput"
+        InMageRcm: "#/types/azure-native:recoveryservices/v20210601:InMageRcmPolicyCreationInput"
+        InMageRcmFailback: "#/types/azure-native:recoveryservices/v20210601:InMageRcmFailbackPolicyCreationInput"
+        VMwareCbt: "#/types/azure-native:recoveryservices/v20210601:VMwareCbtPolicyCreationInput"
+    description: The ReplicationProviderSettings.
+type: object

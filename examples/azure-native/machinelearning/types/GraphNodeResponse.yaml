@@ -1,0 +1,19 @@
+$token: azure-native:machinelearning:GraphNodeResponse
+description: Specifies a node in the web service graph. The node can either be an input, output or asset node, so only one of the corresponding id properties is populated at any given time.
+properties:
+  assetId:
+    type: string
+    description: The id of the asset represented by this node.
+  inputId:
+    type: string
+    description: The id of the input element represented by this node.
+  outputId:
+    type: string
+    description: The id of the output element represented by this node.
+  parameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:machinelearning:WebServiceParameterResponse"
+    description: If applicable, parameters of the node. Global graph parameters map into these, with values set at runtime.
+type: object

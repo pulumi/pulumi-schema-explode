@@ -1,0 +1,70 @@
+$token: azure-native:machinelearningservices/v20210701:WorkspaceConnection
+description: Workspace connection.
+properties:
+  authType:
+    type: string
+    description: Authorization type of the workspace connection.
+  category:
+    type: string
+    description: Category of the workspace connection.
+  name:
+    type: string
+    description: Friendly name of the workspace connection.
+  target:
+    type: string
+    description: Target of the workspace connection.
+  type:
+    type: string
+    description: Resource type of workspace connection.
+  value:
+    type: string
+    description: Value details of the workspace connection.
+  valueFormat:
+    type: string
+    description: format for the workspace connection value
+type: object
+required:
+  - name
+  - type
+inputProperties:
+  authType:
+    type: string
+    description: Authorization type of the workspace connection.
+  category:
+    type: string
+    description: Category of the workspace connection.
+  connectionName:
+    type: string
+    description: Friendly name of the workspace connection
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  target:
+    type: string
+    description: Target of the workspace connection.
+  value:
+    type: string
+    description: Value details of the workspace connection.
+  valueFormat:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearningservices/v20210701:ValueFormat"
+    description: format for the workspace connection value
+  workspaceName:
+    type: string
+    description: Name of Azure Machine Learning workspace.
+requiredInputs:
+  - resourceGroupName
+  - workspaceName
+aliases:
+  - type: azure-native:machinelearningservices:WorkspaceConnection
+  - type: azure-native:machinelearningservices/v20200601:WorkspaceConnection
+  - type: azure-native:machinelearningservices/v20200801:WorkspaceConnection
+  - type: azure-native:machinelearningservices/v20200901preview:WorkspaceConnection
+  - type: azure-native:machinelearningservices/v20210101:WorkspaceConnection
+  - type: azure-native:machinelearningservices/v20210301preview:WorkspaceConnection
+  - type: azure-native:machinelearningservices/v20210401:WorkspaceConnection
+  - type: azure-native:machinelearningservices/v20220101preview:WorkspaceConnection
+  - type: azure-native:machinelearningservices/v20220201preview:WorkspaceConnection
+  - type: azure-native:machinelearningservices/v20220501:WorkspaceConnection
+  - type: azure-native:machinelearningservices/v20220601preview:WorkspaceConnection

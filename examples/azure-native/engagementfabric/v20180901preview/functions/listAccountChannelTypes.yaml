@@ -1,0 +1,24 @@
+$token: azure-native:engagementfabric/v20180901preview:listAccountChannelTypes
+description: List of the EngagementFabric channel descriptions
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: Account Name
+    resourceGroupName:
+      type: string
+      description: Resource Group Name
+  type: object
+  required:
+    - accountName
+    - resourceGroupName
+outputs:
+  description: List of the EngagementFabric channel descriptions
+  properties:
+    value:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:engagementfabric/v20180901preview:ChannelTypeDescriptionResponse"
+      description: Channel descriptions
+  type: object

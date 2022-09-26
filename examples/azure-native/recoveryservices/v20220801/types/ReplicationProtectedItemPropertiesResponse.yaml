@@ -1,0 +1,133 @@
+$token: azure-native:recoveryservices/v20220801:ReplicationProtectedItemPropertiesResponse
+description: Replication protected item custom data details.
+properties:
+  activeLocation:
+    type: string
+    description: The Current active location of the PE.
+  allowedOperations:
+    type: array
+    items:
+      type: string
+    description: The allowed operations on the Replication protected item.
+  currentScenario:
+    type: object
+    $ref: "#/types/azure-native:recoveryservices/v20220801:CurrentScenarioDetailsResponse"
+    description: The current scenario.
+  eventCorrelationId:
+    type: string
+    description: The correlation Id for events associated with this protected item.
+  failoverHealth:
+    type: string
+    description: The consolidated failover health for the VM.
+  failoverRecoveryPointId:
+    type: string
+    description: The recovery point ARM Id to which the Vm was failed over.
+  friendlyName:
+    type: string
+    description: The name.
+  healthErrors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:recoveryservices/v20220801:HealthErrorResponse"
+    description: List of health errors.
+  lastSuccessfulFailoverTime:
+    type: string
+    description: The Last successful failover time.
+  lastSuccessfulTestFailoverTime:
+    type: string
+    description: The Last successful test failover time.
+  policyFriendlyName:
+    type: string
+    description: The name of Policy governing this PE.
+  policyId:
+    type: string
+    description: The ID of Policy governing this PE.
+  primaryFabricFriendlyName:
+    type: string
+    description: The friendly name of the primary fabric.
+  primaryFabricProvider:
+    type: string
+    description: The fabric provider of the primary fabric.
+  primaryProtectionContainerFriendlyName:
+    type: string
+    description: The name of primary protection container friendly name.
+  protectableItemId:
+    type: string
+    description: The protected item ARM Id.
+  protectedItemType:
+    type: string
+    description: The type of protected item type.
+  protectionState:
+    type: string
+    description: The protection status.
+  protectionStateDescription:
+    type: string
+    description: The protection state description.
+  providerSpecificDetails:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20220801:A2ACrossClusterMigrationReplicationDetailsResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20220801:A2AReplicationDetailsResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20220801:HyperVReplicaAzureReplicationDetailsResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20220801:HyperVReplicaBaseReplicationDetailsResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20220801:HyperVReplicaBlueReplicationDetailsResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20220801:HyperVReplicaReplicationDetailsResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20220801:InMageAzureV2ReplicationDetailsResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20220801:InMageRcmFailbackReplicationDetailsResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20220801:InMageRcmReplicationDetailsResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20220801:InMageReplicationDetailsResponse"
+    discriminator:
+      propertyName: instanceType
+      mapping:
+        A2A: "#/types/azure-native:recoveryservices/v20220801:A2AReplicationDetailsResponse"
+        A2ACrossClusterMigration: "#/types/azure-native:recoveryservices/v20220801:A2ACrossClusterMigrationReplicationDetailsResponse"
+        HyperVReplica2012: "#/types/azure-native:recoveryservices/v20220801:HyperVReplicaReplicationDetailsResponse"
+        HyperVReplica2012R2: "#/types/azure-native:recoveryservices/v20220801:HyperVReplicaBlueReplicationDetailsResponse"
+        HyperVReplicaAzure: "#/types/azure-native:recoveryservices/v20220801:HyperVReplicaAzureReplicationDetailsResponse"
+        HyperVReplicaBaseReplicationDetails: "#/types/azure-native:recoveryservices/v20220801:HyperVReplicaBaseReplicationDetailsResponse"
+        InMage: "#/types/azure-native:recoveryservices/v20220801:InMageReplicationDetailsResponse"
+        InMageAzureV2: "#/types/azure-native:recoveryservices/v20220801:InMageAzureV2ReplicationDetailsResponse"
+        InMageRcm: "#/types/azure-native:recoveryservices/v20220801:InMageRcmReplicationDetailsResponse"
+        InMageRcmFailback: "#/types/azure-native:recoveryservices/v20220801:InMageRcmFailbackReplicationDetailsResponse"
+    description: The Replication provider custom settings.
+  recoveryContainerId:
+    type: string
+    description: The recovery container Id.
+  recoveryFabricFriendlyName:
+    type: string
+    description: The friendly name of recovery fabric.
+  recoveryFabricId:
+    type: string
+    description: The Arm Id of recovery fabric.
+  recoveryProtectionContainerFriendlyName:
+    type: string
+    description: The name of recovery container friendly name.
+  recoveryServicesProviderId:
+    type: string
+    description: The recovery provider ARM Id.
+  replicationHealth:
+    type: string
+    description: The consolidated protection health for the VM taking any issues with SRS as well as all the replication units associated with the VM's replication group into account. This is a string representation of the ProtectionHealth enumeration.
+  switchProviderState:
+    type: string
+    description: The switch provider state.
+  switchProviderStateDescription:
+    type: string
+    description: The switch provider state description.
+  testFailoverState:
+    type: string
+    description: The Test failover state.
+  testFailoverStateDescription:
+    type: string
+    description: The Test failover state description.
+type: object

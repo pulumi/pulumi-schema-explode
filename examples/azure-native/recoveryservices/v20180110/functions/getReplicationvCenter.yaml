@@ -1,0 +1,48 @@
+$token: azure-native:recoveryservices/v20180110:getReplicationvCenter
+description: vCenter definition.
+inputs:
+  properties:
+    fabricName:
+      type: string
+      description: Fabric name.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group where the recovery services vault is present.
+    resourceName:
+      type: string
+      description: The name of the recovery services vault.
+    vCenterName:
+      type: string
+      description: vCenter name.
+  type: object
+  required:
+    - fabricName
+    - resourceGroupName
+    - resourceName
+    - vCenterName
+outputs:
+  description: vCenter definition.
+  properties:
+    id:
+      type: string
+      description: Resource Id
+    location:
+      type: string
+      description: Resource Location
+    name:
+      type: string
+      description: Resource Name
+    properties:
+      type: object
+      $ref: "#/types/azure-native:recoveryservices/v20180110:VCenterPropertiesResponse"
+      description: VCenter related data.
+    type:
+      type: string
+      description: Resource Type
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - type
+deprecationMessage: Version 2018-01-10 will be removed in v2 of the provider.

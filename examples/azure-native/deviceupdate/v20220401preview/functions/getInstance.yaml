@@ -1,0 +1,70 @@
+$token: azure-native:deviceupdate/v20220401preview:getInstance
+description: Device Update instance details.
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: Account name.
+    instanceName:
+      type: string
+      description: Instance name.
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+  type: object
+  required:
+    - accountName
+    - instanceName
+    - resourceGroupName
+outputs:
+  description: Device Update instance details.
+  properties:
+    accountName:
+      type: string
+      description: Parent Device Update Account name which Instance belongs to.
+    diagnosticStorageProperties:
+      type: object
+      $ref: "#/types/azure-native:deviceupdate/v20220401preview:DiagnosticStoragePropertiesResponse"
+      description: Customer-initiated diagnostic log collection storage properties
+    enableDiagnostics:
+      type: boolean
+      description: Enables or Disables the diagnostic logs collection
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    iotHubs:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:deviceupdate/v20220401preview:IotHubSettingsResponse"
+      description: List of IoT Hubs associated with the account.
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    name:
+      type: string
+      description: The name of the resource
+    provisioningState:
+      type: string
+      description: Provisioning state.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:deviceupdate/v20220401preview:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - accountName
+    - id
+    - location
+    - name
+    - provisioningState
+    - systemData
+    - type

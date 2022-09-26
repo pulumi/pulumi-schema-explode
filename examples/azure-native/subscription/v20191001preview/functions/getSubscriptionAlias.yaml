@@ -1,0 +1,33 @@
+$token: azure-native:subscription/v20191001preview:getSubscriptionAlias
+description: Subscription Information with the alias.
+inputs:
+  properties:
+    aliasName:
+      type: string
+      description: Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
+  type: object
+  required:
+    - aliasName
+outputs:
+  description: Subscription Information with the alias.
+  properties:
+    id:
+      type: string
+      description: Fully qualified ID for the alias resource.
+    name:
+      type: string
+      description: Alias ID.
+    properties:
+      type: object
+      $ref: "#/types/azure-native:subscription/v20191001preview:PutAliasResponsePropertiesResponse"
+      description: Put Alias response properties.
+    type:
+      type: string
+      description: Resource type, Microsoft.Subscription/aliases.
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - type
+deprecationMessage: Version 2019-10-01-preview will be removed in v2 of the provider.

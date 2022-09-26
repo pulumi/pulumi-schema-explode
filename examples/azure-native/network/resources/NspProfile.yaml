@@ -1,0 +1,60 @@
+$token: azure-native:network:NspProfile
+description: |-
+  The network security perimeter profile resource
+  API Version: 2021-02-01-preview.
+properties:
+  accessRulesVersion:
+    type: string
+    description: Version number that increases with every update to access rules within the profile.
+  diagnosticSettingsVersion:
+    type: string
+    description: Version number that increases with every update to diagnostic settings within the profile.
+  location:
+    type: string
+    description: Resource location.
+  name:
+    type: string
+    description: Resource name.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - accessRulesVersion
+  - diagnosticSettingsVersion
+  - name
+  - type
+inputProperties:
+  id:
+    type: string
+    description: Resource ID.
+  location:
+    type: string
+    description: Resource location.
+  name:
+    type: string
+    description: The name of the profile resource that is unique within a perimeter. This name can be used to access the resource.
+  networkSecurityPerimeterName:
+    type: string
+    description: The name of the network security perimeter.
+  profileName:
+    type: string
+    description: The name of the NSP profile.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - networkSecurityPerimeterName
+  - resourceGroupName
+aliases:
+  - type: azure-native:network/v20210201preview:NspProfile

@@ -1,0 +1,28 @@
+$token: azure-native:connectedvmwarevsphere:GuestAgentProfileResponse
+description: Defines the resource properties.
+properties:
+  agentVersion:
+    type: string
+    description: The hybrid machine agent full version.
+  errorDetails:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:connectedvmwarevsphere:ErrorDetailResponse"
+    description: Details about the error state.
+  lastStatusChange:
+    type: string
+    description: The time of the last status change.
+  status:
+    type: string
+    description: The status of the hybrid machine agent.
+  vmUuid:
+    type: string
+    description: Specifies the VM's unique SMBIOS ID.
+type: object
+required:
+  - agentVersion
+  - errorDetails
+  - lastStatusChange
+  - status
+  - vmUuid

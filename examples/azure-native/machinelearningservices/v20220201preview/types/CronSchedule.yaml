@@ -1,0 +1,38 @@
+$token: azure-native:machinelearningservices/v20220201preview:CronSchedule
+description: Cron schedule definition
+properties:
+  endTime:
+    type: string
+    description: "Specifies end time of schedule in ISO 8601 format.\r
+
+      If not present, the schedule will run indefinitely"
+  expression:
+    type: string
+    description: "[Required] Specifies cron expression of schedule.\r
+
+      The expression should follow NCronTab format."
+  scheduleStatus:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearningservices/v20220201preview:ScheduleStatus"
+    description: Specifies the schedule's status
+    default: Enabled
+  scheduleType:
+    type: string
+    description: |-
+      Enum to describe type of schedule
+      Expected value is 'Cron'.
+    const: Cron
+  startTime:
+    type: string
+    description: Specifies start time of schedule in ISO 8601 format.
+  timeZone:
+    type: string
+    description: "Specifies time zone in which the schedule runs.\r
+
+      TimeZone should follow Windows time zone format."
+    default: UTC
+type: object
+required:
+  - expression
+  - scheduleType

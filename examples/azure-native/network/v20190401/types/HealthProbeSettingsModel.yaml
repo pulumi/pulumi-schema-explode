@@ -1,0 +1,21 @@
+$token: azure-native:network/v20190401:HealthProbeSettingsModel
+description: Load balancing settings for a backend pool
+properties:
+  id:
+    type: string
+    description: Resource ID.
+  intervalInSeconds:
+    type: integer
+    description: The number of seconds between health probes.
+  name:
+    type: string
+    description: Resource name.
+  path:
+    type: string
+    description: The path to use for the health probe. Default is /
+  protocol:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:network/v20190401:FrontDoorProtocol"
+    description: Protocol scheme to use for this probe
+type: object

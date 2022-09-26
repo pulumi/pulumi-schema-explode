@@ -1,0 +1,87 @@
+$token: azure-native:datafactory/v20180601:SapTableLinkedService
+description: SAP Table Linked Service.
+properties:
+  annotations:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: List of tags that can be used for describing the linked service.
+  clientId:
+    $ref: pulumi.json#/Any
+    description: "Client ID of the client on the SAP system where the table is located. (Usually a three-digit decimal number represented as a string) Type: string (or Expression with resultType string)."
+  connectVia:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20180601:IntegrationRuntimeReference"
+    description: The integration runtime reference.
+  description:
+    type: string
+    description: Linked service description.
+  encryptedCredential:
+    $ref: pulumi.json#/Any
+    description: "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string)."
+  language:
+    $ref: pulumi.json#/Any
+    description: "Language of the SAP system where the table is located. The default value is EN. Type: string (or Expression with resultType string)."
+  logonGroup:
+    $ref: pulumi.json#/Any
+    description: "The Logon Group for the SAP System. Type: string (or Expression with resultType string)."
+  messageServer:
+    $ref: pulumi.json#/Any
+    description: "The hostname of the SAP Message Server. Type: string (or Expression with resultType string)."
+  messageServerService:
+    $ref: pulumi.json#/Any
+    description: "The service name or port number of the Message Server. Type: string (or Expression with resultType string)."
+  parameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20180601:ParameterSpecification"
+    description: Parameters for linked service.
+  password:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:AzureKeyVaultSecretReference"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:SecureString"
+    discriminator:
+      propertyName: type
+      mapping:
+        AzureKeyVaultSecret: "#/types/azure-native:datafactory/v20180601:AzureKeyVaultSecretReference"
+        SecureString: "#/types/azure-native:datafactory/v20180601:SecureString"
+    description: Password to access the SAP server where the table is located.
+  server:
+    $ref: pulumi.json#/Any
+    description: "Host name of the SAP instance where the table is located. Type: string (or Expression with resultType string)."
+  sncLibraryPath:
+    $ref: pulumi.json#/Any
+    description: "External security product's library to access the SAP server where the table is located. Type: string (or Expression with resultType string)."
+  sncMode:
+    $ref: pulumi.json#/Any
+    description: "SNC activation indicator to access the SAP server where the table is located. Must be either 0 (off) or 1 (on). Type: string (or Expression with resultType string)."
+  sncMyName:
+    $ref: pulumi.json#/Any
+    description: "Initiator's SNC name to access the SAP server where the table is located. Type: string (or Expression with resultType string)."
+  sncPartnerName:
+    $ref: pulumi.json#/Any
+    description: "Communication partner's SNC name to access the SAP server where the table is located. Type: string (or Expression with resultType string)."
+  sncQop:
+    $ref: pulumi.json#/Any
+    description: "SNC Quality of Protection. Allowed value include: 1, 2, 3, 8, 9. Type: string (or Expression with resultType string)."
+  systemId:
+    $ref: pulumi.json#/Any
+    description: "SystemID of the SAP system where the table is located. Type: string (or Expression with resultType string)."
+  systemNumber:
+    $ref: pulumi.json#/Any
+    description: "System number of the SAP system where the table is located. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string)."
+  type:
+    type: string
+    description: |-
+      Type of linked service.
+      Expected value is 'SapTable'.
+    const: SapTable
+  userName:
+    $ref: pulumi.json#/Any
+    description: "Username to access the SAP server where the table is located. Type: string (or Expression with resultType string)."
+type: object
+required:
+  - type

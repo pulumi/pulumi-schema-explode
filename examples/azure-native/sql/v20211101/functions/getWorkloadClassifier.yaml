@@ -1,0 +1,62 @@
+$token: azure-native:sql/v20211101:getWorkloadClassifier
+description: Workload classifier operations for a data warehouse
+inputs:
+  properties:
+    databaseName:
+      type: string
+      description: The name of the database.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    serverName:
+      type: string
+      description: The name of the server.
+    workloadClassifierName:
+      type: string
+      description: The name of the workload classifier.
+    workloadGroupName:
+      type: string
+      description: The name of the workload group from which to receive the classifier from.
+  type: object
+  required:
+    - databaseName
+    - resourceGroupName
+    - serverName
+    - workloadClassifierName
+    - workloadGroupName
+outputs:
+  description: Workload classifier operations for a data warehouse
+  properties:
+    context:
+      type: string
+      description: The workload classifier context.
+    endTime:
+      type: string
+      description: The workload classifier end time for classification.
+    id:
+      type: string
+      description: Resource ID.
+    importance:
+      type: string
+      description: The workload classifier importance.
+    label:
+      type: string
+      description: The workload classifier label.
+    memberName:
+      type: string
+      description: The workload classifier member name.
+    name:
+      type: string
+      description: Resource name.
+    startTime:
+      type: string
+      description: The workload classifier start time for classification.
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - id
+    - memberName
+    - name
+    - type

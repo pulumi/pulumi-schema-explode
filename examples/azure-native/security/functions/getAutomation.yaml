@@ -1,0 +1,82 @@
+$token: azure-native:security:getAutomation
+description: |-
+  The security automation resource.
+  API Version: 2019-01-01-preview.
+inputs:
+  properties:
+    automationName:
+      type: string
+      description: The security automation name.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group within the user's subscription. The name is case insensitive.
+  type: object
+  required:
+    - automationName
+    - resourceGroupName
+outputs:
+  description: The security automation resource.
+  properties:
+    actions:
+      type: array
+      items:
+        oneOf:
+          - type: object
+            $ref: "#/types/azure-native:security:AutomationActionEventHubResponse"
+          - type: object
+            $ref: "#/types/azure-native:security:AutomationActionLogicAppResponse"
+          - type: object
+            $ref: "#/types/azure-native:security:AutomationActionWorkspaceResponse"
+        discriminator:
+          propertyName: actionType
+          mapping:
+            EventHub: "#/types/azure-native:security:AutomationActionEventHubResponse"
+            LogicApp: "#/types/azure-native:security:AutomationActionLogicAppResponse"
+            Workspace: "#/types/azure-native:security:AutomationActionWorkspaceResponse"
+      description: A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
+    description:
+      type: string
+      description: The security automation description.
+    etag:
+      type: string
+      description: Entity tag is used for comparing two or more entities from the same requested resource.
+    id:
+      type: string
+      description: Resource Id
+    isEnabled:
+      type: boolean
+      description: Indicates whether the security automation is enabled.
+    kind:
+      type: string
+      description: Kind of the resource
+    location:
+      type: string
+      description: Location where the resource is stored
+    name:
+      type: string
+      description: Resource name
+    scopes:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:security:AutomationScopeResponse"
+      description: A collection of scopes on which the security automations logic is applied. Supported scopes are the subscription itself or a resource group under that subscription. The automation will only apply on defined scopes.
+    sources:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:security:AutomationSourceResponse"
+      description: A collection of the source event types which evaluate the security automation set of rules.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: A list of key value pairs that describe the resource.
+    type:
+      type: string
+      description: Resource type
+  type: object
+  required:
+    - id
+    - name
+    - type

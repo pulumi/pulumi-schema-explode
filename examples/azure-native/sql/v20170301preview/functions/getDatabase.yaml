@@ -1,0 +1,91 @@
+$token: azure-native:sql/v20170301preview:getDatabase
+description: A database resource.
+inputs:
+  properties:
+    databaseName:
+      type: string
+      description: The name of the database.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    serverName:
+      type: string
+      description: The name of the server.
+  type: object
+  required:
+    - databaseName
+    - resourceGroupName
+    - serverName
+outputs:
+  description: A database resource.
+  properties:
+    catalogCollation:
+      type: string
+      description: Collation of the metadata catalog.
+    collation:
+      type: string
+      description: The collation of the database.
+    creationDate:
+      type: string
+      description: The creation date of the database (ISO8601 format).
+    currentServiceObjectiveName:
+      type: string
+      description: The current service level objective name of the database.
+    databaseId:
+      type: string
+      description: The ID of the database.
+    defaultSecondaryLocation:
+      type: string
+      description: The default secondary region for this database.
+    elasticPoolId:
+      type: string
+      description: The resource identifier of the elastic pool containing this database.
+    failoverGroupId:
+      type: string
+      description: Failover Group resource identifier that this database belongs to.
+    id:
+      type: string
+      description: Resource ID.
+    kind:
+      type: string
+      description: Kind of database. This is metadata used for the Azure portal experience.
+    location:
+      type: string
+      description: Resource location.
+    maxSizeBytes:
+      type: number
+      description: The max size of the database expressed in bytes.
+    name:
+      type: string
+      description: Resource name.
+    sku:
+      type: object
+      $ref: "#/types/azure-native:sql/v20170301preview:SkuResponse"
+      description: The name and tier of the SKU.
+    status:
+      type: string
+      description: The status of the database.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: Resource type.
+    zoneRedundant:
+      type: boolean
+      description: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+  type: object
+  required:
+    - creationDate
+    - currentServiceObjectiveName
+    - databaseId
+    - defaultSecondaryLocation
+    - failoverGroupId
+    - id
+    - kind
+    - location
+    - name
+    - status
+    - type

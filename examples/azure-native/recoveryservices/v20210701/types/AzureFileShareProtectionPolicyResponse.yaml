@@ -1,0 +1,53 @@
+$token: azure-native:recoveryservices/v20210701:AzureFileShareProtectionPolicyResponse
+description: AzureStorage backup policy.
+properties:
+  backupManagementType:
+    type: string
+    description: |-
+      This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+      Expected value is 'AzureStorage'.
+    const: AzureStorage
+  protectedItemsCount:
+    type: integer
+    description: Number of items associated with this policy.
+  resourceGuardOperationRequests:
+    type: array
+    items:
+      type: string
+    description: ResourceGuard Operation Requests
+  retentionPolicy:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210701:LongTermRetentionPolicyResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210701:SimpleRetentionPolicyResponse"
+    discriminator:
+      propertyName: retentionPolicyType
+      mapping:
+        LongTermRetentionPolicy: "#/types/azure-native:recoveryservices/v20210701:LongTermRetentionPolicyResponse"
+        SimpleRetentionPolicy: "#/types/azure-native:recoveryservices/v20210701:SimpleRetentionPolicyResponse"
+    description: Retention policy with the details on backup copy retention ranges.
+  schedulePolicy:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210701:LogSchedulePolicyResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210701:LongTermSchedulePolicyResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20210701:SimpleSchedulePolicyResponse"
+    discriminator:
+      propertyName: schedulePolicyType
+      mapping:
+        LogSchedulePolicy: "#/types/azure-native:recoveryservices/v20210701:LogSchedulePolicyResponse"
+        LongTermSchedulePolicy: "#/types/azure-native:recoveryservices/v20210701:LongTermSchedulePolicyResponse"
+        SimpleSchedulePolicy: "#/types/azure-native:recoveryservices/v20210701:SimpleSchedulePolicyResponse"
+    description: Backup schedule specified as part of backup policy.
+  timeZone:
+    type: string
+    description: 'TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".'
+  workLoadType:
+    type: string
+    description: Type of workload for the backup management
+type: object
+required:
+  - backupManagementType

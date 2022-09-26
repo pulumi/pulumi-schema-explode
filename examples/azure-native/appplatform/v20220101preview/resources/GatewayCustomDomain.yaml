@@ -1,0 +1,49 @@
+$token: azure-native:appplatform/v20220101preview:GatewayCustomDomain
+description: Custom domain of the Spring Cloud Gateway
+properties:
+  name:
+    type: string
+    description: The name of the resource.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20220101preview:GatewayCustomDomainPropertiesResponse"
+    description: The properties of custom domain for Spring Cloud Gateway
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20220101preview:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - name
+  - properties
+  - systemData
+  - type
+inputProperties:
+  domainName:
+    type: string
+    description: The name of the Spring Cloud Gateway custom domain.
+  gatewayName:
+    type: string
+    description: The name of Spring Cloud Gateway.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:appplatform/v20220101preview:GatewayCustomDomainProperties"
+    description: The properties of custom domain for Spring Cloud Gateway
+  resourceGroupName:
+    type: string
+    description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  serviceName:
+    type: string
+    description: The name of the Service resource.
+requiredInputs:
+  - gatewayName
+  - resourceGroupName
+  - serviceName
+aliases:
+  - type: azure-native:appplatform:GatewayCustomDomain
+  - type: azure-native:appplatform/v20220301preview:GatewayCustomDomain
+  - type: azure-native:appplatform/v20220501preview:GatewayCustomDomain
+  - type: azure-native:appplatform/v20220901preview:GatewayCustomDomain

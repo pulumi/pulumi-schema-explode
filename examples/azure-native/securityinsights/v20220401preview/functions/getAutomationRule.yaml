@@ -1,0 +1,87 @@
+$token: azure-native:securityinsights/v20220401preview:getAutomationRule
+inputs:
+  properties:
+    automationRuleId:
+      type: string
+      description: Automation rule ID
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    workspaceName:
+      type: string
+      description: The name of the workspace.
+  type: object
+  required:
+    - automationRuleId
+    - resourceGroupName
+    - workspaceName
+outputs:
+  properties:
+    actions:
+      type: array
+      items:
+        oneOf:
+          - type: object
+            $ref: "#/types/azure-native:securityinsights/v20220401preview:AutomationRuleModifyPropertiesActionResponse"
+          - type: object
+            $ref: "#/types/azure-native:securityinsights/v20220401preview:AutomationRuleRunPlaybookActionResponse"
+        discriminator:
+          propertyName: actionType
+          mapping:
+            ModifyProperties: "#/types/azure-native:securityinsights/v20220401preview:AutomationRuleModifyPropertiesActionResponse"
+            RunPlaybook: "#/types/azure-native:securityinsights/v20220401preview:AutomationRuleRunPlaybookActionResponse"
+      description: The actions to execute when the automation rule is triggered
+    createdBy:
+      type: object
+      $ref: "#/types/azure-native:securityinsights/v20220401preview:ClientInfoResponse"
+      description: Information on the client (user or application) that made some action
+    createdTimeUtc:
+      type: string
+      description: The time the automation rule was created
+    displayName:
+      type: string
+      description: The display name of the automation rule
+    etag:
+      type: string
+      description: Etag of the azure resource
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    lastModifiedBy:
+      type: object
+      $ref: "#/types/azure-native:securityinsights/v20220401preview:ClientInfoResponse"
+      description: Information on the client (user or application) that made some action
+    lastModifiedTimeUtc:
+      type: string
+      description: The last time the automation rule was updated
+    name:
+      type: string
+      description: The name of the resource
+    order:
+      type: integer
+      description: The order of execution of the automation rule
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:securityinsights/v20220401preview:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    triggeringLogic:
+      type: object
+      $ref: "#/types/azure-native:securityinsights/v20220401preview:AutomationRuleTriggeringLogicResponse"
+      description: Describes automation rule triggering logic
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - actions
+    - createdBy
+    - createdTimeUtc
+    - displayName
+    - id
+    - lastModifiedBy
+    - lastModifiedTimeUtc
+    - name
+    - order
+    - systemData
+    - triggeringLogic
+    - type

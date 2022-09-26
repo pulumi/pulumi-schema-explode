@@ -1,0 +1,57 @@
+$token: azure-native:hybridcompute/v20200815preview:PrivateEndpointConnection
+description: A private endpoint connection
+properties:
+  name:
+    type: string
+    description: The name of the resource
+  privateEndpoint:
+    type: object
+    $ref: "#/types/azure-native:hybridcompute/v20200815preview:PrivateEndpointPropertyResponse"
+    description: Private endpoint which the connection belongs to.
+  privateLinkServiceConnectionState:
+    type: object
+    $ref: "#/types/azure-native:hybridcompute/v20200815preview:PrivateLinkServiceConnectionStatePropertyResponse"
+    description: Connection state of the private endpoint connection.
+  provisioningState:
+    type: string
+    description: State of the private endpoint connection.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - name
+  - provisioningState
+  - type
+inputProperties:
+  privateEndpoint:
+    type: object
+    $ref: "#/types/azure-native:hybridcompute/v20200815preview:PrivateEndpointProperty"
+    description: Private endpoint which the connection belongs to.
+  privateEndpointConnectionName:
+    type: string
+    description: The name of the private endpoint connection.
+  privateLinkServiceConnectionState:
+    type: object
+    $ref: "#/types/azure-native:hybridcompute/v20200815preview:PrivateLinkServiceConnectionStateProperty"
+    description: Connection state of the private endpoint connection.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  scopeName:
+    type: string
+    description: The name of the Azure Arc PrivateLinkScope resource.
+requiredInputs:
+  - resourceGroupName
+  - scopeName
+aliases:
+  - type: azure-native:hybridcompute:PrivateEndpointConnection
+  - type: azure-native:hybridcompute/v20210128preview:PrivateEndpointConnection
+  - type: azure-native:hybridcompute/v20210325preview:PrivateEndpointConnection
+  - type: azure-native:hybridcompute/v20210422preview:PrivateEndpointConnection
+  - type: azure-native:hybridcompute/v20210517preview:PrivateEndpointConnection
+  - type: azure-native:hybridcompute/v20210520:PrivateEndpointConnection
+  - type: azure-native:hybridcompute/v20210610preview:PrivateEndpointConnection
+  - type: azure-native:hybridcompute/v20211210preview:PrivateEndpointConnection
+  - type: azure-native:hybridcompute/v20220310:PrivateEndpointConnection
+  - type: azure-native:hybridcompute/v20220510preview:PrivateEndpointConnection

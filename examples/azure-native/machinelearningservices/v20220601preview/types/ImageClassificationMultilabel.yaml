@@ -1,0 +1,66 @@
+$token: azure-native:machinelearningservices/v20220601preview:ImageClassificationMultilabel
+description: "Image Classification Multilabel. Multi-label image classification is used when an image could have one or more labels\r
+
+  from a set of labels - e.g. an image could be labeled with both 'cat' and 'dog'."
+properties:
+  limitSettings:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:ImageLimitSettings"
+    description: "[Required] Limit settings for the AutoML job."
+  logVerbosity:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearningservices/v20220601preview:LogVerbosity"
+    description: Log verbosity for the job.
+    default: Info
+  modelSettings:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:ImageModelSettingsClassification"
+    description: Settings used for training the model.
+  primaryMetric:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:machinelearningservices/v20220601preview:ClassificationMultilabelPrimaryMetrics"
+    description: Primary metric to optimize for this task.
+    default: IOU
+  searchSpace:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20220601preview:ImageModelDistributionSettingsClassification"
+    description: Search space for sampling different combinations of models and their hyperparameters.
+  sweepSettings:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:ImageSweepSettings"
+    description: Model sweeping and hyperparameter sweeping related settings.
+  targetColumnName:
+    type: string
+    description: "Target column name: This is prediction values column.\r
+
+      Also known as label column name in context of classification tasks."
+  taskType:
+    type: string
+    description: |-
+      AutoMLJob Task type.
+      Expected value is 'ImageClassificationMultilabel'.
+    const: ImageClassificationMultilabel
+  trainingData:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:MLTableJobInput"
+    description: "[Required] Training data input."
+  validationData:
+    type: object
+    $ref: "#/types/azure-native:machinelearningservices/v20220601preview:MLTableJobInput"
+    description: Validation data inputs.
+  validationDataSize:
+    type: number
+    description: "The fraction of training dataset that needs to be set aside for validation purpose.\r
+
+      Values between (0.0 , 1.0)\r
+
+      Applied when validation dataset is not provided."
+type: object
+required:
+  - limitSettings
+  - taskType
+  - trainingData

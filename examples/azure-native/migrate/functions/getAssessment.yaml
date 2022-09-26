@@ -1,0 +1,49 @@
+$token: azure-native:migrate:getAssessment
+description: |-
+  An assessment created for a group in the Migration project.
+  API Version: 2019-10-01.
+inputs:
+  properties:
+    assessmentName:
+      type: string
+      description: Unique name of an assessment within a project.
+    groupName:
+      type: string
+      description: Unique name of a group within a project.
+    projectName:
+      type: string
+      description: Name of the Azure Migrate project.
+    resourceGroupName:
+      type: string
+      description: Name of the Azure Resource Group that project is part of.
+  type: object
+  required:
+    - assessmentName
+    - groupName
+    - projectName
+    - resourceGroupName
+outputs:
+  description: An assessment created for a group in the Migration project.
+  properties:
+    eTag:
+      type: string
+      description: For optimistic concurrency control.
+    id:
+      type: string
+      description: Path reference to this assessment. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}/assessment/{assessmentName}
+    name:
+      type: string
+      description: Unique name of an assessment.
+    properties:
+      type: object
+      $ref: "#/types/azure-native:migrate:AssessmentPropertiesResponse"
+      description: Properties of the assessment.
+    type:
+      type: string
+      description: Type of the object = [Microsoft.Migrate/assessmentProjects/groups/assessments].
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - type

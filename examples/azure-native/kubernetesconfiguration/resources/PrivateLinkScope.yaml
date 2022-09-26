@@ -1,0 +1,57 @@
+$token: azure-native:kubernetesconfiguration:PrivateLinkScope
+description: |-
+  An Azure Arc PrivateLinkScope definition.
+  API Version: 2022-04-02-preview.
+properties:
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  name:
+    type: string
+    description: The name of the resource
+  properties:
+    type: object
+    $ref: "#/types/azure-native:kubernetesconfiguration:KubernetesConfigurationPrivateLinkScopePropertiesResponse"
+    description: Properties that define a Azure Arc PrivateLinkScope resource.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:kubernetesconfiguration:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - location
+  - name
+  - properties
+  - systemData
+  - type
+inputProperties:
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  properties:
+    type: object
+    $ref: "#/types/azure-native:kubernetesconfiguration:KubernetesConfigurationPrivateLinkScopeProperties"
+    description: Properties that define a Azure Arc PrivateLinkScope resource.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  scopeName:
+    type: string
+    description: The name of the Azure Arc PrivateLinkScope resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:kubernetesconfiguration/v20220402preview:PrivateLinkScope

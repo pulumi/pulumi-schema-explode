@@ -1,0 +1,41 @@
+$token: azure-native:datafactory/v20180601:PrivateEndpointConnection
+description: Private Endpoint Connection ARM resource.
+properties:
+  etag:
+    type: string
+    description: Etag identifies change in the resource.
+  name:
+    type: string
+    description: The resource name.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20180601:RemotePrivateEndpointConnectionResponse"
+    description: Core resource properties
+  type:
+    type: string
+    description: The resource type.
+type: object
+required:
+  - etag
+  - name
+  - properties
+  - type
+inputProperties:
+  factoryName:
+    type: string
+    description: The factory name.
+  privateEndpointConnectionName:
+    type: string
+    description: The private endpoint connection name.
+  properties:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20180601:PrivateLinkConnectionApprovalRequest"
+    description: Core resource properties
+  resourceGroupName:
+    type: string
+    description: The resource group name.
+requiredInputs:
+  - factoryName
+  - resourceGroupName
+aliases:
+  - type: azure-native:datafactory:PrivateEndpointConnection

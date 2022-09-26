@@ -1,0 +1,45 @@
+$token: azure-native:network/v20180601:LocalNetworkGatewayResponse
+description: A common class for general resource information
+properties:
+  bgpSettings:
+    type: object
+    $ref: "#/types/azure-native:network/v20180601:BgpSettingsResponse"
+    description: Local network gateway's BGP speaker settings.
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  gatewayIpAddress:
+    type: string
+    description: IP address of local network gateway.
+  id:
+    type: string
+    description: Resource ID.
+  localNetworkAddressSpace:
+    type: object
+    $ref: "#/types/azure-native:network/v20180601:AddressSpaceResponse"
+    description: Local network site address space.
+  location:
+    type: string
+    description: Resource location.
+  name:
+    type: string
+    description: Resource name.
+  provisioningState:
+    type: string
+    description: "The provisioning state of the LocalNetworkGateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'."
+  resourceGuid:
+    type: string
+    description: The resource GUID property of the LocalNetworkGateway resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - name
+  - provisioningState
+  - type

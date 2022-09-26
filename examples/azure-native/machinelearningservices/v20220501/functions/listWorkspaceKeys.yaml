@@ -1,0 +1,34 @@
+$token: azure-native:machinelearningservices/v20220501:listWorkspaceKeys
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    workspaceName:
+      type: string
+      description: Name of Azure Machine Learning workspace.
+  type: object
+  required:
+    - resourceGroupName
+    - workspaceName
+outputs:
+  properties:
+    appInsightsInstrumentationKey:
+      type: string
+    containerRegistryCredentials:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20220501:RegistryListCredentialsResultResponse"
+    notebookAccessKeys:
+      type: object
+      $ref: "#/types/azure-native:machinelearningservices/v20220501:ListNotebookKeysResultResponse"
+    userStorageKey:
+      type: string
+    userStorageResourceId:
+      type: string
+  type: object
+  required:
+    - appInsightsInstrumentationKey
+    - containerRegistryCredentials
+    - notebookAccessKeys
+    - userStorageKey
+    - userStorageResourceId

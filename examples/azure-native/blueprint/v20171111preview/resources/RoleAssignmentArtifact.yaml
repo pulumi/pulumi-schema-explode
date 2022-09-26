@@ -1,0 +1,84 @@
+$token: azure-native:blueprint/v20171111preview:RoleAssignmentArtifact
+description: Blueprint artifact applies Azure role assignment.
+properties:
+  dependsOn:
+    type: array
+    items:
+      type: string
+    description: Artifacts which need to be deployed before the specified artifact.
+  description:
+    type: string
+    description: Multi-line explain this resource.
+  displayName:
+    type: string
+    description: One-liner string explain this resource.
+  kind:
+    type: string
+    description: |-
+      Specifies the kind of Blueprint artifact.
+      Expected value is 'roleAssignment'.
+    const: roleAssignment
+  name:
+    type: string
+    description: Name of this resource.
+  principalIds:
+    $ref: pulumi.json#/Any
+    description: Array of user or group identities in Azure Active Directory. The roleDefinition will apply to these identity.
+  resourceGroup:
+    type: string
+    description: RoleAssignment will be scope to this resourceGroup, if left empty, it would scope to the subscription.
+  roleDefinitionId:
+    type: string
+    description: Azure resource ID of the RoleDefinition.
+  type:
+    type: string
+    description: Type of this resource.
+type: object
+required:
+  - kind
+  - name
+  - principalIds
+  - roleDefinitionId
+  - type
+inputProperties:
+  artifactName:
+    type: string
+    description: name of the artifact.
+  blueprintName:
+    type: string
+    description: name of the blueprint.
+  dependsOn:
+    type: array
+    items:
+      type: string
+    description: Artifacts which need to be deployed before the specified artifact.
+  description:
+    type: string
+    description: Multi-line explain this resource.
+  displayName:
+    type: string
+    description: One-liner string explain this resource.
+  kind:
+    type: string
+    description: |-
+      Specifies the kind of Blueprint artifact.
+      Expected value is 'roleAssignment'.
+    const: roleAssignment
+  managementGroupName:
+    type: string
+    description: ManagementGroup where blueprint stores.
+  principalIds:
+    $ref: pulumi.json#/Any
+    description: Array of user or group identities in Azure Active Directory. The roleDefinition will apply to these identity.
+  resourceGroup:
+    type: string
+    description: RoleAssignment will be scope to this resourceGroup, if left empty, it would scope to the subscription.
+  roleDefinitionId:
+    type: string
+    description: Azure resource ID of the RoleDefinition.
+requiredInputs:
+  - blueprintName
+  - kind
+  - managementGroupName
+  - principalIds
+  - roleDefinitionId

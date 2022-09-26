@@ -1,0 +1,78 @@
+$token: azure-native:compute/v20190701:getVirtualMachineScaleSetVMExtension
+description: Describes a Virtual Machine Extension.
+inputs:
+  properties:
+    expand:
+      type: string
+      description: The expand expression to apply on the operation.
+    instanceId:
+      type: string
+      description: The instance ID of the virtual machine.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    vmExtensionName:
+      type: string
+      description: The name of the virtual machine extension.
+    vmScaleSetName:
+      type: string
+      description: The name of the VM scale set.
+  type: object
+  required:
+    - instanceId
+    - resourceGroupName
+    - vmExtensionName
+    - vmScaleSetName
+outputs:
+  description: Describes a Virtual Machine Extension.
+  properties:
+    autoUpgradeMinorVersion:
+      type: boolean
+      description: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+    forceUpdateTag:
+      type: string
+      description: How the extension handler should be forced to update even if the extension configuration has not changed.
+    id:
+      type: string
+      description: Resource Id
+    instanceView:
+      type: object
+      $ref: "#/types/azure-native:compute/v20190701:VirtualMachineExtensionInstanceViewResponse"
+      description: The virtual machine extension instance view.
+    location:
+      type: string
+      description: Resource location
+    name:
+      type: string
+      description: Resource name
+    protectedSettings:
+      $ref: pulumi.json#/Any
+      description: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+    provisioningState:
+      type: string
+      description: The provisioning state, which only appears in the response.
+    publisher:
+      type: string
+      description: The name of the extension handler publisher.
+    settings:
+      $ref: pulumi.json#/Any
+      description: Json formatted public settings for the extension.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    type:
+      type: string
+      description: Resource type
+    typeHandlerVersion:
+      type: string
+      description: Specifies the version of the script handler.
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - provisioningState
+    - type
+deprecationMessage: Version 2019-07-01 will be removed in v2 of the provider.

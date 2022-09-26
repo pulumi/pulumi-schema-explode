@@ -1,0 +1,27 @@
+$token: azure-native:logz/v20201001preview:listMonitorVMHosts
+description: Response of a list VM Host Update Operation.
+inputs:
+  properties:
+    monitorName:
+      type: string
+      description: Monitor resource name
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+  type: object
+  required:
+    - monitorName
+    - resourceGroupName
+outputs:
+  description: Response of a list VM Host Update Operation.
+  properties:
+    nextLink:
+      type: string
+      description: Link to the next set of results, if any.
+    value:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:logz/v20201001preview:VMResourcesResponse"
+      description: Response of a list vm host update operation.
+  type: object

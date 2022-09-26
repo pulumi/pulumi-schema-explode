@@ -1,0 +1,128 @@
+$token: azure-native:recoveryservices/v20220201:ProcessServerResponse
+description: Details of the Process Server.
+properties:
+  agentExpiryDate:
+    type: string
+    description: Agent expiry date.
+  agentVersion:
+    type: string
+    description: The version of the scout component on the server.
+  agentVersionDetails:
+    type: object
+    $ref: "#/types/azure-native:recoveryservices/v20220201:VersionDetailsResponse"
+    description: The agent version details.
+  availableMemoryInBytes:
+    type: number
+    description: The available memory.
+  availableSpaceInBytes:
+    type: number
+    description: The available space.
+  cpuLoad:
+    type: string
+    description: The percentage of the CPU load.
+  cpuLoadStatus:
+    type: string
+    description: The CPU load status.
+  friendlyName:
+    type: string
+    description: The Process Server's friendly name.
+  health:
+    type: string
+    description: The health of Process Server.
+  healthErrors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:recoveryservices/v20220201:HealthErrorResponse"
+    description: Health errors.
+  hostId:
+    type: string
+    description: The agent generated Id.
+  id:
+    type: string
+    description: The Process Server Id.
+  ipAddress:
+    type: string
+    description: The IP address of the server.
+  lastHeartbeat:
+    type: string
+    description: The last heartbeat received from the server.
+  machineCount:
+    type: string
+    description: The servers configured with this PS.
+  marsCommunicationStatus:
+    type: string
+    description: The MARS communication status.
+  marsRegistrationStatus:
+    type: string
+    description: The MARS registration status.
+  memoryUsageStatus:
+    type: string
+    description: The memory usage status.
+  mobilityServiceUpdates:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:recoveryservices/v20220201:MobilityServiceUpdateResponse"
+    description: The list of the mobility service updates available on the Process Server.
+  osType:
+    type: string
+    description: The OS type of the server.
+  osVersion:
+    type: string
+    description: "OS Version of the process server. Note: This will get populated if user has CS version greater than 9.12.0.0."
+  psServiceStatus:
+    type: string
+    description: The PS service status.
+  psStatsRefreshTime:
+    type: string
+    description: The process server stats refresh time.
+  replicationPairCount:
+    type: string
+    description: The number of replication pairs configured in this PS.
+  spaceUsageStatus:
+    type: string
+    description: The space usage status.
+  sslCertExpiryDate:
+    type: string
+    description: The PS SSL cert expiry date.
+  sslCertExpiryRemainingDays:
+    type: integer
+    description: CS SSL cert expiry date.
+  systemLoad:
+    type: string
+    description: The percentage of the system load.
+  systemLoadStatus:
+    type: string
+    description: The system load status.
+  throughputInBytes:
+    type: number
+    description: The throughput in bytes.
+  throughputInMBps:
+    type: number
+    description: The throughput in MBps.
+  throughputStatus:
+    type: string
+    description: The throughput status.
+  throughputUploadPendingDataInBytes:
+    type: number
+    description: The uploading pending data in bytes.
+  totalMemoryInBytes:
+    type: number
+    description: The total memory.
+  totalSpaceInBytes:
+    type: number
+    description: The total space.
+  versionStatus:
+    type: string
+    description: Version status.
+type: object
+required:
+  - health
+  - marsCommunicationStatus
+  - marsRegistrationStatus
+  - psStatsRefreshTime
+  - throughputInBytes
+  - throughputInMBps
+  - throughputStatus
+  - throughputUploadPendingDataInBytes

@@ -1,0 +1,65 @@
+$token: azure-native:web/v20210115:getWebAppDeployment
+description: User credentials used for publishing activity.
+inputs:
+  properties:
+    id:
+      type: string
+      description: Deployment ID.
+    name:
+      type: string
+      description: Name of the app.
+    resourceGroupName:
+      type: string
+      description: Name of the resource group to which the resource belongs.
+  type: object
+  required:
+    - id
+    - name
+    - resourceGroupName
+outputs:
+  description: User credentials used for publishing activity.
+  properties:
+    active:
+      type: boolean
+      description: True if deployment is currently active, false if completed and null if not started.
+    author:
+      type: string
+      description: Who authored the deployment.
+    authorEmail:
+      type: string
+      description: Author email.
+    deployer:
+      type: string
+      description: Who performed the deployment.
+    details:
+      type: string
+      description: Details on deployment.
+    endTime:
+      type: string
+      description: End time.
+    id:
+      type: string
+      description: Resource Id.
+    kind:
+      type: string
+      description: Kind of resource.
+    message:
+      type: string
+      description: Details about deployment status.
+    name:
+      type: string
+      description: Resource Name.
+    startTime:
+      type: string
+      description: Start time.
+    status:
+      type: integer
+      description: Deployment status.
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - id
+    - name
+    - type

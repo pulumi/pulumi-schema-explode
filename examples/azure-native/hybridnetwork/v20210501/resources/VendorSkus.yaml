@@ -1,0 +1,85 @@
+$token: azure-native:hybridnetwork/v20210501:VendorSkus
+description: Sku sub resource.
+properties:
+  deploymentMode:
+    type: string
+    description: The sku deployment mode.
+  managedApplicationParameters:
+    $ref: pulumi.json#/Any
+    description: The parameters for the managed application to be supplied by the vendor.
+  managedApplicationTemplate:
+    $ref: pulumi.json#/Any
+    description: The template for the managed application deployment.
+  name:
+    type: string
+    description: The name of the resource
+  networkFunctionTemplate:
+    type: object
+    $ref: "#/types/azure-native:hybridnetwork/v20210501:NetworkFunctionTemplateResponse"
+    description: The template definition of the network function.
+  networkFunctionType:
+    type: string
+    description: The network function type.
+  preview:
+    type: boolean
+    description: Indicates if the vendor sku is in preview mode.
+  provisioningState:
+    type: string
+    description: The provisioning state of the vendor sku sub resource.
+  skuType:
+    type: string
+    description: The sku type.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:hybridnetwork/v20210501:SystemDataResponse"
+    description: The system meta data relating to this resource.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - name
+  - provisioningState
+  - systemData
+  - type
+inputProperties:
+  deploymentMode:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:hybridnetwork/v20210501:SkuDeploymentMode"
+    description: The sku deployment mode.
+  managedApplicationParameters:
+    $ref: pulumi.json#/Any
+    description: The parameters for the managed application to be supplied by the vendor.
+  managedApplicationTemplate:
+    $ref: pulumi.json#/Any
+    description: The template for the managed application deployment.
+  networkFunctionTemplate:
+    type: object
+    $ref: "#/types/azure-native:hybridnetwork/v20210501:NetworkFunctionTemplate"
+    description: The template definition of the network function.
+  networkFunctionType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:hybridnetwork/v20210501:NetworkFunctionType"
+    description: The network function type.
+  preview:
+    type: boolean
+    description: Indicates if the vendor sku is in preview mode.
+  skuName:
+    type: string
+    description: The name of the sku.
+  skuType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:hybridnetwork/v20210501:SkuType"
+    description: The sku type.
+  vendorName:
+    type: string
+    description: The name of the vendor.
+requiredInputs:
+  - vendorName
+aliases:
+  - type: azure-native:hybridnetwork:VendorSkus
+  - type: azure-native:hybridnetwork/v20200101preview:VendorSkus
+  - type: azure-native:hybridnetwork/v20220101preview:VendorSkus

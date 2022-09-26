@@ -1,0 +1,46 @@
+$token: azure-native:automanage:getAccount
+description: |-
+  Definition of the Automanage account.
+  API Version: 2020-06-30-preview.
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: The Automanage account name.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+  type: object
+  required:
+    - accountName
+    - resourceGroupName
+outputs:
+  description: Definition of the Automanage account.
+  properties:
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    identity:
+      type: object
+      $ref: "#/types/azure-native:automanage:AccountIdentityResponse"
+      description: The identity of the Automanage account.
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    name:
+      type: string
+      description: The name of the resource
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - type

@@ -1,0 +1,104 @@
+$token: azure-native:synapse/v20210601preview:SelfHostedIntegrationRuntimeStatusResponse
+description: Self-hosted integration runtime status.
+properties:
+  autoUpdate:
+    type: string
+    description: Whether Self-hosted integration runtime auto update has been turned on.
+  autoUpdateETA:
+    type: string
+    description: The estimated time when the self-hosted integration runtime will be updated.
+  capabilities:
+    type: object
+    additionalProperties:
+      type: string
+    description: Object with additional information about integration runtime capabilities.
+  createTime:
+    type: string
+    description: The time at which the integration runtime was created, in ISO8601 format.
+  dataFactoryName:
+    type: string
+    description: The workspace name which the integration runtime belong to.
+  internalChannelEncryption:
+    type: string
+    description: It is used to set the encryption mode for node-node communication channel (when more than 2 self-hosted integration runtime nodes exist).
+  latestVersion:
+    type: string
+    description: The latest version on download center.
+  links:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:synapse/v20210601preview:LinkedIntegrationRuntimeResponse"
+    description: The list of linked integration runtimes that are created to share with this integration runtime.
+  localTimeZoneOffset:
+    type: string
+    description: The local time zone offset in hours.
+  newerVersions:
+    type: array
+    items:
+      type: string
+    description: The newer versions on download center.
+  nodeCommunicationChannelEncryptionMode:
+    type: string
+    description: The node communication Channel encryption mode
+  nodes:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:synapse/v20210601preview:SelfHostedIntegrationRuntimeNodeResponse"
+    description: The list of nodes for this integration runtime.
+  pushedVersion:
+    type: string
+    description: The version that the integration runtime is going to update to.
+  scheduledUpdateDate:
+    type: string
+    description: The date at which the integration runtime will be scheduled to update, in ISO8601 format.
+  serviceRegion:
+    type: string
+    description: The service region of the integration runtime
+  serviceUrls:
+    type: array
+    items:
+      type: string
+    description: The URLs for the services used in integration runtime backend service.
+  state:
+    type: string
+    description: The state of integration runtime.
+  taskQueueId:
+    type: string
+    description: The task queue id of the integration runtime.
+  type:
+    type: string
+    description: |-
+      The type of integration runtime.
+      Expected value is 'SelfHosted'.
+    const: SelfHosted
+  updateDelayOffset:
+    type: string
+    description: The time in the date scheduled by service to update the integration runtime, e.g., PT03H is 3 hours
+  version:
+    type: string
+    description: Version of the integration runtime.
+  versionStatus:
+    type: string
+    description: Status of the integration runtime version.
+type: object
+required:
+  - autoUpdate
+  - autoUpdateETA
+  - capabilities
+  - createTime
+  - dataFactoryName
+  - internalChannelEncryption
+  - latestVersion
+  - localTimeZoneOffset
+  - nodeCommunicationChannelEncryptionMode
+  - pushedVersion
+  - scheduledUpdateDate
+  - serviceUrls
+  - state
+  - taskQueueId
+  - type
+  - updateDelayOffset
+  - version
+  - versionStatus

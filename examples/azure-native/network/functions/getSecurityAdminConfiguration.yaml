@@ -1,0 +1,62 @@
+$token: azure-native:network:getSecurityAdminConfiguration
+description: |-
+  Defines the security configuration
+  API Version: 2021-02-01-preview.
+inputs:
+  properties:
+    configurationName:
+      type: string
+      description: The name of the network manager security Configuration.
+    networkManagerName:
+      type: string
+      description: The name of the network manager.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+  type: object
+  required:
+    - configurationName
+    - networkManagerName
+    - resourceGroupName
+outputs:
+  description: Defines the security configuration
+  properties:
+    deleteExistingNSGs:
+      type: string
+      description: Flag if need to delete existing network security groups.
+    description:
+      type: string
+      description: A description of the security configuration.
+    displayName:
+      type: string
+      description: A display name of the security configuration.
+    etag:
+      type: string
+      description: A unique read-only string that changes whenever the resource is updated.
+    id:
+      type: string
+      description: Resource ID.
+    name:
+      type: string
+      description: Resource name.
+    provisioningState:
+      type: string
+      description: The provisioning state of the resource.
+    securityType:
+      type: string
+      description: Security Type.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:network:SystemDataResponse"
+      description: The system metadata related to this resource.
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - etag
+    - id
+    - name
+    - provisioningState
+    - systemData
+    - type

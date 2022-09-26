@@ -1,0 +1,69 @@
+$token: azure-native:deviceupdate:getAccount
+description: |-
+  Device Update account details.
+  API Version: 2020-03-01-preview.
+inputs:
+  properties:
+    accountName:
+      type: string
+      description: Account name.
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+  type: object
+  required:
+    - accountName
+    - resourceGroupName
+outputs:
+  description: Device Update account details.
+  properties:
+    hostName:
+      type: string
+      description: API host name.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    identity:
+      type: object
+      $ref: "#/types/azure-native:deviceupdate:ManagedServiceIdentityResponse"
+      description: The type of identity used for the resource.
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    name:
+      type: string
+      description: The name of the resource
+    privateEndpointConnections:
+      type: array
+      items:
+        type: object
+        $ref: "#/types/azure-native:deviceupdate:PrivateEndpointConnectionResponse"
+      description: List of private endpoint connections associated with the account.
+    provisioningState:
+      type: string
+      description: Provisioning state.
+    publicNetworkAccess:
+      type: string
+      description: Whether or not public network access is allowed for the account.
+      default: Enabled
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:deviceupdate:SystemDataResponse"
+      description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - hostName
+    - id
+    - location
+    - name
+    - provisioningState
+    - systemData
+    - type

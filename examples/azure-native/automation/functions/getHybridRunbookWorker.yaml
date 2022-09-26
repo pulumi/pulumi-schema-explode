@@ -1,0 +1,64 @@
+$token: azure-native:automation:getHybridRunbookWorker
+description: |-
+  Definition of hybrid runbook worker.
+  API Version: 2021-06-22.
+inputs:
+  properties:
+    automationAccountName:
+      type: string
+      description: The name of the automation account.
+    hybridRunbookWorkerGroupName:
+      type: string
+      description: The hybrid runbook worker group name
+    hybridRunbookWorkerId:
+      type: string
+      description: The hybrid runbook worker id
+    resourceGroupName:
+      type: string
+      description: Name of an Azure Resource group.
+  type: object
+  required:
+    - automationAccountName
+    - hybridRunbookWorkerGroupName
+    - hybridRunbookWorkerId
+    - resourceGroupName
+outputs:
+  description: Definition of hybrid runbook worker.
+  properties:
+    id:
+      type: string
+      description: Fully qualified resource Id for the resource
+    ip:
+      type: string
+      description: Gets or sets the assigned machine IP address.
+    lastSeenDateTime:
+      type: string
+      description: Last Heartbeat from the Worker
+    name:
+      type: string
+      description: The name of the resource
+    registeredDateTime:
+      type: string
+      description: Gets or sets the registration time of the worker machine.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:automation:SystemDataResponse"
+      description: Resource system metadata.
+    type:
+      type: string
+      description: The type of the resource.
+    vmResourceId:
+      type: string
+      description: Azure Resource Manager Id for a virtual machine.
+    workerName:
+      type: string
+      description: Name of the HybridWorker.
+    workerType:
+      type: string
+      description: Type of the HybridWorker.
+  type: object
+  required:
+    - id
+    - name
+    - systemData
+    - type

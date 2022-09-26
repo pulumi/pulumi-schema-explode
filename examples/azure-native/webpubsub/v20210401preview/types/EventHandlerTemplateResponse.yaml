@@ -1,0 +1,35 @@
+$token: azure-native:webpubsub/v20210401preview:EventHandlerTemplateResponse
+description: EventHandler template item settings.
+properties:
+  auth:
+    type: object
+    $ref: "#/types/azure-native:webpubsub/v20210401preview:UpstreamAuthSettingsResponse"
+    description: Gets or sets the auth settings for an event handler. If not set, no auth is used.
+  systemEventPattern:
+    type: string
+    description: "Gets ot sets the system event pattern.\r
+
+      There are 2 kind of patterns supported:\r
+
+      \    1. The single event name, for example, \"connect\", it matches \"connect\"\r
+
+      \    2. Combine multiple events with \",\", for example \"connect,disconnected\", it matches event \"connect\" and \"disconnected\""
+  urlTemplate:
+    type: string
+    description: "Gets or sets the EventHandler URL template. You can use a predefined parameter {hub} and {event} inside the template, the value of the EventHandler URL is dynamically calculated when the client request comes in.\r
+
+      For example, UrlTemplate can be `http://example.com/api/{hub}/{event}`. The host part can't contains parameters."
+  userEventPattern:
+    type: string
+    description: "Gets or sets the matching pattern for event names.\r
+
+      There are 3 kind of patterns supported:\r
+
+      \    1. \"*\", it to matches any event name\r
+
+      \    2. Combine multiple events with \",\", for example \"event1,event2\", it matches event \"event1\" and \"event2\"\r
+
+      \    3. The single event name, for example, \"event1\", it matches \"event1\""
+type: object
+required:
+  - urlTemplate

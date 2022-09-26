@@ -1,0 +1,52 @@
+$token: azure-native:recoveryservices/v20211001:ProtectionContainerMappingPropertiesResponse
+description: Protection container mapping properties.
+properties:
+  health:
+    type: string
+    description: Health of pairing.
+  healthErrorDetails:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:recoveryservices/v20211001:HealthErrorResponse"
+    description: Health error.
+  policyFriendlyName:
+    type: string
+    description: Friendly name of replication policy.
+  policyId:
+    type: string
+    description: Policy ARM Id.
+  providerSpecificDetails:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20211001:A2AProtectionContainerMappingDetailsResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20211001:InMageRcmProtectionContainerMappingDetailsResponse"
+      - type: object
+        $ref: "#/types/azure-native:recoveryservices/v20211001:VMwareCbtProtectionContainerMappingDetailsResponse"
+    discriminator:
+      propertyName: instanceType
+      mapping:
+        A2A: "#/types/azure-native:recoveryservices/v20211001:A2AProtectionContainerMappingDetailsResponse"
+        InMageRcm: "#/types/azure-native:recoveryservices/v20211001:InMageRcmProtectionContainerMappingDetailsResponse"
+        VMwareCbt: "#/types/azure-native:recoveryservices/v20211001:VMwareCbtProtectionContainerMappingDetailsResponse"
+    description: Provider specific provider details.
+  sourceFabricFriendlyName:
+    type: string
+    description: Friendly name of source fabric.
+  sourceProtectionContainerFriendlyName:
+    type: string
+    description: Friendly name of source protection container.
+  state:
+    type: string
+    description: Association Status.
+  targetFabricFriendlyName:
+    type: string
+    description: Friendly name of target fabric.
+  targetProtectionContainerFriendlyName:
+    type: string
+    description: Friendly name of paired container.
+  targetProtectionContainerId:
+    type: string
+    description: Paired protection container ARM ID.
+type: object

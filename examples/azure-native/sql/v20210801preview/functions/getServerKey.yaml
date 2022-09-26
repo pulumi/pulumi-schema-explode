@@ -1,0 +1,59 @@
+$token: azure-native:sql/v20210801preview:getServerKey
+description: A server key.
+inputs:
+  properties:
+    keyName:
+      type: string
+      description: The name of the server key to be retrieved.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    serverName:
+      type: string
+      description: The name of the server.
+  type: object
+  required:
+    - keyName
+    - resourceGroupName
+    - serverName
+outputs:
+  description: A server key.
+  properties:
+    autoRotationEnabled:
+      type: boolean
+      description: Key auto rotation opt-in flag. Either true or false.
+    creationDate:
+      type: string
+      description: The server key creation date.
+    id:
+      type: string
+      description: Resource ID.
+    kind:
+      type: string
+      description: Kind of encryption protector. This is metadata used for the Azure portal experience.
+    location:
+      type: string
+      description: Resource location.
+    name:
+      type: string
+      description: Resource name.
+    subregion:
+      type: string
+      description: Subregion of the server key.
+    thumbprint:
+      type: string
+      description: Thumbprint of the server key.
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - autoRotationEnabled
+    - creationDate
+    - id
+    - kind
+    - location
+    - name
+    - subregion
+    - thumbprint
+    - type

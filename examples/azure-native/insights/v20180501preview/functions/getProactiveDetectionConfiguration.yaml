@@ -1,0 +1,57 @@
+$token: azure-native:insights/v20180501preview:getProactiveDetectionConfiguration
+description: A ProactiveDetection configuration definition.
+inputs:
+  properties:
+    configurationId:
+      type: string
+      description: The ProactiveDetection configuration ID. This is unique within a Application Insights component.
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    resourceName:
+      type: string
+      description: The name of the Application Insights component resource.
+  type: object
+  required:
+    - configurationId
+    - resourceGroupName
+    - resourceName
+outputs:
+  description: A ProactiveDetection configuration definition.
+  properties:
+    customEmails:
+      type: array
+      items:
+        type: string
+      description: Custom email addresses for this rule notifications
+    enabled:
+      type: boolean
+      description: A flag that indicates whether this rule is enabled by the user
+    id:
+      type: string
+      description: Azure resource Id
+    lastUpdatedTime:
+      type: string
+      description: The last time this rule was updated
+    location:
+      type: string
+      description: Resource location
+    name:
+      type: string
+      description: The rule name
+    ruleDefinitions:
+      type: object
+      $ref: "#/types/azure-native:insights/v20180501preview:ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponseRuleDefinitions"
+      description: Static definitions of the ProactiveDetection configuration rule (same values for all components).
+    sendEmailsToSubscriptionOwners:
+      type: boolean
+      description: A flag that indicated whether notifications on this rule should be sent to subscription owners
+    type:
+      type: string
+      description: Azure resource type
+  type: object
+  required:
+    - id
+    - lastUpdatedTime
+    - name
+    - type

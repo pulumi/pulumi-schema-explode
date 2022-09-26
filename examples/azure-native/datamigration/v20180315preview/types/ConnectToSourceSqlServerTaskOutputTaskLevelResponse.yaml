@@ -1,0 +1,37 @@
+$token: azure-native:datamigration/v20180315preview:ConnectToSourceSqlServerTaskOutputTaskLevelResponse
+description: Task level output for the task that validates connection to SQL Server and also validates source server requirements
+properties:
+  databases:
+    type: object
+    additionalProperties:
+      type: string
+    description: Source databases as a map from database name to database id
+  id:
+    type: string
+    description: Result identifier
+  resultType:
+    type: string
+    description: |-
+      Type of result - database level or task level
+      Expected value is 'TaskLevelOutput'.
+    const: TaskLevelOutput
+  sourceServerBrandVersion:
+    type: string
+    description: Source server brand version
+  sourceServerVersion:
+    type: string
+    description: Source server version
+  validationErrors:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datamigration/v20180315preview:ReportableExceptionResponse"
+    description: Validation errors
+type: object
+required:
+  - databases
+  - id
+  - resultType
+  - sourceServerBrandVersion
+  - sourceServerVersion
+  - validationErrors

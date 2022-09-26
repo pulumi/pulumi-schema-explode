@@ -1,0 +1,84 @@
+$token: azure-native:kusto/v20200918:ReadWriteDatabase
+description: Class representing a read write database.
+properties:
+  hotCachePeriod:
+    type: string
+    description: The time the data should be kept in cache for fast queries in TimeSpan.
+  isFollowed:
+    type: boolean
+    description: Indicates whether the database is followed.
+  kind:
+    type: string
+    description: |-
+      Kind of the database
+      Expected value is 'ReadWrite'.
+    const: ReadWrite
+  location:
+    type: string
+    description: Resource location.
+  name:
+    type: string
+    description: The name of the resource
+  provisioningState:
+    type: string
+    description: The provisioned state of the resource.
+  softDeletePeriod:
+    type: string
+    description: The time the data should be kept before it stops being accessible to queries in TimeSpan.
+  statistics:
+    type: object
+    $ref: "#/types/azure-native:kusto/v20200918:DatabaseStatisticsResponse"
+    description: The statistics of the database.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - isFollowed
+  - kind
+  - name
+  - provisioningState
+  - statistics
+  - type
+inputProperties:
+  clusterName:
+    type: string
+    description: The name of the Kusto cluster.
+  databaseName:
+    type: string
+    description: The name of the database in the Kusto cluster.
+  hotCachePeriod:
+    type: string
+    description: The time the data should be kept in cache for fast queries in TimeSpan.
+  kind:
+    type: string
+    description: |-
+      Kind of the database
+      Expected value is 'ReadWrite'.
+    const: ReadWrite
+  location:
+    type: string
+    description: Resource location.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group containing the Kusto cluster.
+  softDeletePeriod:
+    type: string
+    description: The time the data should be kept before it stops being accessible to queries in TimeSpan.
+requiredInputs:
+  - clusterName
+  - kind
+  - resourceGroupName
+aliases:
+  - type: azure-native:kusto:ReadWriteDatabase
+  - type: azure-native:kusto/v20170907privatepreview:ReadWriteDatabase
+  - type: azure-native:kusto/v20180907preview:ReadWriteDatabase
+  - type: azure-native:kusto/v20190121:ReadWriteDatabase
+  - type: azure-native:kusto/v20190515:ReadWriteDatabase
+  - type: azure-native:kusto/v20190907:ReadWriteDatabase
+  - type: azure-native:kusto/v20191109:ReadWriteDatabase
+  - type: azure-native:kusto/v20200215:ReadWriteDatabase
+  - type: azure-native:kusto/v20200614:ReadWriteDatabase
+  - type: azure-native:kusto/v20210101:ReadWriteDatabase
+  - type: azure-native:kusto/v20210827:ReadWriteDatabase
+  - type: azure-native:kusto/v20220201:ReadWriteDatabase

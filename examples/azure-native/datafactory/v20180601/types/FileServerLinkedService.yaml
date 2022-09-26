@@ -1,0 +1,52 @@
+$token: azure-native:datafactory/v20180601:FileServerLinkedService
+description: File system linked service.
+properties:
+  annotations:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: List of tags that can be used for describing the linked service.
+  connectVia:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20180601:IntegrationRuntimeReference"
+    description: The integration runtime reference.
+  description:
+    type: string
+    description: Linked service description.
+  encryptedCredential:
+    $ref: pulumi.json#/Any
+    description: "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string)."
+  host:
+    $ref: pulumi.json#/Any
+    description: "Host name of the server. Type: string (or Expression with resultType string)."
+  parameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20180601:ParameterSpecification"
+    description: Parameters for linked service.
+  password:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:AzureKeyVaultSecretReference"
+      - type: object
+        $ref: "#/types/azure-native:datafactory/v20180601:SecureString"
+    discriminator:
+      propertyName: type
+      mapping:
+        AzureKeyVaultSecret: "#/types/azure-native:datafactory/v20180601:AzureKeyVaultSecretReference"
+        SecureString: "#/types/azure-native:datafactory/v20180601:SecureString"
+    description: Password to logon the server.
+  type:
+    type: string
+    description: |-
+      Type of linked service.
+      Expected value is 'FileServer'.
+    const: FileServer
+  userId:
+    $ref: pulumi.json#/Any
+    description: "User ID to logon the server. Type: string (or Expression with resultType string)."
+type: object
+required:
+  - host
+  - type

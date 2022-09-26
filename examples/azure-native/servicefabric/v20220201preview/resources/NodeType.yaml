@@ -1,0 +1,298 @@
+$token: azure-native:servicefabric/v20220201preview:NodeType
+description: Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
+properties:
+  additionalDataDisks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:servicefabric/v20220201preview:VmssDataDiskResponse"
+    description: Additional managed data disks.
+  applicationPorts:
+    type: object
+    $ref: "#/types/azure-native:servicefabric/v20220201preview:EndpointRangeDescriptionResponse"
+    description: The range of ports from which cluster assigned port to Service Fabric applications.
+  capacities:
+    type: object
+    additionalProperties:
+      type: string
+    description: The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
+  dataDiskLetter:
+    type: string
+    description: Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
+  dataDiskSizeGB:
+    type: integer
+    description: Disk size for the managed disk attached to the vms on the node type in GBs.
+  dataDiskType:
+    type: string
+    description: Managed data disk type. Specifies the storage account type for the managed disk
+  enableAcceleratedNetworking:
+    type: boolean
+    description: Specifies whether the network interface is accelerated networking-enabled.
+  enableEncryptionAtHost:
+    type: boolean
+    description: "Enable or disable the Host Encryption for the virtual machines on the node type. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Default: The Encryption at host will be disabled unless this property is set to true for the resource."
+    default: false
+  enableOverProvisioning:
+    type: boolean
+    description: Specifies whether the node type should be overprovisioned. It is only allowed for stateless node types.
+  ephemeralPorts:
+    type: object
+    $ref: "#/types/azure-native:servicefabric/v20220201preview:EndpointRangeDescriptionResponse"
+    description: The range of ephemeral ports that nodes in this node type should be configured with.
+  frontendConfigurations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:servicefabric/v20220201preview:FrontendConfigurationResponse"
+    description: Indicates the node type uses its own frontend configurations instead of the default one for the cluster. This setting can only be specified for non-primary node types and can not be added or removed after the node type is created.
+  isPrimary:
+    type: boolean
+    description: Indicates the Service Fabric system services for the cluster will run on this node type. This setting cannot be changed once the node type is created.
+  isSpotVM:
+    type: boolean
+    description: "Indicates whether the node type will be Spot Virtual Machines. Azure will allocate the VMs if there is capacity available and the VMs can be evicted at any time. "
+  isStateless:
+    type: boolean
+    description: Indicates if the node type can only host Stateless workloads.
+    default: false
+  multiplePlacementGroups:
+    type: boolean
+    description: Indicates if scale set associated with the node type can be composed of multiple placement groups.
+    default: false
+  name:
+    type: string
+    description: Azure resource name.
+  networkSecurityRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:servicefabric/v20220201preview:NetworkSecurityRuleResponse"
+    description: The Network Security Rules for this node type. This setting can only be specified for node types that are configured with frontend configurations.
+  placementProperties:
+    type: object
+    additionalProperties:
+      type: string
+    description: The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
+  provisioningState:
+    type: string
+    description: The provisioning state of the node type resource.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:servicefabric/v20220201preview:NodeTypeSkuResponse"
+    description: The node type sku.
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:servicefabric/v20220201preview:SystemDataResponse"
+    description: Metadata pertaining to creation and last modification of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Azure resource tags.
+  type:
+    type: string
+    description: Azure resource type.
+  useDefaultPublicLoadBalancer:
+    type: boolean
+    description: Specifies whether the use public load balancer. If not specified and the node type doesn't have its own frontend configuration, it will be attached to the default load balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is true, then the frontend has to be an Internal Load Balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is false or not set, then the custom load balancer must include a public load balancer to provide outbound connectivity.
+  useTempDataDisk:
+    type: boolean
+    description: Specifies whether to use the temporary disk for the service fabric data root, in which case no managed data disk will be attached and the temporary disk will be used. It is only allowed for stateless node types.
+  vmExtensions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:servicefabric/v20220201preview:VMSSExtensionResponse"
+    description: Set of extensions that should be installed onto the virtual machines.
+  vmImageOffer:
+    type: string
+    description: The offer type of the Azure Virtual Machines Marketplace image. For example, UbuntuServer or WindowsServer.
+  vmImagePublisher:
+    type: string
+    description: The publisher of the Azure Virtual Machines Marketplace image. For example, Canonical or MicrosoftWindowsServer.
+  vmImageSku:
+    type: string
+    description: The SKU of the Azure Virtual Machines Marketplace image. For example, 14.04.0-LTS or 2012-R2-Datacenter.
+  vmImageVersion:
+    type: string
+    description: The version of the Azure Virtual Machines Marketplace image. A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'.
+  vmInstanceCount:
+    type: integer
+    description: The number of nodes in the node type. <br /><br />**Values:** <br />-1 - Use when auto scale rules are configured or sku.capacity is defined <br /> 0 - Not supported <br /> >0 - Use for manual scale.
+  vmManagedIdentity:
+    type: object
+    $ref: "#/types/azure-native:servicefabric/v20220201preview:VmManagedIdentityResponse"
+    description: Identities to assign to the virtual machine scale set under the node type.
+  vmSecrets:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:servicefabric/v20220201preview:VaultSecretGroupResponse"
+    description: The secrets to install in the virtual machines.
+  vmSize:
+    type: string
+    description: The size of virtual machines in the pool. All virtual machines in a pool are the same size. For example, Standard_D3.
+  zones:
+    type: array
+    items:
+      type: string
+    description: Specifies the availability zones where the node type would span across. If the cluster is not spanning across availability zones, initiates az migration for the cluster.
+type: object
+required:
+  - isPrimary
+  - name
+  - provisioningState
+  - systemData
+  - type
+  - vmInstanceCount
+inputProperties:
+  additionalDataDisks:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:servicefabric/v20220201preview:VmssDataDisk"
+    description: Additional managed data disks.
+  applicationPorts:
+    type: object
+    $ref: "#/types/azure-native:servicefabric/v20220201preview:EndpointRangeDescription"
+    description: The range of ports from which cluster assigned port to Service Fabric applications.
+  capacities:
+    type: object
+    additionalProperties:
+      type: string
+    description: The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
+  clusterName:
+    type: string
+    description: The name of the cluster resource.
+  dataDiskLetter:
+    type: string
+    description: Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
+  dataDiskSizeGB:
+    type: integer
+    description: Disk size for the managed disk attached to the vms on the node type in GBs.
+  dataDiskType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:servicefabric/v20220201preview:DiskType"
+    description: Managed data disk type. Specifies the storage account type for the managed disk
+  enableAcceleratedNetworking:
+    type: boolean
+    description: Specifies whether the network interface is accelerated networking-enabled.
+  enableEncryptionAtHost:
+    type: boolean
+    description: "Enable or disable the Host Encryption for the virtual machines on the node type. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Default: The Encryption at host will be disabled unless this property is set to true for the resource."
+    default: false
+  enableOverProvisioning:
+    type: boolean
+    description: Specifies whether the node type should be overprovisioned. It is only allowed for stateless node types.
+  ephemeralPorts:
+    type: object
+    $ref: "#/types/azure-native:servicefabric/v20220201preview:EndpointRangeDescription"
+    description: The range of ephemeral ports that nodes in this node type should be configured with.
+  frontendConfigurations:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:servicefabric/v20220201preview:FrontendConfiguration"
+    description: Indicates the node type uses its own frontend configurations instead of the default one for the cluster. This setting can only be specified for non-primary node types and can not be added or removed after the node type is created.
+  isPrimary:
+    type: boolean
+    description: Indicates the Service Fabric system services for the cluster will run on this node type. This setting cannot be changed once the node type is created.
+  isSpotVM:
+    type: boolean
+    description: "Indicates whether the node type will be Spot Virtual Machines. Azure will allocate the VMs if there is capacity available and the VMs can be evicted at any time. "
+  isStateless:
+    type: boolean
+    description: Indicates if the node type can only host Stateless workloads.
+    default: false
+  multiplePlacementGroups:
+    type: boolean
+    description: Indicates if scale set associated with the node type can be composed of multiple placement groups.
+    default: false
+  networkSecurityRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:servicefabric/v20220201preview:NetworkSecurityRule"
+    description: The Network Security Rules for this node type. This setting can only be specified for node types that are configured with frontend configurations.
+  nodeTypeName:
+    type: string
+    description: The name of the node type.
+  placementProperties:
+    type: object
+    additionalProperties:
+      type: string
+    description: The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group.
+  sku:
+    type: object
+    $ref: "#/types/azure-native:servicefabric/v20220201preview:NodeTypeSku"
+    description: The node type sku.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Azure resource tags.
+  useDefaultPublicLoadBalancer:
+    type: boolean
+    description: Specifies whether the use public load balancer. If not specified and the node type doesn't have its own frontend configuration, it will be attached to the default load balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is true, then the frontend has to be an Internal Load Balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is false or not set, then the custom load balancer must include a public load balancer to provide outbound connectivity.
+  useTempDataDisk:
+    type: boolean
+    description: Specifies whether to use the temporary disk for the service fabric data root, in which case no managed data disk will be attached and the temporary disk will be used. It is only allowed for stateless node types.
+  vmExtensions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:servicefabric/v20220201preview:VMSSExtension"
+    description: Set of extensions that should be installed onto the virtual machines.
+  vmImageOffer:
+    type: string
+    description: The offer type of the Azure Virtual Machines Marketplace image. For example, UbuntuServer or WindowsServer.
+  vmImagePublisher:
+    type: string
+    description: The publisher of the Azure Virtual Machines Marketplace image. For example, Canonical or MicrosoftWindowsServer.
+  vmImageSku:
+    type: string
+    description: The SKU of the Azure Virtual Machines Marketplace image. For example, 14.04.0-LTS or 2012-R2-Datacenter.
+  vmImageVersion:
+    type: string
+    description: The version of the Azure Virtual Machines Marketplace image. A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'.
+  vmInstanceCount:
+    type: integer
+    description: The number of nodes in the node type. <br /><br />**Values:** <br />-1 - Use when auto scale rules are configured or sku.capacity is defined <br /> 0 - Not supported <br /> >0 - Use for manual scale.
+  vmManagedIdentity:
+    type: object
+    $ref: "#/types/azure-native:servicefabric/v20220201preview:VmManagedIdentity"
+    description: Identities to assign to the virtual machine scale set under the node type.
+  vmSecrets:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:servicefabric/v20220201preview:VaultSecretGroup"
+    description: The secrets to install in the virtual machines.
+  vmSize:
+    type: string
+    description: The size of virtual machines in the pool. All virtual machines in a pool are the same size. For example, Standard_D3.
+  zones:
+    type: array
+    items:
+      type: string
+    description: Specifies the availability zones where the node type would span across. If the cluster is not spanning across availability zones, initiates az migration for the cluster.
+requiredInputs:
+  - clusterName
+  - isPrimary
+  - resourceGroupName
+  - vmInstanceCount
+aliases:
+  - type: azure-native:servicefabric:NodeType
+  - type: azure-native:servicefabric/v20200101preview:NodeType
+  - type: azure-native:servicefabric/v20210101preview:NodeType
+  - type: azure-native:servicefabric/v20210501:NodeType
+  - type: azure-native:servicefabric/v20210701preview:NodeType
+  - type: azure-native:servicefabric/v20210901privatepreview:NodeType
+  - type: azure-native:servicefabric/v20211101preview:NodeType
+  - type: azure-native:servicefabric/v20220101:NodeType
+  - type: azure-native:servicefabric/v20220601preview:NodeType
+  - type: azure-native:servicefabric/v20220801preview:NodeType

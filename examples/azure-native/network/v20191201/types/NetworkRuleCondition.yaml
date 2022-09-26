@@ -1,0 +1,50 @@
+$token: azure-native:network/v20191201:NetworkRuleCondition
+description: Rule condition of type network.
+properties:
+  description:
+    type: string
+    description: Description of the rule condition.
+  destinationAddresses:
+    type: array
+    items:
+      type: string
+    description: List of destination IP addresses or Service Tags.
+  destinationIpGroups:
+    type: array
+    items:
+      type: string
+    description: List of destination IpGroups for this rule.
+  destinationPorts:
+    type: array
+    items:
+      type: string
+    description: List of destination ports.
+  ipProtocols:
+    type: array
+    items:
+      oneOf:
+        - type: string
+        - $ref: "#/types/azure-native:network/v20191201:FirewallPolicyRuleConditionNetworkProtocol"
+    description: Array of FirewallPolicyRuleConditionNetworkProtocols.
+  name:
+    type: string
+    description: Name of the rule condition.
+  ruleConditionType:
+    type: string
+    description: |-
+      Rule Condition Type.
+      Expected value is 'NetworkRuleCondition'.
+    const: NetworkRuleCondition
+  sourceAddresses:
+    type: array
+    items:
+      type: string
+    description: List of source IP addresses for this rule.
+  sourceIpGroups:
+    type: array
+    items:
+      type: string
+    description: List of source IpGroups for this rule.
+type: object
+required:
+  - ruleConditionType

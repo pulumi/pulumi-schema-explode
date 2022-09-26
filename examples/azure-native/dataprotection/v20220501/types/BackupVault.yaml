@@ -1,0 +1,19 @@
+$token: azure-native:dataprotection/v20220501:BackupVault
+description: Backup Vault
+properties:
+  isVaultProtectedByResourceGuard:
+    type: boolean
+    description: Is vault protected by resource guard
+  monitoringSettings:
+    type: object
+    $ref: "#/types/azure-native:dataprotection/v20220501:MonitoringSettings"
+    description: Monitoring Settings
+  storageSettings:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:dataprotection/v20220501:StorageSetting"
+    description: Storage Settings
+type: object
+required:
+  - storageSettings

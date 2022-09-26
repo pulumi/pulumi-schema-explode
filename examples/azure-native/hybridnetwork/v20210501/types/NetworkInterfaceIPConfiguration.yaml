@@ -1,0 +1,28 @@
+$token: azure-native:hybridnetwork/v20210501:NetworkInterfaceIPConfiguration
+description: Network interface IP configuration properties.
+properties:
+  dnsServers:
+    type: array
+    items:
+      type: string
+    description: The list of DNS servers IP addresses.
+  gateway:
+    type: string
+    description: The value of the gateway.
+  ipAddress:
+    type: string
+    description: The value of the IP address.
+  ipAllocationMethod:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:hybridnetwork/v20210501:IPAllocationMethod"
+    description: IP address allocation method.
+  ipVersion:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:hybridnetwork/v20210501:IPVersion"
+    description: IP address version.
+  subnet:
+    type: string
+    description: The value of the subnet.
+type: object

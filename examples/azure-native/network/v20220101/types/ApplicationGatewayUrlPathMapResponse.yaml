@@ -1,0 +1,49 @@
+$token: azure-native:network/v20220101:ApplicationGatewayUrlPathMapResponse
+description: UrlPathMaps give a url path to the backend mapping information for PathBasedRouting.
+properties:
+  defaultBackendAddressPool:
+    type: object
+    $ref: "#/types/azure-native:network/v20220101:SubResourceResponse"
+    description: Default backend address pool resource of URL path map.
+  defaultBackendHttpSettings:
+    type: object
+    $ref: "#/types/azure-native:network/v20220101:SubResourceResponse"
+    description: Default backend http settings resource of URL path map.
+  defaultLoadDistributionPolicy:
+    type: object
+    $ref: "#/types/azure-native:network/v20220101:SubResourceResponse"
+    description: Default Load Distribution Policy resource of URL path map.
+  defaultRedirectConfiguration:
+    type: object
+    $ref: "#/types/azure-native:network/v20220101:SubResourceResponse"
+    description: Default redirect configuration resource of URL path map.
+  defaultRewriteRuleSet:
+    type: object
+    $ref: "#/types/azure-native:network/v20220101:SubResourceResponse"
+    description: Default Rewrite rule set resource of URL path map.
+  etag:
+    type: string
+    description: A unique read-only string that changes whenever the resource is updated.
+  id:
+    type: string
+    description: Resource ID.
+  name:
+    type: string
+    description: Name of the URL path map that is unique within an Application Gateway.
+  pathRules:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:network/v20220101:ApplicationGatewayPathRuleResponse"
+    description: Path rule of URL path map resource.
+  provisioningState:
+    type: string
+    description: The provisioning state of the URL path map resource.
+  type:
+    type: string
+    description: Type of the resource.
+type: object
+required:
+  - etag
+  - provisioningState
+  - type

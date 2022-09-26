@@ -1,0 +1,52 @@
+$token: azure-native:storagemover/v20220701preview:getStorageMover
+description: The Storage Mover resource, which is a container for a group of Agents, Projects, and Endpoints.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group. The name is case insensitive.
+    storageMoverName:
+      type: string
+      description: The name of the Storage Mover resource.
+  type: object
+  required:
+    - resourceGroupName
+    - storageMoverName
+outputs:
+  description: The Storage Mover resource, which is a container for a group of Agents, Projects, and Endpoints.
+  properties:
+    description:
+      type: string
+      description: A description for the Storage Mover.
+    id:
+      type: string
+      description: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    location:
+      type: string
+      description: The geo-location where the resource lives
+    name:
+      type: string
+      description: The name of the resource
+    provisioningState:
+      type: string
+      description: The provisioning state of this resource.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:storagemover/v20220701preview:SystemDataResponse"
+      description: Resource system metadata.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - provisioningState
+    - systemData
+    - type

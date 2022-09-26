@@ -1,0 +1,51 @@
+$token: azure-native:azuredata/v20170301preview:getSqlServer
+description: A SQL server.
+inputs:
+  properties:
+    expand:
+      type: string
+      description: The child resources to include in the response.
+    resourceGroupName:
+      type: string
+      description: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    sqlServerName:
+      type: string
+      description: Name of the SQL Server.
+    sqlServerRegistrationName:
+      type: string
+      description: Name of the SQL Server registration.
+  type: object
+  required:
+    - resourceGroupName
+    - sqlServerName
+    - sqlServerRegistrationName
+outputs:
+  description: A SQL server.
+  properties:
+    edition:
+      type: string
+      description: Sql Server Edition.
+    id:
+      type: string
+      description: Resource ID.
+    name:
+      type: string
+      description: Resource name.
+    propertyBag:
+      type: string
+      description: Sql Server Json Property Bag.
+    registrationID:
+      type: string
+      description: ID for Parent Sql Server Registration.
+    type:
+      type: string
+      description: Resource type.
+    version:
+      type: string
+      description: Version of the Sql Server.
+  type: object
+  required:
+    - id
+    - name
+    - type
+deprecationMessage: Version 2017-03-01-preview will be removed in v2 of the provider.

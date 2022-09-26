@@ -1,0 +1,42 @@
+$token: azure-native:apimanagement/v20191201preview:getGateway
+description: Gateway details.
+inputs:
+  properties:
+    gatewayId:
+      type: string
+      description: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    serviceName:
+      type: string
+      description: The name of the API Management service.
+  type: object
+  required:
+    - gatewayId
+    - resourceGroupName
+    - serviceName
+outputs:
+  description: Gateway details.
+  properties:
+    description:
+      type: string
+      description: Gateway description
+    id:
+      type: string
+      description: Resource ID.
+    locationData:
+      type: object
+      $ref: "#/types/azure-native:apimanagement/v20191201preview:ResourceLocationDataContractResponse"
+      description: Gateway location.
+    name:
+      type: string
+      description: Resource name.
+    type:
+      type: string
+      description: Resource type for API Management resource.
+  type: object
+  required:
+    - id
+    - name
+    - type

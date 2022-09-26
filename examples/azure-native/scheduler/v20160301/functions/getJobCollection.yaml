@@ -1,0 +1,41 @@
+$token: azure-native:scheduler/v20160301:getJobCollection
+inputs:
+  properties:
+    jobCollectionName:
+      type: string
+      description: The job collection name.
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+  type: object
+  required:
+    - jobCollectionName
+    - resourceGroupName
+outputs:
+  properties:
+    id:
+      type: string
+      description: Gets the job collection resource identifier.
+    location:
+      type: string
+      description: Gets or sets the storage account location.
+    name:
+      type: string
+      description: Gets or sets the job collection resource name.
+    properties:
+      type: object
+      $ref: "#/types/azure-native:scheduler/v20160301:JobCollectionPropertiesResponse"
+      description: Gets or sets the job collection properties.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Gets or sets the tags.
+    type:
+      type: string
+      description: Gets the job collection resource type.
+  type: object
+  required:
+    - id
+    - properties
+    - type

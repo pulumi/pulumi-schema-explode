@@ -1,0 +1,45 @@
+$token: azure-native:databoxedge/v20200901preview:getRole
+description: Compute role.
+inputs:
+  properties:
+    deviceName:
+      type: string
+      description: The device name.
+    name:
+      type: string
+      description: The role name.
+    resourceGroupName:
+      type: string
+      description: The resource group name.
+  type: object
+  required:
+    - deviceName
+    - name
+    - resourceGroupName
+outputs:
+  description: Compute role.
+  properties:
+    id:
+      type: string
+      description: The path ID that uniquely identifies the object.
+    kind:
+      type: string
+      description: Role type.
+    name:
+      type: string
+      description: The object name.
+    systemData:
+      type: object
+      $ref: "#/types/azure-native:databoxedge/v20200901preview:SystemDataResponse"
+      description: Role configured on ASE resource
+    type:
+      type: string
+      description: The hierarchical type of the object.
+  type: object
+  required:
+    - id
+    - kind
+    - name
+    - systemData
+    - type
+deprecationMessage: Version 2020-09-01-preview will be removed in v2 of the provider.

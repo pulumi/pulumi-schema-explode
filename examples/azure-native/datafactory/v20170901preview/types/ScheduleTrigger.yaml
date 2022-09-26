@@ -1,0 +1,26 @@
+$token: azure-native:datafactory/v20170901preview:ScheduleTrigger
+description: Trigger that creates pipeline runs periodically, on schedule.
+properties:
+  description:
+    type: string
+    description: Trigger description.
+  pipelines:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:datafactory/v20170901preview:TriggerPipelineReference"
+    description: Pipelines that need to be started.
+  recurrence:
+    type: object
+    $ref: "#/types/azure-native:datafactory/v20170901preview:ScheduleTriggerRecurrence"
+    description: Recurrence schedule configuration.
+  type:
+    type: string
+    description: |-
+      Trigger type.
+      Expected value is 'ScheduleTrigger'.
+    const: ScheduleTrigger
+type: object
+required:
+  - recurrence
+  - type

@@ -1,0 +1,96 @@
+$token: azure-native:logic/v20190501:IntegrationAccountMap
+description: The integration account map.
+properties:
+  changedTime:
+    type: string
+    description: The changed time.
+  content:
+    type: string
+    description: The content.
+  contentLink:
+    type: object
+    $ref: "#/types/azure-native:logic/v20190501:ContentLinkResponse"
+    description: The content link.
+  contentType:
+    type: string
+    description: The content type.
+  createdTime:
+    type: string
+    description: The created time.
+  location:
+    type: string
+    description: The resource location.
+  mapType:
+    type: string
+    description: The map type.
+  metadata:
+    $ref: pulumi.json#/Any
+    description: The metadata.
+  name:
+    type: string
+    description: Gets the resource name.
+  parametersSchema:
+    type: object
+    $ref: "#/types/azure-native:logic/v20190501:IntegrationAccountMapPropertiesResponseParametersSchema"
+    description: The parameters schema of integration account map.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The resource tags.
+  type:
+    type: string
+    description: Gets the resource type.
+type: object
+required:
+  - changedTime
+  - contentLink
+  - createdTime
+  - mapType
+  - name
+  - type
+inputProperties:
+  content:
+    type: string
+    description: The content.
+  contentType:
+    type: string
+    description: The content type.
+  integrationAccountName:
+    type: string
+    description: The integration account name.
+  location:
+    type: string
+    description: The resource location.
+  mapName:
+    type: string
+    description: The integration account map name.
+  mapType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:logic/v20190501:MapType"
+    description: The map type.
+  metadata:
+    $ref: pulumi.json#/Any
+    description: The metadata.
+  parametersSchema:
+    type: object
+    $ref: "#/types/azure-native:logic/v20190501:IntegrationAccountMapPropertiesParametersSchema"
+    description: The parameters schema of integration account map.
+  resourceGroupName:
+    type: string
+    description: The resource group name.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: The resource tags.
+requiredInputs:
+  - integrationAccountName
+  - mapType
+  - resourceGroupName
+aliases:
+  - type: azure-native:logic:IntegrationAccountMap
+  - type: azure-native:logic/v20150801preview:IntegrationAccountMap
+  - type: azure-native:logic/v20160601:IntegrationAccountMap
+  - type: azure-native:logic/v20180701preview:IntegrationAccountMap

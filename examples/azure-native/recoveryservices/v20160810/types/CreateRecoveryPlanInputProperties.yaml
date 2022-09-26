@@ -1,0 +1,23 @@
+$token: azure-native:recoveryservices/v20160810:CreateRecoveryPlanInputProperties
+description: Recovery plan creation properties.
+properties:
+  failoverDeploymentModel:
+    $ref: "#/types/azure-native:recoveryservices/v20160810:FailoverDeploymentModel"
+    description: The failover deployment model.
+  groups:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:recoveryservices/v20160810:RecoveryPlanGroup"
+    description: The recovery plan groups.
+  primaryFabricId:
+    type: string
+    description: The primary fabric Id.
+  recoveryFabricId:
+    type: string
+    description: The recovery fabric Id.
+type: object
+required:
+  - groups
+  - primaryFabricId
+  - recoveryFabricId

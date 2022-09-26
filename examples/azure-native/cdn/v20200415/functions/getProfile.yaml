@@ -1,0 +1,54 @@
+$token: azure-native:cdn/v20200415:getProfile
+description: CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
+inputs:
+  properties:
+    profileName:
+      type: string
+      description: Name of the CDN profile which is unique within the resource group.
+    resourceGroupName:
+      type: string
+      description: Name of the Resource group within the Azure subscription.
+  type: object
+  required:
+    - profileName
+    - resourceGroupName
+outputs:
+  description: CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
+  properties:
+    id:
+      type: string
+      description: Resource ID.
+    location:
+      type: string
+      description: Resource location.
+    name:
+      type: string
+      description: Resource name.
+    provisioningState:
+      type: string
+      description: Provisioning status of the profile.
+    resourceState:
+      type: string
+      description: Resource status of the profile.
+    sku:
+      type: object
+      $ref: "#/types/azure-native:cdn/v20200415:SkuResponse"
+      description: The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags.
+    type:
+      type: string
+      description: Resource type.
+  type: object
+  required:
+    - id
+    - location
+    - name
+    - provisioningState
+    - resourceState
+    - sku
+    - type
+deprecationMessage: Version 2020-04-15 will be removed in v2 of the provider.

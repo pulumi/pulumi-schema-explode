@@ -1,0 +1,57 @@
+$token: azure-native:resourcegraph/v20180901preview:getGraphQuery
+description: Graph Query entity definition.
+inputs:
+  properties:
+    resourceGroupName:
+      type: string
+      description: The name of the resource group.
+    resourceName:
+      type: string
+      description: The name of the Graph Query resource.
+  type: object
+  required:
+    - resourceGroupName
+    - resourceName
+outputs:
+  description: Graph Query entity definition.
+  properties:
+    description:
+      type: string
+      description: The description of a graph query.
+    etag:
+      type: string
+      description: This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
+    id:
+      type: string
+      description: Azure resource Id
+    location:
+      type: string
+      description: The location of the resource
+    name:
+      type: string
+      description: Azure resource name. This is GUID value. The display name should be assigned within properties field.
+    query:
+      type: string
+      description: KQL query that will be graph.
+    resultKind:
+      type: string
+      description: Enum indicating a type of graph query.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: Resource tags
+    timeModified:
+      type: string
+      description: Date and time in UTC of the last modification that was made to this graph query definition.
+    type:
+      type: string
+      description: Azure resource type
+  type: object
+  required:
+    - id
+    - name
+    - query
+    - resultKind
+    - timeModified
+    - type

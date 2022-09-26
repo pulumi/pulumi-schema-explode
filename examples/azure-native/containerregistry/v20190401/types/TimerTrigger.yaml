@@ -1,0 +1,19 @@
+$token: azure-native:containerregistry/v20190401:TimerTrigger
+description: The properties of a timer trigger.
+properties:
+  name:
+    type: string
+    description: The name of the trigger.
+  schedule:
+    type: string
+    description: The CRON expression for the task schedule
+  status:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:containerregistry/v20190401:TriggerStatus"
+    description: The current status of trigger.
+    default: Enabled
+type: object
+required:
+  - name
+  - schedule

@@ -1,0 +1,24 @@
+$token: azure-native:security:JitNetworkAccessPortRule
+properties:
+  allowedSourceAddressPrefix:
+    type: string
+    description: Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
+  allowedSourceAddressPrefixes:
+    type: array
+    items:
+      type: string
+    description: Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
+  maxRequestAccessDuration:
+    type: string
+    description: Maximum duration requests can be made for. In ISO 8601 duration format. Minimum 5 minutes, maximum 1 day
+  number:
+    type: integer
+  protocol:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:security:Protocol"
+type: object
+required:
+  - maxRequestAccessDuration
+  - number
+  - protocol

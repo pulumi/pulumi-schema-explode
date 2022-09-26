@@ -1,0 +1,55 @@
+$token: azure-native:storsimple/v20161001:StorageDomain
+description: The storage domain.
+properties:
+  encryptionKey:
+    type: object
+    $ref: "#/types/azure-native:storsimple/v20161001:AsymmetricEncryptedSecretResponse"
+    description: The encryption key used to encrypt the data. This is a user secret.
+  encryptionStatus:
+    type: string
+    description: The encryption status "Enabled | Disabled".
+  name:
+    type: string
+    description: The name.
+  storageAccountCredentialIds:
+    type: array
+    items:
+      type: string
+    description: The storage account credentials.
+  type:
+    type: string
+    description: The type.
+type: object
+required:
+  - encryptionStatus
+  - name
+  - storageAccountCredentialIds
+  - type
+inputProperties:
+  encryptionKey:
+    type: object
+    $ref: "#/types/azure-native:storsimple/v20161001:AsymmetricEncryptedSecret"
+    description: The encryption key used to encrypt the data. This is a user secret.
+  encryptionStatus:
+    $ref: "#/types/azure-native:storsimple/v20161001:EncryptionStatus"
+    description: The encryption status "Enabled | Disabled".
+  managerName:
+    type: string
+    description: The manager name
+  resourceGroupName:
+    type: string
+    description: The resource group name
+  storageAccountCredentialIds:
+    type: array
+    items:
+      type: string
+    description: The storage account credentials.
+  storageDomainName:
+    type: string
+    description: The storage domain name.
+requiredInputs:
+  - encryptionStatus
+  - managerName
+  - resourceGroupName
+  - storageAccountCredentialIds
+deprecationMessage: Version 2016-10-01 will be removed in v2 of the provider.

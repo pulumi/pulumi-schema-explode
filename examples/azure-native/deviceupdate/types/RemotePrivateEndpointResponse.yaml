@@ -1,0 +1,43 @@
+$token: azure-native:deviceupdate:RemotePrivateEndpointResponse
+description: Remote private endpoint details.
+properties:
+  connectionDetails:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:deviceupdate:ConnectionDetailsResponse"
+    description: List of connection details.
+  id:
+    type: string
+    description: Remote endpoint resource ID.
+  immutableResourceId:
+    type: string
+    description: Original resource ID needed by Microsoft.Network.
+  immutableSubscriptionId:
+    type: string
+    description: Original subscription ID needed by Microsoft.Network.
+  location:
+    type: string
+    description: ARM location of the remote private endpoint.
+  manualPrivateLinkServiceConnections:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:deviceupdate:PrivateLinkServiceConnectionResponse"
+    description: List of private link service connections that need manual approval.
+  privateLinkServiceConnections:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:deviceupdate:PrivateLinkServiceConnectionResponse"
+    description: List of automatically approved private link service connections.
+  privateLinkServiceProxies:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:deviceupdate:PrivateLinkServiceProxyResponse"
+    description: List of private link service proxies.
+  vnetTrafficTag:
+    type: string
+    description: Virtual network traffic tag.
+type: object

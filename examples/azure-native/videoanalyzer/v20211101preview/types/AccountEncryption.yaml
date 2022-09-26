@@ -1,0 +1,19 @@
+$token: azure-native:videoanalyzer/v20211101preview:AccountEncryption
+description: Defines how the Video Analyzer account is (optionally) encrypted.
+properties:
+  identity:
+    type: object
+    $ref: "#/types/azure-native:videoanalyzer/v20211101preview:ResourceIdentity"
+    description: The Key Vault identity.
+  keyVaultProperties:
+    type: object
+    $ref: "#/types/azure-native:videoanalyzer/v20211101preview:KeyVaultProperties"
+    description: The properties of the key used to encrypt the account.
+  type:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:videoanalyzer/v20211101preview:AccountEncryptionKeyType"
+    description: The type of key used to encrypt the Account Key.
+type: object
+required:
+  - type

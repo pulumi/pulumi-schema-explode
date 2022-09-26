@@ -1,0 +1,90 @@
+$token: azure-native:media/v20180330preview:StreamingLocator
+description: A Streaming Locator resource
+properties:
+  assetName:
+    type: string
+    description: Asset Name
+  contentKeys:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:media/v20180330preview:StreamingLocatorUserDefinedContentKeyResponse"
+    description: ContentKeys used by this Streaming Locator
+  created:
+    type: string
+    description: Creation time of Streaming Locator
+  defaultContentKeyPolicyName:
+    type: string
+    description: Default ContentKeyPolicy used by this Streaming Locator
+  endTime:
+    type: string
+    description: EndTime of Streaming Locator
+  name:
+    type: string
+    description: The name of the resource.
+  startTime:
+    type: string
+    description: StartTime of Streaming Locator
+  streamingLocatorId:
+    type: string
+    description: StreamingLocatorId of Streaming Locator
+  streamingPolicyName:
+    type: string
+    description: "Streaming policy name used by this streaming locator. Either specify the name of streaming policy you created or use one of the predefined streaming polices. The predefined streaming policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_SecureStreaming' and 'Predefined_SecureStreamingWithFairPlay'"
+  type:
+    type: string
+    description: The type of the resource.
+type: object
+required:
+  - assetName
+  - created
+  - name
+  - streamingPolicyName
+  - type
+inputProperties:
+  accountName:
+    type: string
+    description: The Media Services account name.
+  assetName:
+    type: string
+    description: Asset Name
+  contentKeys:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:media/v20180330preview:StreamingLocatorUserDefinedContentKey"
+    description: ContentKeys used by this Streaming Locator
+  defaultContentKeyPolicyName:
+    type: string
+    description: Default ContentKeyPolicy used by this Streaming Locator
+  endTime:
+    type: string
+    description: EndTime of Streaming Locator
+  resourceGroupName:
+    type: string
+    description: The name of the resource group within the Azure subscription.
+  startTime:
+    type: string
+    description: StartTime of Streaming Locator
+  streamingLocatorId:
+    type: string
+    description: StreamingLocatorId of Streaming Locator
+  streamingLocatorName:
+    type: string
+    description: The Streaming Locator name.
+  streamingPolicyName:
+    type: string
+    description: "Streaming policy name used by this streaming locator. Either specify the name of streaming policy you created or use one of the predefined streaming polices. The predefined streaming policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_SecureStreaming' and 'Predefined_SecureStreamingWithFairPlay'"
+requiredInputs:
+  - accountName
+  - assetName
+  - resourceGroupName
+  - streamingPolicyName
+aliases:
+  - type: azure-native:media:StreamingLocator
+  - type: azure-native:media/v20180601preview:StreamingLocator
+  - type: azure-native:media/v20180701:StreamingLocator
+  - type: azure-native:media/v20200501:StreamingLocator
+  - type: azure-native:media/v20210601:StreamingLocator
+  - type: azure-native:media/v20211101:StreamingLocator
+  - type: azure-native:media/v20220801:StreamingLocator

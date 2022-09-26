@@ -1,0 +1,42 @@
+$token: azure-native:network/v20180701:HubVirtualNetworkConnectionResponse
+description: HubVirtualNetworkConnection Resource.
+properties:
+  allowHubToRemoteVnetTransit:
+    type: boolean
+    description: VirtualHub to RemoteVnet transit to enabled or not.
+  allowRemoteVnetToUseHubVnetGateways:
+    type: boolean
+    description: Allow RemoteVnet to use Virtual Hub's gateways.
+  etag:
+    type: string
+    description: Gets a unique read-only string that changes whenever the resource is updated.
+  id:
+    type: string
+    description: Resource ID.
+  location:
+    type: string
+    description: Resource location.
+  name:
+    type: string
+    description: Resource name.
+  provisioningState:
+    type: string
+    description: The provisioning state of the resource.
+  remoteVirtualNetwork:
+    type: object
+    $ref: "#/types/azure-native:network/v20180701:SubResourceResponse"
+    description: Reference to the remote virtual network.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: Resource type.
+type: object
+required:
+  - etag
+  - name
+  - provisioningState
+  - type

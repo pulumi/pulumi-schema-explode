@@ -1,0 +1,23 @@
+$token: azure-native:dataprotection/v20210601preview:AzureRetentionRuleResponse
+description: Azure retention rule
+properties:
+  isDefault:
+    type: boolean
+  lifecycles:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:dataprotection/v20210601preview:SourceLifeCycleResponse"
+  name:
+    type: string
+  objectType:
+    type: string
+    description: |-
+      
+      Expected value is 'AzureRetentionRule'.
+    const: AzureRetentionRule
+type: object
+required:
+  - lifecycles
+  - name
+  - objectType

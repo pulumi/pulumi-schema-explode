@@ -1,0 +1,13 @@
+$token: azure-native:costmanagement:ExportDataset
+description: The definition for data in the export.
+properties:
+  configuration:
+    type: object
+    $ref: "#/types/azure-native:costmanagement:ExportDatasetConfiguration"
+    description: The export dataset configuration.
+  granularity:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:costmanagement:GranularityType"
+    description: The granularity of rows in the export. Currently only 'Daily' is supported.
+type: object

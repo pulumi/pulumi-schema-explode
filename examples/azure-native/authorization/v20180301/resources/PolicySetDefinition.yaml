@@ -1,0 +1,74 @@
+$token: azure-native:authorization/v20180301:PolicySetDefinition
+description: The policy set definition.
+properties:
+  description:
+    type: string
+    description: The policy set definition description.
+  displayName:
+    type: string
+    description: The display name of the policy set definition.
+  metadata:
+    $ref: pulumi.json#/Any
+    description: The policy set definition metadata.
+  name:
+    type: string
+    description: The name of the policy set definition.
+  parameters:
+    $ref: pulumi.json#/Any
+    description: The policy set definition parameters that can be used in policy definition references.
+  policyDefinitions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:authorization/v20180301:PolicyDefinitionReferenceResponse"
+    description: An array of policy definition references.
+  policyType:
+    type: string
+    description: The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+  type:
+    type: string
+    description: The type of the resource (Microsoft.Authorization/policySetDefinitions).
+type: object
+required:
+  - name
+  - policyDefinitions
+  - type
+inputProperties:
+  description:
+    type: string
+    description: The policy set definition description.
+  displayName:
+    type: string
+    description: The display name of the policy set definition.
+  metadata:
+    $ref: pulumi.json#/Any
+    description: The policy set definition metadata.
+  parameters:
+    $ref: pulumi.json#/Any
+    description: The policy set definition parameters that can be used in policy definition references.
+  policyDefinitions:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:authorization/v20180301:PolicyDefinitionReference"
+    description: An array of policy definition references.
+  policySetDefinitionName:
+    type: string
+    description: The name of the policy set definition to create.
+  policyType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:authorization/v20180301:PolicyType"
+    description: The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+requiredInputs:
+  - policyDefinitions
+aliases:
+  - type: azure-native:authorization:PolicySetDefinition
+  - type: azure-native:authorization/v20170601preview:PolicySetDefinition
+  - type: azure-native:authorization/v20180501:PolicySetDefinition
+  - type: azure-native:authorization/v20190101:PolicySetDefinition
+  - type: azure-native:authorization/v20190601:PolicySetDefinition
+  - type: azure-native:authorization/v20190901:PolicySetDefinition
+  - type: azure-native:authorization/v20200301:PolicySetDefinition
+  - type: azure-native:authorization/v20200901:PolicySetDefinition
+  - type: azure-native:authorization/v20210601:PolicySetDefinition

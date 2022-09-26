@@ -1,0 +1,49 @@
+$token: azure-native:deploymentmanager/v20180901preview:ServiceTopology
+description: The resource representation of a service topology.
+properties:
+  artifactSourceId:
+    type: string
+    description: The resource Id of the artifact source that contains the artifacts that can be referenced in the service units.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  name:
+    type: string
+    description: The name of the resource
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+  type:
+    type: string
+    description: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+type: object
+required:
+  - location
+  - name
+  - type
+inputProperties:
+  artifactSourceId:
+    type: string
+    description: The resource Id of the artifact source that contains the artifacts that can be referenced in the service units.
+  location:
+    type: string
+    description: The geo-location where the resource lives
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  serviceTopologyName:
+    type: string
+    description: The name of the service topology .
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: Resource tags.
+requiredInputs:
+  - resourceGroupName
+aliases:
+  - type: azure-native:deploymentmanager:ServiceTopology
+  - type: azure-native:deploymentmanager/v20191101preview:ServiceTopology
+deprecationMessage: Version 2018-09-01-preview will be removed in v2 of the provider.

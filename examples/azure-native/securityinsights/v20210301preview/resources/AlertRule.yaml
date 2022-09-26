@@ -1,0 +1,64 @@
+$token: azure-native:securityinsights/v20210301preview:AlertRule
+description: Alert rule.
+properties:
+  etag:
+    type: string
+    description: Etag of the azure resource
+  kind:
+    type: string
+    description: The kind of the alert rule
+  name:
+    type: string
+    description: Azure resource name
+  systemData:
+    type: object
+    $ref: "#/types/azure-native:securityinsights/v20210301preview:SystemDataResponse"
+    description: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+  type:
+    type: string
+    description: Azure resource type
+type: object
+required:
+  - kind
+  - name
+  - systemData
+  - type
+inputProperties:
+  kind:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:securityinsights/v20210301preview:AlertRuleKind"
+    description: The kind of the alert rule
+  operationalInsightsResourceProvider:
+    type: string
+    description: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+  resourceGroupName:
+    type: string
+    description: The name of the resource group. The name is case insensitive.
+  ruleId:
+    type: string
+    description: Alert rule ID
+  workspaceName:
+    type: string
+    description: The name of the workspace.
+requiredInputs:
+  - kind
+  - operationalInsightsResourceProvider
+  - resourceGroupName
+  - workspaceName
+aliases:
+  - type: azure-native:securityinsights:AlertRule
+  - type: azure-native:securityinsights/v20190101preview:AlertRule
+  - type: azure-native:securityinsights/v20200101:AlertRule
+  - type: azure-native:securityinsights/v20210901preview:AlertRule
+  - type: azure-native:securityinsights/v20211001:AlertRule
+  - type: azure-native:securityinsights/v20211001preview:AlertRule
+  - type: azure-native:securityinsights/v20220101preview:AlertRule
+  - type: azure-native:securityinsights/v20220401preview:AlertRule
+  - type: azure-native:securityinsights/v20220501preview:AlertRule
+  - type: azure-native:securityinsights/v20220601preview:AlertRule
+  - type: azure-native:securityinsights/v20220701preview:AlertRule
+  - type: azure-native:securityinsights/v20220801:AlertRule
+  - type: azure-native:securityinsights/v20220801preview:AlertRule
+  - type: azure-native:securityinsights/v20220901preview:AlertRule
+deprecationMessage: "Please use one of the variants: FusionAlertRule, MLBehaviorAnalyticsAlertRule, MicrosoftSecurityIncidentCreationAlertRule, ScheduledAlertRule, ThreatIntelligenceAlertRule."

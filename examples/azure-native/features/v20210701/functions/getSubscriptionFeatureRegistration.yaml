@@ -1,0 +1,35 @@
+$token: azure-native:features/v20210701:getSubscriptionFeatureRegistration
+description: Subscription feature registration details
+inputs:
+  properties:
+    featureName:
+      type: string
+      description: The feature name.
+    providerNamespace:
+      type: string
+      description: The provider namespace.
+  type: object
+  required:
+    - featureName
+    - providerNamespace
+outputs:
+  description: Subscription feature registration details
+  properties:
+    id:
+      type: string
+      description: Azure resource Id.
+    name:
+      type: string
+      description: Azure resource name.
+    properties:
+      type: object
+      $ref: "#/types/azure-native:features/v20210701:SubscriptionFeatureRegistrationResponseProperties"
+    type:
+      type: string
+      description: Azure resource type.
+  type: object
+  required:
+    - id
+    - name
+    - properties
+    - type

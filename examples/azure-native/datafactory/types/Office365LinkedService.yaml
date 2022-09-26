@@ -1,0 +1,58 @@
+$token: azure-native:datafactory:Office365LinkedService
+description: Office365 linked service.
+properties:
+  annotations:
+    type: array
+    items:
+      $ref: pulumi.json#/Any
+    description: List of tags that can be used for describing the linked service.
+  connectVia:
+    type: object
+    $ref: "#/types/azure-native:datafactory:IntegrationRuntimeReference"
+    description: The integration runtime reference.
+  description:
+    type: string
+    description: Linked service description.
+  encryptedCredential:
+    $ref: pulumi.json#/Any
+    description: "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string)."
+  office365TenantId:
+    $ref: pulumi.json#/Any
+    description: "Azure tenant ID to which the Office 365 account belongs. Type: string (or Expression with resultType string)."
+  parameters:
+    type: object
+    additionalProperties:
+      type: object
+      $ref: "#/types/azure-native:datafactory:ParameterSpecification"
+    description: Parameters for linked service.
+  servicePrincipalId:
+    $ref: pulumi.json#/Any
+    description: "Specify the application's client ID. Type: string (or Expression with resultType string)."
+  servicePrincipalKey:
+    oneOf:
+      - type: object
+        $ref: "#/types/azure-native:datafactory:AzureKeyVaultSecretReference"
+      - type: object
+        $ref: "#/types/azure-native:datafactory:SecureString"
+    discriminator:
+      propertyName: type
+      mapping:
+        AzureKeyVaultSecret: "#/types/azure-native:datafactory:AzureKeyVaultSecretReference"
+        SecureString: "#/types/azure-native:datafactory:SecureString"
+    description: Specify the application's key.
+  servicePrincipalTenantId:
+    $ref: pulumi.json#/Any
+    description: "Specify the tenant information under which your Azure AD web application resides. Type: string (or Expression with resultType string)."
+  type:
+    type: string
+    description: |-
+      Type of linked service.
+      Expected value is 'Office365'.
+    const: Office365
+type: object
+required:
+  - office365TenantId
+  - servicePrincipalId
+  - servicePrincipalKey
+  - servicePrincipalTenantId
+  - type

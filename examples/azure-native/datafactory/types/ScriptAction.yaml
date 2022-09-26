@@ -1,0 +1,20 @@
+$token: azure-native:datafactory:ScriptAction
+description: Custom script action to run on HDI ondemand cluster once it's up.
+properties:
+  name:
+    type: string
+    description: The user provided name of the script action.
+  parameters:
+    type: string
+    description: The parameters for the script action.
+  roles:
+    $ref: pulumi.json#/Any
+    description: The node types on which the script action should be executed.
+  uri:
+    type: string
+    description: The URI for the script action.
+type: object
+required:
+  - name
+  - roles
+  - uri

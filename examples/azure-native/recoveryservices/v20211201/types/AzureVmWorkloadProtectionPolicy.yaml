@@ -1,0 +1,38 @@
+$token: azure-native:recoveryservices/v20211201:AzureVmWorkloadProtectionPolicy
+description: Azure VM (Mercury) workload-specific backup policy.
+properties:
+  backupManagementType:
+    type: string
+    description: |-
+      This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+      Expected value is 'AzureWorkload'.
+    const: AzureWorkload
+  makePolicyConsistent:
+    type: boolean
+    description: Fix the policy inconsistency
+  protectedItemsCount:
+    type: integer
+    description: Number of items associated with this policy.
+  resourceGuardOperationRequests:
+    type: array
+    items:
+      type: string
+    description: ResourceGuard Operation Requests
+  settings:
+    type: object
+    $ref: "#/types/azure-native:recoveryservices/v20211201:Settings"
+    description: Common settings for the backup management
+  subProtectionPolicy:
+    type: array
+    items:
+      type: object
+      $ref: "#/types/azure-native:recoveryservices/v20211201:SubProtectionPolicy"
+    description: List of sub-protection policies which includes schedule and retention
+  workLoadType:
+    oneOf:
+      - type: string
+      - $ref: "#/types/azure-native:recoveryservices/v20211201:WorkloadType"
+    description: Type of workload for the backup management
+type: object
+required:
+  - backupManagementType

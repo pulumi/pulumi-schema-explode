@@ -1,0 +1,61 @@
+$token: azure-native:azuredata:SqlServer
+description: |-
+  A SQL server.
+  API Version: 2019-07-24-preview.
+properties:
+  cores:
+    type: integer
+    description: Cores of the Sql Server.
+  edition:
+    type: string
+    description: Sql Server Edition.
+  name:
+    type: string
+    description: The name of the resource
+  propertyBag:
+    type: string
+    description: Sql Server Json Property Bag.
+  registrationID:
+    type: string
+    description: ID for Parent Sql Server Registration.
+  type:
+    type: string
+    description: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+  version:
+    type: string
+    description: Version of the Sql Server.
+type: object
+required:
+  - name
+  - type
+inputProperties:
+  cores:
+    type: integer
+    description: Cores of the Sql Server.
+  edition:
+    type: string
+    description: Sql Server Edition.
+  propertyBag:
+    type: string
+    description: Sql Server Json Property Bag.
+  registrationID:
+    type: string
+    description: ID for Parent Sql Server Registration.
+  resourceGroupName:
+    type: string
+    description: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  sqlServerName:
+    type: string
+    description: Name of the SQL Server.
+  sqlServerRegistrationName:
+    type: string
+    description: Name of the SQL Server registration.
+  version:
+    type: string
+    description: Version of the Sql Server.
+requiredInputs:
+  - resourceGroupName
+  - sqlServerRegistrationName
+aliases:
+  - type: azure-native:azuredata/v20170301preview:SqlServer
+  - type: azure-native:azuredata/v20190724preview:SqlServer
