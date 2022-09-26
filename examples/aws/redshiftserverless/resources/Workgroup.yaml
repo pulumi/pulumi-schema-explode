@@ -1,0 +1,186 @@
+$token: aws:redshiftserverless/workgroup:Workgroup
+properties:
+  arn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
+  baseCapacity:
+    type: integer
+    description: |
+      The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
+  configParameters:
+    type: array
+    items:
+      $ref: "#/types/aws:redshiftserverless/WorkgroupConfigParameter:WorkgroupConfigParameter"
+    description: |
+      An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
+  endpoints:
+    type: array
+    items:
+      $ref: "#/types/aws:redshiftserverless/WorkgroupEndpoint:WorkgroupEndpoint"
+    description: |
+      The endpoint that is created from the workgroup. See `Endpoint` below.
+  enhancedVpcRouting:
+    type: boolean
+    description: |
+      The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+  namespaceName:
+    type: string
+  publiclyAccessible:
+    type: boolean
+    description: |
+      A value that specifies whether the workgroup can be accessed from a public network.
+  securityGroupIds:
+    type: array
+    items:
+      type: string
+    description: |
+      An array of security group IDs to associate with the workgroup.
+  subnetIds:
+    type: array
+    items:
+      type: string
+    description: |
+      An array of VPC subnet IDs to associate with the workgroup.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  workgroupId:
+    type: string
+    description: |
+      The Redshift Workgroup ID.
+  workgroupName:
+    type: string
+    description: |
+      The name of the workgroup.
+required:
+  - arn
+  - baseCapacity
+  - configParameters
+  - endpoints
+  - namespaceName
+  - securityGroupIds
+  - subnetIds
+  - tagsAll
+  - workgroupId
+  - workgroupName
+inputProperties:
+  baseCapacity:
+    type: integer
+    description: |
+      The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
+  configParameters:
+    type: array
+    items:
+      $ref: "#/types/aws:redshiftserverless/WorkgroupConfigParameter:WorkgroupConfigParameter"
+    description: |
+      An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
+  enhancedVpcRouting:
+    type: boolean
+    description: |
+      The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+  namespaceName:
+    type: string
+    willReplaceOnChanges: true
+  publiclyAccessible:
+    type: boolean
+    description: |
+      A value that specifies whether the workgroup can be accessed from a public network.
+  securityGroupIds:
+    type: array
+    items:
+      type: string
+    description: |
+      An array of security group IDs to associate with the workgroup.
+  subnetIds:
+    type: array
+    items:
+      type: string
+    description: |
+      An array of VPC subnet IDs to associate with the workgroup.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+  workgroupName:
+    type: string
+    description: |
+      The name of the workgroup.
+    willReplaceOnChanges: true
+requiredInputs:
+  - namespaceName
+  - workgroupName
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Workgroup resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
+    baseCapacity:
+      type: integer
+      description: |
+        The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
+    configParameters:
+      type: array
+      items:
+        $ref: "#/types/aws:redshiftserverless/WorkgroupConfigParameter:WorkgroupConfigParameter"
+      description: |
+        An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
+    endpoints:
+      type: array
+      items:
+        $ref: "#/types/aws:redshiftserverless/WorkgroupEndpoint:WorkgroupEndpoint"
+      description: |
+        The endpoint that is created from the workgroup. See `Endpoint` below.
+    enhancedVpcRouting:
+      type: boolean
+      description: |
+        The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+    namespaceName:
+      type: string
+      willReplaceOnChanges: true
+    publiclyAccessible:
+      type: boolean
+      description: |
+        A value that specifies whether the workgroup can be accessed from a public network.
+    securityGroupIds:
+      type: array
+      items:
+        type: string
+      description: |
+        An array of security group IDs to associate with the workgroup.
+    subnetIds:
+      type: array
+      items:
+        type: string
+      description: |
+        An array of VPC subnet IDs to associate with the workgroup.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    workgroupId:
+      type: string
+      description: |
+        The Redshift Workgroup ID.
+    workgroupName:
+      type: string
+      description: |
+        The name of the workgroup.
+      willReplaceOnChanges: true
+  type: object

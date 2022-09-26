@@ -1,0 +1,27 @@
+$token: aws:kendra/getIndexIndexStatistic:getIndexIndexStatistic
+properties:
+  faqStatistics:
+    type: array
+    items:
+      $ref: "#/types/aws:kendra/getIndexIndexStatisticFaqStatistic:getIndexIndexStatisticFaqStatistic"
+    description: |
+      Block that specifies the number of question and answer topics in the index. Documented below.
+    language:
+      python:
+        mapCase: false
+  textDocumentStatistics:
+    type: array
+    items:
+      $ref: "#/types/aws:kendra/getIndexIndexStatisticTextDocumentStatistic:getIndexIndexStatisticTextDocumentStatistic"
+    description: |
+      A block that specifies the number of text documents indexed.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - faqStatistics
+  - textDocumentStatistics
+language:
+  nodejs:
+    requiredInputs: []

@@ -1,0 +1,99 @@
+$token: aws:lambda/functionUrl:FunctionUrl
+properties:
+  authorizationType:
+    type: string
+    description: |
+      The type of authentication that the function URL uses. Set to `"AWS_IAM"` to restrict access to authenticated IAM users only. Set to `"NONE"` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
+  cors:
+    $ref: "#/types/aws:lambda/FunctionUrlCors:FunctionUrlCors"
+    description: |
+      The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
+  functionArn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) of the function.
+  functionName:
+    type: string
+    description: |
+      The name (or ARN) of the Lambda function.
+  functionUrl:
+    type: string
+    description: |
+      The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws`.
+    language:
+      csharp:
+        name: FunctionUrlResult
+  qualifier:
+    type: string
+    description: |
+      The alias name or `"$LATEST"`.
+  urlId:
+    type: string
+    description: |
+      A generated ID for the endpoint.
+required:
+  - authorizationType
+  - functionArn
+  - functionName
+  - functionUrl
+  - urlId
+inputProperties:
+  authorizationType:
+    type: string
+    description: |
+      The type of authentication that the function URL uses. Set to `"AWS_IAM"` to restrict access to authenticated IAM users only. Set to `"NONE"` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
+  cors:
+    $ref: "#/types/aws:lambda/FunctionUrlCors:FunctionUrlCors"
+    description: |
+      The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
+  functionName:
+    type: string
+    description: |
+      The name (or ARN) of the Lambda function.
+    willReplaceOnChanges: true
+  qualifier:
+    type: string
+    description: |
+      The alias name or `"$LATEST"`.
+    willReplaceOnChanges: true
+requiredInputs:
+  - authorizationType
+  - functionName
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering FunctionUrl resources.
+  properties:
+    authorizationType:
+      type: string
+      description: |
+        The type of authentication that the function URL uses. Set to `"AWS_IAM"` to restrict access to authenticated IAM users only. Set to `"NONE"` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
+    cors:
+      $ref: "#/types/aws:lambda/FunctionUrlCors:FunctionUrlCors"
+      description: |
+        The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
+    functionArn:
+      type: string
+      description: |
+        The Amazon Resource Name (ARN) of the function.
+    functionName:
+      type: string
+      description: |
+        The name (or ARN) of the Lambda function.
+      willReplaceOnChanges: true
+    functionUrl:
+      type: string
+      description: |
+        The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws`.
+      language:
+        csharp:
+          name: FunctionUrlResult
+    qualifier:
+      type: string
+      description: |
+        The alias name or `"$LATEST"`.
+      willReplaceOnChanges: true
+    urlId:
+      type: string
+      description: |
+        A generated ID for the endpoint.
+  type: object

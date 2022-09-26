@@ -1,0 +1,54 @@
+$token: aws:cloudwatch/MetricAlarmMetricQueryMetric:MetricAlarmMetricQueryMetric
+properties:
+  dimensions:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+    language:
+      python:
+        mapCase: false
+  metricName:
+    type: string
+    description: |
+      The name for this metric.
+      See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+    language:
+      python:
+        mapCase: false
+  namespace:
+    type: string
+    description: |
+      The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
+      See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+    language:
+      python:
+        mapCase: false
+  period:
+    type: integer
+    description: |
+      The period in seconds over which the specified `stat` is applied.
+    language:
+      python:
+        mapCase: false
+  stat:
+    type: string
+    description: |
+      The statistic to apply to this metric.
+      See docs for [supported statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html).
+    language:
+      python:
+        mapCase: false
+  unit:
+    type: string
+    description: |
+      The unit for this metric.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - metricName
+  - period
+  - stat

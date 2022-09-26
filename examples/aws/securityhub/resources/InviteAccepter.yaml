@@ -1,0 +1,35 @@
+$token: aws:securityhub/inviteAccepter:InviteAccepter
+properties:
+  invitationId:
+    type: string
+    description: |
+      The ID of the invitation.
+  masterId:
+    type: string
+    description: |
+      The account ID of the master Security Hub account whose invitation you're accepting.
+required:
+  - invitationId
+  - masterId
+inputProperties:
+  masterId:
+    type: string
+    description: |
+      The account ID of the master Security Hub account whose invitation you're accepting.
+    willReplaceOnChanges: true
+requiredInputs:
+  - masterId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering InviteAccepter resources.
+  properties:
+    invitationId:
+      type: string
+      description: |
+        The ID of the invitation.
+    masterId:
+      type: string
+      description: |
+        The account ID of the master Security Hub account whose invitation you're accepting.
+      willReplaceOnChanges: true
+  type: object

@@ -1,0 +1,33 @@
+$token: aws:outposts/getAssets:getAssets
+inputs:
+  description: |
+    A collection of arguments for invoking getAssets.
+  properties:
+    arn:
+      type: string
+      description: |
+        Outpost ARN.
+  type: object
+  required:
+    - arn
+outputs:
+  description: |
+    A collection of values returned by getAssets.
+  properties:
+    arn:
+      type: string
+    assetIds:
+      type: array
+      items:
+        type: string
+      description: |
+        List of all the subnet ids found. This data source will fail if none are found.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+  type: object
+  required:
+    - arn
+    - assetIds
+    - id

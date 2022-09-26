@@ -1,0 +1,34 @@
+$token: aws:ssm/getMaintenanceWindows:getMaintenanceWindows
+inputs:
+  description: |
+    A collection of arguments for invoking getMaintenanceWindows.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ssm/getMaintenanceWindowsFilter:getMaintenanceWindowsFilter"
+      description: |
+        Configuration block(s) for filtering. Detailed below.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getMaintenanceWindows.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ssm/getMaintenanceWindowsFilter:getMaintenanceWindowsFilter"
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    ids:
+      type: array
+      items:
+        type: string
+      description: |
+        List of window IDs of the matched SSM maintenance windows.
+  type: object
+  required:
+    - ids
+    - id

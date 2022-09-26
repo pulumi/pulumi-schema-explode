@@ -1,0 +1,95 @@
+$token: aws:mediapackage/channel:Channel
+properties:
+  arn:
+    type: string
+    description: |
+      The ARN of the channel
+  channelId:
+    type: string
+    description: |
+      A unique identifier describing the channel
+  description:
+    type: string
+    description: |
+      A description of the channel
+    default: Managed by Pulumi
+  hlsIngests:
+    type: array
+    items:
+      $ref: "#/types/aws:mediapackage/ChannelHlsIngest:ChannelHlsIngest"
+    description: |
+      A single item list of HLS ingest information
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - arn
+  - channelId
+  - description
+  - hlsIngests
+  - tagsAll
+inputProperties:
+  channelId:
+    type: string
+    description: |
+      A unique identifier describing the channel
+    willReplaceOnChanges: true
+  description:
+    type: string
+    description: |
+      A description of the channel
+    default: Managed by Pulumi
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+requiredInputs:
+  - channelId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Channel resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The ARN of the channel
+    channelId:
+      type: string
+      description: |
+        A unique identifier describing the channel
+      willReplaceOnChanges: true
+    description:
+      type: string
+      description: |
+        A description of the channel
+      default: Managed by Pulumi
+    hlsIngests:
+      type: array
+      items:
+        $ref: "#/types/aws:mediapackage/ChannelHlsIngest:ChannelHlsIngest"
+      description: |
+        A single item list of HLS ingest information
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

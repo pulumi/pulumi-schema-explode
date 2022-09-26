@@ -1,0 +1,65 @@
+$token: aws:lb/getListenerDefaultAction:getListenerDefaultAction
+properties:
+  authenticateCognitos:
+    type: array
+    items:
+      $ref: "#/types/aws:lb/getListenerDefaultActionAuthenticateCognito:getListenerDefaultActionAuthenticateCognito"
+    language:
+      python:
+        mapCase: false
+  authenticateOidcs:
+    type: array
+    items:
+      $ref: "#/types/aws:lb/getListenerDefaultActionAuthenticateOidc:getListenerDefaultActionAuthenticateOidc"
+    language:
+      python:
+        mapCase: false
+  fixedResponses:
+    type: array
+    items:
+      $ref: "#/types/aws:lb/getListenerDefaultActionFixedResponse:getListenerDefaultActionFixedResponse"
+    language:
+      python:
+        mapCase: false
+  forwards:
+    type: array
+    items:
+      $ref: "#/types/aws:lb/getListenerDefaultActionForward:getListenerDefaultActionForward"
+    language:
+      python:
+        mapCase: false
+  order:
+    type: integer
+    language:
+      python:
+        mapCase: false
+  redirects:
+    type: array
+    items:
+      $ref: "#/types/aws:lb/getListenerDefaultActionRedirect:getListenerDefaultActionRedirect"
+    language:
+      python:
+        mapCase: false
+  targetGroupArn:
+    type: string
+    language:
+      python:
+        mapCase: false
+  type:
+    type: string
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - authenticateCognitos
+  - authenticateOidcs
+  - fixedResponses
+  - forwards
+  - order
+  - redirects
+  - targetGroupArn
+  - type
+language:
+  nodejs:
+    requiredInputs: []

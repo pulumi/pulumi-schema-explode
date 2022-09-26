@@ -1,0 +1,191 @@
+$token: aws:apigateway/method:Method
+properties:
+  apiKeyRequired:
+    type: boolean
+    description: |
+      Specify if the method requires an API key
+  authorization:
+    type: string
+    description: |
+      Type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
+  authorizationScopes:
+    type: array
+    items:
+      type: string
+    description: |
+      Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
+  authorizerId:
+    type: string
+    description: |
+      Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+  httpMethod:
+    type: string
+    description: |
+      HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+  operationName:
+    type: string
+    description: |
+      Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
+  requestModels:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of the API models used for the request's content type
+      where key is the content type (e.g., `application/json`)
+      and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`'s `name`.
+  requestParameters:
+    type: object
+    additionalProperties:
+      type: boolean
+    description: |
+      Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
+      For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
+  requestValidatorId:
+    type: string
+    description: |
+      ID of a `aws.apigateway.RequestValidator`
+  resourceId:
+    type: string
+    description: |
+      API resource ID
+  restApi:
+    type: string
+    description: |
+      ID of the associated REST API
+required:
+  - authorization
+  - httpMethod
+  - resourceId
+  - restApi
+inputProperties:
+  apiKeyRequired:
+    type: boolean
+    description: |
+      Specify if the method requires an API key
+  authorization:
+    type: string
+    description: |
+      Type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
+  authorizationScopes:
+    type: array
+    items:
+      type: string
+    description: |
+      Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
+  authorizerId:
+    type: string
+    description: |
+      Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+  httpMethod:
+    type: string
+    description: |
+      HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+    willReplaceOnChanges: true
+  operationName:
+    type: string
+    description: |
+      Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
+  requestModels:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of the API models used for the request's content type
+      where key is the content type (e.g., `application/json`)
+      and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`'s `name`.
+  requestParameters:
+    type: object
+    additionalProperties:
+      type: boolean
+    description: |
+      Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
+      For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
+  requestValidatorId:
+    type: string
+    description: |
+      ID of a `aws.apigateway.RequestValidator`
+  resourceId:
+    type: string
+    description: |
+      API resource ID
+    willReplaceOnChanges: true
+  restApi:
+    type: string
+    oneOf:
+      - type: string
+      - type: string
+        $ref: "#/types/aws:apigateway/restApi:RestApi"
+    description: |
+      ID of the associated REST API
+    willReplaceOnChanges: true
+requiredInputs:
+  - authorization
+  - httpMethod
+  - resourceId
+  - restApi
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Method resources.
+  properties:
+    apiKeyRequired:
+      type: boolean
+      description: |
+        Specify if the method requires an API key
+    authorization:
+      type: string
+      description: |
+        Type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
+    authorizationScopes:
+      type: array
+      items:
+        type: string
+      description: |
+        Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
+    authorizerId:
+      type: string
+      description: |
+        Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+    httpMethod:
+      type: string
+      description: |
+        HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+      willReplaceOnChanges: true
+    operationName:
+      type: string
+      description: |
+        Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
+    requestModels:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of the API models used for the request's content type
+        where key is the content type (e.g., `application/json`)
+        and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`'s `name`.
+    requestParameters:
+      type: object
+      additionalProperties:
+        type: boolean
+      description: |
+        Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
+        For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
+    requestValidatorId:
+      type: string
+      description: |
+        ID of a `aws.apigateway.RequestValidator`
+    resourceId:
+      type: string
+      description: |
+        API resource ID
+      willReplaceOnChanges: true
+    restApi:
+      type: string
+      oneOf:
+        - type: string
+        - type: string
+          $ref: "#/types/aws:apigateway/restApi:RestApi"
+      description: |
+        ID of the associated REST API
+      willReplaceOnChanges: true
+  type: object

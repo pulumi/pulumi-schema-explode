@@ -1,0 +1,109 @@
+$token: aws:s3control/bucket:Bucket
+properties:
+  arn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the bucket.
+  bucket:
+    type: string
+    description: |
+      Name of the bucket.
+    language:
+      csharp:
+        name: BucketName
+  creationDate:
+    type: string
+    description: |
+      UTC creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+  outpostId:
+    type: string
+    description: |
+      Identifier of the Outpost to contain this bucket.
+  publicAccessBlockEnabled:
+    type: boolean
+    description: |
+      Boolean whether Public Access Block is enabled.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - arn
+  - bucket
+  - creationDate
+  - outpostId
+  - publicAccessBlockEnabled
+  - tagsAll
+inputProperties:
+  bucket:
+    type: string
+    description: |
+      Name of the bucket.
+    language:
+      csharp:
+        name: BucketName
+    willReplaceOnChanges: true
+  outpostId:
+    type: string
+    description: |
+      Identifier of the Outpost to contain this bucket.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+requiredInputs:
+  - bucket
+  - outpostId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Bucket resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        Amazon Resource Name (ARN) of the bucket.
+    bucket:
+      type: string
+      description: |
+        Name of the bucket.
+      language:
+        csharp:
+          name: BucketName
+      willReplaceOnChanges: true
+    creationDate:
+      type: string
+      description: |
+        UTC creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+    outpostId:
+      type: string
+      description: |
+        Identifier of the Outpost to contain this bucket.
+      willReplaceOnChanges: true
+    publicAccessBlockEnabled:
+      type: boolean
+      description: |
+        Boolean whether Public Access Block is enabled.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

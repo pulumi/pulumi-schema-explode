@@ -1,0 +1,45 @@
+$token: aws:ec2/FleetTargetCapacitySpecification:FleetTargetCapacitySpecification
+properties:
+  defaultTargetCapacityType:
+    type: string
+    description: |
+      Default target capacity type. Valid values: `on-demand`, `spot`.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  onDemandTargetCapacity:
+    type: integer
+    description: |
+      The number of On-Demand units to request.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  spotTargetCapacity:
+    type: integer
+    description: |
+      The number of Spot units to request.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  targetCapacityUnitType:
+    type: string
+    description: |
+      The unit for the target capacity. This can only be done with `instance_requirements` defined
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  totalTargetCapacity:
+    type: integer
+    description: |
+      The number of units to request, filled using `default_target_capacity_type`.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - defaultTargetCapacityType
+  - totalTargetCapacity

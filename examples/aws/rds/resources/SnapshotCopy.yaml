@@ -1,0 +1,267 @@
+$token: aws:rds/snapshotCopy:SnapshotCopy
+properties:
+  allocatedStorage:
+    type: integer
+    description: |
+      Specifies the allocated storage size in gigabytes (GB).
+  availabilityZone:
+    type: string
+    description: |
+      Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
+  copyTags:
+    type: boolean
+    description: |
+      Whether to copy existing tags. Defaults to `false`.
+  dbSnapshotArn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) for the DB snapshot.
+  destinationRegion:
+    type: string
+    description: |
+      The Destination region to place snapshot copy.
+  encrypted:
+    type: boolean
+    description: |
+      Specifies whether the DB snapshot is encrypted.
+  engine:
+    type: string
+    description: |
+      Specifies the name of the database engine.
+  engineVersion:
+    type: string
+    description: |
+      Specifies the version of the database engine.
+  iops:
+    type: integer
+    description: |
+      Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
+  kmsKeyId:
+    type: string
+    description: |
+      KMS key ID.
+  licenseModel:
+    type: string
+    description: |
+      License model information for the restored DB instance.
+  optionGroupName:
+    type: string
+    description: |
+      The name of an option group to associate with the copy of the snapshot.
+  port:
+    type: integer
+  presignedUrl:
+    type: string
+    description: |
+      he URL that contains a Signature Version 4 signed request.
+  snapshotType:
+    type: string
+  sourceDbSnapshotIdentifier:
+    type: string
+    description: |
+      Snapshot identifier of the source snapshot.
+  sourceRegion:
+    type: string
+    description: |
+      The region that the DB snapshot was created in or copied from.
+  storageType:
+    type: string
+    description: |
+      Specifies the storage type associated with DB snapshot.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  targetCustomAvailabilityZone:
+    type: string
+    description: |
+      The external custom Availability Zone.
+  targetDbSnapshotIdentifier:
+    type: string
+    description: |
+      The Identifier for the snapshot.
+  vpcId:
+    type: string
+    description: |
+      Provides the VPC ID associated with the DB snapshot.
+required:
+  - allocatedStorage
+  - availabilityZone
+  - dbSnapshotArn
+  - encrypted
+  - engine
+  - engineVersion
+  - iops
+  - licenseModel
+  - optionGroupName
+  - port
+  - snapshotType
+  - sourceDbSnapshotIdentifier
+  - sourceRegion
+  - storageType
+  - tagsAll
+  - targetDbSnapshotIdentifier
+  - vpcId
+inputProperties:
+  copyTags:
+    type: boolean
+    description: |
+      Whether to copy existing tags. Defaults to `false`.
+    willReplaceOnChanges: true
+  destinationRegion:
+    type: string
+    description: |
+      The Destination region to place snapshot copy.
+    willReplaceOnChanges: true
+  kmsKeyId:
+    type: string
+    description: |
+      KMS key ID.
+    willReplaceOnChanges: true
+  optionGroupName:
+    type: string
+    description: |
+      The name of an option group to associate with the copy of the snapshot.
+    willReplaceOnChanges: true
+  presignedUrl:
+    type: string
+    description: |
+      he URL that contains a Signature Version 4 signed request.
+    willReplaceOnChanges: true
+  sourceDbSnapshotIdentifier:
+    type: string
+    description: |
+      Snapshot identifier of the source snapshot.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  targetCustomAvailabilityZone:
+    type: string
+    description: |
+      The external custom Availability Zone.
+    willReplaceOnChanges: true
+  targetDbSnapshotIdentifier:
+    type: string
+    description: |
+      The Identifier for the snapshot.
+    willReplaceOnChanges: true
+requiredInputs:
+  - sourceDbSnapshotIdentifier
+  - targetDbSnapshotIdentifier
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering SnapshotCopy resources.
+  properties:
+    allocatedStorage:
+      type: integer
+      description: |
+        Specifies the allocated storage size in gigabytes (GB).
+    availabilityZone:
+      type: string
+      description: |
+        Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
+    copyTags:
+      type: boolean
+      description: |
+        Whether to copy existing tags. Defaults to `false`.
+      willReplaceOnChanges: true
+    dbSnapshotArn:
+      type: string
+      description: |
+        The Amazon Resource Name (ARN) for the DB snapshot.
+    destinationRegion:
+      type: string
+      description: |
+        The Destination region to place snapshot copy.
+      willReplaceOnChanges: true
+    encrypted:
+      type: boolean
+      description: |
+        Specifies whether the DB snapshot is encrypted.
+    engine:
+      type: string
+      description: |
+        Specifies the name of the database engine.
+    engineVersion:
+      type: string
+      description: |
+        Specifies the version of the database engine.
+    iops:
+      type: integer
+      description: |
+        Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
+    kmsKeyId:
+      type: string
+      description: |
+        KMS key ID.
+      willReplaceOnChanges: true
+    licenseModel:
+      type: string
+      description: |
+        License model information for the restored DB instance.
+    optionGroupName:
+      type: string
+      description: |
+        The name of an option group to associate with the copy of the snapshot.
+      willReplaceOnChanges: true
+    port:
+      type: integer
+    presignedUrl:
+      type: string
+      description: |
+        he URL that contains a Signature Version 4 signed request.
+      willReplaceOnChanges: true
+    snapshotType:
+      type: string
+    sourceDbSnapshotIdentifier:
+      type: string
+      description: |
+        Snapshot identifier of the source snapshot.
+      willReplaceOnChanges: true
+    sourceRegion:
+      type: string
+      description: |
+        The region that the DB snapshot was created in or copied from.
+    storageType:
+      type: string
+      description: |
+        Specifies the storage type associated with DB snapshot.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    targetCustomAvailabilityZone:
+      type: string
+      description: |
+        The external custom Availability Zone.
+      willReplaceOnChanges: true
+    targetDbSnapshotIdentifier:
+      type: string
+      description: |
+        The Identifier for the snapshot.
+      willReplaceOnChanges: true
+    vpcId:
+      type: string
+      description: |
+        Provides the VPC ID associated with the DB snapshot.
+  type: object

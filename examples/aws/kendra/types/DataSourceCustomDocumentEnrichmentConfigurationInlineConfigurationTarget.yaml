@@ -1,0 +1,25 @@
+$token: aws:kendra/DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget:DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget
+properties:
+  targetDocumentAttributeKey:
+    type: string
+    description: |
+      The identifier of the target document attribute or metadata field. For example, 'Department' could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
+    language:
+      python:
+        mapCase: false
+  targetDocumentAttributeValue:
+    $ref: "#/types/aws:kendra/DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue:DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue"
+    description: |
+      The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'.
+      See Document Attribute Value.
+    language:
+      python:
+        mapCase: false
+  targetDocumentAttributeValueDeletion:
+    type: boolean
+    description: |
+      `TRUE` to delete the existing target value for your specified target attribute key. You cannot create a target value and set this to `TRUE`. To create a target value (`TargetDocumentAttributeValue`), set this to `FALSE`.
+    language:
+      python:
+        mapCase: false
+type: object

@@ -1,0 +1,134 @@
+$token: aws:storagegateway/fileSystemAssociation:FileSystemAssociation
+properties:
+  arn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the newly created file system association.
+  auditDestinationArn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) of the storage used for the audit logs.
+  cacheAttributes:
+    $ref: "#/types/aws:storagegateway/FileSystemAssociationCacheAttributes:FileSystemAssociationCacheAttributes"
+    description: |
+      Refresh cache information. see Cache Attributes for more details.
+  gatewayArn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) of the gateway.
+  locationArn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
+  password:
+    type: string
+    description: |
+      The password of the user credential.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  username:
+    type: string
+    description: |
+      The user name of the user credential that has permission to access the root share of the Amazon FSx file system. The user account must belong to the Amazon FSx delegated admin user group.
+required:
+  - arn
+  - gatewayArn
+  - locationArn
+  - password
+  - tagsAll
+  - username
+inputProperties:
+  auditDestinationArn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) of the storage used for the audit logs.
+  cacheAttributes:
+    $ref: "#/types/aws:storagegateway/FileSystemAssociationCacheAttributes:FileSystemAssociationCacheAttributes"
+    description: |
+      Refresh cache information. see Cache Attributes for more details.
+  gatewayArn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) of the gateway.
+    willReplaceOnChanges: true
+  locationArn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
+    willReplaceOnChanges: true
+  password:
+    type: string
+    description: |
+      The password of the user credential.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  username:
+    type: string
+    description: |
+      The user name of the user credential that has permission to access the root share of the Amazon FSx file system. The user account must belong to the Amazon FSx delegated admin user group.
+requiredInputs:
+  - gatewayArn
+  - locationArn
+  - password
+  - username
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering FileSystemAssociation resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        Amazon Resource Name (ARN) of the newly created file system association.
+    auditDestinationArn:
+      type: string
+      description: |
+        The Amazon Resource Name (ARN) of the storage used for the audit logs.
+    cacheAttributes:
+      $ref: "#/types/aws:storagegateway/FileSystemAssociationCacheAttributes:FileSystemAssociationCacheAttributes"
+      description: |
+        Refresh cache information. see Cache Attributes for more details.
+    gatewayArn:
+      type: string
+      description: |
+        The Amazon Resource Name (ARN) of the gateway.
+      willReplaceOnChanges: true
+    locationArn:
+      type: string
+      description: |
+        The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
+      willReplaceOnChanges: true
+    password:
+      type: string
+      description: |
+        The password of the user credential.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    username:
+      type: string
+      description: |
+        The user name of the user credential that has permission to access the root share of the Amazon FSx file system. The user account must belong to the Amazon FSx delegated admin user group.
+  type: object

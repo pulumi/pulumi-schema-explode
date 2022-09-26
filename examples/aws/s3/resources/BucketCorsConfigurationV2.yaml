@@ -1,0 +1,60 @@
+$token: aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2
+properties:
+  bucket:
+    type: string
+    description: |
+      The name of the bucket.
+  corsRules:
+    type: array
+    items:
+      $ref: "#/types/aws:s3/BucketCorsConfigurationV2CorsRule:BucketCorsConfigurationV2CorsRule"
+    description: |
+      Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
+  expectedBucketOwner:
+    type: string
+    description: |
+      The account ID of the expected bucket owner.
+required:
+  - bucket
+  - corsRules
+inputProperties:
+  bucket:
+    type: string
+    description: |
+      The name of the bucket.
+    willReplaceOnChanges: true
+  corsRules:
+    type: array
+    items:
+      $ref: "#/types/aws:s3/BucketCorsConfigurationV2CorsRule:BucketCorsConfigurationV2CorsRule"
+    description: |
+      Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
+  expectedBucketOwner:
+    type: string
+    description: |
+      The account ID of the expected bucket owner.
+    willReplaceOnChanges: true
+requiredInputs:
+  - bucket
+  - corsRules
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering BucketCorsConfigurationV2 resources.
+  properties:
+    bucket:
+      type: string
+      description: |
+        The name of the bucket.
+      willReplaceOnChanges: true
+    corsRules:
+      type: array
+      items:
+        $ref: "#/types/aws:s3/BucketCorsConfigurationV2CorsRule:BucketCorsConfigurationV2CorsRule"
+      description: |
+        Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
+    expectedBucketOwner:
+      type: string
+      description: |
+        The account ID of the expected bucket owner.
+      willReplaceOnChanges: true
+  type: object

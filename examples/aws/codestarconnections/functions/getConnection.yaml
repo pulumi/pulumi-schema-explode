@@ -1,0 +1,59 @@
+$token: aws:codestarconnections/getConnection:getConnection
+inputs:
+  description: |
+    A collection of arguments for invoking getConnection.
+  properties:
+    arn:
+      type: string
+      description: |
+        CodeStar Connection ARN.
+    name:
+      type: string
+      description: |
+        CodeStar Connection name.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of key-value resource tags to associate with the resource.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getConnection.
+  properties:
+    arn:
+      type: string
+    connectionStatus:
+      type: string
+      description: |
+        CodeStar Connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
+    hostArn:
+      type: string
+      description: |
+        ARN of the host associated with the connection.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    name:
+      type: string
+      description: |
+        Name of the CodeStar Connection. The name is unique in the calling AWS account.
+    providerType:
+      type: string
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of key-value resource tags to associate with the resource.
+  type: object
+  required:
+    - arn
+    - connectionStatus
+    - hostArn
+    - name
+    - providerType
+    - tags
+    - id

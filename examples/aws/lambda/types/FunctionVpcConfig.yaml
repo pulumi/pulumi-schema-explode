@@ -1,0 +1,35 @@
+$token: aws:lambda/FunctionVpcConfig:FunctionVpcConfig
+properties:
+  securityGroupIds:
+    type: array
+    items:
+      type: string
+    description: |
+      List of security group IDs associated with the Lambda function.
+    language:
+      python:
+        mapCase: false
+  subnetIds:
+    type: array
+    items:
+      type: string
+    description: |
+      List of subnet IDs associated with the Lambda function.
+    language:
+      python:
+        mapCase: false
+  vpcId:
+    type: string
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - securityGroupIds
+  - subnetIds
+language:
+  nodejs:
+    requiredOutputs:
+      - securityGroupIds
+      - subnetIds
+      - vpcId

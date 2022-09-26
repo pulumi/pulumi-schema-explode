@@ -1,0 +1,40 @@
+$token: aws:route53recoveryreadiness/ResourceSetResourceDnsTargetResource:ResourceSetResourceDnsTargetResource
+properties:
+  domainName:
+    type: string
+    description: |
+      Domain name that is targeted.
+    language:
+      python:
+        mapCase: false
+  hostedZoneArn:
+    type: string
+    description: |
+      Hosted Zone ARN that contains the DNS record with the provided name of target resource.
+    language:
+      python:
+        mapCase: false
+  recordSetId:
+    type: string
+    description: |
+      Resource record set ID that is targeted.
+    language:
+      python:
+        mapCase: false
+  recordType:
+    type: string
+    description: |
+      Type of DNS Record of target resource.
+    language:
+      python:
+        mapCase: false
+  targetResource:
+    $ref: "#/types/aws:route53recoveryreadiness/ResourceSetResourceDnsTargetResourceTargetResource:ResourceSetResourceDnsTargetResourceTargetResource"
+    description: |
+      Target resource the R53 record specified with the above params points to.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - domainName

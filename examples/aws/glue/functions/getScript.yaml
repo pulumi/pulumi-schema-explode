@@ -1,0 +1,58 @@
+$token: aws:glue/getScript:getScript
+inputs:
+  description: |
+    A collection of arguments for invoking getScript.
+  properties:
+    dagEdges:
+      type: array
+      items:
+        $ref: "#/types/aws:glue/getScriptDagEdge:getScriptDagEdge"
+      description: |
+        List of the edges in the DAG. Defined below.
+    dagNodes:
+      type: array
+      items:
+        $ref: "#/types/aws:glue/getScriptDagNode:getScriptDagNode"
+      description: |
+        List of the nodes in the DAG. Defined below.
+    language:
+      type: string
+      description: |
+        Programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
+  type: object
+  required:
+    - dagEdges
+    - dagNodes
+outputs:
+  description: |
+    A collection of values returned by getScript.
+  properties:
+    dagEdges:
+      type: array
+      items:
+        $ref: "#/types/aws:glue/getScriptDagEdge:getScriptDagEdge"
+    dagNodes:
+      type: array
+      items:
+        $ref: "#/types/aws:glue/getScriptDagNode:getScriptDagNode"
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    language:
+      type: string
+    pythonScript:
+      type: string
+      description: |
+        Python script generated from the DAG when the `language` argument is set to `PYTHON`.
+    scalaCode:
+      type: string
+      description: |
+        Scala code generated from the DAG when the `language` argument is set to `SCALA`.
+  type: object
+  required:
+    - dagEdges
+    - dagNodes
+    - pythonScript
+    - scalaCode
+    - id

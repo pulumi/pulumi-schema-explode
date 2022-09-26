@@ -1,0 +1,65 @@
+$token: aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation
+properties:
+  certificate:
+    type: string
+    description: |
+      The root certificate of the Certificate Authority.
+  displayName:
+    type: string
+    description: |
+      The certificate name to display.
+  fleetArn:
+    type: string
+    description: |
+      The ARN of the fleet.
+  websiteCaId:
+    type: string
+    description: |
+      A unique identifier for the Certificate Authority.
+required:
+  - certificate
+  - fleetArn
+  - websiteCaId
+inputProperties:
+  certificate:
+    type: string
+    description: |
+      The root certificate of the Certificate Authority.
+    willReplaceOnChanges: true
+  displayName:
+    type: string
+    description: |
+      The certificate name to display.
+    willReplaceOnChanges: true
+  fleetArn:
+    type: string
+    description: |
+      The ARN of the fleet.
+    willReplaceOnChanges: true
+requiredInputs:
+  - certificate
+  - fleetArn
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering WebsiteCertificateAuthorityAssociation resources.
+  properties:
+    certificate:
+      type: string
+      description: |
+        The root certificate of the Certificate Authority.
+      willReplaceOnChanges: true
+    displayName:
+      type: string
+      description: |
+        The certificate name to display.
+      willReplaceOnChanges: true
+    fleetArn:
+      type: string
+      description: |
+        The ARN of the fleet.
+      willReplaceOnChanges: true
+    websiteCaId:
+      type: string
+      description: |
+        A unique identifier for the Certificate Authority.
+  type: object

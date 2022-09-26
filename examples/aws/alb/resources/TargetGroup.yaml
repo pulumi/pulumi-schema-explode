@@ -1,0 +1,285 @@
+$token: aws:alb/targetGroup:TargetGroup
+properties:
+  arn:
+    type: string
+    description: |
+      ARN of the Target Group (matches `id`).
+  arnSuffix:
+    type: string
+    description: |
+      ARN suffix for use with CloudWatch Metrics.
+  connectionTermination:
+    type: boolean
+    description: |
+      Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
+  deregistrationDelay:
+    type: integer
+    description: |
+      Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
+  healthCheck:
+    $ref: "#/types/aws:alb/TargetGroupHealthCheck:TargetGroupHealthCheck"
+    description: |
+      Health Check configuration block. Detailed below.
+  ipAddressType:
+    type: string
+    description: |
+      The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
+  lambdaMultiValueHeadersEnabled:
+    type: boolean
+    description: |
+      Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
+  loadBalancingAlgorithmType:
+    type: string
+    description: |
+      Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
+  name:
+    type: string
+    description: |
+      Name of the target group. If omitted, this provider will assign a random, unique name.
+  namePrefix:
+    type: string
+    description: |
+      Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
+  port:
+    type: integer
+    description: |
+      Port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
+  preserveClientIp:
+    type: string
+    description: |
+      Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
+  protocol:
+    type: string
+    description: |
+      Protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
+  protocolVersion:
+    type: string
+    description: |
+      Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify GRPC to send requests to targets using gRPC. Specify HTTP2 to send requests to targets using HTTP/2. The default is HTTP1, which sends requests to targets using HTTP/1.1
+  proxyProtocolV2:
+    type: boolean
+    description: |
+      Whether to enable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information. Default is `false`.
+  slowStart:
+    type: integer
+    description: |
+      Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
+  stickiness:
+    $ref: "#/types/aws:alb/TargetGroupStickiness:TargetGroupStickiness"
+    description: |
+      Stickiness configuration block. Detailed below.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  targetType:
+    type: string
+    description: |
+      Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
+  vpcId:
+    type: string
+    description: |
+      Identifier of the VPC in which to create the target group. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
+required:
+  - arn
+  - arnSuffix
+  - healthCheck
+  - ipAddressType
+  - loadBalancingAlgorithmType
+  - name
+  - preserveClientIp
+  - protocolVersion
+  - stickiness
+  - tagsAll
+inputProperties:
+  connectionTermination:
+    type: boolean
+    description: |
+      Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
+  deregistrationDelay:
+    type: integer
+    description: |
+      Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
+  healthCheck:
+    $ref: "#/types/aws:alb/TargetGroupHealthCheck:TargetGroupHealthCheck"
+    description: |
+      Health Check configuration block. Detailed below.
+  ipAddressType:
+    type: string
+    description: |
+      The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
+    willReplaceOnChanges: true
+  lambdaMultiValueHeadersEnabled:
+    type: boolean
+    description: |
+      Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
+  loadBalancingAlgorithmType:
+    type: string
+    description: |
+      Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
+  name:
+    type: string
+    description: |
+      Name of the target group. If omitted, this provider will assign a random, unique name.
+    willReplaceOnChanges: true
+  namePrefix:
+    type: string
+    description: |
+      Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
+    willReplaceOnChanges: true
+  port:
+    type: integer
+    description: |
+      Port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
+    willReplaceOnChanges: true
+  preserveClientIp:
+    type: string
+    description: |
+      Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
+  protocol:
+    type: string
+    description: |
+      Protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
+    willReplaceOnChanges: true
+  protocolVersion:
+    type: string
+    description: |
+      Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify GRPC to send requests to targets using gRPC. Specify HTTP2 to send requests to targets using HTTP/2. The default is HTTP1, which sends requests to targets using HTTP/1.1
+  proxyProtocolV2:
+    type: boolean
+    description: |
+      Whether to enable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information. Default is `false`.
+  slowStart:
+    type: integer
+    description: |
+      Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
+  stickiness:
+    $ref: "#/types/aws:alb/TargetGroupStickiness:TargetGroupStickiness"
+    description: |
+      Stickiness configuration block. Detailed below.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  targetType:
+    type: string
+    description: |
+      Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
+    willReplaceOnChanges: true
+  vpcId:
+    type: string
+    description: |
+      Identifier of the VPC in which to create the target group. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
+    willReplaceOnChanges: true
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering TargetGroup resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the Target Group (matches `id`).
+    arnSuffix:
+      type: string
+      description: |
+        ARN suffix for use with CloudWatch Metrics.
+    connectionTermination:
+      type: boolean
+      description: |
+        Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
+    deregistrationDelay:
+      type: integer
+      description: |
+        Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
+    healthCheck:
+      $ref: "#/types/aws:alb/TargetGroupHealthCheck:TargetGroupHealthCheck"
+      description: |
+        Health Check configuration block. Detailed below.
+    ipAddressType:
+      type: string
+      description: |
+        The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
+      willReplaceOnChanges: true
+    lambdaMultiValueHeadersEnabled:
+      type: boolean
+      description: |
+        Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
+    loadBalancingAlgorithmType:
+      type: string
+      description: |
+        Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
+    name:
+      type: string
+      description: |
+        Name of the target group. If omitted, this provider will assign a random, unique name.
+      willReplaceOnChanges: true
+    namePrefix:
+      type: string
+      description: |
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
+      willReplaceOnChanges: true
+    port:
+      type: integer
+      description: |
+        Port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
+      willReplaceOnChanges: true
+    preserveClientIp:
+      type: string
+      description: |
+        Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
+    protocol:
+      type: string
+      description: |
+        Protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
+      willReplaceOnChanges: true
+    protocolVersion:
+      type: string
+      description: |
+        Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify GRPC to send requests to targets using gRPC. Specify HTTP2 to send requests to targets using HTTP/2. The default is HTTP1, which sends requests to targets using HTTP/1.1
+    proxyProtocolV2:
+      type: boolean
+      description: |
+        Whether to enable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information. Default is `false`.
+    slowStart:
+      type: integer
+      description: |
+        Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
+    stickiness:
+      $ref: "#/types/aws:alb/TargetGroupStickiness:TargetGroupStickiness"
+      description: |
+        Stickiness configuration block. Detailed below.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    targetType:
+      type: string
+      description: |
+        Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
+      willReplaceOnChanges: true
+    vpcId:
+      type: string
+      description: |
+        Identifier of the VPC in which to create the target group. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
+      willReplaceOnChanges: true
+  type: object
+aliases:
+  - type: aws:applicationloadbalancing/targetGroup:TargetGroup

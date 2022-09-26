@@ -1,0 +1,41 @@
+$token: aws:imagebuilder/DistributionConfigurationDistributionFastLaunchConfiguration:DistributionConfigurationDistributionFastLaunchConfiguration
+properties:
+  accountId:
+    type: string
+    description: |
+      The account ID that this configuration applies to.
+    language:
+      python:
+        mapCase: false
+  enabled:
+    type: boolean
+    description: |
+      A Boolean that represents the current state of faster launching for the Windows AMI. Set to `true` to start using Windows faster launching, or `false` to stop using it.
+    language:
+      python:
+        mapCase: false
+  launchTemplate:
+    $ref: "#/types/aws:imagebuilder/DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate:DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate"
+    description: |
+      Configuration block for the launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots. Detailed below.
+    language:
+      python:
+        mapCase: false
+  maxParallelLaunches:
+    type: integer
+    description: |
+      The maximum number of parallel instances that are launched for creating resources.
+    language:
+      python:
+        mapCase: false
+  snapshotConfiguration:
+    $ref: "#/types/aws:imagebuilder/DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration:DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration"
+    description: |
+      Configuration block for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled. Detailed below.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - accountId
+  - enabled

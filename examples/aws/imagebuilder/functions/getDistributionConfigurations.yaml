@@ -1,0 +1,41 @@
+$token: aws:imagebuilder/getDistributionConfigurations:getDistributionConfigurations
+inputs:
+  description: |
+    A collection of arguments for invoking getDistributionConfigurations.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:imagebuilder/getDistributionConfigurationsFilter:getDistributionConfigurationsFilter"
+      description: |
+        Configuration block(s) for filtering. Detailed below.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getDistributionConfigurations.
+  properties:
+    arns:
+      type: array
+      items:
+        type: string
+      description: |
+        Set of ARNs of the matched Image Builder Distribution Configurations.
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:imagebuilder/getDistributionConfigurationsFilter:getDistributionConfigurationsFilter"
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    names:
+      type: array
+      items:
+        type: string
+      description: |
+        Set of names of the matched Image Builder Distribution Configurations.
+  type: object
+  required:
+    - arns
+    - names
+    - id

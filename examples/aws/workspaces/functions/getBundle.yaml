@@ -1,0 +1,67 @@
+$token: aws:workspaces/getBundle:getBundle
+inputs:
+  description: |
+    A collection of arguments for invoking getBundle.
+  properties:
+    bundleId:
+      type: string
+      description: |
+        ID of the bundle.
+    name:
+      type: string
+      description: |
+        Name of the bundle. You cannot combine this parameter with `bundle_id`.
+    owner:
+      type: string
+      description: |
+        Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getBundle.
+  properties:
+    bundleId:
+      type: string
+      description: |
+        The ID of the bundle.
+    computeTypes:
+      type: array
+      items:
+        $ref: "#/types/aws:workspaces/getBundleComputeType:getBundleComputeType"
+      description: |
+        The compute type. See supported fields below.
+    description:
+      type: string
+      description: |
+        The description of the bundle.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    name:
+      type: string
+      description: |
+        Name of the compute type.
+    owner:
+      type: string
+      description: |
+        The owner of the bundle.
+    rootStorages:
+      type: array
+      items:
+        $ref: "#/types/aws:workspaces/getBundleRootStorage:getBundleRootStorage"
+      description: |
+        The root volume. See supported fields below.
+    userStorages:
+      type: array
+      items:
+        $ref: "#/types/aws:workspaces/getBundleUserStorage:getBundleUserStorage"
+      description: |
+        The user storage. See supported fields below.
+  type: object
+  required:
+    - computeTypes
+    - description
+    - rootStorages
+    - userStorages
+    - id

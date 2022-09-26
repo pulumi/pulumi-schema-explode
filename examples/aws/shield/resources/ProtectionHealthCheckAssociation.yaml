@@ -1,0 +1,42 @@
+$token: aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation
+properties:
+  healthCheckArn:
+    type: string
+    description: |
+      The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
+  shieldProtectionId:
+    type: string
+    description: |
+      The ID of the protected resource.
+required:
+  - healthCheckArn
+  - shieldProtectionId
+inputProperties:
+  healthCheckArn:
+    type: string
+    description: |
+      The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
+    willReplaceOnChanges: true
+  shieldProtectionId:
+    type: string
+    description: |
+      The ID of the protected resource.
+    willReplaceOnChanges: true
+requiredInputs:
+  - healthCheckArn
+  - shieldProtectionId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering ProtectionHealthCheckAssociation resources.
+  properties:
+    healthCheckArn:
+      type: string
+      description: |
+        The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
+      willReplaceOnChanges: true
+    shieldProtectionId:
+      type: string
+      description: |
+        The ID of the protected resource.
+      willReplaceOnChanges: true
+  type: object

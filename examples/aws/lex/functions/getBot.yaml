@@ -1,0 +1,106 @@
+$token: aws:lex/getBot:getBot
+inputs:
+  description: |
+    A collection of arguments for invoking getBot.
+  properties:
+    name:
+      type: string
+      description: |
+        Name of the bot. The name is case sensitive.
+    version:
+      type: string
+      description: |
+        Version or alias of the bot.
+  type: object
+  required:
+    - name
+outputs:
+  description: |
+    A collection of values returned by getBot.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the bot.
+    checksum:
+      type: string
+      description: |
+        Checksum of the bot used to identify a specific revision of the bot's `$LATEST` version.
+    childDirected:
+      type: boolean
+      description: |
+        If this Amazon Lex Bot is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.
+    createdDate:
+      type: string
+      description: |
+        Date that the bot was created.
+    description:
+      type: string
+      description: |
+        Description of the bot.
+    detectSentiment:
+      type: boolean
+      description: |
+        When set to true user utterances are sent to Amazon Comprehend for sentiment analysis.
+    enableModelImprovements:
+      type: boolean
+      description: |
+        Set to true if natural language understanding improvements are enabled.
+    failureReason:
+      type: string
+      description: |
+        If the `status` is `FAILED`, the reason why the bot failed to build.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    idleSessionTtlInSeconds:
+      type: integer
+      description: |
+        The maximum time in seconds that Amazon Lex retains the data gathered in a conversation.
+    lastUpdatedDate:
+      type: string
+      description: |
+        Date that the bot was updated.
+    locale:
+      type: string
+      description: |
+        Target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot.
+    name:
+      type: string
+      description: |
+        Name of the bot, case sensitive.
+    nluIntentConfidenceThreshold:
+      type: number
+      description: |
+        The threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot.
+    status:
+      type: string
+      description: |
+        Status of the bot.
+    version:
+      type: string
+      description: |
+        Version of the bot. For a new bot, the version is always `$LATEST`.
+    voiceId:
+      type: string
+      description: |
+        Amazon Polly voice ID that the Amazon Lex Bot uses for voice interactions with the user.
+  type: object
+  required:
+    - arn
+    - checksum
+    - childDirected
+    - createdDate
+    - description
+    - detectSentiment
+    - enableModelImprovements
+    - failureReason
+    - idleSessionTtlInSeconds
+    - lastUpdatedDate
+    - locale
+    - name
+    - nluIntentConfidenceThreshold
+    - status
+    - voiceId
+    - id

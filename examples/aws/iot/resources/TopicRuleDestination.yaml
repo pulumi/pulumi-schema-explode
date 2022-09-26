@@ -1,0 +1,64 @@
+$token: aws:iot/topicRuleDestination:TopicRuleDestination
+description: "
+
+
+  ## Import
+
+
+  IoT topic rule destinations can be imported using the `arn`, e.g.,
+
+
+  ```sh
+
+  \ $ pulumi import aws:iot/topicRuleDestination:TopicRuleDestination example arn:aws:iot:us-west-2:123456789012:ruledestination/vpc/2ce781c8-68a6-4c52-9c62-63fe489ecc60
+
+  ```
+
+
+  \ "
+properties:
+  arn:
+    type: string
+    description: |
+      The ARN of the topic rule destination
+  enabled:
+    type: boolean
+    description: |
+      Whether or not to enable the destination. Default: `true`.
+  vpcConfiguration:
+    $ref: "#/types/aws:iot/TopicRuleDestinationVpcConfiguration:TopicRuleDestinationVpcConfiguration"
+    description: |
+      Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+required:
+  - arn
+  - vpcConfiguration
+inputProperties:
+  enabled:
+    type: boolean
+    description: |
+      Whether or not to enable the destination. Default: `true`.
+  vpcConfiguration:
+    $ref: "#/types/aws:iot/TopicRuleDestinationVpcConfiguration:TopicRuleDestinationVpcConfiguration"
+    description: |
+      Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+    willReplaceOnChanges: true
+requiredInputs:
+  - vpcConfiguration
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering TopicRuleDestination resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The ARN of the topic rule destination
+    enabled:
+      type: boolean
+      description: |
+        Whether or not to enable the destination. Default: `true`.
+    vpcConfiguration:
+      $ref: "#/types/aws:iot/TopicRuleDestinationVpcConfiguration:TopicRuleDestinationVpcConfiguration"
+      description: |
+        Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+      willReplaceOnChanges: true
+  type: object

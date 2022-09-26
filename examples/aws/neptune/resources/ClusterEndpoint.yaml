@@ -1,0 +1,143 @@
+$token: aws:neptune/clusterEndpoint:ClusterEndpoint
+properties:
+  arn:
+    type: string
+    description: |
+      The Neptune Cluster Endpoint Amazon Resource Name (ARN).
+  clusterEndpointIdentifier:
+    type: string
+    description: |
+      The identifier of the endpoint.
+  clusterIdentifier:
+    type: string
+    description: |
+      The DB cluster identifier of the DB cluster associated with the endpoint.
+  endpoint:
+    type: string
+    description: |
+      The DNS address of the endpoint.
+  endpointType:
+    type: string
+    description: |
+      The type of the endpoint. One of: `READER`, `WRITER`, `ANY`.
+  excludedMembers:
+    type: array
+    items:
+      type: string
+    description: |
+      List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
+  staticMembers:
+    type: array
+    items:
+      type: string
+    description: |
+      List of DB instance identifiers that are part of the custom endpoint group.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - arn
+  - clusterEndpointIdentifier
+  - clusterIdentifier
+  - endpoint
+  - endpointType
+  - tagsAll
+inputProperties:
+  clusterEndpointIdentifier:
+    type: string
+    description: |
+      The identifier of the endpoint.
+    willReplaceOnChanges: true
+  clusterIdentifier:
+    type: string
+    description: |
+      The DB cluster identifier of the DB cluster associated with the endpoint.
+    willReplaceOnChanges: true
+  endpointType:
+    type: string
+    description: |
+      The type of the endpoint. One of: `READER`, `WRITER`, `ANY`.
+    willReplaceOnChanges: true
+  excludedMembers:
+    type: array
+    items:
+      type: string
+    description: |
+      List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
+  staticMembers:
+    type: array
+    items:
+      type: string
+    description: |
+      List of DB instance identifiers that are part of the custom endpoint group.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+requiredInputs:
+  - clusterEndpointIdentifier
+  - clusterIdentifier
+  - endpointType
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering ClusterEndpoint resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The Neptune Cluster Endpoint Amazon Resource Name (ARN).
+    clusterEndpointIdentifier:
+      type: string
+      description: |
+        The identifier of the endpoint.
+      willReplaceOnChanges: true
+    clusterIdentifier:
+      type: string
+      description: |
+        The DB cluster identifier of the DB cluster associated with the endpoint.
+      willReplaceOnChanges: true
+    endpoint:
+      type: string
+      description: |
+        The DNS address of the endpoint.
+    endpointType:
+      type: string
+      description: |
+        The type of the endpoint. One of: `READER`, `WRITER`, `ANY`.
+      willReplaceOnChanges: true
+    excludedMembers:
+      type: array
+      items:
+        type: string
+      description: |
+        List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
+    staticMembers:
+      type: array
+      items:
+        type: string
+      description: |
+        List of DB instance identifiers that are part of the custom endpoint group.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

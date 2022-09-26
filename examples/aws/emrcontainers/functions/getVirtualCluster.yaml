@@ -1,0 +1,66 @@
+$token: aws:emrcontainers/getVirtualCluster:getVirtualCluster
+inputs:
+  description: |
+    A collection of arguments for invoking getVirtualCluster.
+  properties:
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value mapping of resource tags.
+    virtualClusterId:
+      type: string
+      description: |
+        ID of the cluster.
+  type: object
+  required:
+    - virtualClusterId
+outputs:
+  description: |
+    A collection of values returned by getVirtualCluster.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the cluster.
+    containerProviders:
+      type: array
+      items:
+        $ref: "#/types/aws:emrcontainers/getVirtualClusterContainerProvider:getVirtualClusterContainerProvider"
+      description: |
+        Nested attribute containing information about the underlying container provider (EKS cluster) for your EMR Containers cluster.
+    createdAt:
+      type: string
+      description: |
+        Unix epoch time stamp in seconds for when the cluster was created.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    name:
+      type: string
+      description: |
+        Name of the cluster.
+    state:
+      type: string
+      description: |
+        Status of the EKS cluster. One of `RUNNING`, `TERMINATING`, `TERMINATED`, `ARRESTED`.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value mapping of resource tags.
+    virtualClusterId:
+      type: string
+  type: object
+  required:
+    - arn
+    - containerProviders
+    - createdAt
+    - name
+    - state
+    - tags
+    - virtualClusterId
+    - id

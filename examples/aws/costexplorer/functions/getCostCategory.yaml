@@ -1,0 +1,71 @@
+$token: aws:costexplorer/getCostCategory:getCostCategory
+inputs:
+  description: |
+    A collection of arguments for invoking getCostCategory.
+  properties:
+    costCategoryArn:
+      type: string
+      description: |
+        Unique name for the Cost Category.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Resource tags.
+  type: object
+  required:
+    - costCategoryArn
+outputs:
+  description: |
+    A collection of values returned by getCostCategory.
+  properties:
+    costCategoryArn:
+      type: string
+    effectiveEnd:
+      type: string
+      description: |
+        Effective end data of your Cost Category.
+    effectiveStart:
+      type: string
+      description: |
+        Effective state data of your Cost Category.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    name:
+      type: string
+    ruleVersion:
+      type: string
+      description: |
+        Rule schema version in this particular Cost Category.
+    rules:
+      type: array
+      items:
+        $ref: "#/types/aws:costexplorer/getCostCategoryRule:getCostCategoryRule"
+      description: |
+        Configuration block for the `Expression` object used to categorize costs. See below.
+    splitChargeRules:
+      type: array
+      items:
+        $ref: "#/types/aws:costexplorer/getCostCategorySplitChargeRule:getCostCategorySplitChargeRule"
+      description: |
+        Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Resource tags.
+  type: object
+  required:
+    - costCategoryArn
+    - effectiveEnd
+    - effectiveStart
+    - name
+    - rules
+    - ruleVersion
+    - splitChargeRules
+    - tags
+    - id

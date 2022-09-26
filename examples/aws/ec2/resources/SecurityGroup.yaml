@@ -1,0 +1,174 @@
+$token: aws:ec2/securityGroup:SecurityGroup
+properties:
+  arn:
+    type: string
+    description: |
+      ARN of the security group.
+  description:
+    type: string
+    description: |
+      Description of this egress rule.
+    default: Managed by Pulumi
+  egress:
+    type: array
+    items:
+      $ref: "#/types/aws:ec2/SecurityGroupEgress:SecurityGroupEgress"
+    description: |
+      Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
+  ingress:
+    type: array
+    items:
+      $ref: "#/types/aws:ec2/SecurityGroupIngress:SecurityGroupIngress"
+    description: |
+      Configuration block for egress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
+  name:
+    type: string
+    description: |
+      Name of the security group. If omitted, this provider will assign a random, unique name.
+  namePrefix:
+    type: string
+    description: |
+      Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+  ownerId:
+    type: string
+    description: |
+      Owner ID.
+  revokeRulesOnDelete:
+    type: boolean
+    description: |
+      Instruct this provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  vpcId:
+    type: string
+    description: |
+      VPC ID.
+      Defaults to the region's default VPC.
+required:
+  - arn
+  - description
+  - egress
+  - ingress
+  - name
+  - namePrefix
+  - ownerId
+  - tagsAll
+  - vpcId
+inputProperties:
+  description:
+    type: string
+    description: |
+      Description of this egress rule.
+    default: Managed by Pulumi
+    willReplaceOnChanges: true
+  egress:
+    type: array
+    items:
+      $ref: "#/types/aws:ec2/SecurityGroupEgress:SecurityGroupEgress"
+    description: |
+      Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
+  ingress:
+    type: array
+    items:
+      $ref: "#/types/aws:ec2/SecurityGroupIngress:SecurityGroupIngress"
+    description: |
+      Configuration block for egress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
+  name:
+    type: string
+    description: |
+      Name of the security group. If omitted, this provider will assign a random, unique name.
+    willReplaceOnChanges: true
+  namePrefix:
+    type: string
+    description: |
+      Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+    willReplaceOnChanges: true
+  revokeRulesOnDelete:
+    type: boolean
+    description: |
+      Instruct this provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  vpcId:
+    type: string
+    description: |
+      VPC ID.
+      Defaults to the region's default VPC.
+    willReplaceOnChanges: true
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering SecurityGroup resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the security group.
+    description:
+      type: string
+      description: |
+        Description of this egress rule.
+      default: Managed by Pulumi
+      willReplaceOnChanges: true
+    egress:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/SecurityGroupEgress:SecurityGroupEgress"
+      description: |
+        Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
+    ingress:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/SecurityGroupIngress:SecurityGroupIngress"
+      description: |
+        Configuration block for egress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
+    name:
+      type: string
+      description: |
+        Name of the security group. If omitted, this provider will assign a random, unique name.
+      willReplaceOnChanges: true
+    namePrefix:
+      type: string
+      description: |
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+      willReplaceOnChanges: true
+    ownerId:
+      type: string
+      description: |
+        Owner ID.
+    revokeRulesOnDelete:
+      type: boolean
+      description: |
+        Instruct this provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    vpcId:
+      type: string
+      description: |
+        VPC ID.
+        Defaults to the region's default VPC.
+      willReplaceOnChanges: true
+  type: object

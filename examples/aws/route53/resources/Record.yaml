@@ -1,0 +1,239 @@
+$token: aws:route53/record:Record
+properties:
+  aliases:
+    type: array
+    items:
+      $ref: "#/types/aws:route53/RecordAlias:RecordAlias"
+    description: |
+      An alias block. Conflicts with `ttl` & `records`.
+      Documented below.
+  allowOverwrite:
+    type: boolean
+    description: |
+      Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+  failoverRoutingPolicies:
+    type: array
+    items:
+      $ref: "#/types/aws:route53/RecordFailoverRoutingPolicy:RecordFailoverRoutingPolicy"
+    description: |
+      A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
+  fqdn:
+    type: string
+    description: |
+      [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
+  geolocationRoutingPolicies:
+    type: array
+    items:
+      $ref: "#/types/aws:route53/RecordGeolocationRoutingPolicy:RecordGeolocationRoutingPolicy"
+    description: |
+      A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
+  healthCheckId:
+    type: string
+    description: |
+      The health check the record should be associated with.
+  latencyRoutingPolicies:
+    type: array
+    items:
+      $ref: "#/types/aws:route53/RecordLatencyRoutingPolicy:RecordLatencyRoutingPolicy"
+    description: |
+      A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
+  multivalueAnswerRoutingPolicy:
+    type: boolean
+    description: |
+      Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
+  name:
+    type: string
+    description: |
+      DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
+  records:
+    type: array
+    items:
+      type: string
+  setIdentifier:
+    type: string
+    description: |
+      Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalue_answer`, or `weighted` routing policies documented below.
+  ttl:
+    type: integer
+    description: |
+      The TTL of the record.
+  type:
+    type: string
+    description: |
+      `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
+  weightedRoutingPolicies:
+    type: array
+    items:
+      $ref: "#/types/aws:route53/RecordWeightedRoutingPolicy:RecordWeightedRoutingPolicy"
+    description: |
+      A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
+  zoneId:
+    type: string
+    description: |
+      Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
+required:
+  - allowOverwrite
+  - fqdn
+  - name
+  - type
+  - zoneId
+inputProperties:
+  aliases:
+    type: array
+    items:
+      $ref: "#/types/aws:route53/RecordAlias:RecordAlias"
+    description: |
+      An alias block. Conflicts with `ttl` & `records`.
+      Documented below.
+  allowOverwrite:
+    type: boolean
+    description: |
+      Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+  failoverRoutingPolicies:
+    type: array
+    items:
+      $ref: "#/types/aws:route53/RecordFailoverRoutingPolicy:RecordFailoverRoutingPolicy"
+    description: |
+      A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
+  geolocationRoutingPolicies:
+    type: array
+    items:
+      $ref: "#/types/aws:route53/RecordGeolocationRoutingPolicy:RecordGeolocationRoutingPolicy"
+    description: |
+      A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
+  healthCheckId:
+    type: string
+    description: |
+      The health check the record should be associated with.
+  latencyRoutingPolicies:
+    type: array
+    items:
+      $ref: "#/types/aws:route53/RecordLatencyRoutingPolicy:RecordLatencyRoutingPolicy"
+    description: |
+      A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
+  multivalueAnswerRoutingPolicy:
+    type: boolean
+    description: |
+      Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
+  name:
+    type: string
+    description: |
+      DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
+    willReplaceOnChanges: true
+  records:
+    type: array
+    items:
+      type: string
+  setIdentifier:
+    type: string
+    description: |
+      Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalue_answer`, or `weighted` routing policies documented below.
+  ttl:
+    type: integer
+    description: |
+      The TTL of the record.
+  type:
+    type: string
+    oneOf:
+      - type: string
+      - type: string
+        $ref: "#/types/aws:route53/RecordType:RecordType"
+    description: |
+      `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
+  weightedRoutingPolicies:
+    type: array
+    items:
+      $ref: "#/types/aws:route53/RecordWeightedRoutingPolicy:RecordWeightedRoutingPolicy"
+    description: |
+      A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
+  zoneId:
+    type: string
+    description: |
+      Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
+    willReplaceOnChanges: true
+requiredInputs:
+  - name
+  - type
+  - zoneId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Record resources.
+  properties:
+    aliases:
+      type: array
+      items:
+        $ref: "#/types/aws:route53/RecordAlias:RecordAlias"
+      description: |
+        An alias block. Conflicts with `ttl` & `records`.
+        Documented below.
+    allowOverwrite:
+      type: boolean
+      description: |
+        Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+    failoverRoutingPolicies:
+      type: array
+      items:
+        $ref: "#/types/aws:route53/RecordFailoverRoutingPolicy:RecordFailoverRoutingPolicy"
+      description: |
+        A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
+    fqdn:
+      type: string
+      description: |
+        [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
+    geolocationRoutingPolicies:
+      type: array
+      items:
+        $ref: "#/types/aws:route53/RecordGeolocationRoutingPolicy:RecordGeolocationRoutingPolicy"
+      description: |
+        A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
+    healthCheckId:
+      type: string
+      description: |
+        The health check the record should be associated with.
+    latencyRoutingPolicies:
+      type: array
+      items:
+        $ref: "#/types/aws:route53/RecordLatencyRoutingPolicy:RecordLatencyRoutingPolicy"
+      description: |
+        A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
+    multivalueAnswerRoutingPolicy:
+      type: boolean
+      description: |
+        Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
+    name:
+      type: string
+      description: |
+        DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
+      willReplaceOnChanges: true
+    records:
+      type: array
+      items:
+        type: string
+    setIdentifier:
+      type: string
+      description: |
+        Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalue_answer`, or `weighted` routing policies documented below.
+    ttl:
+      type: integer
+      description: |
+        The TTL of the record.
+    type:
+      type: string
+      oneOf:
+        - type: string
+        - type: string
+          $ref: "#/types/aws:route53/RecordType:RecordType"
+      description: |
+        `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
+    weightedRoutingPolicies:
+      type: array
+      items:
+        $ref: "#/types/aws:route53/RecordWeightedRoutingPolicy:RecordWeightedRoutingPolicy"
+      description: |
+        A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
+    zoneId:
+      type: string
+      description: |
+        Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
+      willReplaceOnChanges: true
+  type: object

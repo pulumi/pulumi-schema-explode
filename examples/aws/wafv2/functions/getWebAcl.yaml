@@ -1,0 +1,44 @@
+$token: aws:wafv2/getWebAcl:getWebAcl
+inputs:
+  description: |
+    A collection of arguments for invoking getWebAcl.
+  properties:
+    name:
+      type: string
+      description: |
+        Name of the WAFv2 Web ACL.
+    scope:
+      type: string
+      description: |
+        Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+  type: object
+  required:
+    - name
+    - scope
+outputs:
+  description: |
+    A collection of values returned by getWebAcl.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the entity.
+    description:
+      type: string
+      description: |
+        Description of the WebACL that helps with identification.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    name:
+      type: string
+    scope:
+      type: string
+  type: object
+  required:
+    - arn
+    - description
+    - name
+    - scope
+    - id

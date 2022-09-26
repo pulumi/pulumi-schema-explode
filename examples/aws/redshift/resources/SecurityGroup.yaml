@@ -1,0 +1,63 @@
+$token: aws:redshift/securityGroup:SecurityGroup
+properties:
+  description:
+    type: string
+    description: |
+      The description of the Redshift security group. Defaults to "Managed by Pulumi".
+    default: Managed by Pulumi
+  ingress:
+    type: array
+    items:
+      $ref: "#/types/aws:redshift/SecurityGroupIngress:SecurityGroupIngress"
+    description: |
+      A list of ingress rules.
+  name:
+    type: string
+    description: |
+      The name of the Redshift security group.
+required:
+  - description
+  - ingress
+  - name
+inputProperties:
+  description:
+    type: string
+    description: |
+      The description of the Redshift security group. Defaults to "Managed by Pulumi".
+    default: Managed by Pulumi
+    willReplaceOnChanges: true
+  ingress:
+    type: array
+    items:
+      $ref: "#/types/aws:redshift/SecurityGroupIngress:SecurityGroupIngress"
+    description: |
+      A list of ingress rules.
+  name:
+    type: string
+    description: |
+      The name of the Redshift security group.
+    willReplaceOnChanges: true
+requiredInputs:
+  - ingress
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering SecurityGroup resources.
+  properties:
+    description:
+      type: string
+      description: |
+        The description of the Redshift security group. Defaults to "Managed by Pulumi".
+      default: Managed by Pulumi
+      willReplaceOnChanges: true
+    ingress:
+      type: array
+      items:
+        $ref: "#/types/aws:redshift/SecurityGroupIngress:SecurityGroupIngress"
+      description: |
+        A list of ingress rules.
+    name:
+      type: string
+      description: |
+        The name of the Redshift security group.
+      willReplaceOnChanges: true
+  type: object

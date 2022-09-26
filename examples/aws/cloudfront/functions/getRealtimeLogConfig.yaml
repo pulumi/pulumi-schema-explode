@@ -1,0 +1,50 @@
+$token: aws:cloudfront/getRealtimeLogConfig:getRealtimeLogConfig
+inputs:
+  description: |
+    A collection of arguments for invoking getRealtimeLogConfig.
+  properties:
+    name:
+      type: string
+      description: |
+        Unique name to identify this real-time log configuration.
+  type: object
+  required:
+    - name
+outputs:
+  description: |
+    A collection of values returned by getRealtimeLogConfig.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
+    endpoints:
+      type: array
+      items:
+        $ref: "#/types/aws:cloudfront/getRealtimeLogConfigEndpoint:getRealtimeLogConfigEndpoint"
+      description: |
+        (Required) Amazon Kinesis data streams where real-time log data is sent.
+    fields:
+      type: array
+      items:
+        type: string
+      description: |
+        (Required) Fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    name:
+      type: string
+    samplingRate:
+      type: integer
+      description: |
+        (Required) Sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
+  type: object
+  required:
+    - arn
+    - endpoints
+    - fields
+    - name
+    - samplingRate
+    - id

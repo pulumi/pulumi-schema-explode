@@ -1,0 +1,83 @@
+$token: aws:signer/getSigningProfile:getSigningProfile
+inputs:
+  description: |
+    A collection of arguments for invoking getSigningProfile.
+  properties:
+    name:
+      type: string
+      description: |
+        Name of the target signing profile.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        List of tags associated with the signing profile.
+  type: object
+  required:
+    - name
+outputs:
+  description: |
+    A collection of values returned by getSigningProfile.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN for the signing profile.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    name:
+      type: string
+    platformDisplayName:
+      type: string
+      description: |
+        A human-readable name for the signing platform associated with the signing profile.
+    platformId:
+      type: string
+      description: |
+        ID of the platform that is used by the target signing profile.
+    revocationRecords:
+      type: array
+      items:
+        $ref: "#/types/aws:signer/getSigningProfileRevocationRecord:getSigningProfileRevocationRecord"
+      description: |
+        Revocation information for a signing profile.
+    signatureValidityPeriods:
+      type: array
+      items:
+        $ref: "#/types/aws:signer/getSigningProfileSignatureValidityPeriod:getSigningProfileSignatureValidityPeriod"
+      description: |
+        The validity period for a signing job.
+    status:
+      type: string
+      description: |
+        Status of the target signing profile.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        List of tags associated with the signing profile.
+    version:
+      type: string
+      description: |
+        Current version of the signing profile.
+    versionArn:
+      type: string
+      description: |
+        Signing profile ARN, including the profile version.
+  type: object
+  required:
+    - arn
+    - name
+    - platformDisplayName
+    - platformId
+    - revocationRecords
+    - signatureValidityPeriods
+    - status
+    - tags
+    - version
+    - versionArn
+    - id

@@ -1,0 +1,41 @@
+$token: aws:emr/ClusterStepHadoopJarStep:ClusterStepHadoopJarStep
+properties:
+  args:
+    type: array
+    items:
+      type: string
+    description: |
+      List of command line arguments passed to the JAR file's main function when executed.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  jar:
+    type: string
+    description: |
+      Path to a JAR file run during the step.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  mainClass:
+    type: string
+    description: |
+      Name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  properties:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+type: object
+required:
+  - jar

@@ -1,0 +1,125 @@
+$token: aws:waf/webAcl:WebAcl
+properties:
+  arn:
+    type: string
+    description: |
+      The ARN of the WAF WebACL.
+  defaultAction:
+    $ref: "#/types/aws:waf/WebAclDefaultAction:WebAclDefaultAction"
+    description: |
+      Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
+  loggingConfiguration:
+    $ref: "#/types/aws:waf/WebAclLoggingConfiguration:WebAclLoggingConfiguration"
+    description: |
+      Configuration block to enable WAF logging. Detailed below.
+  metricName:
+    type: string
+    description: |
+      The name or description for the Amazon CloudWatch metric of this web ACL.
+  name:
+    type: string
+    description: |
+      The name or description of the web ACL.
+  rules:
+    type: array
+    items:
+      $ref: "#/types/aws:waf/WebAclRule:WebAclRule"
+    description: |
+      Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - arn
+  - defaultAction
+  - metricName
+  - name
+  - tagsAll
+inputProperties:
+  defaultAction:
+    $ref: "#/types/aws:waf/WebAclDefaultAction:WebAclDefaultAction"
+    description: |
+      Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
+  loggingConfiguration:
+    $ref: "#/types/aws:waf/WebAclLoggingConfiguration:WebAclLoggingConfiguration"
+    description: |
+      Configuration block to enable WAF logging. Detailed below.
+  metricName:
+    type: string
+    description: |
+      The name or description for the Amazon CloudWatch metric of this web ACL.
+    willReplaceOnChanges: true
+  name:
+    type: string
+    description: |
+      The name or description of the web ACL.
+    willReplaceOnChanges: true
+  rules:
+    type: array
+    items:
+      $ref: "#/types/aws:waf/WebAclRule:WebAclRule"
+    description: |
+      Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+requiredInputs:
+  - defaultAction
+  - metricName
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering WebAcl resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The ARN of the WAF WebACL.
+    defaultAction:
+      $ref: "#/types/aws:waf/WebAclDefaultAction:WebAclDefaultAction"
+      description: |
+        Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
+    loggingConfiguration:
+      $ref: "#/types/aws:waf/WebAclLoggingConfiguration:WebAclLoggingConfiguration"
+      description: |
+        Configuration block to enable WAF logging. Detailed below.
+    metricName:
+      type: string
+      description: |
+        The name or description for the Amazon CloudWatch metric of this web ACL.
+      willReplaceOnChanges: true
+    name:
+      type: string
+      description: |
+        The name or description of the web ACL.
+      willReplaceOnChanges: true
+    rules:
+      type: array
+      items:
+        $ref: "#/types/aws:waf/WebAclRule:WebAclRule"
+      description: |
+        Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

@@ -1,0 +1,81 @@
+$token: aws:route53/getResolverRule:getResolverRule
+inputs:
+  description: |
+    A collection of arguments for invoking getResolverRule.
+  properties:
+    domainName:
+      type: string
+      description: |
+        Domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolver_rule_id`.
+    name:
+      type: string
+      description: |
+        Friendly name of the desired resolver rule. Conflicts with `resolver_rule_id`.
+    resolverEndpointId:
+      type: string
+      description: |
+        ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolver_rule_id`.
+    resolverRuleId:
+      type: string
+      description: |
+        ID of the desired resolver rule. Conflicts with `domain_name`, `name`, `resolver_endpoint_id` and `rule_type`.
+    ruleType:
+      type: string
+      description: |
+        Rule type of the desired resolver rule. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`. Conflicts with `resolver_rule_id`.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags assigned to the resolver rule.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getResolverRule.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN (Amazon Resource Name) for the resolver rule.
+    domainName:
+      type: string
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    name:
+      type: string
+    ownerId:
+      type: string
+      description: |
+        When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
+    resolverEndpointId:
+      type: string
+    resolverRuleId:
+      type: string
+    ruleType:
+      type: string
+    shareStatus:
+      type: string
+      description: |
+        Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.
+        Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags assigned to the resolver rule.
+  type: object
+  required:
+    - arn
+    - domainName
+    - name
+    - ownerId
+    - resolverEndpointId
+    - resolverRuleId
+    - ruleType
+    - shareStatus
+    - tags
+    - id

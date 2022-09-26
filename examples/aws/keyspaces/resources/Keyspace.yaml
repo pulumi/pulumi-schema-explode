@@ -1,0 +1,64 @@
+$token: aws:keyspaces/keyspace:Keyspace
+properties:
+  arn:
+    type: string
+    description: |
+      The ARN of the keyspace.
+  name:
+    type: string
+    description: |
+      The name of the keyspace to be created.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - arn
+  - name
+  - tagsAll
+inputProperties:
+  name:
+    type: string
+    description: |
+      The name of the keyspace to be created.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Keyspace resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The ARN of the keyspace.
+    name:
+      type: string
+      description: |
+        The name of the keyspace to be created.
+      willReplaceOnChanges: true
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

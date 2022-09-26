@@ -1,0 +1,88 @@
+$token: aws:emr/ClusterEc2Attributes:ClusterEc2Attributes
+properties:
+  additionalMasterSecurityGroups:
+    type: string
+    description: |
+      String containing a comma separated list of additional Amazon EC2 security group IDs for the master node.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  additionalSlaveSecurityGroups:
+    type: string
+    description: |
+      String containing a comma separated list of additional Amazon EC2 security group IDs for the slave nodes as a comma separated string.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  emrManagedMasterSecurityGroup:
+    type: string
+    description: |
+      Identifier of the Amazon EC2 EMR-Managed security group for the master node.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  emrManagedSlaveSecurityGroup:
+    type: string
+    description: |
+      Identifier of the Amazon EC2 EMR-Managed security group for the slave nodes.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  instanceProfile:
+    type: string
+    description: |
+      Instance Profile for EC2 instances of the cluster assume this role.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  keyName:
+    type: string
+    description: |
+      Amazon EC2 key pair that can be used to ssh to the master node as the user called `hadoop`.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  serviceAccessSecurityGroup:
+    type: string
+    description: |
+      Identifier of the Amazon EC2 service-access security group - required when the cluster runs on a private subnet.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  subnetId:
+    type: string
+    description: |
+      VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in an Amazon VPC.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  subnetIds:
+    type: array
+    items:
+      type: string
+    description: |
+      List of VPC subnet id-s where you want the job flow to launch.  Amazon EMR identifies the best Availability Zone to launch instances according to your fleet specifications.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+type: object
+required:
+  - instanceProfile
+language:
+  nodejs:
+    requiredOutputs:
+      - emrManagedMasterSecurityGroup
+      - emrManagedSlaveSecurityGroup
+      - instanceProfile
+      - serviceAccessSecurityGroup
+      - subnetId
+      - subnetIds

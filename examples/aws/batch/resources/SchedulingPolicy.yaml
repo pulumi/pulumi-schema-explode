@@ -1,0 +1,70 @@
+$token: aws:batch/schedulingPolicy:SchedulingPolicy
+properties:
+  arn:
+    type: string
+    description: |
+      The Amazon Resource Name of the scheduling policy.
+  fairSharePolicy:
+    $ref: "#/types/aws:batch/SchedulingPolicyFairSharePolicy:SchedulingPolicyFairSharePolicy"
+  name:
+    type: string
+    description: |
+      Specifies the name of the scheduling policy.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - arn
+  - name
+  - tagsAll
+inputProperties:
+  fairSharePolicy:
+    $ref: "#/types/aws:batch/SchedulingPolicyFairSharePolicy:SchedulingPolicyFairSharePolicy"
+  name:
+    type: string
+    description: |
+      Specifies the name of the scheduling policy.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering SchedulingPolicy resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The Amazon Resource Name of the scheduling policy.
+    fairSharePolicy:
+      $ref: "#/types/aws:batch/SchedulingPolicyFairSharePolicy:SchedulingPolicyFairSharePolicy"
+    name:
+      type: string
+      description: |
+        Specifies the name of the scheduling policy.
+      willReplaceOnChanges: true
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

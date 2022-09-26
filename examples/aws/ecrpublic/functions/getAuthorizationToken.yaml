@@ -1,0 +1,32 @@
+$token: aws:ecrpublic/getAuthorizationToken:getAuthorizationToken
+outputs:
+  description: |
+    A collection of values returned by getAuthorizationToken.
+  properties:
+    authorizationToken:
+      type: string
+      description: |
+        Temporary IAM authentication credentials to access the ECR repository encoded in base64 in the form of `user_name:password`.
+    expiresAt:
+      type: string
+      description: |
+        Time in UTC RFC3339 format when the authorization token expires.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    password:
+      type: string
+      description: |
+        Password decoded from the authorization token.
+    userName:
+      type: string
+      description: |
+        User name decoded from the authorization token.
+  type: object
+  required:
+    - authorizationToken
+    - expiresAt
+    - password
+    - userName
+    - id

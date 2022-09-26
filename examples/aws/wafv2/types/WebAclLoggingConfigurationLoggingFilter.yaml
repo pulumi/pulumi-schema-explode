@@ -1,0 +1,22 @@
+$token: aws:wafv2/WebAclLoggingConfigurationLoggingFilter:WebAclLoggingConfigurationLoggingFilter
+properties:
+  defaultBehavior:
+    type: string
+    description: |
+      Default handling for logs that don't match any of the specified filtering conditions. Valid values: `KEEP` or `DROP`.
+    language:
+      python:
+        mapCase: false
+  filters:
+    type: array
+    items:
+      $ref: "#/types/aws:wafv2/WebAclLoggingConfigurationLoggingFilterFilter:WebAclLoggingConfigurationLoggingFilterFilter"
+    description: |
+      Filter(s) that you want to apply to the logs. See Filter below for more details.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - defaultBehavior
+  - filters

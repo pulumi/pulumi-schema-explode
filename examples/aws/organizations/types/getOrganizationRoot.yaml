@@ -1,0 +1,41 @@
+$token: aws:organizations/getOrganizationRoot:getOrganizationRoot
+properties:
+  arn:
+    type: string
+    description: |
+      ARN of the root
+    language:
+      python:
+        mapCase: false
+  id:
+    type: string
+    description: |
+      Identifier of the root
+    language:
+      python:
+        mapCase: false
+  name:
+    type: string
+    description: |
+      The name of the policy type
+    language:
+      python:
+        mapCase: false
+  policyTypes:
+    type: array
+    items:
+      $ref: "#/types/aws:organizations/getOrganizationRootPolicyType:getOrganizationRootPolicyType"
+    description: |
+      List of policy types enabled for this root. All elements have these attributes:
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - arn
+  - id
+  - name
+  - policyTypes
+language:
+  nodejs:
+    requiredInputs: []

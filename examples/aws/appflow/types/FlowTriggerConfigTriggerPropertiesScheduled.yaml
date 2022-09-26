@@ -1,0 +1,54 @@
+$token: aws:appflow/FlowTriggerConfigTriggerPropertiesScheduled:FlowTriggerConfigTriggerPropertiesScheduled
+properties:
+  dataPullMode:
+    type: string
+    description: |
+      Whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run. Valid values are `Incremental` and `Complete`.
+    language:
+      python:
+        mapCase: false
+  firstExecutionFrom:
+    type: string
+    description: |
+      Date range for the records to import from the connector in the first flow run. Must be a valid RFC3339 timestamp.
+    language:
+      python:
+        mapCase: false
+  scheduleEndTime:
+    type: string
+    description: |
+      Scheduled end time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
+    language:
+      python:
+        mapCase: false
+  scheduleExpression:
+    type: string
+    description: |
+      Scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)`.
+    language:
+      python:
+        mapCase: false
+  scheduleOffset:
+    type: integer
+    description: |
+      Optional offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
+    language:
+      python:
+        mapCase: false
+  scheduleStartTime:
+    type: string
+    description: |
+      Scheduled start time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
+    language:
+      python:
+        mapCase: false
+  timezone:
+    type: string
+    description: |
+      Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - scheduleExpression

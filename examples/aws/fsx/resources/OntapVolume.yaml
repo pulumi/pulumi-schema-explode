@@ -1,0 +1,187 @@
+$token: aws:fsx/ontapVolume:OntapVolume
+properties:
+  arn:
+    type: string
+    description: |
+      Amazon Resource Name of the volune.
+  fileSystemId:
+    type: string
+    description: |
+      Describes the file system for the volume, e.g. `fs-12345679`
+  flexcacheEndpointType:
+    type: string
+    description: |
+      Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
+  junctionPath:
+    type: string
+    description: |
+      Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
+  name:
+    type: string
+    description: |
+      Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
+  ontapVolumeType:
+    type: string
+    description: |
+      Specifies the type of volume, Valid values are `RW`, `DP`,  and `LS`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+  securityStyle:
+    type: string
+    description: |
+      Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+  sizeInMegabytes:
+    type: integer
+    description: |
+      Specifies the size of the volume, in megabytes (MB), that you are creating.
+  storageEfficiencyEnabled:
+    type: boolean
+    description: |
+      Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
+  storageVirtualMachineId:
+    type: string
+    description: |
+      Specifies the storage virtual machine in which to create the volume.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  tieringPolicy:
+    $ref: "#/types/aws:fsx/OntapVolumeTieringPolicy:OntapVolumeTieringPolicy"
+  uuid:
+    type: string
+    description: |
+      The Volume's UUID (universally unique identifier).
+  volumeType:
+    type: string
+    description: |
+      The type of volume, currently the only valid value is `ONTAP`.
+required:
+  - arn
+  - fileSystemId
+  - flexcacheEndpointType
+  - junctionPath
+  - name
+  - ontapVolumeType
+  - sizeInMegabytes
+  - storageEfficiencyEnabled
+  - storageVirtualMachineId
+  - tagsAll
+  - uuid
+inputProperties:
+  junctionPath:
+    type: string
+    description: |
+      Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
+  name:
+    type: string
+    description: |
+      Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
+    willReplaceOnChanges: true
+  securityStyle:
+    type: string
+    description: |
+      Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+  sizeInMegabytes:
+    type: integer
+    description: |
+      Specifies the size of the volume, in megabytes (MB), that you are creating.
+  storageEfficiencyEnabled:
+    type: boolean
+    description: |
+      Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
+  storageVirtualMachineId:
+    type: string
+    description: |
+      Specifies the storage virtual machine in which to create the volume.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tieringPolicy:
+    $ref: "#/types/aws:fsx/OntapVolumeTieringPolicy:OntapVolumeTieringPolicy"
+  volumeType:
+    type: string
+    description: |
+      The type of volume, currently the only valid value is `ONTAP`.
+requiredInputs:
+  - junctionPath
+  - sizeInMegabytes
+  - storageEfficiencyEnabled
+  - storageVirtualMachineId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering OntapVolume resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        Amazon Resource Name of the volune.
+    fileSystemId:
+      type: string
+      description: |
+        Describes the file system for the volume, e.g. `fs-12345679`
+    flexcacheEndpointType:
+      type: string
+      description: |
+        Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
+    junctionPath:
+      type: string
+      description: |
+        Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
+    name:
+      type: string
+      description: |
+        Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
+      willReplaceOnChanges: true
+    ontapVolumeType:
+      type: string
+      description: |
+        Specifies the type of volume, Valid values are `RW`, `DP`,  and `LS`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+    securityStyle:
+      type: string
+      description: |
+        Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+    sizeInMegabytes:
+      type: integer
+      description: |
+        Specifies the size of the volume, in megabytes (MB), that you are creating.
+    storageEfficiencyEnabled:
+      type: boolean
+      description: |
+        Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
+    storageVirtualMachineId:
+      type: string
+      description: |
+        Specifies the storage virtual machine in which to create the volume.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    tieringPolicy:
+      $ref: "#/types/aws:fsx/OntapVolumeTieringPolicy:OntapVolumeTieringPolicy"
+    uuid:
+      type: string
+      description: |
+        The Volume's UUID (universally unique identifier).
+    volumeType:
+      type: string
+      description: |
+        The type of volume, currently the only valid value is `ONTAP`.
+  type: object

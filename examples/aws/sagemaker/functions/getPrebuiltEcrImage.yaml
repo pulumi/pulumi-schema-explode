@@ -1,0 +1,54 @@
+$token: aws:sagemaker/getPrebuiltEcrImage:getPrebuiltEcrImage
+inputs:
+  description: |
+    A collection of arguments for invoking getPrebuiltEcrImage.
+  properties:
+    dnsSuffix:
+      type: string
+      description: |
+        DNS suffix to use in the registry path. If not specified, the AWS provider sets it to the DNS suffix for the current region.
+    imageTag:
+      type: string
+      description: |
+        Image tag for the Docker image. If not specified, the AWS provider sets the value to `1`, which for many repositories indicates the latest version. Some repositories, such as XGBoost, do not support `1` or `latest` and specific version must be used.
+    region:
+      type: string
+      description: |
+        Region to use in the registry path. If not specified, the AWS provider sets it to the current region.
+    repositoryName:
+      type: string
+      description: |
+        Name of the repository, which is generally the algorithm or library. Values include `blazingtext`, `factorization-machines`, `forecasting-deepar`, `image-classification`, `ipinsights`, `kmeans`, `knn`, `lda`, `linear-learner`, `mxnet-inference-eia`, `mxnet-inference`, `mxnet-training`, `ntm`, `object-detection`, `object2vec`, `pca`, `pytorch-inference-eia`, `pytorch-inference`, `pytorch-training`, `randomcutforest`, `sagemaker-scikit-learn`, `sagemaker-sparkml-serving`, `sagemaker-xgboost`, `semantic-segmentation`, `seq2seq`, `tensorflow-inference-eia`, `tensorflow-inference`, `tensorflow-training`, `huggingface-tensorflow-training`, `huggingface-tensorflow-inference`, `huggingface-pytorch-training`, and `huggingface-pytorch-inference`.
+  type: object
+  required:
+    - repositoryName
+outputs:
+  description: |
+    A collection of values returned by getPrebuiltEcrImage.
+  properties:
+    dnsSuffix:
+      type: string
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    imageTag:
+      type: string
+    region:
+      type: string
+    registryId:
+      type: string
+      description: |
+        Account ID containing the image. For example, `469771592824`.
+    registryPath:
+      type: string
+      description: |
+        Docker image URL. For example, `341280168497.dkr.ecr.ca-central-1.amazonaws.com/sagemaker-sparkml-serving:2.4`.
+    repositoryName:
+      type: string
+  type: object
+  required:
+    - registryId
+    - registryPath
+    - repositoryName
+    - id

@@ -1,0 +1,40 @@
+$token: aws:connect/InstanceStorageConfigStorageConfig:InstanceStorageConfigStorageConfig
+properties:
+  kinesisFirehoseConfig:
+    $ref: "#/types/aws:connect/InstanceStorageConfigStorageConfigKinesisFirehoseConfig:InstanceStorageConfigStorageConfigKinesisFirehoseConfig"
+    description: |
+      A block that specifies the configuration of the Kinesis Firehose delivery stream. Documented below.
+    language:
+      python:
+        mapCase: false
+  kinesisStreamConfig:
+    $ref: "#/types/aws:connect/InstanceStorageConfigStorageConfigKinesisStreamConfig:InstanceStorageConfigStorageConfigKinesisStreamConfig"
+    description: |
+      A block that specifies the configuration of the Kinesis data stream. Documented below.
+    language:
+      python:
+        mapCase: false
+  kinesisVideoStreamConfig:
+    $ref: "#/types/aws:connect/InstanceStorageConfigStorageConfigKinesisVideoStreamConfig:InstanceStorageConfigStorageConfigKinesisVideoStreamConfig"
+    description: |
+      A block that specifies the configuration of the Kinesis video stream. Documented below.
+    language:
+      python:
+        mapCase: false
+  s3Config:
+    $ref: "#/types/aws:connect/InstanceStorageConfigStorageConfigS3Config:InstanceStorageConfigStorageConfigS3Config"
+    description: |
+      A block that specifies the configuration of S3 Bucket. Documented below.
+    language:
+      python:
+        mapCase: false
+  storageType:
+    type: string
+    description: |
+      A valid storage type. Valid Values: `S3` | `KINESIS_VIDEO_STREAM` | `KINESIS_STREAM` | `KINESIS_FIREHOSE`.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - storageType

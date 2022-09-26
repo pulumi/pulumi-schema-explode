@@ -1,0 +1,68 @@
+$token: aws:memorydb/getSnapshot:getSnapshot
+inputs:
+  description: |
+    A collection of arguments for invoking getSnapshot.
+  properties:
+    name:
+      type: string
+      description: |
+        Name of the snapshot.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags assigned to the snapshot.
+  type: object
+  required:
+    - name
+outputs:
+  description: |
+    A collection of values returned by getSnapshot.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the snapshot.
+    clusterConfigurations:
+      type: array
+      items:
+        $ref: "#/types/aws:memorydb/getSnapshotClusterConfiguration:getSnapshotClusterConfiguration"
+      description: |
+        The configuration of the cluster from which the snapshot was taken.
+    clusterName:
+      type: string
+      description: |
+        Name of the MemoryDB cluster that this snapshot was taken from.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    kmsKeyArn:
+      type: string
+      description: |
+        ARN of the KMS key used to encrypt the snapshot at rest.
+    name:
+      type: string
+      description: |
+        Name of the cluster.
+    source:
+      type: string
+      description: |
+        Whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags assigned to the snapshot.
+  type: object
+  required:
+    - arn
+    - clusterConfigurations
+    - clusterName
+    - kmsKeyArn
+    - name
+    - source
+    - tags
+    - id

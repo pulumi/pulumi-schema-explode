@@ -1,0 +1,128 @@
+$token: aws:redshiftdata/statement:Statement
+properties:
+  clusterIdentifier:
+    type: string
+    description: |
+      The cluster identifier.
+  database:
+    type: string
+    description: |
+      The name of the database.
+  dbUser:
+    type: string
+    description: |
+      The database user name.
+  parameters:
+    type: array
+    items:
+      $ref: "#/types/aws:redshiftdata/StatementParameter:StatementParameter"
+  secretArn:
+    type: string
+    description: |
+      The name or ARN of the secret that enables access to the database.
+  sql:
+    type: string
+    description: |
+      The SQL statement text to run.
+  statementName:
+    type: string
+    description: |
+      The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
+  withEvent:
+    type: boolean
+    description: |
+      A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
+required:
+  - clusterIdentifier
+  - database
+  - sql
+inputProperties:
+  clusterIdentifier:
+    type: string
+    description: |
+      The cluster identifier.
+    willReplaceOnChanges: true
+  database:
+    type: string
+    description: |
+      The name of the database.
+    willReplaceOnChanges: true
+  dbUser:
+    type: string
+    description: |
+      The database user name.
+    willReplaceOnChanges: true
+  parameters:
+    type: array
+    items:
+      $ref: "#/types/aws:redshiftdata/StatementParameter:StatementParameter"
+    willReplaceOnChanges: true
+  secretArn:
+    type: string
+    description: |
+      The name or ARN of the secret that enables access to the database.
+    willReplaceOnChanges: true
+  sql:
+    type: string
+    description: |
+      The SQL statement text to run.
+    willReplaceOnChanges: true
+  statementName:
+    type: string
+    description: |
+      The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
+    willReplaceOnChanges: true
+  withEvent:
+    type: boolean
+    description: |
+      A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
+    willReplaceOnChanges: true
+requiredInputs:
+  - clusterIdentifier
+  - database
+  - sql
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Statement resources.
+  properties:
+    clusterIdentifier:
+      type: string
+      description: |
+        The cluster identifier.
+      willReplaceOnChanges: true
+    database:
+      type: string
+      description: |
+        The name of the database.
+      willReplaceOnChanges: true
+    dbUser:
+      type: string
+      description: |
+        The database user name.
+      willReplaceOnChanges: true
+    parameters:
+      type: array
+      items:
+        $ref: "#/types/aws:redshiftdata/StatementParameter:StatementParameter"
+      willReplaceOnChanges: true
+    secretArn:
+      type: string
+      description: |
+        The name or ARN of the secret that enables access to the database.
+      willReplaceOnChanges: true
+    sql:
+      type: string
+      description: |
+        The SQL statement text to run.
+      willReplaceOnChanges: true
+    statementName:
+      type: string
+      description: |
+        The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
+      willReplaceOnChanges: true
+    withEvent:
+      type: boolean
+      description: |
+        A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
+      willReplaceOnChanges: true
+  type: object

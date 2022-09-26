@@ -1,0 +1,87 @@
+$token: aws:rds/getProxy:getProxy
+inputs:
+  description: |
+    A collection of arguments for invoking getProxy.
+  properties:
+    name:
+      type: string
+      description: |
+        Name of the DB proxy.
+  type: object
+  required:
+    - name
+outputs:
+  description: |
+    A collection of values returned by getProxy.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the DB Proxy.
+    auths:
+      type: array
+      items:
+        $ref: "#/types/aws:rds/getProxyAuth:getProxyAuth"
+      description: |
+        Configuration(s) with authorization mechanisms to connect to the associated instance or cluster.
+    debugLogging:
+      type: boolean
+      description: |
+        Whether the proxy includes detailed information about SQL statements in its logs.
+    endpoint:
+      type: string
+      description: |
+        Endpoint that you can use to connect to the DB proxy.
+    engineFamily:
+      type: string
+      description: |
+        Kinds of databases that the proxy can connect to.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    idleClientTimeout:
+      type: integer
+      description: |
+        Number of seconds a connection to the proxy can have no activity before the proxy drops the client connection.
+    name:
+      type: string
+    requireTls:
+      type: boolean
+      description: |
+        Whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
+    roleArn:
+      type: string
+      description: |
+        ARN for the IAM role that the proxy uses to access Amazon Secrets Manager.
+    vpcId:
+      type: string
+      description: |
+        Provides the VPC ID of the DB proxy.
+    vpcSecurityGroupIds:
+      type: array
+      items:
+        type: string
+      description: |
+        Provides a list of VPC security groups that the proxy belongs to.
+    vpcSubnetIds:
+      type: array
+      items:
+        type: string
+      description: |
+        EC2 subnet IDs for the proxy.
+  type: object
+  required:
+    - arn
+    - auths
+    - debugLogging
+    - endpoint
+    - engineFamily
+    - idleClientTimeout
+    - name
+    - requireTls
+    - roleArn
+    - vpcId
+    - vpcSecurityGroupIds
+    - vpcSubnetIds
+    - id

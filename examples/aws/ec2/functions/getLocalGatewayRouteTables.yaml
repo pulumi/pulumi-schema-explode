@@ -1,0 +1,48 @@
+$token: aws:ec2/getLocalGatewayRouteTables:getLocalGatewayRouteTables
+description: |
+  Provides information for multiple EC2 Local Gateway Route Tables, such as their identifiers.
+inputs:
+  description: |
+    A collection of arguments for invoking getLocalGatewayRouteTables.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getLocalGatewayRouteTablesFilter:getLocalGatewayRouteTablesFilter"
+      description: |
+        Custom filter block as described below.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Mapping of tags, each pair of which must exactly match
+        a pair on the desired local gateway route table.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getLocalGatewayRouteTables.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getLocalGatewayRouteTablesFilter:getLocalGatewayRouteTablesFilter"
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    ids:
+      type: array
+      items:
+        type: string
+      description: |
+        Set of Local Gateway Route Table identifiers
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+  type: object
+  required:
+    - ids
+    - tags
+    - id

@@ -1,0 +1,24 @@
+$token: aws:ec2/getVpcPeeringConnectionFilter:getVpcPeeringConnectionFilter
+properties:
+  name:
+    type: string
+    description: |
+      Name of the field to filter by, as defined by
+      [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+    language:
+      python:
+        mapCase: false
+  values:
+    type: array
+    items:
+      type: string
+    description: |
+      Set of values that are accepted for the given field.
+      A VPC Peering Connection will be selected if any one of the given values matches.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - name
+  - values

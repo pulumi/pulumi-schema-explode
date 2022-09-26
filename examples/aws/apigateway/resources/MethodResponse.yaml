@@ -1,0 +1,122 @@
+$token: aws:apigateway/methodResponse:MethodResponse
+properties:
+  httpMethod:
+    type: string
+    description: |
+      HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+  resourceId:
+    type: string
+    description: |
+      API resource ID
+  responseModels:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of the API models used for the response's content type
+  responseParameters:
+    type: object
+    additionalProperties:
+      type: boolean
+    description: |
+      Map of response parameters that can be sent to the caller.
+      For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
+      would define that the header `X-Some-Header` can be provided on the response.
+  restApi:
+    type: string
+    description: |
+      ID of the associated REST API
+  statusCode:
+    type: string
+    description: |
+      HTTP status code
+required:
+  - httpMethod
+  - resourceId
+  - restApi
+  - statusCode
+inputProperties:
+  httpMethod:
+    type: string
+    description: |
+      HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+    willReplaceOnChanges: true
+  resourceId:
+    type: string
+    description: |
+      API resource ID
+    willReplaceOnChanges: true
+  responseModels:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of the API models used for the response's content type
+  responseParameters:
+    type: object
+    additionalProperties:
+      type: boolean
+    description: |
+      Map of response parameters that can be sent to the caller.
+      For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
+      would define that the header `X-Some-Header` can be provided on the response.
+  restApi:
+    type: string
+    oneOf:
+      - type: string
+      - type: string
+        $ref: "#/types/aws:apigateway/restApi:RestApi"
+    description: |
+      ID of the associated REST API
+    willReplaceOnChanges: true
+  statusCode:
+    type: string
+    description: |
+      HTTP status code
+requiredInputs:
+  - httpMethod
+  - resourceId
+  - restApi
+  - statusCode
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering MethodResponse resources.
+  properties:
+    httpMethod:
+      type: string
+      description: |
+        HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+      willReplaceOnChanges: true
+    resourceId:
+      type: string
+      description: |
+        API resource ID
+      willReplaceOnChanges: true
+    responseModels:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of the API models used for the response's content type
+    responseParameters:
+      type: object
+      additionalProperties:
+        type: boolean
+      description: |
+        Map of response parameters that can be sent to the caller.
+        For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
+        would define that the header `X-Some-Header` can be provided on the response.
+    restApi:
+      type: string
+      oneOf:
+        - type: string
+        - type: string
+          $ref: "#/types/aws:apigateway/restApi:RestApi"
+      description: |
+        ID of the associated REST API
+      willReplaceOnChanges: true
+    statusCode:
+      type: string
+      description: |
+        HTTP status code
+  type: object

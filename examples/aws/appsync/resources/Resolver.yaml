@@ -1,0 +1,163 @@
+$token: aws:appsync/resolver:Resolver
+properties:
+  apiId:
+    type: string
+    description: |
+      API ID for the GraphQL API.
+  arn:
+    type: string
+    description: |
+      ARN
+  cachingConfig:
+    $ref: "#/types/aws:appsync/ResolverCachingConfig:ResolverCachingConfig"
+    description: |
+      CachingConfig.
+  dataSource:
+    type: string
+    description: |
+      Data source name.
+  field:
+    type: string
+    description: |
+      Field name from the schema defined in the GraphQL API.
+  kind:
+    type: string
+    description: |
+      Resolver type. Valid values are `UNIT` and `PIPELINE`.
+  maxBatchSize:
+    type: integer
+    description: |
+      Maximum batching size for a resolver. Valid values are between `0` and `2000`.
+  pipelineConfig:
+    $ref: "#/types/aws:appsync/ResolverPipelineConfig:ResolverPipelineConfig"
+    description: |
+      PipelineConfig.
+  requestTemplate:
+    type: string
+    description: |
+      Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+  responseTemplate:
+    type: string
+    description: |
+      Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+  syncConfig:
+    $ref: "#/types/aws:appsync/ResolverSyncConfig:ResolverSyncConfig"
+    description: |
+      Describes a Sync configuration for a resolver. See Sync Config.
+  type:
+    type: string
+    description: |
+      Type name from the schema defined in the GraphQL API.
+required:
+  - apiId
+  - arn
+  - field
+  - type
+inputProperties:
+  apiId:
+    type: string
+    description: |
+      API ID for the GraphQL API.
+    willReplaceOnChanges: true
+  cachingConfig:
+    $ref: "#/types/aws:appsync/ResolverCachingConfig:ResolverCachingConfig"
+    description: |
+      CachingConfig.
+  dataSource:
+    type: string
+    description: |
+      Data source name.
+  field:
+    type: string
+    description: |
+      Field name from the schema defined in the GraphQL API.
+    willReplaceOnChanges: true
+  kind:
+    type: string
+    description: |
+      Resolver type. Valid values are `UNIT` and `PIPELINE`.
+  maxBatchSize:
+    type: integer
+    description: |
+      Maximum batching size for a resolver. Valid values are between `0` and `2000`.
+  pipelineConfig:
+    $ref: "#/types/aws:appsync/ResolverPipelineConfig:ResolverPipelineConfig"
+    description: |
+      PipelineConfig.
+  requestTemplate:
+    type: string
+    description: |
+      Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+  responseTemplate:
+    type: string
+    description: |
+      Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+  syncConfig:
+    $ref: "#/types/aws:appsync/ResolverSyncConfig:ResolverSyncConfig"
+    description: |
+      Describes a Sync configuration for a resolver. See Sync Config.
+  type:
+    type: string
+    description: |
+      Type name from the schema defined in the GraphQL API.
+    willReplaceOnChanges: true
+requiredInputs:
+  - apiId
+  - field
+  - type
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Resolver resources.
+  properties:
+    apiId:
+      type: string
+      description: |
+        API ID for the GraphQL API.
+      willReplaceOnChanges: true
+    arn:
+      type: string
+      description: |
+        ARN
+    cachingConfig:
+      $ref: "#/types/aws:appsync/ResolverCachingConfig:ResolverCachingConfig"
+      description: |
+        CachingConfig.
+    dataSource:
+      type: string
+      description: |
+        Data source name.
+    field:
+      type: string
+      description: |
+        Field name from the schema defined in the GraphQL API.
+      willReplaceOnChanges: true
+    kind:
+      type: string
+      description: |
+        Resolver type. Valid values are `UNIT` and `PIPELINE`.
+    maxBatchSize:
+      type: integer
+      description: |
+        Maximum batching size for a resolver. Valid values are between `0` and `2000`.
+    pipelineConfig:
+      $ref: "#/types/aws:appsync/ResolverPipelineConfig:ResolverPipelineConfig"
+      description: |
+        PipelineConfig.
+    requestTemplate:
+      type: string
+      description: |
+        Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+    responseTemplate:
+      type: string
+      description: |
+        Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+    syncConfig:
+      $ref: "#/types/aws:appsync/ResolverSyncConfig:ResolverSyncConfig"
+      description: |
+        Describes a Sync configuration for a resolver. See Sync Config.
+    type:
+      type: string
+      description: |
+        Type name from the schema defined in the GraphQL API.
+      willReplaceOnChanges: true
+  type: object

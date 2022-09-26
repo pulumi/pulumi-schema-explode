@@ -1,0 +1,151 @@
+$token: aws:elasticache/getCluster:getCluster
+inputs:
+  description: |
+    A collection of arguments for invoking getCluster.
+  properties:
+    clusterId:
+      type: string
+      description: |
+        Group identifier.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Tags assigned to the resource
+  type: object
+  required:
+    - clusterId
+outputs:
+  description: |
+    A collection of values returned by getCluster.
+  properties:
+    arn:
+      type: string
+    availabilityZone:
+      type: string
+      description: |
+        Availability Zone for the cache cluster.
+    cacheNodes:
+      type: array
+      items:
+        $ref: "#/types/aws:elasticache/getClusterCacheNode:getClusterCacheNode"
+      description: |
+        List of node objects including `id`, `address`, `port` and `availability_zone`.
+        Referenceable e.g., as `${data.aws_elasticache_cluster.bar.cache_nodes.0.address}`
+    clusterAddress:
+      type: string
+      description: |
+        (Memcached only) DNS name of the cache cluster without the port appended.
+    clusterId:
+      type: string
+    configurationEndpoint:
+      type: string
+      description: |
+        (Memcached only) Configuration endpoint to allow host discovery.
+    engine:
+      type: string
+      description: |
+        Name of the cache engine.
+    engineVersion:
+      type: string
+      description: |
+        Version number of the cache engine.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    logDeliveryConfigurations:
+      type: array
+      items:
+        $ref: "#/types/aws:elasticache/getClusterLogDeliveryConfiguration:getClusterLogDeliveryConfiguration"
+      description: |
+        Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log) delivery settings.
+    maintenanceWindow:
+      type: string
+      description: |
+        Specifies the weekly time range for when maintenance
+        on the cache cluster is performed.
+    nodeType:
+      type: string
+      description: |
+        The cluster node type.
+    notificationTopicArn:
+      type: string
+      description: |
+        An ARN of an
+        SNS topic that ElastiCache notifications get sent to.
+    numCacheNodes:
+      type: integer
+      description: |
+        The number of cache nodes that the cache cluster has.
+    parameterGroupName:
+      type: string
+      description: |
+        Name of the parameter group associated with this cache cluster.
+    port:
+      type: integer
+      description: |
+        The port number on which each of the cache nodes will
+        accept connections.
+    replicationGroupId:
+      type: string
+      description: |
+        The replication group to which this cache cluster belongs.
+    securityGroupIds:
+      type: array
+      items:
+        type: string
+      description: |
+        List VPC security groups associated with the cache cluster.
+    securityGroupNames:
+      type: array
+      items:
+        type: string
+      description: |
+        List of security group names associated with this cache cluster.
+    snapshotRetentionLimit:
+      type: integer
+      description: |
+        The number of days for which ElastiCache will
+        retain automatic cache cluster snapshots before deleting them.
+    snapshotWindow:
+      type: string
+      description: |
+        Daily time range (in UTC) during which ElastiCache will
+        begin taking a daily snapshot of the cache cluster.
+    subnetGroupName:
+      type: string
+      description: |
+        Name of the subnet group associated to the cache cluster.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Tags assigned to the resource
+  type: object
+  required:
+    - arn
+    - availabilityZone
+    - cacheNodes
+    - clusterAddress
+    - clusterId
+    - configurationEndpoint
+    - engine
+    - engineVersion
+    - logDeliveryConfigurations
+    - maintenanceWindow
+    - nodeType
+    - notificationTopicArn
+    - numCacheNodes
+    - parameterGroupName
+    - port
+    - replicationGroupId
+    - securityGroupIds
+    - securityGroupNames
+    - snapshotRetentionLimit
+    - snapshotWindow
+    - subnetGroupName
+    - tags
+    - id

@@ -1,0 +1,52 @@
+$token: aws:opensearch/DomainSamlOptionsSamlOptions:DomainSamlOptionsSamlOptions
+properties:
+  enabled:
+    type: boolean
+    description: |
+      Whether SAML authentication is enabled.
+    language:
+      python:
+        mapCase: false
+  idp:
+    $ref: "#/types/aws:opensearch/DomainSamlOptionsSamlOptionsIdp:DomainSamlOptionsSamlOptionsIdp"
+    description: |
+      Information from your identity provider.
+    language:
+      python:
+        mapCase: false
+  masterBackendRole:
+    type: string
+    description: |
+      This backend role from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
+    language:
+      python:
+        mapCase: false
+  masterUserName:
+    type: string
+    description: |
+      This username from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
+    language:
+      python:
+        mapCase: false
+  rolesKey:
+    type: string
+    description: |
+      Element of the SAML assertion to use for backend roles. Default is roles.
+    language:
+      python:
+        mapCase: false
+  sessionTimeoutMinutes:
+    type: integer
+    description: |
+      Duration of a session in minutes after a user logs in. Default is 60. Maximum value is 1,440.
+    language:
+      python:
+        mapCase: false
+  subjectKey:
+    type: string
+    description: |
+      Element of the SAML assertion to use for username. Default is NameID.
+    language:
+      python:
+        mapCase: false
+type: object

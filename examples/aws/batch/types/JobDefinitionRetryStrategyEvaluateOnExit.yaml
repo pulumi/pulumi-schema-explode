@@ -1,0 +1,37 @@
+$token: aws:batch/JobDefinitionRetryStrategyEvaluateOnExit:JobDefinitionRetryStrategyEvaluateOnExit
+properties:
+  action:
+    type: string
+    description: |
+      Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `RETRY`, `EXIT`.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  onExitCode:
+    type: string
+    description: |
+      A glob pattern to match against the decimal representation of the exit code returned for a job.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  onReason:
+    type: string
+    description: |
+      A glob pattern to match against the reason returned for a job.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  onStatusReason:
+    type: string
+    description: |
+      A glob pattern to match against the status reason returned for a job.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+type: object
+required:
+  - action

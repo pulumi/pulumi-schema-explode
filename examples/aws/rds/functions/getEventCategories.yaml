@@ -1,0 +1,30 @@
+$token: aws:rds/getEventCategories:getEventCategories
+inputs:
+  description: |
+    A collection of arguments for invoking getEventCategories.
+  properties:
+    sourceType:
+      type: string
+      description: |
+        Type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getEventCategories.
+  properties:
+    eventCategories:
+      type: array
+      items:
+        type: string
+      description: |
+        List of the event categories.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    sourceType:
+      type: string
+  type: object
+  required:
+    - eventCategories
+    - id

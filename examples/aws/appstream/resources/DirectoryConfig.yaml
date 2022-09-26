@@ -1,0 +1,69 @@
+$token: aws:appstream/directoryConfig:DirectoryConfig
+properties:
+  createdTime:
+    type: string
+    description: |
+      Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
+  directoryName:
+    type: string
+    description: |
+      Fully qualified name of the directory.
+  organizationalUnitDistinguishedNames:
+    type: array
+    items:
+      type: string
+    description: |
+      Distinguished names of the organizational units for computer accounts.
+  serviceAccountCredentials:
+    $ref: "#/types/aws:appstream/DirectoryConfigServiceAccountCredentials:DirectoryConfigServiceAccountCredentials"
+    description: |
+      Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.
+required:
+  - createdTime
+  - directoryName
+  - organizationalUnitDistinguishedNames
+  - serviceAccountCredentials
+inputProperties:
+  directoryName:
+    type: string
+    description: |
+      Fully qualified name of the directory.
+    willReplaceOnChanges: true
+  organizationalUnitDistinguishedNames:
+    type: array
+    items:
+      type: string
+    description: |
+      Distinguished names of the organizational units for computer accounts.
+  serviceAccountCredentials:
+    $ref: "#/types/aws:appstream/DirectoryConfigServiceAccountCredentials:DirectoryConfigServiceAccountCredentials"
+    description: |
+      Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.
+requiredInputs:
+  - directoryName
+  - organizationalUnitDistinguishedNames
+  - serviceAccountCredentials
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering DirectoryConfig resources.
+  properties:
+    createdTime:
+      type: string
+      description: |
+        Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
+    directoryName:
+      type: string
+      description: |
+        Fully qualified name of the directory.
+      willReplaceOnChanges: true
+    organizationalUnitDistinguishedNames:
+      type: array
+      items:
+        type: string
+      description: |
+        Distinguished names of the organizational units for computer accounts.
+    serviceAccountCredentials:
+      $ref: "#/types/aws:appstream/DirectoryConfigServiceAccountCredentials:DirectoryConfigServiceAccountCredentials"
+      description: |
+        Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.
+  type: object

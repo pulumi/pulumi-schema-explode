@@ -1,0 +1,105 @@
+$token: aws:apprunner/observabilityConfiguration:ObservabilityConfiguration
+properties:
+  arn:
+    type: string
+    description: |
+      ARN of this observability configuration.
+  latest:
+    type: boolean
+    description: |
+      Whether the observability configuration has the highest `observability_configuration_revision` among all configurations that share the same `observability_configuration_name`.
+  observabilityConfigurationName:
+    type: string
+    description: |
+      Name of the observability configuration.
+  observabilityConfigurationRevision:
+    type: integer
+    description: |
+      The revision of this observability configuration.
+  status:
+    type: string
+    description: |
+      Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  traceConfiguration:
+    $ref: "#/types/aws:apprunner/ObservabilityConfigurationTraceConfiguration:ObservabilityConfigurationTraceConfiguration"
+    description: |
+      Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
+required:
+  - arn
+  - latest
+  - observabilityConfigurationName
+  - observabilityConfigurationRevision
+  - status
+  - tagsAll
+inputProperties:
+  observabilityConfigurationName:
+    type: string
+    description: |
+      Name of the observability configuration.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  traceConfiguration:
+    $ref: "#/types/aws:apprunner/ObservabilityConfigurationTraceConfiguration:ObservabilityConfigurationTraceConfiguration"
+    description: |
+      Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
+requiredInputs:
+  - observabilityConfigurationName
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering ObservabilityConfiguration resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of this observability configuration.
+    latest:
+      type: boolean
+      description: |
+        Whether the observability configuration has the highest `observability_configuration_revision` among all configurations that share the same `observability_configuration_name`.
+    observabilityConfigurationName:
+      type: string
+      description: |
+        Name of the observability configuration.
+      willReplaceOnChanges: true
+    observabilityConfigurationRevision:
+      type: integer
+      description: |
+        The revision of this observability configuration.
+    status:
+      type: string
+      description: |
+        Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    traceConfiguration:
+      $ref: "#/types/aws:apprunner/ObservabilityConfigurationTraceConfiguration:ObservabilityConfigurationTraceConfiguration"
+      description: |
+        Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
+  type: object

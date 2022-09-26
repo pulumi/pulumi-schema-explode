@@ -1,0 +1,88 @@
+$token: aws:kendra/getExperience:getExperience
+inputs:
+  description: |
+    A collection of arguments for invoking getExperience.
+  properties:
+    experienceId:
+      type: string
+      description: |
+        Identifier of the Experience.
+    indexId:
+      type: string
+      description: |
+        Identifier of the index that contains the Experience.
+  type: object
+  required:
+    - experienceId
+    - indexId
+outputs:
+  description: |
+    A collection of values returned by getExperience.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the Experience.
+    configurations:
+      type: array
+      items:
+        $ref: "#/types/aws:kendra/getExperienceConfiguration:getExperienceConfiguration"
+      description: |
+        Block that specifies the configuration information for your Amazon Kendra Experience. This includes `content_source_configuration`, which specifies the data source IDs and/or FAQ IDs, and `user_identity_configuration`, which specifies the user or group information to grant access to your Amazon Kendra Experience. Documented below.
+    createdAt:
+      type: string
+      description: |
+        Unix datetime that the Experience was created.
+    description:
+      type: string
+      description: |
+        Description of the Experience.
+    endpoints:
+      type: array
+      items:
+        $ref: "#/types/aws:kendra/getExperienceEndpoint:getExperienceEndpoint"
+      description: |
+        Shows the endpoint URLs for your Amazon Kendra Experiences. The URLs are unique and fully hosted by AWS. Documented below.
+    errorMessage:
+      type: string
+      description: |
+        Reason your Amazon Kendra Experience could not properly process.
+    experienceId:
+      type: string
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    indexId:
+      type: string
+    name:
+      type: string
+      description: |
+        Name of the Experience.
+    roleArn:
+      type: string
+      description: |
+        Shows the ARN of a role with permission to access `Query` API, `QuerySuggestions` API, `SubmitFeedback` API, and AWS SSO that stores your user and group information.
+    status:
+      type: string
+      description: |
+        Current processing status of your Amazon Kendra Experience. When the status is `ACTIVE`, your Amazon Kendra Experience is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that this failed.
+    updatedAt:
+      type: string
+      description: |
+        Date and time that the Experience was last updated.
+  type: object
+  required:
+    - arn
+    - configurations
+    - createdAt
+    - description
+    - endpoints
+    - errorMessage
+    - experienceId
+    - indexId
+    - name
+    - roleArn
+    - status
+    - updatedAt
+    - id

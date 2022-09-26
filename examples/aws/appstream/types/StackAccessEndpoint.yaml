@@ -1,0 +1,24 @@
+$token: aws:appstream/StackAccessEndpoint:StackAccessEndpoint
+properties:
+  endpointType:
+    type: string
+    description: |
+      Type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
+    language:
+      python:
+        mapCase: false
+  vpceId:
+    type: string
+    description: |
+      ID of the VPC in which the interface endpoint is used.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - endpointType
+language:
+  nodejs:
+    requiredOutputs:
+      - endpointType
+      - vpceId

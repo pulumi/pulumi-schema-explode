@@ -1,0 +1,140 @@
+$token: aws:elasticache/user:User
+properties:
+  accessString:
+    type: string
+    description: |
+      Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
+  arn:
+    type: string
+    description: |
+      The ARN of the created ElastiCache User.
+  engine:
+    type: string
+    description: |
+      The current supported value is `REDIS`.
+  noPasswordRequired:
+    type: boolean
+    description: |
+      Indicates a password is not required for this user.
+  passwords:
+    type: array
+    items:
+      type: string
+    description: |
+      Passwords used for this user. You can create up to two passwords for each user.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A list of tags to be added to this resource. A tag is a key-value pair.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+  userId:
+    type: string
+    description: |
+      The ID of the user.
+  userName:
+    type: string
+    description: |
+      The username of the user.
+required:
+  - accessString
+  - arn
+  - engine
+  - tagsAll
+  - userId
+  - userName
+inputProperties:
+  accessString:
+    type: string
+    description: |
+      Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
+  arn:
+    type: string
+    description: |
+      The ARN of the created ElastiCache User.
+  engine:
+    type: string
+    description: |
+      The current supported value is `REDIS`.
+    willReplaceOnChanges: true
+  noPasswordRequired:
+    type: boolean
+    description: |
+      Indicates a password is not required for this user.
+  passwords:
+    type: array
+    items:
+      type: string
+    description: |
+      Passwords used for this user. You can create up to two passwords for each user.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A list of tags to be added to this resource. A tag is a key-value pair.
+  userId:
+    type: string
+    description: |
+      The ID of the user.
+  userName:
+    type: string
+    description: |
+      The username of the user.
+    willReplaceOnChanges: true
+requiredInputs:
+  - accessString
+  - engine
+  - userId
+  - userName
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering User resources.
+  properties:
+    accessString:
+      type: string
+      description: |
+        Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
+    arn:
+      type: string
+      description: |
+        The ARN of the created ElastiCache User.
+    engine:
+      type: string
+      description: |
+        The current supported value is `REDIS`.
+      willReplaceOnChanges: true
+    noPasswordRequired:
+      type: boolean
+      description: |
+        Indicates a password is not required for this user.
+    passwords:
+      type: array
+      items:
+        type: string
+      description: |
+        Passwords used for this user. You can create up to two passwords for each user.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A list of tags to be added to this resource. A tag is a key-value pair.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+    userId:
+      type: string
+      description: |
+        The ID of the user.
+    userName:
+      type: string
+      description: |
+        The username of the user.
+      willReplaceOnChanges: true
+  type: object

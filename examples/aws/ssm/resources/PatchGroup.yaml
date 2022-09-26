@@ -1,0 +1,51 @@
+$token: aws:ssm/patchGroup:PatchGroup
+properties:
+  baselineId:
+    type: string
+    description: |
+      The ID of the patch baseline to register the patch group with.
+  patchGroup:
+    type: string
+    description: |
+      The name of the patch group that should be registered with the patch baseline.
+    language:
+      csharp:
+        name: PatchGroupName
+required:
+  - baselineId
+  - patchGroup
+inputProperties:
+  baselineId:
+    type: string
+    description: |
+      The ID of the patch baseline to register the patch group with.
+    willReplaceOnChanges: true
+  patchGroup:
+    type: string
+    description: |
+      The name of the patch group that should be registered with the patch baseline.
+    language:
+      csharp:
+        name: PatchGroupName
+    willReplaceOnChanges: true
+requiredInputs:
+  - baselineId
+  - patchGroup
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering PatchGroup resources.
+  properties:
+    baselineId:
+      type: string
+      description: |
+        The ID of the patch baseline to register the patch group with.
+      willReplaceOnChanges: true
+    patchGroup:
+      type: string
+      description: |
+        The name of the patch group that should be registered with the patch baseline.
+      language:
+        csharp:
+          name: PatchGroupName
+      willReplaceOnChanges: true
+  type: object

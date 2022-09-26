@@ -1,0 +1,127 @@
+$token: aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList
+properties:
+  arn:
+    type: string
+    description: |
+      ARN of the block list.
+  description:
+    type: string
+    description: |
+      The description for a block list.
+  indexId:
+    type: string
+    description: |
+      The identifier of the index for a block list.
+  name:
+    type: string
+    description: |
+      The name for the block list.
+  querySuggestionsBlockListId:
+    type: string
+    description: |
+      The unique indentifier of the block list.
+  roleArn:
+    type: string
+    description: |
+      The IAM (Identity and Access Management) role used to access the block list text file in S3.
+  sourceS3Path:
+    $ref: "#/types/aws:kendra/QuerySuggestionsBlockListSourceS3Path:QuerySuggestionsBlockListSourceS3Path"
+    description: |
+      The S3 path where your block list text file sits in S3. Detailed below.
+  status:
+    type: string
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - arn
+  - indexId
+  - name
+  - querySuggestionsBlockListId
+  - roleArn
+  - sourceS3Path
+  - status
+  - tagsAll
+inputProperties:
+  description:
+    type: string
+    description: |
+      The description for a block list.
+  indexId:
+    type: string
+    description: |
+      The identifier of the index for a block list.
+    willReplaceOnChanges: true
+  name:
+    type: string
+    description: |
+      The name for the block list.
+  roleArn:
+    type: string
+    description: |
+      The IAM (Identity and Access Management) role used to access the block list text file in S3.
+  sourceS3Path:
+    $ref: "#/types/aws:kendra/QuerySuggestionsBlockListSourceS3Path:QuerySuggestionsBlockListSourceS3Path"
+    description: |
+      The S3 path where your block list text file sits in S3. Detailed below.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+requiredInputs:
+  - indexId
+  - roleArn
+  - sourceS3Path
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering QuerySuggestionsBlockList resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the block list.
+    description:
+      type: string
+      description: |
+        The description for a block list.
+    indexId:
+      type: string
+      description: |
+        The identifier of the index for a block list.
+      willReplaceOnChanges: true
+    name:
+      type: string
+      description: |
+        The name for the block list.
+    querySuggestionsBlockListId:
+      type: string
+      description: |
+        The unique indentifier of the block list.
+    roleArn:
+      type: string
+      description: |
+        The IAM (Identity and Access Management) role used to access the block list text file in S3.
+    sourceS3Path:
+      $ref: "#/types/aws:kendra/QuerySuggestionsBlockListSourceS3Path:QuerySuggestionsBlockListSourceS3Path"
+      description: |
+        The S3 path where your block list text file sits in S3. Detailed below.
+    status:
+      type: string
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

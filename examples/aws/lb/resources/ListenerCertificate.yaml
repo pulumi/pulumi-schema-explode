@@ -1,0 +1,44 @@
+$token: aws:lb/listenerCertificate:ListenerCertificate
+properties:
+  certificateArn:
+    type: string
+    description: |
+      The ARN of the certificate to attach to the listener.
+  listenerArn:
+    type: string
+    description: |
+      The ARN of the listener to which to attach the certificate.
+required:
+  - certificateArn
+  - listenerArn
+inputProperties:
+  certificateArn:
+    type: string
+    description: |
+      The ARN of the certificate to attach to the listener.
+    willReplaceOnChanges: true
+  listenerArn:
+    type: string
+    description: |
+      The ARN of the listener to which to attach the certificate.
+    willReplaceOnChanges: true
+requiredInputs:
+  - certificateArn
+  - listenerArn
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering ListenerCertificate resources.
+  properties:
+    certificateArn:
+      type: string
+      description: |
+        The ARN of the certificate to attach to the listener.
+      willReplaceOnChanges: true
+    listenerArn:
+      type: string
+      description: |
+        The ARN of the listener to which to attach the certificate.
+      willReplaceOnChanges: true
+  type: object
+aliases:
+  - type: aws:elasticloadbalancingv2/listenerCertificate:ListenerCertificate

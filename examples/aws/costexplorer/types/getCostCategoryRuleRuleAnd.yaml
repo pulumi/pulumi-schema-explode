@@ -1,0 +1,37 @@
+$token: aws:costexplorer/getCostCategoryRuleRuleAnd:getCostCategoryRuleRuleAnd
+properties:
+  costCategories:
+    type: array
+    items:
+      $ref: "#/types/aws:costexplorer/getCostCategoryRuleRuleAndCostCategory:getCostCategoryRuleRuleAndCostCategory"
+    description: |
+      Configuration block for the filter that's based on `CostCategory` values. See below.
+    language:
+      python:
+        mapCase: false
+  dimensions:
+    type: array
+    items:
+      $ref: "#/types/aws:costexplorer/getCostCategoryRuleRuleAndDimension:getCostCategoryRuleRuleAndDimension"
+    description: |
+      Configuration block for the specific `Dimension` to use for `Expression`. See below.
+    language:
+      python:
+        mapCase: false
+  tags:
+    type: array
+    items:
+      $ref: "#/types/aws:costexplorer/getCostCategoryRuleRuleAndTag:getCostCategoryRuleRuleAndTag"
+    description: |
+      Resource tags.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - costCategories
+  - dimensions
+  - tags
+language:
+  nodejs:
+    requiredInputs: []

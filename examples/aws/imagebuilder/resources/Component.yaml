@@ -1,0 +1,224 @@
+$token: aws:imagebuilder/component:Component
+properties:
+  arn:
+    type: string
+    description: |
+      (Required) Amazon Resource Name (ARN) of the component.
+  changeDescription:
+    type: string
+    description: |
+      Change description of the component.
+  data:
+    type: string
+    description: |
+      Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
+  dateCreated:
+    type: string
+    description: |
+      Date the component was created.
+  description:
+    type: string
+    description: |
+      Description of the component.
+  encrypted:
+    type: boolean
+    description: |
+      Encryption status of the component.
+  kmsKeyId:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
+  name:
+    type: string
+    description: |
+      Name of the component.
+  owner:
+    type: string
+    description: |
+      Owner of the component.
+  platform:
+    type: string
+    description: |
+      Platform of the component.
+  supportedOsVersions:
+    type: array
+    items:
+      type: string
+    description: |
+      Set of Operating Systems (OS) supported by the component.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags for the component. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type:
+    type: string
+    description: |
+      Type of the component.
+  uri:
+    type: string
+    description: |
+      S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
+  version:
+    type: string
+    description: |
+      Version of the component.
+required:
+  - arn
+  - data
+  - dateCreated
+  - encrypted
+  - name
+  - owner
+  - platform
+  - tagsAll
+  - type
+  - version
+inputProperties:
+  changeDescription:
+    type: string
+    description: |
+      Change description of the component.
+    willReplaceOnChanges: true
+  data:
+    type: string
+    description: |
+      Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
+    willReplaceOnChanges: true
+  description:
+    type: string
+    description: |
+      Description of the component.
+    willReplaceOnChanges: true
+  kmsKeyId:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
+    willReplaceOnChanges: true
+  name:
+    type: string
+    description: |
+      Name of the component.
+    willReplaceOnChanges: true
+  platform:
+    type: string
+    description: |
+      Platform of the component.
+    willReplaceOnChanges: true
+  supportedOsVersions:
+    type: array
+    items:
+      type: string
+    description: |
+      Set of Operating Systems (OS) supported by the component.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags for the component. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  uri:
+    type: string
+    description: |
+      S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
+    willReplaceOnChanges: true
+  version:
+    type: string
+    description: |
+      Version of the component.
+    willReplaceOnChanges: true
+requiredInputs:
+  - platform
+  - version
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Component resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        (Required) Amazon Resource Name (ARN) of the component.
+    changeDescription:
+      type: string
+      description: |
+        Change description of the component.
+      willReplaceOnChanges: true
+    data:
+      type: string
+      description: |
+        Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
+      willReplaceOnChanges: true
+    dateCreated:
+      type: string
+      description: |
+        Date the component was created.
+    description:
+      type: string
+      description: |
+        Description of the component.
+      willReplaceOnChanges: true
+    encrypted:
+      type: boolean
+      description: |
+        Encryption status of the component.
+    kmsKeyId:
+      type: string
+      description: |
+        Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
+      willReplaceOnChanges: true
+    name:
+      type: string
+      description: |
+        Name of the component.
+      willReplaceOnChanges: true
+    owner:
+      type: string
+      description: |
+        Owner of the component.
+    platform:
+      type: string
+      description: |
+        Platform of the component.
+      willReplaceOnChanges: true
+    supportedOsVersions:
+      type: array
+      items:
+        type: string
+      description: |
+        Set of Operating Systems (OS) supported by the component.
+      willReplaceOnChanges: true
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags for the component. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    type:
+      type: string
+      description: |
+        Type of the component.
+    uri:
+      type: string
+      description: |
+        S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
+      willReplaceOnChanges: true
+    version:
+      type: string
+      description: |
+        Version of the component.
+      willReplaceOnChanges: true
+  type: object

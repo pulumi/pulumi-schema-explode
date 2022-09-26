@@ -1,0 +1,42 @@
+$token: aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration
+properties:
+  globalNetworkId:
+    type: string
+    description: |
+      The ID of the Global Network to register to.
+  transitGatewayArn:
+    type: string
+    description: |
+      The ARN of the Transit Gateway to register.
+required:
+  - globalNetworkId
+  - transitGatewayArn
+inputProperties:
+  globalNetworkId:
+    type: string
+    description: |
+      The ID of the Global Network to register to.
+    willReplaceOnChanges: true
+  transitGatewayArn:
+    type: string
+    description: |
+      The ARN of the Transit Gateway to register.
+    willReplaceOnChanges: true
+requiredInputs:
+  - globalNetworkId
+  - transitGatewayArn
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering TransitGatewayRegistration resources.
+  properties:
+    globalNetworkId:
+      type: string
+      description: |
+        The ID of the Global Network to register to.
+      willReplaceOnChanges: true
+    transitGatewayArn:
+      type: string
+      description: |
+        The ARN of the Transit Gateway to register.
+      willReplaceOnChanges: true
+  type: object

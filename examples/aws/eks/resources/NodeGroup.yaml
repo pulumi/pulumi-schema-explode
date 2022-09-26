@@ -1,0 +1,343 @@
+$token: aws:eks/nodeGroup:NodeGroup
+properties:
+  amiType:
+    type: string
+    description: |
+      Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
+  arn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the EKS Node Group.
+  capacityType:
+    type: string
+    description: |
+      Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
+  clusterName:
+    type: string
+    description: |
+      Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+  diskSize:
+    type: integer
+    description: |
+      Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
+  forceUpdateVersion:
+    type: boolean
+    description: |
+      Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
+  instanceTypes:
+    type: array
+    items:
+      type: string
+    description: |
+      List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
+  labels:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
+  launchTemplate:
+    $ref: "#/types/aws:eks/NodeGroupLaunchTemplate:NodeGroupLaunchTemplate"
+    description: |
+      Configuration block with Launch Template settings. Detailed below.
+  nodeGroupName:
+    type: string
+    description: |
+      Name of the EKS Node Group. If omitted, this provider will assign a random, unique name. Conflicts with `node_group_name_prefix`.
+  nodeGroupNamePrefix:
+    type: string
+    description: |
+      Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
+  nodeRoleArn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+  releaseVersion:
+    type: string
+    description: |
+      AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
+  remoteAccess:
+    $ref: "#/types/aws:eks/NodeGroupRemoteAccess:NodeGroupRemoteAccess"
+    description: |
+      Configuration block with remote access settings. Detailed below.
+  resources:
+    type: array
+    items:
+      $ref: "#/types/aws:eks/NodeGroupResource:NodeGroupResource"
+    description: |
+      List of objects containing information about underlying resources.
+  scalingConfig:
+    $ref: "#/types/aws:eks/NodeGroupScalingConfig:NodeGroupScalingConfig"
+    description: |
+      Configuration block with scaling settings. Detailed below.
+  status:
+    type: string
+    description: |
+      Status of the EKS Node Group.
+  subnetIds:
+    type: array
+    items:
+      type: string
+    description: |
+      Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. If configured with a provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  taints:
+    type: array
+    items:
+      $ref: "#/types/aws:eks/NodeGroupTaint:NodeGroupTaint"
+    description: |
+      The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
+  updateConfig:
+    $ref: "#/types/aws:eks/NodeGroupUpdateConfig:NodeGroupUpdateConfig"
+  version:
+    type: string
+    description: |
+      EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
+required:
+  - amiType
+  - arn
+  - capacityType
+  - clusterName
+  - diskSize
+  - instanceTypes
+  - nodeGroupName
+  - nodeGroupNamePrefix
+  - nodeRoleArn
+  - releaseVersion
+  - resources
+  - scalingConfig
+  - status
+  - subnetIds
+  - tagsAll
+  - updateConfig
+  - version
+inputProperties:
+  amiType:
+    type: string
+    description: |
+      Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
+    willReplaceOnChanges: true
+  capacityType:
+    type: string
+    description: |
+      Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
+    willReplaceOnChanges: true
+  clusterName:
+    type: string
+    description: |
+      Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+    willReplaceOnChanges: true
+  diskSize:
+    type: integer
+    description: |
+      Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
+    willReplaceOnChanges: true
+  forceUpdateVersion:
+    type: boolean
+    description: |
+      Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
+  instanceTypes:
+    type: array
+    items:
+      type: string
+    description: |
+      List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
+    willReplaceOnChanges: true
+  labels:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
+  launchTemplate:
+    $ref: "#/types/aws:eks/NodeGroupLaunchTemplate:NodeGroupLaunchTemplate"
+    description: |
+      Configuration block with Launch Template settings. Detailed below.
+  nodeGroupName:
+    type: string
+    description: |
+      Name of the EKS Node Group. If omitted, this provider will assign a random, unique name. Conflicts with `node_group_name_prefix`.
+    willReplaceOnChanges: true
+  nodeGroupNamePrefix:
+    type: string
+    description: |
+      Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
+    willReplaceOnChanges: true
+  nodeRoleArn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+    willReplaceOnChanges: true
+  releaseVersion:
+    type: string
+    description: |
+      AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
+  remoteAccess:
+    $ref: "#/types/aws:eks/NodeGroupRemoteAccess:NodeGroupRemoteAccess"
+    description: |
+      Configuration block with remote access settings. Detailed below.
+    willReplaceOnChanges: true
+  scalingConfig:
+    $ref: "#/types/aws:eks/NodeGroupScalingConfig:NodeGroupScalingConfig"
+    description: |
+      Configuration block with scaling settings. Detailed below.
+  subnetIds:
+    type: array
+    items:
+      type: string
+    description: |
+      Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. If configured with a provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
+  taints:
+    type: array
+    items:
+      $ref: "#/types/aws:eks/NodeGroupTaint:NodeGroupTaint"
+    description: |
+      The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
+  updateConfig:
+    $ref: "#/types/aws:eks/NodeGroupUpdateConfig:NodeGroupUpdateConfig"
+  version:
+    type: string
+    description: |
+      EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
+requiredInputs:
+  - clusterName
+  - nodeRoleArn
+  - scalingConfig
+  - subnetIds
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering NodeGroup resources.
+  properties:
+    amiType:
+      type: string
+      description: |
+        Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
+      willReplaceOnChanges: true
+    arn:
+      type: string
+      description: |
+        Amazon Resource Name (ARN) of the EKS Node Group.
+    capacityType:
+      type: string
+      description: |
+        Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
+      willReplaceOnChanges: true
+    clusterName:
+      type: string
+      description: |
+        Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+      willReplaceOnChanges: true
+    diskSize:
+      type: integer
+      description: |
+        Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
+      willReplaceOnChanges: true
+    forceUpdateVersion:
+      type: boolean
+      description: |
+        Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
+    instanceTypes:
+      type: array
+      items:
+        type: string
+      description: |
+        List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
+      willReplaceOnChanges: true
+    labels:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
+    launchTemplate:
+      $ref: "#/types/aws:eks/NodeGroupLaunchTemplate:NodeGroupLaunchTemplate"
+      description: |
+        Configuration block with Launch Template settings. Detailed below.
+    nodeGroupName:
+      type: string
+      description: |
+        Name of the EKS Node Group. If omitted, this provider will assign a random, unique name. Conflicts with `node_group_name_prefix`.
+      willReplaceOnChanges: true
+    nodeGroupNamePrefix:
+      type: string
+      description: |
+        Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
+      willReplaceOnChanges: true
+    nodeRoleArn:
+      type: string
+      description: |
+        Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+      willReplaceOnChanges: true
+    releaseVersion:
+      type: string
+      description: |
+        AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
+    remoteAccess:
+      $ref: "#/types/aws:eks/NodeGroupRemoteAccess:NodeGroupRemoteAccess"
+      description: |
+        Configuration block with remote access settings. Detailed below.
+      willReplaceOnChanges: true
+    resources:
+      type: array
+      items:
+        $ref: "#/types/aws:eks/NodeGroupResource:NodeGroupResource"
+      description: |
+        List of objects containing information about underlying resources.
+    scalingConfig:
+      $ref: "#/types/aws:eks/NodeGroupScalingConfig:NodeGroupScalingConfig"
+      description: |
+        Configuration block with scaling settings. Detailed below.
+    status:
+      type: string
+      description: |
+        Status of the EKS Node Group.
+    subnetIds:
+      type: array
+      items:
+        type: string
+      description: |
+        Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+      willReplaceOnChanges: true
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags. If configured with a provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    taints:
+      type: array
+      items:
+        $ref: "#/types/aws:eks/NodeGroupTaint:NodeGroupTaint"
+      description: |
+        The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
+    updateConfig:
+      $ref: "#/types/aws:eks/NodeGroupUpdateConfig:NodeGroupUpdateConfig"
+    version:
+      type: string
+      description: |
+        EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
+  type: object

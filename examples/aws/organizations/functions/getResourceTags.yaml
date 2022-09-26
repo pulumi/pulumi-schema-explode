@@ -1,0 +1,39 @@
+$token: aws:organizations/getResourceTags:getResourceTags
+inputs:
+  description: |
+    A collection of arguments for invoking getResourceTags.
+  properties:
+    resourceId:
+      type: string
+      description: |
+        ID of the resource with the tags to list. See details below.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of key=value pairs for each tag set on the resource.
+  type: object
+  required:
+    - resourceId
+outputs:
+  description: |
+    A collection of values returned by getResourceTags.
+  properties:
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    resourceId:
+      type: string
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of key=value pairs for each tag set on the resource.
+  type: object
+  required:
+    - resourceId
+    - tags
+    - id

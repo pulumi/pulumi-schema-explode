@@ -1,0 +1,27 @@
+$token: aws:cfg/RuleSourceCustomPolicyDetails:RuleSourceCustomPolicyDetails
+properties:
+  enableDebugLogDelivery:
+    type: boolean
+    description: |
+      The boolean expression for enabling debug logging for your Config Custom Policy rule. The default value is `false`.
+    language:
+      python:
+        mapCase: false
+  policyRuntime:
+    type: string
+    description: |
+      The runtime system for your Config Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://github.com/aws-cloudformation/cloudformation-guard).
+    language:
+      python:
+        mapCase: false
+  policyText:
+    type: string
+    description: |
+      The policy definition containing the logic for your Config Custom Policy rule.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - policyRuntime
+  - policyText

@@ -1,0 +1,56 @@
+$token: aws:redshift/getSubnetGroup:getSubnetGroup
+inputs:
+  description: |
+    A collection of arguments for invoking getSubnetGroup.
+  properties:
+    name:
+      type: string
+      description: |
+        Name of the cluster subnet group for which information is requested.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Tags associated to the Subnet Group
+  type: object
+  required:
+    - name
+outputs:
+  description: |
+    A collection of values returned by getSubnetGroup.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the Redshift Subnet Group name.
+    description:
+      type: string
+      description: |
+        Description of the Redshift Subnet group.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    name:
+      type: string
+    subnetIds:
+      type: array
+      items:
+        type: string
+      description: |
+        An array of VPC subnet IDs.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Tags associated to the Subnet Group
+  type: object
+  required:
+    - arn
+    - description
+    - name
+    - subnetIds
+    - tags
+    - id

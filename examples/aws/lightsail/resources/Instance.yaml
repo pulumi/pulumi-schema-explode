@@ -1,0 +1,234 @@
+$token: aws:lightsail/instance:Instance
+properties:
+  arn:
+    type: string
+    description: |
+      The ARN of the Lightsail instance (matches `id`).
+  availabilityZone:
+    type: string
+    description: |
+      The Availability Zone in which to create your
+      instance (see list below)
+  blueprintId:
+    type: string
+    description: |
+      The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
+  bundleId:
+    type: string
+    description: |
+      The bundle of specification information (see list below)
+  cpuCount:
+    type: integer
+    description: |
+      The number of vCPUs the instance has.
+  createdAt:
+    type: string
+    description: |
+      The timestamp when the instance was created.
+  ipv6Address:
+    type: string
+    description: |
+      (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6_addresses` attribute instead.
+    deprecationMessage: use `ipv6_addresses` attribute instead
+  ipv6Addresses:
+    type: array
+    items:
+      type: string
+    description: |
+      List of IPv6 addresses for the Lightsail instance.
+  isStaticIp:
+    type: boolean
+    description: |
+      A Boolean value indicating whether this instance has a static IP assigned to it.
+  keyPairName:
+    type: string
+    description: |
+      The name of your key pair. Created in the
+      Lightsail console (cannot use `aws.ec2.KeyPair` at this time)
+  name:
+    type: string
+    description: |
+      The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
+  privateIpAddress:
+    type: string
+    description: |
+      The private IP address of the instance.
+  publicIpAddress:
+    type: string
+    description: |
+      The public IP address of the instance.
+  ramSize:
+    type: number
+    description: |
+      The amount of RAM in GB on the instance (e.g., 1.0).
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  userData:
+    type: string
+    description: |
+      launch script to configure server with additional user data
+  username:
+    type: string
+    description: |
+      The user name for connecting to the instance (e.g., ec2-user).
+required:
+  - arn
+  - availabilityZone
+  - blueprintId
+  - bundleId
+  - cpuCount
+  - createdAt
+  - ipv6Address
+  - ipv6Addresses
+  - isStaticIp
+  - name
+  - privateIpAddress
+  - publicIpAddress
+  - ramSize
+  - tagsAll
+  - username
+inputProperties:
+  availabilityZone:
+    type: string
+    description: |
+      The Availability Zone in which to create your
+      instance (see list below)
+    willReplaceOnChanges: true
+  blueprintId:
+    type: string
+    description: |
+      The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
+    willReplaceOnChanges: true
+  bundleId:
+    type: string
+    description: |
+      The bundle of specification information (see list below)
+    willReplaceOnChanges: true
+  keyPairName:
+    type: string
+    description: |
+      The name of your key pair. Created in the
+      Lightsail console (cannot use `aws.ec2.KeyPair` at this time)
+    willReplaceOnChanges: true
+  name:
+    type: string
+    description: |
+      The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  userData:
+    type: string
+    description: |
+      launch script to configure server with additional user data
+    willReplaceOnChanges: true
+requiredInputs:
+  - availabilityZone
+  - blueprintId
+  - bundleId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Instance resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The ARN of the Lightsail instance (matches `id`).
+    availabilityZone:
+      type: string
+      description: |
+        The Availability Zone in which to create your
+        instance (see list below)
+      willReplaceOnChanges: true
+    blueprintId:
+      type: string
+      description: |
+        The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
+      willReplaceOnChanges: true
+    bundleId:
+      type: string
+      description: |
+        The bundle of specification information (see list below)
+      willReplaceOnChanges: true
+    cpuCount:
+      type: integer
+      description: |
+        The number of vCPUs the instance has.
+    createdAt:
+      type: string
+      description: |
+        The timestamp when the instance was created.
+    ipv6Address:
+      type: string
+      description: |
+        (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6_addresses` attribute instead.
+      deprecationMessage: use `ipv6_addresses` attribute instead
+    ipv6Addresses:
+      type: array
+      items:
+        type: string
+      description: |
+        List of IPv6 addresses for the Lightsail instance.
+    isStaticIp:
+      type: boolean
+      description: |
+        A Boolean value indicating whether this instance has a static IP assigned to it.
+    keyPairName:
+      type: string
+      description: |
+        The name of your key pair. Created in the
+        Lightsail console (cannot use `aws.ec2.KeyPair` at this time)
+      willReplaceOnChanges: true
+    name:
+      type: string
+      description: |
+        The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
+      willReplaceOnChanges: true
+    privateIpAddress:
+      type: string
+      description: |
+        The private IP address of the instance.
+    publicIpAddress:
+      type: string
+      description: |
+        The public IP address of the instance.
+    ramSize:
+      type: number
+      description: |
+        The amount of RAM in GB on the instance (e.g., 1.0).
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    userData:
+      type: string
+      description: |
+        launch script to configure server with additional user data
+      willReplaceOnChanges: true
+    username:
+      type: string
+      description: |
+        The user name for connecting to the instance (e.g., ec2-user).
+  type: object

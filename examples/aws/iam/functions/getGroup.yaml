@@ -1,0 +1,48 @@
+$token: aws:iam/getGroup:getGroup
+inputs:
+  description: |
+    A collection of arguments for invoking getGroup.
+  properties:
+    groupName:
+      type: string
+      description: |
+        Friendly IAM group name to match.
+  type: object
+  required:
+    - groupName
+outputs:
+  description: |
+    A collection of values returned by getGroup.
+  properties:
+    arn:
+      type: string
+      description: |
+        User ARN.
+    groupId:
+      type: string
+      description: |
+        Stable and unique string identifying the group.
+    groupName:
+      type: string
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    path:
+      type: string
+      description: |
+        Path to the IAM user.
+    users:
+      type: array
+      items:
+        $ref: "#/types/aws:iam/getGroupUser:getGroupUser"
+      description: |
+        List of objects containing group member information. See below.
+  type: object
+  required:
+    - arn
+    - groupId
+    - groupName
+    - path
+    - users
+    - id

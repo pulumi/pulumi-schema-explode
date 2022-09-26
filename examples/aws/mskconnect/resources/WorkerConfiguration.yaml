@@ -1,0 +1,73 @@
+$token: aws:mskconnect/workerConfiguration:WorkerConfiguration
+properties:
+  arn:
+    type: string
+    description: |
+      the Amazon Resource Name (ARN) of the worker configuration.
+  description:
+    type: string
+    description: |
+      A summary description of the worker configuration.
+  latestRevision:
+    type: integer
+    description: |
+      an ID of the latest successfully created revision of the worker configuration.
+  name:
+    type: string
+    description: |
+      The name of the worker configuration.
+  propertiesFileContent:
+    type: string
+    description: |
+      Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+required:
+  - arn
+  - latestRevision
+  - name
+  - propertiesFileContent
+inputProperties:
+  description:
+    type: string
+    description: |
+      A summary description of the worker configuration.
+    willReplaceOnChanges: true
+  name:
+    type: string
+    description: |
+      The name of the worker configuration.
+    willReplaceOnChanges: true
+  propertiesFileContent:
+    type: string
+    description: |
+      Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+    willReplaceOnChanges: true
+requiredInputs:
+  - propertiesFileContent
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering WorkerConfiguration resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        the Amazon Resource Name (ARN) of the worker configuration.
+    description:
+      type: string
+      description: |
+        A summary description of the worker configuration.
+      willReplaceOnChanges: true
+    latestRevision:
+      type: integer
+      description: |
+        an ID of the latest successfully created revision of the worker configuration.
+    name:
+      type: string
+      description: |
+        The name of the worker configuration.
+      willReplaceOnChanges: true
+    propertiesFileContent:
+      type: string
+      description: |
+        Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+      willReplaceOnChanges: true
+  type: object

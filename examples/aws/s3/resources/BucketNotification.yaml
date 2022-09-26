@@ -1,0 +1,92 @@
+$token: aws:s3/bucketNotification:BucketNotification
+properties:
+  bucket:
+    type: string
+    description: |
+      Name of the bucket for notification configuration.
+  eventbridge:
+    type: boolean
+    description: |
+      Whether to enable Amazon EventBridge notifications.
+  lambdaFunctions:
+    type: array
+    items:
+      $ref: "#/types/aws:s3/BucketNotificationLambdaFunction:BucketNotificationLambdaFunction"
+    description: |
+      Used to configure notifications to a Lambda Function. See below.
+  queues:
+    type: array
+    items:
+      $ref: "#/types/aws:s3/BucketNotificationQueue:BucketNotificationQueue"
+    description: |
+      Notification configuration to SQS Queue. See below.
+  topics:
+    type: array
+    items:
+      $ref: "#/types/aws:s3/BucketNotificationTopic:BucketNotificationTopic"
+    description: |
+      Notification configuration to SNS Topic. See below.
+required:
+  - bucket
+inputProperties:
+  bucket:
+    type: string
+    description: |
+      Name of the bucket for notification configuration.
+    willReplaceOnChanges: true
+  eventbridge:
+    type: boolean
+    description: |
+      Whether to enable Amazon EventBridge notifications.
+  lambdaFunctions:
+    type: array
+    items:
+      $ref: "#/types/aws:s3/BucketNotificationLambdaFunction:BucketNotificationLambdaFunction"
+    description: |
+      Used to configure notifications to a Lambda Function. See below.
+  queues:
+    type: array
+    items:
+      $ref: "#/types/aws:s3/BucketNotificationQueue:BucketNotificationQueue"
+    description: |
+      Notification configuration to SQS Queue. See below.
+  topics:
+    type: array
+    items:
+      $ref: "#/types/aws:s3/BucketNotificationTopic:BucketNotificationTopic"
+    description: |
+      Notification configuration to SNS Topic. See below.
+requiredInputs:
+  - bucket
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering BucketNotification resources.
+  properties:
+    bucket:
+      type: string
+      description: |
+        Name of the bucket for notification configuration.
+      willReplaceOnChanges: true
+    eventbridge:
+      type: boolean
+      description: |
+        Whether to enable Amazon EventBridge notifications.
+    lambdaFunctions:
+      type: array
+      items:
+        $ref: "#/types/aws:s3/BucketNotificationLambdaFunction:BucketNotificationLambdaFunction"
+      description: |
+        Used to configure notifications to a Lambda Function. See below.
+    queues:
+      type: array
+      items:
+        $ref: "#/types/aws:s3/BucketNotificationQueue:BucketNotificationQueue"
+      description: |
+        Notification configuration to SQS Queue. See below.
+    topics:
+      type: array
+      items:
+        $ref: "#/types/aws:s3/BucketNotificationTopic:BucketNotificationTopic"
+      description: |
+        Notification configuration to SNS Topic. See below.
+  type: object

@@ -1,0 +1,32 @@
+$token: aws:macie2/ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm:ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm
+properties:
+  comparator:
+    type: string
+    description: |
+      The operator to use in a condition. Valid values are: `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`
+    language:
+      python:
+        mapCase: false
+  key:
+    type: string
+    description: |
+      The object property to use in the condition.
+    language:
+      python:
+        mapCase: false
+  values:
+    type: array
+    items:
+      type: string
+    description: |
+      An array that lists the values to use in the condition.
+    language:
+      python:
+        mapCase: false
+type: object
+language:
+  nodejs:
+    requiredOutputs:
+      - comparator
+      - key
+      - values

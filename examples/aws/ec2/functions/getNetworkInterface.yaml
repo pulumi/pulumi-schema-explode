@@ -1,0 +1,135 @@
+$token: aws:ec2/getNetworkInterface:getNetworkInterface
+inputs:
+  description: |
+    A collection of arguments for invoking getNetworkInterface.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getNetworkInterfaceFilter:getNetworkInterfaceFilter"
+      description: |
+        One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-network-interfaces](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-interfaces.html) in the AWS CLI reference.
+    id:
+      type: string
+      description: |
+        Identifier for the network interface.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Any tags assigned to the network interface.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getNetworkInterface.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the network interface.
+    associations:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getNetworkInterfaceAssociation:getNetworkInterfaceAssociation"
+      description: |
+        Association information for an Elastic IP address (IPv4) associated with the network interface. See supported fields below.
+    attachments:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getNetworkInterfaceAttachment:getNetworkInterfaceAttachment"
+    availabilityZone:
+      type: string
+      description: |
+        Availability Zone.
+    description:
+      type: string
+      description: |
+        Description of the network interface.
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getNetworkInterfaceFilter:getNetworkInterfaceFilter"
+    id:
+      type: string
+    interfaceType:
+      type: string
+      description: |
+        Type of interface.
+    ipv6Addresses:
+      type: array
+      items:
+        type: string
+      description: |
+        List of IPv6 addresses to assign to the ENI.
+    macAddress:
+      type: string
+      description: |
+        MAC address.
+    outpostArn:
+      type: string
+      description: |
+        ARN of the Outpost.
+    ownerId:
+      type: string
+      description: |
+        AWS account ID of the owner of the network interface.
+    privateDnsName:
+      type: string
+      description: |
+        Private DNS name.
+    privateIp:
+      type: string
+      description: |
+        Private IPv4 address of the network interface within the subnet.
+    privateIps:
+      type: array
+      items:
+        type: string
+      description: |
+        Private IPv4 addresses associated with the network interface.
+    requesterId:
+      type: string
+      description: |
+        ID of the entity that launched the instance on your behalf.
+    securityGroups:
+      type: array
+      items:
+        type: string
+      description: |
+        List of security groups for the network interface.
+    subnetId:
+      type: string
+      description: |
+        ID of the subnet.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Any tags assigned to the network interface.
+    vpcId:
+      type: string
+      description: |
+        ID of the VPC.
+  type: object
+  required:
+    - arn
+    - associations
+    - attachments
+    - availabilityZone
+    - description
+    - id
+    - interfaceType
+    - ipv6Addresses
+    - macAddress
+    - outpostArn
+    - ownerId
+    - privateDnsName
+    - privateIp
+    - privateIps
+    - requesterId
+    - securityGroups
+    - subnetId
+    - tags
+    - vpcId

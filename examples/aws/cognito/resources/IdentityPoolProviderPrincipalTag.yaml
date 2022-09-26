@@ -1,0 +1,84 @@
+$token: aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag
+description: "Provides an AWS Cognito Identity Principal Mapping.
+
+
+
+  ## Import
+
+
+  Cognito Identity Pool Roles Attachment can be imported using the Identity Pool ID and provider name, e.g.,
+
+
+  ```sh
+
+  \ $ pulumi import aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag example us-west-2_abc123:CorpAD
+
+  ```
+
+
+  \ "
+properties:
+  identityPoolId:
+    type: string
+    description: |
+      An identity pool ID.
+  identityProviderName:
+    type: string
+    description: |
+      The name of the identity provider.
+      * `principal_tags`: (Optional: []) - String to string map of variables.
+      * `use_defaults`: (Optional: true) use default (username and clientID) attribute mappings.
+  principalTags:
+    type: object
+    additionalProperties:
+      type: string
+  useDefaults:
+    type: boolean
+required:
+  - identityPoolId
+  - identityProviderName
+inputProperties:
+  identityPoolId:
+    type: string
+    description: |
+      An identity pool ID.
+    willReplaceOnChanges: true
+  identityProviderName:
+    type: string
+    description: |
+      The name of the identity provider.
+      * `principal_tags`: (Optional: []) - String to string map of variables.
+      * `use_defaults`: (Optional: true) use default (username and clientID) attribute mappings.
+    willReplaceOnChanges: true
+  principalTags:
+    type: object
+    additionalProperties:
+      type: string
+  useDefaults:
+    type: boolean
+requiredInputs:
+  - identityPoolId
+  - identityProviderName
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering IdentityPoolProviderPrincipalTag resources.
+  properties:
+    identityPoolId:
+      type: string
+      description: |
+        An identity pool ID.
+      willReplaceOnChanges: true
+    identityProviderName:
+      type: string
+      description: |
+        The name of the identity provider.
+        * `principal_tags`: (Optional: []) - String to string map of variables.
+        * `use_defaults`: (Optional: true) use default (username and clientID) attribute mappings.
+      willReplaceOnChanges: true
+    principalTags:
+      type: object
+      additionalProperties:
+        type: string
+    useDefaults:
+      type: boolean
+  type: object

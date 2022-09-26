@@ -1,0 +1,236 @@
+$token: aws:ec2/vpcIpamPool:VpcIpamPool
+properties:
+  addressFamily:
+    type: string
+    description: |
+      The IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
+  allocationDefaultNetmaskLength:
+    type: integer
+    description: |
+      A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16 (unless you provide a different netmask value when you create the new allocation).
+  allocationMaxNetmaskLength:
+    type: integer
+    description: |
+      The maximum netmask length that will be required for CIDR allocations in this pool.
+  allocationMinNetmaskLength:
+    type: integer
+    description: |
+      The minimum netmask length that will be required for CIDR allocations in this pool.
+  allocationResourceTags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Tags that are required for resources that use CIDRs from this IPAM pool. Resources that do not have these tags will not be allowed to allocate space from the pool. If the resources have their tags changed after they have allocated space or if the allocation tagging requirements are changed on the pool, the resource may be marked as noncompliant.
+  arn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of IPAM
+  autoImport:
+    type: boolean
+    description: |
+      If you include this argument, IPAM automatically imports any VPCs you have in your scope that fall
+      within the CIDR range in the pool.
+  awsService:
+    type: string
+    description: |
+      Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `ec2`.
+  description:
+    type: string
+    description: |
+      A description for the IPAM pool.
+  ipamScopeId:
+    type: string
+    description: |
+      The ID of the scope in which you would like to create the IPAM pool.
+  ipamScopeType:
+    type: string
+  locale:
+    type: string
+    description: |
+      The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. Possible values: Any AWS region, such as `us-east-1`.
+  poolDepth:
+    type: integer
+  publiclyAdvertisable:
+    type: boolean
+    description: |
+      Defines whether or not IPv6 pool space is publicly advertisable over the internet. This option is not available for IPv4 pool space.
+  sourceIpamPoolId:
+    type: string
+    description: |
+      The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
+  state:
+    type: string
+    description: |
+      The ID of the IPAM
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - addressFamily
+  - arn
+  - ipamScopeId
+  - ipamScopeType
+  - poolDepth
+  - state
+  - tagsAll
+inputProperties:
+  addressFamily:
+    type: string
+    description: |
+      The IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
+    willReplaceOnChanges: true
+  allocationDefaultNetmaskLength:
+    type: integer
+    description: |
+      A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16 (unless you provide a different netmask value when you create the new allocation).
+  allocationMaxNetmaskLength:
+    type: integer
+    description: |
+      The maximum netmask length that will be required for CIDR allocations in this pool.
+  allocationMinNetmaskLength:
+    type: integer
+    description: |
+      The minimum netmask length that will be required for CIDR allocations in this pool.
+  allocationResourceTags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Tags that are required for resources that use CIDRs from this IPAM pool. Resources that do not have these tags will not be allowed to allocate space from the pool. If the resources have their tags changed after they have allocated space or if the allocation tagging requirements are changed on the pool, the resource may be marked as noncompliant.
+  autoImport:
+    type: boolean
+    description: |
+      If you include this argument, IPAM automatically imports any VPCs you have in your scope that fall
+      within the CIDR range in the pool.
+  awsService:
+    type: string
+    description: |
+      Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `ec2`.
+    willReplaceOnChanges: true
+  description:
+    type: string
+    description: |
+      A description for the IPAM pool.
+  ipamScopeId:
+    type: string
+    description: |
+      The ID of the scope in which you would like to create the IPAM pool.
+    willReplaceOnChanges: true
+  locale:
+    type: string
+    description: |
+      The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. Possible values: Any AWS region, such as `us-east-1`.
+    willReplaceOnChanges: true
+  publiclyAdvertisable:
+    type: boolean
+    description: |
+      Defines whether or not IPv6 pool space is publicly advertisable over the internet. This option is not available for IPv4 pool space.
+  sourceIpamPoolId:
+    type: string
+    description: |
+      The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+requiredInputs:
+  - addressFamily
+  - ipamScopeId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering VpcIpamPool resources.
+  properties:
+    addressFamily:
+      type: string
+      description: |
+        The IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
+      willReplaceOnChanges: true
+    allocationDefaultNetmaskLength:
+      type: integer
+      description: |
+        A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16 (unless you provide a different netmask value when you create the new allocation).
+    allocationMaxNetmaskLength:
+      type: integer
+      description: |
+        The maximum netmask length that will be required for CIDR allocations in this pool.
+    allocationMinNetmaskLength:
+      type: integer
+      description: |
+        The minimum netmask length that will be required for CIDR allocations in this pool.
+    allocationResourceTags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Tags that are required for resources that use CIDRs from this IPAM pool. Resources that do not have these tags will not be allowed to allocate space from the pool. If the resources have their tags changed after they have allocated space or if the allocation tagging requirements are changed on the pool, the resource may be marked as noncompliant.
+    arn:
+      type: string
+      description: |
+        Amazon Resource Name (ARN) of IPAM
+    autoImport:
+      type: boolean
+      description: |
+        If you include this argument, IPAM automatically imports any VPCs you have in your scope that fall
+        within the CIDR range in the pool.
+    awsService:
+      type: string
+      description: |
+        Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `ec2`.
+      willReplaceOnChanges: true
+    description:
+      type: string
+      description: |
+        A description for the IPAM pool.
+    ipamScopeId:
+      type: string
+      description: |
+        The ID of the scope in which you would like to create the IPAM pool.
+      willReplaceOnChanges: true
+    ipamScopeType:
+      type: string
+    locale:
+      type: string
+      description: |
+        The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. Possible values: Any AWS region, such as `us-east-1`.
+      willReplaceOnChanges: true
+    poolDepth:
+      type: integer
+    publiclyAdvertisable:
+      type: boolean
+      description: |
+        Defines whether or not IPv6 pool space is publicly advertisable over the internet. This option is not available for IPv4 pool space.
+    sourceIpamPoolId:
+      type: string
+      description: |
+        The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
+      willReplaceOnChanges: true
+    state:
+      type: string
+      description: |
+        The ID of the IPAM
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

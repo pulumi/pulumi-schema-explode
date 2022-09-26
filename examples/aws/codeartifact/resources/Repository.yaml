@@ -1,0 +1,157 @@
+$token: aws:codeartifact/repository:Repository
+properties:
+  administratorAccount:
+    type: string
+    description: |
+      The account number of the AWS account that manages the repository.
+  arn:
+    type: string
+    description: |
+      The ARN of the repository.
+  description:
+    type: string
+    description: |
+      The description of the repository.
+  domain:
+    type: string
+    description: |
+      The domain that contains the created repository.
+  domainOwner:
+    type: string
+    description: |
+      The account number of the AWS account that owns the domain.
+  externalConnections:
+    $ref: "#/types/aws:codeartifact/RepositoryExternalConnections:RepositoryExternalConnections"
+    description: |
+      An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
+  repository:
+    type: string
+    description: |
+      The name of the repository to create.
+    language:
+      csharp:
+        name: RepositoryName
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  upstreams:
+    type: array
+    items:
+      $ref: "#/types/aws:codeartifact/RepositoryUpstream:RepositoryUpstream"
+    description: |
+      A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
+required:
+  - administratorAccount
+  - arn
+  - domain
+  - domainOwner
+  - repository
+  - tagsAll
+inputProperties:
+  description:
+    type: string
+    description: |
+      The description of the repository.
+  domain:
+    type: string
+    description: |
+      The domain that contains the created repository.
+    willReplaceOnChanges: true
+  domainOwner:
+    type: string
+    description: |
+      The account number of the AWS account that owns the domain.
+    willReplaceOnChanges: true
+  externalConnections:
+    $ref: "#/types/aws:codeartifact/RepositoryExternalConnections:RepositoryExternalConnections"
+    description: |
+      An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
+  repository:
+    type: string
+    description: |
+      The name of the repository to create.
+    language:
+      csharp:
+        name: RepositoryName
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  upstreams:
+    type: array
+    items:
+      $ref: "#/types/aws:codeartifact/RepositoryUpstream:RepositoryUpstream"
+    description: |
+      A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
+requiredInputs:
+  - domain
+  - repository
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Repository resources.
+  properties:
+    administratorAccount:
+      type: string
+      description: |
+        The account number of the AWS account that manages the repository.
+    arn:
+      type: string
+      description: |
+        The ARN of the repository.
+    description:
+      type: string
+      description: |
+        The description of the repository.
+    domain:
+      type: string
+      description: |
+        The domain that contains the created repository.
+      willReplaceOnChanges: true
+    domainOwner:
+      type: string
+      description: |
+        The account number of the AWS account that owns the domain.
+      willReplaceOnChanges: true
+    externalConnections:
+      $ref: "#/types/aws:codeartifact/RepositoryExternalConnections:RepositoryExternalConnections"
+      description: |
+        An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
+    repository:
+      type: string
+      description: |
+        The name of the repository to create.
+      language:
+        csharp:
+          name: RepositoryName
+      willReplaceOnChanges: true
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    upstreams:
+      type: array
+      items:
+        $ref: "#/types/aws:codeartifact/RepositoryUpstream:RepositoryUpstream"
+      description: |
+        A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
+  type: object

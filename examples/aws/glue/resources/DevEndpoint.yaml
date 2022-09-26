@@ -1,0 +1,329 @@
+$token: aws:glue/devEndpoint:DevEndpoint
+properties:
+  arguments:
+    type: object
+    additionalProperties:
+      $ref: pulumi.json#/Any
+    description: |
+      A map of arguments used to configure the endpoint.
+  arn:
+    type: string
+    description: |
+      The ARN of the endpoint.
+  availabilityZone:
+    type: string
+    description: |
+      The AWS availability zone where this endpoint is located.
+  extraJarsS3Path:
+    type: string
+    description: |
+      Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
+  extraPythonLibsS3Path:
+    type: string
+    description: |
+      Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
+  failureReason:
+    type: string
+    description: |
+      The reason for a current failure in this endpoint.
+  glueVersion:
+    type: string
+    description: |
+      -  Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
+  name:
+    type: string
+    description: |
+      The name of this endpoint. It must be unique in your account.
+  numberOfNodes:
+    type: integer
+    description: |
+      The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `worker_type`.
+  numberOfWorkers:
+    type: integer
+    description: |
+      The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
+  privateAddress:
+    type: string
+    description: |
+      A private IP address to access the endpoint within a VPC, if this endpoint is created within one.
+  publicAddress:
+    type: string
+    description: |
+      The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
+  publicKey:
+    type: string
+    description: |
+      The public key to be used by this endpoint for authentication.
+  publicKeys:
+    type: array
+    items:
+      type: string
+    description: |
+      A list of public keys to be used by this endpoint for authentication.
+  roleArn:
+    type: string
+    description: |
+      The IAM role for this endpoint.
+  securityConfiguration:
+    type: string
+    description: |
+      The name of the Security Configuration structure to be used with this endpoint.
+  securityGroupIds:
+    type: array
+    items:
+      type: string
+    description: |
+      Security group IDs for the security groups to be used by this endpoint.
+  status:
+    type: string
+    description: |
+      The current status of this endpoint.
+  subnetId:
+    type: string
+    description: |
+      The subnet ID for the new endpoint to use.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  vpcId:
+    type: string
+    description: |
+      he ID of the VPC used by this endpoint.
+  workerType:
+    type: string
+    description: |
+      The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
+  yarnEndpointAddress:
+    type: string
+    description: |
+      The YARN endpoint address used by this endpoint.
+  zeppelinRemoteSparkInterpreterPort:
+    type: integer
+    description: |
+      The Apache Zeppelin port for the remote Apache Spark interpreter.
+required:
+  - arn
+  - availabilityZone
+  - failureReason
+  - name
+  - privateAddress
+  - publicAddress
+  - roleArn
+  - status
+  - tagsAll
+  - vpcId
+  - yarnEndpointAddress
+  - zeppelinRemoteSparkInterpreterPort
+inputProperties:
+  arguments:
+    type: object
+    additionalProperties:
+      $ref: pulumi.json#/Any
+    description: |
+      A map of arguments used to configure the endpoint.
+  extraJarsS3Path:
+    type: string
+    description: |
+      Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
+  extraPythonLibsS3Path:
+    type: string
+    description: |
+      Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
+  glueVersion:
+    type: string
+    description: |
+      -  Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
+    willReplaceOnChanges: true
+  name:
+    type: string
+    description: |
+      The name of this endpoint. It must be unique in your account.
+    willReplaceOnChanges: true
+  numberOfNodes:
+    type: integer
+    description: |
+      The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `worker_type`.
+    willReplaceOnChanges: true
+  numberOfWorkers:
+    type: integer
+    description: |
+      The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
+    willReplaceOnChanges: true
+  publicKey:
+    type: string
+    description: |
+      The public key to be used by this endpoint for authentication.
+  publicKeys:
+    type: array
+    items:
+      type: string
+    description: |
+      A list of public keys to be used by this endpoint for authentication.
+  roleArn:
+    type: string
+    description: |
+      The IAM role for this endpoint.
+    willReplaceOnChanges: true
+  securityConfiguration:
+    type: string
+    description: |
+      The name of the Security Configuration structure to be used with this endpoint.
+    willReplaceOnChanges: true
+  securityGroupIds:
+    type: array
+    items:
+      type: string
+    description: |
+      Security group IDs for the security groups to be used by this endpoint.
+    willReplaceOnChanges: true
+  subnetId:
+    type: string
+    description: |
+      The subnet ID for the new endpoint to use.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  workerType:
+    type: string
+    description: |
+      The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
+    willReplaceOnChanges: true
+requiredInputs:
+  - roleArn
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering DevEndpoint resources.
+  properties:
+    arguments:
+      type: object
+      additionalProperties:
+        $ref: pulumi.json#/Any
+      description: |
+        A map of arguments used to configure the endpoint.
+    arn:
+      type: string
+      description: |
+        The ARN of the endpoint.
+    availabilityZone:
+      type: string
+      description: |
+        The AWS availability zone where this endpoint is located.
+    extraJarsS3Path:
+      type: string
+      description: |
+        Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
+    extraPythonLibsS3Path:
+      type: string
+      description: |
+        Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
+    failureReason:
+      type: string
+      description: |
+        The reason for a current failure in this endpoint.
+    glueVersion:
+      type: string
+      description: |
+        -  Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
+      willReplaceOnChanges: true
+    name:
+      type: string
+      description: |
+        The name of this endpoint. It must be unique in your account.
+      willReplaceOnChanges: true
+    numberOfNodes:
+      type: integer
+      description: |
+        The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `worker_type`.
+      willReplaceOnChanges: true
+    numberOfWorkers:
+      type: integer
+      description: |
+        The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
+      willReplaceOnChanges: true
+    privateAddress:
+      type: string
+      description: |
+        A private IP address to access the endpoint within a VPC, if this endpoint is created within one.
+    publicAddress:
+      type: string
+      description: |
+        The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
+    publicKey:
+      type: string
+      description: |
+        The public key to be used by this endpoint for authentication.
+    publicKeys:
+      type: array
+      items:
+        type: string
+      description: |
+        A list of public keys to be used by this endpoint for authentication.
+    roleArn:
+      type: string
+      description: |
+        The IAM role for this endpoint.
+      willReplaceOnChanges: true
+    securityConfiguration:
+      type: string
+      description: |
+        The name of the Security Configuration structure to be used with this endpoint.
+      willReplaceOnChanges: true
+    securityGroupIds:
+      type: array
+      items:
+        type: string
+      description: |
+        Security group IDs for the security groups to be used by this endpoint.
+      willReplaceOnChanges: true
+    status:
+      type: string
+      description: |
+        The current status of this endpoint.
+    subnetId:
+      type: string
+      description: |
+        The subnet ID for the new endpoint to use.
+      willReplaceOnChanges: true
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    vpcId:
+      type: string
+      description: |
+        he ID of the VPC used by this endpoint.
+    workerType:
+      type: string
+      description: |
+        The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
+      willReplaceOnChanges: true
+    yarnEndpointAddress:
+      type: string
+      description: |
+        The YARN endpoint address used by this endpoint.
+    zeppelinRemoteSparkInterpreterPort:
+      type: integer
+      description: |
+        The Apache Zeppelin port for the remote Apache Spark interpreter.
+  type: object

@@ -1,0 +1,44 @@
+$token: aws:connect/getPrompt:getPrompt
+inputs:
+  description: |
+    A collection of arguments for invoking getPrompt.
+  properties:
+    instanceId:
+      type: string
+      description: |
+        Reference to the hosting Amazon Connect Instance
+    name:
+      type: string
+      description: |
+        Returns information on a specific Prompt by name
+  type: object
+  required:
+    - instanceId
+    - name
+outputs:
+  description: |
+    A collection of values returned by getPrompt.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the Prompt.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    instanceId:
+      type: string
+    name:
+      type: string
+    promptId:
+      type: string
+      description: |
+        Identifier for the prompt.
+  type: object
+  required:
+    - arn
+    - instanceId
+    - name
+    - promptId
+    - id

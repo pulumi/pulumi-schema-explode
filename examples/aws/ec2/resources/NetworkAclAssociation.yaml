@@ -1,0 +1,42 @@
+$token: aws:ec2/networkAclAssociation:NetworkAclAssociation
+properties:
+  networkAclId:
+    type: string
+    description: |
+      The ID of the network ACL.
+  subnetId:
+    type: string
+    description: |
+      The ID of the associated Subnet.
+required:
+  - networkAclId
+  - subnetId
+inputProperties:
+  networkAclId:
+    type: string
+    description: |
+      The ID of the network ACL.
+    willReplaceOnChanges: true
+  subnetId:
+    type: string
+    description: |
+      The ID of the associated Subnet.
+    willReplaceOnChanges: true
+requiredInputs:
+  - networkAclId
+  - subnetId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering NetworkAclAssociation resources.
+  properties:
+    networkAclId:
+      type: string
+      description: |
+        The ID of the network ACL.
+      willReplaceOnChanges: true
+    subnetId:
+      type: string
+      description: |
+        The ID of the associated Subnet.
+      willReplaceOnChanges: true
+  type: object

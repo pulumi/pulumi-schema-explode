@@ -1,0 +1,155 @@
+$token: aws:ec2/SpotFleetRequestLaunchSpecification:SpotFleetRequestLaunchSpecification
+properties:
+  ami:
+    type: string
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  associatePublicIpAddress:
+    type: boolean
+    language:
+      python:
+        mapCase: false
+  availabilityZone:
+    type: string
+    description: |
+      The availability zone in which to place the request.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  ebsBlockDevices:
+    type: array
+    items:
+      $ref: "#/types/aws:ec2/SpotFleetRequestLaunchSpecificationEbsBlockDevice:SpotFleetRequestLaunchSpecificationEbsBlockDevice"
+    language:
+      python:
+        mapCase: false
+  ebsOptimized:
+    type: boolean
+    language:
+      python:
+        mapCase: false
+  ephemeralBlockDevices:
+    type: array
+    items:
+      $ref: "#/types/aws:ec2/SpotFleetRequestLaunchSpecificationEphemeralBlockDevice:SpotFleetRequestLaunchSpecificationEphemeralBlockDevice"
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  iamInstanceProfile:
+    type: string
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  iamInstanceProfileArn:
+    type: string
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  instanceType:
+    type: string
+    description: |
+      The type of instance to request.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  keyName:
+    type: string
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  monitoring:
+    type: boolean
+    language:
+      python:
+        mapCase: false
+  placementGroup:
+    type: string
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  placementTenancy:
+    type: string
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  rootBlockDevices:
+    type: array
+    items:
+      $ref: "#/types/aws:ec2/SpotFleetRequestLaunchSpecificationRootBlockDevice:SpotFleetRequestLaunchSpecificationRootBlockDevice"
+    language:
+      python:
+        mapCase: false
+  spotPrice:
+    type: string
+    description: |
+      The maximum spot bid for this override request.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  subnetId:
+    type: string
+    description: |
+      The subnet in which to launch the requested instance.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  userData:
+    type: string
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  vpcSecurityGroupIds:
+    type: array
+    items:
+      type: string
+    language:
+      python:
+        mapCase: false
+  weightedCapacity:
+    type: string
+    description: |
+      The capacity added to the fleet by a fulfilled request.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+type: object
+required:
+  - ami
+  - instanceType
+language:
+  nodejs:
+    requiredOutputs:
+      - ami
+      - availabilityZone
+      - ebsBlockDevices
+      - ephemeralBlockDevices
+      - instanceType
+      - keyName
+      - placementGroup
+      - rootBlockDevices
+      - subnetId
+      - vpcSecurityGroupIds

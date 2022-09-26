@@ -1,0 +1,345 @@
+$token: aws:sns/topic:Topic
+properties:
+  applicationFailureFeedbackRoleArn:
+    type: string
+    description: |
+      IAM role for failure feedback
+  applicationSuccessFeedbackRoleArn:
+    type: string
+    description: |
+      The IAM role permitted to receive success feedback for this topic
+  applicationSuccessFeedbackSampleRate:
+    type: integer
+    description: |
+      Percentage of success to sample
+  arn:
+    type: string
+    $ref: "#/types/aws:index/aRN:ARN"
+    description: |
+      The ARN of the SNS topic, as a more obvious property (clone of id)
+  contentBasedDeduplication:
+    type: boolean
+    description: |
+      Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
+  deliveryPolicy:
+    type: string
+    description: |
+      The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
+  displayName:
+    type: string
+    description: |
+      The display name for the topic
+  fifoTopic:
+    type: boolean
+    description: |
+      Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
+  firehoseFailureFeedbackRoleArn:
+    type: string
+    description: |
+      IAM role for failure feedback
+  firehoseSuccessFeedbackRoleArn:
+    type: string
+    description: |
+      The IAM role permitted to receive success feedback for this topic
+  firehoseSuccessFeedbackSampleRate:
+    type: integer
+    description: |
+      Percentage of success to sample
+  httpFailureFeedbackRoleArn:
+    type: string
+    description: |
+      IAM role for failure feedback
+  httpSuccessFeedbackRoleArn:
+    type: string
+    description: |
+      The IAM role permitted to receive success feedback for this topic
+  httpSuccessFeedbackSampleRate:
+    type: integer
+    description: |
+      Percentage of success to sample
+  kmsMasterKeyId:
+    type: string
+    description: |
+      The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)
+  lambdaFailureFeedbackRoleArn:
+    type: string
+    description: |
+      IAM role for failure feedback
+  lambdaSuccessFeedbackRoleArn:
+    type: string
+    description: |
+      The IAM role permitted to receive success feedback for this topic
+  lambdaSuccessFeedbackSampleRate:
+    type: integer
+    description: |
+      Percentage of success to sample
+  name:
+    type: string
+    description: |
+      The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`
+  namePrefix:
+    type: string
+    description: |
+      Creates a unique name beginning with the specified prefix. Conflicts with `name`
+  owner:
+    type: string
+    description: |
+      The AWS Account ID of the SNS topic owner
+  policy:
+    type: string
+    description: |
+      The fully-formed AWS policy as JSON.
+  sqsFailureFeedbackRoleArn:
+    type: string
+    description: |
+      IAM role for failure feedback
+  sqsSuccessFeedbackRoleArn:
+    type: string
+    description: |
+      The IAM role permitted to receive success feedback for this topic
+  sqsSuccessFeedbackSampleRate:
+    type: integer
+    description: |
+      Percentage of success to sample
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - arn
+  - name
+  - namePrefix
+  - owner
+  - policy
+  - tagsAll
+inputProperties:
+  applicationFailureFeedbackRoleArn:
+    type: string
+    description: |
+      IAM role for failure feedback
+  applicationSuccessFeedbackRoleArn:
+    type: string
+    description: |
+      The IAM role permitted to receive success feedback for this topic
+  applicationSuccessFeedbackSampleRate:
+    type: integer
+    description: |
+      Percentage of success to sample
+  contentBasedDeduplication:
+    type: boolean
+    description: |
+      Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
+  deliveryPolicy:
+    type: string
+    description: |
+      The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
+  displayName:
+    type: string
+    description: |
+      The display name for the topic
+  fifoTopic:
+    type: boolean
+    description: |
+      Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
+    willReplaceOnChanges: true
+  firehoseFailureFeedbackRoleArn:
+    type: string
+    description: |
+      IAM role for failure feedback
+  firehoseSuccessFeedbackRoleArn:
+    type: string
+    description: |
+      The IAM role permitted to receive success feedback for this topic
+  firehoseSuccessFeedbackSampleRate:
+    type: integer
+    description: |
+      Percentage of success to sample
+  httpFailureFeedbackRoleArn:
+    type: string
+    description: |
+      IAM role for failure feedback
+  httpSuccessFeedbackRoleArn:
+    type: string
+    description: |
+      The IAM role permitted to receive success feedback for this topic
+  httpSuccessFeedbackSampleRate:
+    type: integer
+    description: |
+      Percentage of success to sample
+  kmsMasterKeyId:
+    type: string
+    description: |
+      The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)
+  lambdaFailureFeedbackRoleArn:
+    type: string
+    description: |
+      IAM role for failure feedback
+  lambdaSuccessFeedbackRoleArn:
+    type: string
+    description: |
+      The IAM role permitted to receive success feedback for this topic
+  lambdaSuccessFeedbackSampleRate:
+    type: integer
+    description: |
+      Percentage of success to sample
+  name:
+    type: string
+    description: |
+      The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`
+    willReplaceOnChanges: true
+  namePrefix:
+    type: string
+    description: |
+      Creates a unique name beginning with the specified prefix. Conflicts with `name`
+    willReplaceOnChanges: true
+  policy:
+    type: string
+    description: |
+      The fully-formed AWS policy as JSON.
+  sqsFailureFeedbackRoleArn:
+    type: string
+    description: |
+      IAM role for failure feedback
+  sqsSuccessFeedbackRoleArn:
+    type: string
+    description: |
+      The IAM role permitted to receive success feedback for this topic
+  sqsSuccessFeedbackSampleRate:
+    type: integer
+    description: |
+      Percentage of success to sample
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Topic resources.
+  properties:
+    applicationFailureFeedbackRoleArn:
+      type: string
+      description: |
+        IAM role for failure feedback
+    applicationSuccessFeedbackRoleArn:
+      type: string
+      description: |
+        The IAM role permitted to receive success feedback for this topic
+    applicationSuccessFeedbackSampleRate:
+      type: integer
+      description: |
+        Percentage of success to sample
+    arn:
+      type: string
+      $ref: "#/types/aws:index/aRN:ARN"
+      description: |
+        The ARN of the SNS topic, as a more obvious property (clone of id)
+    contentBasedDeduplication:
+      type: boolean
+      description: |
+        Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
+    deliveryPolicy:
+      type: string
+      description: |
+        The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
+    displayName:
+      type: string
+      description: |
+        The display name for the topic
+    fifoTopic:
+      type: boolean
+      description: |
+        Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
+      willReplaceOnChanges: true
+    firehoseFailureFeedbackRoleArn:
+      type: string
+      description: |
+        IAM role for failure feedback
+    firehoseSuccessFeedbackRoleArn:
+      type: string
+      description: |
+        The IAM role permitted to receive success feedback for this topic
+    firehoseSuccessFeedbackSampleRate:
+      type: integer
+      description: |
+        Percentage of success to sample
+    httpFailureFeedbackRoleArn:
+      type: string
+      description: |
+        IAM role for failure feedback
+    httpSuccessFeedbackRoleArn:
+      type: string
+      description: |
+        The IAM role permitted to receive success feedback for this topic
+    httpSuccessFeedbackSampleRate:
+      type: integer
+      description: |
+        Percentage of success to sample
+    kmsMasterKeyId:
+      type: string
+      description: |
+        The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)
+    lambdaFailureFeedbackRoleArn:
+      type: string
+      description: |
+        IAM role for failure feedback
+    lambdaSuccessFeedbackRoleArn:
+      type: string
+      description: |
+        The IAM role permitted to receive success feedback for this topic
+    lambdaSuccessFeedbackSampleRate:
+      type: integer
+      description: |
+        Percentage of success to sample
+    name:
+      type: string
+      description: |
+        The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`
+      willReplaceOnChanges: true
+    namePrefix:
+      type: string
+      description: |
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`
+      willReplaceOnChanges: true
+    owner:
+      type: string
+      description: |
+        The AWS Account ID of the SNS topic owner
+    policy:
+      type: string
+      description: |
+        The fully-formed AWS policy as JSON.
+    sqsFailureFeedbackRoleArn:
+      type: string
+      description: |
+        IAM role for failure feedback
+    sqsSuccessFeedbackRoleArn:
+      type: string
+      description: |
+        The IAM role permitted to receive success feedback for this topic
+    sqsSuccessFeedbackSampleRate:
+      type: integer
+      description: |
+        Percentage of success to sample
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

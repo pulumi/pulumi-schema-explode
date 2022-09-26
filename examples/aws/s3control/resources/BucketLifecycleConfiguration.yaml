@@ -1,0 +1,46 @@
+$token: aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration
+properties:
+  bucket:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the bucket.
+  rules:
+    type: array
+    items:
+      $ref: "#/types/aws:s3control/BucketLifecycleConfigurationRule:BucketLifecycleConfigurationRule"
+    description: |
+      Configuration block(s) containing lifecycle rules for the bucket.
+required:
+  - bucket
+  - rules
+inputProperties:
+  bucket:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the bucket.
+    willReplaceOnChanges: true
+  rules:
+    type: array
+    items:
+      $ref: "#/types/aws:s3control/BucketLifecycleConfigurationRule:BucketLifecycleConfigurationRule"
+    description: |
+      Configuration block(s) containing lifecycle rules for the bucket.
+requiredInputs:
+  - bucket
+  - rules
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering BucketLifecycleConfiguration resources.
+  properties:
+    bucket:
+      type: string
+      description: |
+        Amazon Resource Name (ARN) of the bucket.
+      willReplaceOnChanges: true
+    rules:
+      type: array
+      items:
+        $ref: "#/types/aws:s3control/BucketLifecycleConfigurationRule:BucketLifecycleConfigurationRule"
+      description: |
+        Configuration block(s) containing lifecycle rules for the bucket.
+  type: object

@@ -1,0 +1,81 @@
+$token: aws:redshift/snapshotCopyGrant:SnapshotCopyGrant
+properties:
+  arn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of snapshot copy grant
+  kmsKeyId:
+    type: string
+    description: |
+      The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
+  snapshotCopyGrantName:
+    type: string
+    description: |
+      A friendly name for identifying the grant.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - arn
+  - kmsKeyId
+  - snapshotCopyGrantName
+  - tagsAll
+inputProperties:
+  kmsKeyId:
+    type: string
+    description: |
+      The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
+    willReplaceOnChanges: true
+  snapshotCopyGrantName:
+    type: string
+    description: |
+      A friendly name for identifying the grant.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+requiredInputs:
+  - snapshotCopyGrantName
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering SnapshotCopyGrant resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        Amazon Resource Name (ARN) of snapshot copy grant
+    kmsKeyId:
+      type: string
+      description: |
+        The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
+      willReplaceOnChanges: true
+    snapshotCopyGrantName:
+      type: string
+      description: |
+        A friendly name for identifying the grant.
+      willReplaceOnChanges: true
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

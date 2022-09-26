@@ -1,0 +1,141 @@
+$token: aws:datasync/s3Location:S3Location
+properties:
+  agentArns:
+    type: array
+    items:
+      type: string
+    description: |
+      A list of DataSync Agent ARNs with which this location will be associated.
+  arn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the DataSync Location.
+  s3BucketArn:
+    type: string
+    $ref: "#/types/aws:index/aRN:ARN"
+    description: |
+      Amazon Resource Name (ARN) of the S3 Bucket.
+  s3Config:
+    $ref: "#/types/aws:datasync/S3LocationS3Config:S3LocationS3Config"
+    description: |
+      Configuration block containing information for connecting to S3.
+  s3StorageClass:
+    type: string
+    description: |
+      The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+  subdirectory:
+    type: string
+    description: |
+      Prefix to perform actions as source or destination.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  uri:
+    type: string
+required:
+  - arn
+  - s3BucketArn
+  - s3Config
+  - s3StorageClass
+  - subdirectory
+  - tagsAll
+  - uri
+inputProperties:
+  agentArns:
+    type: array
+    items:
+      type: string
+    description: |
+      A list of DataSync Agent ARNs with which this location will be associated.
+    willReplaceOnChanges: true
+  s3BucketArn:
+    type: string
+    $ref: "#/types/aws:index/aRN:ARN"
+    description: |
+      Amazon Resource Name (ARN) of the S3 Bucket.
+    willReplaceOnChanges: true
+  s3Config:
+    $ref: "#/types/aws:datasync/S3LocationS3Config:S3LocationS3Config"
+    description: |
+      Configuration block containing information for connecting to S3.
+    willReplaceOnChanges: true
+  s3StorageClass:
+    type: string
+    description: |
+      The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+    willReplaceOnChanges: true
+  subdirectory:
+    type: string
+    description: |
+      Prefix to perform actions as source or destination.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+requiredInputs:
+  - s3BucketArn
+  - s3Config
+  - subdirectory
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering S3Location resources.
+  properties:
+    agentArns:
+      type: array
+      items:
+        type: string
+      description: |
+        A list of DataSync Agent ARNs with which this location will be associated.
+      willReplaceOnChanges: true
+    arn:
+      type: string
+      description: |
+        Amazon Resource Name (ARN) of the DataSync Location.
+    s3BucketArn:
+      type: string
+      $ref: "#/types/aws:index/aRN:ARN"
+      description: |
+        Amazon Resource Name (ARN) of the S3 Bucket.
+      willReplaceOnChanges: true
+    s3Config:
+      $ref: "#/types/aws:datasync/S3LocationS3Config:S3LocationS3Config"
+      description: |
+        Configuration block containing information for connecting to S3.
+      willReplaceOnChanges: true
+    s3StorageClass:
+      type: string
+      description: |
+        The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+      willReplaceOnChanges: true
+    subdirectory:
+      type: string
+      description: |
+        Prefix to perform actions as source or destination.
+      willReplaceOnChanges: true
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    uri:
+      type: string
+  type: object

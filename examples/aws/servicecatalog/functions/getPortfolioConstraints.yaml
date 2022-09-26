@@ -1,0 +1,49 @@
+$token: aws:servicecatalog/getPortfolioConstraints:getPortfolioConstraints
+inputs:
+  description: |
+    A collection of arguments for invoking getPortfolioConstraints.
+  properties:
+    acceptLanguage:
+      type: string
+      description: |
+        Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+    portfolioId:
+      type: string
+      description: |
+        Portfolio identifier.
+    productId:
+      type: string
+      description: |
+        Product identifier.
+  type: object
+  required:
+    - portfolioId
+outputs:
+  description: |
+    A collection of values returned by getPortfolioConstraints.
+  properties:
+    acceptLanguage:
+      type: string
+    details:
+      type: array
+      items:
+        $ref: "#/types/aws:servicecatalog/getPortfolioConstraintsDetail:getPortfolioConstraintsDetail"
+      description: |
+        List of information about the constraints. See details below.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    portfolioId:
+      type: string
+      description: |
+        Identifier of the portfolio the product resides in. The constraint applies only to the instance of the product that lives within this portfolio.
+    productId:
+      type: string
+      description: |
+        Identifier of the product the constraint applies to. A constraint applies to a specific instance of a product within a certain portfolio.
+  type: object
+  required:
+    - details
+    - portfolioId
+    - id

@@ -1,0 +1,293 @@
+$token: aws:ecs/taskSet:TaskSet
+description: "
+
+
+
+  ## Import
+
+
+  ECS Task Sets can be imported via the `task_set_id`, `service`, and `cluster` separated by commas (`,`) e.g.
+
+
+  ```sh
+
+  \ $ pulumi import aws:ecs/taskSet:TaskSet example ecs-svc/7177320696926227436,arn:aws:ecs:us-west-2:123456789101:service/example/example-1234567890,arn:aws:ecs:us-west-2:123456789101:cluster/example
+
+  ```
+
+
+  \ "
+properties:
+  arn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) that identifies the task set.
+  capacityProviderStrategies:
+    type: array
+    items:
+      $ref: "#/types/aws:ecs/TaskSetCapacityProviderStrategy:TaskSetCapacityProviderStrategy"
+    description: |
+      The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+  cluster:
+    type: string
+    description: |
+      The short name or ARN of the cluster that hosts the service to create the task set in.
+  externalId:
+    type: string
+    description: |
+      The external ID associated with the task set.
+  forceDelete:
+    type: boolean
+  launchType:
+    type: string
+    description: |
+      The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
+  loadBalancers:
+    type: array
+    items:
+      $ref: "#/types/aws:ecs/TaskSetLoadBalancer:TaskSetLoadBalancer"
+    description: |
+      Details on load balancers that are used with a task set. Detailed below.
+  networkConfiguration:
+    $ref: "#/types/aws:ecs/TaskSetNetworkConfiguration:TaskSetNetworkConfiguration"
+    description: |
+      The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
+  platformVersion:
+    type: string
+    description: |
+      The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+  scale:
+    $ref: "#/types/aws:ecs/TaskSetScale:TaskSetScale"
+    description: |
+      A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
+  service:
+    type: string
+    description: |
+      The short name or ARN of the ECS service.
+  serviceRegistries:
+    $ref: "#/types/aws:ecs/TaskSetServiceRegistries:TaskSetServiceRegistries"
+    description: |
+      The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
+  stabilityStatus:
+    type: string
+    description: |
+      The stability status. This indicates whether the task set has reached a steady state.
+  status:
+    type: string
+    description: |
+      The status of the task set.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  taskDefinition:
+    type: string
+    description: |
+      The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+  taskSetId:
+    type: string
+    description: |
+      The ID of the task set.
+  waitUntilStable:
+    type: boolean
+  waitUntilStableTimeout:
+    type: string
+    description: |
+      Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
+required:
+  - arn
+  - cluster
+  - externalId
+  - launchType
+  - platformVersion
+  - scale
+  - service
+  - stabilityStatus
+  - status
+  - tagsAll
+  - taskDefinition
+  - taskSetId
+inputProperties:
+  capacityProviderStrategies:
+    type: array
+    items:
+      $ref: "#/types/aws:ecs/TaskSetCapacityProviderStrategy:TaskSetCapacityProviderStrategy"
+    description: |
+      The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+    willReplaceOnChanges: true
+  cluster:
+    type: string
+    description: |
+      The short name or ARN of the cluster that hosts the service to create the task set in.
+    willReplaceOnChanges: true
+  externalId:
+    type: string
+    description: |
+      The external ID associated with the task set.
+    willReplaceOnChanges: true
+  forceDelete:
+    type: boolean
+  launchType:
+    type: string
+    description: |
+      The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
+    willReplaceOnChanges: true
+  loadBalancers:
+    type: array
+    items:
+      $ref: "#/types/aws:ecs/TaskSetLoadBalancer:TaskSetLoadBalancer"
+    description: |
+      Details on load balancers that are used with a task set. Detailed below.
+    willReplaceOnChanges: true
+  networkConfiguration:
+    $ref: "#/types/aws:ecs/TaskSetNetworkConfiguration:TaskSetNetworkConfiguration"
+    description: |
+      The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
+    willReplaceOnChanges: true
+  platformVersion:
+    type: string
+    description: |
+      The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+    willReplaceOnChanges: true
+  scale:
+    $ref: "#/types/aws:ecs/TaskSetScale:TaskSetScale"
+    description: |
+      A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
+  service:
+    type: string
+    description: |
+      The short name or ARN of the ECS service.
+    willReplaceOnChanges: true
+  serviceRegistries:
+    $ref: "#/types/aws:ecs/TaskSetServiceRegistries:TaskSetServiceRegistries"
+    description: |
+      The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+  taskDefinition:
+    type: string
+    description: |
+      The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+    willReplaceOnChanges: true
+  waitUntilStable:
+    type: boolean
+  waitUntilStableTimeout:
+    type: string
+    description: |
+      Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
+requiredInputs:
+  - cluster
+  - service
+  - taskDefinition
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering TaskSet resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The Amazon Resource Name (ARN) that identifies the task set.
+    capacityProviderStrategies:
+      type: array
+      items:
+        $ref: "#/types/aws:ecs/TaskSetCapacityProviderStrategy:TaskSetCapacityProviderStrategy"
+      description: |
+        The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+      willReplaceOnChanges: true
+    cluster:
+      type: string
+      description: |
+        The short name or ARN of the cluster that hosts the service to create the task set in.
+      willReplaceOnChanges: true
+    externalId:
+      type: string
+      description: |
+        The external ID associated with the task set.
+      willReplaceOnChanges: true
+    forceDelete:
+      type: boolean
+    launchType:
+      type: string
+      description: |
+        The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
+      willReplaceOnChanges: true
+    loadBalancers:
+      type: array
+      items:
+        $ref: "#/types/aws:ecs/TaskSetLoadBalancer:TaskSetLoadBalancer"
+      description: |
+        Details on load balancers that are used with a task set. Detailed below.
+      willReplaceOnChanges: true
+    networkConfiguration:
+      $ref: "#/types/aws:ecs/TaskSetNetworkConfiguration:TaskSetNetworkConfiguration"
+      description: |
+        The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
+      willReplaceOnChanges: true
+    platformVersion:
+      type: string
+      description: |
+        The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+      willReplaceOnChanges: true
+    scale:
+      $ref: "#/types/aws:ecs/TaskSetScale:TaskSetScale"
+      description: |
+        A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
+    service:
+      type: string
+      description: |
+        The short name or ARN of the ECS service.
+      willReplaceOnChanges: true
+    serviceRegistries:
+      $ref: "#/types/aws:ecs/TaskSetServiceRegistries:TaskSetServiceRegistries"
+      description: |
+        The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
+      willReplaceOnChanges: true
+    stabilityStatus:
+      type: string
+      description: |
+        The stability status. This indicates whether the task set has reached a steady state.
+    status:
+      type: string
+      description: |
+        The status of the task set.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    taskDefinition:
+      type: string
+      description: |
+        The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+      willReplaceOnChanges: true
+    taskSetId:
+      type: string
+      description: |
+        The ID of the task set.
+    waitUntilStable:
+      type: boolean
+    waitUntilStableTimeout:
+      type: string
+      description: |
+        Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
+  type: object

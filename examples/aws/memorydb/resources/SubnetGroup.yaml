@@ -1,0 +1,109 @@
+$token: aws:memorydb/subnetGroup:SubnetGroup
+properties:
+  arn:
+    type: string
+    description: |
+      The ARN of the subnet group.
+  description:
+    type: string
+  name:
+    type: string
+  namePrefix:
+    type: string
+    description: |
+      Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+  subnetIds:
+    type: array
+    items:
+      type: string
+    description: |
+      Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  vpcId:
+    type: string
+    description: |
+      The VPC in which the subnet group exists.
+required:
+  - arn
+  - name
+  - namePrefix
+  - subnetIds
+  - tagsAll
+  - vpcId
+inputProperties:
+  description:
+    type: string
+  name:
+    type: string
+    willReplaceOnChanges: true
+  namePrefix:
+    type: string
+    description: |
+      Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+    willReplaceOnChanges: true
+  subnetIds:
+    type: array
+    items:
+      type: string
+    description: |
+      Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+requiredInputs:
+  - subnetIds
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering SubnetGroup resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The ARN of the subnet group.
+    description:
+      type: string
+    name:
+      type: string
+      willReplaceOnChanges: true
+    namePrefix:
+      type: string
+      description: |
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+      willReplaceOnChanges: true
+    subnetIds:
+      type: array
+      items:
+        type: string
+      description: |
+        Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    vpcId:
+      type: string
+      description: |
+        The VPC in which the subnet group exists.
+  type: object

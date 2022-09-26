@@ -1,0 +1,72 @@
+$token: aws:autoscaling/notification:Notification
+properties:
+  groupNames:
+    type: array
+    items:
+      type: string
+    description: |
+      List of AutoScaling Group Names
+  notifications:
+    type: array
+    items:
+      type: string
+      $ref: "#/types/aws:autoscaling/notificationType:NotificationType"
+    description: |
+      List of Notification Types that trigger
+      notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
+  topicArn:
+    type: string
+    description: |
+      Topic ARN for notifications to be sent through
+required:
+  - groupNames
+  - notifications
+  - topicArn
+inputProperties:
+  groupNames:
+    type: array
+    items:
+      type: string
+    description: |
+      List of AutoScaling Group Names
+  notifications:
+    type: array
+    items:
+      type: string
+      $ref: "#/types/aws:autoscaling/notificationType:NotificationType"
+    description: |
+      List of Notification Types that trigger
+      notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
+  topicArn:
+    type: string
+    description: |
+      Topic ARN for notifications to be sent through
+    willReplaceOnChanges: true
+requiredInputs:
+  - groupNames
+  - notifications
+  - topicArn
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Notification resources.
+  properties:
+    groupNames:
+      type: array
+      items:
+        type: string
+      description: |
+        List of AutoScaling Group Names
+    notifications:
+      type: array
+      items:
+        type: string
+        $ref: "#/types/aws:autoscaling/notificationType:NotificationType"
+      description: |
+        List of Notification Types that trigger
+        notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
+    topicArn:
+      type: string
+      description: |
+        Topic ARN for notifications to be sent through
+      willReplaceOnChanges: true
+  type: object

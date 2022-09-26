@@ -1,0 +1,99 @@
+$token: aws:lakeformation/dataLakeSettings:DataLakeSettings
+properties:
+  admins:
+    type: array
+    items:
+      type: string
+    description: |
+      Set of ARNs of AWS Lake Formation principals (IAM users or roles).
+  catalogId:
+    type: string
+    description: |
+      Identifier for the Data Catalog. By default, the account ID.
+  createDatabaseDefaultPermissions:
+    type: array
+    items:
+      $ref: "#/types/aws:lakeformation/DataLakeSettingsCreateDatabaseDefaultPermission:DataLakeSettingsCreateDatabaseDefaultPermission"
+    description: |
+      Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
+  createTableDefaultPermissions:
+    type: array
+    items:
+      $ref: "#/types/aws:lakeformation/DataLakeSettingsCreateTableDefaultPermission:DataLakeSettingsCreateTableDefaultPermission"
+    description: |
+      Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
+  trustedResourceOwners:
+    type: array
+    items:
+      type: string
+    description: |
+      List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
+required:
+  - admins
+  - createDatabaseDefaultPermissions
+  - createTableDefaultPermissions
+  - trustedResourceOwners
+inputProperties:
+  admins:
+    type: array
+    items:
+      type: string
+    description: |
+      Set of ARNs of AWS Lake Formation principals (IAM users or roles).
+  catalogId:
+    type: string
+    description: |
+      Identifier for the Data Catalog. By default, the account ID.
+    willReplaceOnChanges: true
+  createDatabaseDefaultPermissions:
+    type: array
+    items:
+      $ref: "#/types/aws:lakeformation/DataLakeSettingsCreateDatabaseDefaultPermission:DataLakeSettingsCreateDatabaseDefaultPermission"
+    description: |
+      Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
+  createTableDefaultPermissions:
+    type: array
+    items:
+      $ref: "#/types/aws:lakeformation/DataLakeSettingsCreateTableDefaultPermission:DataLakeSettingsCreateTableDefaultPermission"
+    description: |
+      Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
+  trustedResourceOwners:
+    type: array
+    items:
+      type: string
+    description: |
+      List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering DataLakeSettings resources.
+  properties:
+    admins:
+      type: array
+      items:
+        type: string
+      description: |
+        Set of ARNs of AWS Lake Formation principals (IAM users or roles).
+    catalogId:
+      type: string
+      description: |
+        Identifier for the Data Catalog. By default, the account ID.
+      willReplaceOnChanges: true
+    createDatabaseDefaultPermissions:
+      type: array
+      items:
+        $ref: "#/types/aws:lakeformation/DataLakeSettingsCreateDatabaseDefaultPermission:DataLakeSettingsCreateDatabaseDefaultPermission"
+      description: |
+        Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
+    createTableDefaultPermissions:
+      type: array
+      items:
+        $ref: "#/types/aws:lakeformation/DataLakeSettingsCreateTableDefaultPermission:DataLakeSettingsCreateTableDefaultPermission"
+      description: |
+        Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
+    trustedResourceOwners:
+      type: array
+      items:
+        type: string
+      description: |
+        List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
+  type: object

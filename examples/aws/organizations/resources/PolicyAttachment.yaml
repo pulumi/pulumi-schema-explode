@@ -1,0 +1,42 @@
+$token: aws:organizations/policyAttachment:PolicyAttachment
+properties:
+  policyId:
+    type: string
+    description: |
+      The unique identifier (ID) of the policy that you want to attach to the target.
+  targetId:
+    type: string
+    description: |
+      The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
+required:
+  - policyId
+  - targetId
+inputProperties:
+  policyId:
+    type: string
+    description: |
+      The unique identifier (ID) of the policy that you want to attach to the target.
+    willReplaceOnChanges: true
+  targetId:
+    type: string
+    description: |
+      The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
+    willReplaceOnChanges: true
+requiredInputs:
+  - policyId
+  - targetId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering PolicyAttachment resources.
+  properties:
+    policyId:
+      type: string
+      description: |
+        The unique identifier (ID) of the policy that you want to attach to the target.
+      willReplaceOnChanges: true
+    targetId:
+      type: string
+      description: |
+        The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
+      willReplaceOnChanges: true
+  type: object

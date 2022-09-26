@@ -1,0 +1,24 @@
+$token: aws:networkfirewall/FirewallFirewallStatusSyncState:FirewallFirewallStatusSyncState
+properties:
+  attachments:
+    type: array
+    items:
+      $ref: "#/types/aws:networkfirewall/FirewallFirewallStatusSyncStateAttachment:FirewallFirewallStatusSyncStateAttachment"
+    description: |
+      Nested list describing the attachment status of the firewall's association with a single VPC subnet.
+    language:
+      python:
+        mapCase: false
+  availabilityZone:
+    type: string
+    description: |
+      The Availability Zone where the subnet is configured.
+    language:
+      python:
+        mapCase: false
+type: object
+language:
+  nodejs:
+    requiredOutputs:
+      - attachments
+      - availabilityZone

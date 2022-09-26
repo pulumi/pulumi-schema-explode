@@ -1,0 +1,91 @@
+$token: aws:eks/identityProviderConfig:IdentityProviderConfig
+properties:
+  arn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
+  clusterName:
+    type: string
+    description: |
+      Name of the EKS Cluster.
+  oidc:
+    $ref: "#/types/aws:eks/IdentityProviderConfigOidc:IdentityProviderConfigOidc"
+    description: |
+      Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
+  status:
+    type: string
+    description: |
+      Status of the EKS Identity Provider Configuration.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - arn
+  - clusterName
+  - oidc
+  - status
+  - tagsAll
+inputProperties:
+  clusterName:
+    type: string
+    description: |
+      Name of the EKS Cluster.
+    willReplaceOnChanges: true
+  oidc:
+    $ref: "#/types/aws:eks/IdentityProviderConfigOidc:IdentityProviderConfigOidc"
+    description: |
+      Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+requiredInputs:
+  - clusterName
+  - oidc
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering IdentityProviderConfig resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
+    clusterName:
+      type: string
+      description: |
+        Name of the EKS Cluster.
+      willReplaceOnChanges: true
+    oidc:
+      $ref: "#/types/aws:eks/IdentityProviderConfigOidc:IdentityProviderConfigOidc"
+      description: |
+        Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
+      willReplaceOnChanges: true
+    status:
+      type: string
+      description: |
+        Status of the EKS Identity Provider Configuration.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

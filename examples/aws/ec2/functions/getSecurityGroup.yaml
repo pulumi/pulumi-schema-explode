@@ -1,0 +1,66 @@
+$token: aws:ec2/getSecurityGroup:getSecurityGroup
+inputs:
+  description: |
+    A collection of arguments for invoking getSecurityGroup.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getSecurityGroupFilter:getSecurityGroupFilter"
+      description: |
+        Custom filter block as described below.
+    id:
+      type: string
+      description: |
+        Id of the specific security group to retrieve.
+    name:
+      type: string
+      description: |
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags, each pair of which must exactly match
+        a pair on the desired security group.
+    vpcId:
+      type: string
+      description: |
+        Id of the VPC that the desired security group belongs to.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getSecurityGroup.
+  properties:
+    arn:
+      type: string
+      description: |
+        Computed ARN of the security group.
+    description:
+      type: string
+      description: |
+        Description of the security group.
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getSecurityGroupFilter:getSecurityGroupFilter"
+    id:
+      type: string
+    name:
+      type: string
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+    vpcId:
+      type: string
+  type: object
+  required:
+    - arn
+    - description
+    - id
+    - name
+    - tags
+    - vpcId

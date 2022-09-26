@@ -1,0 +1,19 @@
+$token: aws:codepipeline/WebhookAuthenticationConfiguration:WebhookAuthenticationConfiguration
+properties:
+  allowedIpRange:
+    type: string
+    description: |
+      A valid CIDR block for `IP` filtering. Required for `IP`.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  secretToken:
+    type: string
+    description: |
+      The shared secret for the GitHub repository webhook. Set this as `secret` in your `github_repository_webhook`'s `configuration` block. Required for `GITHUB_HMAC`.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+type: object

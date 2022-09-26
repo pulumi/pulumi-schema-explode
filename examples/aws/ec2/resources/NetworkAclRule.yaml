@@ -1,0 +1,172 @@
+$token: aws:ec2/networkAclRule:NetworkAclRule
+properties:
+  cidrBlock:
+    type: string
+    description: |
+      The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
+  egress:
+    type: boolean
+    description: |
+      Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
+  fromPort:
+    type: integer
+    description: |
+      The from port to match.
+  icmpCode:
+    type: integer
+    description: |
+      ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
+  icmpType:
+    type: integer
+    description: |
+      ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
+  ipv6CidrBlock:
+    type: string
+    description: |
+      The IPv6 CIDR block to allow or deny.
+  networkAclId:
+    type: string
+    description: |
+      The ID of the network ACL.
+  protocol:
+    type: string
+    description: |
+      The protocol. A value of -1 means all protocols.
+  ruleAction:
+    type: string
+    description: |
+      Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
+  ruleNumber:
+    type: integer
+    description: |
+      The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
+  toPort:
+    type: integer
+    description: |
+      The to port to match.
+required:
+  - networkAclId
+  - protocol
+  - ruleAction
+  - ruleNumber
+inputProperties:
+  cidrBlock:
+    type: string
+    description: |
+      The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
+    willReplaceOnChanges: true
+  egress:
+    type: boolean
+    description: |
+      Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
+    willReplaceOnChanges: true
+  fromPort:
+    type: integer
+    description: |
+      The from port to match.
+    willReplaceOnChanges: true
+  icmpCode:
+    type: integer
+    description: |
+      ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
+    willReplaceOnChanges: true
+  icmpType:
+    type: integer
+    description: |
+      ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
+    willReplaceOnChanges: true
+  ipv6CidrBlock:
+    type: string
+    description: |
+      The IPv6 CIDR block to allow or deny.
+    willReplaceOnChanges: true
+  networkAclId:
+    type: string
+    description: |
+      The ID of the network ACL.
+    willReplaceOnChanges: true
+  protocol:
+    type: string
+    description: |
+      The protocol. A value of -1 means all protocols.
+    willReplaceOnChanges: true
+  ruleAction:
+    type: string
+    description: |
+      Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
+    willReplaceOnChanges: true
+  ruleNumber:
+    type: integer
+    description: |
+      The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
+    willReplaceOnChanges: true
+  toPort:
+    type: integer
+    description: |
+      The to port to match.
+    willReplaceOnChanges: true
+requiredInputs:
+  - networkAclId
+  - protocol
+  - ruleAction
+  - ruleNumber
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering NetworkAclRule resources.
+  properties:
+    cidrBlock:
+      type: string
+      description: |
+        The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
+      willReplaceOnChanges: true
+    egress:
+      type: boolean
+      description: |
+        Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
+      willReplaceOnChanges: true
+    fromPort:
+      type: integer
+      description: |
+        The from port to match.
+      willReplaceOnChanges: true
+    icmpCode:
+      type: integer
+      description: |
+        ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
+      willReplaceOnChanges: true
+    icmpType:
+      type: integer
+      description: |
+        ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
+      willReplaceOnChanges: true
+    ipv6CidrBlock:
+      type: string
+      description: |
+        The IPv6 CIDR block to allow or deny.
+      willReplaceOnChanges: true
+    networkAclId:
+      type: string
+      description: |
+        The ID of the network ACL.
+      willReplaceOnChanges: true
+    protocol:
+      type: string
+      description: |
+        The protocol. A value of -1 means all protocols.
+      willReplaceOnChanges: true
+    ruleAction:
+      type: string
+      description: |
+        Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
+      willReplaceOnChanges: true
+    ruleNumber:
+      type: integer
+      description: |
+        The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
+      willReplaceOnChanges: true
+    toPort:
+      type: integer
+      description: |
+        The to port to match.
+      willReplaceOnChanges: true
+  type: object

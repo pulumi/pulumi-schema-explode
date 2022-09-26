@@ -1,0 +1,381 @@
+$token: aws:elasticbeanstalk/environment:Environment
+properties:
+  allSettings:
+    type: array
+    items:
+      $ref: "#/types/aws:elasticbeanstalk/EnvironmentAllSetting:EnvironmentAllSetting"
+    description: |
+      List of all option settings configured in this Environment. These
+      are a combination of default settings and their overrides from `setting` in
+      the configuration.
+  application:
+    type: string
+    description: |
+      Name of the application that contains the version
+      to be deployed
+  arn:
+    type: string
+  autoscalingGroups:
+    type: array
+    items:
+      type: string
+    description: |
+      The autoscaling groups used by this Environment.
+  cname:
+    type: string
+    description: |
+      Fully qualified DNS name for this Environment.
+  cnamePrefix:
+    type: string
+    description: |
+      Prefix to use for the fully qualified DNS name of
+      the Environment.
+  description:
+    type: string
+    description: |
+      Short description of the Environment
+  endpointUrl:
+    type: string
+    description: |
+      The URL to the Load Balancer for this Environment
+  instances:
+    type: array
+    items:
+      type: string
+    description: |
+      Instances used by this Environment.
+  launchConfigurations:
+    type: array
+    items:
+      type: string
+    description: |
+      Launch configurations in use by this Environment.
+  loadBalancers:
+    type: array
+    items:
+      type: string
+    description: |
+      Elastic load balancers in use by this Environment.
+  name:
+    type: string
+    description: |
+      A unique name for this Environment. This name is used
+      in the application URL
+  platformArn:
+    type: string
+    description: |
+      The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
+      to use in deployment
+  pollInterval:
+    type: string
+    description: |
+      The time between polling the AWS API to
+      check if changes have been applied. Use this to adjust the rate of API calls
+      for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
+      use the default behavior, which is an exponential backoff
+  queues:
+    type: array
+    items:
+      type: string
+    description: |
+      SQS queues in use by this Environment.
+  settings:
+    type: array
+    items:
+      $ref: "#/types/aws:elasticbeanstalk/EnvironmentSetting:EnvironmentSetting"
+    description: |
+      Option settings to configure the new Environment. These
+      override specific values that are set as defaults. The format is detailed
+      below in Option Settings
+  solutionStackName:
+    type: string
+    description: |
+      A solution stack to base your environment
+      off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A set of tags to apply to the Environment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  templateName:
+    type: string
+    description: |
+      The name of the Elastic Beanstalk Configuration
+      template to use in deployment
+  tier:
+    type: string
+    description: |
+      Elastic Beanstalk Environment tier. Valid values are `Worker`
+      or `WebServer`. If tier is left blank `WebServer` will be used.
+  triggers:
+    type: array
+    items:
+      type: string
+    description: |
+      Autoscaling triggers in use by this Environment.
+  version:
+    type: string
+    $ref: "#/types/aws:elasticbeanstalk/applicationVersion:ApplicationVersion"
+    description: |
+      The name of the Elastic Beanstalk Application Version
+      to use in deployment.
+  waitForReadyTimeout:
+    type: string
+    description: |
+      The maximum
+      [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
+      wait for an Elastic Beanstalk Environment to be in a ready state before timing
+      out.
+required:
+  - allSettings
+  - application
+  - arn
+  - autoscalingGroups
+  - cname
+  - cnamePrefix
+  - endpointUrl
+  - instances
+  - launchConfigurations
+  - loadBalancers
+  - name
+  - platformArn
+  - queues
+  - solutionStackName
+  - tagsAll
+  - triggers
+  - version
+inputProperties:
+  application:
+    type: string
+    oneOf:
+      - type: string
+      - type: string
+        $ref: "#/types/aws:elasticbeanstalk/application:Application"
+    description: |
+      Name of the application that contains the version
+      to be deployed
+  cnamePrefix:
+    type: string
+    description: |
+      Prefix to use for the fully qualified DNS name of
+      the Environment.
+    willReplaceOnChanges: true
+  description:
+    type: string
+    description: |
+      Short description of the Environment
+  name:
+    type: string
+    description: |
+      A unique name for this Environment. This name is used
+      in the application URL
+    willReplaceOnChanges: true
+  platformArn:
+    type: string
+    description: |
+      The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
+      to use in deployment
+  pollInterval:
+    type: string
+    description: |
+      The time between polling the AWS API to
+      check if changes have been applied. Use this to adjust the rate of API calls
+      for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
+      use the default behavior, which is an exponential backoff
+  settings:
+    type: array
+    items:
+      $ref: "#/types/aws:elasticbeanstalk/EnvironmentSetting:EnvironmentSetting"
+    description: |
+      Option settings to configure the new Environment. These
+      override specific values that are set as defaults. The format is detailed
+      below in Option Settings
+  solutionStackName:
+    type: string
+    description: |
+      A solution stack to base your environment
+      off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A set of tags to apply to the Environment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  templateName:
+    type: string
+    description: |
+      The name of the Elastic Beanstalk Configuration
+      template to use in deployment
+  tier:
+    type: string
+    description: |
+      Elastic Beanstalk Environment tier. Valid values are `Worker`
+      or `WebServer`. If tier is left blank `WebServer` will be used.
+    willReplaceOnChanges: true
+  version:
+    type: string
+    $ref: "#/types/aws:elasticbeanstalk/applicationVersion:ApplicationVersion"
+    description: |
+      The name of the Elastic Beanstalk Application Version
+      to use in deployment.
+  waitForReadyTimeout:
+    type: string
+    description: |
+      The maximum
+      [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
+      wait for an Elastic Beanstalk Environment to be in a ready state before timing
+      out.
+requiredInputs:
+  - application
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Environment resources.
+  properties:
+    allSettings:
+      type: array
+      items:
+        $ref: "#/types/aws:elasticbeanstalk/EnvironmentAllSetting:EnvironmentAllSetting"
+      description: |
+        List of all option settings configured in this Environment. These
+        are a combination of default settings and their overrides from `setting` in
+        the configuration.
+    application:
+      type: string
+      oneOf:
+        - type: string
+        - type: string
+          $ref: "#/types/aws:elasticbeanstalk/application:Application"
+      description: |
+        Name of the application that contains the version
+        to be deployed
+    arn:
+      type: string
+    autoscalingGroups:
+      type: array
+      items:
+        type: string
+      description: |
+        The autoscaling groups used by this Environment.
+    cname:
+      type: string
+      description: |
+        Fully qualified DNS name for this Environment.
+    cnamePrefix:
+      type: string
+      description: |
+        Prefix to use for the fully qualified DNS name of
+        the Environment.
+      willReplaceOnChanges: true
+    description:
+      type: string
+      description: |
+        Short description of the Environment
+    endpointUrl:
+      type: string
+      description: |
+        The URL to the Load Balancer for this Environment
+    instances:
+      type: array
+      items:
+        type: string
+      description: |
+        Instances used by this Environment.
+    launchConfigurations:
+      type: array
+      items:
+        type: string
+      description: |
+        Launch configurations in use by this Environment.
+    loadBalancers:
+      type: array
+      items:
+        type: string
+      description: |
+        Elastic load balancers in use by this Environment.
+    name:
+      type: string
+      description: |
+        A unique name for this Environment. This name is used
+        in the application URL
+      willReplaceOnChanges: true
+    platformArn:
+      type: string
+      description: |
+        The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
+        to use in deployment
+    pollInterval:
+      type: string
+      description: |
+        The time between polling the AWS API to
+        check if changes have been applied. Use this to adjust the rate of API calls
+        for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
+        use the default behavior, which is an exponential backoff
+    queues:
+      type: array
+      items:
+        type: string
+      description: |
+        SQS queues in use by this Environment.
+    settings:
+      type: array
+      items:
+        $ref: "#/types/aws:elasticbeanstalk/EnvironmentSetting:EnvironmentSetting"
+      description: |
+        Option settings to configure the new Environment. These
+        override specific values that are set as defaults. The format is detailed
+        below in Option Settings
+    solutionStackName:
+      type: string
+      description: |
+        A solution stack to base your environment
+        off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A set of tags to apply to the Environment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    templateName:
+      type: string
+      description: |
+        The name of the Elastic Beanstalk Configuration
+        template to use in deployment
+    tier:
+      type: string
+      description: |
+        Elastic Beanstalk Environment tier. Valid values are `Worker`
+        or `WebServer`. If tier is left blank `WebServer` will be used.
+      willReplaceOnChanges: true
+    triggers:
+      type: array
+      items:
+        type: string
+      description: |
+        Autoscaling triggers in use by this Environment.
+    version:
+      type: string
+      $ref: "#/types/aws:elasticbeanstalk/applicationVersion:ApplicationVersion"
+      description: |
+        The name of the Elastic Beanstalk Application Version
+        to use in deployment.
+    waitForReadyTimeout:
+      type: string
+      description: |
+        The maximum
+        [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
+        wait for an Elastic Beanstalk Environment to be in a ready state before timing
+        out.
+  type: object

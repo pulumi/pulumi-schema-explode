@@ -1,0 +1,73 @@
+$token: aws:dynamodb/tag:Tag
+description: "
+
+
+  ## Import
+
+
+  `aws_dynamodb_tag` can be imported by using the DynamoDB resource identifier and key, separated by a comma (`,`), e.g.,
+
+
+  ```sh
+
+  \ $ pulumi import aws:dynamodb/tag:Tag example arn:aws:dynamodb:us-east-1:123456789012:table/example,Name
+
+  ```
+
+
+  \ "
+properties:
+  key:
+    type: string
+    description: |
+      Tag name.
+  resourceArn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the DynamoDB resource to tag.
+  value:
+    type: string
+    description: |
+      Tag value.
+required:
+  - key
+  - resourceArn
+  - value
+inputProperties:
+  key:
+    type: string
+    description: |
+      Tag name.
+    willReplaceOnChanges: true
+  resourceArn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the DynamoDB resource to tag.
+    willReplaceOnChanges: true
+  value:
+    type: string
+    description: |
+      Tag value.
+requiredInputs:
+  - key
+  - resourceArn
+  - value
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Tag resources.
+  properties:
+    key:
+      type: string
+      description: |
+        Tag name.
+      willReplaceOnChanges: true
+    resourceArn:
+      type: string
+      description: |
+        Amazon Resource Name (ARN) of the DynamoDB resource to tag.
+      willReplaceOnChanges: true
+    value:
+      type: string
+      description: |
+        Tag value.
+  type: object

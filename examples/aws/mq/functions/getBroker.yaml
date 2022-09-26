@@ -1,0 +1,106 @@
+$token: aws:mq/getBroker:getBroker
+inputs:
+  description: |
+    A collection of arguments for invoking getBroker.
+  properties:
+    brokerId:
+      type: string
+      description: |
+        Unique id of the mq broker.
+    brokerName:
+      type: string
+      description: |
+        Unique name of the mq broker.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getBroker.
+  properties:
+    arn:
+      type: string
+    authenticationStrategy:
+      type: string
+    autoMinorVersionUpgrade:
+      type: boolean
+    brokerId:
+      type: string
+    brokerName:
+      type: string
+    configuration:
+      $ref: "#/types/aws:mq/getBrokerConfiguration:getBrokerConfiguration"
+    deploymentMode:
+      type: string
+    encryptionOptions:
+      type: array
+      items:
+        $ref: "#/types/aws:mq/getBrokerEncryptionOption:getBrokerEncryptionOption"
+    engineType:
+      type: string
+    engineVersion:
+      type: string
+    hostInstanceType:
+      type: string
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    instances:
+      type: array
+      items:
+        $ref: "#/types/aws:mq/getBrokerInstance:getBrokerInstance"
+    ldapServerMetadatas:
+      type: array
+      items:
+        $ref: "#/types/aws:mq/getBrokerLdapServerMetadata:getBrokerLdapServerMetadata"
+    logs:
+      $ref: "#/types/aws:mq/getBrokerLogs:getBrokerLogs"
+    maintenanceWindowStartTime:
+      $ref: "#/types/aws:mq/getBrokerMaintenanceWindowStartTime:getBrokerMaintenanceWindowStartTime"
+    publiclyAccessible:
+      type: boolean
+    securityGroups:
+      type: array
+      items:
+        type: string
+    storageType:
+      type: string
+    subnetIds:
+      type: array
+      items:
+        type: string
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+    users:
+      type: array
+      items:
+        $ref: "#/types/aws:mq/getBrokerUser:getBrokerUser"
+  type: object
+  required:
+    - arn
+    - authenticationStrategy
+    - autoMinorVersionUpgrade
+    - brokerId
+    - brokerName
+    - configuration
+    - deploymentMode
+    - encryptionOptions
+    - engineType
+    - engineVersion
+    - hostInstanceType
+    - instances
+    - ldapServerMetadatas
+    - logs
+    - maintenanceWindowStartTime
+    - publiclyAccessible
+    - securityGroups
+    - storageType
+    - subnetIds
+    - tags
+    - users
+    - id

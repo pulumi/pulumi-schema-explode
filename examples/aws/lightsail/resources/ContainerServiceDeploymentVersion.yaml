@@ -1,0 +1,89 @@
+$token: aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion
+properties:
+  containers:
+    type: array
+    items:
+      $ref: "#/types/aws:lightsail/ContainerServiceDeploymentVersionContainer:ContainerServiceDeploymentVersionContainer"
+    description: |
+      A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
+  createdAt:
+    type: string
+    description: |
+      The timestamp when the deployment was created.
+  publicEndpoint:
+    $ref: "#/types/aws:lightsail/ContainerServiceDeploymentVersionPublicEndpoint:ContainerServiceDeploymentVersionPublicEndpoint"
+    description: |
+      A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
+  serviceName:
+    type: string
+    description: |
+      The name for the container service.
+  state:
+    type: string
+    description: |
+      The current state of the container service.
+  version:
+    type: integer
+    description: |
+      The version number of the deployment.
+required:
+  - containers
+  - createdAt
+  - serviceName
+  - state
+  - version
+inputProperties:
+  containers:
+    type: array
+    items:
+      $ref: "#/types/aws:lightsail/ContainerServiceDeploymentVersionContainer:ContainerServiceDeploymentVersionContainer"
+    description: |
+      A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
+    willReplaceOnChanges: true
+  publicEndpoint:
+    $ref: "#/types/aws:lightsail/ContainerServiceDeploymentVersionPublicEndpoint:ContainerServiceDeploymentVersionPublicEndpoint"
+    description: |
+      A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
+    willReplaceOnChanges: true
+  serviceName:
+    type: string
+    description: |
+      The name for the container service.
+    willReplaceOnChanges: true
+requiredInputs:
+  - containers
+  - serviceName
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering ContainerServiceDeploymentVersion resources.
+  properties:
+    containers:
+      type: array
+      items:
+        $ref: "#/types/aws:lightsail/ContainerServiceDeploymentVersionContainer:ContainerServiceDeploymentVersionContainer"
+      description: |
+        A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
+      willReplaceOnChanges: true
+    createdAt:
+      type: string
+      description: |
+        The timestamp when the deployment was created.
+    publicEndpoint:
+      $ref: "#/types/aws:lightsail/ContainerServiceDeploymentVersionPublicEndpoint:ContainerServiceDeploymentVersionPublicEndpoint"
+      description: |
+        A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
+      willReplaceOnChanges: true
+    serviceName:
+      type: string
+      description: |
+        The name for the container service.
+      willReplaceOnChanges: true
+    state:
+      type: string
+      description: |
+        The current state of the container service.
+    version:
+      type: integer
+      description: |
+        The version number of the deployment.
+  type: object

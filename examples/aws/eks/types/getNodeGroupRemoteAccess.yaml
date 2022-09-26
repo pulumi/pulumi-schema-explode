@@ -1,0 +1,25 @@
+$token: aws:eks/getNodeGroupRemoteAccess:getNodeGroupRemoteAccess
+properties:
+  ec2SshKey:
+    type: string
+    description: |
+      EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group.
+    language:
+      python:
+        mapCase: false
+  sourceSecurityGroupIds:
+    type: array
+    items:
+      type: string
+    description: |
+      Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - ec2SshKey
+  - sourceSecurityGroupIds
+language:
+  nodejs:
+    requiredInputs: []

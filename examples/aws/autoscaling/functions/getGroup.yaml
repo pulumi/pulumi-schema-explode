@@ -1,0 +1,129 @@
+$token: aws:autoscaling/getGroup:getGroup
+inputs:
+  description: |
+    A collection of arguments for invoking getGroup.
+  properties:
+    name:
+      type: string
+      description: |
+        Specify the exact name of the desired autoscaling group.
+  type: object
+  required:
+    - name
+outputs:
+  description: |
+    A collection of values returned by getGroup.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the Auto Scaling group.
+    availabilityZones:
+      type: array
+      items:
+        type: string
+      description: |
+        One or more Availability Zones for the group.
+    defaultCooldown:
+      type: integer
+    desiredCapacity:
+      type: integer
+      description: |
+        Desired size of the group.
+    enabledMetrics:
+      type: array
+      items:
+        type: string
+      description: |
+        List of metrics enabled for collection.
+    healthCheckGracePeriod:
+      type: integer
+      description: |
+        The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service.
+    healthCheckType:
+      type: string
+      description: |
+        Service to use for the health checks. The valid values are EC2 and ELB.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    launchConfiguration:
+      type: string
+      description: |
+        The name of the associated launch configuration.
+    launchTemplates:
+      type: array
+      items:
+        $ref: "#/types/aws:autoscaling/getGroupLaunchTemplate:getGroupLaunchTemplate"
+    loadBalancers:
+      type: array
+      items:
+        type: string
+      description: |
+        One or more load balancers associated with the group.
+    maxSize:
+      type: integer
+      description: |
+        Maximum size of the group.
+    minSize:
+      type: integer
+      description: |
+        Minimum size of the group.
+    name:
+      type: string
+      description: |
+        Name of the Auto Scaling Group.
+    newInstancesProtectedFromScaleIn:
+      type: boolean
+    placementGroup:
+      type: string
+      description: |
+        Name of the placement group into which to launch your instances, if any. For more information, see Placement Groups (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the Amazon Elastic Compute Cloud User Guide.
+    serviceLinkedRoleArn:
+      type: string
+      description: |
+        ARN of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
+    status:
+      type: string
+      description: |
+        Current state of the group when DeleteAutoScalingGroup is in progress.
+    targetGroupArns:
+      type: array
+      items:
+        type: string
+      description: |
+        ARNs of the target groups for your load balancer.
+    terminationPolicies:
+      type: array
+      items:
+        type: string
+      description: |
+        The termination policies for the group.
+    vpcZoneIdentifier:
+      type: string
+      description: |
+        VPC ID for the group.
+  type: object
+  required:
+    - arn
+    - availabilityZones
+    - defaultCooldown
+    - desiredCapacity
+    - enabledMetrics
+    - healthCheckGracePeriod
+    - healthCheckType
+    - launchConfiguration
+    - launchTemplates
+    - loadBalancers
+    - maxSize
+    - minSize
+    - name
+    - newInstancesProtectedFromScaleIn
+    - placementGroup
+    - serviceLinkedRoleArn
+    - status
+    - targetGroupArns
+    - terminationPolicies
+    - vpcZoneIdentifier
+    - id

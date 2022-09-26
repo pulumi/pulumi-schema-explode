@@ -1,0 +1,81 @@
+$token: aws:index/getAvailabilityZones:getAvailabilityZones
+inputs:
+  description: |
+    A collection of arguments for invoking getAvailabilityZones.
+  properties:
+    allAvailabilityZones:
+      type: boolean
+      description: |
+        Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
+    excludeNames:
+      type: array
+      items:
+        type: string
+      description: |
+        List of Availability Zone names to exclude.
+    excludeZoneIds:
+      type: array
+      items:
+        type: string
+      description: |
+        List of Availability Zone IDs to exclude.
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:index/getAvailabilityZonesFilter:getAvailabilityZonesFilter"
+      description: |
+        Configuration block(s) for filtering. Detailed below.
+    state:
+      type: string
+      description: |
+        Allows to filter list of Availability Zones based on their
+        current state. Can be either `"available"`, `"information"`, `"impaired"` or
+        `"unavailable"`. By default the list includes a complete set of Availability Zones
+        to which the underlying AWS account has access, regardless of their state.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getAvailabilityZones.
+  properties:
+    allAvailabilityZones:
+      type: boolean
+    excludeNames:
+      type: array
+      items:
+        type: string
+    excludeZoneIds:
+      type: array
+      items:
+        type: string
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:index/getAvailabilityZonesFilter:getAvailabilityZonesFilter"
+    groupNames:
+      type: array
+      items:
+        type: string
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    names:
+      type: array
+      items:
+        type: string
+      description: |
+        List of the Availability Zone names available to the account.
+    state:
+      type: string
+    zoneIds:
+      type: array
+      items:
+        type: string
+      description: |
+        List of the Availability Zone IDs available to the account.
+  type: object
+  required:
+    - groupNames
+    - names
+    - zoneIds
+    - id

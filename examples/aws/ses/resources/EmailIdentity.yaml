@@ -1,0 +1,35 @@
+$token: aws:ses/emailIdentity:EmailIdentity
+properties:
+  arn:
+    type: string
+    description: |
+      The ARN of the email identity.
+  email:
+    type: string
+    description: |
+      The email address to assign to SES
+required:
+  - arn
+  - email
+inputProperties:
+  email:
+    type: string
+    description: |
+      The email address to assign to SES
+    willReplaceOnChanges: true
+requiredInputs:
+  - email
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering EmailIdentity resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The ARN of the email identity.
+    email:
+      type: string
+      description: |
+        The email address to assign to SES
+      willReplaceOnChanges: true
+  type: object

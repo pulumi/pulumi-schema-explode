@@ -1,0 +1,40 @@
+$token: aws:s3control/bucketPolicy:BucketPolicy
+properties:
+  bucket:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the bucket.
+  policy:
+    type: string
+    description: |
+      JSON string of the resource policy.
+required:
+  - bucket
+  - policy
+inputProperties:
+  bucket:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the bucket.
+    willReplaceOnChanges: true
+  policy:
+    type: string
+    description: |
+      JSON string of the resource policy.
+requiredInputs:
+  - bucket
+  - policy
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering BucketPolicy resources.
+  properties:
+    bucket:
+      type: string
+      description: |
+        Amazon Resource Name (ARN) of the bucket.
+      willReplaceOnChanges: true
+    policy:
+      type: string
+      description: |
+        JSON string of the resource policy.
+  type: object

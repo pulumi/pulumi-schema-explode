@@ -1,0 +1,21 @@
+$token: aws:lb/ListenerDefaultActionForward:ListenerDefaultActionForward
+properties:
+  stickiness:
+    $ref: "#/types/aws:lb/ListenerDefaultActionForwardStickiness:ListenerDefaultActionForwardStickiness"
+    description: |
+      Configuration block for target group stickiness for the rule. Detailed below.
+    language:
+      python:
+        mapCase: false
+  targetGroups:
+    type: array
+    items:
+      $ref: "#/types/aws:lb/ListenerDefaultActionForwardTargetGroup:ListenerDefaultActionForwardTargetGroup"
+    description: |
+      Set of 1-5 target group blocks. Detailed below.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - targetGroups

@@ -1,0 +1,139 @@
+$token: aws:ecs/cluster:Cluster
+properties:
+  arn:
+    type: string
+    description: |
+      ARN that identifies the cluster.
+  capacityProviders:
+    type: array
+    items:
+      type: string
+    description: |
+      List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+    deprecationMessage: Use the aws_ecs_cluster_capacity_providers resource instead
+  configuration:
+    $ref: "#/types/aws:ecs/ClusterConfiguration:ClusterConfiguration"
+    description: |
+      The execute command configuration for the cluster. Detailed below.
+  defaultCapacityProviderStrategies:
+    type: array
+    items:
+      $ref: "#/types/aws:ecs/ClusterDefaultCapacityProviderStrategy:ClusterDefaultCapacityProviderStrategy"
+    description: |
+      Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
+    deprecationMessage: Use the aws_ecs_cluster_capacity_providers resource instead
+  name:
+    type: string
+    description: |
+      Name of the setting to manage. Valid values: `containerInsights`.
+  settings:
+    type: array
+    items:
+      $ref: "#/types/aws:ecs/ClusterSetting:ClusterSetting"
+    description: |
+      Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - arn
+  - capacityProviders
+  - defaultCapacityProviderStrategies
+  - name
+  - settings
+  - tagsAll
+inputProperties:
+  capacityProviders:
+    type: array
+    items:
+      type: string
+    description: |
+      List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+    deprecationMessage: Use the aws_ecs_cluster_capacity_providers resource instead
+  configuration:
+    $ref: "#/types/aws:ecs/ClusterConfiguration:ClusterConfiguration"
+    description: |
+      The execute command configuration for the cluster. Detailed below.
+  defaultCapacityProviderStrategies:
+    type: array
+    items:
+      $ref: "#/types/aws:ecs/ClusterDefaultCapacityProviderStrategy:ClusterDefaultCapacityProviderStrategy"
+    description: |
+      Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
+    deprecationMessage: Use the aws_ecs_cluster_capacity_providers resource instead
+  name:
+    type: string
+    description: |
+      Name of the setting to manage. Valid values: `containerInsights`.
+    willReplaceOnChanges: true
+  settings:
+    type: array
+    items:
+      $ref: "#/types/aws:ecs/ClusterSetting:ClusterSetting"
+    description: |
+      Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Cluster resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN that identifies the cluster.
+    capacityProviders:
+      type: array
+      items:
+        type: string
+      description: |
+        List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+      deprecationMessage: Use the aws_ecs_cluster_capacity_providers resource instead
+    configuration:
+      $ref: "#/types/aws:ecs/ClusterConfiguration:ClusterConfiguration"
+      description: |
+        The execute command configuration for the cluster. Detailed below.
+    defaultCapacityProviderStrategies:
+      type: array
+      items:
+        $ref: "#/types/aws:ecs/ClusterDefaultCapacityProviderStrategy:ClusterDefaultCapacityProviderStrategy"
+      description: |
+        Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
+      deprecationMessage: Use the aws_ecs_cluster_capacity_providers resource instead
+    name:
+      type: string
+      description: |
+        Name of the setting to manage. Valid values: `containerInsights`.
+      willReplaceOnChanges: true
+    settings:
+      type: array
+      items:
+        $ref: "#/types/aws:ecs/ClusterSetting:ClusterSetting"
+      description: |
+        Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

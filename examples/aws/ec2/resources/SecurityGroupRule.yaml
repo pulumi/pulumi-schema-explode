@@ -1,0 +1,202 @@
+$token: aws:ec2/securityGroupRule:SecurityGroupRule
+properties:
+  cidrBlocks:
+    type: array
+    items:
+      type: string
+    description: |
+      List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
+  description:
+    type: string
+    description: |
+      Description of the rule.
+  fromPort:
+    type: integer
+    description: |
+      Start port (or ICMP type number if protocol is "icmp" or "icmpv6").
+  ipv6CidrBlocks:
+    type: array
+    items:
+      type: string
+    description: |
+      List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
+  prefixListIds:
+    type: array
+    items:
+      type: string
+    description: |
+      List of Prefix List IDs.
+  protocol:
+    type: string
+    description: |
+      Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+  securityGroupId:
+    type: string
+    description: |
+      Security group to apply this rule to.
+  self:
+    type: boolean
+    description: |
+      Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
+  sourceSecurityGroupId:
+    type: string
+    description: |
+      Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
+  toPort:
+    type: integer
+    description: |
+      End port (or ICMP code if protocol is "icmp").
+  type:
+    type: string
+    description: |
+      Type of rule being created. Valid options are `ingress` (inbound)
+      or `egress` (outbound).
+required:
+  - fromPort
+  - protocol
+  - securityGroupId
+  - sourceSecurityGroupId
+  - toPort
+  - type
+inputProperties:
+  cidrBlocks:
+    type: array
+    items:
+      type: string
+    description: |
+      List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
+    willReplaceOnChanges: true
+  description:
+    type: string
+    description: |
+      Description of the rule.
+  fromPort:
+    type: integer
+    description: |
+      Start port (or ICMP type number if protocol is "icmp" or "icmpv6").
+    willReplaceOnChanges: true
+  ipv6CidrBlocks:
+    type: array
+    items:
+      type: string
+    description: |
+      List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
+    willReplaceOnChanges: true
+  prefixListIds:
+    type: array
+    items:
+      type: string
+    description: |
+      List of Prefix List IDs.
+    willReplaceOnChanges: true
+  protocol:
+    type: string
+    oneOf:
+      - type: string
+      - type: string
+        $ref: "#/types/aws:ec2/ProtocolType:ProtocolType"
+    description: |
+      Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+    willReplaceOnChanges: true
+  securityGroupId:
+    type: string
+    description: |
+      Security group to apply this rule to.
+    willReplaceOnChanges: true
+  self:
+    type: boolean
+    description: |
+      Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
+    willReplaceOnChanges: true
+  sourceSecurityGroupId:
+    type: string
+    description: |
+      Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
+    willReplaceOnChanges: true
+  toPort:
+    type: integer
+    description: |
+      End port (or ICMP code if protocol is "icmp").
+    willReplaceOnChanges: true
+  type:
+    type: string
+    description: |
+      Type of rule being created. Valid options are `ingress` (inbound)
+      or `egress` (outbound).
+    willReplaceOnChanges: true
+requiredInputs:
+  - fromPort
+  - protocol
+  - securityGroupId
+  - toPort
+  - type
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering SecurityGroupRule resources.
+  properties:
+    cidrBlocks:
+      type: array
+      items:
+        type: string
+      description: |
+        List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
+      willReplaceOnChanges: true
+    description:
+      type: string
+      description: |
+        Description of the rule.
+    fromPort:
+      type: integer
+      description: |
+        Start port (or ICMP type number if protocol is "icmp" or "icmpv6").
+      willReplaceOnChanges: true
+    ipv6CidrBlocks:
+      type: array
+      items:
+        type: string
+      description: |
+        List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
+      willReplaceOnChanges: true
+    prefixListIds:
+      type: array
+      items:
+        type: string
+      description: |
+        List of Prefix List IDs.
+      willReplaceOnChanges: true
+    protocol:
+      type: string
+      oneOf:
+        - type: string
+        - type: string
+          $ref: "#/types/aws:ec2/ProtocolType:ProtocolType"
+      description: |
+        Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+      willReplaceOnChanges: true
+    securityGroupId:
+      type: string
+      description: |
+        Security group to apply this rule to.
+      willReplaceOnChanges: true
+    self:
+      type: boolean
+      description: |
+        Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
+      willReplaceOnChanges: true
+    sourceSecurityGroupId:
+      type: string
+      description: |
+        Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
+      willReplaceOnChanges: true
+    toPort:
+      type: integer
+      description: |
+        End port (or ICMP code if protocol is "icmp").
+      willReplaceOnChanges: true
+    type:
+      type: string
+      description: |
+        Type of rule being created. Valid options are `ingress` (inbound)
+        or `egress` (outbound).
+      willReplaceOnChanges: true
+  type: object

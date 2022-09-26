@@ -1,0 +1,493 @@
+$token: aws:cloudfront/distribution:Distribution
+properties:
+  aliases:
+    type: array
+    items:
+      type: string
+    description: |
+      Extra CNAMEs (alternate domain names), if any, for
+      this distribution.
+  arn:
+    type: string
+    description: |
+      The ARN (Amazon Resource Name) for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
+  callerReference:
+    type: string
+    description: |
+      Internal value used by CloudFront to allow future
+      updates to the distribution configuration.
+  comment:
+    type: string
+    description: |
+      Any comments you want to include about the
+      distribution.
+  customErrorResponses:
+    type: array
+    items:
+      $ref: "#/types/aws:cloudfront/DistributionCustomErrorResponse:DistributionCustomErrorResponse"
+    description: |
+      One or more custom error response elements (multiples allowed).
+  defaultCacheBehavior:
+    $ref: "#/types/aws:cloudfront/DistributionDefaultCacheBehavior:DistributionDefaultCacheBehavior"
+    description: |
+      The default cache behavior for this distribution (maximum
+      one).
+  defaultRootObject:
+    type: string
+    description: |
+      The object that you want CloudFront to
+      return (for example, index.html) when an end user requests the root URL.
+  domainName:
+    type: string
+    description: |
+      The DNS domain name of either the S3 bucket, or
+      web site of your custom origin.
+  enabled:
+    type: boolean
+    description: |
+      A flag that specifies whether Origin Shield is enabled.
+  etag:
+    type: string
+    description: |
+      The current version of the distribution's information. For example:
+      `E2QWRUHAPOMQZL`.
+  hostedZoneId:
+    type: string
+    description: |
+      The CloudFront Route 53 zone ID that can be used to
+      route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an
+      alias for the zone ID `Z2FDTNDATAQYW2`.
+  httpVersion:
+    type: string
+    description: |
+      The maximum HTTP version to support on the
+      distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
+      `http2`.
+  inProgressValidationBatches:
+    type: integer
+    description: |
+      The number of invalidation batches
+      currently in progress.
+  isIpv6Enabled:
+    type: boolean
+    description: |
+      Whether the IPv6 is enabled for the distribution.
+  lastModifiedTime:
+    type: string
+    description: |
+      The date and time the distribution was last modified.
+  loggingConfig:
+    $ref: "#/types/aws:cloudfront/DistributionLoggingConfig:DistributionLoggingConfig"
+    description: |
+      The logging
+      configuration that controls how logs are written
+      to your distribution (maximum one).
+  orderedCacheBehaviors:
+    type: array
+    items:
+      $ref: "#/types/aws:cloudfront/DistributionOrderedCacheBehavior:DistributionOrderedCacheBehavior"
+    description: |
+      An ordered list of cache behaviors
+      resource for this distribution. List from top to bottom
+      in order of precedence. The topmost cache behavior will have precedence 0.
+  originGroups:
+    type: array
+    items:
+      $ref: "#/types/aws:cloudfront/DistributionOriginGroup:DistributionOriginGroup"
+    description: |
+      One or more origin_group for this
+      distribution (multiples allowed).
+  origins:
+    type: array
+    items:
+      $ref: "#/types/aws:cloudfront/DistributionOrigin:DistributionOrigin"
+    description: |
+      One or more origins for this
+      distribution (multiples allowed).
+  priceClass:
+    type: string
+    description: |
+      The price class for this distribution. One of
+      `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
+  restrictions:
+    $ref: "#/types/aws:cloudfront/DistributionRestrictions:DistributionRestrictions"
+    description: |
+      The restriction
+      configuration for this distribution (maximum one).
+  retainOnDelete:
+    type: boolean
+    description: |
+      Disables the distribution instead of
+      deleting it when destroying the resource. If this is set,
+      the distribution needs to be deleted manually afterwards. Default: `false`.
+  status:
+    type: string
+    description: |
+      The current status of the distribution. `Deployed` if the
+      distribution's information is fully propagated throughout the Amazon
+      CloudFront system.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  trustedKeyGroups:
+    type: array
+    items:
+      $ref: "#/types/aws:cloudfront/DistributionTrustedKeyGroup:DistributionTrustedKeyGroup"
+    description: |
+      A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+      See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+  trustedSigners:
+    type: array
+    items:
+      $ref: "#/types/aws:cloudfront/DistributionTrustedSigner:DistributionTrustedSigner"
+    description: |
+      List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
+      See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+  viewerCertificate:
+    $ref: "#/types/aws:cloudfront/DistributionViewerCertificate:DistributionViewerCertificate"
+    description: |
+      The SSL
+      configuration for this distribution (maximum
+      one).
+  waitForDeployment:
+    type: boolean
+    description: |
+      If enabled, the resource will wait for
+      the distribution status to change from `InProgress` to `Deployed`. Setting
+      this to`false` will skip the process. Default: `true`.
+  webAclId:
+    type: string
+    description: |
+      A unique identifier that specifies the AWS WAF web ACL,
+      if any, to associate with this distribution.
+      To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN,
+      for example `aws_wafv2_web_acl.example.arn`. To specify a web
+      ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`.
+      The WAF Web ACL must exist in the WAF Global (CloudFront) region and the
+      credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
+required:
+  - arn
+  - callerReference
+  - defaultCacheBehavior
+  - domainName
+  - enabled
+  - etag
+  - hostedZoneId
+  - inProgressValidationBatches
+  - lastModifiedTime
+  - origins
+  - restrictions
+  - status
+  - tagsAll
+  - trustedKeyGroups
+  - trustedSigners
+  - viewerCertificate
+inputProperties:
+  aliases:
+    type: array
+    items:
+      type: string
+    description: |
+      Extra CNAMEs (alternate domain names), if any, for
+      this distribution.
+  comment:
+    type: string
+    description: |
+      Any comments you want to include about the
+      distribution.
+  customErrorResponses:
+    type: array
+    items:
+      $ref: "#/types/aws:cloudfront/DistributionCustomErrorResponse:DistributionCustomErrorResponse"
+    description: |
+      One or more custom error response elements (multiples allowed).
+  defaultCacheBehavior:
+    $ref: "#/types/aws:cloudfront/DistributionDefaultCacheBehavior:DistributionDefaultCacheBehavior"
+    description: |
+      The default cache behavior for this distribution (maximum
+      one).
+  defaultRootObject:
+    type: string
+    description: |
+      The object that you want CloudFront to
+      return (for example, index.html) when an end user requests the root URL.
+  enabled:
+    type: boolean
+    description: |
+      A flag that specifies whether Origin Shield is enabled.
+  httpVersion:
+    type: string
+    description: |
+      The maximum HTTP version to support on the
+      distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
+      `http2`.
+  isIpv6Enabled:
+    type: boolean
+    description: |
+      Whether the IPv6 is enabled for the distribution.
+  loggingConfig:
+    $ref: "#/types/aws:cloudfront/DistributionLoggingConfig:DistributionLoggingConfig"
+    description: |
+      The logging
+      configuration that controls how logs are written
+      to your distribution (maximum one).
+  orderedCacheBehaviors:
+    type: array
+    items:
+      $ref: "#/types/aws:cloudfront/DistributionOrderedCacheBehavior:DistributionOrderedCacheBehavior"
+    description: |
+      An ordered list of cache behaviors
+      resource for this distribution. List from top to bottom
+      in order of precedence. The topmost cache behavior will have precedence 0.
+  originGroups:
+    type: array
+    items:
+      $ref: "#/types/aws:cloudfront/DistributionOriginGroup:DistributionOriginGroup"
+    description: |
+      One or more origin_group for this
+      distribution (multiples allowed).
+  origins:
+    type: array
+    items:
+      $ref: "#/types/aws:cloudfront/DistributionOrigin:DistributionOrigin"
+    description: |
+      One or more origins for this
+      distribution (multiples allowed).
+  priceClass:
+    type: string
+    description: |
+      The price class for this distribution. One of
+      `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
+  restrictions:
+    $ref: "#/types/aws:cloudfront/DistributionRestrictions:DistributionRestrictions"
+    description: |
+      The restriction
+      configuration for this distribution (maximum one).
+  retainOnDelete:
+    type: boolean
+    description: |
+      Disables the distribution instead of
+      deleting it when destroying the resource. If this is set,
+      the distribution needs to be deleted manually afterwards. Default: `false`.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  viewerCertificate:
+    $ref: "#/types/aws:cloudfront/DistributionViewerCertificate:DistributionViewerCertificate"
+    description: |
+      The SSL
+      configuration for this distribution (maximum
+      one).
+  waitForDeployment:
+    type: boolean
+    description: |
+      If enabled, the resource will wait for
+      the distribution status to change from `InProgress` to `Deployed`. Setting
+      this to`false` will skip the process. Default: `true`.
+  webAclId:
+    type: string
+    description: |
+      A unique identifier that specifies the AWS WAF web ACL,
+      if any, to associate with this distribution.
+      To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN,
+      for example `aws_wafv2_web_acl.example.arn`. To specify a web
+      ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`.
+      The WAF Web ACL must exist in the WAF Global (CloudFront) region and the
+      credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
+requiredInputs:
+  - defaultCacheBehavior
+  - enabled
+  - origins
+  - restrictions
+  - viewerCertificate
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Distribution resources.
+  properties:
+    aliases:
+      type: array
+      items:
+        type: string
+      description: |
+        Extra CNAMEs (alternate domain names), if any, for
+        this distribution.
+    arn:
+      type: string
+      description: |
+        The ARN (Amazon Resource Name) for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
+    callerReference:
+      type: string
+      description: |
+        Internal value used by CloudFront to allow future
+        updates to the distribution configuration.
+    comment:
+      type: string
+      description: |
+        Any comments you want to include about the
+        distribution.
+    customErrorResponses:
+      type: array
+      items:
+        $ref: "#/types/aws:cloudfront/DistributionCustomErrorResponse:DistributionCustomErrorResponse"
+      description: |
+        One or more custom error response elements (multiples allowed).
+    defaultCacheBehavior:
+      $ref: "#/types/aws:cloudfront/DistributionDefaultCacheBehavior:DistributionDefaultCacheBehavior"
+      description: |
+        The default cache behavior for this distribution (maximum
+        one).
+    defaultRootObject:
+      type: string
+      description: |
+        The object that you want CloudFront to
+        return (for example, index.html) when an end user requests the root URL.
+    domainName:
+      type: string
+      description: |
+        The DNS domain name of either the S3 bucket, or
+        web site of your custom origin.
+    enabled:
+      type: boolean
+      description: |
+        A flag that specifies whether Origin Shield is enabled.
+    etag:
+      type: string
+      description: |
+        The current version of the distribution's information. For example:
+        `E2QWRUHAPOMQZL`.
+    hostedZoneId:
+      type: string
+      description: |
+        The CloudFront Route 53 zone ID that can be used to
+        route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an
+        alias for the zone ID `Z2FDTNDATAQYW2`.
+    httpVersion:
+      type: string
+      description: |
+        The maximum HTTP version to support on the
+        distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
+        `http2`.
+    inProgressValidationBatches:
+      type: integer
+      description: |
+        The number of invalidation batches
+        currently in progress.
+    isIpv6Enabled:
+      type: boolean
+      description: |
+        Whether the IPv6 is enabled for the distribution.
+    lastModifiedTime:
+      type: string
+      description: |
+        The date and time the distribution was last modified.
+    loggingConfig:
+      $ref: "#/types/aws:cloudfront/DistributionLoggingConfig:DistributionLoggingConfig"
+      description: |
+        The logging
+        configuration that controls how logs are written
+        to your distribution (maximum one).
+    orderedCacheBehaviors:
+      type: array
+      items:
+        $ref: "#/types/aws:cloudfront/DistributionOrderedCacheBehavior:DistributionOrderedCacheBehavior"
+      description: |
+        An ordered list of cache behaviors
+        resource for this distribution. List from top to bottom
+        in order of precedence. The topmost cache behavior will have precedence 0.
+    originGroups:
+      type: array
+      items:
+        $ref: "#/types/aws:cloudfront/DistributionOriginGroup:DistributionOriginGroup"
+      description: |
+        One or more origin_group for this
+        distribution (multiples allowed).
+    origins:
+      type: array
+      items:
+        $ref: "#/types/aws:cloudfront/DistributionOrigin:DistributionOrigin"
+      description: |
+        One or more origins for this
+        distribution (multiples allowed).
+    priceClass:
+      type: string
+      description: |
+        The price class for this distribution. One of
+        `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
+    restrictions:
+      $ref: "#/types/aws:cloudfront/DistributionRestrictions:DistributionRestrictions"
+      description: |
+        The restriction
+        configuration for this distribution (maximum one).
+    retainOnDelete:
+      type: boolean
+      description: |
+        Disables the distribution instead of
+        deleting it when destroying the resource. If this is set,
+        the distribution needs to be deleted manually afterwards. Default: `false`.
+    status:
+      type: string
+      description: |
+        The current status of the distribution. `Deployed` if the
+        distribution's information is fully propagated throughout the Amazon
+        CloudFront system.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    trustedKeyGroups:
+      type: array
+      items:
+        $ref: "#/types/aws:cloudfront/DistributionTrustedKeyGroup:DistributionTrustedKeyGroup"
+      description: |
+        A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
+        See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+    trustedSigners:
+      type: array
+      items:
+        $ref: "#/types/aws:cloudfront/DistributionTrustedSigner:DistributionTrustedSigner"
+      description: |
+        List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
+        See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+    viewerCertificate:
+      $ref: "#/types/aws:cloudfront/DistributionViewerCertificate:DistributionViewerCertificate"
+      description: |
+        The SSL
+        configuration for this distribution (maximum
+        one).
+    waitForDeployment:
+      type: boolean
+      description: |
+        If enabled, the resource will wait for
+        the distribution status to change from `InProgress` to `Deployed`. Setting
+        this to`false` will skip the process. Default: `true`.
+    webAclId:
+      type: string
+      description: |
+        A unique identifier that specifies the AWS WAF web ACL,
+        if any, to associate with this distribution.
+        To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN,
+        for example `aws_wafv2_web_acl.example.arn`. To specify a web
+        ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`.
+        The WAF Web ACL must exist in the WAF Global (CloudFront) region and the
+        credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
+  type: object

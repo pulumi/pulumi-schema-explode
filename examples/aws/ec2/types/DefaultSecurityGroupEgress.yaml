@@ -1,0 +1,78 @@
+$token: aws:ec2/DefaultSecurityGroupEgress:DefaultSecurityGroupEgress
+properties:
+  cidrBlocks:
+    type: array
+    items:
+      type: string
+    description: |
+      List of CIDR blocks.
+    language:
+      python:
+        mapCase: false
+  description:
+    type: string
+    description: |
+      Description of this rule.
+    language:
+      python:
+        mapCase: false
+  fromPort:
+    type: integer
+    description: |
+      Start port (or ICMP type number if protocol is `icmp`)
+    language:
+      python:
+        mapCase: false
+  ipv6CidrBlocks:
+    type: array
+    items:
+      type: string
+    description: |
+      List of IPv6 CIDR blocks.
+    language:
+      python:
+        mapCase: false
+  prefixListIds:
+    type: array
+    items:
+      type: string
+    description: |
+      List of prefix list IDs (for allowing access to VPC endpoints)
+    language:
+      python:
+        mapCase: false
+  protocol:
+    type: string
+    description: |
+      Protocol. If you select a protocol of "-1" (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+    language:
+      python:
+        mapCase: false
+  securityGroups:
+    type: array
+    items:
+      type: string
+    description: |
+      List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
+    language:
+      python:
+        mapCase: false
+  self:
+    type: boolean
+    description: |
+      Whether the security group itself will be added as a source to this egress rule.
+    language:
+      python:
+        mapCase: false
+  toPort:
+    type: integer
+    description: |
+      End range port (or ICMP code if protocol is `icmp`).
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - fromPort
+  - protocol
+  - toPort

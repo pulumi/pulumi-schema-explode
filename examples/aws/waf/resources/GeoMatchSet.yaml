@@ -1,0 +1,51 @@
+$token: aws:waf/geoMatchSet:GeoMatchSet
+properties:
+  arn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN)
+  geoMatchConstraints:
+    type: array
+    items:
+      $ref: "#/types/aws:waf/GeoMatchSetGeoMatchConstraint:GeoMatchSetGeoMatchConstraint"
+    description: |
+      The GeoMatchConstraint objects which contain the country that you want AWS WAF to search for.
+  name:
+    type: string
+    description: |
+      The name or description of the GeoMatchSet.
+required:
+  - arn
+  - name
+inputProperties:
+  geoMatchConstraints:
+    type: array
+    items:
+      $ref: "#/types/aws:waf/GeoMatchSetGeoMatchConstraint:GeoMatchSetGeoMatchConstraint"
+    description: |
+      The GeoMatchConstraint objects which contain the country that you want AWS WAF to search for.
+  name:
+    type: string
+    description: |
+      The name or description of the GeoMatchSet.
+    willReplaceOnChanges: true
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering GeoMatchSet resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        Amazon Resource Name (ARN)
+    geoMatchConstraints:
+      type: array
+      items:
+        $ref: "#/types/aws:waf/GeoMatchSetGeoMatchConstraint:GeoMatchSetGeoMatchConstraint"
+      description: |
+        The GeoMatchConstraint objects which contain the country that you want AWS WAF to search for.
+    name:
+      type: string
+      description: |
+        The name or description of the GeoMatchSet.
+      willReplaceOnChanges: true
+  type: object

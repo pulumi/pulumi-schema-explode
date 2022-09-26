@@ -1,0 +1,57 @@
+$token: aws:servicecatalog/tagOption:TagOption
+properties:
+  active:
+    type: boolean
+    description: |
+      Whether tag option is active. Default is `true`.
+  key:
+    type: string
+    description: |
+      Tag option key.
+  owner:
+    type: string
+  value:
+    type: string
+    description: |
+      Tag option value.
+required:
+  - key
+  - owner
+  - value
+inputProperties:
+  active:
+    type: boolean
+    description: |
+      Whether tag option is active. Default is `true`.
+  key:
+    type: string
+    description: |
+      Tag option key.
+    willReplaceOnChanges: true
+  value:
+    type: string
+    description: |
+      Tag option value.
+requiredInputs:
+  - key
+  - value
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering TagOption resources.
+  properties:
+    active:
+      type: boolean
+      description: |
+        Whether tag option is active. Default is `true`.
+    key:
+      type: string
+      description: |
+        Tag option key.
+      willReplaceOnChanges: true
+    owner:
+      type: string
+    value:
+      type: string
+      description: |
+        Tag option value.
+  type: object

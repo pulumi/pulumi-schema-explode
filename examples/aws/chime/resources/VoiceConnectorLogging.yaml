@@ -1,0 +1,50 @@
+$token: aws:chime/voiceConnectorLogging:VoiceConnectorLogging
+properties:
+  enableMediaMetricLogs:
+    type: boolean
+    description: |
+      When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
+  enableSipLogs:
+    type: boolean
+    description: |
+      When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
+  voiceConnectorId:
+    type: string
+    description: |
+      The Amazon Chime Voice Connector ID.
+required:
+  - voiceConnectorId
+inputProperties:
+  enableMediaMetricLogs:
+    type: boolean
+    description: |
+      When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
+  enableSipLogs:
+    type: boolean
+    description: |
+      When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
+  voiceConnectorId:
+    type: string
+    description: |
+      The Amazon Chime Voice Connector ID.
+    willReplaceOnChanges: true
+requiredInputs:
+  - voiceConnectorId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering VoiceConnectorLogging resources.
+  properties:
+    enableMediaMetricLogs:
+      type: boolean
+      description: |
+        When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
+    enableSipLogs:
+      type: boolean
+      description: |
+        When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
+    voiceConnectorId:
+      type: string
+      description: |
+        The Amazon Chime Voice Connector ID.
+      willReplaceOnChanges: true
+  type: object

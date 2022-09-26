@@ -1,0 +1,40 @@
+$token: aws:index/getRegion:getRegion
+inputs:
+  description: |
+    A collection of arguments for invoking getRegion.
+  properties:
+    endpoint:
+      type: string
+      description: |
+        EC2 endpoint of the region to select.
+    name:
+      type: string
+      description: |
+        Full name of the region to select.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getRegion.
+  properties:
+    description:
+      type: string
+      description: |
+        Region's description in this format: "Location (Region name)".
+    endpoint:
+      type: string
+      description: |
+        EC2 endpoint for the selected region.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    name:
+      type: string
+      description: |
+        Name of the selected region.
+  type: object
+  required:
+    - description
+    - endpoint
+    - name
+    - id

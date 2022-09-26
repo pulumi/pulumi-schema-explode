@@ -1,0 +1,46 @@
+$token: aws:codecommit/getRepository:getRepository
+inputs:
+  description: |
+    A collection of arguments for invoking getRepository.
+  properties:
+    repositoryName:
+      type: string
+      description: |
+        Name for the repository. This needs to be less than 100 characters.
+  type: object
+  required:
+    - repositoryName
+outputs:
+  description: |
+    A collection of values returned by getRepository.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the repository
+    cloneUrlHttp:
+      type: string
+      description: |
+        URL to use for cloning the repository over HTTPS.
+    cloneUrlSsh:
+      type: string
+      description: |
+        URL to use for cloning the repository over SSH.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    repositoryId:
+      type: string
+      description: |
+        ID of the repository
+    repositoryName:
+      type: string
+  type: object
+  required:
+    - arn
+    - cloneUrlHttp
+    - cloneUrlSsh
+    - repositoryId
+    - repositoryName
+    - id

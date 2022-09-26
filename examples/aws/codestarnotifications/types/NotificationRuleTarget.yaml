@@ -1,0 +1,31 @@
+$token: aws:codestarnotifications/NotificationRuleTarget:NotificationRuleTarget
+properties:
+  address:
+    type: string
+    description: |
+      The ARN of notification rule target. For example, a SNS Topic ARN.
+    language:
+      python:
+        mapCase: false
+  status:
+    type: string
+    description: |
+      The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
+    language:
+      python:
+        mapCase: false
+  type:
+    type: string
+    description: |
+      The type of the notification target. Default value is `SNS`.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - address
+language:
+  nodejs:
+    requiredOutputs:
+      - address
+      - status

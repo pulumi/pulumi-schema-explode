@@ -1,0 +1,20 @@
+$token: aws:s3/BucketLoggingV2TargetGrant:BucketLoggingV2TargetGrant
+properties:
+  grantee:
+    $ref: "#/types/aws:s3/BucketLoggingV2TargetGrantGrantee:BucketLoggingV2TargetGrantGrantee"
+    description: |
+      A configuration block for the person being granted permissions documented below.
+    language:
+      python:
+        mapCase: false
+  permission:
+    type: string
+    description: |
+      Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `READ`, `WRITE`.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - grantee
+  - permission

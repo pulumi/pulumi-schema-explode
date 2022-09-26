@@ -1,0 +1,67 @@
+$token: aws:dms/EndpointKinesisSettings:EndpointKinesisSettings
+properties:
+  includeControlDetails:
+    type: boolean
+    description: |
+      Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
+    language:
+      python:
+        mapCase: false
+  includeNullAndEmpty:
+    type: boolean
+    description: |
+      Include NULL and empty columns in the target. Default is `false`.
+    language:
+      python:
+        mapCase: false
+  includePartitionValue:
+    type: boolean
+    description: |
+      Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. Default is `false`.
+    language:
+      python:
+        mapCase: false
+  includeTableAlterOperations:
+    type: boolean
+    description: |
+      Includes any data definition language (DDL) operations that change the table in the control data. Default is `false`.
+    language:
+      python:
+        mapCase: false
+  includeTransactionDetails:
+    type: boolean
+    description: |
+      Provides detailed transaction information from the source database. Default is `false`.
+    language:
+      python:
+        mapCase: false
+  messageFormat:
+    type: string
+    description: |
+      Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  partitionIncludeSchemaTable:
+    type: boolean
+    description: |
+      Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
+    language:
+      python:
+        mapCase: false
+  serviceAccessRoleArn:
+    type: string
+    description: |
+      ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+    language:
+      python:
+        mapCase: false
+  streamArn:
+    type: string
+    description: |
+      ARN of the Kinesis data stream.
+    language:
+      python:
+        mapCase: false
+type: object

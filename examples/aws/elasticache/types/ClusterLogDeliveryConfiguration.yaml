@@ -1,0 +1,36 @@
+$token: aws:elasticache/ClusterLogDeliveryConfiguration:ClusterLogDeliveryConfiguration
+properties:
+  destination:
+    type: string
+    description: |
+      Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
+    language:
+      python:
+        mapCase: false
+  destinationType:
+    type: string
+    description: |
+      For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
+    language:
+      python:
+        mapCase: false
+  logFormat:
+    type: string
+    description: |
+      Valid values are `json` or `text`
+    language:
+      python:
+        mapCase: false
+  logType:
+    type: string
+    description: |
+      Valid values are  `slow-log` or `engine-log`. Max 1 of each.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - destination
+  - destinationType
+  - logFormat
+  - logType

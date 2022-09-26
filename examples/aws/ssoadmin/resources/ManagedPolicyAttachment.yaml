@@ -1,0 +1,67 @@
+$token: aws:ssoadmin/managedPolicyAttachment:ManagedPolicyAttachment
+properties:
+  instanceArn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+  managedPolicyArn:
+    type: string
+    description: |
+      The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
+  managedPolicyName:
+    type: string
+    description: |
+      The name of the IAM Managed Policy.
+  permissionSetArn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) of the Permission Set.
+required:
+  - instanceArn
+  - managedPolicyArn
+  - managedPolicyName
+  - permissionSetArn
+inputProperties:
+  instanceArn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+    willReplaceOnChanges: true
+  managedPolicyArn:
+    type: string
+    description: |
+      The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
+    willReplaceOnChanges: true
+  permissionSetArn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) of the Permission Set.
+    willReplaceOnChanges: true
+requiredInputs:
+  - instanceArn
+  - managedPolicyArn
+  - permissionSetArn
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering ManagedPolicyAttachment resources.
+  properties:
+    instanceArn:
+      type: string
+      description: |
+        The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+      willReplaceOnChanges: true
+    managedPolicyArn:
+      type: string
+      description: |
+        The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
+      willReplaceOnChanges: true
+    managedPolicyName:
+      type: string
+      description: |
+        The name of the IAM Managed Policy.
+    permissionSetArn:
+      type: string
+      description: |
+        The Amazon Resource Name (ARN) of the Permission Set.
+      willReplaceOnChanges: true
+  type: object

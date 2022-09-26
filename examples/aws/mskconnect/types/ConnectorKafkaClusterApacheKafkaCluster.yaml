@@ -1,0 +1,22 @@
+$token: aws:mskconnect/ConnectorKafkaClusterApacheKafkaCluster:ConnectorKafkaClusterApacheKafkaCluster
+properties:
+  bootstrapServers:
+    type: string
+    description: |
+      The bootstrap servers of the cluster.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  vpc:
+    $ref: "#/types/aws:mskconnect/ConnectorKafkaClusterApacheKafkaClusterVpc:ConnectorKafkaClusterApacheKafkaClusterVpc"
+    description: |
+      Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+type: object
+required:
+  - bootstrapServers
+  - vpc

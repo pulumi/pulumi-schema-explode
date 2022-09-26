@@ -1,0 +1,42 @@
+$token: aws:waf/sqlInjectionMatchSet:SqlInjectionMatchSet
+properties:
+  name:
+    type: string
+    description: |
+      The name or description of the SQL Injection Match Set.
+  sqlInjectionMatchTuples:
+    type: array
+    items:
+      $ref: "#/types/aws:waf/SqlInjectionMatchSetSqlInjectionMatchTuple:SqlInjectionMatchSetSqlInjectionMatchTuple"
+    description: |
+      The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
+required:
+  - name
+inputProperties:
+  name:
+    type: string
+    description: |
+      The name or description of the SQL Injection Match Set.
+    willReplaceOnChanges: true
+  sqlInjectionMatchTuples:
+    type: array
+    items:
+      $ref: "#/types/aws:waf/SqlInjectionMatchSetSqlInjectionMatchTuple:SqlInjectionMatchSetSqlInjectionMatchTuple"
+    description: |
+      The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering SqlInjectionMatchSet resources.
+  properties:
+    name:
+      type: string
+      description: |
+        The name or description of the SQL Injection Match Set.
+      willReplaceOnChanges: true
+    sqlInjectionMatchTuples:
+      type: array
+      items:
+        $ref: "#/types/aws:waf/SqlInjectionMatchSetSqlInjectionMatchTuple:SqlInjectionMatchSetSqlInjectionMatchTuple"
+      description: |
+        The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
+  type: object

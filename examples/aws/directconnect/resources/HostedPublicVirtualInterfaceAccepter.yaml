@@ -1,0 +1,66 @@
+$token: aws:directconnect/hostedPublicVirtualInterfaceAccepter:HostedPublicVirtualInterfaceAccepter
+properties:
+  arn:
+    type: string
+    description: |
+      The ARN of the virtual interface.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  virtualInterfaceId:
+    type: string
+    description: |
+      The ID of the Direct Connect virtual interface to accept.
+required:
+  - arn
+  - tagsAll
+  - virtualInterfaceId
+inputProperties:
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  virtualInterfaceId:
+    type: string
+    description: |
+      The ID of the Direct Connect virtual interface to accept.
+    willReplaceOnChanges: true
+requiredInputs:
+  - virtualInterfaceId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering HostedPublicVirtualInterfaceAccepter resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The ARN of the virtual interface.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    virtualInterfaceId:
+      type: string
+      description: |
+        The ID of the Direct Connect virtual interface to accept.
+      willReplaceOnChanges: true
+  type: object

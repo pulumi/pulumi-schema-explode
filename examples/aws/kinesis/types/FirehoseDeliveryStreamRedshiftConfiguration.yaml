@@ -1,0 +1,102 @@
+$token: aws:kinesis/FirehoseDeliveryStreamRedshiftConfiguration:FirehoseDeliveryStreamRedshiftConfiguration
+properties:
+  cloudwatchLoggingOptions:
+    $ref: "#/types/aws:kinesis/FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions:FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions"
+    description: |
+      The CloudWatch Logging Options for the delivery stream. More details are given below
+    language:
+      python:
+        mapCase: false
+  clusterJdbcurl:
+    type: string
+    description: |
+      The jdbcurl of the redshift cluster.
+    language:
+      python:
+        mapCase: false
+  copyOptions:
+    type: string
+    description: |
+      Copy options for copying the data from the s3 intermediate bucket into redshift, for example to change the default delimiter. For valid values, see the [AWS documentation](http://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html)
+    language:
+      python:
+        mapCase: false
+  dataTableColumns:
+    type: string
+    description: |
+      The data table columns that will be targeted by the copy command.
+    language:
+      python:
+        mapCase: false
+  dataTableName:
+    type: string
+    description: |
+      The name of the table in the redshift cluster that the s3 bucket will copy to.
+    language:
+      python:
+        mapCase: false
+  password:
+    type: string
+    description: |
+      The password for the username above.
+    language:
+      python:
+        mapCase: false
+  processingConfiguration:
+    $ref: "#/types/aws:kinesis/FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration:FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration"
+    description: |
+      The data processing configuration.  More details are given below.
+    language:
+      python:
+        mapCase: false
+  retryDuration:
+    type: integer
+    description: |
+      The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
+    language:
+      python:
+        mapCase: false
+  roleArn:
+    type: string
+    description: |
+      The arn of the role the stream assumes.
+    language:
+      python:
+        mapCase: false
+  s3BackupConfiguration:
+    $ref: "#/types/aws:kinesis/FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration:FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration"
+    description: |
+      The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
+    language:
+      python:
+        mapCase: false
+  s3BackupMode:
+    type: string
+    description: |
+      The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+    language:
+      python:
+        mapCase: false
+  username:
+    type: string
+    description: |
+      The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - clusterJdbcurl
+  - dataTableName
+  - password
+  - roleArn
+  - username
+language:
+  nodejs:
+    requiredOutputs:
+      - cloudwatchLoggingOptions
+      - clusterJdbcurl
+      - dataTableName
+      - password
+      - roleArn
+      - username

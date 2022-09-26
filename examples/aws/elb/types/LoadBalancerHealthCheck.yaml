@@ -1,0 +1,47 @@
+$token: aws:elb/LoadBalancerHealthCheck:LoadBalancerHealthCheck
+properties:
+  healthyThreshold:
+    type: integer
+    description: |
+      The number of checks before the instance is declared healthy.
+    language:
+      python:
+        mapCase: false
+  interval:
+    type: integer
+    description: |
+      The interval between checks.
+    language:
+      python:
+        mapCase: false
+  target:
+    type: string
+    description: |
+      The target of the check. Valid pattern is "${PROTOCOL}:${PORT}${PATH}", where PROTOCOL
+      values are:
+      * `HTTP`, `HTTPS` - PORT and PATH are required
+      * `TCP`, `SSL` - PORT is required, PATH is not supported
+    language:
+      python:
+        mapCase: false
+  timeout:
+    type: integer
+    description: |
+      The length of time before the check times out.
+    language:
+      python:
+        mapCase: false
+  unhealthyThreshold:
+    type: integer
+    description: |
+      The number of checks before the instance is declared unhealthy.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - healthyThreshold
+  - interval
+  - target
+  - timeout
+  - unhealthyThreshold

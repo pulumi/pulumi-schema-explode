@@ -1,0 +1,115 @@
+$token: aws:imagebuilder/distributionConfiguration:DistributionConfiguration
+properties:
+  arn:
+    type: string
+    description: |
+      (Required) Amazon Resource Name (ARN) of the distribution configuration.
+  dateCreated:
+    type: string
+    description: |
+      Date the distribution configuration was created.
+  dateUpdated:
+    type: string
+    description: |
+      Date the distribution configuration was updated.
+  description:
+    type: string
+    description: |
+      Description of the container distribution configuration.
+  distributions:
+    type: array
+    items:
+      $ref: "#/types/aws:imagebuilder/DistributionConfigurationDistribution:DistributionConfigurationDistribution"
+    description: |
+      One or more configuration blocks with distribution settings. Detailed below.
+  name:
+    type: string
+    description: |
+      Name to apply to the distributed AMI.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags for the distribution configuration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - arn
+  - dateCreated
+  - dateUpdated
+  - distributions
+  - name
+  - tagsAll
+inputProperties:
+  description:
+    type: string
+    description: |
+      Description of the container distribution configuration.
+  distributions:
+    type: array
+    items:
+      $ref: "#/types/aws:imagebuilder/DistributionConfigurationDistribution:DistributionConfigurationDistribution"
+    description: |
+      One or more configuration blocks with distribution settings. Detailed below.
+  name:
+    type: string
+    description: |
+      Name to apply to the distributed AMI.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags for the distribution configuration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+requiredInputs:
+  - distributions
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering DistributionConfiguration resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        (Required) Amazon Resource Name (ARN) of the distribution configuration.
+    dateCreated:
+      type: string
+      description: |
+        Date the distribution configuration was created.
+    dateUpdated:
+      type: string
+      description: |
+        Date the distribution configuration was updated.
+    description:
+      type: string
+      description: |
+        Description of the container distribution configuration.
+    distributions:
+      type: array
+      items:
+        $ref: "#/types/aws:imagebuilder/DistributionConfigurationDistribution:DistributionConfigurationDistribution"
+      description: |
+        One or more configuration blocks with distribution settings. Detailed below.
+    name:
+      type: string
+      description: |
+        Name to apply to the distributed AMI.
+      willReplaceOnChanges: true
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags for the distribution configuration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

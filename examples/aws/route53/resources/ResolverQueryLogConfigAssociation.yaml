@@ -1,0 +1,42 @@
+$token: aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation
+properties:
+  resolverQueryLogConfigId:
+    type: string
+    description: |
+      The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
+  resourceId:
+    type: string
+    description: |
+      The ID of a VPC that you want this query logging configuration to log queries for.
+required:
+  - resolverQueryLogConfigId
+  - resourceId
+inputProperties:
+  resolverQueryLogConfigId:
+    type: string
+    description: |
+      The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
+    willReplaceOnChanges: true
+  resourceId:
+    type: string
+    description: |
+      The ID of a VPC that you want this query logging configuration to log queries for.
+    willReplaceOnChanges: true
+requiredInputs:
+  - resolverQueryLogConfigId
+  - resourceId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering ResolverQueryLogConfigAssociation resources.
+  properties:
+    resolverQueryLogConfigId:
+      type: string
+      description: |
+        The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
+      willReplaceOnChanges: true
+    resourceId:
+      type: string
+      description: |
+        The ID of a VPC that you want this query logging configuration to log queries for.
+      willReplaceOnChanges: true
+  type: object

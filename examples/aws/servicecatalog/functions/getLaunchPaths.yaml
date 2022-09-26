@@ -1,0 +1,39 @@
+$token: aws:servicecatalog/getLaunchPaths:getLaunchPaths
+inputs:
+  description: |
+    A collection of arguments for invoking getLaunchPaths.
+  properties:
+    acceptLanguage:
+      type: string
+      description: |
+        Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+    productId:
+      type: string
+      description: |
+        Product identifier.
+  type: object
+  required:
+    - productId
+outputs:
+  description: |
+    A collection of values returned by getLaunchPaths.
+  properties:
+    acceptLanguage:
+      type: string
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    productId:
+      type: string
+    summaries:
+      type: array
+      items:
+        $ref: "#/types/aws:servicecatalog/getLaunchPathsSummary:getLaunchPathsSummary"
+      description: |
+        Block with information about the launch path. See details below.
+  type: object
+  required:
+    - productId
+    - summaries
+    - id

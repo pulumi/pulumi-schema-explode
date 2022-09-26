@@ -1,0 +1,40 @@
+$token: aws:amp/alertManagerDefinition:AlertManagerDefinition
+properties:
+  definition:
+    type: string
+    description: |
+      the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
+  workspaceId:
+    type: string
+    description: |
+      ID of the prometheus workspace the alert manager definition should be linked to
+required:
+  - definition
+  - workspaceId
+inputProperties:
+  definition:
+    type: string
+    description: |
+      the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
+  workspaceId:
+    type: string
+    description: |
+      ID of the prometheus workspace the alert manager definition should be linked to
+    willReplaceOnChanges: true
+requiredInputs:
+  - definition
+  - workspaceId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering AlertManagerDefinition resources.
+  properties:
+    definition:
+      type: string
+      description: |
+        the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
+    workspaceId:
+      type: string
+      description: |
+        ID of the prometheus workspace the alert manager definition should be linked to
+      willReplaceOnChanges: true
+  type: object

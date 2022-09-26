@@ -1,0 +1,99 @@
+$token: aws:dynamodb/getTable:getTable
+inputs:
+  description: |
+    A collection of arguments for invoking getTable.
+  properties:
+    name:
+      type: string
+      description: |
+        Name of the DynamoDB table.
+    serverSideEncryption:
+      $ref: "#/types/aws:dynamodb/getTableServerSideEncryption:getTableServerSideEncryption"
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+  type: object
+  required:
+    - name
+outputs:
+  description: |
+    A collection of values returned by getTable.
+  properties:
+    arn:
+      type: string
+    attributes:
+      type: array
+      items:
+        $ref: "#/types/aws:dynamodb/getTableAttribute:getTableAttribute"
+    billingMode:
+      type: string
+    globalSecondaryIndexes:
+      type: array
+      items:
+        $ref: "#/types/aws:dynamodb/getTableGlobalSecondaryIndex:getTableGlobalSecondaryIndex"
+    hashKey:
+      type: string
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    localSecondaryIndexes:
+      type: array
+      items:
+        $ref: "#/types/aws:dynamodb/getTableLocalSecondaryIndex:getTableLocalSecondaryIndex"
+    name:
+      type: string
+    pointInTimeRecovery:
+      $ref: "#/types/aws:dynamodb/getTablePointInTimeRecovery:getTablePointInTimeRecovery"
+    rangeKey:
+      type: string
+    readCapacity:
+      type: integer
+    replicas:
+      type: array
+      items:
+        $ref: "#/types/aws:dynamodb/getTableReplica:getTableReplica"
+    serverSideEncryption:
+      $ref: "#/types/aws:dynamodb/getTableServerSideEncryption:getTableServerSideEncryption"
+    streamArn:
+      type: string
+    streamEnabled:
+      type: boolean
+    streamLabel:
+      type: string
+    streamViewType:
+      type: string
+    tableClass:
+      type: string
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+    ttl:
+      $ref: "#/types/aws:dynamodb/getTableTtl:getTableTtl"
+    writeCapacity:
+      type: integer
+  type: object
+  required:
+    - arn
+    - attributes
+    - billingMode
+    - globalSecondaryIndexes
+    - hashKey
+    - localSecondaryIndexes
+    - name
+    - pointInTimeRecovery
+    - rangeKey
+    - readCapacity
+    - replicas
+    - serverSideEncryption
+    - streamArn
+    - streamEnabled
+    - streamLabel
+    - streamViewType
+    - tableClass
+    - tags
+    - ttl
+    - writeCapacity
+    - id

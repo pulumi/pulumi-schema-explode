@@ -1,0 +1,56 @@
+$token: aws:ssoadmin/permissionSetInlinePolicy:PermissionSetInlinePolicy
+properties:
+  inlinePolicy:
+    type: string
+    description: |
+      The IAM inline policy to attach to a Permission Set.
+  instanceArn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+  permissionSetArn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) of the Permission Set.
+required:
+  - inlinePolicy
+  - instanceArn
+  - permissionSetArn
+inputProperties:
+  inlinePolicy:
+    type: string
+    description: |
+      The IAM inline policy to attach to a Permission Set.
+  instanceArn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+    willReplaceOnChanges: true
+  permissionSetArn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) of the Permission Set.
+    willReplaceOnChanges: true
+requiredInputs:
+  - inlinePolicy
+  - instanceArn
+  - permissionSetArn
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering PermissionSetInlinePolicy resources.
+  properties:
+    inlinePolicy:
+      type: string
+      description: |
+        The IAM inline policy to attach to a Permission Set.
+    instanceArn:
+      type: string
+      description: |
+        The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+      willReplaceOnChanges: true
+    permissionSetArn:
+      type: string
+      description: |
+        The Amazon Resource Name (ARN) of the Permission Set.
+      willReplaceOnChanges: true
+  type: object

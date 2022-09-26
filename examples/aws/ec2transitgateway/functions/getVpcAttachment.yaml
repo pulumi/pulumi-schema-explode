@@ -1,0 +1,81 @@
+$token: aws:ec2transitgateway/getVpcAttachment:getVpcAttachment
+inputs:
+  description: |
+    A collection of arguments for invoking getVpcAttachment.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2transitgateway/getVpcAttachmentFilter:getVpcAttachmentFilter"
+      description: |
+        One or more configuration blocks containing name-values filters. Detailed below.
+    id:
+      type: string
+      description: |
+        Identifier of the EC2 Transit Gateway VPC Attachment.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value tags for the EC2 Transit Gateway VPC Attachment
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getVpcAttachment.
+  properties:
+    applianceModeSupport:
+      type: string
+      description: |
+        Whether Appliance Mode support is enabled.
+    dnsSupport:
+      type: string
+      description: |
+        Whether DNS support is enabled.
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2transitgateway/getVpcAttachmentFilter:getVpcAttachmentFilter"
+    id:
+      type: string
+      description: |
+        EC2 Transit Gateway VPC Attachment identifier
+    ipv6Support:
+      type: string
+      description: |
+        Whether IPv6 support is enabled.
+    subnetIds:
+      type: array
+      items:
+        type: string
+      description: |
+        Identifiers of EC2 Subnets.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value tags for the EC2 Transit Gateway VPC Attachment
+    transitGatewayId:
+      type: string
+      description: |
+        EC2 Transit Gateway identifier
+    vpcId:
+      type: string
+      description: |
+        Identifier of EC2 VPC.
+    vpcOwnerId:
+      type: string
+      description: |
+        Identifier of the AWS account that owns the EC2 VPC.
+  type: object
+  required:
+    - applianceModeSupport
+    - dnsSupport
+    - id
+    - ipv6Support
+    - subnetIds
+    - tags
+    - transitGatewayId
+    - vpcId
+    - vpcOwnerId

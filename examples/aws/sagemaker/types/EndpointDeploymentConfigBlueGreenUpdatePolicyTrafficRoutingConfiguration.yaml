@@ -1,0 +1,34 @@
+$token: aws:sagemaker/EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration:EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration
+properties:
+  canarySize:
+    $ref: "#/types/aws:sagemaker/EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize:EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize"
+    description: |
+      Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant's total instance count. See Canary Size.
+    language:
+      python:
+        mapCase: false
+  linearStepSize:
+    $ref: "#/types/aws:sagemaker/EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize:EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize"
+    description: |
+      Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant's total instance count. See Linear Step Size.
+    language:
+      python:
+        mapCase: false
+  type:
+    type: string
+    description: |
+      Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+    language:
+      python:
+        mapCase: false
+  waitIntervalInSeconds:
+    type: integer
+    description: |
+      The waiting time (in seconds) between incremental steps to turn on traffic on the new endpoint fleet. Valid values are between `0` and `3600`.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - type
+  - waitIntervalInSeconds

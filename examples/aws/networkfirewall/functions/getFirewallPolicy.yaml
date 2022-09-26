@@ -1,0 +1,59 @@
+$token: aws:networkfirewall/getFirewallPolicy:getFirewallPolicy
+inputs:
+  description: |
+    A collection of arguments for invoking getFirewallPolicy.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the firewall policy.
+    name:
+      type: string
+      description: |
+        Descriptive name of the firewall policy.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value tags for the firewall policy.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getFirewallPolicy.
+  properties:
+    arn:
+      type: string
+    description:
+      type: string
+      description: |
+        Description of the firewall policy.
+    firewallPolicies:
+      type: array
+      items:
+        $ref: "#/types/aws:networkfirewall/getFirewallPolicyFirewallPolicy:getFirewallPolicyFirewallPolicy"
+      description: |
+        The [policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_firewall_policy) for the specified firewall policy.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    name:
+      type: string
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value tags for the firewall policy.
+    updateToken:
+      type: string
+      description: |
+        Token used for optimistic locking.
+  type: object
+  required:
+    - description
+    - firewallPolicies
+    - tags
+    - updateToken
+    - id

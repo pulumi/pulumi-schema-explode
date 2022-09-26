@@ -1,0 +1,63 @@
+$token: aws:ec2/getCoipPool:getCoipPool
+inputs:
+  description: |
+    A collection of arguments for invoking getCoipPool.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getCoipPoolFilter:getCoipPoolFilter"
+    localGatewayRouteTableId:
+      type: string
+      description: |
+        Local Gateway Route Table Id assigned to desired COIP Pool
+    poolId:
+      type: string
+      description: |
+        ID of the specific COIP Pool to retrieve.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Mapping of tags, each pair of which must exactly match
+        a pair on the desired COIP Pool.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getCoipPool.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the COIP pool
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getCoipPoolFilter:getCoipPoolFilter"
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    localGatewayRouteTableId:
+      type: string
+    poolCidrs:
+      type: array
+      items:
+        type: string
+      description: |
+        Set of CIDR blocks in pool
+    poolId:
+      type: string
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+  type: object
+  required:
+    - arn
+    - localGatewayRouteTableId
+    - poolCidrs
+    - poolId
+    - tags
+    - id

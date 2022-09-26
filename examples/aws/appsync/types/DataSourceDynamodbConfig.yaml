@@ -1,0 +1,41 @@
+$token: aws:appsync/DataSourceDynamodbConfig:DataSourceDynamodbConfig
+properties:
+  deltaSyncConfig:
+    $ref: "#/types/aws:appsync/DataSourceDynamodbConfigDeltaSyncConfig:DataSourceDynamodbConfigDeltaSyncConfig"
+    language:
+      python:
+        mapCase: false
+  region:
+    type: string
+    description: |
+      AWS Region for RDS HTTP endpoint. Defaults to current region.
+    language:
+      python:
+        mapCase: false
+  tableName:
+    type: string
+    description: |
+      Name of the DynamoDB table.
+    language:
+      python:
+        mapCase: false
+  useCallerCredentials:
+    type: boolean
+    description: |
+      Set to `true` to use Amazon Cognito credentials with this data source.
+    language:
+      python:
+        mapCase: false
+  versioned:
+    type: boolean
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - tableName
+language:
+  nodejs:
+    requiredOutputs:
+      - region
+      - tableName

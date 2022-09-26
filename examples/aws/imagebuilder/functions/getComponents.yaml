@@ -1,0 +1,47 @@
+$token: aws:imagebuilder/getComponents:getComponents
+inputs:
+  description: |
+    A collection of arguments for invoking getComponents.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:imagebuilder/getComponentsFilter:getComponentsFilter"
+      description: |
+        Configuration block(s) for filtering. Detailed below.
+    owner:
+      type: string
+      description: |
+        Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getComponents.
+  properties:
+    arns:
+      type: array
+      items:
+        type: string
+      description: |
+        Set of ARNs of the matched Image Builder Components.
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:imagebuilder/getComponentsFilter:getComponentsFilter"
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    names:
+      type: array
+      items:
+        type: string
+      description: |
+        Set of names of the matched Image Builder Components.
+    owner:
+      type: string
+  type: object
+  required:
+    - arns
+    - names
+    - id

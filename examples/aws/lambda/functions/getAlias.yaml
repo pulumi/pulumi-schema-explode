@@ -1,0 +1,54 @@
+$token: aws:lambda/getAlias:getAlias
+inputs:
+  description: |
+    A collection of arguments for invoking getAlias.
+  properties:
+    functionName:
+      type: string
+      description: |
+        Name of the aliased Lambda function.
+    name:
+      type: string
+      description: |
+        Name of the Lambda alias.
+  type: object
+  required:
+    - functionName
+    - name
+outputs:
+  description: |
+    A collection of values returned by getAlias.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN identifying the Lambda function alias.
+    description:
+      type: string
+      description: |
+        Description of alias.
+    functionName:
+      type: string
+    functionVersion:
+      type: string
+      description: |
+        Lambda function version which the alias uses.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    invokeArn:
+      type: string
+      description: |
+        ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration's `uri`.
+    name:
+      type: string
+  type: object
+  required:
+    - arn
+    - description
+    - functionName
+    - functionVersion
+    - invokeArn
+    - name
+    - id

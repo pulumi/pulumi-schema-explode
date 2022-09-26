@@ -1,0 +1,123 @@
+$token: aws:redshiftserverless/endpointAccess:EndpointAccess
+properties:
+  address:
+    type: string
+    description: |
+      The DNS address of the VPC endpoint.
+  arn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
+  endpointName:
+    type: string
+    description: |
+      The name of the endpoint.
+  port:
+    type: integer
+    description: |
+      The port that Amazon Redshift Serverless listens on.
+  subnetIds:
+    type: array
+    items:
+      type: string
+    description: |
+      An array of VPC subnet IDs to associate with the endpoint.
+  vpcEndpoints:
+    type: array
+    items:
+      $ref: "#/types/aws:redshiftserverless/EndpointAccessVpcEndpoint:EndpointAccessVpcEndpoint"
+    description: |
+      The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
+  vpcSecurityGroupIds:
+    type: array
+    items:
+      type: string
+    description: |
+      An array of security group IDs to associate with the workgroup.
+  workgroupName:
+    type: string
+    description: |
+      The name of the workgroup.
+required:
+  - address
+  - arn
+  - endpointName
+  - port
+  - subnetIds
+  - vpcEndpoints
+  - vpcSecurityGroupIds
+  - workgroupName
+inputProperties:
+  endpointName:
+    type: string
+    description: |
+      The name of the endpoint.
+    willReplaceOnChanges: true
+  subnetIds:
+    type: array
+    items:
+      type: string
+    description: |
+      An array of VPC subnet IDs to associate with the endpoint.
+    willReplaceOnChanges: true
+  vpcSecurityGroupIds:
+    type: array
+    items:
+      type: string
+    description: |
+      An array of security group IDs to associate with the workgroup.
+  workgroupName:
+    type: string
+    description: |
+      The name of the workgroup.
+    willReplaceOnChanges: true
+requiredInputs:
+  - endpointName
+  - subnetIds
+  - workgroupName
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering EndpointAccess resources.
+  properties:
+    address:
+      type: string
+      description: |
+        The DNS address of the VPC endpoint.
+    arn:
+      type: string
+      description: |
+        Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
+    endpointName:
+      type: string
+      description: |
+        The name of the endpoint.
+      willReplaceOnChanges: true
+    port:
+      type: integer
+      description: |
+        The port that Amazon Redshift Serverless listens on.
+    subnetIds:
+      type: array
+      items:
+        type: string
+      description: |
+        An array of VPC subnet IDs to associate with the endpoint.
+      willReplaceOnChanges: true
+    vpcEndpoints:
+      type: array
+      items:
+        $ref: "#/types/aws:redshiftserverless/EndpointAccessVpcEndpoint:EndpointAccessVpcEndpoint"
+      description: |
+        The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
+    vpcSecurityGroupIds:
+      type: array
+      items:
+        type: string
+      description: |
+        An array of security group IDs to associate with the workgroup.
+    workgroupName:
+      type: string
+      description: |
+        The name of the workgroup.
+      willReplaceOnChanges: true
+  type: object

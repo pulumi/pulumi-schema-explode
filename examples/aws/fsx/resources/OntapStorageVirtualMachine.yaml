@@ -1,0 +1,142 @@
+$token: aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine
+properties:
+  activeDirectoryConfiguration:
+    $ref: "#/types/aws:fsx/OntapStorageVirtualMachineActiveDirectoryConfiguration:OntapStorageVirtualMachineActiveDirectoryConfiguration"
+    description: |
+      Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
+  arn:
+    type: string
+    description: |
+      Amazon Resource Name of the storage virtual machine.
+  endpoints:
+    type: array
+    items:
+      $ref: "#/types/aws:fsx/OntapStorageVirtualMachineEndpoint:OntapStorageVirtualMachineEndpoint"
+    description: |
+      The endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+  fileSystemId:
+    type: string
+    description: |
+      The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
+  name:
+    type: string
+    description: |
+      The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
+  rootVolumeSecurityStyle:
+    type: string
+    description: |
+      Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
+  subtype:
+    type: string
+    description: |
+      Describes the SVM's subtype, e.g. `DEFAULT`
+  svmAdminPassword:
+    type: string
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the storage virtual machine. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  uuid:
+    type: string
+    description: |
+      The SVM's UUID (universally unique identifier).
+required:
+  - arn
+  - endpoints
+  - fileSystemId
+  - name
+  - subtype
+  - tagsAll
+  - uuid
+inputProperties:
+  activeDirectoryConfiguration:
+    $ref: "#/types/aws:fsx/OntapStorageVirtualMachineActiveDirectoryConfiguration:OntapStorageVirtualMachineActiveDirectoryConfiguration"
+    description: |
+      Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
+  fileSystemId:
+    type: string
+    description: |
+      The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
+  name:
+    type: string
+    description: |
+      The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
+    willReplaceOnChanges: true
+  rootVolumeSecurityStyle:
+    type: string
+    description: |
+      Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
+    willReplaceOnChanges: true
+  svmAdminPassword:
+    type: string
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the storage virtual machine. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+requiredInputs:
+  - fileSystemId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering OntapStorageVirtualMachine resources.
+  properties:
+    activeDirectoryConfiguration:
+      $ref: "#/types/aws:fsx/OntapStorageVirtualMachineActiveDirectoryConfiguration:OntapStorageVirtualMachineActiveDirectoryConfiguration"
+      description: |
+        Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
+    arn:
+      type: string
+      description: |
+        Amazon Resource Name of the storage virtual machine.
+    endpoints:
+      type: array
+      items:
+        $ref: "#/types/aws:fsx/OntapStorageVirtualMachineEndpoint:OntapStorageVirtualMachineEndpoint"
+      description: |
+        The endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+    fileSystemId:
+      type: string
+      description: |
+        The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
+    name:
+      type: string
+      description: |
+        The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
+      willReplaceOnChanges: true
+    rootVolumeSecurityStyle:
+      type: string
+      description: |
+        Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
+      willReplaceOnChanges: true
+    subtype:
+      type: string
+      description: |
+        Describes the SVM's subtype, e.g. `DEFAULT`
+    svmAdminPassword:
+      type: string
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags to assign to the storage virtual machine. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    uuid:
+      type: string
+      description: |
+        The SVM's UUID (universally unique identifier).
+  type: object

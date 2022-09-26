@@ -1,0 +1,81 @@
+$token: aws:ec2/subnetCidrReservation:SubnetCidrReservation
+properties:
+  cidrBlock:
+    type: string
+    description: |
+      The CIDR block for the reservation.
+  description:
+    type: string
+    description: |
+      A brief description of the reservation.
+  ownerId:
+    type: string
+    description: |
+      ID of the AWS account that owns this CIDR reservation.
+  reservationType:
+    type: string
+    description: |
+      The type of reservation to create. Valid values: `explicit`, `prefix`
+  subnetId:
+    type: string
+    description: |
+      The ID of the subnet to create the reservation for.
+required:
+  - cidrBlock
+  - ownerId
+  - reservationType
+  - subnetId
+inputProperties:
+  cidrBlock:
+    type: string
+    description: |
+      The CIDR block for the reservation.
+    willReplaceOnChanges: true
+  description:
+    type: string
+    description: |
+      A brief description of the reservation.
+    willReplaceOnChanges: true
+  reservationType:
+    type: string
+    description: |
+      The type of reservation to create. Valid values: `explicit`, `prefix`
+    willReplaceOnChanges: true
+  subnetId:
+    type: string
+    description: |
+      The ID of the subnet to create the reservation for.
+    willReplaceOnChanges: true
+requiredInputs:
+  - cidrBlock
+  - reservationType
+  - subnetId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering SubnetCidrReservation resources.
+  properties:
+    cidrBlock:
+      type: string
+      description: |
+        The CIDR block for the reservation.
+      willReplaceOnChanges: true
+    description:
+      type: string
+      description: |
+        A brief description of the reservation.
+      willReplaceOnChanges: true
+    ownerId:
+      type: string
+      description: |
+        ID of the AWS account that owns this CIDR reservation.
+    reservationType:
+      type: string
+      description: |
+        The type of reservation to create. Valid values: `explicit`, `prefix`
+      willReplaceOnChanges: true
+    subnetId:
+      type: string
+      description: |
+        The ID of the subnet to create the reservation for.
+      willReplaceOnChanges: true
+  type: object

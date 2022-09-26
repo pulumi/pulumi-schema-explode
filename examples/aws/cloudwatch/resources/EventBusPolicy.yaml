@@ -1,0 +1,32 @@
+$token: aws:cloudwatch/eventBusPolicy:EventBusPolicy
+properties:
+  eventBusName:
+    type: string
+    description: |
+      The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+  policy:
+    type: string
+required:
+  - policy
+inputProperties:
+  eventBusName:
+    type: string
+    description: |
+      The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+    willReplaceOnChanges: true
+  policy:
+    type: string
+requiredInputs:
+  - policy
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering EventBusPolicy resources.
+  properties:
+    eventBusName:
+      type: string
+      description: |
+        The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+      willReplaceOnChanges: true
+    policy:
+      type: string
+  type: object

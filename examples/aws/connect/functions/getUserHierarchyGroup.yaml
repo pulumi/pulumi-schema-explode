@@ -1,0 +1,72 @@
+$token: aws:connect/getUserHierarchyGroup:getUserHierarchyGroup
+inputs:
+  description: |
+    A collection of arguments for invoking getUserHierarchyGroup.
+  properties:
+    hierarchyGroupId:
+      type: string
+      description: |
+        Returns information on a specific hierarchy group by hierarchy group id
+    instanceId:
+      type: string
+      description: |
+        Reference to the hosting Amazon Connect Instance
+    name:
+      type: string
+      description: |
+        Returns information on a specific hierarchy group by name
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags to assign to the hierarchy group.
+  type: object
+  required:
+    - instanceId
+outputs:
+  description: |
+    A collection of values returned by getUserHierarchyGroup.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the hierarchy group.
+    hierarchyGroupId:
+      type: string
+    hierarchyPaths:
+      type: array
+      items:
+        $ref: "#/types/aws:connect/getUserHierarchyGroupHierarchyPath:getUserHierarchyGroupHierarchyPath"
+      description: |
+        Block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    instanceId:
+      type: string
+    levelId:
+      type: string
+      description: |
+        Identifier of the level in the hierarchy group.
+    name:
+      type: string
+      description: |
+        Name of the hierarchy group.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags to assign to the hierarchy group.
+  type: object
+  required:
+    - arn
+    - hierarchyGroupId
+    - hierarchyPaths
+    - instanceId
+    - levelId
+    - name
+    - tags
+    - id

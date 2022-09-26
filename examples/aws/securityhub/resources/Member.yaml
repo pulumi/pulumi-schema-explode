@@ -1,0 +1,74 @@
+$token: aws:securityhub/member:Member
+properties:
+  accountId:
+    type: string
+    description: |
+      The ID of the member AWS account.
+  email:
+    type: string
+    description: |
+      The email of the member AWS account.
+  invite:
+    type: boolean
+    description: |
+      Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
+  masterId:
+    type: string
+    description: |
+      The ID of the master Security Hub AWS account.
+  memberStatus:
+    type: string
+    description: |
+      The status of the member account relationship.
+required:
+  - accountId
+  - email
+  - masterId
+  - memberStatus
+inputProperties:
+  accountId:
+    type: string
+    description: |
+      The ID of the member AWS account.
+    willReplaceOnChanges: true
+  email:
+    type: string
+    description: |
+      The email of the member AWS account.
+    willReplaceOnChanges: true
+  invite:
+    type: boolean
+    description: |
+      Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
+    willReplaceOnChanges: true
+requiredInputs:
+  - accountId
+  - email
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Member resources.
+  properties:
+    accountId:
+      type: string
+      description: |
+        The ID of the member AWS account.
+      willReplaceOnChanges: true
+    email:
+      type: string
+      description: |
+        The email of the member AWS account.
+      willReplaceOnChanges: true
+    invite:
+      type: boolean
+      description: |
+        Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
+      willReplaceOnChanges: true
+    masterId:
+      type: string
+      description: |
+        The ID of the master Security Hub AWS account.
+    memberStatus:
+      type: string
+      description: |
+        The status of the member account relationship.
+  type: object

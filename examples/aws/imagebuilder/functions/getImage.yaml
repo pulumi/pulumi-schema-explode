@@ -1,0 +1,108 @@
+$token: aws:imagebuilder/getImage:getImage
+inputs:
+  description: |
+    A collection of arguments for invoking getImage.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags for the image.
+  type: object
+  required:
+    - arn
+outputs:
+  description: |
+    A collection of values returned by getImage.
+  properties:
+    arn:
+      type: string
+    buildVersionArn:
+      type: string
+      description: |
+        Build version ARN of the image. This will always have the `#.#.#/#` suffix.
+    containerRecipeArn:
+      type: string
+      description: |
+        ARN of the container recipe.
+    dateCreated:
+      type: string
+      description: |
+        Date the image was created.
+    distributionConfigurationArn:
+      type: string
+      description: |
+        ARN of the Image Builder Distribution Configuration.
+    enhancedImageMetadataEnabled:
+      type: boolean
+      description: |
+        Whether additional information about the image being created is collected.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    imageRecipeArn:
+      type: string
+      description: |
+        ARN of the image recipe.
+    imageTestsConfigurations:
+      type: array
+      items:
+        $ref: "#/types/aws:imagebuilder/getImageImageTestsConfiguration:getImageImageTestsConfiguration"
+      description: |
+        List of an object with image tests configuration.
+    infrastructureConfigurationArn:
+      type: string
+      description: |
+        ARN of the Image Builder Infrastructure Configuration.
+    name:
+      type: string
+      description: |
+        Name of the AMI.
+    osVersion:
+      type: string
+      description: |
+        Operating System version of the image.
+    outputResources:
+      type: array
+      items:
+        $ref: "#/types/aws:imagebuilder/getImageOutputResource:getImageOutputResource"
+      description: |
+        List of objects with resources created by the image.
+    platform:
+      type: string
+      description: |
+        Platform of the image.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags for the image.
+    version:
+      type: string
+      description: |
+        Version of the image.
+  type: object
+  required:
+    - arn
+    - buildVersionArn
+    - containerRecipeArn
+    - dateCreated
+    - distributionConfigurationArn
+    - enhancedImageMetadataEnabled
+    - imageRecipeArn
+    - imageTestsConfigurations
+    - infrastructureConfigurationArn
+    - name
+    - osVersion
+    - outputResources
+    - platform
+    - tags
+    - version
+    - id

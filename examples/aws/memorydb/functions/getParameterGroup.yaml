@@ -1,0 +1,63 @@
+$token: aws:memorydb/getParameterGroup:getParameterGroup
+inputs:
+  description: |
+    A collection of arguments for invoking getParameterGroup.
+  properties:
+    name:
+      type: string
+      description: |
+        Name of the parameter group.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags assigned to the parameter group.
+  type: object
+  required:
+    - name
+outputs:
+  description: |
+    A collection of values returned by getParameterGroup.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the parameter group.
+    description:
+      type: string
+      description: |
+        Description of the parameter group.
+    family:
+      type: string
+      description: |
+        Engine version that the parameter group can be used with.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    name:
+      type: string
+      description: |
+        Name of the parameter.
+    parameters:
+      type: array
+      items:
+        $ref: "#/types/aws:memorydb/getParameterGroupParameter:getParameterGroupParameter"
+      description: |
+        Set of user-defined MemoryDB parameters applied by the parameter group.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags assigned to the parameter group.
+  type: object
+  required:
+    - arn
+    - description
+    - family
+    - name
+    - parameters
+    - tags
+    - id

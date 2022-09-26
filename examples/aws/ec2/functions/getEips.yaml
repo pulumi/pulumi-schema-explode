@@ -1,0 +1,52 @@
+$token: aws:ec2/getEips:getEips
+inputs:
+  description: |
+    A collection of arguments for invoking getEips.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getEipsFilter:getEipsFilter"
+      description: |
+        Custom filter block as described below.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getEips.
+  properties:
+    allocationIds:
+      type: array
+      items:
+        type: string
+      description: |
+        List of all the allocation IDs for address for use with EC2-VPC.
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getEipsFilter:getEipsFilter"
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    publicIps:
+      type: array
+      items:
+        type: string
+      description: |
+        List of all the Elastic IP addresses.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+  type: object
+  required:
+    - allocationIds
+    - publicIps
+    - tags
+    - id

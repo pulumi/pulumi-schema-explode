@@ -1,0 +1,240 @@
+$token: aws:eks/cluster:Cluster
+properties:
+  arn:
+    type: string
+    description: |
+      ARN of the cluster.
+  certificateAuthorities:
+    type: array
+    items:
+      $ref: "#/types/aws:eks/ClusterCertificateAuthority:ClusterCertificateAuthority"
+    description: |
+      Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
+  certificateAuthority:
+    $ref: "#/types/aws:eks/ClusterCertificateAuthority:ClusterCertificateAuthority"
+    description: |
+      The first certificate authority. Base64 encoded certificate data required to communicate with your cluster.
+  createdAt:
+    type: string
+    description: |
+      Unix epoch timestamp in seconds for when the cluster was created.
+  defaultAddonsToRemoves:
+    type: array
+    items:
+      type: string
+    description: |
+      List of addons to remove upon creation. Any addon listed will be "adopted" and then removed. This allows for the creation of a baremetal cluster where no addon is deployed and direct management of addons via Pulumi Kubernetes resources. Valid entries are `kube-proxy`, `coredns` and `vpc-cni`. **Only** works on first creation of a cluster.
+  enabledClusterLogTypes:
+    type: array
+    items:
+      type: string
+    description: |
+      List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
+  encryptionConfig:
+    $ref: "#/types/aws:eks/ClusterEncryptionConfig:ClusterEncryptionConfig"
+    description: |
+      Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+  endpoint:
+    type: string
+    description: |
+      Endpoint for your Kubernetes API server.
+  identities:
+    type: array
+    items:
+      $ref: "#/types/aws:eks/ClusterIdentity:ClusterIdentity"
+    description: |
+      Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
+  kubernetesNetworkConfig:
+    $ref: "#/types/aws:eks/ClusterKubernetesNetworkConfig:ClusterKubernetesNetworkConfig"
+    description: |
+      Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
+  name:
+    type: string
+    description: |
+      Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+  platformVersion:
+    type: string
+    description: |
+      Platform version for the cluster.
+  roleArn:
+    type: string
+    description: |
+      ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+  status:
+    type: string
+    description: |
+      Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  version:
+    type: string
+    description: |
+      Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
+  vpcConfig:
+    $ref: "#/types/aws:eks/ClusterVpcConfig:ClusterVpcConfig"
+    description: |
+      Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.
+required:
+  - arn
+  - certificateAuthorities
+  - certificateAuthority
+  - createdAt
+  - endpoint
+  - identities
+  - kubernetesNetworkConfig
+  - name
+  - platformVersion
+  - roleArn
+  - status
+  - tagsAll
+  - version
+  - vpcConfig
+inputProperties:
+  defaultAddonsToRemoves:
+    type: array
+    items:
+      type: string
+    description: |
+      List of addons to remove upon creation. Any addon listed will be "adopted" and then removed. This allows for the creation of a baremetal cluster where no addon is deployed and direct management of addons via Pulumi Kubernetes resources. Valid entries are `kube-proxy`, `coredns` and `vpc-cni`. **Only** works on first creation of a cluster.
+  enabledClusterLogTypes:
+    type: array
+    items:
+      type: string
+    description: |
+      List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
+  encryptionConfig:
+    $ref: "#/types/aws:eks/ClusterEncryptionConfig:ClusterEncryptionConfig"
+    description: |
+      Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+  kubernetesNetworkConfig:
+    $ref: "#/types/aws:eks/ClusterKubernetesNetworkConfig:ClusterKubernetesNetworkConfig"
+    description: |
+      Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
+  name:
+    type: string
+    description: |
+      Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+    willReplaceOnChanges: true
+  roleArn:
+    type: string
+    description: |
+      ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  version:
+    type: string
+    description: |
+      Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
+  vpcConfig:
+    $ref: "#/types/aws:eks/ClusterVpcConfig:ClusterVpcConfig"
+    description: |
+      Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.
+requiredInputs:
+  - roleArn
+  - vpcConfig
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Cluster resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the cluster.
+    certificateAuthorities:
+      type: array
+      items:
+        $ref: "#/types/aws:eks/ClusterCertificateAuthority:ClusterCertificateAuthority"
+      description: |
+        Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
+    certificateAuthority:
+      $ref: "#/types/aws:eks/ClusterCertificateAuthority:ClusterCertificateAuthority"
+      description: |
+        The first certificate authority. Base64 encoded certificate data required to communicate with your cluster.
+    createdAt:
+      type: string
+      description: |
+        Unix epoch timestamp in seconds for when the cluster was created.
+    defaultAddonsToRemoves:
+      type: array
+      items:
+        type: string
+      description: |
+        List of addons to remove upon creation. Any addon listed will be "adopted" and then removed. This allows for the creation of a baremetal cluster where no addon is deployed and direct management of addons via Pulumi Kubernetes resources. Valid entries are `kube-proxy`, `coredns` and `vpc-cni`. **Only** works on first creation of a cluster.
+    enabledClusterLogTypes:
+      type: array
+      items:
+        type: string
+      description: |
+        List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
+    encryptionConfig:
+      $ref: "#/types/aws:eks/ClusterEncryptionConfig:ClusterEncryptionConfig"
+      description: |
+        Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+    endpoint:
+      type: string
+      description: |
+        Endpoint for your Kubernetes API server.
+    identities:
+      type: array
+      items:
+        $ref: "#/types/aws:eks/ClusterIdentity:ClusterIdentity"
+      description: |
+        Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
+    kubernetesNetworkConfig:
+      $ref: "#/types/aws:eks/ClusterKubernetesNetworkConfig:ClusterKubernetesNetworkConfig"
+      description: |
+        Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
+    name:
+      type: string
+      description: |
+        Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+      willReplaceOnChanges: true
+    platformVersion:
+      type: string
+      description: |
+        Platform version for the cluster.
+    roleArn:
+      type: string
+      description: |
+        ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+      willReplaceOnChanges: true
+    status:
+      type: string
+      description: |
+        Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    version:
+      type: string
+      description: |
+        Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
+    vpcConfig:
+      $ref: "#/types/aws:eks/ClusterVpcConfig:ClusterVpcConfig"
+      description: |
+        Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.
+  type: object

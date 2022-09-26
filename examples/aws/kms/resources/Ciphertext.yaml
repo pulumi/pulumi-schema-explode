@@ -1,0 +1,71 @@
+$token: aws:kms/ciphertext:Ciphertext
+properties:
+  ciphertextBlob:
+    type: string
+    description: |
+      Base64 encoded ciphertext
+  context:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      An optional mapping that makes up the encryption context.
+  keyId:
+    type: string
+    description: |
+      Globally unique key ID for the customer master key.
+  plaintext:
+    type: string
+    description: |
+      Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
+required:
+  - ciphertextBlob
+  - keyId
+  - plaintext
+inputProperties:
+  context:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      An optional mapping that makes up the encryption context.
+    willReplaceOnChanges: true
+  keyId:
+    type: string
+    description: |
+      Globally unique key ID for the customer master key.
+    willReplaceOnChanges: true
+  plaintext:
+    type: string
+    description: |
+      Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
+    willReplaceOnChanges: true
+requiredInputs:
+  - keyId
+  - plaintext
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Ciphertext resources.
+  properties:
+    ciphertextBlob:
+      type: string
+      description: |
+        Base64 encoded ciphertext
+    context:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        An optional mapping that makes up the encryption context.
+      willReplaceOnChanges: true
+    keyId:
+      type: string
+      description: |
+        Globally unique key ID for the customer master key.
+      willReplaceOnChanges: true
+    plaintext:
+      type: string
+      description: |
+        Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
+      willReplaceOnChanges: true
+  type: object

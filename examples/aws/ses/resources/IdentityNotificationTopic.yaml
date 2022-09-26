@@ -1,0 +1,66 @@
+$token: aws:ses/identityNotificationTopic:IdentityNotificationTopic
+properties:
+  identity:
+    type: string
+    description: |
+      The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
+  includeOriginalHeaders:
+    type: boolean
+    description: |
+      Whether SES should include original email headers in SNS notifications of this type. `false` by default.
+  notificationType:
+    type: string
+    description: |
+      The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
+  topicArn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
+required:
+  - identity
+  - notificationType
+inputProperties:
+  identity:
+    type: string
+    description: |
+      The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
+    willReplaceOnChanges: true
+  includeOriginalHeaders:
+    type: boolean
+    description: |
+      Whether SES should include original email headers in SNS notifications of this type. `false` by default.
+  notificationType:
+    type: string
+    description: |
+      The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
+    willReplaceOnChanges: true
+  topicArn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
+requiredInputs:
+  - identity
+  - notificationType
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering IdentityNotificationTopic resources.
+  properties:
+    identity:
+      type: string
+      description: |
+        The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
+      willReplaceOnChanges: true
+    includeOriginalHeaders:
+      type: boolean
+      description: |
+        Whether SES should include original email headers in SNS notifications of this type. `false` by default.
+    notificationType:
+      type: string
+      description: |
+        The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
+      willReplaceOnChanges: true
+    topicArn:
+      type: string
+      description: |
+        The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
+  type: object

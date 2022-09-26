@@ -1,0 +1,66 @@
+$token: aws:route53/zoneAssociation:ZoneAssociation
+properties:
+  owningAccount:
+    type: string
+    description: |
+      The account ID of the account that created the hosted zone.
+  vpcId:
+    type: string
+    description: |
+      The VPC to associate with the private hosted zone.
+  vpcRegion:
+    type: string
+    description: |
+      The VPC's region. Defaults to the region of the AWS provider.
+  zoneId:
+    type: string
+    description: |
+      The private hosted zone to associate.
+required:
+  - owningAccount
+  - vpcId
+  - vpcRegion
+  - zoneId
+inputProperties:
+  vpcId:
+    type: string
+    description: |
+      The VPC to associate with the private hosted zone.
+    willReplaceOnChanges: true
+  vpcRegion:
+    type: string
+    description: |
+      The VPC's region. Defaults to the region of the AWS provider.
+    willReplaceOnChanges: true
+  zoneId:
+    type: string
+    description: |
+      The private hosted zone to associate.
+    willReplaceOnChanges: true
+requiredInputs:
+  - vpcId
+  - zoneId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering ZoneAssociation resources.
+  properties:
+    owningAccount:
+      type: string
+      description: |
+        The account ID of the account that created the hosted zone.
+    vpcId:
+      type: string
+      description: |
+        The VPC to associate with the private hosted zone.
+      willReplaceOnChanges: true
+    vpcRegion:
+      type: string
+      description: |
+        The VPC's region. Defaults to the region of the AWS provider.
+      willReplaceOnChanges: true
+    zoneId:
+      type: string
+      description: |
+        The private hosted zone to associate.
+      willReplaceOnChanges: true
+  type: object

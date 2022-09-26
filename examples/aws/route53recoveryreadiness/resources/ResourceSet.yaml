@@ -1,0 +1,102 @@
+$token: aws:route53recoveryreadiness/resourceSet:ResourceSet
+properties:
+  arn:
+    type: string
+    description: |
+      NLB resource ARN.
+  resourceSetName:
+    type: string
+    description: |
+      Unique name describing the resource set.
+  resourceSetType:
+    type: string
+    description: |
+      Type of the resources in the resource set.
+  resources:
+    type: array
+    items:
+      $ref: "#/types/aws:route53recoveryreadiness/ResourceSetResource:ResourceSetResource"
+    description: |
+      List of resources to add to this resource set. See below.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - arn
+  - resourceSetName
+  - resourceSetType
+  - resources
+  - tagsAll
+inputProperties:
+  resourceSetName:
+    type: string
+    description: |
+      Unique name describing the resource set.
+    willReplaceOnChanges: true
+  resourceSetType:
+    type: string
+    description: |
+      Type of the resources in the resource set.
+    willReplaceOnChanges: true
+  resources:
+    type: array
+    items:
+      $ref: "#/types/aws:route53recoveryreadiness/ResourceSetResource:ResourceSetResource"
+    description: |
+      List of resources to add to this resource set. See below.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+requiredInputs:
+  - resourceSetName
+  - resourceSetType
+  - resources
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering ResourceSet resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        NLB resource ARN.
+    resourceSetName:
+      type: string
+      description: |
+        Unique name describing the resource set.
+      willReplaceOnChanges: true
+    resourceSetType:
+      type: string
+      description: |
+        Type of the resources in the resource set.
+      willReplaceOnChanges: true
+    resources:
+      type: array
+      items:
+        $ref: "#/types/aws:route53recoveryreadiness/ResourceSetResource:ResourceSetResource"
+      description: |
+        List of resources to add to this resource set. See below.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

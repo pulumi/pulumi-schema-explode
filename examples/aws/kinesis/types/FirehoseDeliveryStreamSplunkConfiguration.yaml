@@ -1,0 +1,68 @@
+$token: aws:kinesis/FirehoseDeliveryStreamSplunkConfiguration:FirehoseDeliveryStreamSplunkConfiguration
+properties:
+  cloudwatchLoggingOptions:
+    $ref: "#/types/aws:kinesis/FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions:FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions"
+    description: |
+      The CloudWatch Logging Options for the delivery stream. More details are given below.
+    language:
+      python:
+        mapCase: false
+  hecAcknowledgmentTimeout:
+    type: integer
+    description: |
+      The amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
+    language:
+      python:
+        mapCase: false
+  hecEndpoint:
+    type: string
+    description: |
+      The HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
+    language:
+      python:
+        mapCase: false
+  hecEndpointType:
+    type: string
+    description: |
+      The HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
+    language:
+      python:
+        mapCase: false
+  hecToken:
+    type: string
+    description: |
+      The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
+    language:
+      python:
+        mapCase: false
+  processingConfiguration:
+    $ref: "#/types/aws:kinesis/FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration:FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration"
+    description: |
+      The data processing configuration.  More details are given below.
+    language:
+      python:
+        mapCase: false
+  retryDuration:
+    type: integer
+    description: |
+      After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+    language:
+      python:
+        mapCase: false
+  s3BackupMode:
+    type: string
+    description: |
+      Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - hecEndpoint
+  - hecToken
+language:
+  nodejs:
+    requiredOutputs:
+      - cloudwatchLoggingOptions
+      - hecEndpoint
+      - hecToken

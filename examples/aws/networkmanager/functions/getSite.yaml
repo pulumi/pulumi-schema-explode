@@ -1,0 +1,64 @@
+$token: aws:networkmanager/getSite:getSite
+inputs:
+  description: |
+    A collection of arguments for invoking getSite.
+  properties:
+    globalNetworkId:
+      type: string
+      description: |
+        ID of the Global Network of the site to retrieve.
+    siteId:
+      type: string
+      description: |
+        ID of the specific site to retrieve.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value tags for the Site.
+  type: object
+  required:
+    - globalNetworkId
+    - siteId
+outputs:
+  description: |
+    A collection of values returned by getSite.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the site.
+    description:
+      type: string
+      description: |
+        Description of the site.
+    globalNetworkId:
+      type: string
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    locations:
+      type: array
+      items:
+        $ref: "#/types/aws:networkmanager/getSiteLocation:getSiteLocation"
+      description: |
+        Site location as documented below.
+    siteId:
+      type: string
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value tags for the Site.
+  type: object
+  required:
+    - arn
+    - description
+    - globalNetworkId
+    - locations
+    - siteId
+    - tags
+    - id

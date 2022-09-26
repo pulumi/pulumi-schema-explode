@@ -1,0 +1,153 @@
+$token: aws:ec2/trafficMirrorFilterRule:TrafficMirrorFilterRule
+properties:
+  arn:
+    type: string
+    description: |
+      ARN of the traffic mirror filter rule.
+  description:
+    type: string
+    description: |
+      Description of the traffic mirror filter rule.
+  destinationCidrBlock:
+    type: string
+    description: |
+      Destination CIDR block to assign to the Traffic Mirror rule.
+  destinationPortRange:
+    $ref: "#/types/aws:ec2/TrafficMirrorFilterRuleDestinationPortRange:TrafficMirrorFilterRuleDestinationPortRange"
+    description: |
+      Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
+  protocol:
+    type: integer
+    description: |
+      Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
+  ruleAction:
+    type: string
+    description: |
+      Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
+  ruleNumber:
+    type: integer
+    description: |
+      Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
+  sourceCidrBlock:
+    type: string
+    description: |
+      Source CIDR block to assign to the Traffic Mirror rule.
+  sourcePortRange:
+    $ref: "#/types/aws:ec2/TrafficMirrorFilterRuleSourcePortRange:TrafficMirrorFilterRuleSourcePortRange"
+    description: |
+      Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
+  trafficDirection:
+    type: string
+    description: |
+      Direction of traffic to be captured. Valid values are `ingress` and `egress`
+  trafficMirrorFilterId:
+    type: string
+    description: |
+      ID of the traffic mirror filter to which this rule should be added
+required:
+  - arn
+  - destinationCidrBlock
+  - ruleAction
+  - ruleNumber
+  - sourceCidrBlock
+  - trafficDirection
+  - trafficMirrorFilterId
+inputProperties:
+  description:
+    type: string
+    description: |
+      Description of the traffic mirror filter rule.
+  destinationCidrBlock:
+    type: string
+    description: |
+      Destination CIDR block to assign to the Traffic Mirror rule.
+  destinationPortRange:
+    $ref: "#/types/aws:ec2/TrafficMirrorFilterRuleDestinationPortRange:TrafficMirrorFilterRuleDestinationPortRange"
+    description: |
+      Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
+  protocol:
+    type: integer
+    description: |
+      Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
+  ruleAction:
+    type: string
+    description: |
+      Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
+  ruleNumber:
+    type: integer
+    description: |
+      Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
+  sourceCidrBlock:
+    type: string
+    description: |
+      Source CIDR block to assign to the Traffic Mirror rule.
+  sourcePortRange:
+    $ref: "#/types/aws:ec2/TrafficMirrorFilterRuleSourcePortRange:TrafficMirrorFilterRuleSourcePortRange"
+    description: |
+      Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
+  trafficDirection:
+    type: string
+    description: |
+      Direction of traffic to be captured. Valid values are `ingress` and `egress`
+  trafficMirrorFilterId:
+    type: string
+    description: |
+      ID of the traffic mirror filter to which this rule should be added
+    willReplaceOnChanges: true
+requiredInputs:
+  - destinationCidrBlock
+  - ruleAction
+  - ruleNumber
+  - sourceCidrBlock
+  - trafficDirection
+  - trafficMirrorFilterId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering TrafficMirrorFilterRule resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the traffic mirror filter rule.
+    description:
+      type: string
+      description: |
+        Description of the traffic mirror filter rule.
+    destinationCidrBlock:
+      type: string
+      description: |
+        Destination CIDR block to assign to the Traffic Mirror rule.
+    destinationPortRange:
+      $ref: "#/types/aws:ec2/TrafficMirrorFilterRuleDestinationPortRange:TrafficMirrorFilterRuleDestinationPortRange"
+      description: |
+        Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
+    protocol:
+      type: integer
+      description: |
+        Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
+    ruleAction:
+      type: string
+      description: |
+        Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
+    ruleNumber:
+      type: integer
+      description: |
+        Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
+    sourceCidrBlock:
+      type: string
+      description: |
+        Source CIDR block to assign to the Traffic Mirror rule.
+    sourcePortRange:
+      $ref: "#/types/aws:ec2/TrafficMirrorFilterRuleSourcePortRange:TrafficMirrorFilterRuleSourcePortRange"
+      description: |
+        Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
+    trafficDirection:
+      type: string
+      description: |
+        Direction of traffic to be captured. Valid values are `ingress` and `egress`
+    trafficMirrorFilterId:
+      type: string
+      description: |
+        ID of the traffic mirror filter to which this rule should be added
+      willReplaceOnChanges: true
+  type: object

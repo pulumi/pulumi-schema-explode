@@ -1,0 +1,197 @@
+$token: aws:cloudwatch/metricStream:MetricStream
+properties:
+  arn:
+    type: string
+    description: |
+      ARN of the metric stream.
+  creationDate:
+    type: string
+    description: |
+      Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was created.
+  excludeFilters:
+    type: array
+    items:
+      $ref: "#/types/aws:cloudwatch/MetricStreamExcludeFilter:MetricStreamExcludeFilter"
+    description: |
+      List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here. Conflicts with `include_filter`.
+  firehoseArn:
+    type: string
+    description: |
+      ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.
+  includeFilters:
+    type: array
+    items:
+      $ref: "#/types/aws:cloudwatch/MetricStreamIncludeFilter:MetricStreamIncludeFilter"
+    description: |
+      List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `exclude_filter`.
+  lastUpdateDate:
+    type: string
+    description: |
+      Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was last updated.
+  name:
+    type: string
+  namePrefix:
+    type: string
+    description: |
+      Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
+  outputFormat:
+    type: string
+    description: |
+      Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
+  roleArn:
+    type: string
+    description: |
+      ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources. For more information about role permissions, see [Trust between CloudWatch and Kinesis Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html).
+  state:
+    type: string
+    description: |
+      State of the metric stream. Possible values are `running` and `stopped`.
+  statisticsConfigurations:
+    type: array
+    items:
+      $ref: "#/types/aws:cloudwatch/MetricStreamStatisticsConfiguration:MetricStreamStatisticsConfiguration"
+    description: |
+      For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `output_format`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7`, you can stream percentile statistics (p99 etc.). See details below.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - arn
+  - creationDate
+  - firehoseArn
+  - lastUpdateDate
+  - name
+  - namePrefix
+  - outputFormat
+  - roleArn
+  - state
+  - tagsAll
+inputProperties:
+  excludeFilters:
+    type: array
+    items:
+      $ref: "#/types/aws:cloudwatch/MetricStreamExcludeFilter:MetricStreamExcludeFilter"
+    description: |
+      List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here. Conflicts with `include_filter`.
+  firehoseArn:
+    type: string
+    description: |
+      ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.
+  includeFilters:
+    type: array
+    items:
+      $ref: "#/types/aws:cloudwatch/MetricStreamIncludeFilter:MetricStreamIncludeFilter"
+    description: |
+      List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `exclude_filter`.
+  name:
+    type: string
+    willReplaceOnChanges: true
+  namePrefix:
+    type: string
+    description: |
+      Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
+    willReplaceOnChanges: true
+  outputFormat:
+    type: string
+    description: |
+      Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
+  roleArn:
+    type: string
+    description: |
+      ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources. For more information about role permissions, see [Trust between CloudWatch and Kinesis Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html).
+  statisticsConfigurations:
+    type: array
+    items:
+      $ref: "#/types/aws:cloudwatch/MetricStreamStatisticsConfiguration:MetricStreamStatisticsConfiguration"
+    description: |
+      For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `output_format`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7`, you can stream percentile statistics (p99 etc.). See details below.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+requiredInputs:
+  - firehoseArn
+  - outputFormat
+  - roleArn
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering MetricStream resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the metric stream.
+    creationDate:
+      type: string
+      description: |
+        Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was created.
+    excludeFilters:
+      type: array
+      items:
+        $ref: "#/types/aws:cloudwatch/MetricStreamExcludeFilter:MetricStreamExcludeFilter"
+      description: |
+        List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here. Conflicts with `include_filter`.
+    firehoseArn:
+      type: string
+      description: |
+        ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.
+    includeFilters:
+      type: array
+      items:
+        $ref: "#/types/aws:cloudwatch/MetricStreamIncludeFilter:MetricStreamIncludeFilter"
+      description: |
+        List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `exclude_filter`.
+    lastUpdateDate:
+      type: string
+      description: |
+        Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was last updated.
+    name:
+      type: string
+      willReplaceOnChanges: true
+    namePrefix:
+      type: string
+      description: |
+        Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
+      willReplaceOnChanges: true
+    outputFormat:
+      type: string
+      description: |
+        Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
+    roleArn:
+      type: string
+      description: |
+        ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources. For more information about role permissions, see [Trust between CloudWatch and Kinesis Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html).
+    state:
+      type: string
+      description: |
+        State of the metric stream. Possible values are `running` and `stopped`.
+    statisticsConfigurations:
+      type: array
+      items:
+        $ref: "#/types/aws:cloudwatch/MetricStreamStatisticsConfiguration:MetricStreamStatisticsConfiguration"
+      description: |
+        For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `output_format`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7`, you can stream percentile statistics (p99 etc.). See details below.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

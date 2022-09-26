@@ -1,0 +1,33 @@
+$token: aws:organizations/getOrganizationalUnits:getOrganizationalUnits
+inputs:
+  description: |
+    A collection of arguments for invoking getOrganizationalUnits.
+  properties:
+    parentId:
+      type: string
+      description: |
+        Parent ID of the organizational unit.
+  type: object
+  required:
+    - parentId
+outputs:
+  description: |
+    A collection of values returned by getOrganizationalUnits.
+  properties:
+    childrens:
+      type: array
+      items:
+        $ref: "#/types/aws:organizations/getOrganizationalUnitsChildren:getOrganizationalUnitsChildren"
+      description: |
+        List of child organizational units, which have the following attributes:
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    parentId:
+      type: string
+  type: object
+  required:
+    - childrens
+    - parentId
+    - id

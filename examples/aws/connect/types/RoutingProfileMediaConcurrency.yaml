@@ -1,0 +1,20 @@
+$token: aws:connect/RoutingProfileMediaConcurrency:RoutingProfileMediaConcurrency
+properties:
+  channel:
+    type: string
+    description: |
+      Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
+    language:
+      python:
+        mapCase: false
+  concurrency:
+    type: integer
+    description: |
+      Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - channel
+  - concurrency

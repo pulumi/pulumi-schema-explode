@@ -1,0 +1,95 @@
+$token: aws:codebuild/webhook:Webhook
+properties:
+  branchFilter:
+    type: string
+    description: |
+      A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
+  buildType:
+    type: string
+    description: |
+      The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+  filterGroups:
+    type: array
+    items:
+      $ref: "#/types/aws:codebuild/WebhookFilterGroup:WebhookFilterGroup"
+    description: |
+      Information about the webhook's trigger. Filter group blocks are documented below.
+  payloadUrl:
+    type: string
+    description: |
+      The CodeBuild endpoint where webhook events are sent.
+  projectName:
+    type: string
+    description: |
+      The name of the build project.
+  secret:
+    type: string
+    description: |
+      The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
+  url:
+    type: string
+    description: |
+      The URL to the webhook.
+required:
+  - payloadUrl
+  - projectName
+  - secret
+  - url
+inputProperties:
+  branchFilter:
+    type: string
+    description: |
+      A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
+  buildType:
+    type: string
+    description: |
+      The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+  filterGroups:
+    type: array
+    items:
+      $ref: "#/types/aws:codebuild/WebhookFilterGroup:WebhookFilterGroup"
+    description: |
+      Information about the webhook's trigger. Filter group blocks are documented below.
+  projectName:
+    type: string
+    description: |
+      The name of the build project.
+    willReplaceOnChanges: true
+requiredInputs:
+  - projectName
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Webhook resources.
+  properties:
+    branchFilter:
+      type: string
+      description: |
+        A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
+    buildType:
+      type: string
+      description: |
+        The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+    filterGroups:
+      type: array
+      items:
+        $ref: "#/types/aws:codebuild/WebhookFilterGroup:WebhookFilterGroup"
+      description: |
+        Information about the webhook's trigger. Filter group blocks are documented below.
+    payloadUrl:
+      type: string
+      description: |
+        The CodeBuild endpoint where webhook events are sent.
+    projectName:
+      type: string
+      description: |
+        The name of the build project.
+      willReplaceOnChanges: true
+    secret:
+      type: string
+      description: |
+        The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
+    url:
+      type: string
+      description: |
+        The URL to the webhook.
+  type: object

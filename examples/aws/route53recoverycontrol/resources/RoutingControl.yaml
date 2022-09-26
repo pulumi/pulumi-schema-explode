@@ -1,0 +1,70 @@
+$token: aws:route53recoverycontrol/routingControl:RoutingControl
+properties:
+  arn:
+    type: string
+    description: |
+      ARN of the routing control.
+  clusterArn:
+    type: string
+    description: |
+      ARN of the cluster in which this routing control will reside.
+  controlPanelArn:
+    type: string
+    description: |
+      ARN of the control panel in which this routing control will reside.
+  name:
+    type: string
+    description: |
+      The name describing the routing control.
+  status:
+    type: string
+    description: |
+      Status of routing control. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
+required:
+  - arn
+  - clusterArn
+  - controlPanelArn
+  - name
+  - status
+inputProperties:
+  clusterArn:
+    type: string
+    description: |
+      ARN of the cluster in which this routing control will reside.
+    willReplaceOnChanges: true
+  controlPanelArn:
+    type: string
+    description: |
+      ARN of the control panel in which this routing control will reside.
+  name:
+    type: string
+    description: |
+      The name describing the routing control.
+requiredInputs:
+  - clusterArn
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering RoutingControl resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the routing control.
+    clusterArn:
+      type: string
+      description: |
+        ARN of the cluster in which this routing control will reside.
+      willReplaceOnChanges: true
+    controlPanelArn:
+      type: string
+      description: |
+        ARN of the control panel in which this routing control will reside.
+    name:
+      type: string
+      description: |
+        The name describing the routing control.
+    status:
+      type: string
+      description: |
+        Status of routing control. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
+  type: object

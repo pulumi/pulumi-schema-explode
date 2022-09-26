@@ -1,0 +1,140 @@
+$token: aws:ec2/defaultSecurityGroup:DefaultSecurityGroup
+properties:
+  arn:
+    type: string
+    description: |
+      ARN of the security group.
+  description:
+    type: string
+    description: |
+      Description of this rule.
+  egress:
+    type: array
+    items:
+      $ref: "#/types/aws:ec2/DefaultSecurityGroupEgress:DefaultSecurityGroupEgress"
+    description: |
+      Configuration block. Detailed below.
+  ingress:
+    type: array
+    items:
+      $ref: "#/types/aws:ec2/DefaultSecurityGroupIngress:DefaultSecurityGroupIngress"
+    description: |
+      Configuration block. Detailed below.
+  name:
+    type: string
+    description: |
+      Name of the security group.
+  namePrefix:
+    type: string
+  ownerId:
+    type: string
+    description: |
+      Owner ID.
+  revokeRulesOnDelete:
+    type: boolean
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  vpcId:
+    type: string
+    description: |
+      VPC ID. **Note that changing the `vpc_id` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
+required:
+  - arn
+  - description
+  - egress
+  - ingress
+  - name
+  - namePrefix
+  - ownerId
+  - tagsAll
+  - vpcId
+inputProperties:
+  egress:
+    type: array
+    items:
+      $ref: "#/types/aws:ec2/DefaultSecurityGroupEgress:DefaultSecurityGroupEgress"
+    description: |
+      Configuration block. Detailed below.
+  ingress:
+    type: array
+    items:
+      $ref: "#/types/aws:ec2/DefaultSecurityGroupIngress:DefaultSecurityGroupIngress"
+    description: |
+      Configuration block. Detailed below.
+  revokeRulesOnDelete:
+    type: boolean
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  vpcId:
+    type: string
+    description: |
+      VPC ID. **Note that changing the `vpc_id` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
+    willReplaceOnChanges: true
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering DefaultSecurityGroup resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the security group.
+    description:
+      type: string
+      description: |
+        Description of this rule.
+    egress:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/DefaultSecurityGroupEgress:DefaultSecurityGroupEgress"
+      description: |
+        Configuration block. Detailed below.
+    ingress:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/DefaultSecurityGroupIngress:DefaultSecurityGroupIngress"
+      description: |
+        Configuration block. Detailed below.
+    name:
+      type: string
+      description: |
+        Name of the security group.
+    namePrefix:
+      type: string
+    ownerId:
+      type: string
+      description: |
+        Owner ID.
+    revokeRulesOnDelete:
+      type: boolean
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    vpcId:
+      type: string
+      description: |
+        VPC ID. **Note that changing the `vpc_id` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
+      willReplaceOnChanges: true
+  type: object

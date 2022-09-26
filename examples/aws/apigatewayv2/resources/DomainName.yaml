@@ -1,0 +1,110 @@
+$token: aws:apigatewayv2/domainName:DomainName
+properties:
+  apiMappingSelectionExpression:
+    type: string
+    description: |
+      [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
+  arn:
+    type: string
+    description: |
+      ARN of the domain name.
+  domainName:
+    type: string
+    description: |
+      Domain name. Must be between 1 and 512 characters in length.
+    language:
+      csharp:
+        name: Domain
+  domainNameConfiguration:
+    $ref: "#/types/aws:apigatewayv2/DomainNameDomainNameConfiguration:DomainNameDomainNameConfiguration"
+    description: |
+      Domain name configuration. See below.
+  mutualTlsAuthentication:
+    $ref: "#/types/aws:apigatewayv2/DomainNameMutualTlsAuthentication:DomainNameMutualTlsAuthentication"
+    description: |
+      Mutual TLS authentication configuration for the domain name.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - apiMappingSelectionExpression
+  - arn
+  - domainName
+  - domainNameConfiguration
+  - tagsAll
+inputProperties:
+  domainName:
+    type: string
+    description: |
+      Domain name. Must be between 1 and 512 characters in length.
+    language:
+      csharp:
+        name: Domain
+    willReplaceOnChanges: true
+  domainNameConfiguration:
+    $ref: "#/types/aws:apigatewayv2/DomainNameDomainNameConfiguration:DomainNameDomainNameConfiguration"
+    description: |
+      Domain name configuration. See below.
+  mutualTlsAuthentication:
+    $ref: "#/types/aws:apigatewayv2/DomainNameMutualTlsAuthentication:DomainNameMutualTlsAuthentication"
+    description: |
+      Mutual TLS authentication configuration for the domain name.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+requiredInputs:
+  - domainName
+  - domainNameConfiguration
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering DomainName resources.
+  properties:
+    apiMappingSelectionExpression:
+      type: string
+      description: |
+        [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
+    arn:
+      type: string
+      description: |
+        ARN of the domain name.
+    domainName:
+      type: string
+      description: |
+        Domain name. Must be between 1 and 512 characters in length.
+      language:
+        csharp:
+          name: Domain
+      willReplaceOnChanges: true
+    domainNameConfiguration:
+      $ref: "#/types/aws:apigatewayv2/DomainNameDomainNameConfiguration:DomainNameDomainNameConfiguration"
+      description: |
+        Domain name configuration. See below.
+    mutualTlsAuthentication:
+      $ref: "#/types/aws:apigatewayv2/DomainNameMutualTlsAuthentication:DomainNameMutualTlsAuthentication"
+      description: |
+        Mutual TLS authentication configuration for the domain name.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

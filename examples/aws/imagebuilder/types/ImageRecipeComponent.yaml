@@ -1,0 +1,22 @@
+$token: aws:imagebuilder/ImageRecipeComponent:ImageRecipeComponent
+properties:
+  componentArn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the Image Builder Component to associate.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  parameters:
+    type: array
+    items:
+      $ref: "#/types/aws:imagebuilder/ImageRecipeComponentParameter:ImageRecipeComponentParameter"
+    description: |
+      Configuration block(s) for parameters to configure the component. Detailed below.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - componentArn

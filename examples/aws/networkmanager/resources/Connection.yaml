@@ -1,0 +1,128 @@
+$token: aws:networkmanager/connection:Connection
+properties:
+  arn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) of the connection.
+  connectedDeviceId:
+    type: string
+    description: |
+      The ID of the second device in the connection.
+  connectedLinkId:
+    type: string
+    description: |
+      The ID of the link for the second device.
+  description:
+    type: string
+    description: |
+      A description of the connection.
+  deviceId:
+    type: string
+    description: |
+      The ID of the first device in the connection.
+  globalNetworkId:
+    type: string
+    description: |
+      The ID of the global network.
+  linkId:
+    type: string
+    description: |
+      The ID of the link for the first device.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - arn
+  - connectedDeviceId
+  - deviceId
+  - globalNetworkId
+  - tagsAll
+inputProperties:
+  connectedDeviceId:
+    type: string
+    description: |
+      The ID of the second device in the connection.
+    willReplaceOnChanges: true
+  connectedLinkId:
+    type: string
+    description: |
+      The ID of the link for the second device.
+  description:
+    type: string
+    description: |
+      A description of the connection.
+  deviceId:
+    type: string
+    description: |
+      The ID of the first device in the connection.
+    willReplaceOnChanges: true
+  globalNetworkId:
+    type: string
+    description: |
+      The ID of the global network.
+    willReplaceOnChanges: true
+  linkId:
+    type: string
+    description: |
+      The ID of the link for the first device.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+requiredInputs:
+  - connectedDeviceId
+  - deviceId
+  - globalNetworkId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Connection resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The Amazon Resource Name (ARN) of the connection.
+    connectedDeviceId:
+      type: string
+      description: |
+        The ID of the second device in the connection.
+      willReplaceOnChanges: true
+    connectedLinkId:
+      type: string
+      description: |
+        The ID of the link for the second device.
+    description:
+      type: string
+      description: |
+        A description of the connection.
+    deviceId:
+      type: string
+      description: |
+        The ID of the first device in the connection.
+      willReplaceOnChanges: true
+    globalNetworkId:
+      type: string
+      description: |
+        The ID of the global network.
+      willReplaceOnChanges: true
+    linkId:
+      type: string
+      description: |
+        The ID of the link for the first device.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

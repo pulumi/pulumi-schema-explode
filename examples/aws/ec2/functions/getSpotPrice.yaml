@@ -1,0 +1,49 @@
+$token: aws:ec2/getSpotPrice:getSpotPrice
+inputs:
+  description: |
+    A collection of arguments for invoking getSpotPrice.
+  properties:
+    availabilityZone:
+      type: string
+      description: |
+        Availability zone in which to query Spot price information.
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getSpotPriceFilter:getSpotPriceFilter"
+      description: |
+        One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSpotPriceHistory.html) for supported filters. Detailed below.
+    instanceType:
+      type: string
+      description: |
+        Type of instance for which to query Spot Price information.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getSpotPrice.
+  properties:
+    availabilityZone:
+      type: string
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getSpotPriceFilter:getSpotPriceFilter"
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    instanceType:
+      type: string
+    spotPrice:
+      type: string
+      description: |
+        Most recent Spot Price value for the given instance type and AZ.
+    spotPriceTimestamp:
+      type: string
+      description: |
+        The timestamp at which the Spot Price value was published.
+  type: object
+  required:
+    - spotPrice
+    - spotPriceTimestamp
+    - id

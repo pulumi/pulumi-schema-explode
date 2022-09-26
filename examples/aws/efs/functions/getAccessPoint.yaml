@@ -1,0 +1,68 @@
+$token: aws:efs/getAccessPoint:getAccessPoint
+inputs:
+  description: |
+    A collection of arguments for invoking getAccessPoint.
+  properties:
+    accessPointId:
+      type: string
+      description: |
+        ID that identifies the file system.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value mapping of resource tags.
+  type: object
+  required:
+    - accessPointId
+outputs:
+  description: |
+    A collection of values returned by getAccessPoint.
+  properties:
+    accessPointId:
+      type: string
+    arn:
+      type: string
+      description: |
+        Amazon Resource Name of the file system.
+    fileSystemArn:
+      type: string
+      description: |
+        Amazon Resource Name of the file system.
+    fileSystemId:
+      type: string
+      description: |
+        ID of the file system for which the access point is intended.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    ownerId:
+      type: string
+    posixUsers:
+      type: array
+      items:
+        $ref: "#/types/aws:efs/getAccessPointPosixUser:getAccessPointPosixUser"
+      description: |
+        Single element list containing operating system user and group applied to all file system requests made using the access point.
+    rootDirectories:
+      type: array
+      items:
+        $ref: "#/types/aws:efs/getAccessPointRootDirectory:getAccessPointRootDirectory"
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value mapping of resource tags.
+  type: object
+  required:
+    - accessPointId
+    - arn
+    - fileSystemArn
+    - fileSystemId
+    - ownerId
+    - posixUsers
+    - rootDirectories
+    - id

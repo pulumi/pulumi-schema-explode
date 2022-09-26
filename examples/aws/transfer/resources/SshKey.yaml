@@ -1,0 +1,58 @@
+$token: aws:transfer/sshKey:SshKey
+properties:
+  body:
+    type: string
+    description: |
+      The public key portion of an SSH key pair.
+  serverId:
+    type: string
+    description: |
+      The Server ID of the Transfer Server (e.g., `s-12345678`)
+  userName:
+    type: string
+    description: |
+      The name of the user account that is assigned to one or more servers.
+required:
+  - body
+  - serverId
+  - userName
+inputProperties:
+  body:
+    type: string
+    description: |
+      The public key portion of an SSH key pair.
+    willReplaceOnChanges: true
+  serverId:
+    type: string
+    description: |
+      The Server ID of the Transfer Server (e.g., `s-12345678`)
+    willReplaceOnChanges: true
+  userName:
+    type: string
+    description: |
+      The name of the user account that is assigned to one or more servers.
+    willReplaceOnChanges: true
+requiredInputs:
+  - body
+  - serverId
+  - userName
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering SshKey resources.
+  properties:
+    body:
+      type: string
+      description: |
+        The public key portion of an SSH key pair.
+      willReplaceOnChanges: true
+    serverId:
+      type: string
+      description: |
+        The Server ID of the Transfer Server (e.g., `s-12345678`)
+      willReplaceOnChanges: true
+    userName:
+      type: string
+      description: |
+        The name of the user account that is assigned to one or more servers.
+      willReplaceOnChanges: true
+  type: object

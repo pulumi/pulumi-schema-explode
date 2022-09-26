@@ -1,0 +1,39 @@
+$token: aws:ecr/replicationConfiguration:ReplicationConfiguration
+properties:
+  registryId:
+    type: string
+    description: |
+      The account ID of the destination registry to replicate to.
+  replicationConfiguration:
+    $ref: "#/types/aws:ecr/ReplicationConfigurationReplicationConfiguration:ReplicationConfigurationReplicationConfiguration"
+    description: |
+      Replication configuration for a registry. See Replication Configuration.
+    language:
+      csharp:
+        name: ReplicationConfigurationDetails
+required:
+  - registryId
+inputProperties:
+  replicationConfiguration:
+    $ref: "#/types/aws:ecr/ReplicationConfigurationReplicationConfiguration:ReplicationConfigurationReplicationConfiguration"
+    description: |
+      Replication configuration for a registry. See Replication Configuration.
+    language:
+      csharp:
+        name: ReplicationConfigurationDetails
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering ReplicationConfiguration resources.
+  properties:
+    registryId:
+      type: string
+      description: |
+        The account ID of the destination registry to replicate to.
+    replicationConfiguration:
+      $ref: "#/types/aws:ecr/ReplicationConfigurationReplicationConfiguration:ReplicationConfigurationReplicationConfiguration"
+      description: |
+        Replication configuration for a registry. See Replication Configuration.
+      language:
+        csharp:
+          name: ReplicationConfigurationDetails
+  type: object

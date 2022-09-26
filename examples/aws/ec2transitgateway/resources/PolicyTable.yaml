@@ -1,0 +1,69 @@
+$token: aws:ec2transitgateway/policyTable:PolicyTable
+properties:
+  arn:
+    type: string
+    description: |
+      EC2 Transit Gateway Policy Table Amazon Resource Name (ARN).
+  state:
+    type: string
+    description: |
+      The state of the EC2 Transit Gateway Policy Table.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  transitGatewayId:
+    type: string
+    description: |
+      EC2 Transit Gateway identifier.
+required:
+  - arn
+  - state
+  - tagsAll
+  - transitGatewayId
+inputProperties:
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+  transitGatewayId:
+    type: string
+    description: |
+      EC2 Transit Gateway identifier.
+    willReplaceOnChanges: true
+requiredInputs:
+  - transitGatewayId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering PolicyTable resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        EC2 Transit Gateway Policy Table Amazon Resource Name (ARN).
+    state:
+      type: string
+      description: |
+        The state of the EC2 Transit Gateway Policy Table.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    transitGatewayId:
+      type: string
+      description: |
+        EC2 Transit Gateway identifier.
+      willReplaceOnChanges: true
+  type: object

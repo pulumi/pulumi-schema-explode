@@ -1,0 +1,105 @@
+$token: aws:dms/replicationSubnetGroup:ReplicationSubnetGroup
+properties:
+  replicationSubnetGroupArn:
+    type: string
+  replicationSubnetGroupDescription:
+    type: string
+    description: |
+      The description for the subnet group.
+  replicationSubnetGroupId:
+    type: string
+    description: |
+      The name for the replication subnet group. This value is stored as a lowercase string.
+  subnetIds:
+    type: array
+    items:
+      type: string
+    description: |
+      A list of the EC2 subnet IDs for the subnet group.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  vpcId:
+    type: string
+    description: |
+      The ID of the VPC the subnet group is in.
+required:
+  - replicationSubnetGroupArn
+  - replicationSubnetGroupDescription
+  - replicationSubnetGroupId
+  - subnetIds
+  - tagsAll
+  - vpcId
+inputProperties:
+  replicationSubnetGroupDescription:
+    type: string
+    description: |
+      The description for the subnet group.
+  replicationSubnetGroupId:
+    type: string
+    description: |
+      The name for the replication subnet group. This value is stored as a lowercase string.
+    willReplaceOnChanges: true
+  subnetIds:
+    type: array
+    items:
+      type: string
+    description: |
+      A list of the EC2 subnet IDs for the subnet group.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+requiredInputs:
+  - replicationSubnetGroupDescription
+  - replicationSubnetGroupId
+  - subnetIds
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering ReplicationSubnetGroup resources.
+  properties:
+    replicationSubnetGroupArn:
+      type: string
+    replicationSubnetGroupDescription:
+      type: string
+      description: |
+        The description for the subnet group.
+    replicationSubnetGroupId:
+      type: string
+      description: |
+        The name for the replication subnet group. This value is stored as a lowercase string.
+      willReplaceOnChanges: true
+    subnetIds:
+      type: array
+      items:
+        type: string
+      description: |
+        A list of the EC2 subnet IDs for the subnet group.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    vpcId:
+      type: string
+      description: |
+        The ID of the VPC the subnet group is in.
+  type: object

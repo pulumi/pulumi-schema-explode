@@ -1,0 +1,123 @@
+$token: aws:guardduty/iPSet:IPSet
+properties:
+  activate:
+    type: boolean
+    description: |
+      Specifies whether GuardDuty is to start using the uploaded IPSet.
+  arn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the GuardDuty IPSet.
+  detectorId:
+    type: string
+    description: |
+      The detector ID of the GuardDuty.
+  format:
+    type: string
+    description: |
+      The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
+  location:
+    type: string
+    description: |
+      The URI of the file that contains the IPSet.
+  name:
+    type: string
+    description: |
+      The friendly name to identify the IPSet.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - activate
+  - arn
+  - detectorId
+  - format
+  - location
+  - name
+  - tagsAll
+inputProperties:
+  activate:
+    type: boolean
+    description: |
+      Specifies whether GuardDuty is to start using the uploaded IPSet.
+  detectorId:
+    type: string
+    description: |
+      The detector ID of the GuardDuty.
+    willReplaceOnChanges: true
+  format:
+    type: string
+    description: |
+      The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
+    willReplaceOnChanges: true
+  location:
+    type: string
+    description: |
+      The URI of the file that contains the IPSet.
+  name:
+    type: string
+    description: |
+      The friendly name to identify the IPSet.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+requiredInputs:
+  - activate
+  - detectorId
+  - format
+  - location
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering IPSet resources.
+  properties:
+    activate:
+      type: boolean
+      description: |
+        Specifies whether GuardDuty is to start using the uploaded IPSet.
+    arn:
+      type: string
+      description: |
+        Amazon Resource Name (ARN) of the GuardDuty IPSet.
+    detectorId:
+      type: string
+      description: |
+        The detector ID of the GuardDuty.
+      willReplaceOnChanges: true
+    format:
+      type: string
+      description: |
+        The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
+      willReplaceOnChanges: true
+    location:
+      type: string
+      description: |
+        The URI of the file that contains the IPSet.
+    name:
+      type: string
+      description: |
+        The friendly name to identify the IPSet.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

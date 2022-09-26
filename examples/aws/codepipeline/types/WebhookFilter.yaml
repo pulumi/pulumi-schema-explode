@@ -1,0 +1,20 @@
+$token: aws:codepipeline/WebhookFilter:WebhookFilter
+properties:
+  jsonPath:
+    type: string
+    description: |
+      The [JSON path](https://github.com/json-path/JsonPath) to filter on.
+    language:
+      python:
+        mapCase: false
+  matchEquals:
+    type: string
+    description: |
+      The value to match on (e.g., `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - jsonPath
+  - matchEquals

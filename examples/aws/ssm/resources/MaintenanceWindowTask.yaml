@@ -1,0 +1,192 @@
+$token: aws:ssm/maintenanceWindowTask:MaintenanceWindowTask
+properties:
+  arn:
+    type: string
+    description: |
+      The ARN of the maintenance window task.
+  cutoffBehavior:
+    type: string
+    description: |
+      Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
+  description:
+    type: string
+    description: |
+      The description of the maintenance window task.
+  maxConcurrency:
+    type: string
+    description: |
+      The maximum number of targets this task can be run for in parallel.
+  maxErrors:
+    type: string
+    description: |
+      The maximum number of errors allowed before this task stops being scheduled.
+  name:
+    type: string
+    description: |
+      The name of the maintenance window task.
+  priority:
+    type: integer
+    description: |
+      The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
+  serviceRoleArn:
+    type: string
+    description: |
+      The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
+  targets:
+    type: array
+    items:
+      $ref: "#/types/aws:ssm/MaintenanceWindowTaskTarget:MaintenanceWindowTaskTarget"
+    description: |
+      The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
+  taskArn:
+    type: string
+    description: |
+      The ARN of the task to execute.
+  taskInvocationParameters:
+    $ref: "#/types/aws:ssm/MaintenanceWindowTaskTaskInvocationParameters:MaintenanceWindowTaskTaskInvocationParameters"
+    description: |
+      Configuration block with parameters for task execution.
+  taskType:
+    type: string
+    description: |
+      The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
+  windowId:
+    type: string
+    description: |
+      The Id of the maintenance window to register the task with.
+  windowTaskId:
+    type: string
+    description: |
+      The ID of the maintenance window task.
+required:
+  - arn
+  - maxConcurrency
+  - maxErrors
+  - name
+  - serviceRoleArn
+  - taskArn
+  - taskType
+  - windowId
+  - windowTaskId
+inputProperties:
+  cutoffBehavior:
+    type: string
+    description: |
+      Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
+  description:
+    type: string
+    description: |
+      The description of the maintenance window task.
+  maxConcurrency:
+    type: string
+    description: |
+      The maximum number of targets this task can be run for in parallel.
+  maxErrors:
+    type: string
+    description: |
+      The maximum number of errors allowed before this task stops being scheduled.
+  name:
+    type: string
+    description: |
+      The name of the maintenance window task.
+  priority:
+    type: integer
+    description: |
+      The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
+  serviceRoleArn:
+    type: string
+    description: |
+      The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
+  targets:
+    type: array
+    items:
+      $ref: "#/types/aws:ssm/MaintenanceWindowTaskTarget:MaintenanceWindowTaskTarget"
+    description: |
+      The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
+  taskArn:
+    type: string
+    description: |
+      The ARN of the task to execute.
+  taskInvocationParameters:
+    $ref: "#/types/aws:ssm/MaintenanceWindowTaskTaskInvocationParameters:MaintenanceWindowTaskTaskInvocationParameters"
+    description: |
+      Configuration block with parameters for task execution.
+  taskType:
+    type: string
+    description: |
+      The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
+    willReplaceOnChanges: true
+  windowId:
+    type: string
+    description: |
+      The Id of the maintenance window to register the task with.
+    willReplaceOnChanges: true
+requiredInputs:
+  - taskArn
+  - taskType
+  - windowId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering MaintenanceWindowTask resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The ARN of the maintenance window task.
+    cutoffBehavior:
+      type: string
+      description: |
+        Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
+    description:
+      type: string
+      description: |
+        The description of the maintenance window task.
+    maxConcurrency:
+      type: string
+      description: |
+        The maximum number of targets this task can be run for in parallel.
+    maxErrors:
+      type: string
+      description: |
+        The maximum number of errors allowed before this task stops being scheduled.
+    name:
+      type: string
+      description: |
+        The name of the maintenance window task.
+    priority:
+      type: integer
+      description: |
+        The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
+    serviceRoleArn:
+      type: string
+      description: |
+        The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
+    targets:
+      type: array
+      items:
+        $ref: "#/types/aws:ssm/MaintenanceWindowTaskTarget:MaintenanceWindowTaskTarget"
+      description: |
+        The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
+    taskArn:
+      type: string
+      description: |
+        The ARN of the task to execute.
+    taskInvocationParameters:
+      $ref: "#/types/aws:ssm/MaintenanceWindowTaskTaskInvocationParameters:MaintenanceWindowTaskTaskInvocationParameters"
+      description: |
+        Configuration block with parameters for task execution.
+    taskType:
+      type: string
+      description: |
+        The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
+      willReplaceOnChanges: true
+    windowId:
+      type: string
+      description: |
+        The Id of the maintenance window to register the task with.
+      willReplaceOnChanges: true
+    windowTaskId:
+      type: string
+      description: |
+        The ID of the maintenance window task.
+  type: object

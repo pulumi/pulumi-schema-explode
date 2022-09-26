@@ -1,0 +1,126 @@
+$token: aws:networkmanager/link:Link
+properties:
+  arn:
+    type: string
+    description: |
+      Link Amazon Resource Name (ARN).
+  bandwidth:
+    $ref: "#/types/aws:networkmanager/LinkBandwidth:LinkBandwidth"
+    description: |
+      The upload speed and download speed in Mbps. Documented below.
+  description:
+    type: string
+    description: |
+      A description of the link.
+  globalNetworkId:
+    type: string
+    description: |
+      The ID of the global network.
+  providerName:
+    type: string
+    description: |
+      The provider of the link.
+  siteId:
+    type: string
+    description: |
+      The ID of the site.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type:
+    type: string
+    description: |
+      The type of the link.
+required:
+  - arn
+  - bandwidth
+  - globalNetworkId
+  - siteId
+  - tagsAll
+inputProperties:
+  bandwidth:
+    $ref: "#/types/aws:networkmanager/LinkBandwidth:LinkBandwidth"
+    description: |
+      The upload speed and download speed in Mbps. Documented below.
+  description:
+    type: string
+    description: |
+      A description of the link.
+  globalNetworkId:
+    type: string
+    description: |
+      The ID of the global network.
+    willReplaceOnChanges: true
+  providerName:
+    type: string
+    description: |
+      The provider of the link.
+  siteId:
+    type: string
+    description: |
+      The ID of the site.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+  type:
+    type: string
+    description: |
+      The type of the link.
+requiredInputs:
+  - bandwidth
+  - globalNetworkId
+  - siteId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Link resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        Link Amazon Resource Name (ARN).
+    bandwidth:
+      $ref: "#/types/aws:networkmanager/LinkBandwidth:LinkBandwidth"
+      description: |
+        The upload speed and download speed in Mbps. Documented below.
+    description:
+      type: string
+      description: |
+        A description of the link.
+    globalNetworkId:
+      type: string
+      description: |
+        The ID of the global network.
+      willReplaceOnChanges: true
+    providerName:
+      type: string
+      description: |
+        The provider of the link.
+    siteId:
+      type: string
+      description: |
+        The ID of the site.
+      willReplaceOnChanges: true
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    type:
+      type: string
+      description: |
+        The type of the link.
+  type: object

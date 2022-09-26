@@ -1,0 +1,81 @@
+$token: aws:workspaces/getWorkspace:getWorkspace
+inputs:
+  description: |
+    A collection of arguments for invoking getWorkspace.
+  properties:
+    directoryId:
+      type: string
+      description: |
+        ID of the directory for the WorkSpace. You have to specify `user_name` along with `directory_id`. You cannot combine this parameter with `workspace_id`.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Tags for the WorkSpace.
+    userName:
+      type: string
+      description: |
+        User name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspace_id`.
+    workspaceId:
+      type: string
+      description: |
+        ID of the WorkSpace. You cannot combine this parameter with `directory_id`.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getWorkspace.
+  properties:
+    bundleId:
+      type: string
+    computerName:
+      type: string
+      description: |
+        Name of the WorkSpace, as seen by the operating system.
+    directoryId:
+      type: string
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    ipAddress:
+      type: string
+      description: |
+        IP address of the WorkSpace.
+    rootVolumeEncryptionEnabled:
+      type: boolean
+    state:
+      type: string
+      description: |
+        Operational state of the WorkSpace.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+    userName:
+      type: string
+    userVolumeEncryptionEnabled:
+      type: boolean
+    volumeEncryptionKey:
+      type: string
+    workspaceId:
+      type: string
+    workspaceProperties:
+      type: array
+      items:
+        $ref: "#/types/aws:workspaces/getWorkspaceWorkspaceProperty:getWorkspaceWorkspaceProperty"
+  type: object
+  required:
+    - bundleId
+    - computerName
+    - directoryId
+    - ipAddress
+    - rootVolumeEncryptionEnabled
+    - state
+    - tags
+    - userName
+    - userVolumeEncryptionEnabled
+    - volumeEncryptionKey
+    - workspaceId
+    - workspaceProperties
+    - id

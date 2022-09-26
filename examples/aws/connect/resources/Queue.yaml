@@ -1,0 +1,176 @@
+$token: aws:connect/queue:Queue
+properties:
+  arn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) of the Queue.
+  description:
+    type: string
+    description: |
+      Specifies the description of the Queue.
+  hoursOfOperationId:
+    type: string
+    description: |
+      Specifies the identifier of the Hours of Operation.
+  instanceId:
+    type: string
+    description: |
+      Specifies the identifier of the hosting Amazon Connect Instance.
+  maxContacts:
+    type: integer
+    description: |
+      Specifies the maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
+  name:
+    type: string
+    description: |
+      Specifies the name of the Queue.
+  outboundCallerConfig:
+    $ref: "#/types/aws:connect/QueueOutboundCallerConfig:QueueOutboundCallerConfig"
+    description: |
+      A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
+  queueId:
+    type: string
+    description: |
+      The identifier for the Queue.
+  quickConnectIds:
+    type: array
+    items:
+      type: string
+    description: |
+      Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
+  quickConnectIdsAssociateds:
+    type: array
+    items:
+      type: string
+  status:
+    type: string
+    description: |
+      Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Tags to apply to the Queue. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - arn
+  - hoursOfOperationId
+  - instanceId
+  - name
+  - queueId
+  - quickConnectIdsAssociateds
+  - status
+  - tagsAll
+inputProperties:
+  description:
+    type: string
+    description: |
+      Specifies the description of the Queue.
+  hoursOfOperationId:
+    type: string
+    description: |
+      Specifies the identifier of the Hours of Operation.
+  instanceId:
+    type: string
+    description: |
+      Specifies the identifier of the hosting Amazon Connect Instance.
+  maxContacts:
+    type: integer
+    description: |
+      Specifies the maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
+  name:
+    type: string
+    description: |
+      Specifies the name of the Queue.
+  outboundCallerConfig:
+    $ref: "#/types/aws:connect/QueueOutboundCallerConfig:QueueOutboundCallerConfig"
+    description: |
+      A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
+  quickConnectIds:
+    type: array
+    items:
+      type: string
+    description: |
+      Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
+  status:
+    type: string
+    description: |
+      Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Tags to apply to the Queue. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+requiredInputs:
+  - hoursOfOperationId
+  - instanceId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Queue resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The Amazon Resource Name (ARN) of the Queue.
+    description:
+      type: string
+      description: |
+        Specifies the description of the Queue.
+    hoursOfOperationId:
+      type: string
+      description: |
+        Specifies the identifier of the Hours of Operation.
+    instanceId:
+      type: string
+      description: |
+        Specifies the identifier of the hosting Amazon Connect Instance.
+    maxContacts:
+      type: integer
+      description: |
+        Specifies the maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
+    name:
+      type: string
+      description: |
+        Specifies the name of the Queue.
+    outboundCallerConfig:
+      $ref: "#/types/aws:connect/QueueOutboundCallerConfig:QueueOutboundCallerConfig"
+      description: |
+        A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
+    queueId:
+      type: string
+      description: |
+        The identifier for the Queue.
+    quickConnectIds:
+      type: array
+      items:
+        type: string
+      description: |
+        Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
+    quickConnectIdsAssociateds:
+      type: array
+      items:
+        type: string
+    status:
+      type: string
+      description: |
+        Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Tags to apply to the Queue. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

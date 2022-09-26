@@ -1,0 +1,39 @@
+$token: aws:memorydb/ClusterShardNode:ClusterShardNode
+properties:
+  availabilityZone:
+    type: string
+    description: |
+      The Availability Zone in which the node resides.
+    language:
+      python:
+        mapCase: false
+  createTime:
+    type: string
+    description: |
+      The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
+    language:
+      python:
+        mapCase: false
+  endpoints:
+    type: array
+    items:
+      $ref: "#/types/aws:memorydb/ClusterShardNodeEndpoint:ClusterShardNodeEndpoint"
+    language:
+      python:
+        mapCase: false
+  name:
+    type: string
+    description: |
+      Name of this node.
+      * `endpoint`
+    language:
+      python:
+        mapCase: false
+type: object
+language:
+  nodejs:
+    requiredOutputs:
+      - availabilityZone
+      - createTime
+      - endpoints
+      - name

@@ -1,0 +1,82 @@
+$token: aws:ec2transitgateway/getAttachment:getAttachment
+inputs:
+  description: |
+    A collection of arguments for invoking getAttachment.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2transitgateway/getAttachmentFilter:getAttachmentFilter"
+      description: |
+        One or more configuration blocks containing name-values filters. Detailed below.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value tags for the attachment.
+    transitGatewayAttachmentId:
+      type: string
+      description: |
+        ID of the attachment.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getAttachment.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the attachment.
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2transitgateway/getAttachmentFilter:getAttachmentFilter"
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    resourceId:
+      type: string
+      description: |
+        ID of the resource.
+    resourceOwnerId:
+      type: string
+      description: |
+        ID of the AWS account that owns the resource.
+    resourceType:
+      type: string
+      description: |
+        Resource type.
+    state:
+      type: string
+      description: |
+        Attachment state.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value tags for the attachment.
+    transitGatewayAttachmentId:
+      type: string
+    transitGatewayId:
+      type: string
+      description: |
+        ID of the transit gateway.
+    transitGatewayOwnerId:
+      type: string
+      description: |
+        The ID of the AWS account that owns the transit gateway.
+  type: object
+  required:
+    - arn
+    - resourceId
+    - resourceOwnerId
+    - resourceType
+    - state
+    - tags
+    - transitGatewayAttachmentId
+    - transitGatewayId
+    - transitGatewayOwnerId
+    - id

@@ -1,0 +1,64 @@
+$token: aws:location/getRouteCalculator:getRouteCalculator
+inputs:
+  description: |
+    A collection of arguments for invoking getRouteCalculator.
+  properties:
+    calculatorName:
+      type: string
+      description: |
+        Name of the route calculator resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags for the route calculator.
+  type: object
+  required:
+    - calculatorName
+outputs:
+  description: |
+    A collection of values returned by getRouteCalculator.
+  properties:
+    calculatorArn:
+      type: string
+      description: |
+        ARN for the Route calculator resource. Use the ARN when you specify a resource across AWS.
+    calculatorName:
+      type: string
+    createTime:
+      type: string
+      description: |
+        Timestamp for when the route calculator resource was created in ISO 8601 format.
+    dataSource:
+      type: string
+      description: |
+        Data provider of traffic and road network data.
+    description:
+      type: string
+      description: |
+        Optional description of the route calculator resource.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags for the route calculator.
+    updateTime:
+      type: string
+      description: |
+        Timestamp for when the route calculator resource was last updated in ISO 8601 format.
+  type: object
+  required:
+    - calculatorArn
+    - calculatorName
+    - createTime
+    - dataSource
+    - description
+    - tags
+    - updateTime
+    - id

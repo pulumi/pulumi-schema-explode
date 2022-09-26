@@ -1,0 +1,25 @@
+$token: aws:elasticloadbalancing/getHostedZoneId:getHostedZoneId
+inputs:
+  description: |
+    A collection of arguments for invoking getHostedZoneId.
+  properties:
+    region:
+      type: string
+      description: |
+        Name of the region whose AWS ELB HostedZoneId is desired.
+        Defaults to the region from the AWS provider configuration.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getHostedZoneId.
+  properties:
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    region:
+      type: string
+  type: object
+  required:
+    - id
+deprecationMessage: aws.elasticloadbalancing.getHostedZoneId has been deprecated in favor of aws.elb.getHostedZoneId

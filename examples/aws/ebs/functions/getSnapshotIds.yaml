@@ -1,0 +1,56 @@
+$token: aws:ebs/getSnapshotIds:getSnapshotIds
+inputs:
+  description: |
+    A collection of arguments for invoking getSnapshotIds.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ebs/getSnapshotIdsFilter:getSnapshotIdsFilter"
+      description: |
+        One or more name/value pairs to filter off of. There are
+        several valid keys, for a full reference, check out
+        [describe-volumes in the AWS CLI reference][1].
+    owners:
+      type: array
+      items:
+        type: string
+      description: |
+        Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
+    restorableByUserIds:
+      type: array
+      items:
+        type: string
+      description: |
+        One or more AWS accounts IDs that can create volumes from the snapshot.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getSnapshotIds.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ebs/getSnapshotIdsFilter:getSnapshotIdsFilter"
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    ids:
+      type: array
+      items:
+        type: string
+      description: |
+        Set of EBS snapshot IDs, sorted by creation time in descending order.
+    owners:
+      type: array
+      items:
+        type: string
+    restorableByUserIds:
+      type: array
+      items:
+        type: string
+  type: object
+  required:
+    - ids
+    - id

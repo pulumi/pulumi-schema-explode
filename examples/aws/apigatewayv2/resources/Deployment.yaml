@@ -1,0 +1,67 @@
+$token: aws:apigatewayv2/deployment:Deployment
+properties:
+  apiId:
+    type: string
+    description: |
+      API identifier.
+  autoDeployed:
+    type: boolean
+    description: |
+      Whether the deployment was automatically released.
+  description:
+    type: string
+    description: |
+      Description for the deployment resource. Must be less than or equal to 1024 characters in length.
+  triggers:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+required:
+  - apiId
+  - autoDeployed
+inputProperties:
+  apiId:
+    type: string
+    description: |
+      API identifier.
+    willReplaceOnChanges: true
+  description:
+    type: string
+    description: |
+      Description for the deployment resource. Must be less than or equal to 1024 characters in length.
+  triggers:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+    willReplaceOnChanges: true
+requiredInputs:
+  - apiId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Deployment resources.
+  properties:
+    apiId:
+      type: string
+      description: |
+        API identifier.
+      willReplaceOnChanges: true
+    autoDeployed:
+      type: boolean
+      description: |
+        Whether the deployment was automatically released.
+    description:
+      type: string
+      description: |
+        Description for the deployment resource. Must be less than or equal to 1024 characters in length.
+    triggers:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+      willReplaceOnChanges: true
+  type: object

@@ -1,0 +1,162 @@
+$token: aws:batch/computeEnvironment:ComputeEnvironment
+properties:
+  arn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) of the compute environment.
+  computeEnvironmentName:
+    type: string
+    description: |
+      The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, this provider will assign a random, unique name.
+  computeEnvironmentNamePrefix:
+    type: string
+    description: |
+      Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
+  computeResources:
+    $ref: "#/types/aws:batch/ComputeEnvironmentComputeResources:ComputeEnvironmentComputeResources"
+    description: |
+      Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
+  ecsClusterArn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
+  serviceRole:
+    type: string
+    description: |
+      The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+  state:
+    type: string
+    description: |
+      The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+  status:
+    type: string
+    description: |
+      The current status of the compute environment (for example, CREATING or VALID).
+  statusReason:
+    type: string
+    description: |
+      A short, human-readable string to provide additional details about the current status of the compute environment.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type:
+    type: string
+    description: |
+      The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
+required:
+  - arn
+  - computeEnvironmentName
+  - computeEnvironmentNamePrefix
+  - ecsClusterArn
+  - serviceRole
+  - status
+  - statusReason
+  - tagsAll
+  - type
+inputProperties:
+  computeEnvironmentName:
+    type: string
+    description: |
+      The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, this provider will assign a random, unique name.
+    willReplaceOnChanges: true
+  computeEnvironmentNamePrefix:
+    type: string
+    description: |
+      Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
+    willReplaceOnChanges: true
+  computeResources:
+    $ref: "#/types/aws:batch/ComputeEnvironmentComputeResources:ComputeEnvironmentComputeResources"
+    description: |
+      Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
+    willReplaceOnChanges: true
+  serviceRole:
+    type: string
+    description: |
+      The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+  state:
+    type: string
+    description: |
+      The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+  type:
+    type: string
+    description: |
+      The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
+    willReplaceOnChanges: true
+requiredInputs:
+  - type
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering ComputeEnvironment resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The Amazon Resource Name (ARN) of the compute environment.
+    computeEnvironmentName:
+      type: string
+      description: |
+        The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, this provider will assign a random, unique name.
+      willReplaceOnChanges: true
+    computeEnvironmentNamePrefix:
+      type: string
+      description: |
+        Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
+      willReplaceOnChanges: true
+    computeResources:
+      $ref: "#/types/aws:batch/ComputeEnvironmentComputeResources:ComputeEnvironmentComputeResources"
+      description: |
+        Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
+      willReplaceOnChanges: true
+    ecsClusterArn:
+      type: string
+      description: |
+        The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
+    serviceRole:
+      type: string
+      description: |
+        The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+    state:
+      type: string
+      description: |
+        The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+    status:
+      type: string
+      description: |
+        The current status of the compute environment (for example, CREATING or VALID).
+    statusReason:
+      type: string
+      description: |
+        A short, human-readable string to provide additional details about the current status of the compute environment.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    type:
+      type: string
+      description: |
+        The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
+      willReplaceOnChanges: true
+  type: object

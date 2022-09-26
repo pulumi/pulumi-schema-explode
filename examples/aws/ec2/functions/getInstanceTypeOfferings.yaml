@@ -1,0 +1,54 @@
+$token: aws:ec2/getInstanceTypeOfferings:getInstanceTypeOfferings
+inputs:
+  description: |
+    A collection of arguments for invoking getInstanceTypeOfferings.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getInstanceTypeOfferingsFilter:getInstanceTypeOfferingsFilter"
+      description: |
+        One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
+    locationType:
+      type: string
+      description: |
+        Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getInstanceTypeOfferings.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getInstanceTypeOfferingsFilter:getInstanceTypeOfferingsFilter"
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    instanceTypes:
+      type: array
+      items:
+        type: string
+      description: |
+        List of EC2 Instance Types.
+    locationType:
+      type: string
+    locationTypes:
+      type: array
+      items:
+        type: string
+      description: |
+        List of location types.
+    locations:
+      type: array
+      items:
+        type: string
+      description: |
+        List of locations.
+  type: object
+  required:
+    - instanceTypes
+    - locationTypes
+    - locations
+    - id

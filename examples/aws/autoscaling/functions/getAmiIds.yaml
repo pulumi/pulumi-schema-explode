@@ -1,0 +1,47 @@
+$token: aws:autoscaling/getAmiIds:getAmiIds
+inputs:
+  description: |
+    A collection of arguments for invoking getAmiIds.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:autoscaling/getAmiIdsFilter:getAmiIdsFilter"
+      description: |
+        Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+    names:
+      type: array
+      items:
+        type: string
+      description: |
+        List of autoscaling group names
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getAmiIds.
+  properties:
+    arns:
+      type: array
+      items:
+        type: string
+      description: |
+        List of the Autoscaling Groups Arns in the current region.
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:autoscaling/getAmiIdsFilter:getAmiIdsFilter"
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    names:
+      type: array
+      items:
+        type: string
+      description: |
+        List of the Autoscaling Groups in the current region.
+  type: object
+  required:
+    - arns
+    - names
+    - id

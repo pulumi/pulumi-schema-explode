@@ -1,0 +1,54 @@
+$token: aws:pinpoint/eventStream:EventStream
+properties:
+  applicationId:
+    type: string
+    description: |
+      The application ID.
+  destinationStreamArn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+  roleArn:
+    type: string
+    description: |
+      The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
+required:
+  - applicationId
+  - destinationStreamArn
+  - roleArn
+inputProperties:
+  applicationId:
+    type: string
+    description: |
+      The application ID.
+    willReplaceOnChanges: true
+  destinationStreamArn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+  roleArn:
+    type: string
+    description: |
+      The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
+requiredInputs:
+  - applicationId
+  - destinationStreamArn
+  - roleArn
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering EventStream resources.
+  properties:
+    applicationId:
+      type: string
+      description: |
+        The application ID.
+      willReplaceOnChanges: true
+    destinationStreamArn:
+      type: string
+      description: |
+        The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+    roleArn:
+      type: string
+      description: |
+        The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
+  type: object

@@ -1,0 +1,68 @@
+$token: aws:elasticache/securityGroup:SecurityGroup
+properties:
+  description:
+    type: string
+    description: |
+      description for the cache security group. Defaults to "Managed by Pulumi".
+    default: Managed by Pulumi
+  name:
+    type: string
+    description: |
+      Name for the cache security group. This value is stored as a lowercase string.
+  securityGroupNames:
+    type: array
+    items:
+      type: string
+    description: |
+      List of EC2 security group names to be
+      authorized for ingress to the cache security group
+required:
+  - description
+  - name
+  - securityGroupNames
+inputProperties:
+  description:
+    type: string
+    description: |
+      description for the cache security group. Defaults to "Managed by Pulumi".
+    default: Managed by Pulumi
+    willReplaceOnChanges: true
+  name:
+    type: string
+    description: |
+      Name for the cache security group. This value is stored as a lowercase string.
+    willReplaceOnChanges: true
+  securityGroupNames:
+    type: array
+    items:
+      type: string
+    description: |
+      List of EC2 security group names to be
+      authorized for ingress to the cache security group
+    willReplaceOnChanges: true
+requiredInputs:
+  - securityGroupNames
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering SecurityGroup resources.
+  properties:
+    description:
+      type: string
+      description: |
+        description for the cache security group. Defaults to "Managed by Pulumi".
+      default: Managed by Pulumi
+      willReplaceOnChanges: true
+    name:
+      type: string
+      description: |
+        Name for the cache security group. This value is stored as a lowercase string.
+      willReplaceOnChanges: true
+    securityGroupNames:
+      type: array
+      items:
+        type: string
+      description: |
+        List of EC2 security group names to be
+        authorized for ingress to the cache security group
+      willReplaceOnChanges: true
+  type: object

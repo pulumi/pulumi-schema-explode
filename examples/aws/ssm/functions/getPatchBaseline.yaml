@@ -1,0 +1,104 @@
+$token: aws:ssm/getPatchBaseline:getPatchBaseline
+inputs:
+  description: |
+    A collection of arguments for invoking getPatchBaseline.
+  properties:
+    defaultBaseline:
+      type: boolean
+      description: |
+        Filters the results against the baselines default_baseline field.
+    namePrefix:
+      type: string
+      description: |
+        Filter results by the baseline name prefix.
+    operatingSystem:
+      type: string
+      description: |
+        Specified OS for the baseline.
+    owner:
+      type: string
+      description: |
+        Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
+  type: object
+  required:
+    - owner
+outputs:
+  description: |
+    A collection of values returned by getPatchBaseline.
+  properties:
+    approvalRules:
+      type: array
+      items:
+        $ref: "#/types/aws:ssm/getPatchBaselineApprovalRule:getPatchBaselineApprovalRule"
+      description: |
+        List of rules used to include patches in the baseline.
+    approvedPatches:
+      type: array
+      items:
+        type: string
+      description: |
+        List of explicitly approved patches for the baseline.
+    approvedPatchesComplianceLevel:
+      type: string
+      description: |
+        The compliance level for approved patches.
+    approvedPatchesEnableNonSecurity:
+      type: boolean
+      description: |
+        Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.
+    defaultBaseline:
+      type: boolean
+    description:
+      type: string
+      description: |
+        Description of the baseline.
+    globalFilters:
+      type: array
+      items:
+        $ref: "#/types/aws:ssm/getPatchBaselineGlobalFilter:getPatchBaselineGlobalFilter"
+      description: |
+        Set of global filters used to exclude patches from the baseline.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    name:
+      type: string
+      description: |
+        The name specified to identify the patch source.
+    namePrefix:
+      type: string
+    operatingSystem:
+      type: string
+    owner:
+      type: string
+    rejectedPatches:
+      type: array
+      items:
+        type: string
+      description: |
+        List of rejected patches.
+    rejectedPatchesAction:
+      type: string
+      description: |
+        The action specified to take on patches included in the `rejected_patches` list.
+    sources:
+      type: array
+      items:
+        $ref: "#/types/aws:ssm/getPatchBaselineSource:getPatchBaselineSource"
+      description: |
+        Information about the patches to use to update the managed nodes, including target operating systems and source repositories.
+  type: object
+  required:
+    - approvalRules
+    - approvedPatches
+    - approvedPatchesComplianceLevel
+    - approvedPatchesEnableNonSecurity
+    - description
+    - globalFilters
+    - name
+    - owner
+    - rejectedPatches
+    - rejectedPatchesAction
+    - sources
+    - id

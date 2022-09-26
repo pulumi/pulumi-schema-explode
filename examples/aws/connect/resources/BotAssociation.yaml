@@ -1,0 +1,42 @@
+$token: aws:connect/botAssociation:BotAssociation
+properties:
+  instanceId:
+    type: string
+    description: |
+      The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+  lexBot:
+    $ref: "#/types/aws:connect/BotAssociationLexBot:BotAssociationLexBot"
+    description: |
+      Configuration information of an Amazon Lex (V1) bot. Detailed below.
+required:
+  - instanceId
+  - lexBot
+inputProperties:
+  instanceId:
+    type: string
+    description: |
+      The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+    willReplaceOnChanges: true
+  lexBot:
+    $ref: "#/types/aws:connect/BotAssociationLexBot:BotAssociationLexBot"
+    description: |
+      Configuration information of an Amazon Lex (V1) bot. Detailed below.
+    willReplaceOnChanges: true
+requiredInputs:
+  - instanceId
+  - lexBot
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering BotAssociation resources.
+  properties:
+    instanceId:
+      type: string
+      description: |
+        The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+      willReplaceOnChanges: true
+    lexBot:
+      $ref: "#/types/aws:connect/BotAssociationLexBot:BotAssociationLexBot"
+      description: |
+        Configuration information of an Amazon Lex (V1) bot. Detailed below.
+      willReplaceOnChanges: true
+  type: object

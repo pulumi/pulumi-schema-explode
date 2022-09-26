@@ -1,0 +1,153 @@
+$token: aws:cloudwatch/eventRule:EventRule
+properties:
+  arn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) of the rule.
+  description:
+    type: string
+    description: |
+      The description of the rule.
+  eventBusName:
+    type: string
+    description: |
+      The event bus to associate with this rule. If you omit this, the `default` event bus is used.
+  eventPattern:
+    type: string
+    description: |
+      The event pattern described a JSON object. At least one of `schedule_expression` or `event_pattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
+  isEnabled:
+    type: boolean
+    description: |
+      Whether the rule should be enabled (defaults to `true`).
+  name:
+    type: string
+    description: |
+      The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
+  namePrefix:
+    type: string
+    description: |
+      Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+  roleArn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
+  scheduleExpression:
+    type: string
+    description: |
+      The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `schedule_expression` or `event_pattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - arn
+  - name
+  - namePrefix
+  - tagsAll
+inputProperties:
+  description:
+    type: string
+    description: |
+      The description of the rule.
+  eventBusName:
+    type: string
+    description: |
+      The event bus to associate with this rule. If you omit this, the `default` event bus is used.
+    willReplaceOnChanges: true
+  eventPattern:
+    type: string
+    description: |
+      The event pattern described a JSON object. At least one of `schedule_expression` or `event_pattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
+  isEnabled:
+    type: boolean
+    description: |
+      Whether the rule should be enabled (defaults to `true`).
+  name:
+    type: string
+    description: |
+      The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
+    willReplaceOnChanges: true
+  namePrefix:
+    type: string
+    description: |
+      Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+    willReplaceOnChanges: true
+  roleArn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
+  scheduleExpression:
+    type: string
+    description: |
+      The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `schedule_expression` or `event_pattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering EventRule resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The Amazon Resource Name (ARN) of the rule.
+    description:
+      type: string
+      description: |
+        The description of the rule.
+    eventBusName:
+      type: string
+      description: |
+        The event bus to associate with this rule. If you omit this, the `default` event bus is used.
+      willReplaceOnChanges: true
+    eventPattern:
+      type: string
+      description: |
+        The event pattern described a JSON object. At least one of `schedule_expression` or `event_pattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
+    isEnabled:
+      type: boolean
+      description: |
+        Whether the rule should be enabled (defaults to `true`).
+    name:
+      type: string
+      description: |
+        The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
+      willReplaceOnChanges: true
+    namePrefix:
+      type: string
+      description: |
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+      willReplaceOnChanges: true
+    roleArn:
+      type: string
+      description: |
+        The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
+    scheduleExpression:
+      type: string
+      description: |
+        The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `schedule_expression` or `event_pattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

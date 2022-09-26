@@ -1,0 +1,76 @@
+$token: aws:lambda/codeSigningConfig:CodeSigningConfig
+properties:
+  allowedPublishers:
+    $ref: "#/types/aws:lambda/CodeSigningConfigAllowedPublishers:CodeSigningConfigAllowedPublishers"
+    description: |
+      A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+  arn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) of the code signing configuration.
+  configId:
+    type: string
+    description: |
+      Unique identifier for the code signing configuration.
+  description:
+    type: string
+    description: |
+      Descriptive name for this code signing configuration.
+  lastModified:
+    type: string
+    description: |
+      The date and time that the code signing configuration was last modified.
+  policies:
+    $ref: "#/types/aws:lambda/CodeSigningConfigPolicies:CodeSigningConfigPolicies"
+    description: |
+      A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+required:
+  - allowedPublishers
+  - arn
+  - configId
+  - lastModified
+  - policies
+inputProperties:
+  allowedPublishers:
+    $ref: "#/types/aws:lambda/CodeSigningConfigAllowedPublishers:CodeSigningConfigAllowedPublishers"
+    description: |
+      A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+  description:
+    type: string
+    description: |
+      Descriptive name for this code signing configuration.
+  policies:
+    $ref: "#/types/aws:lambda/CodeSigningConfigPolicies:CodeSigningConfigPolicies"
+    description: |
+      A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+requiredInputs:
+  - allowedPublishers
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering CodeSigningConfig resources.
+  properties:
+    allowedPublishers:
+      $ref: "#/types/aws:lambda/CodeSigningConfigAllowedPublishers:CodeSigningConfigAllowedPublishers"
+      description: |
+        A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+    arn:
+      type: string
+      description: |
+        The Amazon Resource Name (ARN) of the code signing configuration.
+    configId:
+      type: string
+      description: |
+        Unique identifier for the code signing configuration.
+    description:
+      type: string
+      description: |
+        Descriptive name for this code signing configuration.
+    lastModified:
+      type: string
+      description: |
+        The date and time that the code signing configuration was last modified.
+    policies:
+      $ref: "#/types/aws:lambda/CodeSigningConfigPolicies:CodeSigningConfigPolicies"
+      description: |
+        A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+  type: object

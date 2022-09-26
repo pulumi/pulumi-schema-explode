@@ -1,0 +1,203 @@
+$token: aws:sagemaker/domain:Domain
+properties:
+  appNetworkAccessType:
+    type: string
+    description: |
+      Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
+  arn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) assigned by AWS to this Domain.
+  authMode:
+    type: string
+    description: |
+      The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
+  defaultUserSettings:
+    $ref: "#/types/aws:sagemaker/DomainDefaultUserSettings:DomainDefaultUserSettings"
+    description: |
+      The default user settings. See Default User Settings below.
+  domainName:
+    type: string
+    description: |
+      The domain name.
+  homeEfsFileSystemId:
+    type: string
+    description: |
+      The ID of the Amazon Elastic File System (EFS) managed by this Domain.
+  kmsKeyId:
+    type: string
+    description: |
+      The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
+  retentionPolicy:
+    $ref: "#/types/aws:sagemaker/DomainRetentionPolicy:DomainRetentionPolicy"
+    description: |
+      The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+  singleSignOnManagedApplicationInstanceId:
+    type: string
+    description: |
+      The SSO managed application instance ID.
+  subnetIds:
+    type: array
+    items:
+      type: string
+    description: |
+      The VPC subnets that Studio uses for communication.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  url:
+    type: string
+    description: |
+      The domain's URL.
+  vpcId:
+    type: string
+    description: |
+      The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+required:
+  - arn
+  - authMode
+  - defaultUserSettings
+  - domainName
+  - homeEfsFileSystemId
+  - singleSignOnManagedApplicationInstanceId
+  - subnetIds
+  - tagsAll
+  - url
+  - vpcId
+inputProperties:
+  appNetworkAccessType:
+    type: string
+    description: |
+      Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
+    willReplaceOnChanges: true
+  authMode:
+    type: string
+    description: |
+      The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
+    willReplaceOnChanges: true
+  defaultUserSettings:
+    $ref: "#/types/aws:sagemaker/DomainDefaultUserSettings:DomainDefaultUserSettings"
+    description: |
+      The default user settings. See Default User Settings below.
+  domainName:
+    type: string
+    description: |
+      The domain name.
+    willReplaceOnChanges: true
+  kmsKeyId:
+    type: string
+    description: |
+      The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
+    willReplaceOnChanges: true
+  retentionPolicy:
+    $ref: "#/types/aws:sagemaker/DomainRetentionPolicy:DomainRetentionPolicy"
+    description: |
+      The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+    willReplaceOnChanges: true
+  subnetIds:
+    type: array
+    items:
+      type: string
+    description: |
+      The VPC subnets that Studio uses for communication.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  vpcId:
+    type: string
+    description: |
+      The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+    willReplaceOnChanges: true
+requiredInputs:
+  - authMode
+  - defaultUserSettings
+  - domainName
+  - subnetIds
+  - vpcId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Domain resources.
+  properties:
+    appNetworkAccessType:
+      type: string
+      description: |
+        Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
+      willReplaceOnChanges: true
+    arn:
+      type: string
+      description: |
+        The Amazon Resource Name (ARN) assigned by AWS to this Domain.
+    authMode:
+      type: string
+      description: |
+        The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
+      willReplaceOnChanges: true
+    defaultUserSettings:
+      $ref: "#/types/aws:sagemaker/DomainDefaultUserSettings:DomainDefaultUserSettings"
+      description: |
+        The default user settings. See Default User Settings below.
+    domainName:
+      type: string
+      description: |
+        The domain name.
+      willReplaceOnChanges: true
+    homeEfsFileSystemId:
+      type: string
+      description: |
+        The ID of the Amazon Elastic File System (EFS) managed by this Domain.
+    kmsKeyId:
+      type: string
+      description: |
+        The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
+      willReplaceOnChanges: true
+    retentionPolicy:
+      $ref: "#/types/aws:sagemaker/DomainRetentionPolicy:DomainRetentionPolicy"
+      description: |
+        The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+      willReplaceOnChanges: true
+    singleSignOnManagedApplicationInstanceId:
+      type: string
+      description: |
+        The SSO managed application instance ID.
+    subnetIds:
+      type: array
+      items:
+        type: string
+      description: |
+        The VPC subnets that Studio uses for communication.
+      willReplaceOnChanges: true
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    url:
+      type: string
+      description: |
+        The domain's URL.
+    vpcId:
+      type: string
+      description: |
+        The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+      willReplaceOnChanges: true
+  type: object

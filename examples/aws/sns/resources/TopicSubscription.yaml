@@ -1,0 +1,186 @@
+$token: aws:sns/topicSubscription:TopicSubscription
+properties:
+  arn:
+    type: string
+    description: |
+      ARN of the subscription.
+  confirmationTimeoutInMinutes:
+    type: integer
+    description: |
+      Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
+  confirmationWasAuthenticated:
+    type: boolean
+    description: |
+      Whether the subscription confirmation request was authenticated.
+  deliveryPolicy:
+    type: string
+    description: |
+      JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
+  endpoint:
+    type: string
+    description: |
+      Endpoint to send data to. The contents vary with the protocol. See details below.
+  endpointAutoConfirms:
+    type: boolean
+    description: |
+      Whether the endpoint is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) (e.g., PagerDuty). Default is `false`.
+  filterPolicy:
+    type: string
+    description: |
+      JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
+  ownerId:
+    type: string
+    description: |
+      AWS account ID of the subscription's owner.
+  pendingConfirmation:
+    type: boolean
+    description: |
+      Whether the subscription has not been confirmed.
+  protocol:
+    type: string
+    description: |
+      Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
+  rawMessageDelivery:
+    type: boolean
+    description: |
+      Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
+  redrivePolicy:
+    type: string
+    description: |
+      JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
+  subscriptionRoleArn:
+    type: string
+    description: |
+      ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
+  topic:
+    type: string
+    description: |
+      ARN of the SNS topic to subscribe to.
+required:
+  - arn
+  - confirmationWasAuthenticated
+  - endpoint
+  - ownerId
+  - pendingConfirmation
+  - protocol
+  - topic
+inputProperties:
+  confirmationTimeoutInMinutes:
+    type: integer
+    description: |
+      Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
+  deliveryPolicy:
+    type: string
+    description: |
+      JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
+  endpoint:
+    type: string
+    description: |
+      Endpoint to send data to. The contents vary with the protocol. See details below.
+    willReplaceOnChanges: true
+  endpointAutoConfirms:
+    type: boolean
+    description: |
+      Whether the endpoint is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) (e.g., PagerDuty). Default is `false`.
+  filterPolicy:
+    type: string
+    description: |
+      JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
+  protocol:
+    type: string
+    description: |
+      Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
+    willReplaceOnChanges: true
+  rawMessageDelivery:
+    type: boolean
+    description: |
+      Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
+  redrivePolicy:
+    type: string
+    description: |
+      JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
+  subscriptionRoleArn:
+    type: string
+    description: |
+      ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
+  topic:
+    type: string
+    oneOf:
+      - type: string
+      - type: string
+        $ref: "#/types/aws:sns/topic:Topic"
+    description: |
+      ARN of the SNS topic to subscribe to.
+    willReplaceOnChanges: true
+requiredInputs:
+  - endpoint
+  - protocol
+  - topic
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering TopicSubscription resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the subscription.
+    confirmationTimeoutInMinutes:
+      type: integer
+      description: |
+        Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
+    confirmationWasAuthenticated:
+      type: boolean
+      description: |
+        Whether the subscription confirmation request was authenticated.
+    deliveryPolicy:
+      type: string
+      description: |
+        JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
+    endpoint:
+      type: string
+      description: |
+        Endpoint to send data to. The contents vary with the protocol. See details below.
+      willReplaceOnChanges: true
+    endpointAutoConfirms:
+      type: boolean
+      description: |
+        Whether the endpoint is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) (e.g., PagerDuty). Default is `false`.
+    filterPolicy:
+      type: string
+      description: |
+        JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
+    ownerId:
+      type: string
+      description: |
+        AWS account ID of the subscription's owner.
+    pendingConfirmation:
+      type: boolean
+      description: |
+        Whether the subscription has not been confirmed.
+    protocol:
+      type: string
+      description: |
+        Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
+      willReplaceOnChanges: true
+    rawMessageDelivery:
+      type: boolean
+      description: |
+        Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
+    redrivePolicy:
+      type: string
+      description: |
+        JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
+    subscriptionRoleArn:
+      type: string
+      description: |
+        ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
+    topic:
+      type: string
+      oneOf:
+        - type: string
+        - type: string
+          $ref: "#/types/aws:sns/topic:Topic"
+      description: |
+        ARN of the SNS topic to subscribe to.
+      willReplaceOnChanges: true
+  type: object

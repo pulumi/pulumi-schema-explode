@@ -1,0 +1,43 @@
+$token: aws:ec2/LaunchTemplateInstanceMarketOptionsSpotOptions:LaunchTemplateInstanceMarketOptionsSpotOptions
+properties:
+  blockDurationMinutes:
+    type: integer
+    description: |
+      The required duration in minutes. This value must be a multiple of 60.
+    language:
+      python:
+        mapCase: false
+  instanceInterruptionBehavior:
+    type: string
+    description: |
+      The behavior when a Spot Instance is interrupted. Can be `hibernate`,
+      `stop`, or `terminate`. (Default: `terminate`).
+    language:
+      python:
+        mapCase: false
+  maxPrice:
+    type: string
+    description: |
+      The maximum hourly price you're willing to pay for the Spot Instances.
+    language:
+      python:
+        mapCase: false
+  spotInstanceType:
+    type: string
+    description: |
+      The Spot Instance request type. Can be `one-time`, or `persistent`.
+    language:
+      python:
+        mapCase: false
+  validUntil:
+    type: string
+    description: |
+      The end date of the request.
+    language:
+      python:
+        mapCase: false
+type: object
+language:
+  nodejs:
+    requiredOutputs:
+      - validUntil

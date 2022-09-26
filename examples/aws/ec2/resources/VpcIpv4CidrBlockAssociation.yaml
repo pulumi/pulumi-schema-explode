@@ -1,0 +1,69 @@
+$token: aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation
+properties:
+  cidrBlock:
+    type: string
+    description: |
+      The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
+  ipv4IpamPoolId:
+    type: string
+    description: |
+      The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
+  ipv4NetmaskLength:
+    type: integer
+    description: |
+      The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
+  vpcId:
+    type: string
+    description: |
+      The ID of the VPC to make the association with.
+required:
+  - cidrBlock
+  - vpcId
+inputProperties:
+  cidrBlock:
+    type: string
+    description: |
+      The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
+    willReplaceOnChanges: true
+  ipv4IpamPoolId:
+    type: string
+    description: |
+      The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
+    willReplaceOnChanges: true
+  ipv4NetmaskLength:
+    type: integer
+    description: |
+      The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
+    willReplaceOnChanges: true
+  vpcId:
+    type: string
+    description: |
+      The ID of the VPC to make the association with.
+    willReplaceOnChanges: true
+requiredInputs:
+  - vpcId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering VpcIpv4CidrBlockAssociation resources.
+  properties:
+    cidrBlock:
+      type: string
+      description: |
+        The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
+      willReplaceOnChanges: true
+    ipv4IpamPoolId:
+      type: string
+      description: |
+        The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
+      willReplaceOnChanges: true
+    ipv4NetmaskLength:
+      type: integer
+      description: |
+        The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
+      willReplaceOnChanges: true
+    vpcId:
+      type: string
+      description: |
+        The ID of the VPC to make the association with.
+      willReplaceOnChanges: true
+  type: object

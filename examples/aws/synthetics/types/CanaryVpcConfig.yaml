@@ -1,0 +1,32 @@
+$token: aws:synthetics/CanaryVpcConfig:CanaryVpcConfig
+properties:
+  securityGroupIds:
+    type: array
+    items:
+      type: string
+    description: |
+      IDs of the security groups for this canary.
+    language:
+      python:
+        mapCase: false
+  subnetIds:
+    type: array
+    items:
+      type: string
+    description: |
+      IDs of the subnets where this canary is to run.
+    language:
+      python:
+        mapCase: false
+  vpcId:
+    type: string
+    description: |
+      ID of the VPC where this canary is to run.
+    language:
+      python:
+        mapCase: false
+type: object
+language:
+  nodejs:
+    requiredOutputs:
+      - vpcId

@@ -1,0 +1,69 @@
+$token: aws:ec2/vpcIpamPreviewNextCidr:VpcIpamPreviewNextCidr
+properties:
+  cidr:
+    type: string
+    description: |
+      The previewed CIDR from the pool.
+  disallowedCidrs:
+    type: array
+    items:
+      type: string
+    description: |
+      Exclude a particular CIDR range from being returned by the pool.
+  ipamPoolId:
+    type: string
+    description: |
+      The ID of the pool to which you want to assign a CIDR.
+  netmaskLength:
+    type: integer
+    description: |
+      The netmask length of the CIDR you would like to preview from the IPAM pool.
+required:
+  - cidr
+  - ipamPoolId
+inputProperties:
+  disallowedCidrs:
+    type: array
+    items:
+      type: string
+    description: |
+      Exclude a particular CIDR range from being returned by the pool.
+    willReplaceOnChanges: true
+  ipamPoolId:
+    type: string
+    description: |
+      The ID of the pool to which you want to assign a CIDR.
+    willReplaceOnChanges: true
+  netmaskLength:
+    type: integer
+    description: |
+      The netmask length of the CIDR you would like to preview from the IPAM pool.
+    willReplaceOnChanges: true
+requiredInputs:
+  - ipamPoolId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering VpcIpamPreviewNextCidr resources.
+  properties:
+    cidr:
+      type: string
+      description: |
+        The previewed CIDR from the pool.
+    disallowedCidrs:
+      type: array
+      items:
+        type: string
+      description: |
+        Exclude a particular CIDR range from being returned by the pool.
+      willReplaceOnChanges: true
+    ipamPoolId:
+      type: string
+      description: |
+        The ID of the pool to which you want to assign a CIDR.
+      willReplaceOnChanges: true
+    netmaskLength:
+      type: integer
+      description: |
+        The netmask length of the CIDR you would like to preview from the IPAM pool.
+      willReplaceOnChanges: true
+  type: object

@@ -1,0 +1,22 @@
+$token: aws:s3/BucketV2ReplicationConfiguration:BucketV2ReplicationConfiguration
+properties:
+  role:
+    type: string
+    description: |
+      The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
+    language:
+      python:
+        mapCase: false
+  rules:
+    type: array
+    items:
+      $ref: "#/types/aws:s3/BucketV2ReplicationConfigurationRule:BucketV2ReplicationConfigurationRule"
+    description: |
+      Specifies the rules managing the replication (documented below).
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - role
+  - rules

@@ -1,0 +1,66 @@
+$token: aws:sagemaker/EndpointConfigurationProductionVariant:EndpointConfigurationProductionVariant
+properties:
+  acceleratorType:
+    type: string
+    description: |
+      The size of the Elastic Inference (EI) instance to use for the production variant.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  initialInstanceCount:
+    type: integer
+    description: |
+      Initial number of instances used for auto-scaling.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  initialVariantWeight:
+    type: number
+    description: |
+      Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  instanceType:
+    type: string
+    description: |
+      The type of instance to start.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  modelName:
+    type: string
+    description: |
+      The name of the model to use.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  serverlessConfig:
+    $ref: "#/types/aws:sagemaker/EndpointConfigurationProductionVariantServerlessConfig:EndpointConfigurationProductionVariantServerlessConfig"
+    description: |
+      Specifies configuration for how an endpoint performs asynchronous inference.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  variantName:
+    type: string
+    description: |
+      The name of the variant. If omitted, this provider will assign a random, unique name.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+type: object
+required:
+  - modelName
+language:
+  nodejs:
+    requiredOutputs:
+      - modelName
+      - variantName

@@ -1,0 +1,33 @@
+$token: aws:emrcontainers/getVirtualClusterContainerProvider:getVirtualClusterContainerProvider
+properties:
+  id:
+    type: string
+    description: |
+      The name of the container provider that is running your EMR Containers cluster
+    language:
+      python:
+        mapCase: false
+  infos:
+    type: array
+    items:
+      $ref: "#/types/aws:emrcontainers/getVirtualClusterContainerProviderInfo:getVirtualClusterContainerProviderInfo"
+    description: |
+      Nested list containing information about the configuration of the container provider
+    language:
+      python:
+        mapCase: false
+  type:
+    type: string
+    description: |
+      The type of the container provider
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - id
+  - infos
+  - type
+language:
+  nodejs:
+    requiredInputs: []

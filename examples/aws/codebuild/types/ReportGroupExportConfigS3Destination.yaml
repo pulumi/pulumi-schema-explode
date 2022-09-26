@@ -1,0 +1,42 @@
+$token: aws:codebuild/ReportGroupExportConfigS3Destination:ReportGroupExportConfigS3Destination
+properties:
+  bucket:
+    type: string
+    description: |
+      The name of the S3 bucket where the raw data of a report are exported.
+    language:
+      python:
+        mapCase: false
+  encryptionDisabled:
+    type: boolean
+    description: |
+      A boolean value that specifies if the results of a report are encrypted.
+      **Note: the API does not currently allow setting encryption as disabled**
+    language:
+      python:
+        mapCase: false
+  encryptionKey:
+    type: string
+    description: |
+      The encryption key for the report's encrypted raw data. The KMS key ARN.
+    language:
+      python:
+        mapCase: false
+  packaging:
+    type: string
+    description: |
+      The type of build output artifact to create. Valid values are: `NONE` (default) and `ZIP`.
+    language:
+      python:
+        mapCase: false
+  path:
+    type: string
+    description: |
+      The path to the exported report's raw data results.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - bucket
+  - encryptionKey

@@ -1,0 +1,33 @@
+$token: aws:backup/getReportPlanReportDeliveryChannel:getReportPlanReportDeliveryChannel
+properties:
+  formats:
+    type: array
+    items:
+      type: string
+    description: |
+      List of the format of your reports: CSV, JSON, or both.
+    language:
+      python:
+        mapCase: false
+  s3BucketName:
+    type: string
+    description: |
+      Unique name of the S3 bucket that receives your reports.
+    language:
+      python:
+        mapCase: false
+  s3KeyPrefix:
+    type: string
+    description: |
+      Prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - formats
+  - s3BucketName
+  - s3KeyPrefix
+language:
+  nodejs:
+    requiredInputs: []

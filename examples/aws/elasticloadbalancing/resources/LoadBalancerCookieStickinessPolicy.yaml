@@ -1,0 +1,84 @@
+$token: aws:elasticloadbalancing/loadBalancerCookieStickinessPolicy:LoadBalancerCookieStickinessPolicy
+properties:
+  cookieExpirationPeriod:
+    type: integer
+    description: |
+      The time period after which
+      the session cookie should be considered stale, expressed in seconds.
+  lbPort:
+    type: integer
+    description: |
+      The load balancer port to which the policy
+      should be applied. This must be an active listener on the load
+      balancer.
+  loadBalancer:
+    type: string
+    description: |
+      The load balancer to which the policy
+      should be attached.
+  name:
+    type: string
+    description: |
+      The name of the stickiness policy.
+required:
+  - lbPort
+  - loadBalancer
+  - name
+inputProperties:
+  cookieExpirationPeriod:
+    type: integer
+    description: |
+      The time period after which
+      the session cookie should be considered stale, expressed in seconds.
+    willReplaceOnChanges: true
+  lbPort:
+    type: integer
+    description: |
+      The load balancer port to which the policy
+      should be applied. This must be an active listener on the load
+      balancer.
+    willReplaceOnChanges: true
+  loadBalancer:
+    type: string
+    description: |
+      The load balancer to which the policy
+      should be attached.
+    willReplaceOnChanges: true
+  name:
+    type: string
+    description: |
+      The name of the stickiness policy.
+    willReplaceOnChanges: true
+requiredInputs:
+  - lbPort
+  - loadBalancer
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering LoadBalancerCookieStickinessPolicy resources.
+  properties:
+    cookieExpirationPeriod:
+      type: integer
+      description: |
+        The time period after which
+        the session cookie should be considered stale, expressed in seconds.
+      willReplaceOnChanges: true
+    lbPort:
+      type: integer
+      description: |
+        The load balancer port to which the policy
+        should be applied. This must be an active listener on the load
+        balancer.
+      willReplaceOnChanges: true
+    loadBalancer:
+      type: string
+      description: |
+        The load balancer to which the policy
+        should be attached.
+      willReplaceOnChanges: true
+    name:
+      type: string
+      description: |
+        The name of the stickiness policy.
+      willReplaceOnChanges: true
+  type: object
+deprecationMessage: aws.elasticloadbalancing.LoadBalancerCookieStickinessPolicy has been deprecated in favor of aws.elb.LoadBalancerCookieStickinessPolicy

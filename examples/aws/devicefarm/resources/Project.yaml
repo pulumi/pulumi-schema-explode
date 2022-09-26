@@ -1,0 +1,74 @@
+$token: aws:devicefarm/project:Project
+properties:
+  arn:
+    type: string
+    description: |
+      The Amazon Resource Name of this project
+  defaultJobTimeoutMinutes:
+    type: integer
+    description: |
+      Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
+  name:
+    type: string
+    description: |
+      The name of the project
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - arn
+  - name
+  - tagsAll
+inputProperties:
+  defaultJobTimeoutMinutes:
+    type: integer
+    description: |
+      Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
+  name:
+    type: string
+    description: |
+      The name of the project
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Project resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The Amazon Resource Name of this project
+    defaultJobTimeoutMinutes:
+      type: integer
+      description: |
+        Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
+    name:
+      type: string
+      description: |
+        The name of the project
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

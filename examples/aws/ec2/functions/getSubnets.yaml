@@ -1,0 +1,48 @@
+$token: aws:ec2/getSubnets:getSubnets
+description: |
+  This resource can be useful for getting back a set of subnet IDs.
+inputs:
+  description: |
+    A collection of arguments for invoking getSubnets.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getSubnetsFilter:getSubnetsFilter"
+      description: |
+        Custom filter block as described below.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags, each pair of which must exactly match
+        a pair on the desired subnets.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getSubnets.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getSubnetsFilter:getSubnetsFilter"
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    ids:
+      type: array
+      items:
+        type: string
+      description: |
+        List of all the subnet ids found.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+  type: object
+  required:
+    - ids
+    - tags
+    - id

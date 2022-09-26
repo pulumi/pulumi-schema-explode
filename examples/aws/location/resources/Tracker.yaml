@@ -1,0 +1,114 @@
+$token: aws:location/tracker:Tracker
+properties:
+  createTime:
+    type: string
+    description: |
+      The timestamp for when the tracker resource was created in ISO 8601 format.
+  description:
+    type: string
+    description: |
+      The optional description for the tracker resource.
+  kmsKeyId:
+    type: string
+    description: |
+      A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+  positionFiltering:
+    type: string
+    description: |
+      The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  trackerArn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
+  trackerName:
+    type: string
+    description: |
+      The name of the tracker resource.
+  updateTime:
+    type: string
+    description: |
+      The timestamp for when the tracker resource was last updated in ISO 8601 format.
+required:
+  - createTime
+  - tagsAll
+  - trackerArn
+  - trackerName
+  - updateTime
+inputProperties:
+  description:
+    type: string
+    description: |
+      The optional description for the tracker resource.
+  kmsKeyId:
+    type: string
+    description: |
+      A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+    willReplaceOnChanges: true
+  positionFiltering:
+    type: string
+    description: |
+      The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+  trackerName:
+    type: string
+    description: |
+      The name of the tracker resource.
+requiredInputs:
+  - trackerName
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Tracker resources.
+  properties:
+    createTime:
+      type: string
+      description: |
+        The timestamp for when the tracker resource was created in ISO 8601 format.
+    description:
+      type: string
+      description: |
+        The optional description for the tracker resource.
+    kmsKeyId:
+      type: string
+      description: |
+        A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+      willReplaceOnChanges: true
+    positionFiltering:
+      type: string
+      description: |
+        The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    trackerArn:
+      type: string
+      description: |
+        The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
+    trackerName:
+      type: string
+      description: |
+        The name of the tracker resource.
+    updateTime:
+      type: string
+      description: |
+        The timestamp for when the tracker resource was last updated in ISO 8601 format.
+  type: object

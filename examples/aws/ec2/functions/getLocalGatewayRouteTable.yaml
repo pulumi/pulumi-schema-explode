@@ -1,0 +1,65 @@
+$token: aws:ec2/getLocalGatewayRouteTable:getLocalGatewayRouteTable
+inputs:
+  description: |
+    A collection of arguments for invoking getLocalGatewayRouteTable.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getLocalGatewayRouteTableFilter:getLocalGatewayRouteTableFilter"
+    localGatewayId:
+      type: string
+      description: |
+        ID of the specific local gateway route table to retrieve.
+    localGatewayRouteTableId:
+      type: string
+      description: |
+        Local Gateway Route Table Id assigned to desired local gateway route table
+    outpostArn:
+      type: string
+      description: |
+        ARN of the Outpost the local gateway route table is associated with.
+    state:
+      type: string
+      description: |
+        State of the local gateway route table.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Mapping of tags, each pair of which must exactly match
+        a pair on the desired local gateway route table.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getLocalGatewayRouteTable.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getLocalGatewayRouteTableFilter:getLocalGatewayRouteTableFilter"
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    localGatewayId:
+      type: string
+    localGatewayRouteTableId:
+      type: string
+    outpostArn:
+      type: string
+    state:
+      type: string
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+  type: object
+  required:
+    - localGatewayId
+    - localGatewayRouteTableId
+    - outpostArn
+    - state
+    - tags
+    - id

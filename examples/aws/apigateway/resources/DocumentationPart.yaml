@@ -1,0 +1,56 @@
+$token: aws:apigateway/documentationPart:DocumentationPart
+properties:
+  location:
+    $ref: "#/types/aws:apigateway/DocumentationPartLocation:DocumentationPartLocation"
+    description: |
+      Location of the targeted API entity of the to-be-created documentation part. See below.
+  properties:
+    type: string
+    description: |
+      Content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \"description\": \"The API does ...\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
+  restApiId:
+    type: string
+    description: |
+      ID of the associated Rest API
+required:
+  - location
+  - properties
+  - restApiId
+inputProperties:
+  location:
+    $ref: "#/types/aws:apigateway/DocumentationPartLocation:DocumentationPartLocation"
+    description: |
+      Location of the targeted API entity of the to-be-created documentation part. See below.
+    willReplaceOnChanges: true
+  properties:
+    type: string
+    description: |
+      Content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \"description\": \"The API does ...\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
+  restApiId:
+    type: string
+    description: |
+      ID of the associated Rest API
+    willReplaceOnChanges: true
+requiredInputs:
+  - location
+  - properties
+  - restApiId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering DocumentationPart resources.
+  properties:
+    location:
+      $ref: "#/types/aws:apigateway/DocumentationPartLocation:DocumentationPartLocation"
+      description: |
+        Location of the targeted API entity of the to-be-created documentation part. See below.
+      willReplaceOnChanges: true
+    properties:
+      type: string
+      description: |
+        Content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \"description\": \"The API does ...\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
+    restApiId:
+      type: string
+      description: |
+        ID of the associated Rest API
+      willReplaceOnChanges: true
+  type: object

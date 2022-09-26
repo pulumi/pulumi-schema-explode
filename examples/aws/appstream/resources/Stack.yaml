@@ -1,0 +1,210 @@
+$token: aws:appstream/stack:Stack
+properties:
+  accessEndpoints:
+    type: array
+    items:
+      $ref: "#/types/aws:appstream/StackAccessEndpoint:StackAccessEndpoint"
+    description: |
+      Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
+  applicationSettings:
+    $ref: "#/types/aws:appstream/StackApplicationSettings:StackApplicationSettings"
+    description: |
+      Settings for application settings persistence.
+  arn:
+    type: string
+    description: |
+      ARN of the appstream stack.
+  createdTime:
+    type: string
+    description: |
+      Date and time, in UTC and extended RFC 3339 format, when the stack was created.
+  description:
+    type: string
+    description: |
+      Description for the AppStream stack.
+  displayName:
+    type: string
+    description: |
+      Stack name to display.
+  embedHostDomains:
+    type: array
+    items:
+      type: string
+    description: |
+      Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
+  feedbackUrl:
+    type: string
+    description: |
+      URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
+  name:
+    type: string
+    description: |
+      Unique name for the AppStream stack.
+  redirectUrl:
+    type: string
+    description: |
+      URL that users are redirected to after their streaming session ends.
+  storageConnectors:
+    type: array
+    items:
+      $ref: "#/types/aws:appstream/StackStorageConnector:StackStorageConnector"
+    description: |
+      Configuration block for the storage connectors to enable. See below.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+  userSettings:
+    type: array
+    items:
+      $ref: "#/types/aws:appstream/StackUserSetting:StackUserSetting"
+    description: |
+      Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled. See below.
+required:
+  - accessEndpoints
+  - applicationSettings
+  - arn
+  - createdTime
+  - description
+  - displayName
+  - embedHostDomains
+  - feedbackUrl
+  - name
+  - redirectUrl
+  - storageConnectors
+  - tagsAll
+  - userSettings
+inputProperties:
+  accessEndpoints:
+    type: array
+    items:
+      $ref: "#/types/aws:appstream/StackAccessEndpoint:StackAccessEndpoint"
+    description: |
+      Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
+  applicationSettings:
+    $ref: "#/types/aws:appstream/StackApplicationSettings:StackApplicationSettings"
+    description: |
+      Settings for application settings persistence.
+  description:
+    type: string
+    description: |
+      Description for the AppStream stack.
+    willReplaceOnChanges: true
+  displayName:
+    type: string
+    description: |
+      Stack name to display.
+    willReplaceOnChanges: true
+  embedHostDomains:
+    type: array
+    items:
+      type: string
+    description: |
+      Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
+  feedbackUrl:
+    type: string
+    description: |
+      URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
+  name:
+    type: string
+    description: |
+      Unique name for the AppStream stack.
+    willReplaceOnChanges: true
+  redirectUrl:
+    type: string
+    description: |
+      URL that users are redirected to after their streaming session ends.
+  storageConnectors:
+    type: array
+    items:
+      $ref: "#/types/aws:appstream/StackStorageConnector:StackStorageConnector"
+    description: |
+      Configuration block for the storage connectors to enable. See below.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    willReplaceOnChanges: true
+  userSettings:
+    type: array
+    items:
+      $ref: "#/types/aws:appstream/StackUserSetting:StackUserSetting"
+    description: |
+      Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled. See below.
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Stack resources.
+  properties:
+    accessEndpoints:
+      type: array
+      items:
+        $ref: "#/types/aws:appstream/StackAccessEndpoint:StackAccessEndpoint"
+      description: |
+        Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
+    applicationSettings:
+      $ref: "#/types/aws:appstream/StackApplicationSettings:StackApplicationSettings"
+      description: |
+        Settings for application settings persistence.
+    arn:
+      type: string
+      description: |
+        ARN of the appstream stack.
+    createdTime:
+      type: string
+      description: |
+        Date and time, in UTC and extended RFC 3339 format, when the stack was created.
+    description:
+      type: string
+      description: |
+        Description for the AppStream stack.
+      willReplaceOnChanges: true
+    displayName:
+      type: string
+      description: |
+        Stack name to display.
+      willReplaceOnChanges: true
+    embedHostDomains:
+      type: array
+      items:
+        type: string
+      description: |
+        Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
+    feedbackUrl:
+      type: string
+      description: |
+        URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
+    name:
+      type: string
+      description: |
+        Unique name for the AppStream stack.
+      willReplaceOnChanges: true
+    redirectUrl:
+      type: string
+      description: |
+        URL that users are redirected to after their streaming session ends.
+    storageConnectors:
+      type: array
+      items:
+        $ref: "#/types/aws:appstream/StackStorageConnector:StackStorageConnector"
+      description: |
+        Configuration block for the storage connectors to enable. See below.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      willReplaceOnChanges: true
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+    userSettings:
+      type: array
+      items:
+        $ref: "#/types/aws:appstream/StackUserSetting:StackUserSetting"
+      description: |
+        Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled. See below.
+  type: object

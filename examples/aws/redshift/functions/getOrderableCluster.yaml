@@ -1,0 +1,55 @@
+$token: aws:redshift/getOrderableCluster:getOrderableCluster
+inputs:
+  description: |
+    A collection of arguments for invoking getOrderableCluster.
+  properties:
+    clusterType:
+      type: string
+      description: |
+        Reshift Cluster typeE.g., `multi-node` or `single-node`
+    clusterVersion:
+      type: string
+      description: |
+        Redshift Cluster versionE.g., `1.0`
+    nodeType:
+      type: string
+      description: |
+        Redshift Cluster node typeE.g., `dc2.8xlarge`
+    preferredNodeTypes:
+      type: array
+      items:
+        type: string
+      description: |
+        Ordered list of preferred Redshift Cluster node types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getOrderableCluster.
+  properties:
+    availabilityZones:
+      type: array
+      items:
+        type: string
+      description: |
+        List of Availability Zone names where the Redshit Cluster is available.
+    clusterType:
+      type: string
+    clusterVersion:
+      type: string
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    nodeType:
+      type: string
+    preferredNodeTypes:
+      type: array
+      items:
+        type: string
+  type: object
+  required:
+    - availabilityZones
+    - clusterType
+    - clusterVersion
+    - nodeType
+    - id

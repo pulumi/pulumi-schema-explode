@@ -1,0 +1,257 @@
+$token: aws:ec2/getAmi:getAmi
+inputs:
+  description: |
+    A collection of arguments for invoking getAmi.
+  properties:
+    executableUsers:
+      type: array
+      items:
+        type: string
+      description: |
+        Limit search to users with *explicit* launch permission on
+        the image. Valid items are the numeric account ID or `self`.
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getAmiFilter:getAmiFilter"
+      description: |
+        One or more name/value pairs to filter off of. There are
+        several valid keys, for a full reference, check out
+        [describe-images in the AWS CLI reference][1].
+    includeDeprecated:
+      type: boolean
+      description: |
+        If true, all deprecated AMIs are included in the response. If false, no deprecated AMIs are included in the response. If no value is specified, the default value is false.
+    mostRecent:
+      type: boolean
+      description: |
+        If more than one result is returned, use the most
+        recent AMI.
+    nameRegex:
+      type: string
+      description: |
+        Regex string to apply to the AMI list returned
+        by AWS. This allows more advanced filtering not supported from the AWS API. This
+        filtering is done locally on what AWS returns, and could have a performance
+        impact if the result is large. Combine this with other
+        options to narrow down the list AWS returns.
+    owners:
+      type: array
+      items:
+        type: string
+      description: |
+        List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Any tags assigned to the image.
+        * `tags.#.key` - Key name of the tag.
+        * `tags.#.value` - Value of the tag.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getAmi.
+  properties:
+    architecture:
+      type: string
+      description: |
+        OS architecture of the AMI (ie: `i386` or `x86_64`).
+    arn:
+      type: string
+      description: |
+        ARN of the AMI.
+    blockDeviceMappings:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getAmiBlockDeviceMapping:getAmiBlockDeviceMapping"
+      description: |
+        Set of objects with block device mappings of the AMI.
+    bootMode:
+      type: string
+      description: |
+        Boot mode of the image.
+    creationDate:
+      type: string
+      description: |
+        Date and time the image was created.
+    deprecationTime:
+      type: string
+      description: |
+        Date and time when the image will be deprecated.
+    description:
+      type: string
+      description: |
+        Description of the AMI that was provided during image
+        creation.
+    enaSupport:
+      type: boolean
+      description: |
+        Whether enhanced networking with ENA is enabled.
+    executableUsers:
+      type: array
+      items:
+        type: string
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getAmiFilter:getAmiFilter"
+    hypervisor:
+      type: string
+      description: |
+        Hypervisor type of the image.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    imageId:
+      type: string
+      description: |
+        ID of the AMI. Should be the same as the resource `id`.
+    imageLocation:
+      type: string
+      description: |
+        Location of the AMI.
+    imageOwnerAlias:
+      type: string
+      description: |
+        AWS account alias (for example, `amazon`, `self`) or
+        the AWS account ID of the AMI owner.
+    imageType:
+      type: string
+      description: |
+        Type of image.
+    includeDeprecated:
+      type: boolean
+    kernelId:
+      type: string
+      description: |
+        Kernel associated with the image, if any. Only applicable
+        for machine images.
+    mostRecent:
+      type: boolean
+    name:
+      type: string
+      description: |
+        Name of the AMI that was provided during image creation.
+    nameRegex:
+      type: string
+    ownerId:
+      type: string
+      description: |
+        AWS account ID of the image owner.
+    owners:
+      type: array
+      items:
+        type: string
+    platform:
+      type: string
+      description: |
+        Value is Windows for `Windows` AMIs; otherwise blank.
+    platformDetails:
+      type: string
+      description: |
+        Platform details associated with the billing code of the AMI.
+    productCodes:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getAmiProductCode:getAmiProductCode"
+      description: |
+        Any product codes associated with the AMI.
+        * `product_codes.#.product_code_id` - The product code.
+        * `product_codes.#.product_code_type` - The type of product code.
+    public:
+      type: boolean
+      description: |
+        `true` if the image has public launch permissions.
+    ramdiskId:
+      type: string
+      description: |
+        RAM disk associated with the image, if any. Only applicable
+        for machine images.
+    rootDeviceName:
+      type: string
+      description: |
+        Device name of the root device.
+    rootDeviceType:
+      type: string
+      description: |
+        Type of root device (ie: `ebs` or `instance-store`).
+    rootSnapshotId:
+      type: string
+      description: |
+        Snapshot id associated with the root device, if any
+        (only applies to `ebs` root devices).
+    sriovNetSupport:
+      type: string
+      description: |
+        Whether enhanced networking is enabled.
+    state:
+      type: string
+      description: |
+        Current state of the AMI. If the state is `available`, the image
+        is successfully registered and can be used to launch an instance.
+    stateReason:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Describes a state change. Fields are `UNSET` if not available.
+        * `state_reason.code` - The reason code for the state change.
+        * `state_reason.message` - The message for the state change.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Any tags assigned to the image.
+        * `tags.#.key` - Key name of the tag.
+        * `tags.#.value` - Value of the tag.
+    tpmSupport:
+      type: string
+      description: |
+        If the image is configured for NitroTPM support, the value is `v2.0`.
+    usageOperation:
+      type: string
+      description: |
+        Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
+    virtualizationType:
+      type: string
+      description: |
+        Type of virtualization of the AMI (ie: `hvm` or
+        `paravirtual`).
+  type: object
+  required:
+    - architecture
+    - arn
+    - blockDeviceMappings
+    - bootMode
+    - creationDate
+    - deprecationTime
+    - description
+    - enaSupport
+    - hypervisor
+    - imageId
+    - imageLocation
+    - imageOwnerAlias
+    - imageType
+    - kernelId
+    - name
+    - ownerId
+    - platform
+    - platformDetails
+    - productCodes
+    - public
+    - ramdiskId
+    - rootDeviceName
+    - rootDeviceType
+    - rootSnapshotId
+    - sriovNetSupport
+    - state
+    - stateReason
+    - tags
+    - tpmSupport
+    - usageOperation
+    - virtualizationType
+    - id

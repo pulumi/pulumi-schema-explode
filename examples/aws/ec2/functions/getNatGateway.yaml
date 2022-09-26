@@ -1,0 +1,87 @@
+$token: aws:ec2/getNatGateway:getNatGateway
+inputs:
+  description: |
+    A collection of arguments for invoking getNatGateway.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getNatGatewayFilter:getNatGatewayFilter"
+      description: |
+        Custom filter block as described below.
+    id:
+      type: string
+      description: |
+        ID of the specific Nat Gateway to retrieve.
+    state:
+      type: string
+      description: |
+        State of the NAT gateway (pending | failed | available | deleting | deleted ).
+    subnetId:
+      type: string
+      description: |
+        ID of subnet that the Nat Gateway resides in.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags, each pair of which must exactly match
+        a pair on the desired Nat Gateway.
+    vpcId:
+      type: string
+      description: |
+        ID of the VPC that the Nat Gateway resides in.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getNatGateway.
+  properties:
+    allocationId:
+      type: string
+      description: |
+        ID of the EIP allocated to the selected Nat Gateway.
+    connectivityType:
+      type: string
+      description: |
+        Connectivity type of the NAT Gateway.
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getNatGatewayFilter:getNatGatewayFilter"
+    id:
+      type: string
+    networkInterfaceId:
+      type: string
+      description: |
+        The ID of the ENI allocated to the selected Nat Gateway.
+    privateIp:
+      type: string
+      description: |
+        Private Ip address of the selected Nat Gateway.
+    publicIp:
+      type: string
+      description: |
+        Public Ip (EIP) address of the selected Nat Gateway.
+    state:
+      type: string
+    subnetId:
+      type: string
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+    vpcId:
+      type: string
+  type: object
+  required:
+    - allocationId
+    - connectivityType
+    - id
+    - networkInterfaceId
+    - privateIp
+    - publicIp
+    - state
+    - subnetId
+    - tags
+    - vpcId

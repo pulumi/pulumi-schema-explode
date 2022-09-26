@@ -1,0 +1,70 @@
+$token: aws:ec2/LaunchTemplateBlockDeviceMappingEbs:LaunchTemplateBlockDeviceMappingEbs
+properties:
+  deleteOnTermination:
+    type: string
+    description: |
+      Whether the volume should be destroyed on instance termination. Defaults to `false` if not set. See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+    language:
+      python:
+        mapCase: false
+  encrypted:
+    type: string
+    description: |
+      Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
+      on the volume (Default: `false`). Cannot be used with `snapshot_id`.
+    language:
+      python:
+        mapCase: false
+  iops:
+    type: integer
+    description: |
+      The amount of provisioned
+      [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+      This must be set with a `volume_type` of `"io1/io2"`.
+    language:
+      python:
+        mapCase: false
+  kmsKeyId:
+    type: string
+    description: |
+      The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+      `encrypted` must be set to `true` when this is set.
+    language:
+      python:
+        mapCase: false
+  snapshotId:
+    type: string
+    description: |
+      The Snapshot ID to mount.
+    language:
+      python:
+        mapCase: false
+  throughput:
+    type: integer
+    description: |
+      The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g., 500), with a maximum of 1,000 MiB/s.
+    language:
+      python:
+        mapCase: false
+  volumeSize:
+    type: integer
+    description: |
+      The size of the volume in gigabytes.
+    language:
+      python:
+        mapCase: false
+  volumeType:
+    type: string
+    description: |
+      The volume type. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+    language:
+      python:
+        mapCase: false
+type: object
+language:
+  nodejs:
+    requiredOutputs:
+      - iops
+      - throughput
+      - volumeSize
+      - volumeType

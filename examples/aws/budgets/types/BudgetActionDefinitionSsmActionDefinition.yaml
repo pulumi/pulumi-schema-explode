@@ -1,0 +1,30 @@
+$token: aws:budgets/BudgetActionDefinitionSsmActionDefinition:BudgetActionDefinitionSsmActionDefinition
+properties:
+  actionSubType:
+    type: string
+    description: |
+      The action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
+    language:
+      python:
+        mapCase: false
+  instanceIds:
+    type: array
+    items:
+      type: string
+    description: |
+      The EC2 and RDS instance IDs.
+    language:
+      python:
+        mapCase: false
+  region:
+    type: string
+    description: |
+      The Region to run the SSM document.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - actionSubType
+  - instanceIds
+  - region

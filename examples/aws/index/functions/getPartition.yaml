@@ -1,0 +1,27 @@
+$token: aws:index/getPartition:getPartition
+outputs:
+  description: |
+    A collection of values returned by getPartition.
+  properties:
+    dnsSuffix:
+      type: string
+      description: |
+        Base DNS domain name for the current partition (e.g., `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    partition:
+      type: string
+      description: |
+        Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+    reverseDnsPrefix:
+      type: string
+      description: |
+        Prefix of service names (e.g., `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
+  type: object
+  required:
+    - dnsSuffix
+    - partition
+    - reverseDnsPrefix
+    - id

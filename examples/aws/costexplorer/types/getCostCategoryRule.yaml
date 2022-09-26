@@ -1,0 +1,43 @@
+$token: aws:costexplorer/getCostCategoryRule:getCostCategoryRule
+properties:
+  inheritedValues:
+    type: array
+    items:
+      $ref: "#/types/aws:costexplorer/getCostCategoryRuleInheritedValue:getCostCategoryRuleInheritedValue"
+    description: |
+      Configuration block for the value the line item is categorized as if the line item contains the matched dimension. See below.
+    language:
+      python:
+        mapCase: false
+  rules:
+    type: array
+    items:
+      $ref: "#/types/aws:costexplorer/getCostCategoryRuleRule:getCostCategoryRuleRule"
+    description: |
+      Configuration block for the `Expression` object used to categorize costs. See below.
+    language:
+      python:
+        mapCase: false
+  type:
+    type: string
+    description: |
+      Parameter type.
+    language:
+      python:
+        mapCase: false
+  value:
+    type: string
+    description: |
+      Default value for the cost category.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - inheritedValues
+  - rules
+  - type
+  - value
+language:
+  nodejs:
+    requiredInputs: []

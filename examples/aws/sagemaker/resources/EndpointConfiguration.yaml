@@ -1,0 +1,127 @@
+$token: aws:sagemaker/endpointConfiguration:EndpointConfiguration
+properties:
+  arn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
+  asyncInferenceConfig:
+    $ref: "#/types/aws:sagemaker/EndpointConfigurationAsyncInferenceConfig:EndpointConfigurationAsyncInferenceConfig"
+    description: |
+      Specifies configuration for how an endpoint performs asynchronous inference.
+  dataCaptureConfig:
+    $ref: "#/types/aws:sagemaker/EndpointConfigurationDataCaptureConfig:EndpointConfigurationDataCaptureConfig"
+    description: |
+      Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
+  kmsKeyArn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+  name:
+    type: string
+    description: |
+      The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
+  productionVariants:
+    type: array
+    items:
+      $ref: "#/types/aws:sagemaker/EndpointConfigurationProductionVariant:EndpointConfigurationProductionVariant"
+    description: |
+      Fields are documented below.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - arn
+  - name
+  - productionVariants
+  - tagsAll
+inputProperties:
+  asyncInferenceConfig:
+    $ref: "#/types/aws:sagemaker/EndpointConfigurationAsyncInferenceConfig:EndpointConfigurationAsyncInferenceConfig"
+    description: |
+      Specifies configuration for how an endpoint performs asynchronous inference.
+    willReplaceOnChanges: true
+  dataCaptureConfig:
+    $ref: "#/types/aws:sagemaker/EndpointConfigurationDataCaptureConfig:EndpointConfigurationDataCaptureConfig"
+    description: |
+      Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
+    willReplaceOnChanges: true
+  kmsKeyArn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+    willReplaceOnChanges: true
+  name:
+    type: string
+    description: |
+      The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
+    willReplaceOnChanges: true
+  productionVariants:
+    type: array
+    items:
+      $ref: "#/types/aws:sagemaker/EndpointConfigurationProductionVariant:EndpointConfigurationProductionVariant"
+    description: |
+      Fields are documented below.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+requiredInputs:
+  - productionVariants
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering EndpointConfiguration resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
+    asyncInferenceConfig:
+      $ref: "#/types/aws:sagemaker/EndpointConfigurationAsyncInferenceConfig:EndpointConfigurationAsyncInferenceConfig"
+      description: |
+        Specifies configuration for how an endpoint performs asynchronous inference.
+      willReplaceOnChanges: true
+    dataCaptureConfig:
+      $ref: "#/types/aws:sagemaker/EndpointConfigurationDataCaptureConfig:EndpointConfigurationDataCaptureConfig"
+      description: |
+        Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
+      willReplaceOnChanges: true
+    kmsKeyArn:
+      type: string
+      description: |
+        Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+      willReplaceOnChanges: true
+    name:
+      type: string
+      description: |
+        The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
+      willReplaceOnChanges: true
+    productionVariants:
+      type: array
+      items:
+        $ref: "#/types/aws:sagemaker/EndpointConfigurationProductionVariant:EndpointConfigurationProductionVariant"
+      description: |
+        Fields are documented below.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

@@ -1,0 +1,121 @@
+$token: aws:connect/securityProfile:SecurityProfile
+properties:
+  arn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) of the Security Profile.
+  description:
+    type: string
+    description: |
+      Specifies the description of the Security Profile.
+  instanceId:
+    type: string
+    description: |
+      Specifies the identifier of the hosting Amazon Connect Instance.
+  name:
+    type: string
+    description: |
+      Specifies the name of the Security Profile.
+  organizationResourceId:
+    type: string
+    description: |
+      The organization resource identifier for the security profile.
+  permissions:
+    type: array
+    items:
+      type: string
+    description: |
+      Specifies a list of permissions assigned to the security profile.
+  securityProfileId:
+    type: string
+    description: |
+      The identifier for the Security Profile.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - arn
+  - instanceId
+  - name
+  - organizationResourceId
+  - securityProfileId
+  - tagsAll
+inputProperties:
+  description:
+    type: string
+    description: |
+      Specifies the description of the Security Profile.
+  instanceId:
+    type: string
+    description: |
+      Specifies the identifier of the hosting Amazon Connect Instance.
+  name:
+    type: string
+    description: |
+      Specifies the name of the Security Profile.
+    willReplaceOnChanges: true
+  permissions:
+    type: array
+    items:
+      type: string
+    description: |
+      Specifies a list of permissions assigned to the security profile.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+requiredInputs:
+  - instanceId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering SecurityProfile resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The Amazon Resource Name (ARN) of the Security Profile.
+    description:
+      type: string
+      description: |
+        Specifies the description of the Security Profile.
+    instanceId:
+      type: string
+      description: |
+        Specifies the identifier of the hosting Amazon Connect Instance.
+    name:
+      type: string
+      description: |
+        Specifies the name of the Security Profile.
+      willReplaceOnChanges: true
+    organizationResourceId:
+      type: string
+      description: |
+        The organization resource identifier for the security profile.
+    permissions:
+      type: array
+      items:
+        type: string
+      description: |
+        Specifies a list of permissions assigned to the security profile.
+    securityProfileId:
+      type: string
+      description: |
+        The identifier for the Security Profile.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

@@ -1,0 +1,52 @@
+$token: aws:identitystore/getGroup:getGroup
+description: |
+  Use this data source to get an Identity Store Group.
+inputs:
+  description: |
+    A collection of arguments for invoking getGroup.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:identitystore/getGroupFilter:getGroupFilter"
+      description: |
+        Configuration block(s) for filtering. Currently, the AWS Identity Store API supports only 1 filter. Detailed below.
+    groupId:
+      type: string
+      description: |
+        The identifier for a group in the Identity Store.
+    identityStoreId:
+      type: string
+      description: |
+        Identity Store ID associated with the Single Sign-On Instance.
+  type: object
+  required:
+    - filters
+    - identityStoreId
+outputs:
+  description: |
+    A collection of values returned by getGroup.
+  properties:
+    displayName:
+      type: string
+      description: |
+        Group's display name value.
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:identitystore/getGroupFilter:getGroupFilter"
+    groupId:
+      type: string
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    identityStoreId:
+      type: string
+  type: object
+  required:
+    - displayName
+    - filters
+    - groupId
+    - identityStoreId
+    - id

@@ -1,0 +1,54 @@
+$token: aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2
+properties:
+  bucket:
+    type: string
+    description: |
+      The name of the bucket.
+  expectedBucketOwner:
+    type: string
+    description: |
+      The account ID of the expected bucket owner.
+  payer:
+    type: string
+    description: |
+      Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
+required:
+  - bucket
+  - payer
+inputProperties:
+  bucket:
+    type: string
+    description: |
+      The name of the bucket.
+    willReplaceOnChanges: true
+  expectedBucketOwner:
+    type: string
+    description: |
+      The account ID of the expected bucket owner.
+    willReplaceOnChanges: true
+  payer:
+    type: string
+    description: |
+      Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
+requiredInputs:
+  - bucket
+  - payer
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering BucketRequestPaymentConfigurationV2 resources.
+  properties:
+    bucket:
+      type: string
+      description: |
+        The name of the bucket.
+      willReplaceOnChanges: true
+    expectedBucketOwner:
+      type: string
+      description: |
+        The account ID of the expected bucket owner.
+      willReplaceOnChanges: true
+    payer:
+      type: string
+      description: |
+        Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
+  type: object

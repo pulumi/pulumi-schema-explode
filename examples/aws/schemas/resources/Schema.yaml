@@ -1,0 +1,148 @@
+$token: aws:schemas/schema:Schema
+properties:
+  arn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) of the discoverer.
+  content:
+    type: string
+    description: |
+      The schema specification. Must be a valid Open API 3.0 spec.
+  description:
+    type: string
+    description: |
+      The description of the schema. Maximum of 256 characters.
+  lastModified:
+    type: string
+    description: |
+      The last modified date of the schema.
+  name:
+    type: string
+    description: |
+      The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
+  registryName:
+    type: string
+    description: |
+      The name of the registry in which this schema belongs.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type:
+    type: string
+    description: |
+      The type of the schema. Valid values: `OpenApi3`.
+  version:
+    type: string
+    description: |
+      The version of the schema.
+  versionCreatedDate:
+    type: string
+    description: |
+      The created date of the version of the schema.
+required:
+  - arn
+  - content
+  - lastModified
+  - name
+  - registryName
+  - tagsAll
+  - type
+  - version
+  - versionCreatedDate
+inputProperties:
+  content:
+    type: string
+    description: |
+      The schema specification. Must be a valid Open API 3.0 spec.
+  description:
+    type: string
+    description: |
+      The description of the schema. Maximum of 256 characters.
+  name:
+    type: string
+    description: |
+      The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
+    willReplaceOnChanges: true
+  registryName:
+    type: string
+    description: |
+      The name of the registry in which this schema belongs.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  type:
+    type: string
+    description: |
+      The type of the schema. Valid values: `OpenApi3`.
+requiredInputs:
+  - content
+  - registryName
+  - type
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Schema resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The Amazon Resource Name (ARN) of the discoverer.
+    content:
+      type: string
+      description: |
+        The schema specification. Must be a valid Open API 3.0 spec.
+    description:
+      type: string
+      description: |
+        The description of the schema. Maximum of 256 characters.
+    lastModified:
+      type: string
+      description: |
+        The last modified date of the schema.
+    name:
+      type: string
+      description: |
+        The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
+      willReplaceOnChanges: true
+    registryName:
+      type: string
+      description: |
+        The name of the registry in which this schema belongs.
+      willReplaceOnChanges: true
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    type:
+      type: string
+      description: |
+        The type of the schema. Valid values: `OpenApi3`.
+    version:
+      type: string
+      description: |
+        The version of the schema.
+    versionCreatedDate:
+      type: string
+      description: |
+        The created date of the version of the schema.
+  type: object

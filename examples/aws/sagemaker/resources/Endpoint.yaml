@@ -1,0 +1,91 @@
+$token: aws:sagemaker/endpoint:Endpoint
+properties:
+  arn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
+  deploymentConfig:
+    $ref: "#/types/aws:sagemaker/EndpointDeploymentConfig:EndpointDeploymentConfig"
+    description: |
+      The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
+  endpointConfigName:
+    type: string
+    description: |
+      The name of the endpoint configuration to use.
+  name:
+    type: string
+    description: |
+      The name of the endpoint.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - arn
+  - endpointConfigName
+  - name
+  - tagsAll
+inputProperties:
+  deploymentConfig:
+    $ref: "#/types/aws:sagemaker/EndpointDeploymentConfig:EndpointDeploymentConfig"
+    description: |
+      The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
+  endpointConfigName:
+    type: string
+    description: |
+      The name of the endpoint configuration to use.
+  name:
+    type: string
+    description: |
+      The name of the endpoint.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+requiredInputs:
+  - endpointConfigName
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Endpoint resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
+    deploymentConfig:
+      $ref: "#/types/aws:sagemaker/EndpointDeploymentConfig:EndpointDeploymentConfig"
+      description: |
+        The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
+    endpointConfigName:
+      type: string
+      description: |
+        The name of the endpoint configuration to use.
+    name:
+      type: string
+      description: |
+        The name of the endpoint.
+      willReplaceOnChanges: true
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

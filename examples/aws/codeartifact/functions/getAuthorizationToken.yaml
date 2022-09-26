@@ -1,0 +1,49 @@
+$token: aws:codeartifact/getAuthorizationToken:getAuthorizationToken
+inputs:
+  description: |
+    A collection of arguments for invoking getAuthorizationToken.
+  properties:
+    domain:
+      type: string
+      description: |
+        Name of the domain that is in scope for the generated authorization token.
+    domainOwner:
+      type: string
+      description: |
+        Account number of the AWS account that owns the domain.
+    durationSeconds:
+      type: integer
+      description: |
+        Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
+  type: object
+  required:
+    - domain
+outputs:
+  description: |
+    A collection of values returned by getAuthorizationToken.
+  properties:
+    authorizationToken:
+      type: string
+      description: |
+        Temporary authorization token.
+    domain:
+      type: string
+    domainOwner:
+      type: string
+    durationSeconds:
+      type: integer
+    expiration:
+      type: string
+      description: |
+        Time in UTC RFC3339 format when the authorization token expires.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+  type: object
+  required:
+    - authorizationToken
+    - domain
+    - domainOwner
+    - expiration
+    - id

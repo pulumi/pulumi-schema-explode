@@ -1,0 +1,69 @@
+$token: aws:lambda/getFunctionUrl:getFunctionUrl
+inputs:
+  description: |
+    A collection of arguments for invoking getFunctionUrl.
+  properties:
+    functionName:
+      type: string
+      description: |
+        he name (or ARN) of the Lambda function.
+    qualifier:
+      type: string
+      description: |
+        Alias name or `"$LATEST"`.
+  type: object
+  required:
+    - functionName
+outputs:
+  description: |
+    A collection of values returned by getFunctionUrl.
+  properties:
+    authorizationType:
+      type: string
+      description: |
+        Type of authentication that the function URL uses.
+    cors:
+      type: array
+      items:
+        $ref: "#/types/aws:lambda/getFunctionUrlCor:getFunctionUrlCor"
+      description: |
+        The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. See the [`aws.lambda.FunctionUrl` resource](https://www.terraform.io/docs/providers/aws/r/lambda_function_url.html) documentation for more details.
+    creationTime:
+      type: string
+      description: |
+        When the function URL was created, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
+    functionArn:
+      type: string
+      description: |
+        ARN of the function.
+    functionName:
+      type: string
+    functionUrl:
+      type: string
+      description: |
+        HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws`.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    lastModifiedTime:
+      type: string
+      description: |
+        When the function URL configuration was last updated, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
+    qualifier:
+      type: string
+    urlId:
+      type: string
+      description: |
+        Generated ID for the endpoint.
+  type: object
+  required:
+    - authorizationType
+    - cors
+    - creationTime
+    - functionArn
+    - functionName
+    - functionUrl
+    - lastModifiedTime
+    - urlId
+    - id

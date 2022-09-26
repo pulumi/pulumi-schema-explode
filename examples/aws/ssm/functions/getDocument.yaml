@@ -1,0 +1,53 @@
+$token: aws:ssm/getDocument:getDocument
+inputs:
+  description: |
+    A collection of arguments for invoking getDocument.
+  properties:
+    documentFormat:
+      type: string
+      description: |
+        Returns the document in the specified format. The document format can be either `JSON`, `YAML` and `TEXT`. JSON is the default format.
+    documentVersion:
+      type: string
+      description: |
+        Document version for which you want information.
+    name:
+      type: string
+      description: |
+        Name of the Systems Manager document.
+  type: object
+  required:
+    - name
+outputs:
+  description: |
+    A collection of values returned by getDocument.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the document. If the document is an AWS managed document, this value will be set to the name of the document instead.
+    content:
+      type: string
+      description: |
+        Contents of the document.
+    documentFormat:
+      type: string
+    documentType:
+      type: string
+      description: |
+        Type of the document.
+    documentVersion:
+      type: string
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    name:
+      type: string
+  type: object
+  required:
+    - arn
+    - content
+    - documentType
+    - name
+    - id

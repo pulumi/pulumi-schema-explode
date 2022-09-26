@@ -1,0 +1,41 @@
+$token: aws:ssm/resourceDataSync:ResourceDataSync
+properties:
+  name:
+    type: string
+    description: |
+      Name for the configuration.
+  s3Destination:
+    $ref: "#/types/aws:ssm/ResourceDataSyncS3Destination:ResourceDataSyncS3Destination"
+    description: |
+      Amazon S3 configuration details for the sync.
+required:
+  - name
+  - s3Destination
+inputProperties:
+  name:
+    type: string
+    description: |
+      Name for the configuration.
+    willReplaceOnChanges: true
+  s3Destination:
+    $ref: "#/types/aws:ssm/ResourceDataSyncS3Destination:ResourceDataSyncS3Destination"
+    description: |
+      Amazon S3 configuration details for the sync.
+    willReplaceOnChanges: true
+requiredInputs:
+  - s3Destination
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering ResourceDataSync resources.
+  properties:
+    name:
+      type: string
+      description: |
+        Name for the configuration.
+      willReplaceOnChanges: true
+    s3Destination:
+      $ref: "#/types/aws:ssm/ResourceDataSyncS3Destination:ResourceDataSyncS3Destination"
+      description: |
+        Amazon S3 configuration details for the sync.
+      willReplaceOnChanges: true
+  type: object

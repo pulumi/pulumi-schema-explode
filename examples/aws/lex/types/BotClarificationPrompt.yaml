@@ -1,0 +1,33 @@
+$token: aws:lex/BotClarificationPrompt:BotClarificationPrompt
+properties:
+  maxAttempts:
+    type: integer
+    description: |
+      The number of times to prompt the user for information.
+    language:
+      python:
+        mapCase: false
+  messages:
+    type: array
+    items:
+      $ref: "#/types/aws:lex/BotClarificationPromptMessage:BotClarificationPromptMessage"
+    description: |
+      A set of messages, each of which provides a message string and its type. You
+      can specify the message string in plain text or in Speech Synthesis Markup Language (SSML). Attributes
+      are documented under message.
+    language:
+      python:
+        mapCase: false
+  responseCard:
+    type: string
+    description: |
+      The response card. Amazon Lex will substitute session attributes and
+      slot values into the response card. For more information, see
+      [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - maxAttempts
+  - messages

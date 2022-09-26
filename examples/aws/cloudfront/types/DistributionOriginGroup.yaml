@@ -1,0 +1,30 @@
+$token: aws:cloudfront/DistributionOriginGroup:DistributionOriginGroup
+properties:
+  failoverCriteria:
+    $ref: "#/types/aws:cloudfront/DistributionOriginGroupFailoverCriteria:DistributionOriginGroupFailoverCriteria"
+    description: |
+      The failover criteria for when to failover to the secondary origin
+    language:
+      python:
+        mapCase: false
+  members:
+    type: array
+    items:
+      $ref: "#/types/aws:cloudfront/DistributionOriginGroupMember:DistributionOriginGroupMember"
+    description: |
+      Ordered member configuration blocks assigned to the origin group, where the first member is the primary origin. You must specify two members.
+    language:
+      python:
+        mapCase: false
+  originId:
+    type: string
+    description: |
+      The unique identifier of the member origin
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - failoverCriteria
+  - members
+  - originId

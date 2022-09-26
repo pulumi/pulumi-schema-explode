@@ -1,0 +1,92 @@
+$token: aws:iam/userLoginProfile:UserLoginProfile
+properties:
+  encryptedPassword:
+    type: string
+  keyFingerprint:
+    type: string
+    description: |
+      The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
+  password:
+    type: string
+    description: |
+      The plain text password, only available when `pgp_key` is not provided.
+  passwordLength:
+    type: integer
+    description: |
+      The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
+  passwordResetRequired:
+    type: boolean
+    description: |
+      Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
+  pgpKey:
+    type: string
+    description: |
+      Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
+  user:
+    type: string
+    description: |
+      The IAM user's name.
+required:
+  - encryptedPassword
+  - keyFingerprint
+  - password
+  - passwordResetRequired
+  - user
+inputProperties:
+  passwordLength:
+    type: integer
+    description: |
+      The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
+    willReplaceOnChanges: true
+  passwordResetRequired:
+    type: boolean
+    description: |
+      Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
+    willReplaceOnChanges: true
+  pgpKey:
+    type: string
+    description: |
+      Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
+    willReplaceOnChanges: true
+  user:
+    type: string
+    description: |
+      The IAM user's name.
+    willReplaceOnChanges: true
+requiredInputs:
+  - user
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering UserLoginProfile resources.
+  properties:
+    encryptedPassword:
+      type: string
+    keyFingerprint:
+      type: string
+      description: |
+        The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
+    password:
+      type: string
+      description: |
+        The plain text password, only available when `pgp_key` is not provided.
+    passwordLength:
+      type: integer
+      description: |
+        The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
+      willReplaceOnChanges: true
+    passwordResetRequired:
+      type: boolean
+      description: |
+        Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
+      willReplaceOnChanges: true
+    pgpKey:
+      type: string
+      description: |
+        Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
+      willReplaceOnChanges: true
+    user:
+      type: string
+      description: |
+        The IAM user's name.
+      willReplaceOnChanges: true
+  type: object

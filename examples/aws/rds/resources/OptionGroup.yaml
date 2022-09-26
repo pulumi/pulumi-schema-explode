@@ -1,0 +1,148 @@
+$token: aws:rds/optionGroup:OptionGroup
+properties:
+  arn:
+    type: string
+    description: |
+      The ARN of the db option group.
+  engineName:
+    type: string
+    description: |
+      Specifies the name of the engine that this option group should be associated with.
+  majorEngineVersion:
+    type: string
+    description: |
+      Specifies the major version of the engine that this option group should be associated with.
+  name:
+    type: string
+    description: |
+      The Name of the setting.
+  namePrefix:
+    type: string
+    description: |
+      Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
+  optionGroupDescription:
+    type: string
+    description: |
+      The description of the option group. Defaults to "Managed by Pulumi".
+    default: Managed by Pulumi
+  options:
+    type: array
+    items:
+      $ref: "#/types/aws:rds/OptionGroupOption:OptionGroupOption"
+    description: |
+      A list of Options to apply.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - arn
+  - engineName
+  - majorEngineVersion
+  - name
+  - namePrefix
+  - optionGroupDescription
+  - tagsAll
+inputProperties:
+  engineName:
+    type: string
+    description: |
+      Specifies the name of the engine that this option group should be associated with.
+    willReplaceOnChanges: true
+  majorEngineVersion:
+    type: string
+    description: |
+      Specifies the major version of the engine that this option group should be associated with.
+    willReplaceOnChanges: true
+  name:
+    type: string
+    description: |
+      The Name of the setting.
+    willReplaceOnChanges: true
+  namePrefix:
+    type: string
+    description: |
+      Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
+    willReplaceOnChanges: true
+  optionGroupDescription:
+    type: string
+    description: |
+      The description of the option group. Defaults to "Managed by Pulumi".
+    default: Managed by Pulumi
+    willReplaceOnChanges: true
+  options:
+    type: array
+    items:
+      $ref: "#/types/aws:rds/OptionGroupOption:OptionGroupOption"
+    description: |
+      A list of Options to apply.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+requiredInputs:
+  - engineName
+  - majorEngineVersion
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering OptionGroup resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The ARN of the db option group.
+    engineName:
+      type: string
+      description: |
+        Specifies the name of the engine that this option group should be associated with.
+      willReplaceOnChanges: true
+    majorEngineVersion:
+      type: string
+      description: |
+        Specifies the major version of the engine that this option group should be associated with.
+      willReplaceOnChanges: true
+    name:
+      type: string
+      description: |
+        The Name of the setting.
+      willReplaceOnChanges: true
+    namePrefix:
+      type: string
+      description: |
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
+      willReplaceOnChanges: true
+    optionGroupDescription:
+      type: string
+      description: |
+        The description of the option group. Defaults to "Managed by Pulumi".
+      default: Managed by Pulumi
+      willReplaceOnChanges: true
+    options:
+      type: array
+      items:
+        $ref: "#/types/aws:rds/OptionGroupOption:OptionGroupOption"
+      description: |
+        A list of Options to apply.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

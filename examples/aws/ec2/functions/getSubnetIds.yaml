@@ -1,0 +1,61 @@
+$token: aws:ec2/getSubnetIds:getSubnetIds
+description: |
+  `aws.ec2.getSubnetIds` provides a set of ids for a vpc_id
+
+  This resource can be useful for getting back a set of subnet ids for a vpc.
+
+  > **NOTE:** The `aws.ec2.getSubnetIds` data source has been deprecated and will be removed in a future version. Use the `aws.ec2.getSubnets` data source instead.
+inputs:
+  description: |
+    A collection of arguments for invoking getSubnetIds.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getSubnetIdsFilter:getSubnetIdsFilter"
+      description: |
+        Custom filter block as described below.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags, each pair of which must exactly match
+        a pair on the desired subnets.
+    vpcId:
+      type: string
+      description: |
+        VPC ID that you want to filter from.
+  type: object
+  required:
+    - vpcId
+outputs:
+  description: |
+    A collection of values returned by getSubnetIds.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getSubnetIdsFilter:getSubnetIdsFilter"
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    ids:
+      type: array
+      items:
+        type: string
+      description: |
+        Set of all the subnet ids found. This data source will fail if none are found.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+    vpcId:
+      type: string
+  type: object
+  required:
+    - ids
+    - tags
+    - vpcId
+    - id

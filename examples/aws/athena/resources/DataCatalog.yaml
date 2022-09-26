@@ -1,0 +1,113 @@
+$token: aws:athena/dataCatalog:DataCatalog
+properties:
+  arn:
+    type: string
+    description: |
+      ARN of the data catalog.
+  description:
+    type: string
+    description: |
+      Description of the data catalog.
+  name:
+    type: string
+    description: |
+      Name of the data catalog. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
+  parameters:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key value pairs that specifies the Lambda function or functions to use for the data catalog. The mapping used depends on the catalog type.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type:
+    type: string
+    description: |
+      Type of data catalog: `LAMBDA` for a federated catalog, `GLUE` for AWS Glue Catalog, or `HIVE` for an external hive metastore.
+required:
+  - arn
+  - description
+  - name
+  - parameters
+  - tagsAll
+  - type
+inputProperties:
+  description:
+    type: string
+    description: |
+      Description of the data catalog.
+  name:
+    type: string
+    description: |
+      Name of the data catalog. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
+    willReplaceOnChanges: true
+  parameters:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key value pairs that specifies the Lambda function or functions to use for the data catalog. The mapping used depends on the catalog type.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  type:
+    type: string
+    description: |
+      Type of data catalog: `LAMBDA` for a federated catalog, `GLUE` for AWS Glue Catalog, or `HIVE` for an external hive metastore.
+requiredInputs:
+  - description
+  - parameters
+  - type
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering DataCatalog resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the data catalog.
+    description:
+      type: string
+      description: |
+        Description of the data catalog.
+    name:
+      type: string
+      description: |
+        Name of the data catalog. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
+      willReplaceOnChanges: true
+    parameters:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key value pairs that specifies the Lambda function or functions to use for the data catalog. The mapping used depends on the catalog type.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    type:
+      type: string
+      description: |
+        Type of data catalog: `LAMBDA` for a federated catalog, `GLUE` for AWS Glue Catalog, or `HIVE` for an external hive metastore.
+  type: object

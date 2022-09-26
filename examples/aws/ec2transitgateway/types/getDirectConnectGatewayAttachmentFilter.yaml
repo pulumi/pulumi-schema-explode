@@ -1,0 +1,22 @@
+$token: aws:ec2transitgateway/getDirectConnectGatewayAttachmentFilter:getDirectConnectGatewayAttachmentFilter
+properties:
+  name:
+    type: string
+    description: |
+      Name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
+    language:
+      python:
+        mapCase: false
+  values:
+    type: array
+    items:
+      type: string
+    description: |
+      Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - name
+  - values

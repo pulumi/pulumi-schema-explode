@@ -1,0 +1,93 @@
+$token: aws:dataexchange/dataSet:DataSet
+properties:
+  arn:
+    type: string
+    description: |
+      The Amazon Resource Name of this data set.
+  assetType:
+    type: string
+    description: |
+      The type of asset that is added to a data set. Valid values are: `S3_SNAPSHOT`, `REDSHIFT_DATA_SHARE`, and `API_GATEWAY_API`.
+  description:
+    type: string
+    description: |
+      A description for the data set.
+  name:
+    type: string
+    description: |
+      The name of the data set.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - arn
+  - assetType
+  - description
+  - name
+  - tagsAll
+inputProperties:
+  assetType:
+    type: string
+    description: |
+      The type of asset that is added to a data set. Valid values are: `S3_SNAPSHOT`, `REDSHIFT_DATA_SHARE`, and `API_GATEWAY_API`.
+    willReplaceOnChanges: true
+  description:
+    type: string
+    description: |
+      A description for the data set.
+  name:
+    type: string
+    description: |
+      The name of the data set.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+requiredInputs:
+  - assetType
+  - description
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering DataSet resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The Amazon Resource Name of this data set.
+    assetType:
+      type: string
+      description: |
+        The type of asset that is added to a data set. Valid values are: `S3_SNAPSHOT`, `REDSHIFT_DATA_SHARE`, and `API_GATEWAY_API`.
+      willReplaceOnChanges: true
+    description:
+      type: string
+      description: |
+        A description for the data set.
+    name:
+      type: string
+      description: |
+        The name of the data set.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

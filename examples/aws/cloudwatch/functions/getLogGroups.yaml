@@ -1,0 +1,37 @@
+$token: aws:cloudwatch/getLogGroups:getLogGroups
+inputs:
+  description: |
+    A collection of arguments for invoking getLogGroups.
+  properties:
+    logGroupNamePrefix:
+      type: string
+      description: |
+        Group prefix of the Cloudwatch log groups to list
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getLogGroups.
+  properties:
+    arns:
+      type: array
+      items:
+        type: string
+      description: |
+        Set of ARNs of the Cloudwatch log groups
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    logGroupNamePrefix:
+      type: string
+    logGroupNames:
+      type: array
+      items:
+        type: string
+      description: |
+        Set of names of the Cloudwatch log groups
+  type: object
+  required:
+    - arns
+    - logGroupNames
+    - id

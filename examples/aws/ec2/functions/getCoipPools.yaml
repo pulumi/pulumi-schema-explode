@@ -1,0 +1,48 @@
+$token: aws:ec2/getCoipPools:getCoipPools
+description: |
+  Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
+inputs:
+  description: |
+    A collection of arguments for invoking getCoipPools.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getCoipPoolsFilter:getCoipPoolsFilter"
+      description: |
+        Custom filter block as described below.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Mapping of tags, each pair of which must exactly match
+        a pair on the desired aws_ec2_coip_pools.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getCoipPools.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getCoipPoolsFilter:getCoipPoolsFilter"
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    poolIds:
+      type: array
+      items:
+        type: string
+      description: |
+        Set of COIP Pool Identifiers
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+  type: object
+  required:
+    - poolIds
+    - tags
+    - id

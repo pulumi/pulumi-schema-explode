@@ -1,0 +1,369 @@
+$token: aws:codebuild/project:Project
+properties:
+  arn:
+    type: string
+    description: |
+      ARN of the CodeBuild project.
+  artifacts:
+    $ref: "#/types/aws:codebuild/ProjectArtifacts:ProjectArtifacts"
+    description: |
+      Configuration block. Detailed below.
+  badgeEnabled:
+    type: boolean
+    description: |
+      Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
+  badgeUrl:
+    type: string
+    description: |
+      URL of the build badge when `badge_enabled` is enabled.
+  buildBatchConfig:
+    $ref: "#/types/aws:codebuild/ProjectBuildBatchConfig:ProjectBuildBatchConfig"
+    description: |
+      Defines the batch build options for the project.
+  buildTimeout:
+    type: integer
+    description: |
+      Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+  cache:
+    $ref: "#/types/aws:codebuild/ProjectCache:ProjectCache"
+    description: |
+      Configuration block. Detailed below.
+  concurrentBuildLimit:
+    type: integer
+    description: |
+      Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
+  description:
+    type: string
+    description: |
+      Short description of the project.
+  encryptionKey:
+    type: string
+    description: |
+      AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
+  environment:
+    $ref: "#/types/aws:codebuild/ProjectEnvironment:ProjectEnvironment"
+    description: |
+      Configuration block. Detailed below.
+  fileSystemLocations:
+    type: array
+    items:
+      $ref: "#/types/aws:codebuild/ProjectFileSystemLocation:ProjectFileSystemLocation"
+    description: |
+      A set of file system locations to to mount inside the build. File system locations are documented below.
+  logsConfig:
+    $ref: "#/types/aws:codebuild/ProjectLogsConfig:ProjectLogsConfig"
+    description: |
+      Configuration block. Detailed below.
+  name:
+    type: string
+    description: |
+      Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+  projectVisibility:
+    type: string
+    description: |
+      Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
+  publicProjectAlias:
+    type: string
+    description: |
+      The project identifier used with the public build APIs.
+  queuedTimeout:
+    type: integer
+    description: |
+      Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+  resourceAccessRole:
+    type: string
+    description: |
+      The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
+  secondaryArtifacts:
+    type: array
+    items:
+      $ref: "#/types/aws:codebuild/ProjectSecondaryArtifact:ProjectSecondaryArtifact"
+    description: |
+      Configuration block. Detailed below.
+  secondarySourceVersions:
+    type: array
+    items:
+      $ref: "#/types/aws:codebuild/ProjectSecondarySourceVersion:ProjectSecondarySourceVersion"
+    description: |
+      Configuration block. Detailed below.
+  secondarySources:
+    type: array
+    items:
+      $ref: "#/types/aws:codebuild/ProjectSecondarySource:ProjectSecondarySource"
+    description: |
+      Configuration block. Detailed below.
+  serviceRole:
+    type: string
+    description: |
+      Specifies the service role ARN for the batch build project.
+  source:
+    $ref: "#/types/aws:codebuild/ProjectSource:ProjectSource"
+    description: |
+      Configuration block. Detailed below.
+  sourceVersion:
+    type: string
+    description: |
+      The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  vpcConfig:
+    $ref: "#/types/aws:codebuild/ProjectVpcConfig:ProjectVpcConfig"
+    description: |
+      Configuration block. Detailed below.
+required:
+  - arn
+  - artifacts
+  - badgeUrl
+  - description
+  - encryptionKey
+  - environment
+  - name
+  - publicProjectAlias
+  - serviceRole
+  - source
+  - tagsAll
+inputProperties:
+  artifacts:
+    $ref: "#/types/aws:codebuild/ProjectArtifacts:ProjectArtifacts"
+    description: |
+      Configuration block. Detailed below.
+  badgeEnabled:
+    type: boolean
+    description: |
+      Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
+  buildBatchConfig:
+    $ref: "#/types/aws:codebuild/ProjectBuildBatchConfig:ProjectBuildBatchConfig"
+    description: |
+      Defines the batch build options for the project.
+  buildTimeout:
+    type: integer
+    description: |
+      Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+  cache:
+    $ref: "#/types/aws:codebuild/ProjectCache:ProjectCache"
+    description: |
+      Configuration block. Detailed below.
+  concurrentBuildLimit:
+    type: integer
+    description: |
+      Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
+  description:
+    type: string
+    description: |
+      Short description of the project.
+  encryptionKey:
+    type: string
+    description: |
+      AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
+  environment:
+    $ref: "#/types/aws:codebuild/ProjectEnvironment:ProjectEnvironment"
+    description: |
+      Configuration block. Detailed below.
+  fileSystemLocations:
+    type: array
+    items:
+      $ref: "#/types/aws:codebuild/ProjectFileSystemLocation:ProjectFileSystemLocation"
+    description: |
+      A set of file system locations to to mount inside the build. File system locations are documented below.
+  logsConfig:
+    $ref: "#/types/aws:codebuild/ProjectLogsConfig:ProjectLogsConfig"
+    description: |
+      Configuration block. Detailed below.
+  name:
+    type: string
+    description: |
+      Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+    willReplaceOnChanges: true
+  projectVisibility:
+    type: string
+    description: |
+      Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
+  queuedTimeout:
+    type: integer
+    description: |
+      Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+  resourceAccessRole:
+    type: string
+    description: |
+      The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
+  secondaryArtifacts:
+    type: array
+    items:
+      $ref: "#/types/aws:codebuild/ProjectSecondaryArtifact:ProjectSecondaryArtifact"
+    description: |
+      Configuration block. Detailed below.
+  secondarySourceVersions:
+    type: array
+    items:
+      $ref: "#/types/aws:codebuild/ProjectSecondarySourceVersion:ProjectSecondarySourceVersion"
+    description: |
+      Configuration block. Detailed below.
+  secondarySources:
+    type: array
+    items:
+      $ref: "#/types/aws:codebuild/ProjectSecondarySource:ProjectSecondarySource"
+    description: |
+      Configuration block. Detailed below.
+  serviceRole:
+    type: string
+    description: |
+      Specifies the service role ARN for the batch build project.
+  source:
+    $ref: "#/types/aws:codebuild/ProjectSource:ProjectSource"
+    description: |
+      Configuration block. Detailed below.
+  sourceVersion:
+    type: string
+    description: |
+      The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  vpcConfig:
+    $ref: "#/types/aws:codebuild/ProjectVpcConfig:ProjectVpcConfig"
+    description: |
+      Configuration block. Detailed below.
+requiredInputs:
+  - artifacts
+  - environment
+  - serviceRole
+  - source
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Project resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the CodeBuild project.
+    artifacts:
+      $ref: "#/types/aws:codebuild/ProjectArtifacts:ProjectArtifacts"
+      description: |
+        Configuration block. Detailed below.
+    badgeEnabled:
+      type: boolean
+      description: |
+        Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
+    badgeUrl:
+      type: string
+      description: |
+        URL of the build badge when `badge_enabled` is enabled.
+    buildBatchConfig:
+      $ref: "#/types/aws:codebuild/ProjectBuildBatchConfig:ProjectBuildBatchConfig"
+      description: |
+        Defines the batch build options for the project.
+    buildTimeout:
+      type: integer
+      description: |
+        Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+    cache:
+      $ref: "#/types/aws:codebuild/ProjectCache:ProjectCache"
+      description: |
+        Configuration block. Detailed below.
+    concurrentBuildLimit:
+      type: integer
+      description: |
+        Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
+    description:
+      type: string
+      description: |
+        Short description of the project.
+    encryptionKey:
+      type: string
+      description: |
+        AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
+    environment:
+      $ref: "#/types/aws:codebuild/ProjectEnvironment:ProjectEnvironment"
+      description: |
+        Configuration block. Detailed below.
+    fileSystemLocations:
+      type: array
+      items:
+        $ref: "#/types/aws:codebuild/ProjectFileSystemLocation:ProjectFileSystemLocation"
+      description: |
+        A set of file system locations to to mount inside the build. File system locations are documented below.
+    logsConfig:
+      $ref: "#/types/aws:codebuild/ProjectLogsConfig:ProjectLogsConfig"
+      description: |
+        Configuration block. Detailed below.
+    name:
+      type: string
+      description: |
+        Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+      willReplaceOnChanges: true
+    projectVisibility:
+      type: string
+      description: |
+        Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
+    publicProjectAlias:
+      type: string
+      description: |
+        The project identifier used with the public build APIs.
+    queuedTimeout:
+      type: integer
+      description: |
+        Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+    resourceAccessRole:
+      type: string
+      description: |
+        The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
+    secondaryArtifacts:
+      type: array
+      items:
+        $ref: "#/types/aws:codebuild/ProjectSecondaryArtifact:ProjectSecondaryArtifact"
+      description: |
+        Configuration block. Detailed below.
+    secondarySourceVersions:
+      type: array
+      items:
+        $ref: "#/types/aws:codebuild/ProjectSecondarySourceVersion:ProjectSecondarySourceVersion"
+      description: |
+        Configuration block. Detailed below.
+    secondarySources:
+      type: array
+      items:
+        $ref: "#/types/aws:codebuild/ProjectSecondarySource:ProjectSecondarySource"
+      description: |
+        Configuration block. Detailed below.
+    serviceRole:
+      type: string
+      description: |
+        Specifies the service role ARN for the batch build project.
+    source:
+      $ref: "#/types/aws:codebuild/ProjectSource:ProjectSource"
+      description: |
+        Configuration block. Detailed below.
+    sourceVersion:
+      type: string
+      description: |
+        The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    vpcConfig:
+      $ref: "#/types/aws:codebuild/ProjectVpcConfig:ProjectVpcConfig"
+      description: |
+        Configuration block. Detailed below.
+  type: object

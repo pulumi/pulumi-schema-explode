@@ -1,0 +1,45 @@
+$token: aws:outposts/getOutpostInstanceType:getOutpostInstanceType
+description: |
+  Information about single Outpost Instance Type.
+inputs:
+  description: |
+    A collection of arguments for invoking getOutpostInstanceType.
+  properties:
+    arn:
+      type: string
+      description: |
+        Outpost ARN.
+    instanceType:
+      type: string
+      description: |
+        Desired instance type. Conflicts with `preferred_instance_types`.
+    preferredInstanceTypes:
+      type: array
+      items:
+        type: string
+      description: |
+        Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instance_type`.
+  type: object
+  required:
+    - arn
+outputs:
+  description: |
+    A collection of values returned by getOutpostInstanceType.
+  properties:
+    arn:
+      type: string
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    instanceType:
+      type: string
+    preferredInstanceTypes:
+      type: array
+      items:
+        type: string
+  type: object
+  required:
+    - arn
+    - instanceType
+    - id

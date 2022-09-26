@@ -1,0 +1,111 @@
+$token: aws:ec2transitgateway/multicastDomain:MulticastDomain
+properties:
+  arn:
+    type: string
+    description: |
+      EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
+  autoAcceptSharedAssociations:
+    type: string
+    description: |
+      Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
+  igmpv2Support:
+    type: string
+    description: |
+      Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
+  ownerId:
+    type: string
+    description: |
+      Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
+  staticSourcesSupport:
+    type: string
+    description: |
+      Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  transitGatewayId:
+    type: string
+    description: |
+      EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicast_support` enabled.
+required:
+  - arn
+  - ownerId
+  - tagsAll
+  - transitGatewayId
+inputProperties:
+  autoAcceptSharedAssociations:
+    type: string
+    description: |
+      Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
+    willReplaceOnChanges: true
+  igmpv2Support:
+    type: string
+    description: |
+      Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
+    willReplaceOnChanges: true
+  staticSourcesSupport:
+    type: string
+    description: |
+      Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+  transitGatewayId:
+    type: string
+    description: |
+      EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicast_support` enabled.
+    willReplaceOnChanges: true
+requiredInputs:
+  - transitGatewayId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering MulticastDomain resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
+    autoAcceptSharedAssociations:
+      type: string
+      description: |
+        Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
+      willReplaceOnChanges: true
+    igmpv2Support:
+      type: string
+      description: |
+        Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
+      willReplaceOnChanges: true
+    ownerId:
+      type: string
+      description: |
+        Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
+    staticSourcesSupport:
+      type: string
+      description: |
+        Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
+      willReplaceOnChanges: true
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    transitGatewayId:
+      type: string
+      description: |
+        EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicast_support` enabled.
+      willReplaceOnChanges: true
+  type: object

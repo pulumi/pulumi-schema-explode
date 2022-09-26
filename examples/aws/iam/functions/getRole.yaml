@@ -1,0 +1,79 @@
+$token: aws:iam/getRole:getRole
+inputs:
+  description: |
+    A collection of arguments for invoking getRole.
+  properties:
+    name:
+      type: string
+      description: |
+        Friendly IAM role name to match.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Tags attached to the role.
+  type: object
+  required:
+    - name
+outputs:
+  description: |
+    A collection of values returned by getRole.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the role.
+    assumeRolePolicy:
+      type: string
+      description: |
+        Policy document associated with the role.
+    createDate:
+      type: string
+      description: |
+        Creation date of the role in RFC 3339 format.
+    description:
+      type: string
+      description: |
+        Description for the role.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    maxSessionDuration:
+      type: integer
+      description: |
+        Maximum session duration.
+    name:
+      type: string
+    path:
+      type: string
+      description: |
+        Path to the role.
+    permissionsBoundary:
+      type: string
+      description: |
+        The ARN of the policy that is used to set the permissions boundary for the role.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Tags attached to the role.
+    uniqueId:
+      type: string
+      description: |
+        Stable and unique string identifying the role.
+  type: object
+  required:
+    - arn
+    - assumeRolePolicy
+    - createDate
+    - description
+    - maxSessionDuration
+    - name
+    - path
+    - permissionsBoundary
+    - tags
+    - uniqueId
+    - id

@@ -1,0 +1,41 @@
+$token: aws:memorydb/ClusterShard:ClusterShard
+properties:
+  name:
+    type: string
+    description: |
+      Name of this node.
+      * `endpoint`
+    language:
+      python:
+        mapCase: false
+  nodes:
+    type: array
+    items:
+      $ref: "#/types/aws:memorydb/ClusterShardNode:ClusterShardNode"
+    description: |
+      Set of nodes in this shard.
+    language:
+      python:
+        mapCase: false
+  numNodes:
+    type: integer
+    description: |
+      Number of individual nodes in this shard.
+    language:
+      python:
+        mapCase: false
+  slots:
+    type: string
+    description: |
+      Keyspace for this shard. Example: `0-16383`.
+    language:
+      python:
+        mapCase: false
+type: object
+language:
+  nodejs:
+    requiredOutputs:
+      - name
+      - nodes
+      - numNodes
+      - slots

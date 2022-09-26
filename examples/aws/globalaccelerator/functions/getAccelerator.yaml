@@ -1,0 +1,62 @@
+$token: aws:globalaccelerator/getAccelerator:getAccelerator
+inputs:
+  description: |
+    A collection of arguments for invoking getAccelerator.
+  properties:
+    arn:
+      type: string
+      description: |
+        Full ARN of the Global Accelerator.
+    name:
+      type: string
+      description: |
+        Unique name of the Global Accelerator.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getAccelerator.
+  properties:
+    arn:
+      type: string
+    attributes:
+      type: array
+      items:
+        $ref: "#/types/aws:globalaccelerator/getAcceleratorAttribute:getAcceleratorAttribute"
+    dnsName:
+      type: string
+    enabled:
+      type: boolean
+    hostedZoneId:
+      type: string
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    ipAddressType:
+      type: string
+    ipSets:
+      type: array
+      items:
+        $ref: "#/types/aws:globalaccelerator/getAcceleratorIpSet:getAcceleratorIpSet"
+    name:
+      type: string
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+  type: object
+  required:
+    - arn
+    - attributes
+    - dnsName
+    - enabled
+    - hostedZoneId
+    - ipAddressType
+    - ipSets
+    - name
+    - tags
+    - id

@@ -1,0 +1,58 @@
+$token: aws:ec2/localGatewayRoute:LocalGatewayRoute
+properties:
+  destinationCidrBlock:
+    type: string
+    description: |
+      IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
+  localGatewayRouteTableId:
+    type: string
+    description: |
+      Identifier of EC2 Local Gateway Route Table.
+  localGatewayVirtualInterfaceGroupId:
+    type: string
+    description: |
+      Identifier of EC2 Local Gateway Virtual Interface Group.
+required:
+  - destinationCidrBlock
+  - localGatewayRouteTableId
+  - localGatewayVirtualInterfaceGroupId
+inputProperties:
+  destinationCidrBlock:
+    type: string
+    description: |
+      IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
+    willReplaceOnChanges: true
+  localGatewayRouteTableId:
+    type: string
+    description: |
+      Identifier of EC2 Local Gateway Route Table.
+    willReplaceOnChanges: true
+  localGatewayVirtualInterfaceGroupId:
+    type: string
+    description: |
+      Identifier of EC2 Local Gateway Virtual Interface Group.
+    willReplaceOnChanges: true
+requiredInputs:
+  - destinationCidrBlock
+  - localGatewayRouteTableId
+  - localGatewayVirtualInterfaceGroupId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering LocalGatewayRoute resources.
+  properties:
+    destinationCidrBlock:
+      type: string
+      description: |
+        IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
+      willReplaceOnChanges: true
+    localGatewayRouteTableId:
+      type: string
+      description: |
+        Identifier of EC2 Local Gateway Route Table.
+      willReplaceOnChanges: true
+    localGatewayVirtualInterfaceGroupId:
+      type: string
+      description: |
+        Identifier of EC2 Local Gateway Virtual Interface Group.
+      willReplaceOnChanges: true
+  type: object

@@ -1,0 +1,136 @@
+$token: aws:directconnect/bgpPeer:BgpPeer
+properties:
+  addressFamily:
+    type: string
+    description: |
+      The address family for the BGP peer. `ipv4 ` or `ipv6`.
+  amazonAddress:
+    type: string
+    description: |
+      The IPv4 CIDR address to use to send traffic to Amazon.
+      Required for IPv4 BGP peers on public virtual interfaces.
+  awsDevice:
+    type: string
+    description: |
+      The Direct Connect endpoint on which the BGP peer terminates.
+  bgpAsn:
+    type: integer
+    description: |
+      The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+  bgpAuthKey:
+    type: string
+    description: |
+      The authentication key for BGP configuration.
+  bgpPeerId:
+    type: string
+    description: |
+      The ID of the BGP peer.
+  bgpStatus:
+    type: string
+    description: |
+      The Up/Down state of the BGP peer.
+  customerAddress:
+    type: string
+    description: |
+      The IPv4 CIDR destination address to which Amazon should send traffic.
+      Required for IPv4 BGP peers on public virtual interfaces.
+  virtualInterfaceId:
+    type: string
+    description: |
+      The ID of the Direct Connect virtual interface on which to create the BGP peer.
+required:
+  - addressFamily
+  - amazonAddress
+  - awsDevice
+  - bgpAsn
+  - bgpAuthKey
+  - bgpPeerId
+  - bgpStatus
+  - customerAddress
+  - virtualInterfaceId
+inputProperties:
+  addressFamily:
+    type: string
+    description: |
+      The address family for the BGP peer. `ipv4 ` or `ipv6`.
+    willReplaceOnChanges: true
+  amazonAddress:
+    type: string
+    description: |
+      The IPv4 CIDR address to use to send traffic to Amazon.
+      Required for IPv4 BGP peers on public virtual interfaces.
+    willReplaceOnChanges: true
+  bgpAsn:
+    type: integer
+    description: |
+      The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+    willReplaceOnChanges: true
+  bgpAuthKey:
+    type: string
+    description: |
+      The authentication key for BGP configuration.
+    willReplaceOnChanges: true
+  customerAddress:
+    type: string
+    description: |
+      The IPv4 CIDR destination address to which Amazon should send traffic.
+      Required for IPv4 BGP peers on public virtual interfaces.
+    willReplaceOnChanges: true
+  virtualInterfaceId:
+    type: string
+    description: |
+      The ID of the Direct Connect virtual interface on which to create the BGP peer.
+    willReplaceOnChanges: true
+requiredInputs:
+  - addressFamily
+  - bgpAsn
+  - virtualInterfaceId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering BgpPeer resources.
+  properties:
+    addressFamily:
+      type: string
+      description: |
+        The address family for the BGP peer. `ipv4 ` or `ipv6`.
+      willReplaceOnChanges: true
+    amazonAddress:
+      type: string
+      description: |
+        The IPv4 CIDR address to use to send traffic to Amazon.
+        Required for IPv4 BGP peers on public virtual interfaces.
+      willReplaceOnChanges: true
+    awsDevice:
+      type: string
+      description: |
+        The Direct Connect endpoint on which the BGP peer terminates.
+    bgpAsn:
+      type: integer
+      description: |
+        The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+      willReplaceOnChanges: true
+    bgpAuthKey:
+      type: string
+      description: |
+        The authentication key for BGP configuration.
+      willReplaceOnChanges: true
+    bgpPeerId:
+      type: string
+      description: |
+        The ID of the BGP peer.
+    bgpStatus:
+      type: string
+      description: |
+        The Up/Down state of the BGP peer.
+    customerAddress:
+      type: string
+      description: |
+        The IPv4 CIDR destination address to which Amazon should send traffic.
+        Required for IPv4 BGP peers on public virtual interfaces.
+      willReplaceOnChanges: true
+    virtualInterfaceId:
+      type: string
+      description: |
+        The ID of the Direct Connect virtual interface on which to create the BGP peer.
+      willReplaceOnChanges: true
+  type: object

@@ -1,0 +1,65 @@
+$token: aws:connect/instanceStorageConfig:InstanceStorageConfig
+properties:
+  associationId:
+    type: string
+    description: |
+      The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
+  instanceId:
+    type: string
+    description: |
+      Specifies the identifier of the hosting Amazon Connect Instance.
+  resourceType:
+    type: string
+    description: |
+      A valid resource type. Valid Values: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS`.
+  storageConfig:
+    $ref: "#/types/aws:connect/InstanceStorageConfigStorageConfig:InstanceStorageConfigStorageConfig"
+    description: |
+      Specifies the storage configuration options for the Connect Instance. Documented below.
+required:
+  - associationId
+  - instanceId
+  - resourceType
+  - storageConfig
+inputProperties:
+  instanceId:
+    type: string
+    description: |
+      Specifies the identifier of the hosting Amazon Connect Instance.
+    willReplaceOnChanges: true
+  resourceType:
+    type: string
+    description: |
+      A valid resource type. Valid Values: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS`.
+    willReplaceOnChanges: true
+  storageConfig:
+    $ref: "#/types/aws:connect/InstanceStorageConfigStorageConfig:InstanceStorageConfigStorageConfig"
+    description: |
+      Specifies the storage configuration options for the Connect Instance. Documented below.
+requiredInputs:
+  - instanceId
+  - resourceType
+  - storageConfig
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering InstanceStorageConfig resources.
+  properties:
+    associationId:
+      type: string
+      description: |
+        The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
+    instanceId:
+      type: string
+      description: |
+        Specifies the identifier of the hosting Amazon Connect Instance.
+      willReplaceOnChanges: true
+    resourceType:
+      type: string
+      description: |
+        A valid resource type. Valid Values: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS`.
+      willReplaceOnChanges: true
+    storageConfig:
+      $ref: "#/types/aws:connect/InstanceStorageConfigStorageConfig:InstanceStorageConfigStorageConfig"
+      description: |
+        Specifies the storage configuration options for the Connect Instance. Documented below.
+  type: object

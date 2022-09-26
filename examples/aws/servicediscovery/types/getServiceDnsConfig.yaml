@@ -1,0 +1,33 @@
+$token: aws:servicediscovery/getServiceDnsConfig:getServiceDnsConfig
+properties:
+  dnsRecords:
+    type: array
+    items:
+      $ref: "#/types/aws:servicediscovery/getServiceDnsConfigDnsRecord:getServiceDnsConfigDnsRecord"
+    description: |
+      An array that contains one DnsRecord object for each resource record set.
+    language:
+      python:
+        mapCase: false
+  namespaceId:
+    type: string
+    description: |
+      ID of the namespace that the service belongs to.
+    language:
+      python:
+        mapCase: false
+  routingPolicy:
+    type: string
+    description: |
+      Routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - dnsRecords
+  - namespaceId
+  - routingPolicy
+language:
+  nodejs:
+    requiredInputs: []

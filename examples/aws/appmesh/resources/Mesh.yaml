@@ -1,0 +1,112 @@
+$token: aws:appmesh/mesh:Mesh
+properties:
+  arn:
+    type: string
+    description: |
+      ARN of the service mesh.
+  createdDate:
+    type: string
+    description: |
+      Creation date of the service mesh.
+  lastUpdatedDate:
+    type: string
+    description: |
+      Last update date of the service mesh.
+  meshOwner:
+    type: string
+    description: |
+      AWS account ID of the service mesh's owner.
+  name:
+    type: string
+    description: |
+      Name to use for the service mesh. Must be between 1 and 255 characters in length.
+  resourceOwner:
+    type: string
+    description: |
+      Resource owner's AWS account ID.
+  spec:
+    $ref: "#/types/aws:appmesh/MeshSpec:MeshSpec"
+    description: |
+      Service mesh specification to apply.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - arn
+  - createdDate
+  - lastUpdatedDate
+  - meshOwner
+  - name
+  - resourceOwner
+  - tagsAll
+inputProperties:
+  name:
+    type: string
+    description: |
+      Name to use for the service mesh. Must be between 1 and 255 characters in length.
+    willReplaceOnChanges: true
+  spec:
+    $ref: "#/types/aws:appmesh/MeshSpec:MeshSpec"
+    description: |
+      Service mesh specification to apply.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Mesh resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the service mesh.
+    createdDate:
+      type: string
+      description: |
+        Creation date of the service mesh.
+    lastUpdatedDate:
+      type: string
+      description: |
+        Last update date of the service mesh.
+    meshOwner:
+      type: string
+      description: |
+        AWS account ID of the service mesh's owner.
+    name:
+      type: string
+      description: |
+        Name to use for the service mesh. Must be between 1 and 255 characters in length.
+      willReplaceOnChanges: true
+    resourceOwner:
+      type: string
+      description: |
+        Resource owner's AWS account ID.
+    spec:
+      $ref: "#/types/aws:appmesh/MeshSpec:MeshSpec"
+      description: |
+        Service mesh specification to apply.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

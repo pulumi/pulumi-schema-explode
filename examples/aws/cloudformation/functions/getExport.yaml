@@ -1,0 +1,36 @@
+$token: aws:cloudformation/getExport:getExport
+inputs:
+  description: |
+    A collection of arguments for invoking getExport.
+  properties:
+    name:
+      type: string
+      description: |
+        Name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
+  type: object
+  required:
+    - name
+outputs:
+  description: |
+    A collection of values returned by getExport.
+  properties:
+    exportingStackId:
+      type: string
+      description: |
+        ARN of stack that contains the exported output name and value.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    name:
+      type: string
+    value:
+      type: string
+      description: |
+        Value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
+  type: object
+  required:
+    - exportingStackId
+    - name
+    - value
+    - id

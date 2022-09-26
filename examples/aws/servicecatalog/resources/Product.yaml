@@ -1,0 +1,211 @@
+$token: aws:servicecatalog/product:Product
+properties:
+  acceptLanguage:
+    type: string
+    description: |
+      Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+  arn:
+    type: string
+    description: |
+      ARN of the product.
+  createdTime:
+    type: string
+    description: |
+      Time when the product was created.
+  description:
+    type: string
+    description: |
+      Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
+  distributor:
+    type: string
+    description: |
+      Distributor (i.e., vendor) of the product.
+  hasDefaultPath:
+    type: boolean
+    description: |
+      Whether the product has a default path. If the product does not have a default path, call `ListLaunchPaths` to disambiguate between paths.  Otherwise, `ListLaunchPaths` is not required, and the output of ProductViewSummary can be used directly with `DescribeProvisioningParameters`.
+  name:
+    type: string
+    description: |
+      Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
+  owner:
+    type: string
+    description: |
+      Owner of the product.
+  provisioningArtifactParameters:
+    $ref: "#/types/aws:servicecatalog/ProductProvisioningArtifactParameters:ProductProvisioningArtifactParameters"
+    description: |
+      Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
+  status:
+    type: string
+    description: |
+      Status of the product.
+  supportDescription:
+    type: string
+    description: |
+      Support information about the product.
+  supportEmail:
+    type: string
+    description: |
+      Contact email for product support.
+  supportUrl:
+    type: string
+    description: |
+      Contact URL for product support.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Tags to apply to the product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type:
+    type: string
+    description: |
+      Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+required:
+  - arn
+  - createdTime
+  - description
+  - distributor
+  - hasDefaultPath
+  - name
+  - owner
+  - provisioningArtifactParameters
+  - status
+  - supportDescription
+  - supportEmail
+  - supportUrl
+  - tagsAll
+  - type
+inputProperties:
+  acceptLanguage:
+    type: string
+    description: |
+      Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+  description:
+    type: string
+    description: |
+      Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
+  distributor:
+    type: string
+    description: |
+      Distributor (i.e., vendor) of the product.
+  name:
+    type: string
+    description: |
+      Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
+  owner:
+    type: string
+    description: |
+      Owner of the product.
+  provisioningArtifactParameters:
+    $ref: "#/types/aws:servicecatalog/ProductProvisioningArtifactParameters:ProductProvisioningArtifactParameters"
+    description: |
+      Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
+    willReplaceOnChanges: true
+  supportDescription:
+    type: string
+    description: |
+      Support information about the product.
+  supportEmail:
+    type: string
+    description: |
+      Contact email for product support.
+  supportUrl:
+    type: string
+    description: |
+      Contact URL for product support.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Tags to apply to the product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  type:
+    type: string
+    description: |
+      Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+requiredInputs:
+  - owner
+  - provisioningArtifactParameters
+  - type
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Product resources.
+  properties:
+    acceptLanguage:
+      type: string
+      description: |
+        Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+    arn:
+      type: string
+      description: |
+        ARN of the product.
+    createdTime:
+      type: string
+      description: |
+        Time when the product was created.
+    description:
+      type: string
+      description: |
+        Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
+    distributor:
+      type: string
+      description: |
+        Distributor (i.e., vendor) of the product.
+    hasDefaultPath:
+      type: boolean
+      description: |
+        Whether the product has a default path. If the product does not have a default path, call `ListLaunchPaths` to disambiguate between paths.  Otherwise, `ListLaunchPaths` is not required, and the output of ProductViewSummary can be used directly with `DescribeProvisioningParameters`.
+    name:
+      type: string
+      description: |
+        Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
+    owner:
+      type: string
+      description: |
+        Owner of the product.
+    provisioningArtifactParameters:
+      $ref: "#/types/aws:servicecatalog/ProductProvisioningArtifactParameters:ProductProvisioningArtifactParameters"
+      description: |
+        Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
+      willReplaceOnChanges: true
+    status:
+      type: string
+      description: |
+        Status of the product.
+    supportDescription:
+      type: string
+      description: |
+        Support information about the product.
+    supportEmail:
+      type: string
+      description: |
+        Contact email for product support.
+    supportUrl:
+      type: string
+      description: |
+        Contact URL for product support.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Tags to apply to the product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    type:
+      type: string
+      description: |
+        Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+  type: object

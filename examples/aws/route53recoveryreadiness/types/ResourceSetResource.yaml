@@ -1,0 +1,35 @@
+$token: aws:route53recoveryreadiness/ResourceSetResource:ResourceSetResource
+properties:
+  componentId:
+    type: string
+    language:
+      python:
+        mapCase: false
+  dnsTargetResource:
+    $ref: "#/types/aws:route53recoveryreadiness/ResourceSetResourceDnsTargetResource:ResourceSetResourceDnsTargetResource"
+    description: |
+      Component for DNS/Routing Control Readiness Checks.
+    language:
+      python:
+        mapCase: false
+  readinessScopes:
+    type: array
+    items:
+      type: string
+    description: |
+      Recovery group ARN or cell ARN that contains this resource set.
+    language:
+      python:
+        mapCase: false
+  resourceArn:
+    type: string
+    description: |
+      ARN of the resource.
+    language:
+      python:
+        mapCase: false
+type: object
+language:
+  nodejs:
+    requiredOutputs:
+      - componentId

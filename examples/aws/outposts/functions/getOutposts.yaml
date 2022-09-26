@@ -1,0 +1,59 @@
+$token: aws:outposts/getOutposts:getOutposts
+inputs:
+  description: |
+    A collection of arguments for invoking getOutposts.
+  properties:
+    availabilityZone:
+      type: string
+      description: |
+        Availability Zone name.
+    availabilityZoneId:
+      type: string
+      description: |
+        Availability Zone identifier.
+    ownerId:
+      type: string
+      description: |
+        AWS Account identifier of the Outpost owner.
+    siteId:
+      type: string
+      description: |
+        Site identifier.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getOutposts.
+  properties:
+    arns:
+      type: array
+      items:
+        type: string
+      description: |
+        Set of Amazon Resource Names (ARNs).
+    availabilityZone:
+      type: string
+    availabilityZoneId:
+      type: string
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    ids:
+      type: array
+      items:
+        type: string
+      description: |
+        Set of identifiers.
+    ownerId:
+      type: string
+    siteId:
+      type: string
+  type: object
+  required:
+    - arns
+    - availabilityZone
+    - availabilityZoneId
+    - ids
+    - ownerId
+    - siteId
+    - id

@@ -1,0 +1,145 @@
+$token: aws:dms/eventSubscription:EventSubscription
+properties:
+  arn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the DMS Event Subscription.
+  enabled:
+    type: boolean
+    description: |
+      Whether the event subscription should be enabled.
+  eventCategories:
+    type: array
+    items:
+      type: string
+    description: |
+      List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
+  name:
+    type: string
+    description: |
+      Name of event subscription.
+  snsTopicArn:
+    type: string
+    description: |
+      SNS topic arn to send events on.
+  sourceIds:
+    type: array
+    items:
+      type: string
+    description: |
+      Ids of sources to listen to.
+  sourceType:
+    type: string
+    description: |
+      Type of source for events. Valid values: `replication-instance` or `replication-task`
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of resource tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - arn
+  - eventCategories
+  - name
+  - snsTopicArn
+  - tagsAll
+inputProperties:
+  enabled:
+    type: boolean
+    description: |
+      Whether the event subscription should be enabled.
+  eventCategories:
+    type: array
+    items:
+      type: string
+    description: |
+      List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
+  name:
+    type: string
+    description: |
+      Name of event subscription.
+    willReplaceOnChanges: true
+  snsTopicArn:
+    type: string
+    description: |
+      SNS topic arn to send events on.
+  sourceIds:
+    type: array
+    items:
+      type: string
+    description: |
+      Ids of sources to listen to.
+    willReplaceOnChanges: true
+  sourceType:
+    type: string
+    description: |
+      Type of source for events. Valid values: `replication-instance` or `replication-task`
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of resource tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+requiredInputs:
+  - eventCategories
+  - snsTopicArn
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering EventSubscription resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        Amazon Resource Name (ARN) of the DMS Event Subscription.
+    enabled:
+      type: boolean
+      description: |
+        Whether the event subscription should be enabled.
+    eventCategories:
+      type: array
+      items:
+        type: string
+      description: |
+        List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
+    name:
+      type: string
+      description: |
+        Name of event subscription.
+      willReplaceOnChanges: true
+    snsTopicArn:
+      type: string
+      description: |
+        SNS topic arn to send events on.
+    sourceIds:
+      type: array
+      items:
+        type: string
+      description: |
+        Ids of sources to listen to.
+      willReplaceOnChanges: true
+    sourceType:
+      type: string
+      description: |
+        Type of source for events. Valid values: `replication-instance` or `replication-task`
+      willReplaceOnChanges: true
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of resource tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

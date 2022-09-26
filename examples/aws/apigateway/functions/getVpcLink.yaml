@@ -1,0 +1,62 @@
+$token: aws:apigateway/getVpcLink:getVpcLink
+inputs:
+  description: |
+    A collection of arguments for invoking getVpcLink.
+  properties:
+    name:
+      type: string
+      description: |
+        Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
+        If multiple API Gateway VPC Links are found with this name, an error will be returned.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags
+  type: object
+  required:
+    - name
+outputs:
+  description: |
+    A collection of values returned by getVpcLink.
+  properties:
+    description:
+      type: string
+      description: |
+        Description of the VPC link.
+    id:
+      type: string
+      description: |
+        Set to the ID of the found API Gateway VPC Link.
+    name:
+      type: string
+    status:
+      type: string
+      description: |
+        Status of the VPC link.
+    statusMessage:
+      type: string
+      description: |
+        Status message of the VPC link.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags
+    targetArns:
+      type: array
+      items:
+        type: string
+      description: |
+        List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+  type: object
+  required:
+    - description
+    - id
+    - name
+    - status
+    - statusMessage
+    - tags
+    - targetArns

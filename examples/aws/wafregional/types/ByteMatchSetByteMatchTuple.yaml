@@ -1,0 +1,35 @@
+$token: aws:wafregional/ByteMatchSetByteMatchTuple:ByteMatchSetByteMatchTuple
+properties:
+  fieldToMatch:
+    $ref: "#/types/aws:wafregional/ByteMatchSetByteMatchTupleFieldToMatch:ByteMatchSetByteMatchTupleFieldToMatch"
+    description: |
+      Settings for the ByteMatchTuple. FieldToMatch documented below.
+    language:
+      python:
+        mapCase: false
+  positionalConstraint:
+    type: string
+    description: |
+      Within the portion of a web request that you want to search.
+    language:
+      python:
+        mapCase: false
+  targetString:
+    type: string
+    description: |
+      The value that you want AWS WAF to search for. The maximum length of the value is 50 bytes.
+    language:
+      python:
+        mapCase: false
+  textTransformation:
+    type: string
+    description: |
+      The formatting way for web request.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - fieldToMatch
+  - positionalConstraint
+  - textTransformation

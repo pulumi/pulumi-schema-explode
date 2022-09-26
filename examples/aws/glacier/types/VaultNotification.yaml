@@ -1,0 +1,22 @@
+$token: aws:glacier/VaultNotification:VaultNotification
+properties:
+  events:
+    type: array
+    items:
+      type: string
+    description: |
+      You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
+    language:
+      python:
+        mapCase: false
+  snsTopic:
+    type: string
+    description: |
+      The SNS Topic ARN.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - events
+  - snsTopic

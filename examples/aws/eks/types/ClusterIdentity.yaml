@@ -1,0 +1,16 @@
+$token: aws:eks/ClusterIdentity:ClusterIdentity
+properties:
+  oidcs:
+    type: array
+    items:
+      $ref: "#/types/aws:eks/ClusterIdentityOidc:ClusterIdentityOidc"
+    description: |
+      Nested block containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
+    language:
+      python:
+        mapCase: false
+type: object
+language:
+  nodejs:
+    requiredOutputs:
+      - oidcs

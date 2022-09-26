@@ -1,0 +1,33 @@
+$token: aws:kinesis/AnalyticsApplicationCloudwatchLoggingOptions:AnalyticsApplicationCloudwatchLoggingOptions
+properties:
+  id:
+    type: string
+    description: |
+      The ARN of the Kinesis Analytics Application.
+    language:
+      python:
+        mapCase: false
+  logStreamArn:
+    type: string
+    description: |
+      The ARN of the CloudWatch Log Stream.
+    language:
+      python:
+        mapCase: false
+  roleArn:
+    type: string
+    description: |
+      The ARN of the IAM Role used to send application messages.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - logStreamArn
+  - roleArn
+language:
+  nodejs:
+    requiredOutputs:
+      - id
+      - logStreamArn
+      - roleArn

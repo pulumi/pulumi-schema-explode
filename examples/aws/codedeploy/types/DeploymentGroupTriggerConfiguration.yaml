@@ -1,0 +1,30 @@
+$token: aws:codedeploy/DeploymentGroupTriggerConfiguration:DeploymentGroupTriggerConfiguration
+properties:
+  triggerEvents:
+    type: array
+    items:
+      type: string
+    description: |
+      The event type or types for which notifications are triggered. Some values that are supported: `DeploymentStart`, `DeploymentSuccess`, `DeploymentFailure`, `DeploymentStop`, `DeploymentRollback`, `InstanceStart`, `InstanceSuccess`, `InstanceFailure`.  See [the CodeDeploy documentation](http://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-sns-event-notifications-create-trigger.html) for all possible values.
+    language:
+      python:
+        mapCase: false
+  triggerName:
+    type: string
+    description: |
+      The name of the notification trigger.
+    language:
+      python:
+        mapCase: false
+  triggerTargetArn:
+    type: string
+    description: |
+      The ARN of the SNS topic through which notifications are sent.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - triggerEvents
+  - triggerName
+  - triggerTargetArn

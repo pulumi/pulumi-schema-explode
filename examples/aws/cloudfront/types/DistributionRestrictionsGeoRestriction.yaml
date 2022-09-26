@@ -1,0 +1,30 @@
+$token: aws:cloudfront/DistributionRestrictionsGeoRestriction:DistributionRestrictionsGeoRestriction
+properties:
+  locations:
+    type: array
+    items:
+      type: string
+    description: |
+      The [ISO 3166-1-alpha-2 codes][4] for which you
+      want CloudFront either to distribute your content (`whitelist`) or not
+      distribute your content (`blacklist`).
+    language:
+      python:
+        mapCase: false
+  restrictionType:
+    type: string
+    description: |
+      The method that you want to use to restrict
+      distribution of your content by country: `none`, `whitelist`, or
+      `blacklist`.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - restrictionType
+language:
+  nodejs:
+    requiredOutputs:
+      - locations
+      - restrictionType

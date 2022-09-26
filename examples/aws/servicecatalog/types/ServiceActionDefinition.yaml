@@ -1,0 +1,42 @@
+$token: aws:servicecatalog/ServiceActionDefinition:ServiceActionDefinition
+properties:
+  assumeRole:
+    type: string
+    description: |
+      ARN of the role that performs the self-service actions on your behalf. For example, `arn:aws:iam::12345678910:role/ActionRole`. To reuse the provisioned product launch role, set to `LAUNCH_ROLE`.
+    language:
+      python:
+        mapCase: false
+  name:
+    type: string
+    description: |
+      Name of the SSM document. For example, `AWS-RestartEC2Instance`. If you are using a shared SSM document, you must provide the ARN instead of the name.
+    language:
+      python:
+        mapCase: false
+  parameters:
+    type: string
+    description: |
+      List of parameters in JSON format. For example: `[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}]` or `[{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]`.
+    language:
+      python:
+        mapCase: false
+  type:
+    type: string
+    description: |
+      Service action definition type. Valid value is `SSM_AUTOMATION`. Default is `SSM_AUTOMATION`.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  version:
+    type: string
+    description: |
+      SSM document version. For example, `1`.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - name
+  - version

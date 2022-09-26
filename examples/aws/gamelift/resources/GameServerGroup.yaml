@@ -1,0 +1,223 @@
+$token: aws:gamelift/gameServerGroup:GameServerGroup
+properties:
+  arn:
+    type: string
+    description: |
+      The ARN of the GameLift Game Server Group.
+  autoScalingGroupArn:
+    type: string
+    description: |
+      The ARN of the created EC2 Auto Scaling group.
+  autoScalingPolicy:
+    $ref: "#/types/aws:gamelift/GameServerGroupAutoScalingPolicy:GameServerGroupAutoScalingPolicy"
+  balancingStrategy:
+    type: string
+    description: |
+      Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances.
+      Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
+  gameServerGroupName:
+    type: string
+    description: |
+      Name of the game server group.
+      This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
+  gameServerProtectionPolicy:
+    type: string
+    description: |
+      Indicates whether instances in the game server group are protected from early termination.
+      Unprotected instances that have active game servers running might be terminated during a scale-down event,
+      causing players to be dropped from the game.
+      Protected instances cannot be terminated while there are active game servers running except in the event
+      of a forced game server group deletion.
+      Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
+  instanceDefinitions:
+    type: array
+    items:
+      $ref: "#/types/aws:gamelift/GameServerGroupInstanceDefinition:GameServerGroupInstanceDefinition"
+  launchTemplate:
+    $ref: "#/types/aws:gamelift/GameServerGroupLaunchTemplate:GameServerGroupLaunchTemplate"
+  maxSize:
+    type: integer
+    description: |
+      The maximum number of instances allowed in the EC2 Auto Scaling group.
+      During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
+  minSize:
+    type: integer
+    description: |
+      The minimum number of instances allowed in the EC2 Auto Scaling group.
+      During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
+  roleArn:
+    type: string
+    description: |
+      ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+  vpcSubnets:
+    type: array
+    items:
+      type: string
+    description: |
+      A list of VPC subnets to use with instances in the game server group.
+      By default, all GameLift FleetIQ-supported Availability Zones are used.
+required:
+  - arn
+  - autoScalingGroupArn
+  - balancingStrategy
+  - gameServerGroupName
+  - gameServerProtectionPolicy
+  - instanceDefinitions
+  - launchTemplate
+  - maxSize
+  - minSize
+  - roleArn
+  - tagsAll
+inputProperties:
+  autoScalingPolicy:
+    $ref: "#/types/aws:gamelift/GameServerGroupAutoScalingPolicy:GameServerGroupAutoScalingPolicy"
+    willReplaceOnChanges: true
+  balancingStrategy:
+    type: string
+    description: |
+      Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances.
+      Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
+  gameServerGroupName:
+    type: string
+    description: |
+      Name of the game server group.
+      This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
+    willReplaceOnChanges: true
+  gameServerProtectionPolicy:
+    type: string
+    description: |
+      Indicates whether instances in the game server group are protected from early termination.
+      Unprotected instances that have active game servers running might be terminated during a scale-down event,
+      causing players to be dropped from the game.
+      Protected instances cannot be terminated while there are active game servers running except in the event
+      of a forced game server group deletion.
+      Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
+  instanceDefinitions:
+    type: array
+    items:
+      $ref: "#/types/aws:gamelift/GameServerGroupInstanceDefinition:GameServerGroupInstanceDefinition"
+  launchTemplate:
+    $ref: "#/types/aws:gamelift/GameServerGroupLaunchTemplate:GameServerGroupLaunchTemplate"
+  maxSize:
+    type: integer
+    description: |
+      The maximum number of instances allowed in the EC2 Auto Scaling group.
+      During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
+    willReplaceOnChanges: true
+  minSize:
+    type: integer
+    description: |
+      The minimum number of instances allowed in the EC2 Auto Scaling group.
+      During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
+    willReplaceOnChanges: true
+  roleArn:
+    type: string
+    description: |
+      ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags
+  vpcSubnets:
+    type: array
+    items:
+      type: string
+    description: |
+      A list of VPC subnets to use with instances in the game server group.
+      By default, all GameLift FleetIQ-supported Availability Zones are used.
+    willReplaceOnChanges: true
+requiredInputs:
+  - gameServerGroupName
+  - instanceDefinitions
+  - launchTemplate
+  - maxSize
+  - minSize
+  - roleArn
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering GameServerGroup resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The ARN of the GameLift Game Server Group.
+    autoScalingGroupArn:
+      type: string
+      description: |
+        The ARN of the created EC2 Auto Scaling group.
+    autoScalingPolicy:
+      $ref: "#/types/aws:gamelift/GameServerGroupAutoScalingPolicy:GameServerGroupAutoScalingPolicy"
+      willReplaceOnChanges: true
+    balancingStrategy:
+      type: string
+      description: |
+        Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances.
+        Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
+    gameServerGroupName:
+      type: string
+      description: |
+        Name of the game server group.
+        This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
+      willReplaceOnChanges: true
+    gameServerProtectionPolicy:
+      type: string
+      description: |
+        Indicates whether instances in the game server group are protected from early termination.
+        Unprotected instances that have active game servers running might be terminated during a scale-down event,
+        causing players to be dropped from the game.
+        Protected instances cannot be terminated while there are active game servers running except in the event
+        of a forced game server group deletion.
+        Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
+    instanceDefinitions:
+      type: array
+      items:
+        $ref: "#/types/aws:gamelift/GameServerGroupInstanceDefinition:GameServerGroupInstanceDefinition"
+    launchTemplate:
+      $ref: "#/types/aws:gamelift/GameServerGroupLaunchTemplate:GameServerGroupLaunchTemplate"
+    maxSize:
+      type: integer
+      description: |
+        The maximum number of instances allowed in the EC2 Auto Scaling group.
+        During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
+      willReplaceOnChanges: true
+    minSize:
+      type: integer
+      description: |
+        The minimum number of instances allowed in the EC2 Auto Scaling group.
+        During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
+      willReplaceOnChanges: true
+    roleArn:
+      type: string
+      description: |
+        ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+    vpcSubnets:
+      type: array
+      items:
+        type: string
+      description: |
+        A list of VPC subnets to use with instances in the game server group.
+        By default, all GameLift FleetIQ-supported Availability Zones are used.
+      willReplaceOnChanges: true
+  type: object

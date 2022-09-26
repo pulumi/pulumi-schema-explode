@@ -1,0 +1,58 @@
+$token: aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization
+properties:
+  disabled:
+    type: boolean
+    description: |
+      When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
+  routes:
+    type: array
+    items:
+      $ref: "#/types/aws:chime/VoiceConnectorOrganizationRoute:VoiceConnectorOrganizationRoute"
+    description: |
+      Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
+  voiceConnectorId:
+    type: string
+    description: |
+      The Amazon Chime Voice Connector ID.
+required:
+  - routes
+  - voiceConnectorId
+inputProperties:
+  disabled:
+    type: boolean
+    description: |
+      When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
+  routes:
+    type: array
+    items:
+      $ref: "#/types/aws:chime/VoiceConnectorOrganizationRoute:VoiceConnectorOrganizationRoute"
+    description: |
+      Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
+  voiceConnectorId:
+    type: string
+    description: |
+      The Amazon Chime Voice Connector ID.
+    willReplaceOnChanges: true
+requiredInputs:
+  - routes
+  - voiceConnectorId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering VoiceConnectorOrganization resources.
+  properties:
+    disabled:
+      type: boolean
+      description: |
+        When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
+    routes:
+      type: array
+      items:
+        $ref: "#/types/aws:chime/VoiceConnectorOrganizationRoute:VoiceConnectorOrganizationRoute"
+      description: |
+        Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
+    voiceConnectorId:
+      type: string
+      description: |
+        The Amazon Chime Voice Connector ID.
+      willReplaceOnChanges: true
+  type: object

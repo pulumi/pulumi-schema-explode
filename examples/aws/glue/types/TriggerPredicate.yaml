@@ -1,0 +1,21 @@
+$token: aws:glue/TriggerPredicate:TriggerPredicate
+properties:
+  conditions:
+    type: array
+    items:
+      $ref: "#/types/aws:glue/TriggerPredicateCondition:TriggerPredicateCondition"
+    description: |
+      A list of the conditions that determine when the trigger will fire. See Conditions.
+    language:
+      python:
+        mapCase: false
+  logical:
+    type: string
+    description: |
+      How to handle multiple conditions. Defaults to `AND`. Valid values are `AND` or `ANY`.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - conditions

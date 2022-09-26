@@ -1,0 +1,36 @@
+$token: aws:xray/encryptionConfig:EncryptionConfig
+properties:
+  keyId:
+    type: string
+    description: |
+      An AWS KMS customer master key (CMK) ARN.
+  type:
+    type: string
+    description: |
+      The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
+required:
+  - type
+inputProperties:
+  keyId:
+    type: string
+    description: |
+      An AWS KMS customer master key (CMK) ARN.
+  type:
+    type: string
+    description: |
+      The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
+requiredInputs:
+  - type
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering EncryptionConfig resources.
+  properties:
+    keyId:
+      type: string
+      description: |
+        An AWS KMS customer master key (CMK) ARN.
+    type:
+      type: string
+      description: |
+        The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
+  type: object

@@ -1,0 +1,142 @@
+$token: aws:ec2clientvpn/getEndpoint:getEndpoint
+inputs:
+  description: |
+    A collection of arguments for invoking getEndpoint.
+  properties:
+    clientVpnEndpointId:
+      type: string
+      description: |
+        ID of the Client VPN endpoint.
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2clientvpn/getEndpointFilter:getEndpointFilter"
+      description: |
+        One or more configuration blocks containing name-values filters. Detailed below.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags, each pair of which must exactly match a pair on the desired endpoint.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getEndpoint.
+  properties:
+    arn:
+      type: string
+      description: |
+        The ARN of the Client VPN endpoint.
+    authenticationOptions:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2clientvpn/getEndpointAuthenticationOption:getEndpointAuthenticationOption"
+      description: |
+        Information about the authentication method used by the Client VPN endpoint.
+    clientCidrBlock:
+      type: string
+      description: |
+        IPv4 address range, in CIDR notation, from which client IP addresses are assigned.
+    clientConnectOptions:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2clientvpn/getEndpointClientConnectOption:getEndpointClientConnectOption"
+      description: |
+        The options for managing connection authorization for new client connections.
+    clientLoginBannerOptions:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2clientvpn/getEndpointClientLoginBannerOption:getEndpointClientLoginBannerOption"
+      description: |
+        Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+    clientVpnEndpointId:
+      type: string
+    connectionLogOptions:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2clientvpn/getEndpointConnectionLogOption:getEndpointConnectionLogOption"
+      description: |
+        Information about the client connection logging options for the Client VPN endpoint.
+    description:
+      type: string
+      description: |
+        Brief description of the endpoint.
+    dnsName:
+      type: string
+      description: |
+        DNS name to be used by clients when connecting to the Client VPN endpoint.
+    dnsServers:
+      type: array
+      items:
+        type: string
+      description: |
+        Information about the DNS servers to be used for DNS resolution.
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2clientvpn/getEndpointFilter:getEndpointFilter"
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    securityGroupIds:
+      type: array
+      items:
+        type: string
+      description: |
+        IDs of the security groups for the target network associated with the Client VPN endpoint.
+    selfServicePortal:
+      type: string
+      description: |
+        Whether the self-service portal for the Client VPN endpoint is enabled.
+    serverCertificateArn:
+      type: string
+      description: |
+        The ARN of the server certificate.
+    sessionTimeoutHours:
+      type: integer
+      description: |
+        The maximum VPN session duration time in hours.
+    splitTunnel:
+      type: boolean
+      description: |
+        Whether split-tunnel is enabled in the AWS Client VPN endpoint.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+    transportProtocol:
+      type: string
+      description: |
+        Transport protocol used by the Client VPN endpoint.
+    vpcId:
+      type: string
+      description: |
+        ID of the VPC associated with the Client VPN endpoint.
+    vpnPort:
+      type: integer
+      description: |
+        Port number for the Client VPN endpoint.
+  type: object
+  required:
+    - arn
+    - authenticationOptions
+    - clientCidrBlock
+    - clientConnectOptions
+    - clientLoginBannerOptions
+    - clientVpnEndpointId
+    - connectionLogOptions
+    - description
+    - dnsName
+    - dnsServers
+    - securityGroupIds
+    - selfServicePortal
+    - serverCertificateArn
+    - sessionTimeoutHours
+    - splitTunnel
+    - tags
+    - transportProtocol
+    - vpcId
+    - vpnPort
+    - id

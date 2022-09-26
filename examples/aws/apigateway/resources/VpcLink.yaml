@@ -1,0 +1,87 @@
+$token: aws:apigateway/vpcLink:VpcLink
+properties:
+  arn:
+    type: string
+  description:
+    type: string
+    description: |
+      Description of the VPC link.
+  name:
+    type: string
+    description: |
+      Name used to label and identify the VPC link.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  targetArn:
+    type: string
+    description: |
+      List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+required:
+  - arn
+  - name
+  - tagsAll
+  - targetArn
+inputProperties:
+  description:
+    type: string
+    description: |
+      Description of the VPC link.
+  name:
+    type: string
+    description: |
+      Name used to label and identify the VPC link.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  targetArn:
+    type: string
+    description: |
+      List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+    willReplaceOnChanges: true
+requiredInputs:
+  - targetArn
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering VpcLink resources.
+  properties:
+    arn:
+      type: string
+    description:
+      type: string
+      description: |
+        Description of the VPC link.
+    name:
+      type: string
+      description: |
+        Name used to label and identify the VPC link.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    targetArn:
+      type: string
+      description: |
+        List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+      willReplaceOnChanges: true
+  type: object

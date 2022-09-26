@@ -1,0 +1,56 @@
+$token: aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig
+properties:
+  functionName:
+    type: string
+    description: |
+      Name or Amazon Resource Name (ARN) of the Lambda Function.
+  provisionedConcurrentExecutions:
+    type: integer
+    description: |
+      Amount of capacity to allocate. Must be greater than or equal to `1`.
+  qualifier:
+    type: string
+    description: |
+      Lambda Function version or Lambda Alias name.
+required:
+  - functionName
+  - provisionedConcurrentExecutions
+  - qualifier
+inputProperties:
+  functionName:
+    type: string
+    description: |
+      Name or Amazon Resource Name (ARN) of the Lambda Function.
+    willReplaceOnChanges: true
+  provisionedConcurrentExecutions:
+    type: integer
+    description: |
+      Amount of capacity to allocate. Must be greater than or equal to `1`.
+  qualifier:
+    type: string
+    description: |
+      Lambda Function version or Lambda Alias name.
+    willReplaceOnChanges: true
+requiredInputs:
+  - functionName
+  - provisionedConcurrentExecutions
+  - qualifier
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering ProvisionedConcurrencyConfig resources.
+  properties:
+    functionName:
+      type: string
+      description: |
+        Name or Amazon Resource Name (ARN) of the Lambda Function.
+      willReplaceOnChanges: true
+    provisionedConcurrentExecutions:
+      type: integer
+      description: |
+        Amount of capacity to allocate. Must be greater than or equal to `1`.
+    qualifier:
+      type: string
+      description: |
+        Lambda Function version or Lambda Alias name.
+      willReplaceOnChanges: true
+  type: object

@@ -1,0 +1,104 @@
+$token: aws:iot/thingGroup:ThingGroup
+properties:
+  arn:
+    type: string
+    description: |
+      The ARN of the Thing Group.
+  metadatas:
+    type: array
+    items:
+      $ref: "#/types/aws:iot/ThingGroupMetadata:ThingGroupMetadata"
+  name:
+    type: string
+    description: |
+      The name of the Thing Group.
+  parentGroupName:
+    type: string
+    description: |
+      The name of the parent Thing Group.
+  properties:
+    $ref: "#/types/aws:iot/ThingGroupProperties:ThingGroupProperties"
+    description: |
+      The Thing Group properties. Defined below.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value mapping of resource tags
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+  version:
+    type: integer
+    description: |
+      The current version of the Thing Group record in the registry.
+required:
+  - arn
+  - metadatas
+  - name
+  - tagsAll
+  - version
+inputProperties:
+  name:
+    type: string
+    description: |
+      The name of the Thing Group.
+    willReplaceOnChanges: true
+  parentGroupName:
+    type: string
+    description: |
+      The name of the parent Thing Group.
+    willReplaceOnChanges: true
+  properties:
+    $ref: "#/types/aws:iot/ThingGroupProperties:ThingGroupProperties"
+    description: |
+      The Thing Group properties. Defined below.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value mapping of resource tags
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering ThingGroup resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The ARN of the Thing Group.
+    metadatas:
+      type: array
+      items:
+        $ref: "#/types/aws:iot/ThingGroupMetadata:ThingGroupMetadata"
+    name:
+      type: string
+      description: |
+        The name of the Thing Group.
+      willReplaceOnChanges: true
+    parentGroupName:
+      type: string
+      description: |
+        The name of the parent Thing Group.
+      willReplaceOnChanges: true
+    properties:
+      $ref: "#/types/aws:iot/ThingGroupProperties:ThingGroupProperties"
+      description: |
+        The Thing Group properties. Defined below.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value mapping of resource tags
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+    version:
+      type: integer
+      description: |
+        The current version of the Thing Group record in the registry.
+  type: object

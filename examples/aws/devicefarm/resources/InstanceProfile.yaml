@@ -1,0 +1,116 @@
+$token: aws:devicefarm/instanceProfile:InstanceProfile
+properties:
+  arn:
+    type: string
+    description: |
+      The Amazon Resource Name of this instance profile.
+  description:
+    type: string
+    description: |
+      The description of the instance profile.
+  excludeAppPackagesFromCleanups:
+    type: array
+    items:
+      type: string
+    description: |
+      An array of strings that specifies the list of app packages that should not be cleaned up from the device after a test run.
+  name:
+    type: string
+    description: |
+      The name for the instance profile.
+  packageCleanup:
+    type: boolean
+    description: |
+      When set to `true`, Device Farm removes app packages after a test run. The default value is `false` for private devices.
+  rebootAfterUse:
+    type: boolean
+    description: |
+      When set to `true`, Device Farm reboots the instance after a test run. The default value is `true`.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - arn
+  - name
+  - tagsAll
+inputProperties:
+  description:
+    type: string
+    description: |
+      The description of the instance profile.
+  excludeAppPackagesFromCleanups:
+    type: array
+    items:
+      type: string
+    description: |
+      An array of strings that specifies the list of app packages that should not be cleaned up from the device after a test run.
+  name:
+    type: string
+    description: |
+      The name for the instance profile.
+  packageCleanup:
+    type: boolean
+    description: |
+      When set to `true`, Device Farm removes app packages after a test run. The default value is `false` for private devices.
+  rebootAfterUse:
+    type: boolean
+    description: |
+      When set to `true`, Device Farm reboots the instance after a test run. The default value is `true`.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering InstanceProfile resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The Amazon Resource Name of this instance profile.
+    description:
+      type: string
+      description: |
+        The description of the instance profile.
+    excludeAppPackagesFromCleanups:
+      type: array
+      items:
+        type: string
+      description: |
+        An array of strings that specifies the list of app packages that should not be cleaned up from the device after a test run.
+    name:
+      type: string
+      description: |
+        The name for the instance profile.
+    packageCleanup:
+      type: boolean
+      description: |
+        When set to `true`, Device Farm removes app packages after a test run. The default value is `false` for private devices.
+    rebootAfterUse:
+      type: boolean
+      description: |
+        When set to `true`, Device Farm reboots the instance after a test run. The default value is `true`.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

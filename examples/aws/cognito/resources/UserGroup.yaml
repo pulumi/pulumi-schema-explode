@@ -1,0 +1,77 @@
+$token: aws:cognito/userGroup:UserGroup
+properties:
+  description:
+    type: string
+    description: |
+      The description of the user group.
+  name:
+    type: string
+    description: |
+      The name of the user group.
+  precedence:
+    type: integer
+    description: |
+      The precedence of the user group.
+  roleArn:
+    type: string
+    description: |
+      The ARN of the IAM role to be associated with the user group.
+  userPoolId:
+    type: string
+    description: |
+      The user pool ID.
+required:
+  - name
+  - userPoolId
+inputProperties:
+  description:
+    type: string
+    description: |
+      The description of the user group.
+  name:
+    type: string
+    description: |
+      The name of the user group.
+    willReplaceOnChanges: true
+  precedence:
+    type: integer
+    description: |
+      The precedence of the user group.
+  roleArn:
+    type: string
+    description: |
+      The ARN of the IAM role to be associated with the user group.
+  userPoolId:
+    type: string
+    description: |
+      The user pool ID.
+    willReplaceOnChanges: true
+requiredInputs:
+  - userPoolId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering UserGroup resources.
+  properties:
+    description:
+      type: string
+      description: |
+        The description of the user group.
+    name:
+      type: string
+      description: |
+        The name of the user group.
+      willReplaceOnChanges: true
+    precedence:
+      type: integer
+      description: |
+        The precedence of the user group.
+    roleArn:
+      type: string
+      description: |
+        The ARN of the IAM role to be associated with the user group.
+    userPoolId:
+      type: string
+      description: |
+        The user pool ID.
+      willReplaceOnChanges: true
+  type: object

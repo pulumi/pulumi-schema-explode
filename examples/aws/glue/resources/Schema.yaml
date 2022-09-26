@@ -1,0 +1,169 @@
+$token: aws:glue/schema:Schema
+properties:
+  arn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the schema.
+  compatibility:
+    type: string
+    description: |
+      The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
+  dataFormat:
+    type: string
+    description: |
+      The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
+  description:
+    type: string
+    description: |
+      A description of the schema.
+  latestSchemaVersion:
+    type: integer
+    description: |
+      The latest version of the schema associated with the returned schema definition.
+  nextSchemaVersion:
+    type: integer
+    description: |
+      The next version of the schema associated with the returned schema definition.
+  registryArn:
+    type: string
+    description: |
+      The ARN of the Glue Registry to create the schema in.
+  registryName:
+    type: string
+    description: |
+      The name of the Glue Registry.
+  schemaCheckpoint:
+    type: integer
+    description: |
+      The version number of the checkpoint (the last time the compatibility mode was changed).
+  schemaDefinition:
+    type: string
+    description: |
+      The schema definition using the `data_format` setting for `schema_name`.
+  schemaName:
+    type: string
+    description: |
+      The Name of the schema.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - arn
+  - compatibility
+  - dataFormat
+  - latestSchemaVersion
+  - nextSchemaVersion
+  - registryArn
+  - registryName
+  - schemaCheckpoint
+  - schemaDefinition
+  - schemaName
+  - tagsAll
+inputProperties:
+  compatibility:
+    type: string
+    description: |
+      The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
+  dataFormat:
+    type: string
+    description: |
+      The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
+  description:
+    type: string
+    description: |
+      A description of the schema.
+  registryArn:
+    type: string
+    description: |
+      The ARN of the Glue Registry to create the schema in.
+  schemaDefinition:
+    type: string
+    description: |
+      The schema definition using the `data_format` setting for `schema_name`.
+  schemaName:
+    type: string
+    description: |
+      The Name of the schema.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+requiredInputs:
+  - compatibility
+  - dataFormat
+  - schemaDefinition
+  - schemaName
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Schema resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        Amazon Resource Name (ARN) of the schema.
+    compatibility:
+      type: string
+      description: |
+        The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
+    dataFormat:
+      type: string
+      description: |
+        The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
+    description:
+      type: string
+      description: |
+        A description of the schema.
+    latestSchemaVersion:
+      type: integer
+      description: |
+        The latest version of the schema associated with the returned schema definition.
+    nextSchemaVersion:
+      type: integer
+      description: |
+        The next version of the schema associated with the returned schema definition.
+    registryArn:
+      type: string
+      description: |
+        The ARN of the Glue Registry to create the schema in.
+    registryName:
+      type: string
+      description: |
+        The name of the Glue Registry.
+    schemaCheckpoint:
+      type: integer
+      description: |
+        The version number of the checkpoint (the last time the compatibility mode was changed).
+    schemaDefinition:
+      type: string
+      description: |
+        The schema definition using the `data_format` setting for `schema_name`.
+    schemaName:
+      type: string
+      description: |
+        The Name of the schema.
+      willReplaceOnChanges: true
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

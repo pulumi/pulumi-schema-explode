@@ -1,0 +1,60 @@
+$token: aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2
+properties:
+  bucket:
+    type: string
+    description: |
+      The name of the bucket.
+  expectedBucketOwner:
+    type: string
+    description: |
+      The account ID of the expected bucket owner.
+  rules:
+    type: array
+    items:
+      $ref: "#/types/aws:s3/BucketServerSideEncryptionConfigurationV2Rule:BucketServerSideEncryptionConfigurationV2Rule"
+    description: |
+      Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
+required:
+  - bucket
+  - rules
+inputProperties:
+  bucket:
+    type: string
+    description: |
+      The name of the bucket.
+    willReplaceOnChanges: true
+  expectedBucketOwner:
+    type: string
+    description: |
+      The account ID of the expected bucket owner.
+    willReplaceOnChanges: true
+  rules:
+    type: array
+    items:
+      $ref: "#/types/aws:s3/BucketServerSideEncryptionConfigurationV2Rule:BucketServerSideEncryptionConfigurationV2Rule"
+    description: |
+      Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
+requiredInputs:
+  - bucket
+  - rules
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering BucketServerSideEncryptionConfigurationV2 resources.
+  properties:
+    bucket:
+      type: string
+      description: |
+        The name of the bucket.
+      willReplaceOnChanges: true
+    expectedBucketOwner:
+      type: string
+      description: |
+        The account ID of the expected bucket owner.
+      willReplaceOnChanges: true
+    rules:
+      type: array
+      items:
+        $ref: "#/types/aws:s3/BucketServerSideEncryptionConfigurationV2Rule:BucketServerSideEncryptionConfigurationV2Rule"
+      description: |
+        Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
+  type: object

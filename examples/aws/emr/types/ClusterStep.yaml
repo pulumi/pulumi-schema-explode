@@ -1,0 +1,31 @@
+$token: aws:emr/ClusterStep:ClusterStep
+properties:
+  actionOnFailure:
+    type: string
+    description: |
+      Action to take if the step fails. Valid values: `TERMINATE_JOB_FLOW`, `TERMINATE_CLUSTER`, `CANCEL_AND_WAIT`, and `CONTINUE`
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  hadoopJarStep:
+    $ref: "#/types/aws:emr/ClusterStepHadoopJarStep:ClusterStepHadoopJarStep"
+    description: |
+      JAR file used for the step. See below.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  name:
+    type: string
+    description: |
+      Name of the step.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+type: object
+required:
+  - actionOnFailure
+  - hadoopJarStep
+  - name

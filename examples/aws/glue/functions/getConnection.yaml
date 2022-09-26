@@ -1,0 +1,79 @@
+$token: aws:glue/getConnection:getConnection
+inputs:
+  description: |
+    A collection of arguments for invoking getConnection.
+  properties:
+    id:
+      type: string
+      description: |
+        Concatenation of the catalog ID and connection name. For example, if your account ID is
+        `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Tags assigned to the resource
+  type: object
+  required:
+    - id
+outputs:
+  description: |
+    A collection of values returned by getConnection.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the Glue Connection.
+    catalogId:
+      type: string
+      description: |
+        Catalog ID of the Glue Connection.
+    connectionProperties:
+      type: object
+      additionalProperties:
+        type: string
+    connectionType:
+      type: string
+      description: |
+        Type of Glue Connection.
+    description:
+      type: string
+      description: |
+        Description of the connection.
+    id:
+      type: string
+    matchCriterias:
+      type: array
+      items:
+        type: string
+      description: |
+        A list of criteria that can be used in selecting this connection.
+    name:
+      type: string
+      description: |
+        Name of the Glue Connection.
+    physicalConnectionRequirements:
+      type: array
+      items:
+        $ref: "#/types/aws:glue/getConnectionPhysicalConnectionRequirement:getConnectionPhysicalConnectionRequirement"
+      description: |
+        A map of physical connection requirements, such as VPC and SecurityGroup.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Tags assigned to the resource
+  type: object
+  required:
+    - arn
+    - catalogId
+    - connectionProperties
+    - connectionType
+    - description
+    - id
+    - matchCriterias
+    - name
+    - physicalConnectionRequirements
+    - tags

@@ -1,0 +1,61 @@
+$token: aws:ec2transitgateway/getPeeringAttachment:getPeeringAttachment
+inputs:
+  description: |
+    A collection of arguments for invoking getPeeringAttachment.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2transitgateway/getPeeringAttachmentFilter:getPeeringAttachmentFilter"
+      description: |
+        One or more configuration blocks containing name-values filters. Detailed below.
+    id:
+      type: string
+      description: |
+        Identifier of the EC2 Transit Gateway Peering Attachment.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Mapping of tags, each pair of which must exactly match
+        a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getPeeringAttachment.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2transitgateway/getPeeringAttachmentFilter:getPeeringAttachmentFilter"
+    id:
+      type: string
+    peerAccountId:
+      type: string
+      description: |
+        Identifier of the peer AWS account
+    peerRegion:
+      type: string
+      description: |
+        Identifier of the peer AWS region
+    peerTransitGatewayId:
+      type: string
+      description: |
+        Identifier of the peer EC2 Transit Gateway
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+    transitGatewayId:
+      type: string
+      description: |
+        Identifier of the local EC2 Transit Gateway
+  type: object
+  required:
+    - id
+    - peerAccountId
+    - peerRegion
+    - peerTransitGatewayId
+    - tags
+    - transitGatewayId

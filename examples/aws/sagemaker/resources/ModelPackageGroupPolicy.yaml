@@ -1,0 +1,58 @@
+$token: aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy
+description: "Provides a SageMaker Model Package Group Policy resource.
+
+
+  {{% examples %}}
+
+  ## Example Usage
+
+  {{% /examples %}}
+
+
+  ## Import
+
+
+  SageMaker Code Model Package Groups can be imported using the `name`, e.g.,
+
+
+  ```sh
+
+  \ $ pulumi import aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy example example
+
+  ```
+
+
+  \ "
+properties:
+  modelPackageGroupName:
+    type: string
+    description: |
+      The name of the model package group.
+  resourcePolicy:
+    type: string
+required:
+  - modelPackageGroupName
+  - resourcePolicy
+inputProperties:
+  modelPackageGroupName:
+    type: string
+    description: |
+      The name of the model package group.
+    willReplaceOnChanges: true
+  resourcePolicy:
+    type: string
+requiredInputs:
+  - modelPackageGroupName
+  - resourcePolicy
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering ModelPackageGroupPolicy resources.
+  properties:
+    modelPackageGroupName:
+      type: string
+      description: |
+        The name of the model package group.
+      willReplaceOnChanges: true
+    resourcePolicy:
+      type: string
+  type: object

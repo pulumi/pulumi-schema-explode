@@ -1,0 +1,48 @@
+$token: aws:emr/managedScalingPolicy:ManagedScalingPolicy
+properties:
+  clusterId:
+    type: string
+    description: |
+      ID of the EMR cluster
+  computeLimits:
+    type: array
+    items:
+      $ref: "#/types/aws:emr/ManagedScalingPolicyComputeLimit:ManagedScalingPolicyComputeLimit"
+    description: |
+      Configuration block with compute limit settings. Described below.
+required:
+  - clusterId
+  - computeLimits
+inputProperties:
+  clusterId:
+    type: string
+    description: |
+      ID of the EMR cluster
+    willReplaceOnChanges: true
+  computeLimits:
+    type: array
+    items:
+      $ref: "#/types/aws:emr/ManagedScalingPolicyComputeLimit:ManagedScalingPolicyComputeLimit"
+    description: |
+      Configuration block with compute limit settings. Described below.
+    willReplaceOnChanges: true
+requiredInputs:
+  - clusterId
+  - computeLimits
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering ManagedScalingPolicy resources.
+  properties:
+    clusterId:
+      type: string
+      description: |
+        ID of the EMR cluster
+      willReplaceOnChanges: true
+    computeLimits:
+      type: array
+      items:
+        $ref: "#/types/aws:emr/ManagedScalingPolicyComputeLimit:ManagedScalingPolicyComputeLimit"
+      description: |
+        Configuration block with compute limit settings. Described below.
+      willReplaceOnChanges: true
+  type: object

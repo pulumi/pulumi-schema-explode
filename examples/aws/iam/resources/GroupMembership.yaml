@@ -1,0 +1,61 @@
+$token: aws:iam/groupMembership:GroupMembership
+properties:
+  group:
+    type: string
+    description: |
+      The IAM Group name to attach the list of `users` to
+  name:
+    type: string
+    description: |
+      The name to identify the Group Membership
+  users:
+    type: array
+    items:
+      type: string
+    description: |
+      A list of IAM User names to associate with the Group
+required:
+  - group
+  - name
+  - users
+inputProperties:
+  group:
+    type: string
+    description: |
+      The IAM Group name to attach the list of `users` to
+    willReplaceOnChanges: true
+  name:
+    type: string
+    description: |
+      The name to identify the Group Membership
+    willReplaceOnChanges: true
+  users:
+    type: array
+    items:
+      type: string
+    description: |
+      A list of IAM User names to associate with the Group
+requiredInputs:
+  - group
+  - users
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering GroupMembership resources.
+  properties:
+    group:
+      type: string
+      description: |
+        The IAM Group name to attach the list of `users` to
+      willReplaceOnChanges: true
+    name:
+      type: string
+      description: |
+        The name to identify the Group Membership
+      willReplaceOnChanges: true
+    users:
+      type: array
+      items:
+        type: string
+      description: |
+        A list of IAM User names to associate with the Group
+  type: object

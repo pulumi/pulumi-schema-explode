@@ -1,0 +1,127 @@
+$token: aws:elasticache/getReplicationGroup:getReplicationGroup
+inputs:
+  description: |
+    A collection of arguments for invoking getReplicationGroup.
+  properties:
+    replicationGroupId:
+      type: string
+      description: |
+        Identifier for the replication group.
+  type: object
+  required:
+    - replicationGroupId
+outputs:
+  description: |
+    A collection of values returned by getReplicationGroup.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the created ElastiCache Replication Group.
+    authTokenEnabled:
+      type: boolean
+      description: |
+        Whether an AuthToken (password) is enabled.
+    automaticFailoverEnabled:
+      type: boolean
+      description: |
+        A flag whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails.
+    configurationEndpointAddress:
+      type: string
+      description: |
+        The configuration endpoint address to allow host discovery.
+    description:
+      type: string
+      description: |
+        Description of the replication group.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    logDeliveryConfigurations:
+      type: array
+      items:
+        $ref: "#/types/aws:elasticache/getReplicationGroupLogDeliveryConfiguration:getReplicationGroupLogDeliveryConfiguration"
+      description: |
+        Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log) delivery settings.
+    memberClusters:
+      type: array
+      items:
+        type: string
+      description: |
+        Identifiers of all the nodes that are part of this replication group.
+    multiAzEnabled:
+      type: boolean
+      description: |
+        Whether Multi-AZ Support is enabled for the replication group.
+    nodeType:
+      type: string
+      description: |
+        The cluster node type.
+    numCacheClusters:
+      type: integer
+      description: |
+        The number of cache clusters that the replication group has.
+    numNodeGroups:
+      type: integer
+      description: |
+        Number of node groups (shards) for the replication group.
+    numberCacheClusters:
+      type: integer
+      description: |
+        (**Deprecated** use `num_cache_clusters` instead) Number of cache clusters that the replication group has.
+      deprecationMessage: Use num_cache_clusters instead
+    port:
+      type: integer
+      description: |
+        The port number on which the configuration endpoint will accept connections.
+    primaryEndpointAddress:
+      type: string
+      description: |
+        The endpoint of the primary node in this node group (shard).
+    readerEndpointAddress:
+      type: string
+      description: |
+        The endpoint of the reader node in this node group (shard).
+    replicasPerNodeGroup:
+      type: integer
+      description: |
+        Number of replica nodes in each node group.
+    replicationGroupDescription:
+      type: string
+      description: |
+        (**Deprecated** use `description` instead) Description of the replication group.
+      deprecationMessage: Use description instead
+    replicationGroupId:
+      type: string
+    snapshotRetentionLimit:
+      type: integer
+      description: |
+        The number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them.
+    snapshotWindow:
+      type: string
+      description: |
+        Daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
+  type: object
+  required:
+    - arn
+    - authTokenEnabled
+    - automaticFailoverEnabled
+    - configurationEndpointAddress
+    - description
+    - logDeliveryConfigurations
+    - memberClusters
+    - multiAzEnabled
+    - nodeType
+    - numCacheClusters
+    - numNodeGroups
+    - numberCacheClusters
+    - port
+    - primaryEndpointAddress
+    - readerEndpointAddress
+    - replicasPerNodeGroup
+    - replicationGroupDescription
+    - replicationGroupId
+    - snapshotRetentionLimit
+    - snapshotWindow
+    - id

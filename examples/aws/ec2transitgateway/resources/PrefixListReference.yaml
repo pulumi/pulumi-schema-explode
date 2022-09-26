@@ -1,0 +1,71 @@
+$token: aws:ec2transitgateway/prefixListReference:PrefixListReference
+properties:
+  blackhole:
+    type: boolean
+    description: |
+      Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
+  prefixListId:
+    type: string
+    description: |
+      Identifier of EC2 Prefix List.
+  prefixListOwnerId:
+    type: string
+  transitGatewayAttachmentId:
+    type: string
+    description: |
+      Identifier of EC2 Transit Gateway Attachment.
+  transitGatewayRouteTableId:
+    type: string
+    description: |
+      Identifier of EC2 Transit Gateway Route Table.
+required:
+  - prefixListId
+  - prefixListOwnerId
+  - transitGatewayRouteTableId
+inputProperties:
+  blackhole:
+    type: boolean
+    description: |
+      Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
+  prefixListId:
+    type: string
+    description: |
+      Identifier of EC2 Prefix List.
+    willReplaceOnChanges: true
+  transitGatewayAttachmentId:
+    type: string
+    description: |
+      Identifier of EC2 Transit Gateway Attachment.
+  transitGatewayRouteTableId:
+    type: string
+    description: |
+      Identifier of EC2 Transit Gateway Route Table.
+    willReplaceOnChanges: true
+requiredInputs:
+  - prefixListId
+  - transitGatewayRouteTableId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering PrefixListReference resources.
+  properties:
+    blackhole:
+      type: boolean
+      description: |
+        Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
+    prefixListId:
+      type: string
+      description: |
+        Identifier of EC2 Prefix List.
+      willReplaceOnChanges: true
+    prefixListOwnerId:
+      type: string
+    transitGatewayAttachmentId:
+      type: string
+      description: |
+        Identifier of EC2 Transit Gateway Attachment.
+    transitGatewayRouteTableId:
+      type: string
+      description: |
+        Identifier of EC2 Transit Gateway Route Table.
+      willReplaceOnChanges: true
+  type: object

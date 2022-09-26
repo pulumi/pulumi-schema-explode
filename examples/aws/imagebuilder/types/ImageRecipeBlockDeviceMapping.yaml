@@ -1,0 +1,35 @@
+$token: aws:imagebuilder/ImageRecipeBlockDeviceMapping:ImageRecipeBlockDeviceMapping
+properties:
+  deviceName:
+    type: string
+    description: |
+      Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  ebs:
+    $ref: "#/types/aws:imagebuilder/ImageRecipeBlockDeviceMappingEbs:ImageRecipeBlockDeviceMappingEbs"
+    description: |
+      Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  noDevice:
+    type: boolean
+    description: |
+      Set to `true` to remove a mapping from the parent image.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  virtualName:
+    type: string
+    description: |
+      Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+type: object

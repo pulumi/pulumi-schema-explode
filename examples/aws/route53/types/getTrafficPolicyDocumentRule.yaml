@@ -1,0 +1,69 @@
+$token: aws:route53/getTrafficPolicyDocumentRule:getTrafficPolicyDocumentRule
+properties:
+  geoProximityLocations:
+    type: array
+    items:
+      $ref: "#/types/aws:route53/getTrafficPolicyDocumentRuleGeoProximityLocation:getTrafficPolicyDocumentRuleGeoProximityLocation"
+    description: |
+      Configuration block for when you add a geoproximity rule, you configure Amazon Route 53 to route traffic to your resources based on the geographic location of your resources. Only valid for `geoproximity` type. See below
+    language:
+      python:
+        mapCase: false
+  id:
+    type: string
+    description: |
+      ID of a rule you want to assign.
+    language:
+      python:
+        mapCase: false
+  items:
+    type: array
+    items:
+      $ref: "#/types/aws:route53/getTrafficPolicyDocumentRuleItem:getTrafficPolicyDocumentRuleItem"
+    description: |
+      Configuration block for when you add a multivalue answer rule, you configure your traffic policy to route traffic approximately randomly to your healthy resources.  Only valid for `multivalue` type. See below
+    language:
+      python:
+        mapCase: false
+  locations:
+    type: array
+    items:
+      $ref: "#/types/aws:route53/getTrafficPolicyDocumentRuleLocation:getTrafficPolicyDocumentRuleLocation"
+    description: |
+      Configuration block for when you add a geolocation rule, you configure your traffic policy to route your traffic based on the geographic location of your users.  Only valid for `geo` type. See below
+    language:
+      python:
+        mapCase: false
+  primary:
+    $ref: "#/types/aws:route53/getTrafficPolicyDocumentRulePrimary:getTrafficPolicyDocumentRulePrimary"
+    description: |
+      Configuration block for the settings for the rule or endpoint that you want to route traffic to whenever the corresponding resources are available. Only valid for `failover` type. See below
+    language:
+      python:
+        mapCase: false
+  regions:
+    type: array
+    items:
+      $ref: "#/types/aws:route53/getTrafficPolicyDocumentRuleRegion:getTrafficPolicyDocumentRuleRegion"
+    description: |
+      Region code for the AWS Region that you created the resource in.
+    language:
+      python:
+        mapCase: false
+  secondary:
+    $ref: "#/types/aws:route53/getTrafficPolicyDocumentRuleSecondary:getTrafficPolicyDocumentRuleSecondary"
+    description: |
+      Configuration block for the rule or endpoint that you want to route traffic to whenever the primary resources are not available. Only valid for `failover` type. See below
+    language:
+      python:
+        mapCase: false
+  type:
+    type: string
+    description: |
+      Type of the rule.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - id

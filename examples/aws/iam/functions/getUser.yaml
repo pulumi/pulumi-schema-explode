@@ -1,0 +1,61 @@
+$token: aws:iam/getUser:getUser
+inputs:
+  description: |
+    A collection of arguments for invoking getUser.
+  properties:
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of key-value pairs associated with the user.
+    userName:
+      type: string
+      description: |
+        Friendly IAM user name to match.
+  type: object
+  required:
+    - userName
+outputs:
+  description: |
+    A collection of values returned by getUser.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN assigned by AWS for this user.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    path:
+      type: string
+      description: |
+        Path in which this user was created.
+    permissionsBoundary:
+      type: string
+      description: |
+        The ARN of the policy that is used to set the permissions boundary for the user.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of key-value pairs associated with the user.
+    userId:
+      type: string
+      description: |
+        Unique ID assigned by AWS for this user.
+    userName:
+      type: string
+      description: |
+        Name associated to this User
+  type: object
+  required:
+    - arn
+    - path
+    - permissionsBoundary
+    - tags
+    - userId
+    - userName
+    - id

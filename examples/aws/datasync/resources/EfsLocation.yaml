@@ -1,0 +1,146 @@
+$token: aws:datasync/efsLocation:EfsLocation
+properties:
+  accessPointArn:
+    type: string
+    description: |
+      Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
+  arn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the DataSync Location.
+  ec2Config:
+    $ref: "#/types/aws:datasync/EfsLocationEc2Config:EfsLocationEc2Config"
+    description: |
+      Configuration block containing EC2 configurations for connecting to the EFS File System.
+  efsFileSystemArn:
+    type: string
+    $ref: "#/types/aws:index/aRN:ARN"
+    description: |
+      Amazon Resource Name (ARN) of EFS File System.
+  fileSystemAccessRoleArn:
+    type: string
+    description: |
+      Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
+  inTransitEncryption:
+    type: string
+    description: |
+      Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
+  subdirectory:
+    type: string
+    description: |
+      Subdirectory to perform actions as source or destination. Default `/`.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  uri:
+    type: string
+required:
+  - arn
+  - ec2Config
+  - efsFileSystemArn
+  - tagsAll
+  - uri
+inputProperties:
+  accessPointArn:
+    type: string
+    description: |
+      Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
+    willReplaceOnChanges: true
+  ec2Config:
+    $ref: "#/types/aws:datasync/EfsLocationEc2Config:EfsLocationEc2Config"
+    description: |
+      Configuration block containing EC2 configurations for connecting to the EFS File System.
+    willReplaceOnChanges: true
+  efsFileSystemArn:
+    type: string
+    $ref: "#/types/aws:index/aRN:ARN"
+    description: |
+      Amazon Resource Name (ARN) of EFS File System.
+    willReplaceOnChanges: true
+  fileSystemAccessRoleArn:
+    type: string
+    description: |
+      Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
+    willReplaceOnChanges: true
+  inTransitEncryption:
+    type: string
+    description: |
+      Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
+    willReplaceOnChanges: true
+  subdirectory:
+    type: string
+    description: |
+      Subdirectory to perform actions as source or destination. Default `/`.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+requiredInputs:
+  - ec2Config
+  - efsFileSystemArn
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering EfsLocation resources.
+  properties:
+    accessPointArn:
+      type: string
+      description: |
+        Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
+      willReplaceOnChanges: true
+    arn:
+      type: string
+      description: |
+        Amazon Resource Name (ARN) of the DataSync Location.
+    ec2Config:
+      $ref: "#/types/aws:datasync/EfsLocationEc2Config:EfsLocationEc2Config"
+      description: |
+        Configuration block containing EC2 configurations for connecting to the EFS File System.
+      willReplaceOnChanges: true
+    efsFileSystemArn:
+      type: string
+      $ref: "#/types/aws:index/aRN:ARN"
+      description: |
+        Amazon Resource Name (ARN) of EFS File System.
+      willReplaceOnChanges: true
+    fileSystemAccessRoleArn:
+      type: string
+      description: |
+        Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
+      willReplaceOnChanges: true
+    inTransitEncryption:
+      type: string
+      description: |
+        Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
+      willReplaceOnChanges: true
+    subdirectory:
+      type: string
+      description: |
+        Subdirectory to perform actions as source or destination. Default `/`.
+      willReplaceOnChanges: true
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    uri:
+      type: string
+  type: object

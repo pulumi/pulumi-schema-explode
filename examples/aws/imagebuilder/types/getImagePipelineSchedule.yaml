@@ -1,0 +1,23 @@
+$token: aws:imagebuilder/getImagePipelineSchedule:getImagePipelineSchedule
+properties:
+  pipelineExecutionStartCondition:
+    type: string
+    description: |
+      Condition when the pipeline should trigger a new image build.
+    language:
+      python:
+        mapCase: false
+  scheduleExpression:
+    type: string
+    description: |
+      Cron expression of how often the pipeline start condition is evaluated.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - pipelineExecutionStartCondition
+  - scheduleExpression
+language:
+  nodejs:
+    requiredInputs: []

@@ -1,0 +1,100 @@
+$token: aws:apigatewayv2/getApi:getApi
+inputs:
+  description: |
+    A collection of arguments for invoking getApi.
+  properties:
+    apiId:
+      type: string
+      description: |
+        API identifier.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of resource tags.
+  type: object
+  required:
+    - apiId
+outputs:
+  description: |
+    A collection of values returned by getApi.
+  properties:
+    apiEndpoint:
+      type: string
+      description: |
+        URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
+    apiId:
+      type: string
+    apiKeySelectionExpression:
+      type: string
+      description: |
+        An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
+        Applicable for WebSocket APIs.
+    arn:
+      type: string
+      description: |
+        ARN of the API.
+    corsConfigurations:
+      type: array
+      items:
+        $ref: "#/types/aws:apigatewayv2/getApiCorsConfiguration:getApiCorsConfiguration"
+      description: |
+        Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html).
+        Applicable for HTTP APIs.
+    description:
+      type: string
+      description: |
+        Description of the API.
+    disableExecuteApiEndpoint:
+      type: boolean
+      description: |
+        Whether clients can invoke the API by using the default `execute-api` endpoint.
+    executionArn:
+      type: string
+      description: |
+        The ARN prefix to be used in an `aws.lambda.Permission`'s `source_arn` attribute
+        or in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
+        See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    name:
+      type: string
+      description: |
+        Name of the API.
+    protocolType:
+      type: string
+      description: |
+        API protocol.
+    routeSelectionExpression:
+      type: string
+      description: |
+        The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of resource tags.
+    version:
+      type: string
+      description: |
+        Version identifier for the API.
+  type: object
+  required:
+    - apiEndpoint
+    - apiId
+    - apiKeySelectionExpression
+    - arn
+    - corsConfigurations
+    - description
+    - disableExecuteApiEndpoint
+    - executionArn
+    - name
+    - protocolType
+    - routeSelectionExpression
+    - tags
+    - version
+    - id

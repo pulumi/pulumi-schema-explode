@@ -1,0 +1,41 @@
+$token: aws:imagebuilder/getImagePipelines:getImagePipelines
+inputs:
+  description: |
+    A collection of arguments for invoking getImagePipelines.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:imagebuilder/getImagePipelinesFilter:getImagePipelinesFilter"
+      description: |
+        Configuration block(s) for filtering. Detailed below.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getImagePipelines.
+  properties:
+    arns:
+      type: array
+      items:
+        type: string
+      description: |
+        Set of ARNs of the matched Image Builder Image Pipelines.
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:imagebuilder/getImagePipelinesFilter:getImagePipelinesFilter"
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    names:
+      type: array
+      items:
+        type: string
+      description: |
+        Set of names of the matched Image Builder Image Pipelines.
+  type: object
+  required:
+    - arns
+    - names
+    - id

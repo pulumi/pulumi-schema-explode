@@ -1,0 +1,154 @@
+$token: aws:autoscaling/schedule:Schedule
+properties:
+  arn:
+    type: string
+    description: |
+      ARN assigned by AWS to the autoscaling schedule.
+  autoscalingGroupName:
+    type: string
+    description: |
+      Name or ARN of the Auto Scaling group.
+  desiredCapacity:
+    type: integer
+    description: |
+      Number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
+  endTime:
+    type: string
+    description: |
+      Time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+      If you try to schedule your action in the past, Auto Scaling returns an error message.
+  maxSize:
+    type: integer
+    description: |
+      Maximum size for the Auto Scaling group. Default 0.
+      Set to -1 if you don't want to change the maximum size at the scheduled time.
+  minSize:
+    type: integer
+    description: |
+      Minimum size for the Auto Scaling group. Default 0.
+      Set to -1 if you don't want to change the minimum size at the scheduled time.
+  recurrence:
+    type: string
+    description: |
+      Time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
+  scheduledActionName:
+    type: string
+    description: |
+      Name of this scaling action.
+  startTime:
+    type: string
+    description: |
+      Time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+      If you try to schedule your action in the past, Auto Scaling returns an error message.
+  timeZone:
+    type: string
+    description: |
+      The timezone for the cron expression. Valid values are the canonical names of the IANA time zones (such as Etc/GMT+9 or Pacific/Tahiti).
+required:
+  - arn
+  - autoscalingGroupName
+  - desiredCapacity
+  - endTime
+  - maxSize
+  - minSize
+  - recurrence
+  - scheduledActionName
+  - startTime
+  - timeZone
+inputProperties:
+  autoscalingGroupName:
+    type: string
+    description: |
+      Name or ARN of the Auto Scaling group.
+    willReplaceOnChanges: true
+  desiredCapacity:
+    type: integer
+    description: |
+      Number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
+  endTime:
+    type: string
+    description: |
+      Time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+      If you try to schedule your action in the past, Auto Scaling returns an error message.
+  maxSize:
+    type: integer
+    description: |
+      Maximum size for the Auto Scaling group. Default 0.
+      Set to -1 if you don't want to change the maximum size at the scheduled time.
+  minSize:
+    type: integer
+    description: |
+      Minimum size for the Auto Scaling group. Default 0.
+      Set to -1 if you don't want to change the minimum size at the scheduled time.
+  recurrence:
+    type: string
+    description: |
+      Time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
+  scheduledActionName:
+    type: string
+    description: |
+      Name of this scaling action.
+    willReplaceOnChanges: true
+  startTime:
+    type: string
+    description: |
+      Time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+      If you try to schedule your action in the past, Auto Scaling returns an error message.
+  timeZone:
+    type: string
+    description: |
+      The timezone for the cron expression. Valid values are the canonical names of the IANA time zones (such as Etc/GMT+9 or Pacific/Tahiti).
+requiredInputs:
+  - autoscalingGroupName
+  - scheduledActionName
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Schedule resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN assigned by AWS to the autoscaling schedule.
+    autoscalingGroupName:
+      type: string
+      description: |
+        Name or ARN of the Auto Scaling group.
+      willReplaceOnChanges: true
+    desiredCapacity:
+      type: integer
+      description: |
+        Number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
+    endTime:
+      type: string
+      description: |
+        Time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+        If you try to schedule your action in the past, Auto Scaling returns an error message.
+    maxSize:
+      type: integer
+      description: |
+        Maximum size for the Auto Scaling group. Default 0.
+        Set to -1 if you don't want to change the maximum size at the scheduled time.
+    minSize:
+      type: integer
+      description: |
+        Minimum size for the Auto Scaling group. Default 0.
+        Set to -1 if you don't want to change the minimum size at the scheduled time.
+    recurrence:
+      type: string
+      description: |
+        Time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
+    scheduledActionName:
+      type: string
+      description: |
+        Name of this scaling action.
+      willReplaceOnChanges: true
+    startTime:
+      type: string
+      description: |
+        Time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+        If you try to schedule your action in the past, Auto Scaling returns an error message.
+    timeZone:
+      type: string
+      description: |
+        The timezone for the cron expression. Valid values are the canonical names of the IANA time zones (such as Etc/GMT+9 or Pacific/Tahiti).
+  type: object

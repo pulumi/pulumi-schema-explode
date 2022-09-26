@@ -1,0 +1,156 @@
+$token: aws:memorydb/getCluster:getCluster
+inputs:
+  description: |
+    A collection of arguments for invoking getCluster.
+  properties:
+    name:
+      type: string
+      description: |
+        Name of the cluster.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags assigned to the cluster.
+  type: object
+  required:
+    - name
+outputs:
+  description: |
+    A collection of values returned by getCluster.
+  properties:
+    aclName:
+      type: string
+      description: |
+        Name of the Access Control List associated with the cluster.
+    arn:
+      type: string
+      description: |
+        ARN of the cluster.
+    autoMinorVersionUpgrade:
+      type: boolean
+      description: |
+        True when the cluster allows automatic minor version upgrades.
+        * `cluster_endpoint`
+    clusterEndpoints:
+      type: array
+      items:
+        $ref: "#/types/aws:memorydb/getClusterClusterEndpoint:getClusterClusterEndpoint"
+    description:
+      type: string
+      description: |
+        Description for the cluster.
+    enginePatchVersion:
+      type: string
+      description: |
+        Patch version number of the Redis engine used by the cluster.
+    engineVersion:
+      type: string
+      description: |
+        Version number of the Redis engine used by the cluster.
+    finalSnapshotName:
+      type: string
+      description: |
+        Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    kmsKeyArn:
+      type: string
+      description: |
+        ARN of the KMS key used to encrypt the cluster at rest.
+    maintenanceWindow:
+      type: string
+      description: |
+        Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). Example: `sun:23:00-mon:01:30`.
+    name:
+      type: string
+      description: |
+        Name of this node.
+        * `endpoint`
+    nodeType:
+      type: string
+      description: |
+        Compute and memory capacity of the nodes in the cluster.
+    numReplicasPerShard:
+      type: integer
+      description: |
+        The number of replicas to apply to each shard.
+    numShards:
+      type: integer
+      description: |
+        Number of shards in the cluster.
+    parameterGroupName:
+      type: string
+      description: |
+        The name of the parameter group associated with the cluster.
+    port:
+      type: integer
+      description: |
+        Port number that this node is listening on.
+    securityGroupIds:
+      type: array
+      items:
+        type: string
+      description: |
+        Set of VPC Security Group ID-s associated with this cluster.
+    shards:
+      type: array
+      items:
+        $ref: "#/types/aws:memorydb/getClusterShard:getClusterShard"
+      description: |
+        Set of shards in this cluster.
+    snapshotRetentionLimit:
+      type: integer
+      description: |
+        The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled.
+    snapshotWindow:
+      type: string
+      description: |
+        Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
+    snsTopicArn:
+      type: string
+      description: |
+        ARN of the SNS topic to which cluster notifications are sent.
+        * `subnet_group_name` -The name of the subnet group used for the cluster.
+    subnetGroupName:
+      type: string
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags assigned to the cluster.
+    tlsEnabled:
+      type: boolean
+      description: |
+        When true, in-transit encryption is enabled for the cluster.
+  type: object
+  required:
+    - aclName
+    - arn
+    - autoMinorVersionUpgrade
+    - clusterEndpoints
+    - description
+    - enginePatchVersion
+    - engineVersion
+    - finalSnapshotName
+    - kmsKeyArn
+    - maintenanceWindow
+    - name
+    - nodeType
+    - numReplicasPerShard
+    - numShards
+    - parameterGroupName
+    - port
+    - securityGroupIds
+    - shards
+    - snapshotRetentionLimit
+    - snapshotWindow
+    - snsTopicArn
+    - subnetGroupName
+    - tags
+    - tlsEnabled
+    - id

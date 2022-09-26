@@ -1,0 +1,66 @@
+$token: aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment
+properties:
+  identityPoolId:
+    type: string
+    description: |
+      An identity pool ID in the format `REGION_GUID`.
+  roleMappings:
+    type: array
+    items:
+      $ref: "#/types/aws:cognito/IdentityPoolRoleAttachmentRoleMapping:IdentityPoolRoleAttachmentRoleMapping"
+    description: |
+      A List of Role Mapping.
+  roles:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
+required:
+  - identityPoolId
+  - roles
+inputProperties:
+  identityPoolId:
+    type: string
+    description: |
+      An identity pool ID in the format `REGION_GUID`.
+    willReplaceOnChanges: true
+  roleMappings:
+    type: array
+    items:
+      $ref: "#/types/aws:cognito/IdentityPoolRoleAttachmentRoleMapping:IdentityPoolRoleAttachmentRoleMapping"
+    description: |
+      A List of Role Mapping.
+  roles:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
+    willReplaceOnChanges: true
+requiredInputs:
+  - identityPoolId
+  - roles
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering IdentityPoolRoleAttachment resources.
+  properties:
+    identityPoolId:
+      type: string
+      description: |
+        An identity pool ID in the format `REGION_GUID`.
+      willReplaceOnChanges: true
+    roleMappings:
+      type: array
+      items:
+        $ref: "#/types/aws:cognito/IdentityPoolRoleAttachmentRoleMapping:IdentityPoolRoleAttachmentRoleMapping"
+      description: |
+        A List of Role Mapping.
+    roles:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
+      willReplaceOnChanges: true
+  type: object

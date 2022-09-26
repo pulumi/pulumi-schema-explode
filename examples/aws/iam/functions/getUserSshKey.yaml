@@ -1,0 +1,57 @@
+$token: aws:iam/getUserSshKey:getUserSshKey
+inputs:
+  description: |
+    A collection of arguments for invoking getUserSshKey.
+  properties:
+    encoding:
+      type: string
+      description: |
+        Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
+    sshPublicKeyId:
+      type: string
+      description: |
+        Unique identifier for the SSH public key.
+    username:
+      type: string
+      description: |
+        Name of the IAM user associated with the SSH public key.
+  type: object
+  required:
+    - encoding
+    - sshPublicKeyId
+    - username
+outputs:
+  description: |
+    A collection of values returned by getUserSshKey.
+  properties:
+    encoding:
+      type: string
+    fingerprint:
+      type: string
+      description: |
+        MD5 message digest of the SSH public key.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    publicKey:
+      type: string
+      description: |
+        SSH public key.
+    sshPublicKeyId:
+      type: string
+    status:
+      type: string
+      description: |
+        Status of the SSH public key. Active means that the key can be used for authentication with an CodeCommit repository. Inactive means that the key cannot be used.
+    username:
+      type: string
+  type: object
+  required:
+    - encoding
+    - fingerprint
+    - publicKey
+    - sshPublicKeyId
+    - status
+    - username
+    - id

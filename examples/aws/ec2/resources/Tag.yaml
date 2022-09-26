@@ -1,0 +1,56 @@
+$token: aws:ec2/tag:Tag
+properties:
+  key:
+    type: string
+    description: |
+      The tag name.
+  resourceId:
+    type: string
+    description: |
+      The ID of the EC2 resource to manage the tag for.
+  value:
+    type: string
+    description: |
+      The value of the tag.
+required:
+  - key
+  - resourceId
+  - value
+inputProperties:
+  key:
+    type: string
+    description: |
+      The tag name.
+    willReplaceOnChanges: true
+  resourceId:
+    type: string
+    description: |
+      The ID of the EC2 resource to manage the tag for.
+    willReplaceOnChanges: true
+  value:
+    type: string
+    description: |
+      The value of the tag.
+requiredInputs:
+  - key
+  - resourceId
+  - value
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Tag resources.
+  properties:
+    key:
+      type: string
+      description: |
+        The tag name.
+      willReplaceOnChanges: true
+    resourceId:
+      type: string
+      description: |
+        The ID of the EC2 resource to manage the tag for.
+      willReplaceOnChanges: true
+    value:
+      type: string
+      description: |
+        The value of the tag.
+  type: object

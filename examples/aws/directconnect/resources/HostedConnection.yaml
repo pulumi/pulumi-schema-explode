@@ -1,0 +1,179 @@
+$token: aws:directconnect/hostedConnection:HostedConnection
+properties:
+  awsDevice:
+    type: string
+    description: |
+      The Direct Connect endpoint on which the physical connection terminates.
+  bandwidth:
+    type: string
+    description: |
+      The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
+  connectionId:
+    type: string
+    description: |
+      The ID of the interconnect or LAG.
+  hasLogicalRedundancy:
+    type: string
+    description: |
+      Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
+  jumboFrameCapable:
+    type: boolean
+    description: |
+      Boolean value representing if jumbo frames have been enabled for this connection.
+  lagId:
+    type: string
+    description: |
+      The ID of the LAG.
+  loaIssueTime:
+    type: string
+    description: |
+      The time of the most recent call to [DescribeLoa](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLoa.html) for this connection.
+  location:
+    type: string
+    description: |
+      The location of the connection.
+  name:
+    type: string
+    description: |
+      The name of the connection.
+  ownerAccountId:
+    type: string
+    description: |
+      The ID of the AWS account of the customer for the connection.
+  partnerName:
+    type: string
+    description: |
+      The name of the AWS Direct Connect service provider associated with the connection.
+  providerName:
+    type: string
+    description: |
+      The name of the service provider associated with the connection.
+  region:
+    type: string
+    description: |
+      The AWS Region where the connection is located.
+  state:
+    type: string
+    description: |
+      The state of the connection. Possible values include: ordering, requested, pending, available, down, deleting, deleted, rejected, unknown. See [AllocateHostedConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateHostedConnection.html) for a description of each connection state.
+  vlan:
+    type: integer
+    description: |
+      The dedicated VLAN provisioned to the hosted connection.
+required:
+  - awsDevice
+  - bandwidth
+  - connectionId
+  - hasLogicalRedundancy
+  - jumboFrameCapable
+  - lagId
+  - loaIssueTime
+  - location
+  - name
+  - ownerAccountId
+  - partnerName
+  - providerName
+  - region
+  - state
+  - vlan
+inputProperties:
+  bandwidth:
+    type: string
+    description: |
+      The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
+    willReplaceOnChanges: true
+  connectionId:
+    type: string
+    description: |
+      The ID of the interconnect or LAG.
+    willReplaceOnChanges: true
+  name:
+    type: string
+    description: |
+      The name of the connection.
+    willReplaceOnChanges: true
+  ownerAccountId:
+    type: string
+    description: |
+      The ID of the AWS account of the customer for the connection.
+    willReplaceOnChanges: true
+  vlan:
+    type: integer
+    description: |
+      The dedicated VLAN provisioned to the hosted connection.
+    willReplaceOnChanges: true
+requiredInputs:
+  - bandwidth
+  - connectionId
+  - ownerAccountId
+  - vlan
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering HostedConnection resources.
+  properties:
+    awsDevice:
+      type: string
+      description: |
+        The Direct Connect endpoint on which the physical connection terminates.
+    bandwidth:
+      type: string
+      description: |
+        The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
+      willReplaceOnChanges: true
+    connectionId:
+      type: string
+      description: |
+        The ID of the interconnect or LAG.
+      willReplaceOnChanges: true
+    hasLogicalRedundancy:
+      type: string
+      description: |
+        Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
+    jumboFrameCapable:
+      type: boolean
+      description: |
+        Boolean value representing if jumbo frames have been enabled for this connection.
+    lagId:
+      type: string
+      description: |
+        The ID of the LAG.
+    loaIssueTime:
+      type: string
+      description: |
+        The time of the most recent call to [DescribeLoa](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLoa.html) for this connection.
+    location:
+      type: string
+      description: |
+        The location of the connection.
+    name:
+      type: string
+      description: |
+        The name of the connection.
+      willReplaceOnChanges: true
+    ownerAccountId:
+      type: string
+      description: |
+        The ID of the AWS account of the customer for the connection.
+      willReplaceOnChanges: true
+    partnerName:
+      type: string
+      description: |
+        The name of the AWS Direct Connect service provider associated with the connection.
+    providerName:
+      type: string
+      description: |
+        The name of the service provider associated with the connection.
+    region:
+      type: string
+      description: |
+        The AWS Region where the connection is located.
+    state:
+      type: string
+      description: |
+        The state of the connection. Possible values include: ordering, requested, pending, available, down, deleting, deleted, rejected, unknown. See [AllocateHostedConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateHostedConnection.html) for a description of each connection state.
+    vlan:
+      type: integer
+      description: |
+        The dedicated VLAN provisioned to the hosted connection.
+      willReplaceOnChanges: true
+  type: object

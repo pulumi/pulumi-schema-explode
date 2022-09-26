@@ -1,0 +1,51 @@
+$token: aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy
+properties:
+  accountId:
+    type: string
+  details:
+    $ref: "#/types/aws:s3control/MultiRegionAccessPointPolicyDetails:MultiRegionAccessPointPolicyDetails"
+    description: |
+      A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
+  established:
+    type: string
+    description: |
+      The last established policy for the Multi-Region Access Point.
+  proposed:
+    type: string
+    description: |
+      The proposed policy for the Multi-Region Access Point.
+required:
+  - accountId
+  - details
+  - established
+  - proposed
+inputProperties:
+  accountId:
+    type: string
+    willReplaceOnChanges: true
+  details:
+    $ref: "#/types/aws:s3control/MultiRegionAccessPointPolicyDetails:MultiRegionAccessPointPolicyDetails"
+    description: |
+      A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
+requiredInputs:
+  - details
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering MultiRegionAccessPointPolicy resources.
+  properties:
+    accountId:
+      type: string
+      willReplaceOnChanges: true
+    details:
+      $ref: "#/types/aws:s3control/MultiRegionAccessPointPolicyDetails:MultiRegionAccessPointPolicyDetails"
+      description: |
+        A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
+    established:
+      type: string
+      description: |
+        The last established policy for the Multi-Region Access Point.
+    proposed:
+      type: string
+      description: |
+        The proposed policy for the Multi-Region Access Point.
+  type: object

@@ -1,0 +1,43 @@
+$token: aws:ecrpublic/repositoryPolicy:RepositoryPolicy
+properties:
+  policy:
+    type: string
+  registryId:
+    type: string
+    description: |
+      The registry ID where the repository was created.
+  repositoryName:
+    type: string
+    description: |
+      Name of the repository to apply the policy.
+required:
+  - policy
+  - registryId
+  - repositoryName
+inputProperties:
+  policy:
+    type: string
+  repositoryName:
+    type: string
+    description: |
+      Name of the repository to apply the policy.
+    willReplaceOnChanges: true
+requiredInputs:
+  - policy
+  - repositoryName
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering RepositoryPolicy resources.
+  properties:
+    policy:
+      type: string
+    registryId:
+      type: string
+      description: |
+        The registry ID where the repository was created.
+    repositoryName:
+      type: string
+      description: |
+        Name of the repository to apply the policy.
+      willReplaceOnChanges: true
+  type: object

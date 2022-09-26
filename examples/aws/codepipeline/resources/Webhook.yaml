@@ -1,0 +1,156 @@
+$token: aws:codepipeline/webhook:Webhook
+properties:
+  arn:
+    type: string
+    description: |
+      The CodePipeline webhook's ARN.
+  authentication:
+    type: string
+    description: |
+      The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
+  authenticationConfiguration:
+    $ref: "#/types/aws:codepipeline/WebhookAuthenticationConfiguration:WebhookAuthenticationConfiguration"
+    description: |
+      An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
+  filters:
+    type: array
+    items:
+      $ref: "#/types/aws:codepipeline/WebhookFilter:WebhookFilter"
+    description: |
+      One or more `filter` blocks. Filter blocks are documented below.
+  name:
+    type: string
+    description: |
+      The name of the webhook.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  targetAction:
+    type: string
+    description: |
+      The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
+  targetPipeline:
+    type: string
+    description: |
+      The name of the pipeline.
+  url:
+    type: string
+    description: |
+      The CodePipeline webhook's URL. POST events to this endpoint to trigger the target.
+required:
+  - arn
+  - authentication
+  - filters
+  - name
+  - tagsAll
+  - targetAction
+  - targetPipeline
+  - url
+inputProperties:
+  authentication:
+    type: string
+    description: |
+      The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
+    willReplaceOnChanges: true
+  authenticationConfiguration:
+    $ref: "#/types/aws:codepipeline/WebhookAuthenticationConfiguration:WebhookAuthenticationConfiguration"
+    description: |
+      An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
+    willReplaceOnChanges: true
+  filters:
+    type: array
+    items:
+      $ref: "#/types/aws:codepipeline/WebhookFilter:WebhookFilter"
+    description: |
+      One or more `filter` blocks. Filter blocks are documented below.
+  name:
+    type: string
+    description: |
+      The name of the webhook.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  targetAction:
+    type: string
+    description: |
+      The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
+    willReplaceOnChanges: true
+  targetPipeline:
+    type: string
+    description: |
+      The name of the pipeline.
+    willReplaceOnChanges: true
+requiredInputs:
+  - authentication
+  - filters
+  - targetAction
+  - targetPipeline
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Webhook resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The CodePipeline webhook's ARN.
+    authentication:
+      type: string
+      description: |
+        The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
+      willReplaceOnChanges: true
+    authenticationConfiguration:
+      $ref: "#/types/aws:codepipeline/WebhookAuthenticationConfiguration:WebhookAuthenticationConfiguration"
+      description: |
+        An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
+      willReplaceOnChanges: true
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:codepipeline/WebhookFilter:WebhookFilter"
+      description: |
+        One or more `filter` blocks. Filter blocks are documented below.
+    name:
+      type: string
+      description: |
+        The name of the webhook.
+      willReplaceOnChanges: true
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    targetAction:
+      type: string
+      description: |
+        The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
+      willReplaceOnChanges: true
+    targetPipeline:
+      type: string
+      description: |
+        The name of the pipeline.
+      willReplaceOnChanges: true
+    url:
+      type: string
+      description: |
+        The CodePipeline webhook's URL. POST events to this endpoint to trigger the target.
+  type: object

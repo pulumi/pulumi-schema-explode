@@ -1,0 +1,94 @@
+$token: aws:ec2/vpcIpamScope:VpcIpamScope
+properties:
+  arn:
+    type: string
+  description:
+    type: string
+    description: |
+      A description for the scope you're creating.
+  ipamArn:
+    type: string
+    description: |
+      The ARN of the IPAM for which you're creating this scope.
+  ipamId:
+    type: string
+    description: |
+      The ID of the IPAM for which you're creating this scope.
+  ipamScopeType:
+    type: string
+  isDefault:
+    type: boolean
+    description: |
+      Defines if the scope is the default scope or not.
+  poolCount:
+    type: integer
+    description: |
+      Count of pools under this scope
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+required:
+  - arn
+  - ipamArn
+  - ipamId
+  - ipamScopeType
+  - isDefault
+  - poolCount
+  - tagsAll
+inputProperties:
+  description:
+    type: string
+    description: |
+      A description for the scope you're creating.
+  ipamId:
+    type: string
+    description: |
+      The ID of the IPAM for which you're creating this scope.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+requiredInputs:
+  - ipamId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering VpcIpamScope resources.
+  properties:
+    arn:
+      type: string
+    description:
+      type: string
+      description: |
+        A description for the scope you're creating.
+    ipamArn:
+      type: string
+      description: |
+        The ARN of the IPAM for which you're creating this scope.
+    ipamId:
+      type: string
+      description: |
+        The ID of the IPAM for which you're creating this scope.
+    ipamScopeType:
+      type: string
+    isDefault:
+      type: boolean
+      description: |
+        Defines if the scope is the default scope or not.
+    poolCount:
+      type: integer
+      description: |
+        Count of pools under this scope
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+  type: object

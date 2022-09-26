@@ -1,0 +1,143 @@
+$token: aws:ebs/getSnapshot:getSnapshot
+inputs:
+  description: |
+    A collection of arguments for invoking getSnapshot.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ebs/getSnapshotFilter:getSnapshotFilter"
+      description: |
+        One or more name/value pairs to filter off of. There are
+        several valid keys, for a full reference, check out
+        [describe-snapshots in the AWS CLI reference][1].
+    mostRecent:
+      type: boolean
+      description: |
+        If more than one result is returned, use the most recent snapshot.
+    owners:
+      type: array
+      items:
+        type: string
+      description: |
+        Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
+    restorableByUserIds:
+      type: array
+      items:
+        type: string
+      description: |
+        One or more AWS accounts IDs that can create volumes from the snapshot.
+    snapshotIds:
+      type: array
+      items:
+        type: string
+      description: |
+        Returns information on a specific snapshot_id.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags for the resource.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getSnapshot.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the EBS Snapshot.
+    dataEncryptionKeyId:
+      type: string
+      description: |
+        The data encryption key identifier for the snapshot.
+    description:
+      type: string
+      description: |
+        Description for the snapshot
+    encrypted:
+      type: boolean
+      description: |
+        Whether the snapshot is encrypted.
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ebs/getSnapshotFilter:getSnapshotFilter"
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    kmsKeyId:
+      type: string
+      description: |
+        ARN for the KMS encryption key.
+    mostRecent:
+      type: boolean
+    outpostArn:
+      type: string
+      description: |
+        ARN of the Outpost on which the snapshot is stored.
+    ownerAlias:
+      type: string
+      description: |
+        Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
+    ownerId:
+      type: string
+      description: |
+        AWS account ID of the EBS snapshot owner.
+    owners:
+      type: array
+      items:
+        type: string
+    restorableByUserIds:
+      type: array
+      items:
+        type: string
+    snapshotId:
+      type: string
+      description: |
+        Snapshot ID (e.g., snap-59fcb34e).
+    snapshotIds:
+      type: array
+      items:
+        type: string
+    state:
+      type: string
+      description: |
+        Snapshot state.
+    storageTier:
+      type: string
+      description: |
+        Storage tier in which the snapshot is stored.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags for the resource.
+    volumeId:
+      type: string
+      description: |
+        Volume ID (e.g., vol-59fcb34e).
+    volumeSize:
+      type: integer
+      description: |
+        Size of the drive in GiBs.
+  type: object
+  required:
+    - arn
+    - dataEncryptionKeyId
+    - description
+    - encrypted
+    - kmsKeyId
+    - outpostArn
+    - ownerAlias
+    - ownerId
+    - snapshotId
+    - state
+    - storageTier
+    - tags
+    - volumeId
+    - volumeSize
+    - id

@@ -1,0 +1,98 @@
+$token: aws:s3outposts/endpoint:Endpoint
+properties:
+  arn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the endpoint.
+  cidrBlock:
+    type: string
+    description: |
+      VPC CIDR block of the endpoint.
+  creationTime:
+    type: string
+    description: |
+      UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+  networkInterfaces:
+    type: array
+    items:
+      $ref: "#/types/aws:s3outposts/EndpointNetworkInterface:EndpointNetworkInterface"
+    description: |
+      Set of nested attributes for associated Elastic Network Interfaces (ENIs).
+  outpostId:
+    type: string
+    description: |
+      Identifier of the Outpost to contain this endpoint.
+  securityGroupId:
+    type: string
+    description: |
+      Identifier of the EC2 Security Group.
+  subnetId:
+    type: string
+    description: |
+      Identifier of the EC2 Subnet.
+required:
+  - arn
+  - cidrBlock
+  - creationTime
+  - networkInterfaces
+  - outpostId
+  - securityGroupId
+  - subnetId
+inputProperties:
+  outpostId:
+    type: string
+    description: |
+      Identifier of the Outpost to contain this endpoint.
+    willReplaceOnChanges: true
+  securityGroupId:
+    type: string
+    description: |
+      Identifier of the EC2 Security Group.
+    willReplaceOnChanges: true
+  subnetId:
+    type: string
+    description: |
+      Identifier of the EC2 Subnet.
+    willReplaceOnChanges: true
+requiredInputs:
+  - outpostId
+  - securityGroupId
+  - subnetId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Endpoint resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        Amazon Resource Name (ARN) of the endpoint.
+    cidrBlock:
+      type: string
+      description: |
+        VPC CIDR block of the endpoint.
+    creationTime:
+      type: string
+      description: |
+        UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+    networkInterfaces:
+      type: array
+      items:
+        $ref: "#/types/aws:s3outposts/EndpointNetworkInterface:EndpointNetworkInterface"
+      description: |
+        Set of nested attributes for associated Elastic Network Interfaces (ENIs).
+    outpostId:
+      type: string
+      description: |
+        Identifier of the Outpost to contain this endpoint.
+      willReplaceOnChanges: true
+    securityGroupId:
+      type: string
+      description: |
+        Identifier of the EC2 Security Group.
+      willReplaceOnChanges: true
+    subnetId:
+      type: string
+      description: |
+        Identifier of the EC2 Subnet.
+      willReplaceOnChanges: true
+  type: object

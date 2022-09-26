@@ -1,0 +1,76 @@
+$token: aws:s3/BucketReplicationConfigRule:BucketReplicationConfigRule
+properties:
+  deleteMarkerReplication:
+    $ref: "#/types/aws:s3/BucketReplicationConfigRuleDeleteMarkerReplication:BucketReplicationConfigRuleDeleteMarkerReplication"
+    description: |
+      Whether delete markers are replicated. This argument is only valid with V2 replication configurations (i.e., when `filter` is used)documented below.
+    language:
+      python:
+        mapCase: false
+  destination:
+    $ref: "#/types/aws:s3/BucketReplicationConfigRuleDestination:BucketReplicationConfigRuleDestination"
+    description: |
+      Specifies the destination for the rule documented below.
+    language:
+      python:
+        mapCase: false
+  existingObjectReplication:
+    $ref: "#/types/aws:s3/BucketReplicationConfigRuleExistingObjectReplication:BucketReplicationConfigRuleExistingObjectReplication"
+    description: |
+      Replicate existing objects in the source bucket according to the rule configurations documented below.
+    language:
+      python:
+        mapCase: false
+  filter:
+    $ref: "#/types/aws:s3/BucketReplicationConfigRuleFilter:BucketReplicationConfigRuleFilter"
+    description: |
+      Filter that identifies subset of objects to which the replication rule applies documented below. If not specified, the `rule` will default to using `prefix`.
+    language:
+      python:
+        mapCase: false
+  id:
+    type: string
+    description: |
+      Unique identifier for the rule. Must be less than or equal to 255 characters in length.
+    language:
+      python:
+        mapCase: false
+  prefix:
+    type: string
+    description: |
+      Object key name prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length. Defaults to an empty string (`""`) if `filter` is not specified.
+    deprecationMessage: Use filter instead
+    language:
+      python:
+        mapCase: false
+  priority:
+    type: integer
+    description: |
+      The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
+    language:
+      python:
+        mapCase: false
+  sourceSelectionCriteria:
+    $ref: "#/types/aws:s3/BucketReplicationConfigRuleSourceSelectionCriteria:BucketReplicationConfigRuleSourceSelectionCriteria"
+    description: |
+      Specifies special object selection criteria documented below.
+    language:
+      python:
+        mapCase: false
+  status:
+    type: string
+    description: |
+      The status of the rule. Either `"Enabled"` or `"Disabled"`. The rule is ignored if status is not "Enabled".
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - destination
+  - status
+language:
+  nodejs:
+    requiredOutputs:
+      - destination
+      - id
+      - status

@@ -1,0 +1,35 @@
+$token: aws:iot/TopicRuleS3:TopicRuleS3
+properties:
+  bucketName:
+    type: string
+    description: |
+      The Amazon S3 bucket name.
+    language:
+      python:
+        mapCase: false
+  cannedAcl:
+    type: string
+    description: |
+      The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+    language:
+      python:
+        mapCase: false
+  key:
+    type: string
+    description: |
+      The name of the HTTP header.
+    language:
+      python:
+        mapCase: false
+  roleArn:
+    type: string
+    description: |
+      The IAM role ARN that allows access to the CloudWatch alarm.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - bucketName
+  - key
+  - roleArn

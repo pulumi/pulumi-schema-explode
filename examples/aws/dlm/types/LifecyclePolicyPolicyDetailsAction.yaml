@@ -1,0 +1,22 @@
+$token: aws:dlm/LifecyclePolicyPolicyDetailsAction:LifecyclePolicyPolicyDetailsAction
+properties:
+  crossRegionCopies:
+    type: array
+    items:
+      $ref: "#/types/aws:dlm/LifecyclePolicyPolicyDetailsActionCrossRegionCopy:LifecyclePolicyPolicyDetailsActionCrossRegionCopy"
+    description: |
+      The rule for copying shared snapshots across Regions. See the `cross_region_copy` configuration block.
+    language:
+      python:
+        mapCase: false
+  name:
+    type: string
+    description: |
+      A name for the schedule.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - crossRegionCopies
+  - name

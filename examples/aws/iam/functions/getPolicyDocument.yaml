@@ -1,0 +1,80 @@
+$token: aws:iam/getPolicyDocument:getPolicyDocument
+inputs:
+  description: |
+    A collection of arguments for invoking getPolicyDocument.
+  properties:
+    overrideJson:
+      type: string
+      description: |
+        - IAM policy document whose statements with non-blank `sid`s will override statements with the same `sid` from documents assigned to the `source_json`, `source_policy_documents`, and `override_policy_documents` arguments. Non-overriding statements will be added to the exported document.
+      deprecationMessage: Use the attribute "override_policy_documents" instead.
+    overridePolicyDocuments:
+      type: array
+      items:
+        type: string
+      description: |
+        List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from documents provided in the `source_json` and `source_policy_documents` arguments.  Non-overriding statements will be added to the exported document.
+    policyId:
+      type: string
+      description: |
+        ID for the policy document.
+    sourceJson:
+      type: string
+      description: |
+        - IAM policy document used as a base for the exported policy document. Statements with the same `sid` from documents assigned to the `override_json` and `override_policy_documents` arguments will override source statements.
+      deprecationMessage: Use the attribute "source_policy_documents" instead.
+    sourcePolicyDocuments:
+      type: array
+      items:
+        type: string
+      description: |
+        List of IAM policy documents that are merged together into the exported document. Statements defined in `source_policy_documents` or `source_json` must have unique `sid`s. Statements with the same `sid` from documents assigned to the `override_json` and `override_policy_documents` arguments will override source statements.
+    statements:
+      type: array
+      items:
+        $ref: "#/types/aws:iam/getPolicyDocumentStatement:getPolicyDocumentStatement"
+      description: |
+        Configuration block for a policy statement. Detailed below.
+    version:
+      type: string
+      description: |
+        IAM policy document version. Valid values are `2008-10-17` and `2012-10-17`. Defaults to `2012-10-17`. For more information, see the [AWS IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html).
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getPolicyDocument.
+  properties:
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    json:
+      type: string
+      description: |
+        Standard JSON policy document rendered based on the arguments above.
+    overrideJson:
+      type: string
+      deprecationMessage: Use the attribute "override_policy_documents" instead.
+    overridePolicyDocuments:
+      type: array
+      items:
+        type: string
+    policyId:
+      type: string
+    sourceJson:
+      type: string
+      deprecationMessage: Use the attribute "source_policy_documents" instead.
+    sourcePolicyDocuments:
+      type: array
+      items:
+        type: string
+    statements:
+      type: array
+      items:
+        $ref: "#/types/aws:iam/getPolicyDocumentStatement:getPolicyDocumentStatement"
+    version:
+      type: string
+  type: object
+  required:
+    - json
+    - id

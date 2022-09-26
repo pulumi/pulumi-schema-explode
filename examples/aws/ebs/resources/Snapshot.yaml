@@ -1,0 +1,185 @@
+$token: aws:ebs/snapshot:Snapshot
+properties:
+  arn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the EBS Snapshot.
+  dataEncryptionKeyId:
+    type: string
+    description: |
+      The data encryption key identifier for the snapshot.
+  description:
+    type: string
+    description: |
+      A description of what the snapshot is.
+  encrypted:
+    type: boolean
+    description: |
+      Whether the snapshot is encrypted.
+  kmsKeyId:
+    type: string
+    description: |
+      The ARN for the KMS encryption key.
+  outpostArn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+  ownerAlias:
+    type: string
+    description: |
+      Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
+  ownerId:
+    type: string
+    description: |
+      The AWS account ID of the EBS snapshot owner.
+  permanentRestore:
+    type: boolean
+    description: |
+      Indicates whether to permanently restore an archived snapshot.
+  storageTier:
+    type: string
+    description: |
+      The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the snapshot. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  temporaryRestoreDays:
+    type: integer
+    description: |
+      Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+  volumeId:
+    type: string
+    description: |
+      The Volume ID of which to make a snapshot.
+  volumeSize:
+    type: integer
+    description: |
+      The size of the drive in GiBs.
+required:
+  - arn
+  - dataEncryptionKeyId
+  - encrypted
+  - kmsKeyId
+  - ownerAlias
+  - ownerId
+  - storageTier
+  - tagsAll
+  - volumeId
+  - volumeSize
+inputProperties:
+  description:
+    type: string
+    description: |
+      A description of what the snapshot is.
+    willReplaceOnChanges: true
+  outpostArn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+    willReplaceOnChanges: true
+  permanentRestore:
+    type: boolean
+    description: |
+      Indicates whether to permanently restore an archived snapshot.
+  storageTier:
+    type: string
+    description: |
+      The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the snapshot. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  temporaryRestoreDays:
+    type: integer
+    description: |
+      Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+  volumeId:
+    type: string
+    description: |
+      The Volume ID of which to make a snapshot.
+    willReplaceOnChanges: true
+requiredInputs:
+  - volumeId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Snapshot resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        Amazon Resource Name (ARN) of the EBS Snapshot.
+    dataEncryptionKeyId:
+      type: string
+      description: |
+        The data encryption key identifier for the snapshot.
+    description:
+      type: string
+      description: |
+        A description of what the snapshot is.
+      willReplaceOnChanges: true
+    encrypted:
+      type: boolean
+      description: |
+        Whether the snapshot is encrypted.
+    kmsKeyId:
+      type: string
+      description: |
+        The ARN for the KMS encryption key.
+    outpostArn:
+      type: string
+      description: |
+        The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+      willReplaceOnChanges: true
+    ownerAlias:
+      type: string
+      description: |
+        Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
+    ownerId:
+      type: string
+      description: |
+        The AWS account ID of the EBS snapshot owner.
+    permanentRestore:
+      type: boolean
+      description: |
+        Indicates whether to permanently restore an archived snapshot.
+    storageTier:
+      type: string
+      description: |
+        The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags to assign to the snapshot. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    temporaryRestoreDays:
+      type: integer
+      description: |
+        Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+    volumeId:
+      type: string
+      description: |
+        The Volume ID of which to make a snapshot.
+      willReplaceOnChanges: true
+    volumeSize:
+      type: integer
+      description: |
+        The size of the drive in GiBs.
+  type: object

@@ -1,0 +1,205 @@
+$token: aws:elasticache/globalReplicationGroup:GlobalReplicationGroup
+description: "
+
+
+
+  ## Import
+
+
+  ElastiCache Global Replication Groups can be imported using the `global_replication_group_id`, e.g.,
+
+
+  ```sh
+
+  \ $ pulumi import aws:elasticache/globalReplicationGroup:GlobalReplicationGroup my_global_replication_group okuqm-global-replication-group-1
+
+  ```
+
+
+  \ "
+properties:
+  arn:
+    type: string
+    description: |
+      The ARN of the ElastiCache Global Replication Group.
+  atRestEncryptionEnabled:
+    type: boolean
+    description: |
+      A flag that indicate whether the encryption at rest is enabled.
+  authTokenEnabled:
+    type: boolean
+    description: |
+      A flag that indicate whether AuthToken (password) is enabled.
+  cacheNodeType:
+    type: string
+    description: |
+      The instance class used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+  clusterEnabled:
+    type: boolean
+    description: |
+      Indicates whether the Global Datastore is cluster enabled.
+  engine:
+    type: string
+    description: |
+      The name of the cache engine to be used for the clusters in this global replication group.
+  engineVersion:
+    type: string
+    description: |
+      Redis version to use for the Global Replication Group.
+      When creating, by default the Global Replication Group inherits the version of the primary replication group.
+      If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
+      Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
+      If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+      or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+      The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+  engineVersionActual:
+    type: string
+    description: |
+      The full version number of the cache engine running on the members of this global replication group.
+  globalReplicationGroupDescription:
+    type: string
+    description: |
+      A user-created description for the global replication group.
+  globalReplicationGroupId:
+    type: string
+    description: |
+      The full ID of the global replication group.
+  globalReplicationGroupIdSuffix:
+    type: string
+    description: |
+      The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
+  parameterGroupName:
+    type: string
+    description: |
+      An ElastiCache Parameter Group to use for the Global Replication Group.
+      Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+      Specifying without a major version upgrade will fail.
+      Note that ElastiCache creates a copy of this parameter group for each member replication group.
+  primaryReplicationGroupId:
+    type: string
+    description: |
+      The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
+  transitEncryptionEnabled:
+    type: boolean
+    description: |
+      A flag that indicates whether the encryption in transit is enabled.
+required:
+  - arn
+  - atRestEncryptionEnabled
+  - authTokenEnabled
+  - cacheNodeType
+  - clusterEnabled
+  - engine
+  - engineVersion
+  - engineVersionActual
+  - globalReplicationGroupId
+  - globalReplicationGroupIdSuffix
+  - primaryReplicationGroupId
+  - transitEncryptionEnabled
+inputProperties:
+  engineVersion:
+    type: string
+    description: |
+      Redis version to use for the Global Replication Group.
+      When creating, by default the Global Replication Group inherits the version of the primary replication group.
+      If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
+      Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
+      If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+      or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+      The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+  globalReplicationGroupDescription:
+    type: string
+    description: |
+      A user-created description for the global replication group.
+  globalReplicationGroupIdSuffix:
+    type: string
+    description: |
+      The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
+    willReplaceOnChanges: true
+  parameterGroupName:
+    type: string
+    description: |
+      An ElastiCache Parameter Group to use for the Global Replication Group.
+      Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+      Specifying without a major version upgrade will fail.
+      Note that ElastiCache creates a copy of this parameter group for each member replication group.
+  primaryReplicationGroupId:
+    type: string
+    description: |
+      The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
+    willReplaceOnChanges: true
+requiredInputs:
+  - globalReplicationGroupIdSuffix
+  - primaryReplicationGroupId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering GlobalReplicationGroup resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The ARN of the ElastiCache Global Replication Group.
+    atRestEncryptionEnabled:
+      type: boolean
+      description: |
+        A flag that indicate whether the encryption at rest is enabled.
+    authTokenEnabled:
+      type: boolean
+      description: |
+        A flag that indicate whether AuthToken (password) is enabled.
+    cacheNodeType:
+      type: string
+      description: |
+        The instance class used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+    clusterEnabled:
+      type: boolean
+      description: |
+        Indicates whether the Global Datastore is cluster enabled.
+    engine:
+      type: string
+      description: |
+        The name of the cache engine to be used for the clusters in this global replication group.
+    engineVersion:
+      type: string
+      description: |
+        Redis version to use for the Global Replication Group.
+        When creating, by default the Global Replication Group inherits the version of the primary replication group.
+        If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
+        Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
+        If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+        or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+        The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+    engineVersionActual:
+      type: string
+      description: |
+        The full version number of the cache engine running on the members of this global replication group.
+    globalReplicationGroupDescription:
+      type: string
+      description: |
+        A user-created description for the global replication group.
+    globalReplicationGroupId:
+      type: string
+      description: |
+        The full ID of the global replication group.
+    globalReplicationGroupIdSuffix:
+      type: string
+      description: |
+        The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
+      willReplaceOnChanges: true
+    parameterGroupName:
+      type: string
+      description: |
+        An ElastiCache Parameter Group to use for the Global Replication Group.
+        Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+        Specifying without a major version upgrade will fail.
+        Note that ElastiCache creates a copy of this parameter group for each member replication group.
+    primaryReplicationGroupId:
+      type: string
+      description: |
+        The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
+      willReplaceOnChanges: true
+    transitEncryptionEnabled:
+      type: boolean
+      description: |
+        A flag that indicates whether the encryption in transit is enabled.
+  type: object

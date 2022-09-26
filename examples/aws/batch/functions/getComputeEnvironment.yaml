@@ -1,0 +1,74 @@
+$token: aws:batch/getComputeEnvironment:getComputeEnvironment
+inputs:
+  description: |
+    A collection of arguments for invoking getComputeEnvironment.
+  properties:
+    computeEnvironmentName:
+      type: string
+      description: |
+        Name of the Batch Compute Environment
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags
+  type: object
+  required:
+    - computeEnvironmentName
+outputs:
+  description: |
+    A collection of values returned by getComputeEnvironment.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the compute environment.
+    computeEnvironmentName:
+      type: string
+    ecsClusterArn:
+      type: string
+      description: |
+        ARN of the underlying Amazon ECS cluster used by the compute environment.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    serviceRole:
+      type: string
+      description: |
+        ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+    state:
+      type: string
+      description: |
+        State of the compute environment (for example, `ENABLED` or `DISABLED`). If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues.
+    status:
+      type: string
+      description: |
+        Current status of the compute environment (for example, `CREATING` or `VALID`).
+    statusReason:
+      type: string
+      description: |
+        Short, human-readable string to provide additional details about the current status of the compute environment.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags
+    type:
+      type: string
+      description: |
+        Type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
+  type: object
+  required:
+    - arn
+    - computeEnvironmentName
+    - ecsClusterArn
+    - serviceRole
+    - state
+    - status
+    - statusReason
+    - tags
+    - type
+    - id

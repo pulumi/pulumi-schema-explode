@@ -1,0 +1,63 @@
+$token: aws:sagemaker/device:Device
+properties:
+  agentVersion:
+    type: string
+  arn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) assigned by AWS to this Device.
+  device:
+    $ref: "#/types/aws:sagemaker/DeviceDevice:DeviceDevice"
+    description: |
+      The device to register with SageMaker Edge Manager. See Device details below.
+    language:
+      csharp:
+        name: DeviceDetails
+  deviceFleetName:
+    type: string
+    description: |
+      The name of the Device Fleet.
+required:
+  - agentVersion
+  - arn
+  - device
+  - deviceFleetName
+inputProperties:
+  device:
+    $ref: "#/types/aws:sagemaker/DeviceDevice:DeviceDevice"
+    description: |
+      The device to register with SageMaker Edge Manager. See Device details below.
+    language:
+      csharp:
+        name: DeviceDetails
+  deviceFleetName:
+    type: string
+    description: |
+      The name of the Device Fleet.
+    willReplaceOnChanges: true
+requiredInputs:
+  - device
+  - deviceFleetName
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Device resources.
+  properties:
+    agentVersion:
+      type: string
+    arn:
+      type: string
+      description: |
+        The Amazon Resource Name (ARN) assigned by AWS to this Device.
+    device:
+      $ref: "#/types/aws:sagemaker/DeviceDevice:DeviceDevice"
+      description: |
+        The device to register with SageMaker Edge Manager. See Device details below.
+      language:
+        csharp:
+          name: DeviceDetails
+    deviceFleetName:
+      type: string
+      description: |
+        The name of the Device Fleet.
+      willReplaceOnChanges: true
+  type: object

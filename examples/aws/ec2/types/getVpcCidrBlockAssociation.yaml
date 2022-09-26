@@ -1,0 +1,32 @@
+$token: aws:ec2/getVpcCidrBlockAssociation:getVpcCidrBlockAssociation
+properties:
+  associationId:
+    type: string
+    description: |
+      Association ID for the the IPv4 CIDR block.
+    language:
+      python:
+        mapCase: false
+  cidrBlock:
+    type: string
+    description: |
+      Cidr block of the desired VPC.
+    language:
+      python:
+        mapCase: false
+  state:
+    type: string
+    description: |
+      Current state of the desired VPC.
+      Can be either `"pending"` or `"available"`.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - associationId
+  - cidrBlock
+  - state
+language:
+  nodejs:
+    requiredInputs: []

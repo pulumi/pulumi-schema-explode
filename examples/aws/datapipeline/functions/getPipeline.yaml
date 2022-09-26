@@ -1,0 +1,49 @@
+$token: aws:datapipeline/getPipeline:getPipeline
+inputs:
+  description: |
+    A collection of arguments for invoking getPipeline.
+  properties:
+    pipelineId:
+      type: string
+      description: |
+        ID of the pipeline.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags assigned to the resource.
+  type: object
+  required:
+    - pipelineId
+outputs:
+  description: |
+    A collection of values returned by getPipeline.
+  properties:
+    description:
+      type: string
+      description: |
+        Description of Pipeline.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    name:
+      type: string
+      description: |
+        Name of Pipeline.
+    pipelineId:
+      type: string
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags assigned to the resource.
+  type: object
+  required:
+    - description
+    - name
+    - pipelineId
+    - tags
+    - id

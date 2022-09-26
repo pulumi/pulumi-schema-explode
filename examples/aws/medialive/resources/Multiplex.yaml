@@ -1,0 +1,109 @@
+$token: aws:medialive/multiplex:Multiplex
+properties:
+  arn:
+    type: string
+    description: |
+      ARN of the Multiplex.
+  availabilityZones:
+    type: array
+    items:
+      type: string
+    description: |
+      A list of availability zones. You must specify exactly two.
+  multiplexSettings:
+    $ref: "#/types/aws:medialive/MultiplexMultiplexSettings:MultiplexMultiplexSettings"
+    description: |
+      Multiplex settings. See Multiplex Settings for more details.
+  name:
+    type: string
+    description: |
+      name of Multiplex.
+  startMultiplex:
+    type: boolean
+    description: |
+      Whether to start the Multiplex. Defaults to `false`.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the Multiplex. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+required:
+  - arn
+  - availabilityZones
+  - name
+  - tagsAll
+inputProperties:
+  availabilityZones:
+    type: array
+    items:
+      type: string
+    description: |
+      A list of availability zones. You must specify exactly two.
+    willReplaceOnChanges: true
+  multiplexSettings:
+    $ref: "#/types/aws:medialive/MultiplexMultiplexSettings:MultiplexMultiplexSettings"
+    description: |
+      Multiplex settings. See Multiplex Settings for more details.
+  name:
+    type: string
+    description: |
+      name of Multiplex.
+  startMultiplex:
+    type: boolean
+    description: |
+      Whether to start the Multiplex. Defaults to `false`.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the Multiplex. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+requiredInputs:
+  - availabilityZones
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Multiplex resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the Multiplex.
+    availabilityZones:
+      type: array
+      items:
+        type: string
+      description: |
+        A list of availability zones. You must specify exactly two.
+      willReplaceOnChanges: true
+    multiplexSettings:
+      $ref: "#/types/aws:medialive/MultiplexMultiplexSettings:MultiplexMultiplexSettings"
+      description: |
+        Multiplex settings. See Multiplex Settings for more details.
+    name:
+      type: string
+      description: |
+        name of Multiplex.
+    startMultiplex:
+      type: boolean
+      description: |
+        Whether to start the Multiplex. Defaults to `false`.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags to assign to the Multiplex. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+  type: object

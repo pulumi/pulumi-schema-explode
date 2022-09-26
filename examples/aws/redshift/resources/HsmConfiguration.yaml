@@ -1,0 +1,146 @@
+$token: aws:redshift/hsmConfiguration:HsmConfiguration
+properties:
+  arn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the Hsm Client Certificate.
+  description:
+    type: string
+    description: |
+      A text description of the HSM configuration to be created.
+  hsmConfigurationIdentifier:
+    type: string
+    description: |
+      The identifier to be assigned to the new Amazon Redshift HSM configuration.
+  hsmIpAddress:
+    type: string
+    description: |
+      The IP address that the Amazon Redshift cluster must use to access the HSM.
+  hsmPartitionName:
+    type: string
+    description: |
+      The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
+  hsmPartitionPassword:
+    type: string
+    description: |
+      The password required to access the HSM partition.
+  hsmServerPublicCertificate:
+    type: string
+    description: |
+      The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - arn
+  - description
+  - hsmConfigurationIdentifier
+  - hsmIpAddress
+  - hsmPartitionName
+  - hsmPartitionPassword
+  - hsmServerPublicCertificate
+  - tagsAll
+inputProperties:
+  description:
+    type: string
+    description: |
+      A text description of the HSM configuration to be created.
+    willReplaceOnChanges: true
+  hsmConfigurationIdentifier:
+    type: string
+    description: |
+      The identifier to be assigned to the new Amazon Redshift HSM configuration.
+    willReplaceOnChanges: true
+  hsmIpAddress:
+    type: string
+    description: |
+      The IP address that the Amazon Redshift cluster must use to access the HSM.
+    willReplaceOnChanges: true
+  hsmPartitionName:
+    type: string
+    description: |
+      The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
+    willReplaceOnChanges: true
+  hsmPartitionPassword:
+    type: string
+    description: |
+      The password required to access the HSM partition.
+    willReplaceOnChanges: true
+  hsmServerPublicCertificate:
+    type: string
+    description: |
+      The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+requiredInputs:
+  - description
+  - hsmConfigurationIdentifier
+  - hsmIpAddress
+  - hsmPartitionName
+  - hsmPartitionPassword
+  - hsmServerPublicCertificate
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering HsmConfiguration resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        Amazon Resource Name (ARN) of the Hsm Client Certificate.
+    description:
+      type: string
+      description: |
+        A text description of the HSM configuration to be created.
+      willReplaceOnChanges: true
+    hsmConfigurationIdentifier:
+      type: string
+      description: |
+        The identifier to be assigned to the new Amazon Redshift HSM configuration.
+      willReplaceOnChanges: true
+    hsmIpAddress:
+      type: string
+      description: |
+        The IP address that the Amazon Redshift cluster must use to access the HSM.
+      willReplaceOnChanges: true
+    hsmPartitionName:
+      type: string
+      description: |
+        The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
+      willReplaceOnChanges: true
+    hsmPartitionPassword:
+      type: string
+      description: |
+        The password required to access the HSM partition.
+      willReplaceOnChanges: true
+    hsmServerPublicCertificate:
+      type: string
+      description: |
+        The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
+      willReplaceOnChanges: true
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

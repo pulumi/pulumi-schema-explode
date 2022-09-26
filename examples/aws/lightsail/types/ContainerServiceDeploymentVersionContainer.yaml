@@ -1,0 +1,52 @@
+$token: aws:lightsail/ContainerServiceDeploymentVersionContainer:ContainerServiceDeploymentVersionContainer
+properties:
+  commands:
+    type: array
+    items:
+      type: string
+    description: |
+      The launch command for the container. A list of string.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  containerName:
+    type: string
+    description: |
+      The name for the container.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  environment:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A key-value map of the environment variables of the container.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  image:
+    type: string
+    description: |
+      The name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don't start with a colon. For example, `nginx:latest` or `nginx`.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  ports:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+type: object
+required:
+  - containerName
+  - image

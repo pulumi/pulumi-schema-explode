@@ -1,0 +1,38 @@
+$token: aws:autoscaling/GroupInstanceRefreshPreferences:GroupInstanceRefreshPreferences
+properties:
+  checkpointDelay:
+    type: string
+    description: |
+      Number of seconds to wait after a checkpoint. Defaults to `3600`.
+    language:
+      python:
+        mapCase: false
+  checkpointPercentages:
+    type: array
+    items:
+      type: integer
+    description: |
+      List of percentages for each checkpoint. Values must be unique and in ascending order. To replace all instances, the final number must be `100`.
+    language:
+      python:
+        mapCase: false
+  instanceWarmup:
+    type: string
+    description: |
+      Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
+    language:
+      python:
+        mapCase: false
+  minHealthyPercentage:
+    type: integer
+    description: |
+      Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
+    language:
+      python:
+        mapCase: false
+  skipMatching:
+    type: boolean
+    language:
+      python:
+        mapCase: false
+type: object

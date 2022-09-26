@@ -1,0 +1,73 @@
+$token: aws:appmesh/getMesh:getMesh
+inputs:
+  description: |
+    A collection of arguments for invoking getMesh.
+  properties:
+    meshOwner:
+      type: string
+      description: |
+        AWS account ID of the service mesh's owner.
+    name:
+      type: string
+      description: |
+        Name of the service mesh.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags.
+  type: object
+  required:
+    - name
+outputs:
+  description: |
+    A collection of values returned by getMesh.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the service mesh.
+    createdDate:
+      type: string
+      description: |
+        Creation date of the service mesh.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    lastUpdatedDate:
+      type: string
+      description: |
+        Last update date of the service mesh.
+    meshOwner:
+      type: string
+    name:
+      type: string
+    resourceOwner:
+      type: string
+      description: |
+        Resource owner's AWS account ID.
+    specs:
+      type: array
+      items:
+        $ref: "#/types/aws:appmesh/getMeshSpec:getMeshSpec"
+      description: |
+        Service mesh specification.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags.
+  type: object
+  required:
+    - arn
+    - createdDate
+    - lastUpdatedDate
+    - meshOwner
+    - name
+    - resourceOwner
+    - specs
+    - tags
+    - id

@@ -1,0 +1,96 @@
+$token: aws:networkmanager/getDevice:getDevice
+inputs:
+  description: |
+    A collection of arguments for invoking getDevice.
+  properties:
+    deviceId:
+      type: string
+      description: |
+        ID of the device.
+    globalNetworkId:
+      type: string
+      description: |
+        ID of the global network.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value tags for the device.
+  type: object
+  required:
+    - deviceId
+    - globalNetworkId
+outputs:
+  description: |
+    A collection of values returned by getDevice.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the device.
+    awsLocations:
+      type: array
+      items:
+        $ref: "#/types/aws:networkmanager/getDeviceAwsLocation:getDeviceAwsLocation"
+      description: |
+        AWS location of the device. Documented below.
+    description:
+      type: string
+      description: |
+        Description of the device.
+    deviceId:
+      type: string
+    globalNetworkId:
+      type: string
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    locations:
+      type: array
+      items:
+        $ref: "#/types/aws:networkmanager/getDeviceLocation:getDeviceLocation"
+      description: |
+        Location of the device. Documented below.
+    model:
+      type: string
+      description: |
+        Model of device.
+    serialNumber:
+      type: string
+      description: |
+        Serial number of the device.
+    siteId:
+      type: string
+      description: |
+        ID of the site.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value tags for the device.
+    type:
+      type: string
+      description: |
+        Type of device.
+    vendor:
+      type: string
+      description: |
+        Vendor of the device.
+  type: object
+  required:
+    - arn
+    - awsLocations
+    - description
+    - deviceId
+    - globalNetworkId
+    - locations
+    - model
+    - serialNumber
+    - siteId
+    - tags
+    - type
+    - vendor
+    - id

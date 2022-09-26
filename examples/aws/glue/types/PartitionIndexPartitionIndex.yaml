@@ -1,0 +1,30 @@
+$token: aws:glue/PartitionIndexPartitionIndex:PartitionIndexPartitionIndex
+properties:
+  indexName:
+    type: string
+    description: |
+      Name of the partition index.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  indexStatus:
+    type: string
+    language:
+      python:
+        mapCase: false
+  keys:
+    type: array
+    items:
+      type: string
+    description: |
+      Keys for the partition index.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+type: object
+language:
+  nodejs:
+    requiredOutputs:
+      - indexStatus

@@ -1,0 +1,106 @@
+$token: aws:location/map:Map
+properties:
+  configuration:
+    $ref: "#/types/aws:location/MapConfiguration:MapConfiguration"
+    description: |
+      Configuration block with the map style selected from an available data provider. Detailed below.
+  createTime:
+    type: string
+    description: |
+      The timestamp for when the map resource was created in ISO 8601 format.
+  description:
+    type: string
+    description: |
+      An optional description for the map resource.
+  mapArn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
+  mapName:
+    type: string
+    description: |
+      The name for the map resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  updateTime:
+    type: string
+    description: |
+      The timestamp for when the map resource was last updated in ISO 8601 format.
+required:
+  - configuration
+  - createTime
+  - mapArn
+  - mapName
+  - tagsAll
+  - updateTime
+inputProperties:
+  configuration:
+    $ref: "#/types/aws:location/MapConfiguration:MapConfiguration"
+    description: |
+      Configuration block with the map style selected from an available data provider. Detailed below.
+    willReplaceOnChanges: true
+  description:
+    type: string
+    description: |
+      An optional description for the map resource.
+  mapName:
+    type: string
+    description: |
+      The name for the map resource.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+requiredInputs:
+  - configuration
+  - mapName
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Map resources.
+  properties:
+    configuration:
+      $ref: "#/types/aws:location/MapConfiguration:MapConfiguration"
+      description: |
+        Configuration block with the map style selected from an available data provider. Detailed below.
+      willReplaceOnChanges: true
+    createTime:
+      type: string
+      description: |
+        The timestamp for when the map resource was created in ISO 8601 format.
+    description:
+      type: string
+      description: |
+        An optional description for the map resource.
+    mapArn:
+      type: string
+      description: |
+        The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
+    mapName:
+      type: string
+      description: |
+        The name for the map resource.
+      willReplaceOnChanges: true
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    updateTime:
+      type: string
+      description: |
+        The timestamp for when the map resource was last updated in ISO 8601 format.
+  type: object

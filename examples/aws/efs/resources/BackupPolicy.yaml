@@ -1,0 +1,49 @@
+$token: aws:efs/backupPolicy:BackupPolicy
+properties:
+  backupPolicy:
+    $ref: "#/types/aws:efs/BackupPolicyBackupPolicy:BackupPolicyBackupPolicy"
+    description: |
+      A backup_policy object (documented below).
+    language:
+      csharp:
+        name: BackupPolicyDetails
+  fileSystemId:
+    type: string
+    description: |
+      The ID of the EFS file system.
+required:
+  - backupPolicy
+  - fileSystemId
+inputProperties:
+  backupPolicy:
+    $ref: "#/types/aws:efs/BackupPolicyBackupPolicy:BackupPolicyBackupPolicy"
+    description: |
+      A backup_policy object (documented below).
+    language:
+      csharp:
+        name: BackupPolicyDetails
+  fileSystemId:
+    type: string
+    description: |
+      The ID of the EFS file system.
+    willReplaceOnChanges: true
+requiredInputs:
+  - backupPolicy
+  - fileSystemId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering BackupPolicy resources.
+  properties:
+    backupPolicy:
+      $ref: "#/types/aws:efs/BackupPolicyBackupPolicy:BackupPolicyBackupPolicy"
+      description: |
+        A backup_policy object (documented below).
+      language:
+        csharp:
+          name: BackupPolicyDetails
+    fileSystemId:
+      type: string
+      description: |
+        The ID of the EFS file system.
+      willReplaceOnChanges: true
+  type: object

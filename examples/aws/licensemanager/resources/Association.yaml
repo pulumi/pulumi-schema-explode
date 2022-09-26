@@ -1,0 +1,42 @@
+$token: aws:licensemanager/association:Association
+properties:
+  licenseConfigurationArn:
+    type: string
+    description: |
+      ARN of the license configuration.
+  resourceArn:
+    type: string
+    description: |
+      ARN of the resource associated with the license configuration.
+required:
+  - licenseConfigurationArn
+  - resourceArn
+inputProperties:
+  licenseConfigurationArn:
+    type: string
+    description: |
+      ARN of the license configuration.
+    willReplaceOnChanges: true
+  resourceArn:
+    type: string
+    description: |
+      ARN of the resource associated with the license configuration.
+    willReplaceOnChanges: true
+requiredInputs:
+  - licenseConfigurationArn
+  - resourceArn
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Association resources.
+  properties:
+    licenseConfigurationArn:
+      type: string
+      description: |
+        ARN of the license configuration.
+      willReplaceOnChanges: true
+    resourceArn:
+      type: string
+      description: |
+        ARN of the resource associated with the license configuration.
+      willReplaceOnChanges: true
+  type: object

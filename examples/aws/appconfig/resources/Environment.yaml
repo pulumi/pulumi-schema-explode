@@ -1,0 +1,123 @@
+$token: aws:appconfig/environment:Environment
+properties:
+  applicationId:
+    type: string
+    description: |
+      AppConfig application ID. Must be between 4 and 7 characters in length.
+  arn:
+    type: string
+    description: |
+      ARN of the AppConfig Environment.
+  description:
+    type: string
+    description: |
+      Description of the environment. Can be at most 1024 characters.
+  environmentId:
+    type: string
+    description: |
+      AppConfig environment ID.
+  monitors:
+    type: array
+    items:
+      $ref: "#/types/aws:appconfig/EnvironmentMonitor:EnvironmentMonitor"
+    description: |
+      Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
+  name:
+    type: string
+    description: |
+      Name for the environment. Must be between 1 and 64 characters in length.
+  state:
+    type: string
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - applicationId
+  - arn
+  - environmentId
+  - name
+  - state
+  - tagsAll
+inputProperties:
+  applicationId:
+    type: string
+    description: |
+      AppConfig application ID. Must be between 4 and 7 characters in length.
+    willReplaceOnChanges: true
+  description:
+    type: string
+    description: |
+      Description of the environment. Can be at most 1024 characters.
+  monitors:
+    type: array
+    items:
+      $ref: "#/types/aws:appconfig/EnvironmentMonitor:EnvironmentMonitor"
+    description: |
+      Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
+  name:
+    type: string
+    description: |
+      Name for the environment. Must be between 1 and 64 characters in length.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+requiredInputs:
+  - applicationId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Environment resources.
+  properties:
+    applicationId:
+      type: string
+      description: |
+        AppConfig application ID. Must be between 4 and 7 characters in length.
+      willReplaceOnChanges: true
+    arn:
+      type: string
+      description: |
+        ARN of the AppConfig Environment.
+    description:
+      type: string
+      description: |
+        Description of the environment. Can be at most 1024 characters.
+    environmentId:
+      type: string
+      description: |
+        AppConfig environment ID.
+    monitors:
+      type: array
+      items:
+        $ref: "#/types/aws:appconfig/EnvironmentMonitor:EnvironmentMonitor"
+      description: |
+        Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
+    name:
+      type: string
+      description: |
+        Name for the environment. Must be between 1 and 64 characters in length.
+    state:
+      type: string
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

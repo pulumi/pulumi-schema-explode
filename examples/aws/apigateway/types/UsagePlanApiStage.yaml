@@ -1,0 +1,29 @@
+$token: aws:apigateway/UsagePlanApiStage:UsagePlanApiStage
+properties:
+  apiId:
+    type: string
+    description: |
+      API Id of the associated API stage in a usage plan.
+    language:
+      python:
+        mapCase: false
+  stage:
+    type: string
+    description: |
+      API stage name of the associated API stage in a usage plan.
+    language:
+      python:
+        mapCase: false
+  throttles:
+    type: array
+    items:
+      $ref: "#/types/aws:apigateway/UsagePlanApiStageThrottle:UsagePlanApiStageThrottle"
+    description: |
+      The throttling limits of the usage plan.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - apiId
+  - stage

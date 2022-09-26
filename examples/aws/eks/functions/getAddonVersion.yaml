@@ -1,0 +1,46 @@
+$token: aws:eks/getAddonVersion:getAddonVersion
+inputs:
+  description: |
+    A collection of arguments for invoking getAddonVersion.
+  properties:
+    addonName:
+      type: string
+      description: |
+        Name of the EKS add-on. The name must match one of
+        the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+    kubernetesVersion:
+      type: string
+      description: |
+        Version of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+    mostRecent:
+      type: boolean
+      description: |
+        Determines if the most recent or default version of the addon should be returned.
+  type: object
+  required:
+    - addonName
+    - kubernetesVersion
+outputs:
+  description: |
+    A collection of values returned by getAddonVersion.
+  properties:
+    addonName:
+      type: string
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    kubernetesVersion:
+      type: string
+    mostRecent:
+      type: boolean
+    version:
+      type: string
+      description: |
+        Version of the EKS add-on.
+  type: object
+  required:
+    - addonName
+    - kubernetesVersion
+    - version
+    - id

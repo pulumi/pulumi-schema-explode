@@ -1,0 +1,40 @@
+$token: aws:appstream/FleetComputeCapacity:FleetComputeCapacity
+properties:
+  available:
+    type: integer
+    description: |
+      Number of currently available instances that can be used to stream sessions.
+    language:
+      python:
+        mapCase: false
+  desiredInstances:
+    type: integer
+    description: |
+      Desired number of streaming instances.
+    language:
+      python:
+        mapCase: false
+  inUse:
+    type: integer
+    description: |
+      Number of instances in use for streaming.
+    language:
+      python:
+        mapCase: false
+  running:
+    type: integer
+    description: |
+      Total number of simultaneous streaming instances that are running.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - desiredInstances
+language:
+  nodejs:
+    requiredOutputs:
+      - available
+      - desiredInstances
+      - inUse
+      - running

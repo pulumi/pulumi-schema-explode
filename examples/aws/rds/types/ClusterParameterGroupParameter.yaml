@@ -1,0 +1,29 @@
+$token: aws:rds/ClusterParameterGroupParameter:ClusterParameterGroupParameter
+properties:
+  applyMethod:
+    type: string
+    description: |
+      "immediate" (default), or "pending-reboot". Some
+      engines can't apply some parameters without a reboot, and you will need to
+      specify "pending-reboot" here.
+    language:
+      python:
+        mapCase: false
+  name:
+    type: string
+    description: |
+      The name of the DB parameter.
+    language:
+      python:
+        mapCase: false
+  value:
+    type: string
+    description: |
+      The value of the DB parameter.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - name
+  - value

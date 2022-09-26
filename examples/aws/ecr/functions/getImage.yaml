@@ -1,0 +1,63 @@
+$token: aws:ecr/getImage:getImage
+inputs:
+  description: |
+    A collection of arguments for invoking getImage.
+  properties:
+    imageDigest:
+      type: string
+      description: |
+        Sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
+    imageTag:
+      type: string
+      description: |
+        Tag associated with this image. At least one of `image_digest` or `image_tag` must be specified.
+    registryId:
+      type: string
+      description: |
+        ID of the Registry where the repository resides.
+    repositoryName:
+      type: string
+      description: |
+        Name of the ECR Repository.
+  type: object
+  required:
+    - repositoryName
+outputs:
+  description: |
+    A collection of values returned by getImage.
+  properties:
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    imageDigest:
+      type: string
+    imagePushedAt:
+      type: integer
+      description: |
+        Date and time, expressed as a unix timestamp, at which the current image was pushed to the repository.
+    imageSizeInBytes:
+      type: integer
+      description: |
+        Size, in bytes, of the image in the repository.
+    imageTag:
+      type: string
+    imageTags:
+      type: array
+      items:
+        type: string
+      description: |
+        List of tags associated with this image.
+    registryId:
+      type: string
+    repositoryName:
+      type: string
+  type: object
+  required:
+    - imageDigest
+    - imagePushedAt
+    - imageSizeInBytes
+    - imageTags
+    - registryId
+    - repositoryName
+    - id

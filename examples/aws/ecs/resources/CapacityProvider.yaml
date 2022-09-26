@@ -1,0 +1,77 @@
+$token: aws:ecs/capacityProvider:CapacityProvider
+properties:
+  arn:
+    type: string
+    description: |
+      ARN that identifies the capacity provider.
+  autoScalingGroupProvider:
+    $ref: "#/types/aws:ecs/CapacityProviderAutoScalingGroupProvider:CapacityProviderAutoScalingGroupProvider"
+    description: |
+      Configuration block for the provider for the ECS auto scaling group. Detailed below.
+  name:
+    type: string
+    description: |
+      Name of the capacity provider.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+required:
+  - arn
+  - autoScalingGroupProvider
+  - name
+  - tagsAll
+inputProperties:
+  autoScalingGroupProvider:
+    $ref: "#/types/aws:ecs/CapacityProviderAutoScalingGroupProvider:CapacityProviderAutoScalingGroupProvider"
+    description: |
+      Configuration block for the provider for the ECS auto scaling group. Detailed below.
+    willReplaceOnChanges: true
+  name:
+    type: string
+    description: |
+      Name of the capacity provider.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+requiredInputs:
+  - autoScalingGroupProvider
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering CapacityProvider resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN that identifies the capacity provider.
+    autoScalingGroupProvider:
+      $ref: "#/types/aws:ecs/CapacityProviderAutoScalingGroupProvider:CapacityProviderAutoScalingGroupProvider"
+      description: |
+        Configuration block for the provider for the ECS auto scaling group. Detailed below.
+      willReplaceOnChanges: true
+    name:
+      type: string
+      description: |
+        Name of the capacity provider.
+      willReplaceOnChanges: true
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+  type: object

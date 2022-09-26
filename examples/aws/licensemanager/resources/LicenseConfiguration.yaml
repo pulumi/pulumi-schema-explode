@@ -1,0 +1,144 @@
+$token: aws:licensemanager/licenseConfiguration:LicenseConfiguration
+properties:
+  arn:
+    type: string
+    description: |
+      The license configuration ARN.
+  description:
+    type: string
+    description: |
+      Description of the license configuration.
+  licenseCount:
+    type: integer
+    description: |
+      Number of licenses managed by the license configuration.
+  licenseCountHardLimit:
+    type: boolean
+    description: |
+      Sets the number of available licenses as a hard limit.
+  licenseCountingType:
+    type: string
+    description: |
+      Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
+  licenseRules:
+    type: array
+    items:
+      type: string
+    description: |
+      Array of configured License Manager rules.
+  name:
+    type: string
+    description: |
+      Name of the license configuration.
+  ownerAccountId:
+    type: string
+    description: |
+      Account ID of the owner of the license configuration.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - arn
+  - licenseCountingType
+  - name
+  - ownerAccountId
+  - tagsAll
+inputProperties:
+  description:
+    type: string
+    description: |
+      Description of the license configuration.
+  licenseCount:
+    type: integer
+    description: |
+      Number of licenses managed by the license configuration.
+  licenseCountHardLimit:
+    type: boolean
+    description: |
+      Sets the number of available licenses as a hard limit.
+  licenseCountingType:
+    type: string
+    description: |
+      Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
+    willReplaceOnChanges: true
+  licenseRules:
+    type: array
+    items:
+      type: string
+    description: |
+      Array of configured License Manager rules.
+    willReplaceOnChanges: true
+  name:
+    type: string
+    description: |
+      Name of the license configuration.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+requiredInputs:
+  - licenseCountingType
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering LicenseConfiguration resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The license configuration ARN.
+    description:
+      type: string
+      description: |
+        Description of the license configuration.
+    licenseCount:
+      type: integer
+      description: |
+        Number of licenses managed by the license configuration.
+    licenseCountHardLimit:
+      type: boolean
+      description: |
+        Sets the number of available licenses as a hard limit.
+    licenseCountingType:
+      type: string
+      description: |
+        Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
+      willReplaceOnChanges: true
+    licenseRules:
+      type: array
+      items:
+        type: string
+      description: |
+        Array of configured License Manager rules.
+      willReplaceOnChanges: true
+    name:
+      type: string
+      description: |
+        Name of the license configuration.
+    ownerAccountId:
+      type: string
+      description: |
+        Account ID of the owner of the license configuration.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

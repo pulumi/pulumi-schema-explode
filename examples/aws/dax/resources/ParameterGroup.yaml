@@ -1,0 +1,57 @@
+$token: aws:dax/parameterGroup:ParameterGroup
+properties:
+  description:
+    type: string
+    description: |
+      A description of the parameter group.
+  name:
+    type: string
+    description: |
+      The name of the parameter group.
+  parameters:
+    type: array
+    items:
+      $ref: "#/types/aws:dax/ParameterGroupParameter:ParameterGroupParameter"
+    description: |
+      The parameters of the parameter group.
+required:
+  - name
+  - parameters
+inputProperties:
+  description:
+    type: string
+    description: |
+      A description of the parameter group.
+    willReplaceOnChanges: true
+  name:
+    type: string
+    description: |
+      The name of the parameter group.
+    willReplaceOnChanges: true
+  parameters:
+    type: array
+    items:
+      $ref: "#/types/aws:dax/ParameterGroupParameter:ParameterGroupParameter"
+    description: |
+      The parameters of the parameter group.
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering ParameterGroup resources.
+  properties:
+    description:
+      type: string
+      description: |
+        A description of the parameter group.
+      willReplaceOnChanges: true
+    name:
+      type: string
+      description: |
+        The name of the parameter group.
+      willReplaceOnChanges: true
+    parameters:
+      type: array
+      items:
+        $ref: "#/types/aws:dax/ParameterGroupParameter:ParameterGroupParameter"
+      description: |
+        The parameters of the parameter group.
+  type: object

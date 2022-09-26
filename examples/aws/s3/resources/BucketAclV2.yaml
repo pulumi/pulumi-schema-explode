@@ -1,0 +1,65 @@
+$token: aws:s3/bucketAclV2:BucketAclV2
+properties:
+  accessControlPolicy:
+    $ref: "#/types/aws:s3/BucketAclV2AccessControlPolicy:BucketAclV2AccessControlPolicy"
+    description: |
+      A configuration block that sets the ACL permissions for an object per grantee documented below.
+  acl:
+    type: string
+    description: |
+      The canned ACL to apply to the bucket.
+  bucket:
+    type: string
+    description: |
+      The name of the bucket.
+  expectedBucketOwner:
+    type: string
+    description: |
+      The account ID of the expected bucket owner.
+required:
+  - accessControlPolicy
+  - bucket
+inputProperties:
+  accessControlPolicy:
+    $ref: "#/types/aws:s3/BucketAclV2AccessControlPolicy:BucketAclV2AccessControlPolicy"
+    description: |
+      A configuration block that sets the ACL permissions for an object per grantee documented below.
+  acl:
+    type: string
+    description: |
+      The canned ACL to apply to the bucket.
+  bucket:
+    type: string
+    description: |
+      The name of the bucket.
+    willReplaceOnChanges: true
+  expectedBucketOwner:
+    type: string
+    description: |
+      The account ID of the expected bucket owner.
+    willReplaceOnChanges: true
+requiredInputs:
+  - bucket
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering BucketAclV2 resources.
+  properties:
+    accessControlPolicy:
+      $ref: "#/types/aws:s3/BucketAclV2AccessControlPolicy:BucketAclV2AccessControlPolicy"
+      description: |
+        A configuration block that sets the ACL permissions for an object per grantee documented below.
+    acl:
+      type: string
+      description: |
+        The canned ACL to apply to the bucket.
+    bucket:
+      type: string
+      description: |
+        The name of the bucket.
+      willReplaceOnChanges: true
+    expectedBucketOwner:
+      type: string
+      description: |
+        The account ID of the expected bucket owner.
+      willReplaceOnChanges: true
+  type: object

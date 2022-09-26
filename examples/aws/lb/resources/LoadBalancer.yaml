@@ -1,0 +1,355 @@
+$token: aws:lb/loadBalancer:LoadBalancer
+properties:
+  accessLogs:
+    $ref: "#/types/aws:lb/LoadBalancerAccessLogs:LoadBalancerAccessLogs"
+    description: |
+      An Access Logs block. Access Logs documented below.
+  arn:
+    type: string
+    description: |
+      The ARN of the load balancer (matches `id`).
+  arnSuffix:
+    type: string
+    description: |
+      The ARN suffix for use with CloudWatch Metrics.
+  customerOwnedIpv4Pool:
+    type: string
+    description: |
+      The ID of the customer owned ipv4 pool to use for this load balancer.
+  desyncMitigationMode:
+    type: string
+    description: |
+      Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+  dnsName:
+    type: string
+    description: |
+      The DNS name of the load balancer.
+  dropInvalidHeaderFields:
+    type: boolean
+    description: |
+      Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
+  enableCrossZoneLoadBalancing:
+    type: boolean
+    description: |
+      If true, cross-zone load balancing of the load balancer will be enabled.
+      This is a `network` load balancer feature. Defaults to `false`.
+  enableDeletionProtection:
+    type: boolean
+    description: |
+      If true, deletion of the load balancer will be disabled via
+      the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
+  enableHttp2:
+    type: boolean
+    description: |
+      Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
+  enableWafFailOpen:
+    type: boolean
+    description: |
+      Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
+  idleTimeout:
+    type: integer
+    description: |
+      The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
+  internal:
+    type: boolean
+    description: |
+      If true, the LB will be internal.
+  ipAddressType:
+    type: string
+    description: |
+      The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
+  loadBalancerType:
+    type: string
+    description: |
+      The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
+  name:
+    type: string
+    description: |
+      The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
+      must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
+      this provider will autogenerate a name beginning with `tf-lb`.
+  namePrefix:
+    type: string
+    description: |
+      Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+  preserveHostHeader:
+    type: boolean
+    description: |
+      Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
+  securityGroups:
+    type: array
+    items:
+      type: string
+    description: |
+      A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+  subnetMappings:
+    type: array
+    items:
+      $ref: "#/types/aws:lb/LoadBalancerSubnetMapping:LoadBalancerSubnetMapping"
+    description: |
+      A subnet mapping block as documented below.
+  subnets:
+    type: array
+    items:
+      type: string
+    description: |
+      A list of subnet IDs to attach to the LB. Subnets
+      cannot be updated for Load Balancers of type `network`. Changing this value
+      for load balancers of type `network` will force a recreation of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  vpcId:
+    type: string
+  zoneId:
+    type: string
+    description: |
+      The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
+      * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
+required:
+  - arn
+  - arnSuffix
+  - dnsName
+  - internal
+  - ipAddressType
+  - name
+  - securityGroups
+  - subnetMappings
+  - subnets
+  - tagsAll
+  - vpcId
+  - zoneId
+inputProperties:
+  accessLogs:
+    $ref: "#/types/aws:lb/LoadBalancerAccessLogs:LoadBalancerAccessLogs"
+    description: |
+      An Access Logs block. Access Logs documented below.
+  customerOwnedIpv4Pool:
+    type: string
+    description: |
+      The ID of the customer owned ipv4 pool to use for this load balancer.
+    willReplaceOnChanges: true
+  desyncMitigationMode:
+    type: string
+    description: |
+      Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+  dropInvalidHeaderFields:
+    type: boolean
+    description: |
+      Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
+  enableCrossZoneLoadBalancing:
+    type: boolean
+    description: |
+      If true, cross-zone load balancing of the load balancer will be enabled.
+      This is a `network` load balancer feature. Defaults to `false`.
+  enableDeletionProtection:
+    type: boolean
+    description: |
+      If true, deletion of the load balancer will be disabled via
+      the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
+  enableHttp2:
+    type: boolean
+    description: |
+      Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
+  enableWafFailOpen:
+    type: boolean
+    description: |
+      Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
+  idleTimeout:
+    type: integer
+    description: |
+      The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
+  internal:
+    type: boolean
+    description: |
+      If true, the LB will be internal.
+    willReplaceOnChanges: true
+  ipAddressType:
+    type: string
+    description: |
+      The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
+  loadBalancerType:
+    type: string
+    description: |
+      The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
+    willReplaceOnChanges: true
+  name:
+    type: string
+    description: |
+      The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
+      must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
+      this provider will autogenerate a name beginning with `tf-lb`.
+    willReplaceOnChanges: true
+  namePrefix:
+    type: string
+    description: |
+      Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+    willReplaceOnChanges: true
+  preserveHostHeader:
+    type: boolean
+    description: |
+      Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
+  securityGroups:
+    type: array
+    items:
+      type: string
+    description: |
+      A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+  subnetMappings:
+    type: array
+    items:
+      $ref: "#/types/aws:lb/LoadBalancerSubnetMapping:LoadBalancerSubnetMapping"
+    description: |
+      A subnet mapping block as documented below.
+    willReplaceOnChanges: true
+  subnets:
+    type: array
+    items:
+      type: string
+    description: |
+      A list of subnet IDs to attach to the LB. Subnets
+      cannot be updated for Load Balancers of type `network`. Changing this value
+      for load balancers of type `network` will force a recreation of the resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering LoadBalancer resources.
+  properties:
+    accessLogs:
+      $ref: "#/types/aws:lb/LoadBalancerAccessLogs:LoadBalancerAccessLogs"
+      description: |
+        An Access Logs block. Access Logs documented below.
+    arn:
+      type: string
+      description: |
+        The ARN of the load balancer (matches `id`).
+    arnSuffix:
+      type: string
+      description: |
+        The ARN suffix for use with CloudWatch Metrics.
+    customerOwnedIpv4Pool:
+      type: string
+      description: |
+        The ID of the customer owned ipv4 pool to use for this load balancer.
+      willReplaceOnChanges: true
+    desyncMitigationMode:
+      type: string
+      description: |
+        Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+    dnsName:
+      type: string
+      description: |
+        The DNS name of the load balancer.
+    dropInvalidHeaderFields:
+      type: boolean
+      description: |
+        Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
+    enableCrossZoneLoadBalancing:
+      type: boolean
+      description: |
+        If true, cross-zone load balancing of the load balancer will be enabled.
+        This is a `network` load balancer feature. Defaults to `false`.
+    enableDeletionProtection:
+      type: boolean
+      description: |
+        If true, deletion of the load balancer will be disabled via
+        the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
+    enableHttp2:
+      type: boolean
+      description: |
+        Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
+    enableWafFailOpen:
+      type: boolean
+      description: |
+        Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
+    idleTimeout:
+      type: integer
+      description: |
+        The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
+    internal:
+      type: boolean
+      description: |
+        If true, the LB will be internal.
+      willReplaceOnChanges: true
+    ipAddressType:
+      type: string
+      description: |
+        The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
+    loadBalancerType:
+      type: string
+      description: |
+        The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
+      willReplaceOnChanges: true
+    name:
+      type: string
+      description: |
+        The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
+        must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
+        this provider will autogenerate a name beginning with `tf-lb`.
+      willReplaceOnChanges: true
+    namePrefix:
+      type: string
+      description: |
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+      willReplaceOnChanges: true
+    preserveHostHeader:
+      type: boolean
+      description: |
+        Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
+    securityGroups:
+      type: array
+      items:
+        type: string
+      description: |
+        A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+    subnetMappings:
+      type: array
+      items:
+        $ref: "#/types/aws:lb/LoadBalancerSubnetMapping:LoadBalancerSubnetMapping"
+      description: |
+        A subnet mapping block as documented below.
+      willReplaceOnChanges: true
+    subnets:
+      type: array
+      items:
+        type: string
+      description: |
+        A list of subnet IDs to attach to the LB. Subnets
+        cannot be updated for Load Balancers of type `network`. Changing this value
+        for load balancers of type `network` will force a recreation of the resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    vpcId:
+      type: string
+    zoneId:
+      type: string
+      description: |
+        The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
+        * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
+  type: object
+aliases:
+  - type: aws:elasticloadbalancingv2/loadBalancer:LoadBalancer

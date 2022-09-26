@@ -1,0 +1,76 @@
+$token: aws:opsworks/permission:Permission
+properties:
+  allowSsh:
+    type: boolean
+    description: |
+      Whether the user is allowed to use SSH to communicate with the instance
+  allowSudo:
+    type: boolean
+    description: |
+      Whether the user is allowed to use sudo to elevate privileges
+  level:
+    type: string
+    description: |
+      The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
+  stackId:
+    type: string
+    description: |
+      The stack to set the permissions for
+  userArn:
+    type: string
+    description: |
+      The user's IAM ARN to set permissions for
+required:
+  - allowSsh
+  - allowSudo
+  - level
+  - stackId
+  - userArn
+inputProperties:
+  allowSsh:
+    type: boolean
+    description: |
+      Whether the user is allowed to use SSH to communicate with the instance
+  allowSudo:
+    type: boolean
+    description: |
+      Whether the user is allowed to use sudo to elevate privileges
+  level:
+    type: string
+    description: |
+      The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
+  stackId:
+    type: string
+    description: |
+      The stack to set the permissions for
+  userArn:
+    type: string
+    description: |
+      The user's IAM ARN to set permissions for
+requiredInputs:
+  - userArn
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Permission resources.
+  properties:
+    allowSsh:
+      type: boolean
+      description: |
+        Whether the user is allowed to use SSH to communicate with the instance
+    allowSudo:
+      type: boolean
+      description: |
+        Whether the user is allowed to use sudo to elevate privileges
+    level:
+      type: string
+      description: |
+        The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
+    stackId:
+      type: string
+      description: |
+        The stack to set the permissions for
+    userArn:
+      type: string
+      description: |
+        The user's IAM ARN to set permissions for
+  type: object

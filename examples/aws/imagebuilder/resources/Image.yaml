@@ -1,0 +1,195 @@
+$token: aws:imagebuilder/image:Image
+properties:
+  arn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the image.
+  containerRecipeArn:
+    type: string
+    description: |
+      - Amazon Resource Name (ARN) of the container recipe.
+  dateCreated:
+    type: string
+    description: |
+      Date the image was created.
+  distributionConfigurationArn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+  enhancedImageMetadataEnabled:
+    type: boolean
+    description: |
+      Whether additional information about the image being created is collected. Defaults to `true`.
+  imageRecipeArn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the image recipe.
+  imageTestsConfiguration:
+    $ref: "#/types/aws:imagebuilder/ImageImageTestsConfiguration:ImageImageTestsConfiguration"
+    description: |
+      Configuration block with image tests configuration. Detailed below.
+  infrastructureConfigurationArn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+  name:
+    type: string
+    description: |
+      Name of the AMI.
+  osVersion:
+    type: string
+    description: |
+      Operating System version of the image.
+  outputResources:
+    type: array
+    items:
+      $ref: "#/types/aws:imagebuilder/ImageOutputResource:ImageOutputResource"
+    description: |
+      List of objects with resources created by the image.
+  platform:
+    type: string
+    description: |
+      Platform of the image.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags for the Image Builder Image. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  version:
+    type: string
+    description: |
+      Version of the image.
+required:
+  - arn
+  - dateCreated
+  - imageTestsConfiguration
+  - infrastructureConfigurationArn
+  - name
+  - osVersion
+  - outputResources
+  - platform
+  - tagsAll
+  - version
+inputProperties:
+  containerRecipeArn:
+    type: string
+    description: |
+      - Amazon Resource Name (ARN) of the container recipe.
+    willReplaceOnChanges: true
+  distributionConfigurationArn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+    willReplaceOnChanges: true
+  enhancedImageMetadataEnabled:
+    type: boolean
+    description: |
+      Whether additional information about the image being created is collected. Defaults to `true`.
+    willReplaceOnChanges: true
+  imageRecipeArn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the image recipe.
+    willReplaceOnChanges: true
+  imageTestsConfiguration:
+    $ref: "#/types/aws:imagebuilder/ImageImageTestsConfiguration:ImageImageTestsConfiguration"
+    description: |
+      Configuration block with image tests configuration. Detailed below.
+    willReplaceOnChanges: true
+  infrastructureConfigurationArn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags for the Image Builder Image. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+requiredInputs:
+  - infrastructureConfigurationArn
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Image resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        Amazon Resource Name (ARN) of the image.
+    containerRecipeArn:
+      type: string
+      description: |
+        - Amazon Resource Name (ARN) of the container recipe.
+      willReplaceOnChanges: true
+    dateCreated:
+      type: string
+      description: |
+        Date the image was created.
+    distributionConfigurationArn:
+      type: string
+      description: |
+        Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+      willReplaceOnChanges: true
+    enhancedImageMetadataEnabled:
+      type: boolean
+      description: |
+        Whether additional information about the image being created is collected. Defaults to `true`.
+      willReplaceOnChanges: true
+    imageRecipeArn:
+      type: string
+      description: |
+        Amazon Resource Name (ARN) of the image recipe.
+      willReplaceOnChanges: true
+    imageTestsConfiguration:
+      $ref: "#/types/aws:imagebuilder/ImageImageTestsConfiguration:ImageImageTestsConfiguration"
+      description: |
+        Configuration block with image tests configuration. Detailed below.
+      willReplaceOnChanges: true
+    infrastructureConfigurationArn:
+      type: string
+      description: |
+        Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+      willReplaceOnChanges: true
+    name:
+      type: string
+      description: |
+        Name of the AMI.
+    osVersion:
+      type: string
+      description: |
+        Operating System version of the image.
+    outputResources:
+      type: array
+      items:
+        $ref: "#/types/aws:imagebuilder/ImageOutputResource:ImageOutputResource"
+      description: |
+        List of objects with resources created by the image.
+    platform:
+      type: string
+      description: |
+        Platform of the image.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags for the Image Builder Image. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    version:
+      type: string
+      description: |
+        Version of the image.
+  type: object

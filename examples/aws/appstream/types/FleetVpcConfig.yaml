@@ -1,0 +1,26 @@
+$token: aws:appstream/FleetVpcConfig:FleetVpcConfig
+properties:
+  securityGroupIds:
+    type: array
+    items:
+      type: string
+    description: |
+      Identifiers of the security groups for the fleet or image builder.
+    language:
+      python:
+        mapCase: false
+  subnetIds:
+    type: array
+    items:
+      type: string
+    description: |
+      Identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance.
+    language:
+      python:
+        mapCase: false
+type: object
+language:
+  nodejs:
+    requiredOutputs:
+      - securityGroupIds
+      - subnetIds

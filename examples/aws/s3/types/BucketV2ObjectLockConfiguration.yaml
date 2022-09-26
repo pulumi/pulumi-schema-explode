@@ -1,0 +1,22 @@
+$token: aws:s3/BucketV2ObjectLockConfiguration:BucketV2ObjectLockConfiguration
+properties:
+  objectLockEnabled:
+    type: string
+    description: |
+      Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `object_lock_enabled` instead.
+    deprecationMessage: Use the top-level parameter object_lock_enabled instead
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  rules:
+    type: array
+    items:
+      $ref: "#/types/aws:s3/BucketV2ObjectLockConfigurationRule:BucketV2ObjectLockConfigurationRule"
+    description: |
+      The Object Lock rule in place for this bucket (documented below).
+    deprecationMessage: Use the aws_s3_bucket_object_lock_configuration resource instead
+    language:
+      python:
+        mapCase: false
+type: object

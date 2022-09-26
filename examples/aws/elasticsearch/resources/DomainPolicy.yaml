@@ -1,0 +1,46 @@
+$token: aws:elasticsearch/domainPolicy:DomainPolicy
+properties:
+  accessPolicies:
+    type: string
+    description: |
+      IAM policy document specifying the access policies for the domain
+  domainName:
+    type: string
+    description: |
+      Name of the domain.
+required:
+  - accessPolicies
+  - domainName
+inputProperties:
+  accessPolicies:
+    type: string
+    oneOf:
+      - type: string
+      - type: string
+        $ref: "#/types/aws:iam/documents:PolicyDocument"
+    description: |
+      IAM policy document specifying the access policies for the domain
+  domainName:
+    type: string
+    description: |
+      Name of the domain.
+requiredInputs:
+  - accessPolicies
+  - domainName
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering DomainPolicy resources.
+  properties:
+    accessPolicies:
+      type: string
+      oneOf:
+        - type: string
+        - type: string
+          $ref: "#/types/aws:iam/documents:PolicyDocument"
+      description: |
+        IAM policy document specifying the access policies for the domain
+    domainName:
+      type: string
+      description: |
+        Name of the domain.
+  type: object

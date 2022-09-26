@@ -1,0 +1,67 @@
+$token: aws:apigateway/getSdk:getSdk
+inputs:
+  description: |
+    A collection of arguments for invoking getSdk.
+  properties:
+    parameters:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of query string parameters `sdk_type` properties of the SDK. For SDK Type of `objectivec` or `swift`, a parameter named `classPrefix` is required. For SDK Type of `android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `java`, parameters named `serviceName` and `javaPackageName` are required.
+    restApiId:
+      type: string
+      description: |
+        Identifier of the associated REST API.
+    sdkType:
+      type: string
+      description: |
+        Language for the generated SDK. Currently `java`, `javascript`, `android`, `objectivec` (for iOS), `swift` (for iOS), and `ruby` are supported.
+    stageName:
+      type: string
+      description: |
+        Name of the Stage that will be exported.
+  type: object
+  required:
+    - restApiId
+    - sdkType
+    - stageName
+outputs:
+  description: |
+    A collection of values returned by getSdk.
+  properties:
+    body:
+      type: string
+      description: |
+        SDK as a string.
+    contentDisposition:
+      type: string
+      description: |
+        Content-disposition header value in the HTTP response.
+    contentType:
+      type: string
+      description: |
+        Content-type header value in the HTTP response.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    parameters:
+      type: object
+      additionalProperties:
+        type: string
+    restApiId:
+      type: string
+    sdkType:
+      type: string
+    stageName:
+      type: string
+  type: object
+  required:
+    - body
+    - contentDisposition
+    - contentType
+    - restApiId
+    - sdkType
+    - stageName
+    - id

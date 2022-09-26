@@ -1,0 +1,33 @@
+$token: aws:appsync/GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig:GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig
+properties:
+  authTtl:
+    type: integer
+    description: |
+      Number of milliseconds a token is valid after being authenticated.
+    language:
+      python:
+        mapCase: false
+  clientId:
+    type: string
+    description: |
+      Client identifier of the Relying party at the OpenID identity provider. This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time.
+    language:
+      python:
+        mapCase: false
+  iatTtl:
+    type: integer
+    description: |
+      Number of milliseconds a token is valid after being issued to a user.
+    language:
+      python:
+        mapCase: false
+  issuer:
+    type: string
+    description: |
+      Issuer for the OpenID Connect configuration. The issuer returned by discovery MUST exactly match the value of iss in the ID Token.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - issuer

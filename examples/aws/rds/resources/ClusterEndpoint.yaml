@@ -1,0 +1,141 @@
+$token: aws:rds/clusterEndpoint:ClusterEndpoint
+properties:
+  arn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of cluster
+  clusterEndpointIdentifier:
+    type: string
+    description: |
+      The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+  clusterIdentifier:
+    type: string
+    description: |
+      The cluster identifier.
+  customEndpointType:
+    type: string
+    description: |
+      The type of the endpoint. One of: READER , ANY .
+  endpoint:
+    type: string
+    description: |
+      A custom endpoint for the Aurora cluster
+  excludedMembers:
+    type: array
+    items:
+      type: string
+    description: |
+      List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
+  staticMembers:
+    type: array
+    items:
+      type: string
+    description: |
+      List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - arn
+  - clusterEndpointIdentifier
+  - clusterIdentifier
+  - customEndpointType
+  - endpoint
+  - tagsAll
+inputProperties:
+  clusterEndpointIdentifier:
+    type: string
+    description: |
+      The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+    willReplaceOnChanges: true
+  clusterIdentifier:
+    type: string
+    description: |
+      The cluster identifier.
+    willReplaceOnChanges: true
+  customEndpointType:
+    type: string
+    description: |
+      The type of the endpoint. One of: READER , ANY .
+  excludedMembers:
+    type: array
+    items:
+      type: string
+    description: |
+      List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
+  staticMembers:
+    type: array
+    items:
+      type: string
+    description: |
+      List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+requiredInputs:
+  - clusterEndpointIdentifier
+  - clusterIdentifier
+  - customEndpointType
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering ClusterEndpoint resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        Amazon Resource Name (ARN) of cluster
+    clusterEndpointIdentifier:
+      type: string
+      description: |
+        The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+      willReplaceOnChanges: true
+    clusterIdentifier:
+      type: string
+      description: |
+        The cluster identifier.
+      willReplaceOnChanges: true
+    customEndpointType:
+      type: string
+      description: |
+        The type of the endpoint. One of: READER , ANY .
+    endpoint:
+      type: string
+      description: |
+        A custom endpoint for the Aurora cluster
+    excludedMembers:
+      type: array
+      items:
+        type: string
+      description: |
+        List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
+    staticMembers:
+      type: array
+      items:
+        type: string
+      description: |
+        List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

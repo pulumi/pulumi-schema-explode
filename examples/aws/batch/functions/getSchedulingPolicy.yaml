@@ -1,0 +1,49 @@
+$token: aws:batch/getSchedulingPolicy:getSchedulingPolicy
+inputs:
+  description: |
+    A collection of arguments for invoking getSchedulingPolicy.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the scheduling policy.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags
+  type: object
+  required:
+    - arn
+outputs:
+  description: |
+    A collection of values returned by getSchedulingPolicy.
+  properties:
+    arn:
+      type: string
+    fairSharePolicies:
+      type: array
+      items:
+        $ref: "#/types/aws:batch/getSchedulingPolicyFairSharePolicy:getSchedulingPolicyFairSharePolicy"
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    name:
+      type: string
+      description: |
+        Name of the scheduling policy.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags
+  type: object
+  required:
+    - arn
+    - fairSharePolicies
+    - name
+    - tags
+    - id

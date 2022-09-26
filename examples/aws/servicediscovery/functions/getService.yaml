@@ -1,0 +1,86 @@
+$token: aws:servicediscovery/getService:getService
+inputs:
+  description: |
+    A collection of arguments for invoking getService.
+  properties:
+    name:
+      type: string
+      description: |
+        Name of the service.
+    namespaceId:
+      type: string
+      description: |
+        ID of the namespace that the service belongs to.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  type: object
+  required:
+    - name
+    - namespaceId
+outputs:
+  description: |
+    A collection of values returned by getService.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the service.
+    description:
+      type: string
+      description: |
+        Description of the service.
+    dnsConfigs:
+      type: array
+      items:
+        $ref: "#/types/aws:servicediscovery/getServiceDnsConfig:getServiceDnsConfig"
+      description: |
+        Complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
+    healthCheckConfigs:
+      type: array
+      items:
+        $ref: "#/types/aws:servicediscovery/getServiceHealthCheckConfig:getServiceHealthCheckConfig"
+      description: |
+        Complex type that contains settings for an optional health check. Only for Public DNS namespaces.
+    healthCheckCustomConfigs:
+      type: array
+      items:
+        $ref: "#/types/aws:servicediscovery/getServiceHealthCheckCustomConfig:getServiceHealthCheckCustomConfig"
+      description: |
+        A complex type that contains settings for ECS managed health checks.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    name:
+      type: string
+    namespaceId:
+      type: string
+      description: |
+        ID of the namespace to use for DNS configuration.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object
+  required:
+    - arn
+    - description
+    - dnsConfigs
+    - healthCheckConfigs
+    - healthCheckCustomConfigs
+    - name
+    - namespaceId
+    - tagsAll
+    - id

@@ -1,0 +1,57 @@
+$token: aws:elasticloadbalancing/listenerPolicy:ListenerPolicy
+properties:
+  loadBalancerName:
+    type: string
+    description: |
+      The load balancer to attach the policy to.
+  loadBalancerPort:
+    type: integer
+    description: |
+      The load balancer listener port to apply the policy to.
+  policyNames:
+    type: array
+    items:
+      type: string
+    description: |
+      List of Policy Names to apply to the backend server.
+required:
+  - loadBalancerName
+  - loadBalancerPort
+inputProperties:
+  loadBalancerName:
+    type: string
+    description: |
+      The load balancer to attach the policy to.
+  loadBalancerPort:
+    type: integer
+    description: |
+      The load balancer listener port to apply the policy to.
+  policyNames:
+    type: array
+    items:
+      type: string
+    description: |
+      List of Policy Names to apply to the backend server.
+requiredInputs:
+  - loadBalancerName
+  - loadBalancerPort
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering ListenerPolicy resources.
+  properties:
+    loadBalancerName:
+      type: string
+      description: |
+        The load balancer to attach the policy to.
+    loadBalancerPort:
+      type: integer
+      description: |
+        The load balancer listener port to apply the policy to.
+    policyNames:
+      type: array
+      items:
+        type: string
+      description: |
+        List of Policy Names to apply to the backend server.
+  type: object
+deprecationMessage: aws.elasticloadbalancing.ListenerPolicy has been deprecated in favor of aws.elb.ListenerPolicy

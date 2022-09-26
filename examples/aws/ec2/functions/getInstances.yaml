@@ -1,0 +1,72 @@
+$token: aws:ec2/getInstances:getInstances
+inputs:
+  description: |
+    A collection of arguments for invoking getInstances.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getInstancesFilter:getInstancesFilter"
+      description: |
+        One or more name/value pairs to use as filters. There are
+        several valid keys, for a full reference, check out
+        [describe-instances in the AWS CLI reference][1].
+    instanceStateNames:
+      type: array
+      items:
+        type: string
+      description: |
+        List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
+    instanceTags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags, each pair of which must
+        exactly match a pair on desired instances.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getInstances.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getInstancesFilter:getInstancesFilter"
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    ids:
+      type: array
+      items:
+        type: string
+      description: |
+        IDs of instances found through the filter
+    instanceStateNames:
+      type: array
+      items:
+        type: string
+    instanceTags:
+      type: object
+      additionalProperties:
+        type: string
+    privateIps:
+      type: array
+      items:
+        type: string
+      description: |
+        Private IP addresses of instances found through the filter
+    publicIps:
+      type: array
+      items:
+        type: string
+      description: |
+        Public IP addresses of instances found through the filter
+  type: object
+  required:
+    - ids
+    - instanceTags
+    - privateIps
+    - publicIps
+    - id

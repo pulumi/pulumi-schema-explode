@@ -1,0 +1,30 @@
+$token: aws:cloudsearch/DomainScalingParameters:DomainScalingParameters
+properties:
+  desiredInstanceType:
+    type: string
+    description: |
+      The instance type that you want to preconfigure for your domain. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_ScalingParameters.html) for valid values.
+    language:
+      python:
+        mapCase: false
+  desiredPartitionCount:
+    type: integer
+    description: |
+      The number of partitions you want to preconfigure for your domain. Only valid when you select `search.2xlarge` as the instance type.
+    language:
+      python:
+        mapCase: false
+  desiredReplicationCount:
+    type: integer
+    description: |
+      The number of replicas you want to preconfigure for each index partition.
+    language:
+      python:
+        mapCase: false
+type: object
+language:
+  nodejs:
+    requiredOutputs:
+      - desiredInstanceType
+      - desiredPartitionCount
+      - desiredReplicationCount

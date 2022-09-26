@@ -1,0 +1,52 @@
+$token: aws:ses/mailFrom:MailFrom
+properties:
+  behaviorOnMxFailure:
+    type: string
+    description: |
+      The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
+  domain:
+    type: string
+    description: |
+      Verified domain name or email identity to generate DKIM tokens for.
+  mailFromDomain:
+    type: string
+    description: |
+      Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
+required:
+  - domain
+  - mailFromDomain
+inputProperties:
+  behaviorOnMxFailure:
+    type: string
+    description: |
+      The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
+  domain:
+    type: string
+    description: |
+      Verified domain name or email identity to generate DKIM tokens for.
+    willReplaceOnChanges: true
+  mailFromDomain:
+    type: string
+    description: |
+      Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
+requiredInputs:
+  - domain
+  - mailFromDomain
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering MailFrom resources.
+  properties:
+    behaviorOnMxFailure:
+      type: string
+      description: |
+        The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
+    domain:
+      type: string
+      description: |
+        Verified domain name or email identity to generate DKIM tokens for.
+      willReplaceOnChanges: true
+    mailFromDomain:
+      type: string
+      description: |
+        Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
+  type: object

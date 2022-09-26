@@ -1,0 +1,52 @@
+$token: aws:ec2transitgateway/getVpnAttachment:getVpnAttachment
+inputs:
+  description: |
+    A collection of arguments for invoking getVpnAttachment.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2transitgateway/getVpnAttachmentFilter:getVpnAttachmentFilter"
+      description: |
+        Configuration block(s) for filtering. Detailed below.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
+    transitGatewayId:
+      type: string
+      description: |
+        Identifier of the EC2 Transit Gateway.
+    vpnConnectionId:
+      type: string
+      description: |
+        Identifier of the EC2 VPN Connection.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getVpnAttachment.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2transitgateway/getVpnAttachmentFilter:getVpnAttachmentFilter"
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value tags for the EC2 Transit Gateway VPN Attachment
+    transitGatewayId:
+      type: string
+    vpnConnectionId:
+      type: string
+  type: object
+  required:
+    - tags
+    - id

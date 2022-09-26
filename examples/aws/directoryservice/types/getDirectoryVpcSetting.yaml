@@ -1,0 +1,33 @@
+$token: aws:directoryservice/getDirectoryVpcSetting:getDirectoryVpcSetting
+properties:
+  availabilityZones:
+    type: array
+    items:
+      type: string
+    language:
+      python:
+        mapCase: false
+  subnetIds:
+    type: array
+    items:
+      type: string
+    description: |
+      Identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
+    language:
+      python:
+        mapCase: false
+  vpcId:
+    type: string
+    description: |
+      ID of the VPC that the connector is in.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - availabilityZones
+  - subnetIds
+  - vpcId
+language:
+  nodejs:
+    requiredInputs: []

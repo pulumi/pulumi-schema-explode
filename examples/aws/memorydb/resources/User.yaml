@@ -1,0 +1,105 @@
+$token: aws:memorydb/user:User
+properties:
+  accessString:
+    type: string
+    description: |
+      The access permissions string used for this user.
+  arn:
+    type: string
+    description: |
+      The ARN of the user.
+  authenticationMode:
+    $ref: "#/types/aws:memorydb/UserAuthenticationMode:UserAuthenticationMode"
+    description: |
+      Denotes the user's authentication properties. Detailed below.
+  minimumEngineVersion:
+    type: string
+    description: |
+      The minimum engine version supported for the user.
+      * `authentication_mode` configuration block
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  userName:
+    type: string
+    description: |
+      Name of the MemoryDB user. Up to 40 characters.
+required:
+  - accessString
+  - arn
+  - authenticationMode
+  - minimumEngineVersion
+  - tagsAll
+  - userName
+inputProperties:
+  accessString:
+    type: string
+    description: |
+      The access permissions string used for this user.
+  authenticationMode:
+    $ref: "#/types/aws:memorydb/UserAuthenticationMode:UserAuthenticationMode"
+    description: |
+      Denotes the user's authentication properties. Detailed below.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  userName:
+    type: string
+    description: |
+      Name of the MemoryDB user. Up to 40 characters.
+    willReplaceOnChanges: true
+requiredInputs:
+  - accessString
+  - authenticationMode
+  - userName
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering User resources.
+  properties:
+    accessString:
+      type: string
+      description: |
+        The access permissions string used for this user.
+    arn:
+      type: string
+      description: |
+        The ARN of the user.
+    authenticationMode:
+      $ref: "#/types/aws:memorydb/UserAuthenticationMode:UserAuthenticationMode"
+      description: |
+        Denotes the user's authentication properties. Detailed below.
+    minimumEngineVersion:
+      type: string
+      description: |
+        The minimum engine version supported for the user.
+        * `authentication_mode` configuration block
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    userName:
+      type: string
+      description: |
+        Name of the MemoryDB user. Up to 40 characters.
+      willReplaceOnChanges: true
+  type: object

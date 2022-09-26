@@ -1,0 +1,28 @@
+$token: aws:connect/InstanceStorageConfigStorageConfigKinesisVideoStreamConfig:InstanceStorageConfigStorageConfigKinesisVideoStreamConfig
+properties:
+  encryptionConfig:
+    $ref: "#/types/aws:connect/InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig:InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig"
+    description: |
+      The encryption configuration. Documented below.
+    language:
+      python:
+        mapCase: false
+  prefix:
+    type: string
+    description: |
+      The prefix of the video stream. Minimum length of `1`. Maximum length of `128`. When read from the state, the value returned is `<prefix>-connect-<connect_instance_alias>-contact-` since the API appends additional details to the `prefix`.
+    language:
+      python:
+        mapCase: false
+  retentionPeriodHours:
+    type: integer
+    description: |
+      The number of hours data is retained in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. Minimum value of `0`. Maximum value of `87600`. A value of `0`, indicates that the stream does not persist data.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - encryptionConfig
+  - prefix
+  - retentionPeriodHours

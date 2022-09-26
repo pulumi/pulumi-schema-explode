@@ -1,0 +1,48 @@
+$token: aws:mq/getInstanceTypeOfferings:getInstanceTypeOfferings
+inputs:
+  description: |
+    A collection of arguments for invoking getInstanceTypeOfferings.
+  properties:
+    engineType:
+      type: string
+      description: |
+        Filter response by engine type.
+    hostInstanceType:
+      type: string
+      description: |
+        Filter response by host instance type.
+    storageType:
+      type: string
+      description: |
+        Filter response by storage type.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getInstanceTypeOfferings.
+  properties:
+    brokerInstanceOptions:
+      type: array
+      items:
+        $ref: "#/types/aws:mq/getInstanceTypeOfferingsBrokerInstanceOption:getInstanceTypeOfferingsBrokerInstanceOption"
+      description: |
+        Option for host instance type. See Broker Instance Options below.
+    engineType:
+      type: string
+      description: |
+        Broker's engine type.
+    hostInstanceType:
+      type: string
+      description: |
+        Broker's instance type.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    storageType:
+      type: string
+      description: |
+        Broker's storage type.
+  type: object
+  required:
+    - brokerInstanceOptions
+    - id

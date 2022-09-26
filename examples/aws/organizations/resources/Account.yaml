@@ -1,0 +1,164 @@
+$token: aws:organizations/account:Account
+properties:
+  arn:
+    type: string
+    description: |
+      The ARN for this account.
+  closeOnDeletion:
+    type: boolean
+    description: |
+      If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
+  createGovcloud:
+    type: boolean
+  email:
+    type: string
+    description: |
+      Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
+  govcloudId:
+    type: string
+    description: |
+      ID for a GovCloud account created with the account.
+  iamUserAccessToBilling:
+    type: string
+    description: |
+      If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
+  joinedMethod:
+    type: string
+  joinedTimestamp:
+    type: string
+  name:
+    type: string
+    description: |
+      Friendly name for the member account.
+  parentId:
+    type: string
+    description: |
+      Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
+  roleName:
+    type: string
+    description: |
+      The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the root account, allowing users in the root account to assume the role, as permitted by the root account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so the provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless `ignoreChanges` is used.
+  status:
+    type: string
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - arn
+  - email
+  - govcloudId
+  - joinedMethod
+  - joinedTimestamp
+  - name
+  - parentId
+  - status
+  - tagsAll
+inputProperties:
+  closeOnDeletion:
+    type: boolean
+    description: |
+      If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
+  createGovcloud:
+    type: boolean
+  email:
+    type: string
+    description: |
+      Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
+    willReplaceOnChanges: true
+  iamUserAccessToBilling:
+    type: string
+    description: |
+      If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
+    willReplaceOnChanges: true
+  name:
+    type: string
+    description: |
+      Friendly name for the member account.
+    willReplaceOnChanges: true
+  parentId:
+    type: string
+    description: |
+      Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
+  roleName:
+    type: string
+    description: |
+      The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the root account, allowing users in the root account to assume the role, as permitted by the root account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so the provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless `ignoreChanges` is used.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+requiredInputs:
+  - email
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Account resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The ARN for this account.
+    closeOnDeletion:
+      type: boolean
+      description: |
+        If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
+    createGovcloud:
+      type: boolean
+    email:
+      type: string
+      description: |
+        Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
+      willReplaceOnChanges: true
+    govcloudId:
+      type: string
+      description: |
+        ID for a GovCloud account created with the account.
+    iamUserAccessToBilling:
+      type: string
+      description: |
+        If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
+      willReplaceOnChanges: true
+    joinedMethod:
+      type: string
+    joinedTimestamp:
+      type: string
+    name:
+      type: string
+      description: |
+        Friendly name for the member account.
+      willReplaceOnChanges: true
+    parentId:
+      type: string
+      description: |
+        Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
+    roleName:
+      type: string
+      description: |
+        The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the root account, allowing users in the root account to assume the role, as permitted by the root account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so the provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless `ignoreChanges` is used.
+      willReplaceOnChanges: true
+    status:
+      type: string
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

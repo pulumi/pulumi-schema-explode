@@ -1,0 +1,107 @@
+$token: aws:rum/appMonitor:AppMonitor
+properties:
+  appMonitorConfiguration:
+    $ref: "#/types/aws:rum/AppMonitorAppMonitorConfiguration:AppMonitorAppMonitorConfiguration"
+  arn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) specifying the app monitor.
+  cwLogEnabled:
+    type: boolean
+    description: |
+      Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
+  cwLogGroup:
+    type: string
+    description: |
+      The name of the log group where the copies are stored.
+  domain:
+    type: string
+    description: |
+      configuration data for the app monitor. See app_monitor_configuration below.
+  name:
+    type: string
+    description: |
+      The name of the log stream.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - appMonitorConfiguration
+  - arn
+  - cwLogGroup
+  - domain
+  - name
+  - tagsAll
+inputProperties:
+  appMonitorConfiguration:
+    $ref: "#/types/aws:rum/AppMonitorAppMonitorConfiguration:AppMonitorAppMonitorConfiguration"
+  cwLogEnabled:
+    type: boolean
+    description: |
+      Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
+  domain:
+    type: string
+    description: |
+      configuration data for the app monitor. See app_monitor_configuration below.
+  name:
+    type: string
+    description: |
+      The name of the log stream.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+requiredInputs:
+  - domain
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering AppMonitor resources.
+  properties:
+    appMonitorConfiguration:
+      $ref: "#/types/aws:rum/AppMonitorAppMonitorConfiguration:AppMonitorAppMonitorConfiguration"
+    arn:
+      type: string
+      description: |
+        The Amazon Resource Name (ARN) specifying the app monitor.
+    cwLogEnabled:
+      type: boolean
+      description: |
+        Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
+    cwLogGroup:
+      type: string
+      description: |
+        The name of the log group where the copies are stored.
+    domain:
+      type: string
+      description: |
+        configuration data for the app monitor. See app_monitor_configuration below.
+    name:
+      type: string
+      description: |
+        The name of the log stream.
+      willReplaceOnChanges: true
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

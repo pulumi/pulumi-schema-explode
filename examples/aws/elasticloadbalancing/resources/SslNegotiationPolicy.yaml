@@ -1,0 +1,87 @@
+$token: aws:elasticloadbalancing/sslNegotiationPolicy:SslNegotiationPolicy
+properties:
+  attributes:
+    type: array
+    items:
+      $ref: "#/types/aws:elasticloadbalancing/SslNegotiationPolicyAttribute:SslNegotiationPolicyAttribute"
+    description: |
+      An SSL Negotiation policy attribute. Each has two properties:
+  lbPort:
+    type: integer
+    description: |
+      The load balancer port to which the policy
+      should be applied. This must be an active listener on the load
+      balancer.
+  loadBalancer:
+    type: string
+    description: |
+      The load balancer to which the policy
+      should be attached.
+  name:
+    type: string
+    description: |
+      The name of the attribute
+required:
+  - lbPort
+  - loadBalancer
+  - name
+inputProperties:
+  attributes:
+    type: array
+    items:
+      $ref: "#/types/aws:elasticloadbalancing/SslNegotiationPolicyAttribute:SslNegotiationPolicyAttribute"
+    description: |
+      An SSL Negotiation policy attribute. Each has two properties:
+    willReplaceOnChanges: true
+  lbPort:
+    type: integer
+    description: |
+      The load balancer port to which the policy
+      should be applied. This must be an active listener on the load
+      balancer.
+    willReplaceOnChanges: true
+  loadBalancer:
+    type: string
+    description: |
+      The load balancer to which the policy
+      should be attached.
+    willReplaceOnChanges: true
+  name:
+    type: string
+    description: |
+      The name of the attribute
+    willReplaceOnChanges: true
+requiredInputs:
+  - lbPort
+  - loadBalancer
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering SslNegotiationPolicy resources.
+  properties:
+    attributes:
+      type: array
+      items:
+        $ref: "#/types/aws:elasticloadbalancing/SslNegotiationPolicyAttribute:SslNegotiationPolicyAttribute"
+      description: |
+        An SSL Negotiation policy attribute. Each has two properties:
+      willReplaceOnChanges: true
+    lbPort:
+      type: integer
+      description: |
+        The load balancer port to which the policy
+        should be applied. This must be an active listener on the load
+        balancer.
+      willReplaceOnChanges: true
+    loadBalancer:
+      type: string
+      description: |
+        The load balancer to which the policy
+        should be attached.
+      willReplaceOnChanges: true
+    name:
+      type: string
+      description: |
+        The name of the attribute
+      willReplaceOnChanges: true
+  type: object
+deprecationMessage: aws.elasticloadbalancing.SslNegotiationPolicy has been deprecated in favor of aws.elb.SslNegotiationPolicy

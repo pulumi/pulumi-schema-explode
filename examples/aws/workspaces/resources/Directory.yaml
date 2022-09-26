@@ -1,0 +1,212 @@
+$token: aws:workspaces/directory:Directory
+properties:
+  alias:
+    type: string
+    description: |
+      The directory alias.
+  customerUserName:
+    type: string
+    description: |
+      The user name for the service account.
+  directoryId:
+    type: string
+    description: |
+      The directory identifier for registration in WorkSpaces service.
+  directoryName:
+    type: string
+    description: |
+      The name of the directory.
+  directoryType:
+    type: string
+    description: |
+      The directory type.
+  dnsIpAddresses:
+    type: array
+    items:
+      type: string
+    description: |
+      The IP addresses of the DNS servers for the directory.
+  iamRoleId:
+    type: string
+    description: |
+      The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
+  ipGroupIds:
+    type: array
+    items:
+      type: string
+    description: |
+      The identifiers of the IP access control groups associated with the directory.
+  registrationCode:
+    type: string
+    description: |
+      The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
+  selfServicePermissions:
+    $ref: "#/types/aws:workspaces/DirectorySelfServicePermissions:DirectorySelfServicePermissions"
+    description: |
+      Permissions to enable or disable self-service capabilities. Defined below.
+  subnetIds:
+    type: array
+    items:
+      type: string
+    description: |
+      The identifiers of the subnets where the directory resides.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  workspaceAccessProperties:
+    $ref: "#/types/aws:workspaces/DirectoryWorkspaceAccessProperties:DirectoryWorkspaceAccessProperties"
+    description: |
+      Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
+  workspaceCreationProperties:
+    $ref: "#/types/aws:workspaces/DirectoryWorkspaceCreationProperties:DirectoryWorkspaceCreationProperties"
+    description: |
+      Default properties that are used for creating WorkSpaces. Defined below.
+  workspaceSecurityGroupId:
+    type: string
+    description: |
+      The identifier of the security group that is assigned to new WorkSpaces.
+required:
+  - alias
+  - customerUserName
+  - directoryId
+  - directoryName
+  - directoryType
+  - dnsIpAddresses
+  - iamRoleId
+  - ipGroupIds
+  - registrationCode
+  - selfServicePermissions
+  - subnetIds
+  - tagsAll
+  - workspaceAccessProperties
+  - workspaceCreationProperties
+  - workspaceSecurityGroupId
+inputProperties:
+  directoryId:
+    type: string
+    description: |
+      The directory identifier for registration in WorkSpaces service.
+    willReplaceOnChanges: true
+  ipGroupIds:
+    type: array
+    items:
+      type: string
+    description: |
+      The identifiers of the IP access control groups associated with the directory.
+  selfServicePermissions:
+    $ref: "#/types/aws:workspaces/DirectorySelfServicePermissions:DirectorySelfServicePermissions"
+    description: |
+      Permissions to enable or disable self-service capabilities. Defined below.
+  subnetIds:
+    type: array
+    items:
+      type: string
+    description: |
+      The identifiers of the subnets where the directory resides.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  workspaceAccessProperties:
+    $ref: "#/types/aws:workspaces/DirectoryWorkspaceAccessProperties:DirectoryWorkspaceAccessProperties"
+    description: |
+      Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
+  workspaceCreationProperties:
+    $ref: "#/types/aws:workspaces/DirectoryWorkspaceCreationProperties:DirectoryWorkspaceCreationProperties"
+    description: |
+      Default properties that are used for creating WorkSpaces. Defined below.
+requiredInputs:
+  - directoryId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Directory resources.
+  properties:
+    alias:
+      type: string
+      description: |
+        The directory alias.
+    customerUserName:
+      type: string
+      description: |
+        The user name for the service account.
+    directoryId:
+      type: string
+      description: |
+        The directory identifier for registration in WorkSpaces service.
+      willReplaceOnChanges: true
+    directoryName:
+      type: string
+      description: |
+        The name of the directory.
+    directoryType:
+      type: string
+      description: |
+        The directory type.
+    dnsIpAddresses:
+      type: array
+      items:
+        type: string
+      description: |
+        The IP addresses of the DNS servers for the directory.
+    iamRoleId:
+      type: string
+      description: |
+        The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
+    ipGroupIds:
+      type: array
+      items:
+        type: string
+      description: |
+        The identifiers of the IP access control groups associated with the directory.
+    registrationCode:
+      type: string
+      description: |
+        The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
+    selfServicePermissions:
+      $ref: "#/types/aws:workspaces/DirectorySelfServicePermissions:DirectorySelfServicePermissions"
+      description: |
+        Permissions to enable or disable self-service capabilities. Defined below.
+    subnetIds:
+      type: array
+      items:
+        type: string
+      description: |
+        The identifiers of the subnets where the directory resides.
+      willReplaceOnChanges: true
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    workspaceAccessProperties:
+      $ref: "#/types/aws:workspaces/DirectoryWorkspaceAccessProperties:DirectoryWorkspaceAccessProperties"
+      description: |
+        Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
+    workspaceCreationProperties:
+      $ref: "#/types/aws:workspaces/DirectoryWorkspaceCreationProperties:DirectoryWorkspaceCreationProperties"
+      description: |
+        Default properties that are used for creating WorkSpaces. Defined below.
+    workspaceSecurityGroupId:
+      type: string
+      description: |
+        The identifier of the security group that is assigned to new WorkSpaces.
+  type: object

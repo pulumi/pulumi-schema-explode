@@ -1,0 +1,64 @@
+$token: aws:cloudfront/getResponseHeadersPolicy:getResponseHeadersPolicy
+inputs:
+  description: |
+    A collection of arguments for invoking getResponseHeadersPolicy.
+  properties:
+    id:
+      type: string
+      description: |
+        Identifier for the response headers policy.
+    name:
+      type: string
+      description: |
+        Unique name to identify the response headers policy.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getResponseHeadersPolicy.
+  properties:
+    comment:
+      type: string
+      description: |
+        Comment to describe the response headers policy. The comment cannot be longer than 128 characters.
+    corsConfigs:
+      type: array
+      items:
+        $ref: "#/types/aws:cloudfront/getResponseHeadersPolicyCorsConfig:getResponseHeadersPolicyCorsConfig"
+      description: |
+        Configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
+    customHeadersConfigs:
+      type: array
+      items:
+        $ref: "#/types/aws:cloudfront/getResponseHeadersPolicyCustomHeadersConfig:getResponseHeadersPolicyCustomHeadersConfig"
+      description: |
+        Object that contains an attribute `items` that contains a list of Custom Headers See Custom Header for more information.
+    etag:
+      type: string
+      description: |
+        Current version of the response headers policy.
+    id:
+      type: string
+    name:
+      type: string
+    securityHeadersConfigs:
+      type: array
+      items:
+        $ref: "#/types/aws:cloudfront/getResponseHeadersPolicySecurityHeadersConfig:getResponseHeadersPolicySecurityHeadersConfig"
+      description: |
+        A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
+    serverTimingHeadersConfigs:
+      type: array
+      items:
+        $ref: "#/types/aws:cloudfront/getResponseHeadersPolicyServerTimingHeadersConfig:getResponseHeadersPolicyServerTimingHeadersConfig"
+      description: |
+        (Optional) Configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+  type: object
+  required:
+    - comment
+    - corsConfigs
+    - customHeadersConfigs
+    - etag
+    - id
+    - name
+    - securityHeadersConfigs
+    - serverTimingHeadersConfigs

@@ -1,0 +1,42 @@
+$token: aws:wafregional/webAclAssociation:WebAclAssociation
+properties:
+  resourceArn:
+    type: string
+    description: |
+      ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
+  webAclId:
+    type: string
+    description: |
+      The ID of the WAF Regional WebACL to create an association.
+required:
+  - resourceArn
+  - webAclId
+inputProperties:
+  resourceArn:
+    type: string
+    description: |
+      ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
+    willReplaceOnChanges: true
+  webAclId:
+    type: string
+    description: |
+      The ID of the WAF Regional WebACL to create an association.
+    willReplaceOnChanges: true
+requiredInputs:
+  - resourceArn
+  - webAclId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering WebAclAssociation resources.
+  properties:
+    resourceArn:
+      type: string
+      description: |
+        ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
+      willReplaceOnChanges: true
+    webAclId:
+      type: string
+      description: |
+        The ID of the WAF Regional WebACL to create an association.
+      willReplaceOnChanges: true
+  type: object

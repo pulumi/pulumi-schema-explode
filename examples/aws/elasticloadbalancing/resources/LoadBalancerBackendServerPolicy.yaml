@@ -1,0 +1,57 @@
+$token: aws:elasticloadbalancing/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy
+properties:
+  instancePort:
+    type: integer
+    description: |
+      The instance port to apply the policy to.
+  loadBalancerName:
+    type: string
+    description: |
+      The load balancer to attach the policy to.
+  policyNames:
+    type: array
+    items:
+      type: string
+    description: |
+      List of Policy Names to apply to the backend server.
+required:
+  - instancePort
+  - loadBalancerName
+inputProperties:
+  instancePort:
+    type: integer
+    description: |
+      The instance port to apply the policy to.
+  loadBalancerName:
+    type: string
+    description: |
+      The load balancer to attach the policy to.
+  policyNames:
+    type: array
+    items:
+      type: string
+    description: |
+      List of Policy Names to apply to the backend server.
+requiredInputs:
+  - instancePort
+  - loadBalancerName
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering LoadBalancerBackendServerPolicy resources.
+  properties:
+    instancePort:
+      type: integer
+      description: |
+        The instance port to apply the policy to.
+    loadBalancerName:
+      type: string
+      description: |
+        The load balancer to attach the policy to.
+    policyNames:
+      type: array
+      items:
+        type: string
+      description: |
+        List of Policy Names to apply to the backend server.
+  type: object
+deprecationMessage: aws.elasticloadbalancing.LoadBalancerBackendServerPolicy has been deprecated in favor of aws.elb.LoadBalancerBackendServerPolicy

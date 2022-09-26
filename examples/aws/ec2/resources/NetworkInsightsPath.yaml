@@ -1,0 +1,136 @@
+$token: aws:ec2/networkInsightsPath:NetworkInsightsPath
+properties:
+  arn:
+    type: string
+    description: |
+      ARN of the Network Insights Path.
+  destination:
+    type: string
+    description: |
+      ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+  destinationIp:
+    type: string
+    description: |
+      IP address of the destination resource.
+  destinationPort:
+    type: integer
+    description: |
+      Destination port to analyze access to.
+  protocol:
+    type: string
+    description: |
+      Protocol to use for analysis. Valid options are `tcp` or `udp`.
+  source:
+    type: string
+    description: |
+      ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+  sourceIp:
+    type: string
+    description: |
+      IP address of the source resource.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+required:
+  - arn
+  - destination
+  - protocol
+  - source
+  - tagsAll
+inputProperties:
+  destination:
+    type: string
+    description: |
+      ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+    willReplaceOnChanges: true
+  destinationIp:
+    type: string
+    description: |
+      IP address of the destination resource.
+    willReplaceOnChanges: true
+  destinationPort:
+    type: integer
+    description: |
+      Destination port to analyze access to.
+    willReplaceOnChanges: true
+  protocol:
+    type: string
+    description: |
+      Protocol to use for analysis. Valid options are `tcp` or `udp`.
+    willReplaceOnChanges: true
+  source:
+    type: string
+    description: |
+      ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+    willReplaceOnChanges: true
+  sourceIp:
+    type: string
+    description: |
+      IP address of the source resource.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+requiredInputs:
+  - destination
+  - protocol
+  - source
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering NetworkInsightsPath resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the Network Insights Path.
+    destination:
+      type: string
+      description: |
+        ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+      willReplaceOnChanges: true
+    destinationIp:
+      type: string
+      description: |
+        IP address of the destination resource.
+      willReplaceOnChanges: true
+    destinationPort:
+      type: integer
+      description: |
+        Destination port to analyze access to.
+      willReplaceOnChanges: true
+    protocol:
+      type: string
+      description: |
+        Protocol to use for analysis. Valid options are `tcp` or `udp`.
+      willReplaceOnChanges: true
+    source:
+      type: string
+      description: |
+        ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
+      willReplaceOnChanges: true
+    sourceIp:
+      type: string
+      description: |
+        IP address of the source resource.
+      willReplaceOnChanges: true
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+  type: object

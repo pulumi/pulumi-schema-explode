@@ -1,0 +1,38 @@
+$token: aws:ec2/VpcEndpointServicePrivateDnsNameConfiguration:VpcEndpointServicePrivateDnsNameConfiguration
+properties:
+  name:
+    type: string
+    description: |
+      Name of the record subdomain the service provider needs to create.
+    language:
+      python:
+        mapCase: false
+  state:
+    type: string
+    description: |
+      Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
+    language:
+      python:
+        mapCase: false
+  type:
+    type: string
+    description: |
+      Endpoint service verification type, for example `TXT`.
+    language:
+      python:
+        mapCase: false
+  value:
+    type: string
+    description: |
+      Value the service provider adds to the private DNS name domain record before verification.
+    language:
+      python:
+        mapCase: false
+type: object
+language:
+  nodejs:
+    requiredOutputs:
+      - name
+      - state
+      - type
+      - value

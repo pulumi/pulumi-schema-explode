@@ -1,0 +1,38 @@
+$token: aws:route53/hostedZoneDnsSec:HostedZoneDnsSec
+properties:
+  hostedZoneId:
+    type: string
+    description: |
+      Identifier of the Route 53 Hosted Zone.
+  signingStatus:
+    type: string
+    description: |
+      Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
+required:
+  - hostedZoneId
+inputProperties:
+  hostedZoneId:
+    type: string
+    description: |
+      Identifier of the Route 53 Hosted Zone.
+    willReplaceOnChanges: true
+  signingStatus:
+    type: string
+    description: |
+      Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
+requiredInputs:
+  - hostedZoneId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering HostedZoneDnsSec resources.
+  properties:
+    hostedZoneId:
+      type: string
+      description: |
+        Identifier of the Route 53 Hosted Zone.
+      willReplaceOnChanges: true
+    signingStatus:
+      type: string
+      description: |
+        Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
+  type: object

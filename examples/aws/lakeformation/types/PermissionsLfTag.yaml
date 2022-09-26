@@ -1,0 +1,37 @@
+$token: aws:lakeformation/PermissionsLfTag:PermissionsLfTag
+properties:
+  catalogId:
+    type: string
+    description: |
+      Identifier for the Data Catalog. By default, it is the account ID of the caller.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  key:
+    type: string
+    description: |
+      The key-name of an LF-Tag.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  values:
+    type: array
+    items:
+      type: string
+    description: |
+      A list of possible values of an LF-Tag.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - key
+  - values
+language:
+  nodejs:
+    requiredOutputs:
+      - catalogId
+      - key
+      - values

@@ -1,0 +1,122 @@
+$token: aws:lambda/layerVersionPermission:LayerVersionPermission
+properties:
+  action:
+    type: string
+    description: |
+      Action, which will be allowed. `lambda:GetLayerVersion` value is suggested by AWS documantation.
+  layerName:
+    type: string
+    description: |
+      The name or ARN of the Lambda Layer, which you want to grant access to.
+  organizationId:
+    type: string
+    description: |
+      An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organization_id` provided.
+  policy:
+    type: string
+    description: |
+      Full Lambda Layer Permission policy.
+  principal:
+    type: string
+    description: |
+      AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
+  revisionId:
+    type: string
+    description: |
+      A unique identifier for the current revision of the policy.
+  statementId:
+    type: string
+    description: |
+      The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
+  versionNumber:
+    type: integer
+    description: |
+      Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
+required:
+  - action
+  - layerName
+  - policy
+  - principal
+  - revisionId
+  - statementId
+  - versionNumber
+inputProperties:
+  action:
+    type: string
+    description: |
+      Action, which will be allowed. `lambda:GetLayerVersion` value is suggested by AWS documantation.
+    willReplaceOnChanges: true
+  layerName:
+    type: string
+    description: |
+      The name or ARN of the Lambda Layer, which you want to grant access to.
+    willReplaceOnChanges: true
+  organizationId:
+    type: string
+    description: |
+      An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organization_id` provided.
+    willReplaceOnChanges: true
+  principal:
+    type: string
+    description: |
+      AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
+    willReplaceOnChanges: true
+  statementId:
+    type: string
+    description: |
+      The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
+    willReplaceOnChanges: true
+  versionNumber:
+    type: integer
+    description: |
+      Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
+    willReplaceOnChanges: true
+requiredInputs:
+  - action
+  - layerName
+  - principal
+  - statementId
+  - versionNumber
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering LayerVersionPermission resources.
+  properties:
+    action:
+      type: string
+      description: |
+        Action, which will be allowed. `lambda:GetLayerVersion` value is suggested by AWS documantation.
+      willReplaceOnChanges: true
+    layerName:
+      type: string
+      description: |
+        The name or ARN of the Lambda Layer, which you want to grant access to.
+      willReplaceOnChanges: true
+    organizationId:
+      type: string
+      description: |
+        An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organization_id` provided.
+      willReplaceOnChanges: true
+    policy:
+      type: string
+      description: |
+        Full Lambda Layer Permission policy.
+    principal:
+      type: string
+      description: |
+        AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
+      willReplaceOnChanges: true
+    revisionId:
+      type: string
+      description: |
+        A unique identifier for the current revision of the policy.
+    statementId:
+      type: string
+      description: |
+        The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
+      willReplaceOnChanges: true
+    versionNumber:
+      type: integer
+      description: |
+        Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
+      willReplaceOnChanges: true
+  type: object

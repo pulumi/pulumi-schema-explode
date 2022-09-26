@@ -1,0 +1,24 @@
+$token: aws:cloudfront/DistributionTrustedSignerItem:DistributionTrustedSignerItem
+properties:
+  awsAccountNumber:
+    type: string
+    description: |
+      AWS account ID or `self`
+    language:
+      python:
+        mapCase: false
+  keyPairIds:
+    type: array
+    items:
+      type: string
+    description: |
+      Set of active CloudFront key pairs associated with the signer account
+    language:
+      python:
+        mapCase: false
+type: object
+language:
+  nodejs:
+    requiredOutputs:
+      - awsAccountNumber
+      - keyPairIds

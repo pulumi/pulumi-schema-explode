@@ -1,0 +1,87 @@
+$token: aws:connect/getHoursOfOperation:getHoursOfOperation
+inputs:
+  description: |
+    A collection of arguments for invoking getHoursOfOperation.
+  properties:
+    hoursOfOperationId:
+      type: string
+      description: |
+        Returns information on a specific Hours of Operation by hours of operation id
+    instanceId:
+      type: string
+      description: |
+        Reference to the hosting Amazon Connect Instance
+    name:
+      type: string
+      description: |
+        Returns information on a specific Hours of Operation by name
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags to assign to the Hours of Operation.
+  type: object
+  required:
+    - instanceId
+outputs:
+  description: |
+    A collection of values returned by getHoursOfOperation.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the Hours of Operation.
+    configs:
+      type: array
+      items:
+        $ref: "#/types/aws:connect/getHoursOfOperationConfig:getHoursOfOperationConfig"
+      description: |
+        Configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below. Config blocks are documented below.
+    description:
+      type: string
+      description: |
+        Description of the Hours of Operation.
+    hoursOfOperationArn:
+      type: string
+      description: |
+        (**Deprecated**) ARN of the Hours of Operation.
+      deprecationMessage: use 'arn' attribute instead
+    hoursOfOperationId:
+      type: string
+      description: |
+        The identifier for the hours of operation.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    instanceId:
+      type: string
+      description: |
+        Identifier of the hosting Amazon Connect Instance.
+    name:
+      type: string
+      description: |
+        Name of the Hours of Operation.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags to assign to the Hours of Operation.
+    timeZone:
+      type: string
+      description: |
+        Time zone of the Hours of Operation.
+  type: object
+  required:
+    - arn
+    - configs
+    - description
+    - hoursOfOperationArn
+    - hoursOfOperationId
+    - instanceId
+    - name
+    - tags
+    - timeZone
+    - id

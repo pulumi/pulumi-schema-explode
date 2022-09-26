@@ -1,0 +1,66 @@
+$token: aws:s3/bucketVersioningV2:BucketVersioningV2
+properties:
+  bucket:
+    type: string
+    description: |
+      The name of the S3 bucket.
+  expectedBucketOwner:
+    type: string
+    description: |
+      The account ID of the expected bucket owner.
+  mfa:
+    type: string
+    description: |
+      The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
+  versioningConfiguration:
+    $ref: "#/types/aws:s3/BucketVersioningV2VersioningConfiguration:BucketVersioningV2VersioningConfiguration"
+    description: |
+      Configuration block for the versioning parameters detailed below.
+required:
+  - bucket
+  - versioningConfiguration
+inputProperties:
+  bucket:
+    type: string
+    description: |
+      The name of the S3 bucket.
+    willReplaceOnChanges: true
+  expectedBucketOwner:
+    type: string
+    description: |
+      The account ID of the expected bucket owner.
+    willReplaceOnChanges: true
+  mfa:
+    type: string
+    description: |
+      The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
+  versioningConfiguration:
+    $ref: "#/types/aws:s3/BucketVersioningV2VersioningConfiguration:BucketVersioningV2VersioningConfiguration"
+    description: |
+      Configuration block for the versioning parameters detailed below.
+requiredInputs:
+  - bucket
+  - versioningConfiguration
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering BucketVersioningV2 resources.
+  properties:
+    bucket:
+      type: string
+      description: |
+        The name of the S3 bucket.
+      willReplaceOnChanges: true
+    expectedBucketOwner:
+      type: string
+      description: |
+        The account ID of the expected bucket owner.
+      willReplaceOnChanges: true
+    mfa:
+      type: string
+      description: |
+        The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
+    versioningConfiguration:
+      $ref: "#/types/aws:s3/BucketVersioningV2VersioningConfiguration:BucketVersioningV2VersioningConfiguration"
+      description: |
+        Configuration block for the versioning parameters detailed below.
+  type: object

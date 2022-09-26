@@ -1,0 +1,100 @@
+$token: aws:memorydb/acl:Acl
+properties:
+  arn:
+    type: string
+    description: |
+      The ARN of the ACL.
+  minimumEngineVersion:
+    type: string
+    description: |
+      The minimum engine version supported by the ACL.
+  name:
+    type: string
+  namePrefix:
+    type: string
+    description: |
+      Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  userNames:
+    type: array
+    items:
+      type: string
+    description: |
+      Set of MemoryDB user names to be included in this ACL.
+required:
+  - arn
+  - minimumEngineVersion
+  - name
+  - namePrefix
+  - tagsAll
+inputProperties:
+  name:
+    type: string
+    willReplaceOnChanges: true
+  namePrefix:
+    type: string
+    description: |
+      Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  userNames:
+    type: array
+    items:
+      type: string
+    description: |
+      Set of MemoryDB user names to be included in this ACL.
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Acl resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The ARN of the ACL.
+    minimumEngineVersion:
+      type: string
+      description: |
+        The minimum engine version supported by the ACL.
+    name:
+      type: string
+      willReplaceOnChanges: true
+    namePrefix:
+      type: string
+      description: |
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+      willReplaceOnChanges: true
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    userNames:
+      type: array
+      items:
+        type: string
+      description: |
+        Set of MemoryDB user names to be included in this ACL.
+  type: object

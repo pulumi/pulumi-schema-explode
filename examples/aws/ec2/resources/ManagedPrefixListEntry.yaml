@@ -1,0 +1,56 @@
+$token: aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry
+properties:
+  cidr:
+    type: string
+    description: |
+      CIDR block of this entry.
+  description:
+    type: string
+    description: |
+      Description of this entry. Due to API limitations, updating only the description of an entry requires recreating the entry.
+  prefixListId:
+    type: string
+    description: |
+      CIDR block of this entry.
+required:
+  - cidr
+  - prefixListId
+inputProperties:
+  cidr:
+    type: string
+    description: |
+      CIDR block of this entry.
+    willReplaceOnChanges: true
+  description:
+    type: string
+    description: |
+      Description of this entry. Due to API limitations, updating only the description of an entry requires recreating the entry.
+    willReplaceOnChanges: true
+  prefixListId:
+    type: string
+    description: |
+      CIDR block of this entry.
+    willReplaceOnChanges: true
+requiredInputs:
+  - cidr
+  - prefixListId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering ManagedPrefixListEntry resources.
+  properties:
+    cidr:
+      type: string
+      description: |
+        CIDR block of this entry.
+      willReplaceOnChanges: true
+    description:
+      type: string
+      description: |
+        Description of this entry. Due to API limitations, updating only the description of an entry requires recreating the entry.
+      willReplaceOnChanges: true
+    prefixListId:
+      type: string
+      description: |
+        CIDR block of this entry.
+      willReplaceOnChanges: true
+  type: object

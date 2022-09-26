@@ -5,7 +5,9 @@ A simple tool for exploding large schemas into smaller files.
 ## Quick Start
 
 1. `yarn install` - restore dependencies
-2. `yarn test-examples` - build all example directories
+2. `yarn test-explode` - explode all example schemas
+3. `yarn test-implode` - implode all example schemas
+4. `yarn json-diff examples/PROVIDER/schema.json examples/PROVIDER/schema-out.json` - test schemas for differences
 
 ## Design Notes
 

@@ -1,0 +1,44 @@
+$token: aws:acmpca/getCertificate:getCertificate
+inputs:
+  description: |
+    A collection of arguments for invoking getCertificate.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the certificate issued by the private certificate authority.
+    certificateAuthorityArn:
+      type: string
+      description: |
+        ARN of the certificate authority.
+  type: object
+  required:
+    - arn
+    - certificateAuthorityArn
+outputs:
+  description: |
+    A collection of values returned by getCertificate.
+  properties:
+    arn:
+      type: string
+    certificate:
+      type: string
+      description: |
+        PEM-encoded certificate value.
+    certificateAuthorityArn:
+      type: string
+    certificateChain:
+      type: string
+      description: |
+        PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+  type: object
+  required:
+    - arn
+    - certificate
+    - certificateAuthorityArn
+    - certificateChain
+    - id

@@ -1,0 +1,111 @@
+$token: aws:servicecatalog/constraint:Constraint
+properties:
+  acceptLanguage:
+    type: string
+    description: |
+      Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+  description:
+    type: string
+    description: |
+      Description of the constraint.
+  owner:
+    type: string
+    description: |
+      Owner of the constraint.
+  parameters:
+    type: string
+    description: |
+      Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
+  portfolioId:
+    type: string
+    description: |
+      Portfolio identifier.
+  productId:
+    type: string
+    description: |
+      Product identifier.
+  status:
+    type: string
+  type:
+    type: string
+    description: |
+      Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
+required:
+  - description
+  - owner
+  - parameters
+  - portfolioId
+  - productId
+  - status
+  - type
+inputProperties:
+  acceptLanguage:
+    type: string
+    description: |
+      Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+  description:
+    type: string
+    description: |
+      Description of the constraint.
+  parameters:
+    type: string
+    description: |
+      Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
+  portfolioId:
+    type: string
+    description: |
+      Portfolio identifier.
+    willReplaceOnChanges: true
+  productId:
+    type: string
+    description: |
+      Product identifier.
+    willReplaceOnChanges: true
+  type:
+    type: string
+    description: |
+      Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
+    willReplaceOnChanges: true
+requiredInputs:
+  - parameters
+  - portfolioId
+  - productId
+  - type
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Constraint resources.
+  properties:
+    acceptLanguage:
+      type: string
+      description: |
+        Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+    description:
+      type: string
+      description: |
+        Description of the constraint.
+    owner:
+      type: string
+      description: |
+        Owner of the constraint.
+    parameters:
+      type: string
+      description: |
+        Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
+    portfolioId:
+      type: string
+      description: |
+        Portfolio identifier.
+      willReplaceOnChanges: true
+    productId:
+      type: string
+      description: |
+        Product identifier.
+      willReplaceOnChanges: true
+    status:
+      type: string
+    type:
+      type: string
+      description: |
+        Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
+      willReplaceOnChanges: true
+  type: object

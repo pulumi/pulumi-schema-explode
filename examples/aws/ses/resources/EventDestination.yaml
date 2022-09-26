@@ -1,0 +1,134 @@
+$token: aws:ses/eventDestination:EventDestination
+properties:
+  arn:
+    type: string
+    description: |
+      The SES event destination ARN.
+  cloudwatchDestinations:
+    type: array
+    items:
+      $ref: "#/types/aws:ses/EventDestinationCloudwatchDestination:EventDestinationCloudwatchDestination"
+    description: |
+      CloudWatch destination for the events
+  configurationSetName:
+    type: string
+    description: |
+      The name of the configuration set
+  enabled:
+    type: boolean
+    description: |
+      If true, the event destination will be enabled
+  kinesisDestination:
+    $ref: "#/types/aws:ses/EventDestinationKinesisDestination:EventDestinationKinesisDestination"
+    description: |
+      Send the events to a kinesis firehose destination
+  matchingTypes:
+    type: array
+    items:
+      type: string
+    description: |
+      A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
+  name:
+    type: string
+    description: |
+      The name of the event destination
+  snsDestination:
+    $ref: "#/types/aws:ses/EventDestinationSnsDestination:EventDestinationSnsDestination"
+    description: |
+      Send the events to an SNS Topic destination
+required:
+  - arn
+  - configurationSetName
+  - matchingTypes
+  - name
+inputProperties:
+  cloudwatchDestinations:
+    type: array
+    items:
+      $ref: "#/types/aws:ses/EventDestinationCloudwatchDestination:EventDestinationCloudwatchDestination"
+    description: |
+      CloudWatch destination for the events
+    willReplaceOnChanges: true
+  configurationSetName:
+    type: string
+    description: |
+      The name of the configuration set
+    willReplaceOnChanges: true
+  enabled:
+    type: boolean
+    description: |
+      If true, the event destination will be enabled
+    willReplaceOnChanges: true
+  kinesisDestination:
+    $ref: "#/types/aws:ses/EventDestinationKinesisDestination:EventDestinationKinesisDestination"
+    description: |
+      Send the events to a kinesis firehose destination
+    willReplaceOnChanges: true
+  matchingTypes:
+    type: array
+    items:
+      type: string
+    description: |
+      A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
+    willReplaceOnChanges: true
+  name:
+    type: string
+    description: |
+      The name of the event destination
+    willReplaceOnChanges: true
+  snsDestination:
+    $ref: "#/types/aws:ses/EventDestinationSnsDestination:EventDestinationSnsDestination"
+    description: |
+      Send the events to an SNS Topic destination
+    willReplaceOnChanges: true
+requiredInputs:
+  - configurationSetName
+  - matchingTypes
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering EventDestination resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The SES event destination ARN.
+    cloudwatchDestinations:
+      type: array
+      items:
+        $ref: "#/types/aws:ses/EventDestinationCloudwatchDestination:EventDestinationCloudwatchDestination"
+      description: |
+        CloudWatch destination for the events
+      willReplaceOnChanges: true
+    configurationSetName:
+      type: string
+      description: |
+        The name of the configuration set
+      willReplaceOnChanges: true
+    enabled:
+      type: boolean
+      description: |
+        If true, the event destination will be enabled
+      willReplaceOnChanges: true
+    kinesisDestination:
+      $ref: "#/types/aws:ses/EventDestinationKinesisDestination:EventDestinationKinesisDestination"
+      description: |
+        Send the events to a kinesis firehose destination
+      willReplaceOnChanges: true
+    matchingTypes:
+      type: array
+      items:
+        type: string
+      description: |
+        A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
+      willReplaceOnChanges: true
+    name:
+      type: string
+      description: |
+        The name of the event destination
+      willReplaceOnChanges: true
+    snsDestination:
+      $ref: "#/types/aws:ses/EventDestinationSnsDestination:EventDestinationSnsDestination"
+      description: |
+        Send the events to an SNS Topic destination
+      willReplaceOnChanges: true
+  type: object

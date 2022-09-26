@@ -1,0 +1,58 @@
+$token: aws:ssm/getParametersByPath:getParametersByPath
+inputs:
+  description: |
+    A collection of arguments for invoking getParametersByPath.
+  properties:
+    path:
+      type: string
+      description: |
+        Prefix path of the parameter.
+    recursive:
+      type: boolean
+      description: |
+        Whether to recursively return parameters under `path`. Defaults to `false`.
+    withDecryption:
+      type: boolean
+      description: |
+        Whether to return decrypted `SecureString` value. Defaults to `true`.
+  type: object
+  required:
+    - path
+outputs:
+  description: |
+    A collection of values returned by getParametersByPath.
+  properties:
+    arns:
+      type: array
+      items:
+        type: string
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    names:
+      type: array
+      items:
+        type: string
+    path:
+      type: string
+    recursive:
+      type: boolean
+    types:
+      type: array
+      items:
+        type: string
+    values:
+      type: array
+      items:
+        type: string
+    withDecryption:
+      type: boolean
+  type: object
+  required:
+    - arns
+    - names
+    - path
+    - types
+    - values
+    - id

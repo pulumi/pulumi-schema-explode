@@ -1,0 +1,81 @@
+$token: aws:ec2/trafficMirrorFilter:TrafficMirrorFilter
+properties:
+  arn:
+    type: string
+    description: |
+      The ARN of the traffic mirror filter.
+  description:
+    type: string
+    description: |
+      A description of the filter.
+  networkServices:
+    type: array
+    items:
+      type: string
+    description: |
+      List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - arn
+  - tagsAll
+inputProperties:
+  description:
+    type: string
+    description: |
+      A description of the filter.
+    willReplaceOnChanges: true
+  networkServices:
+    type: array
+    items:
+      type: string
+    description: |
+      List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering TrafficMirrorFilter resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The ARN of the traffic mirror filter.
+    description:
+      type: string
+      description: |
+        A description of the filter.
+      willReplaceOnChanges: true
+    networkServices:
+      type: array
+      items:
+        type: string
+      description: |
+        List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

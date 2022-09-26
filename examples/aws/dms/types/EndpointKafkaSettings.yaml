@@ -1,0 +1,131 @@
+$token: aws:dms/EndpointKafkaSettings:EndpointKafkaSettings
+properties:
+  broker:
+    type: string
+    description: |
+      Kafka broker location. Specify in the form broker-hostname-or-ip:port.
+    language:
+      python:
+        mapCase: false
+  includeControlDetails:
+    type: boolean
+    description: |
+      Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
+    language:
+      python:
+        mapCase: false
+  includeNullAndEmpty:
+    type: boolean
+    description: |
+      Include NULL and empty columns in the target. Default is `false`.
+    language:
+      python:
+        mapCase: false
+  includePartitionValue:
+    type: boolean
+    description: |
+      Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. Default is `false`.
+    language:
+      python:
+        mapCase: false
+  includeTableAlterOperations:
+    type: boolean
+    description: |
+      Includes any data definition language (DDL) operations that change the table in the control data. Default is `false`.
+    language:
+      python:
+        mapCase: false
+  includeTransactionDetails:
+    type: boolean
+    description: |
+      Provides detailed transaction information from the source database. Default is `false`.
+    language:
+      python:
+        mapCase: false
+  messageFormat:
+    type: string
+    description: |
+      Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
+    language:
+      python:
+        mapCase: false
+  messageMaxBytes:
+    type: integer
+    description: |
+      Maximum size in bytes for records created on the endpoint Default is `1,000,000`.
+    language:
+      python:
+        mapCase: false
+  noHexPrefix:
+    type: boolean
+    description: |
+      Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the `no_hex_prefix` endpoint setting to enable migration of RAW data type columns without adding the `'0x'` prefix.
+    language:
+      python:
+        mapCase: false
+  partitionIncludeSchemaTable:
+    type: boolean
+    description: |
+      Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
+    language:
+      python:
+        mapCase: false
+  saslPassword:
+    type: string
+    description: |
+      Secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
+    language:
+      python:
+        mapCase: false
+  saslUsername:
+    type: string
+    description: |
+      Secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
+    language:
+      python:
+        mapCase: false
+  securityProtocol:
+    type: string
+    description: |
+      Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `sasl_username` and `sasl_password`.
+    language:
+      python:
+        mapCase: false
+  sslCaCertificateArn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+    language:
+      python:
+        mapCase: false
+  sslClientCertificateArn:
+    type: string
+    description: |
+      ARN of the client certificate used to securely connect to a Kafka target endpoint.
+    language:
+      python:
+        mapCase: false
+  sslClientKeyArn:
+    type: string
+    description: |
+      ARN for the client private key used to securely connect to a Kafka target endpoint.
+    language:
+      python:
+        mapCase: false
+  sslClientKeyPassword:
+    type: string
+    description: |
+      Password for the client private key used to securely connect to a Kafka target endpoint.
+    language:
+      python:
+        mapCase: false
+  topic:
+    type: string
+    description: |
+      Kafka topic for migration. Default is `kafka-default-topic`.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - broker

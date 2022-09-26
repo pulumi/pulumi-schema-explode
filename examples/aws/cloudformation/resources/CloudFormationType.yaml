@@ -1,0 +1,193 @@
+$token: aws:cloudformation/cloudFormationType:CloudFormationType
+properties:
+  arn:
+    type: string
+    description: |
+      (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `type_arn`.
+  defaultVersionId:
+    type: string
+    description: |
+      Identifier of the CloudFormation Type default version.
+  deprecatedStatus:
+    type: string
+    description: |
+      Deprecation status of the version.
+  description:
+    type: string
+    description: |
+      Description of the version.
+  documentationUrl:
+    type: string
+    description: |
+      URL of the documentation for the CloudFormation Type.
+  executionRoleArn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
+  isDefaultVersion:
+    type: boolean
+    description: |
+      Whether the CloudFormation Type version is the default version.
+  loggingConfig:
+    $ref: "#/types/aws:cloudformation/CloudFormationTypeLoggingConfig:CloudFormationTypeLoggingConfig"
+    description: |
+      Configuration block containing logging configuration.
+  provisioningType:
+    type: string
+    description: |
+      Provisioning behavior of the CloudFormation Type.
+  schema:
+    type: string
+    description: |
+      JSON document of the CloudFormation Type schema.
+  schemaHandlerPackage:
+    type: string
+    description: |
+      URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
+  sourceUrl:
+    type: string
+    description: |
+      URL of the source code for the CloudFormation Type.
+  type:
+    type: string
+    description: |
+      CloudFormation Registry Type. For example, `RESOURCE` or `MODULE`.
+  typeArn:
+    type: string
+    description: |
+      (Optional) Amazon Resource Name (ARN) of the CloudFormation Type. See also `arn`.
+  typeName:
+    type: string
+    description: |
+      CloudFormation Type name. For example, `ExampleCompany::ExampleService::ExampleResource`.
+  versionId:
+    type: string
+    description: |
+      (Optional) Identifier of the CloudFormation Type version.
+  visibility:
+    type: string
+    description: |
+      Scope of the CloudFormation Type.
+required:
+  - arn
+  - defaultVersionId
+  - deprecatedStatus
+  - description
+  - documentationUrl
+  - isDefaultVersion
+  - provisioningType
+  - schema
+  - schemaHandlerPackage
+  - sourceUrl
+  - type
+  - typeArn
+  - typeName
+  - versionId
+  - visibility
+inputProperties:
+  executionRoleArn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
+    willReplaceOnChanges: true
+  loggingConfig:
+    $ref: "#/types/aws:cloudformation/CloudFormationTypeLoggingConfig:CloudFormationTypeLoggingConfig"
+    description: |
+      Configuration block containing logging configuration.
+    willReplaceOnChanges: true
+  schemaHandlerPackage:
+    type: string
+    description: |
+      URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
+    willReplaceOnChanges: true
+  type:
+    type: string
+    description: |
+      CloudFormation Registry Type. For example, `RESOURCE` or `MODULE`.
+    willReplaceOnChanges: true
+  typeName:
+    type: string
+    description: |
+      CloudFormation Type name. For example, `ExampleCompany::ExampleService::ExampleResource`.
+    willReplaceOnChanges: true
+requiredInputs:
+  - schemaHandlerPackage
+  - typeName
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering CloudFormationType resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `type_arn`.
+    defaultVersionId:
+      type: string
+      description: |
+        Identifier of the CloudFormation Type default version.
+    deprecatedStatus:
+      type: string
+      description: |
+        Deprecation status of the version.
+    description:
+      type: string
+      description: |
+        Description of the version.
+    documentationUrl:
+      type: string
+      description: |
+        URL of the documentation for the CloudFormation Type.
+    executionRoleArn:
+      type: string
+      description: |
+        Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
+      willReplaceOnChanges: true
+    isDefaultVersion:
+      type: boolean
+      description: |
+        Whether the CloudFormation Type version is the default version.
+    loggingConfig:
+      $ref: "#/types/aws:cloudformation/CloudFormationTypeLoggingConfig:CloudFormationTypeLoggingConfig"
+      description: |
+        Configuration block containing logging configuration.
+      willReplaceOnChanges: true
+    provisioningType:
+      type: string
+      description: |
+        Provisioning behavior of the CloudFormation Type.
+    schema:
+      type: string
+      description: |
+        JSON document of the CloudFormation Type schema.
+    schemaHandlerPackage:
+      type: string
+      description: |
+        URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
+      willReplaceOnChanges: true
+    sourceUrl:
+      type: string
+      description: |
+        URL of the source code for the CloudFormation Type.
+    type:
+      type: string
+      description: |
+        CloudFormation Registry Type. For example, `RESOURCE` or `MODULE`.
+      willReplaceOnChanges: true
+    typeArn:
+      type: string
+      description: |
+        (Optional) Amazon Resource Name (ARN) of the CloudFormation Type. See also `arn`.
+    typeName:
+      type: string
+      description: |
+        CloudFormation Type name. For example, `ExampleCompany::ExampleService::ExampleResource`.
+      willReplaceOnChanges: true
+    versionId:
+      type: string
+      description: |
+        (Optional) Identifier of the CloudFormation Type version.
+    visibility:
+      type: string
+      description: |
+        Scope of the CloudFormation Type.
+  type: object

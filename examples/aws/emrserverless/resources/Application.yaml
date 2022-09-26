@@ -1,0 +1,161 @@
+$token: aws:emrserverless/application:Application
+properties:
+  arn:
+    type: string
+    description: |
+      ARN of the cluster.
+  autoStartConfiguration:
+    $ref: "#/types/aws:emrserverless/ApplicationAutoStartConfiguration:ApplicationAutoStartConfiguration"
+    description: |
+      The configuration for an application to automatically start on job submission.
+  autoStopConfiguration:
+    $ref: "#/types/aws:emrserverless/ApplicationAutoStopConfiguration:ApplicationAutoStopConfiguration"
+    description: |
+      The configuration for an application to automatically stop after a certain amount of time being idle.
+  initialCapacities:
+    type: array
+    items:
+      $ref: "#/types/aws:emrserverless/ApplicationInitialCapacity:ApplicationInitialCapacity"
+    description: |
+      The capacity to initialize when the application is created.
+  maximumCapacity:
+    $ref: "#/types/aws:emrserverless/ApplicationMaximumCapacity:ApplicationMaximumCapacity"
+    description: |
+      The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
+  name:
+    type: string
+    description: |
+      The name of the application.
+  networkConfiguration:
+    $ref: "#/types/aws:emrserverless/ApplicationNetworkConfiguration:ApplicationNetworkConfiguration"
+    description: |
+      The network configuration for customer VPC connectivity.
+  releaseLabel:
+    type: string
+    description: |
+      The EMR release version associated with the application.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+  type:
+    type: string
+    description: |
+      The type of application you want to start, such as `spark` or `hive`.
+required:
+  - arn
+  - autoStartConfiguration
+  - autoStopConfiguration
+  - name
+  - releaseLabel
+  - tagsAll
+  - type
+inputProperties:
+  autoStartConfiguration:
+    $ref: "#/types/aws:emrserverless/ApplicationAutoStartConfiguration:ApplicationAutoStartConfiguration"
+    description: |
+      The configuration for an application to automatically start on job submission.
+  autoStopConfiguration:
+    $ref: "#/types/aws:emrserverless/ApplicationAutoStopConfiguration:ApplicationAutoStopConfiguration"
+    description: |
+      The configuration for an application to automatically stop after a certain amount of time being idle.
+  initialCapacities:
+    type: array
+    items:
+      $ref: "#/types/aws:emrserverless/ApplicationInitialCapacity:ApplicationInitialCapacity"
+    description: |
+      The capacity to initialize when the application is created.
+  maximumCapacity:
+    $ref: "#/types/aws:emrserverless/ApplicationMaximumCapacity:ApplicationMaximumCapacity"
+    description: |
+      The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
+  name:
+    type: string
+    description: |
+      The name of the application.
+    willReplaceOnChanges: true
+  networkConfiguration:
+    $ref: "#/types/aws:emrserverless/ApplicationNetworkConfiguration:ApplicationNetworkConfiguration"
+    description: |
+      The network configuration for customer VPC connectivity.
+  releaseLabel:
+    type: string
+    description: |
+      The EMR release version associated with the application.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+  type:
+    type: string
+    description: |
+      The type of application you want to start, such as `spark` or `hive`.
+    willReplaceOnChanges: true
+requiredInputs:
+  - releaseLabel
+  - type
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Application resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the cluster.
+    autoStartConfiguration:
+      $ref: "#/types/aws:emrserverless/ApplicationAutoStartConfiguration:ApplicationAutoStartConfiguration"
+      description: |
+        The configuration for an application to automatically start on job submission.
+    autoStopConfiguration:
+      $ref: "#/types/aws:emrserverless/ApplicationAutoStopConfiguration:ApplicationAutoStopConfiguration"
+      description: |
+        The configuration for an application to automatically stop after a certain amount of time being idle.
+    initialCapacities:
+      type: array
+      items:
+        $ref: "#/types/aws:emrserverless/ApplicationInitialCapacity:ApplicationInitialCapacity"
+      description: |
+        The capacity to initialize when the application is created.
+    maximumCapacity:
+      $ref: "#/types/aws:emrserverless/ApplicationMaximumCapacity:ApplicationMaximumCapacity"
+      description: |
+        The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
+    name:
+      type: string
+      description: |
+        The name of the application.
+      willReplaceOnChanges: true
+    networkConfiguration:
+      $ref: "#/types/aws:emrserverless/ApplicationNetworkConfiguration:ApplicationNetworkConfiguration"
+      description: |
+        The network configuration for customer VPC connectivity.
+    releaseLabel:
+      type: string
+      description: |
+        The EMR release version associated with the application.
+      willReplaceOnChanges: true
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+    type:
+      type: string
+      description: |
+        The type of application you want to start, such as `spark` or `hive`.
+      willReplaceOnChanges: true
+  type: object

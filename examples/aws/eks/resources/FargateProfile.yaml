@@ -1,0 +1,148 @@
+$token: aws:eks/fargateProfile:FargateProfile
+properties:
+  arn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the EKS Fargate Profile.
+  clusterName:
+    type: string
+    description: |
+      Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+  fargateProfileName:
+    type: string
+    description: |
+      Name of the EKS Fargate Profile.
+  podExecutionRoleArn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
+  selectors:
+    type: array
+    items:
+      $ref: "#/types/aws:eks/FargateProfileSelector:FargateProfileSelector"
+    description: |
+      Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
+  status:
+    type: string
+    description: |
+      Status of the EKS Fargate Profile.
+  subnetIds:
+    type: array
+    items:
+      type: string
+    description: |
+      Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - arn
+  - clusterName
+  - fargateProfileName
+  - podExecutionRoleArn
+  - selectors
+  - status
+  - tagsAll
+inputProperties:
+  clusterName:
+    type: string
+    description: |
+      Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+    willReplaceOnChanges: true
+  fargateProfileName:
+    type: string
+    description: |
+      Name of the EKS Fargate Profile.
+    willReplaceOnChanges: true
+  podExecutionRoleArn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
+    willReplaceOnChanges: true
+  selectors:
+    type: array
+    items:
+      $ref: "#/types/aws:eks/FargateProfileSelector:FargateProfileSelector"
+    description: |
+      Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
+    willReplaceOnChanges: true
+  subnetIds:
+    type: array
+    items:
+      type: string
+    description: |
+      Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+requiredInputs:
+  - clusterName
+  - podExecutionRoleArn
+  - selectors
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering FargateProfile resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        Amazon Resource Name (ARN) of the EKS Fargate Profile.
+    clusterName:
+      type: string
+      description: |
+        Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+      willReplaceOnChanges: true
+    fargateProfileName:
+      type: string
+      description: |
+        Name of the EKS Fargate Profile.
+      willReplaceOnChanges: true
+    podExecutionRoleArn:
+      type: string
+      description: |
+        Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
+      willReplaceOnChanges: true
+    selectors:
+      type: array
+      items:
+        $ref: "#/types/aws:eks/FargateProfileSelector:FargateProfileSelector"
+      description: |
+        Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
+      willReplaceOnChanges: true
+    status:
+      type: string
+      description: |
+        Status of the EKS Fargate Profile.
+    subnetIds:
+      type: array
+      items:
+        type: string
+      description: |
+        Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+      willReplaceOnChanges: true
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

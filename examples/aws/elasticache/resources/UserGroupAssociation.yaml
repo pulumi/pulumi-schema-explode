@@ -1,0 +1,42 @@
+$token: aws:elasticache/userGroupAssociation:UserGroupAssociation
+properties:
+  userGroupId:
+    type: string
+    description: |
+      ID of the user group.
+  userId:
+    type: string
+    description: |
+      ID of the user to associated with the user group.
+required:
+  - userGroupId
+  - userId
+inputProperties:
+  userGroupId:
+    type: string
+    description: |
+      ID of the user group.
+    willReplaceOnChanges: true
+  userId:
+    type: string
+    description: |
+      ID of the user to associated with the user group.
+    willReplaceOnChanges: true
+requiredInputs:
+  - userGroupId
+  - userId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering UserGroupAssociation resources.
+  properties:
+    userGroupId:
+      type: string
+      description: |
+        ID of the user group.
+      willReplaceOnChanges: true
+    userId:
+      type: string
+      description: |
+        ID of the user to associated with the user group.
+      willReplaceOnChanges: true
+  type: object

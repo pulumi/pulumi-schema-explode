@@ -1,0 +1,102 @@
+$token: aws:chime/voiceConnectorTermination:VoiceConnectorTermination
+properties:
+  callingRegions:
+    type: array
+    items:
+      type: string
+    description: |
+      The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.
+  cidrAllowLists:
+    type: array
+    items:
+      type: string
+    description: |
+      The IP addresses allowed to make calls, in CIDR format.
+  cpsLimit:
+    type: integer
+    description: |
+      The limit on calls per second. Max value based on account service quota. Default value of `1`.
+  defaultPhoneNumber:
+    type: string
+    description: |
+      The default caller ID phone number.
+  disabled:
+    type: boolean
+    description: |
+      When termination settings are disabled, outbound calls can not be made.
+  voiceConnectorId:
+    type: string
+    description: |
+      The Amazon Chime Voice Connector ID.
+required:
+  - callingRegions
+  - cidrAllowLists
+  - voiceConnectorId
+inputProperties:
+  callingRegions:
+    type: array
+    items:
+      type: string
+    description: |
+      The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.
+  cidrAllowLists:
+    type: array
+    items:
+      type: string
+    description: |
+      The IP addresses allowed to make calls, in CIDR format.
+  cpsLimit:
+    type: integer
+    description: |
+      The limit on calls per second. Max value based on account service quota. Default value of `1`.
+  defaultPhoneNumber:
+    type: string
+    description: |
+      The default caller ID phone number.
+  disabled:
+    type: boolean
+    description: |
+      When termination settings are disabled, outbound calls can not be made.
+  voiceConnectorId:
+    type: string
+    description: |
+      The Amazon Chime Voice Connector ID.
+    willReplaceOnChanges: true
+requiredInputs:
+  - callingRegions
+  - cidrAllowLists
+  - voiceConnectorId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering VoiceConnectorTermination resources.
+  properties:
+    callingRegions:
+      type: array
+      items:
+        type: string
+      description: |
+        The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.
+    cidrAllowLists:
+      type: array
+      items:
+        type: string
+      description: |
+        The IP addresses allowed to make calls, in CIDR format.
+    cpsLimit:
+      type: integer
+      description: |
+        The limit on calls per second. Max value based on account service quota. Default value of `1`.
+    defaultPhoneNumber:
+      type: string
+      description: |
+        The default caller ID phone number.
+    disabled:
+      type: boolean
+      description: |
+        When termination settings are disabled, outbound calls can not be made.
+    voiceConnectorId:
+      type: string
+      description: |
+        The Amazon Chime Voice Connector ID.
+      willReplaceOnChanges: true
+  type: object

@@ -1,0 +1,36 @@
+$token: aws:directconnect/getGateway:getGateway
+inputs:
+  description: |
+    A collection of arguments for invoking getGateway.
+  properties:
+    name:
+      type: string
+      description: |
+        Name of the gateway to retrieve.
+  type: object
+  required:
+    - name
+outputs:
+  description: |
+    A collection of values returned by getGateway.
+  properties:
+    amazonSideAsn:
+      type: string
+      description: |
+        ASN on the Amazon side of the connection.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    name:
+      type: string
+    ownerAccountId:
+      type: string
+      description: |
+        AWS Account ID of the gateway.
+  type: object
+  required:
+    - amazonSideAsn
+    - name
+    - ownerAccountId
+    - id

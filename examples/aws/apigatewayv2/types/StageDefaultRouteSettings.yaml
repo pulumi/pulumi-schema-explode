@@ -1,0 +1,44 @@
+$token: aws:apigatewayv2/StageDefaultRouteSettings:StageDefaultRouteSettings
+properties:
+  dataTraceEnabled:
+    type: boolean
+    description: |
+      Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
+      Defaults to `false`. Supported only for WebSocket APIs.
+    language:
+      python:
+        mapCase: false
+  detailedMetricsEnabled:
+    type: boolean
+    description: |
+      Whether detailed metrics are enabled for the default route. Defaults to `false`.
+    language:
+      python:
+        mapCase: false
+  loggingLevel:
+    type: string
+    description: |
+      Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
+      Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
+    language:
+      python:
+        mapCase: false
+  throttlingBurstLimit:
+    type: integer
+    description: |
+      Throttling burst limit for the default route.
+    language:
+      python:
+        mapCase: false
+  throttlingRateLimit:
+    type: number
+    description: |
+      Throttling rate limit for the default route.
+    language:
+      python:
+        mapCase: false
+type: object
+language:
+  nodejs:
+    requiredOutputs:
+      - loggingLevel

@@ -1,0 +1,61 @@
+$token: aws:iot/roleAlias:RoleAlias
+properties:
+  alias:
+    type: string
+    description: |
+      The name of the role alias.
+  arn:
+    type: string
+    description: |
+      The ARN assigned by AWS to this role alias.
+  credentialDuration:
+    type: integer
+    description: |
+      The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
+  roleArn:
+    type: string
+    description: |
+      The identity of the role to which the alias refers.
+required:
+  - alias
+  - arn
+  - roleArn
+inputProperties:
+  alias:
+    type: string
+    description: |
+      The name of the role alias.
+    willReplaceOnChanges: true
+  credentialDuration:
+    type: integer
+    description: |
+      The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
+  roleArn:
+    type: string
+    description: |
+      The identity of the role to which the alias refers.
+requiredInputs:
+  - alias
+  - roleArn
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering RoleAlias resources.
+  properties:
+    alias:
+      type: string
+      description: |
+        The name of the role alias.
+      willReplaceOnChanges: true
+    arn:
+      type: string
+      description: |
+        The ARN assigned by AWS to this role alias.
+    credentialDuration:
+      type: integer
+      description: |
+        The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
+    roleArn:
+      type: string
+      description: |
+        The identity of the role to which the alias refers.
+  type: object

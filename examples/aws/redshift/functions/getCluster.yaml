@@ -1,0 +1,233 @@
+$token: aws:redshift/getCluster:getCluster
+inputs:
+  description: |
+    A collection of arguments for invoking getCluster.
+  properties:
+    clusterIdentifier:
+      type: string
+      description: |
+        Cluster identifier
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Tags associated to the cluster
+  type: object
+  required:
+    - clusterIdentifier
+outputs:
+  description: |
+    A collection of values returned by getCluster.
+  properties:
+    allowVersionUpgrade:
+      type: boolean
+      description: |
+        Whether major version upgrades can be applied during maintenance period
+    aquaConfigurationStatus:
+      type: string
+      description: |
+        The value represents how the cluster is configured to use AQUA.
+    arn:
+      type: string
+      description: |
+        ARN of cluster.
+    automatedSnapshotRetentionPeriod:
+      type: integer
+      description: |
+        The backup retention period
+    availabilityZone:
+      type: string
+      description: |
+        Availability zone of the cluster
+    availabilityZoneRelocationEnabled:
+      type: boolean
+      description: |
+        Indicates whether the cluster is able to be relocated to another availability zone.
+    bucketName:
+      type: string
+      description: |
+        Name of the S3 bucket where the log files are to be stored
+    clusterIdentifier:
+      type: string
+      description: |
+        Cluster identifier
+    clusterNodes:
+      type: array
+      items:
+        $ref: "#/types/aws:redshift/getClusterClusterNode:getClusterClusterNode"
+      description: |
+        Nodes in the cluster. Cluster node blocks are documented below
+    clusterParameterGroupName:
+      type: string
+      description: |
+        The name of the parameter group to be associated with this cluster
+    clusterPublicKey:
+      type: string
+      description: |
+        Public key for the cluster
+    clusterRevisionNumber:
+      type: string
+      description: |
+        The cluster revision number
+    clusterSecurityGroups:
+      type: array
+      items:
+        type: string
+      description: |
+        The security groups associated with the cluster
+    clusterSubnetGroupName:
+      type: string
+      description: |
+        The name of a cluster subnet group to be associated with this cluster
+    clusterType:
+      type: string
+      description: |
+        Cluster type
+    clusterVersion:
+      type: string
+    databaseName:
+      type: string
+      description: |
+        Name of the default database in the cluster
+    defaultIamRoleArn:
+      type: string
+      description: |
+        ∂The ARN for the IAM role that was set as default for the cluster when the cluster was created.
+    elasticIp:
+      type: string
+      description: |
+        Elastic IP of the cluster
+    enableLogging:
+      type: boolean
+      description: |
+        Whether cluster logging is enabled
+    encrypted:
+      type: boolean
+      description: |
+        Whether the cluster data is encrypted
+    endpoint:
+      type: string
+      description: |
+        Cluster endpoint
+    enhancedVpcRouting:
+      type: boolean
+      description: |
+        Whether enhanced VPC routing is enabled
+    iamRoles:
+      type: array
+      items:
+        type: string
+      description: |
+        IAM roles associated to the cluster
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    kmsKeyId:
+      type: string
+      description: |
+        KMS encryption key associated to the cluster
+    logDestinationType:
+      type: string
+      description: |
+        The log destination type.
+    logExports:
+      type: array
+      items:
+        type: string
+      description: |
+        Collection of exported log types. Log types include the connection log, user log and user activity log.
+    maintenanceTrackName:
+      type: string
+      description: |
+        The name of the maintenance track for the restored cluster.
+    manualSnapshotRetentionPeriod:
+      type: integer
+      description: |
+        (Optional)  The default number of days to retain a manual snapshot.
+    masterUsername:
+      type: string
+      description: |
+        Username for the master DB user
+    nodeType:
+      type: string
+      description: |
+        Cluster node type
+    numberOfNodes:
+      type: integer
+      description: |
+        Number of nodes in the cluster
+    port:
+      type: integer
+      description: |
+        Port the cluster responds on
+    preferredMaintenanceWindow:
+      type: string
+      description: |
+        The maintenance window
+    publiclyAccessible:
+      type: boolean
+      description: |
+        Whether the cluster is publicly accessible
+    s3KeyPrefix:
+      type: string
+      description: |
+        Folder inside the S3 bucket where the log files are stored
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Tags associated to the cluster
+    vpcId:
+      type: string
+      description: |
+        VPC Id associated with the cluster
+    vpcSecurityGroupIds:
+      type: array
+      items:
+        type: string
+      description: |
+        The VPC security group Ids associated with the cluster
+  type: object
+  required:
+    - allowVersionUpgrade
+    - aquaConfigurationStatus
+    - arn
+    - automatedSnapshotRetentionPeriod
+    - availabilityZone
+    - availabilityZoneRelocationEnabled
+    - bucketName
+    - clusterIdentifier
+    - clusterNodes
+    - clusterParameterGroupName
+    - clusterPublicKey
+    - clusterRevisionNumber
+    - clusterSecurityGroups
+    - clusterSubnetGroupName
+    - clusterType
+    - clusterVersion
+    - databaseName
+    - defaultIamRoleArn
+    - elasticIp
+    - enableLogging
+    - encrypted
+    - endpoint
+    - enhancedVpcRouting
+    - iamRoles
+    - kmsKeyId
+    - logDestinationType
+    - logExports
+    - maintenanceTrackName
+    - manualSnapshotRetentionPeriod
+    - masterUsername
+    - nodeType
+    - numberOfNodes
+    - port
+    - preferredMaintenanceWindow
+    - publiclyAccessible
+    - s3KeyPrefix
+    - vpcId
+    - vpcSecurityGroupIds
+    - id

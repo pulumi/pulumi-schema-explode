@@ -1,0 +1,235 @@
+$token: aws:acm/certificate:Certificate
+properties:
+  arn:
+    type: string
+    description: |
+      ARN of the certificate
+  certificateAuthorityArn:
+    type: string
+    description: |
+      ARN of an ACM PCA
+  certificateBody:
+    type: string
+    description: |
+      Certificate's PEM-formatted public key
+  certificateChain:
+    type: string
+    description: |
+      Certificate's PEM-formatted chain
+      * Creating a private CA issued certificate
+  domainName:
+    type: string
+    description: |
+      Fully qualified domain name (FQDN) in the certificate.
+  domainValidationOptions:
+    type: array
+    items:
+      $ref: "#/types/aws:acm/CertificateDomainValidationOption:CertificateDomainValidationOption"
+    description: |
+      Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Only set if `DNS`-validation was used.
+  notAfter:
+    type: string
+    description: |
+      Expiration date and time of the certificate.
+  notBefore:
+    type: string
+    description: |
+      Start of the validity period of the certificate.
+  options:
+    $ref: "#/types/aws:acm/CertificateOptions:CertificateOptions"
+    description: |
+      Configuration block used to set certificate options. Detailed below.
+  privateKey:
+    type: string
+    description: |
+      Certificate's PEM-formatted private key
+  status:
+    type: string
+    description: |
+      Status of the certificate.
+  subjectAlternativeNames:
+    type: array
+    items:
+      type: string
+    description: |
+      Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  validationEmails:
+    type: array
+    items:
+      type: string
+    description: |
+      List of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
+  validationMethod:
+    type: string
+  validationOptions:
+    type: array
+    items:
+      $ref: "#/types/aws:acm/CertificateValidationOption:CertificateValidationOption"
+    description: |
+      Configuration block used to specify information about the initial validation of each domain name. Detailed below.
+      * Importing an existing certificate
+required:
+  - arn
+  - domainName
+  - domainValidationOptions
+  - notAfter
+  - notBefore
+  - status
+  - subjectAlternativeNames
+  - tagsAll
+  - validationEmails
+  - validationMethod
+inputProperties:
+  certificateAuthorityArn:
+    type: string
+    description: |
+      ARN of an ACM PCA
+    willReplaceOnChanges: true
+  certificateBody:
+    type: string
+    description: |
+      Certificate's PEM-formatted public key
+  certificateChain:
+    type: string
+    description: |
+      Certificate's PEM-formatted chain
+      * Creating a private CA issued certificate
+  domainName:
+    type: string
+    description: |
+      Fully qualified domain name (FQDN) in the certificate.
+    willReplaceOnChanges: true
+  options:
+    $ref: "#/types/aws:acm/CertificateOptions:CertificateOptions"
+    description: |
+      Configuration block used to set certificate options. Detailed below.
+  privateKey:
+    type: string
+    description: |
+      Certificate's PEM-formatted private key
+  subjectAlternativeNames:
+    type: array
+    items:
+      type: string
+    description: |
+      Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  validationMethod:
+    type: string
+    willReplaceOnChanges: true
+  validationOptions:
+    type: array
+    items:
+      $ref: "#/types/aws:acm/CertificateValidationOption:CertificateValidationOption"
+    description: |
+      Configuration block used to specify information about the initial validation of each domain name. Detailed below.
+      * Importing an existing certificate
+    willReplaceOnChanges: true
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Certificate resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the certificate
+    certificateAuthorityArn:
+      type: string
+      description: |
+        ARN of an ACM PCA
+      willReplaceOnChanges: true
+    certificateBody:
+      type: string
+      description: |
+        Certificate's PEM-formatted public key
+    certificateChain:
+      type: string
+      description: |
+        Certificate's PEM-formatted chain
+        * Creating a private CA issued certificate
+    domainName:
+      type: string
+      description: |
+        Fully qualified domain name (FQDN) in the certificate.
+      willReplaceOnChanges: true
+    domainValidationOptions:
+      type: array
+      items:
+        $ref: "#/types/aws:acm/CertificateDomainValidationOption:CertificateDomainValidationOption"
+      description: |
+        Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Only set if `DNS`-validation was used.
+    notAfter:
+      type: string
+      description: |
+        Expiration date and time of the certificate.
+    notBefore:
+      type: string
+      description: |
+        Start of the validity period of the certificate.
+    options:
+      $ref: "#/types/aws:acm/CertificateOptions:CertificateOptions"
+      description: |
+        Configuration block used to set certificate options. Detailed below.
+    privateKey:
+      type: string
+      description: |
+        Certificate's PEM-formatted private key
+    status:
+      type: string
+      description: |
+        Status of the certificate.
+    subjectAlternativeNames:
+      type: array
+      items:
+        type: string
+      description: |
+        Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+      willReplaceOnChanges: true
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    validationEmails:
+      type: array
+      items:
+        type: string
+      description: |
+        List of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
+    validationMethod:
+      type: string
+      willReplaceOnChanges: true
+    validationOptions:
+      type: array
+      items:
+        $ref: "#/types/aws:acm/CertificateValidationOption:CertificateValidationOption"
+      description: |
+        Configuration block used to specify information about the initial validation of each domain name. Detailed below.
+        * Importing an existing certificate
+      willReplaceOnChanges: true
+  type: object

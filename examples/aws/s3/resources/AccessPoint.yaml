@@ -1,0 +1,157 @@
+$token: aws:s3/accessPoint:AccessPoint
+properties:
+  accountId:
+    type: string
+    description: |
+      AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
+  alias:
+    type: string
+    description: |
+      The alias of the S3 Access Point.
+  arn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the S3 Access Point.
+  bucket:
+    type: string
+    description: |
+      Name of an AWS Partition S3 Bucket or the Amazon Resource Name (ARN) of S3 on Outposts Bucket that you want to associate this access point with.
+  domainName:
+    type: string
+    description: |
+      The DNS domain name of the S3 Access Point in the format _`name`_-_`account_id`_.s3-accesspoint._region_.amazonaws.com.
+      Note: S3 access points only support secure access by HTTPS. HTTP isn't supported.
+  endpoints:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      The VPC endpoints for the S3 Access Point.
+  hasPublicAccessPolicy:
+    type: boolean
+    description: |
+      Indicates whether this access point currently has a policy that allows public access.
+  name:
+    type: string
+    description: |
+      Name you want to assign to this access point.
+  networkOrigin:
+    type: string
+    description: |
+      Indicates whether this access point allows access from the public Internet. Values are `VPC` (the access point doesn't allow access from the public Internet) and `Internet` (the access point allows access from the public Internet, subject to the access point and bucket access policies).
+  policy:
+    type: string
+    description: |
+      Valid JSON document that specifies the policy that you want to apply to this access point. Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `aws.s3control.AccessPointPolicy`. To remove the `policy`, set it to `"{}"` (an empty JSON document).
+  publicAccessBlockConfiguration:
+    $ref: "#/types/aws:s3/AccessPointPublicAccessBlockConfiguration:AccessPointPublicAccessBlockConfiguration"
+    description: |
+      Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. Detailed below.
+  vpcConfiguration:
+    $ref: "#/types/aws:s3/AccessPointVpcConfiguration:AccessPointVpcConfiguration"
+    description: |
+      Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
+required:
+  - accountId
+  - alias
+  - arn
+  - bucket
+  - domainName
+  - endpoints
+  - hasPublicAccessPolicy
+  - name
+  - networkOrigin
+  - policy
+inputProperties:
+  accountId:
+    type: string
+    description: |
+      AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
+    willReplaceOnChanges: true
+  bucket:
+    type: string
+    description: |
+      Name of an AWS Partition S3 Bucket or the Amazon Resource Name (ARN) of S3 on Outposts Bucket that you want to associate this access point with.
+    willReplaceOnChanges: true
+  name:
+    type: string
+    description: |
+      Name you want to assign to this access point.
+    willReplaceOnChanges: true
+  policy:
+    type: string
+    description: |
+      Valid JSON document that specifies the policy that you want to apply to this access point. Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `aws.s3control.AccessPointPolicy`. To remove the `policy`, set it to `"{}"` (an empty JSON document).
+  publicAccessBlockConfiguration:
+    $ref: "#/types/aws:s3/AccessPointPublicAccessBlockConfiguration:AccessPointPublicAccessBlockConfiguration"
+    description: |
+      Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. Detailed below.
+    willReplaceOnChanges: true
+  vpcConfiguration:
+    $ref: "#/types/aws:s3/AccessPointVpcConfiguration:AccessPointVpcConfiguration"
+    description: |
+      Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
+    willReplaceOnChanges: true
+requiredInputs:
+  - bucket
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering AccessPoint resources.
+  properties:
+    accountId:
+      type: string
+      description: |
+        AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
+      willReplaceOnChanges: true
+    alias:
+      type: string
+      description: |
+        The alias of the S3 Access Point.
+    arn:
+      type: string
+      description: |
+        Amazon Resource Name (ARN) of the S3 Access Point.
+    bucket:
+      type: string
+      description: |
+        Name of an AWS Partition S3 Bucket or the Amazon Resource Name (ARN) of S3 on Outposts Bucket that you want to associate this access point with.
+      willReplaceOnChanges: true
+    domainName:
+      type: string
+      description: |
+        The DNS domain name of the S3 Access Point in the format _`name`_-_`account_id`_.s3-accesspoint._region_.amazonaws.com.
+        Note: S3 access points only support secure access by HTTPS. HTTP isn't supported.
+    endpoints:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        The VPC endpoints for the S3 Access Point.
+    hasPublicAccessPolicy:
+      type: boolean
+      description: |
+        Indicates whether this access point currently has a policy that allows public access.
+    name:
+      type: string
+      description: |
+        Name you want to assign to this access point.
+      willReplaceOnChanges: true
+    networkOrigin:
+      type: string
+      description: |
+        Indicates whether this access point allows access from the public Internet. Values are `VPC` (the access point doesn't allow access from the public Internet) and `Internet` (the access point allows access from the public Internet, subject to the access point and bucket access policies).
+    policy:
+      type: string
+      description: |
+        Valid JSON document that specifies the policy that you want to apply to this access point. Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `aws.s3control.AccessPointPolicy`. To remove the `policy`, set it to `"{}"` (an empty JSON document).
+    publicAccessBlockConfiguration:
+      $ref: "#/types/aws:s3/AccessPointPublicAccessBlockConfiguration:AccessPointPublicAccessBlockConfiguration"
+      description: |
+        Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. Detailed below.
+      willReplaceOnChanges: true
+    vpcConfiguration:
+      $ref: "#/types/aws:s3/AccessPointVpcConfiguration:AccessPointVpcConfiguration"
+      description: |
+        Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
+      willReplaceOnChanges: true
+  type: object

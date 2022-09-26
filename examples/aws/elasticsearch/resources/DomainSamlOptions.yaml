@@ -1,0 +1,38 @@
+$token: aws:elasticsearch/domainSamlOptions:DomainSamlOptions
+properties:
+  domainName:
+    type: string
+    description: |
+      Name of the domain.
+  samlOptions:
+    $ref: "#/types/aws:elasticsearch/DomainSamlOptionsSamlOptions:DomainSamlOptionsSamlOptions"
+    description: |
+      The SAML authentication options for an AWS Elasticsearch Domain.
+required:
+  - domainName
+inputProperties:
+  domainName:
+    type: string
+    description: |
+      Name of the domain.
+    willReplaceOnChanges: true
+  samlOptions:
+    $ref: "#/types/aws:elasticsearch/DomainSamlOptionsSamlOptions:DomainSamlOptionsSamlOptions"
+    description: |
+      The SAML authentication options for an AWS Elasticsearch Domain.
+requiredInputs:
+  - domainName
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering DomainSamlOptions resources.
+  properties:
+    domainName:
+      type: string
+      description: |
+        Name of the domain.
+      willReplaceOnChanges: true
+    samlOptions:
+      $ref: "#/types/aws:elasticsearch/DomainSamlOptionsSamlOptions:DomainSamlOptionsSamlOptions"
+      description: |
+        The SAML authentication options for an AWS Elasticsearch Domain.
+  type: object

@@ -1,0 +1,25 @@
+$token: aws:imagebuilder/getContainerRecipeInstanceConfiguration:getContainerRecipeInstanceConfiguration
+properties:
+  blockDeviceMappings:
+    type: array
+    items:
+      $ref: "#/types/aws:imagebuilder/getContainerRecipeInstanceConfigurationBlockDeviceMapping:getContainerRecipeInstanceConfigurationBlockDeviceMapping"
+    description: |
+      Set of objects with block device mappings for the instance configuration.
+    language:
+      python:
+        mapCase: false
+  image:
+    type: string
+    description: |
+      AMI ID of the base image for container build and test instance.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - blockDeviceMappings
+  - image
+language:
+  nodejs:
+    requiredInputs: []

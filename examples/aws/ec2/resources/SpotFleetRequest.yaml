@@ -1,0 +1,479 @@
+$token: aws:ec2/spotFleetRequest:SpotFleetRequest
+description: "
+
+
+
+  ## Import
+
+
+  Spot Fleet Requests can be imported using `id`, e.g.,
+
+
+  ```sh
+
+  \ $ pulumi import aws:ec2/spotFleetRequest:SpotFleetRequest fleet sfr-005e9ec8-5546-4c31-b317-31a62325411e
+
+  ```
+
+
+  \ "
+properties:
+  allocationStrategy:
+    type: string
+    description: |
+      Indicates how to allocate the target capacity across
+      the Spot pools specified by the Spot fleet request. The default is
+      `lowestPrice`.
+  clientToken:
+    type: string
+  excessCapacityTerminationPolicy:
+    type: string
+    description: |
+      Indicates whether running Spot
+      instances should be terminated if the target capacity of the Spot fleet
+      request is decreased below the current size of the Spot fleet.
+  fleetType:
+    type: string
+    description: |
+      The type of fleet request. Indicates whether the Spot Fleet only requests the target
+      capacity or also attempts to maintain it. Default is `maintain`.
+  iamFleetRole:
+    type: string
+    description: |
+      Grants the Spot fleet permission to terminate
+      Spot instances on your behalf when you cancel its Spot fleet request using
+      CancelSpotFleetRequests or when the Spot fleet request expires, if you set
+      terminateInstancesWithExpiration.
+  instanceInterruptionBehaviour:
+    type: string
+    description: |
+      Indicates whether a Spot
+      instance stops or terminates when it is interrupted. Default is
+      `terminate`.
+  instancePoolsToUseCount:
+    type: integer
+    description: |
+      The number of Spot pools across which to allocate your target Spot capacity.
+      Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
+      the cheapest Spot pools and evenly allocates your target Spot capacity across
+      the number of Spot pools that you specify.
+  launchSpecifications:
+    type: array
+    items:
+      $ref: "#/types/aws:ec2/SpotFleetRequestLaunchSpecification:SpotFleetRequestLaunchSpecification"
+    description: |
+      Used to define the launch configuration of the
+      spot-fleet request. Can be specified multiple times to define different bids
+      across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
+  launchTemplateConfigs:
+    type: array
+    items:
+      $ref: "#/types/aws:ec2/SpotFleetRequestLaunchTemplateConfig:SpotFleetRequestLaunchTemplateConfig"
+    description: |
+      Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
+  loadBalancers:
+    type: array
+    items:
+      type: string
+    description: |
+      A list of elastic load balancer names to add to the Spot fleet.
+  onDemandAllocationStrategy:
+    type: string
+    description: |
+      The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
+  onDemandMaxTotalPrice:
+    type: string
+    description: |
+      The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
+  onDemandTargetCapacity:
+    type: integer
+    description: |
+      The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
+  replaceUnhealthyInstances:
+    type: boolean
+    description: |
+      Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
+  spotMaintenanceStrategies:
+    $ref: "#/types/aws:ec2/SpotFleetRequestSpotMaintenanceStrategies:SpotFleetRequestSpotMaintenanceStrategies"
+    description: |
+      Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
+  spotPrice:
+    type: string
+    description: |
+      The maximum spot bid for this override request.
+  spotRequestState:
+    type: string
+    description: |
+      The state of the Spot fleet request.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  targetCapacity:
+    type: integer
+    description: |
+      The number of units to request. You can choose to set the
+      target capacity in terms of instances or a performance characteristic that is
+      important to your application workload, such as vCPUs, memory, or I/O.
+  targetCapacityUnitType:
+    type: string
+    description: |
+      The unit for the target capacity. This can only be done with `instance_requirements` defined
+  targetGroupArns:
+    type: array
+    items:
+      type: string
+    description: |
+      A list of `aws.alb.TargetGroup` ARNs, for use with Application Load Balancing.
+  terminateInstancesOnDelete:
+    type: string
+    description: |
+      Indicates whether running Spot
+      instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
+      If no value is specified, the value of the `terminate_instances_with_expiration` argument is used.
+  terminateInstancesWithExpiration:
+    type: boolean
+    description: |
+      Indicates whether running Spot
+      instances should be terminated when the Spot fleet request expires.
+  validFrom:
+    type: string
+    description: |
+      The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
+  validUntil:
+    type: string
+    description: |
+      The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
+  waitForFulfillment:
+    type: boolean
+    description: |
+      If set, this provider will
+      wait for the Spot Request to be fulfilled, and will throw an error if the
+      timeout of 10m is reached.
+required:
+  - clientToken
+  - iamFleetRole
+  - loadBalancers
+  - spotRequestState
+  - tagsAll
+  - targetCapacity
+  - targetGroupArns
+inputProperties:
+  allocationStrategy:
+    type: string
+    description: |
+      Indicates how to allocate the target capacity across
+      the Spot pools specified by the Spot fleet request. The default is
+      `lowestPrice`.
+    willReplaceOnChanges: true
+  excessCapacityTerminationPolicy:
+    type: string
+    description: |
+      Indicates whether running Spot
+      instances should be terminated if the target capacity of the Spot fleet
+      request is decreased below the current size of the Spot fleet.
+  fleetType:
+    type: string
+    description: |
+      The type of fleet request. Indicates whether the Spot Fleet only requests the target
+      capacity or also attempts to maintain it. Default is `maintain`.
+    willReplaceOnChanges: true
+  iamFleetRole:
+    type: string
+    description: |
+      Grants the Spot fleet permission to terminate
+      Spot instances on your behalf when you cancel its Spot fleet request using
+      CancelSpotFleetRequests or when the Spot fleet request expires, if you set
+      terminateInstancesWithExpiration.
+    willReplaceOnChanges: true
+  instanceInterruptionBehaviour:
+    type: string
+    description: |
+      Indicates whether a Spot
+      instance stops or terminates when it is interrupted. Default is
+      `terminate`.
+    willReplaceOnChanges: true
+  instancePoolsToUseCount:
+    type: integer
+    description: |
+      The number of Spot pools across which to allocate your target Spot capacity.
+      Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
+      the cheapest Spot pools and evenly allocates your target Spot capacity across
+      the number of Spot pools that you specify.
+    willReplaceOnChanges: true
+  launchSpecifications:
+    type: array
+    items:
+      $ref: "#/types/aws:ec2/SpotFleetRequestLaunchSpecification:SpotFleetRequestLaunchSpecification"
+    description: |
+      Used to define the launch configuration of the
+      spot-fleet request. Can be specified multiple times to define different bids
+      across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
+    willReplaceOnChanges: true
+  launchTemplateConfigs:
+    type: array
+    items:
+      $ref: "#/types/aws:ec2/SpotFleetRequestLaunchTemplateConfig:SpotFleetRequestLaunchTemplateConfig"
+    description: |
+      Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
+    willReplaceOnChanges: true
+  loadBalancers:
+    type: array
+    items:
+      type: string
+    description: |
+      A list of elastic load balancer names to add to the Spot fleet.
+    willReplaceOnChanges: true
+  onDemandAllocationStrategy:
+    type: string
+    description: |
+      The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
+    willReplaceOnChanges: true
+  onDemandMaxTotalPrice:
+    type: string
+    description: |
+      The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
+    willReplaceOnChanges: true
+  onDemandTargetCapacity:
+    type: integer
+    description: |
+      The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
+  replaceUnhealthyInstances:
+    type: boolean
+    description: |
+      Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
+    willReplaceOnChanges: true
+  spotMaintenanceStrategies:
+    $ref: "#/types/aws:ec2/SpotFleetRequestSpotMaintenanceStrategies:SpotFleetRequestSpotMaintenanceStrategies"
+    description: |
+      Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
+  spotPrice:
+    type: string
+    description: |
+      The maximum spot bid for this override request.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  targetCapacity:
+    type: integer
+    description: |
+      The number of units to request. You can choose to set the
+      target capacity in terms of instances or a performance characteristic that is
+      important to your application workload, such as vCPUs, memory, or I/O.
+  targetCapacityUnitType:
+    type: string
+    description: |
+      The unit for the target capacity. This can only be done with `instance_requirements` defined
+    willReplaceOnChanges: true
+  targetGroupArns:
+    type: array
+    items:
+      type: string
+    description: |
+      A list of `aws.alb.TargetGroup` ARNs, for use with Application Load Balancing.
+    willReplaceOnChanges: true
+  terminateInstancesOnDelete:
+    type: string
+    description: |
+      Indicates whether running Spot
+      instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
+      If no value is specified, the value of the `terminate_instances_with_expiration` argument is used.
+  terminateInstancesWithExpiration:
+    type: boolean
+    description: |
+      Indicates whether running Spot
+      instances should be terminated when the Spot fleet request expires.
+    willReplaceOnChanges: true
+  validFrom:
+    type: string
+    description: |
+      The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
+    willReplaceOnChanges: true
+  validUntil:
+    type: string
+    description: |
+      The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
+    willReplaceOnChanges: true
+  waitForFulfillment:
+    type: boolean
+    description: |
+      If set, this provider will
+      wait for the Spot Request to be fulfilled, and will throw an error if the
+      timeout of 10m is reached.
+requiredInputs:
+  - iamFleetRole
+  - targetCapacity
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering SpotFleetRequest resources.
+  properties:
+    allocationStrategy:
+      type: string
+      description: |
+        Indicates how to allocate the target capacity across
+        the Spot pools specified by the Spot fleet request. The default is
+        `lowestPrice`.
+      willReplaceOnChanges: true
+    clientToken:
+      type: string
+    excessCapacityTerminationPolicy:
+      type: string
+      description: |
+        Indicates whether running Spot
+        instances should be terminated if the target capacity of the Spot fleet
+        request is decreased below the current size of the Spot fleet.
+    fleetType:
+      type: string
+      description: |
+        The type of fleet request. Indicates whether the Spot Fleet only requests the target
+        capacity or also attempts to maintain it. Default is `maintain`.
+      willReplaceOnChanges: true
+    iamFleetRole:
+      type: string
+      description: |
+        Grants the Spot fleet permission to terminate
+        Spot instances on your behalf when you cancel its Spot fleet request using
+        CancelSpotFleetRequests or when the Spot fleet request expires, if you set
+        terminateInstancesWithExpiration.
+      willReplaceOnChanges: true
+    instanceInterruptionBehaviour:
+      type: string
+      description: |
+        Indicates whether a Spot
+        instance stops or terminates when it is interrupted. Default is
+        `terminate`.
+      willReplaceOnChanges: true
+    instancePoolsToUseCount:
+      type: integer
+      description: |
+        The number of Spot pools across which to allocate your target Spot capacity.
+        Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
+        the cheapest Spot pools and evenly allocates your target Spot capacity across
+        the number of Spot pools that you specify.
+      willReplaceOnChanges: true
+    launchSpecifications:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/SpotFleetRequestLaunchSpecification:SpotFleetRequestLaunchSpecification"
+      description: |
+        Used to define the launch configuration of the
+        spot-fleet request. Can be specified multiple times to define different bids
+        across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
+      willReplaceOnChanges: true
+    launchTemplateConfigs:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/SpotFleetRequestLaunchTemplateConfig:SpotFleetRequestLaunchTemplateConfig"
+      description: |
+        Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
+      willReplaceOnChanges: true
+    loadBalancers:
+      type: array
+      items:
+        type: string
+      description: |
+        A list of elastic load balancer names to add to the Spot fleet.
+      willReplaceOnChanges: true
+    onDemandAllocationStrategy:
+      type: string
+      description: |
+        The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
+      willReplaceOnChanges: true
+    onDemandMaxTotalPrice:
+      type: string
+      description: |
+        The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
+      willReplaceOnChanges: true
+    onDemandTargetCapacity:
+      type: integer
+      description: |
+        The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
+    replaceUnhealthyInstances:
+      type: boolean
+      description: |
+        Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
+      willReplaceOnChanges: true
+    spotMaintenanceStrategies:
+      $ref: "#/types/aws:ec2/SpotFleetRequestSpotMaintenanceStrategies:SpotFleetRequestSpotMaintenanceStrategies"
+      description: |
+        Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
+    spotPrice:
+      type: string
+      description: |
+        The maximum spot bid for this override request.
+      willReplaceOnChanges: true
+    spotRequestState:
+      type: string
+      description: |
+        The state of the Spot fleet request.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    targetCapacity:
+      type: integer
+      description: |
+        The number of units to request. You can choose to set the
+        target capacity in terms of instances or a performance characteristic that is
+        important to your application workload, such as vCPUs, memory, or I/O.
+    targetCapacityUnitType:
+      type: string
+      description: |
+        The unit for the target capacity. This can only be done with `instance_requirements` defined
+      willReplaceOnChanges: true
+    targetGroupArns:
+      type: array
+      items:
+        type: string
+      description: |
+        A list of `aws.alb.TargetGroup` ARNs, for use with Application Load Balancing.
+      willReplaceOnChanges: true
+    terminateInstancesOnDelete:
+      type: string
+      description: |
+        Indicates whether running Spot
+        instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
+        If no value is specified, the value of the `terminate_instances_with_expiration` argument is used.
+    terminateInstancesWithExpiration:
+      type: boolean
+      description: |
+        Indicates whether running Spot
+        instances should be terminated when the Spot fleet request expires.
+      willReplaceOnChanges: true
+    validFrom:
+      type: string
+      description: |
+        The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
+      willReplaceOnChanges: true
+    validUntil:
+      type: string
+      description: |
+        The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
+      willReplaceOnChanges: true
+    waitForFulfillment:
+      type: boolean
+      description: |
+        If set, this provider will
+        wait for the Spot Request to be fulfilled, and will throw an error if the
+        timeout of 10m is reached.
+  type: object

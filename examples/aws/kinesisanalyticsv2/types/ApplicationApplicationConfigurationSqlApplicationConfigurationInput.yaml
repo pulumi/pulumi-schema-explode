@@ -1,0 +1,79 @@
+$token: aws:kinesisanalyticsv2/ApplicationApplicationConfigurationSqlApplicationConfigurationInput:ApplicationApplicationConfigurationSqlApplicationConfigurationInput
+properties:
+  inAppStreamNames:
+    type: array
+    items:
+      type: string
+    language:
+      python:
+        mapCase: false
+  inputId:
+    type: string
+    language:
+      python:
+        mapCase: false
+  inputParallelism:
+    $ref: "#/types/aws:kinesisanalyticsv2/ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism:ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism"
+    description: |
+      Describes the number of in-application streams to create.
+    language:
+      python:
+        mapCase: false
+  inputProcessingConfiguration:
+    $ref: "#/types/aws:kinesisanalyticsv2/ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration:ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration"
+    description: |
+      The input processing configuration for the input.
+      An input processor transforms records as they are received from the stream, before the application's SQL code executes.
+    language:
+      python:
+        mapCase: false
+  inputSchema:
+    $ref: "#/types/aws:kinesisanalyticsv2/ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema:ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema"
+    description: |
+      Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
+    language:
+      python:
+        mapCase: false
+  inputStartingPositionConfigurations:
+    type: array
+    items:
+      $ref: "#/types/aws:kinesisanalyticsv2/ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration:ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration"
+    description: |
+      The point at which the application starts processing records from the streaming source.
+    language:
+      python:
+        mapCase: false
+  kinesisFirehoseInput:
+    $ref: "#/types/aws:kinesisanalyticsv2/ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput:ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput"
+    description: |
+      If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
+    language:
+      python:
+        mapCase: false
+  kinesisStreamsInput:
+    $ref: "#/types/aws:kinesisanalyticsv2/ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput:ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput"
+    description: |
+      If the streaming source is a Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
+    language:
+      python:
+        mapCase: false
+  namePrefix:
+    type: string
+    description: |
+      The name prefix to use when creating an in-application stream.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - inputSchema
+  - namePrefix
+language:
+  nodejs:
+    requiredOutputs:
+      - inAppStreamNames
+      - inputId
+      - inputParallelism
+      - inputSchema
+      - inputStartingPositionConfigurations
+      - namePrefix

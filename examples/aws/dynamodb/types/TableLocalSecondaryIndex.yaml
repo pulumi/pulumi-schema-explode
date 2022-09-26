@@ -1,0 +1,41 @@
+$token: aws:dynamodb/TableLocalSecondaryIndex:TableLocalSecondaryIndex
+properties:
+  name:
+    type: string
+    description: |
+      Name of the index
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  nonKeyAttributes:
+    type: array
+    items:
+      type: string
+    description: |
+      Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  projectionType:
+    type: string
+    description: |
+      One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects just the hash and range key into the index, and `INCLUDE` projects only the keys specified in the `non_key_attributes` parameter.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  rangeKey:
+    type: string
+    description: |
+      Name of the range key.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+type: object
+required:
+  - name
+  - projectionType
+  - rangeKey

@@ -1,0 +1,65 @@
+$token: aws:s3/analyticsConfiguration:AnalyticsConfiguration
+properties:
+  bucket:
+    type: string
+    description: |
+      The name of the bucket this analytics configuration is associated with.
+  filter:
+    $ref: "#/types/aws:s3/AnalyticsConfigurationFilter:AnalyticsConfigurationFilter"
+    description: |
+      Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+  name:
+    type: string
+    description: |
+      Unique identifier of the analytics configuration for the bucket.
+  storageClassAnalysis:
+    $ref: "#/types/aws:s3/AnalyticsConfigurationStorageClassAnalysis:AnalyticsConfigurationStorageClassAnalysis"
+    description: |
+      Configuration for the analytics data export (documented below).
+required:
+  - bucket
+  - name
+inputProperties:
+  bucket:
+    type: string
+    description: |
+      The name of the bucket this analytics configuration is associated with.
+    willReplaceOnChanges: true
+  filter:
+    $ref: "#/types/aws:s3/AnalyticsConfigurationFilter:AnalyticsConfigurationFilter"
+    description: |
+      Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+  name:
+    type: string
+    description: |
+      Unique identifier of the analytics configuration for the bucket.
+    willReplaceOnChanges: true
+  storageClassAnalysis:
+    $ref: "#/types/aws:s3/AnalyticsConfigurationStorageClassAnalysis:AnalyticsConfigurationStorageClassAnalysis"
+    description: |
+      Configuration for the analytics data export (documented below).
+requiredInputs:
+  - bucket
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering AnalyticsConfiguration resources.
+  properties:
+    bucket:
+      type: string
+      description: |
+        The name of the bucket this analytics configuration is associated with.
+      willReplaceOnChanges: true
+    filter:
+      $ref: "#/types/aws:s3/AnalyticsConfigurationFilter:AnalyticsConfigurationFilter"
+      description: |
+        Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+    name:
+      type: string
+      description: |
+        Unique identifier of the analytics configuration for the bucket.
+      willReplaceOnChanges: true
+    storageClassAnalysis:
+      $ref: "#/types/aws:s3/AnalyticsConfigurationStorageClassAnalysis:AnalyticsConfigurationStorageClassAnalysis"
+      description: |
+        Configuration for the analytics data export (documented below).
+  type: object

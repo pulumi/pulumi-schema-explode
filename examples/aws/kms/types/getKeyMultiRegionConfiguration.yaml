@@ -1,0 +1,29 @@
+$token: aws:kms/getKeyMultiRegionConfiguration:getKeyMultiRegionConfiguration
+properties:
+  multiRegionKeyType:
+    type: string
+    language:
+      python:
+        mapCase: false
+  primaryKeys:
+    type: array
+    items:
+      $ref: "#/types/aws:kms/getKeyMultiRegionConfigurationPrimaryKey:getKeyMultiRegionConfigurationPrimaryKey"
+    language:
+      python:
+        mapCase: false
+  replicaKeys:
+    type: array
+    items:
+      $ref: "#/types/aws:kms/getKeyMultiRegionConfigurationReplicaKey:getKeyMultiRegionConfigurationReplicaKey"
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - multiRegionKeyType
+  - primaryKeys
+  - replicaKeys
+language:
+  nodejs:
+    requiredInputs: []

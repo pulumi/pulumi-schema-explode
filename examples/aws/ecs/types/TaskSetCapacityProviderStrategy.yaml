@@ -1,0 +1,30 @@
+$token: aws:ecs/TaskSetCapacityProviderStrategy:TaskSetCapacityProviderStrategy
+properties:
+  base:
+    type: integer
+    description: |
+      The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  capacityProvider:
+    type: string
+    description: |
+      The short name or full Amazon Resource Name (ARN) of the capacity provider.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  weight:
+    type: integer
+    description: |
+      The relative percentage of the total number of launched tasks that should use the specified capacity provider.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+type: object
+required:
+  - capacityProvider
+  - weight

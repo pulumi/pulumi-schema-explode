@@ -1,0 +1,26 @@
+$token: aws:apigateway/StageCanarySettings:StageCanarySettings
+properties:
+  percentTraffic:
+    type: number
+    description: |
+      Percent `0.0` - `100.0` of traffic to divert to the canary deployment.
+    language:
+      python:
+        mapCase: false
+  stageVariableOverrides:
+    type: object
+    additionalProperties:
+      $ref: pulumi.json#/Any
+    description: |
+      Map of overridden stage `variables` (including new variables) for the canary deployment.
+    language:
+      python:
+        mapCase: false
+  useStageCache:
+    type: boolean
+    description: |
+      Whether the canary deployment uses the stage cache. Defaults to false.
+    language:
+      python:
+        mapCase: false
+type: object

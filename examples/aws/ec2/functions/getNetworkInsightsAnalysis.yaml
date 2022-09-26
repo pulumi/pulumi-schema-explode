@@ -1,0 +1,113 @@
+$token: aws:ec2/getNetworkInsightsAnalysis:getNetworkInsightsAnalysis
+inputs:
+  description: |
+    A collection of arguments for invoking getNetworkInsightsAnalysis.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getNetworkInsightsAnalysisFilter:getNetworkInsightsAnalysisFilter"
+      description: |
+        Configuration block(s) for filtering. Detailed below.
+    networkInsightsAnalysisId:
+      type: string
+      description: |
+        ID of the Network Insights Analysis to select.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getNetworkInsightsAnalysis.
+  properties:
+    alternatePathHints:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getNetworkInsightsAnalysisAlternatePathHint:getNetworkInsightsAnalysisAlternatePathHint"
+      description: |
+        Potential intermediate components of a feasible path.
+    arn:
+      type: string
+      description: |
+        ARN of the selected Network Insights Analysis.
+    explanations:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getNetworkInsightsAnalysisExplanation:getNetworkInsightsAnalysisExplanation"
+      description: |
+        Explanation codes for an unreachable path.
+    filterInArns:
+      type: array
+      items:
+        type: string
+      description: |
+        ARNs of the AWS resources that the path must traverse.
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getNetworkInsightsAnalysisFilter:getNetworkInsightsAnalysisFilter"
+    forwardPathComponents:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getNetworkInsightsAnalysisForwardPathComponent:getNetworkInsightsAnalysisForwardPathComponent"
+      description: |
+        The components in the path from source to destination.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    networkInsightsAnalysisId:
+      type: string
+    networkInsightsPathId:
+      type: string
+      description: |
+        The ID of the path.
+    pathFound:
+      type: boolean
+      description: |
+        Set to `true` if the destination was reachable.
+    returnPathComponents:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getNetworkInsightsAnalysisReturnPathComponent:getNetworkInsightsAnalysisReturnPathComponent"
+      description: |
+        The components in the path from destination to source.
+    startDate:
+      type: string
+      description: |
+        Date/time the analysis was started.
+    status:
+      type: string
+      description: |
+        Status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `path_found`.
+    statusMessage:
+      type: string
+      description: |
+        Message to provide more context when the `status` is `failed`.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+    warningMessage:
+      type: string
+      description: |
+        Warning message.
+  type: object
+  required:
+    - alternatePathHints
+    - arn
+    - explanations
+    - filterInArns
+    - forwardPathComponents
+    - networkInsightsAnalysisId
+    - networkInsightsPathId
+    - pathFound
+    - returnPathComponents
+    - startDate
+    - status
+    - statusMessage
+    - tags
+    - warningMessage
+    - id

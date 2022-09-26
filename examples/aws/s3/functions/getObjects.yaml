@@ -1,0 +1,83 @@
+$token: aws:s3/getObjects:getObjects
+inputs:
+  description: |
+    A collection of arguments for invoking getObjects.
+  properties:
+    bucket:
+      type: string
+      description: |
+        Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+    delimiter:
+      type: string
+      description: |
+        Character used to group keys (Default: none)
+    encodingType:
+      type: string
+      description: |
+        Encodes keys using this method (Default: none; besides none, only "url" can be used)
+    fetchOwner:
+      type: boolean
+      description: |
+        Boolean specifying whether to populate the owner list (Default: false)
+    maxKeys:
+      type: integer
+      description: |
+        Maximum object keys to return (Default: 1000)
+    prefix:
+      type: string
+      description: |
+        Limits results to object keys with this prefix (Default: none)
+    startAfter:
+      type: string
+      description: |
+        Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
+  type: object
+  required:
+    - bucket
+outputs:
+  description: |
+    A collection of values returned by getObjects.
+  properties:
+    bucket:
+      type: string
+    commonPrefixes:
+      type: array
+      items:
+        type: string
+      description: |
+        List of any keys between `prefix` and the next occurrence of `delimiter` (i.e., similar to subdirectories of the `prefix` "directory"); the list is only returned when you specify `delimiter`
+    delimiter:
+      type: string
+    encodingType:
+      type: string
+    fetchOwner:
+      type: boolean
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    keys:
+      type: array
+      items:
+        type: string
+      description: |
+        List of strings representing object keys
+    maxKeys:
+      type: integer
+    owners:
+      type: array
+      items:
+        type: string
+      description: |
+        List of strings representing object owner IDs (see `fetch_owner` above)
+    prefix:
+      type: string
+    startAfter:
+      type: string
+  type: object
+  required:
+    - bucket
+    - commonPrefixes
+    - keys
+    - owners
+    - id

@@ -1,0 +1,88 @@
+$token: aws:kinesis/FirehoseDeliveryStreamHttpEndpointConfiguration:FirehoseDeliveryStreamHttpEndpointConfiguration
+properties:
+  accessKey:
+    type: string
+    description: |
+      The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
+    language:
+      python:
+        mapCase: false
+  bufferingInterval:
+    type: integer
+    description: |
+      Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+    language:
+      python:
+        mapCase: false
+  bufferingSize:
+    type: integer
+    description: |
+      Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+    language:
+      python:
+        mapCase: false
+  cloudwatchLoggingOptions:
+    $ref: "#/types/aws:kinesis/FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions:FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions"
+    description: |
+      The CloudWatch Logging Options for the delivery stream. More details are given below.
+    language:
+      python:
+        mapCase: false
+  name:
+    type: string
+    description: |
+      The HTTP endpoint name.
+    language:
+      python:
+        mapCase: false
+  processingConfiguration:
+    $ref: "#/types/aws:kinesis/FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration:FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration"
+    description: |
+      The data processing configuration.  More details are given below.
+    language:
+      python:
+        mapCase: false
+  requestConfiguration:
+    $ref: "#/types/aws:kinesis/FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration:FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration"
+    description: |
+      The request configuration.  More details are given below.
+    language:
+      python:
+        mapCase: false
+  retryDuration:
+    type: integer
+    description: |
+      Total amount of seconds Firehose spends on retries. This duration starts after the initial attempt fails, It does not include the time periods during which Firehose waits for acknowledgment from the specified destination after each attempt. Valid values between `0` and `7200`. Default is `300`.
+    language:
+      python:
+        mapCase: false
+  roleArn:
+    type: string
+    description: |
+      Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+    language:
+      python:
+        mapCase: false
+  s3BackupMode:
+    type: string
+    description: |
+      Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
+    language:
+      python:
+        mapCase: false
+  url:
+    type: string
+    description: |
+      The HTTP endpoint URL to which Kinesis Firehose sends your data.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - url
+language:
+  nodejs:
+    requiredOutputs:
+      - cloudwatchLoggingOptions
+      - requestConfiguration
+      - url

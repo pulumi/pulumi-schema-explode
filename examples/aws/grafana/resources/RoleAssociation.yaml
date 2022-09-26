@@ -1,0 +1,76 @@
+$token: aws:grafana/roleAssociation:RoleAssociation
+properties:
+  groupIds:
+    type: array
+    items:
+      type: string
+    description: |
+      The AWS SSO group ids to be assigned the role given in `role`.
+  role:
+    type: string
+    description: |
+      The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
+  userIds:
+    type: array
+    items:
+      type: string
+    description: |
+      The AWS SSO user ids to be assigned the role given in `role`.
+  workspaceId:
+    type: string
+    description: |
+      The workspace id.
+required:
+  - role
+  - workspaceId
+inputProperties:
+  groupIds:
+    type: array
+    items:
+      type: string
+    description: |
+      The AWS SSO group ids to be assigned the role given in `role`.
+  role:
+    type: string
+    description: |
+      The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
+  userIds:
+    type: array
+    items:
+      type: string
+    description: |
+      The AWS SSO user ids to be assigned the role given in `role`.
+  workspaceId:
+    type: string
+    description: |
+      The workspace id.
+    willReplaceOnChanges: true
+requiredInputs:
+  - role
+  - workspaceId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering RoleAssociation resources.
+  properties:
+    groupIds:
+      type: array
+      items:
+        type: string
+      description: |
+        The AWS SSO group ids to be assigned the role given in `role`.
+    role:
+      type: string
+      description: |
+        The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
+    userIds:
+      type: array
+      items:
+        type: string
+      description: |
+        The AWS SSO user ids to be assigned the role given in `role`.
+    workspaceId:
+      type: string
+      description: |
+        The workspace id.
+      willReplaceOnChanges: true
+  type: object

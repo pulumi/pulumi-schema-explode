@@ -1,0 +1,226 @@
+$token: aws:ec2/vpcEndpointService:VpcEndpointService
+properties:
+  acceptanceRequired:
+    type: boolean
+    description: |
+      Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
+  allowedPrincipals:
+    type: array
+    items:
+      type: string
+    description: |
+      The ARNs of one or more principals allowed to discover the endpoint service.
+  arn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) of the VPC endpoint service.
+  availabilityZones:
+    type: array
+    items:
+      type: string
+    description: |
+      A set of Availability Zones in which the service is available.
+  baseEndpointDnsNames:
+    type: array
+    items:
+      type: string
+    description: |
+      A set of DNS names for the service.
+  gatewayLoadBalancerArns:
+    type: array
+    items:
+      type: string
+    description: |
+      Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
+  managesVpcEndpoints:
+    type: boolean
+    description: |
+      Whether or not the service manages its VPC endpoints - `true` or `false`.
+  networkLoadBalancerArns:
+    type: array
+    items:
+      type: string
+    description: |
+      Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
+  privateDnsName:
+    type: string
+    description: |
+      The private DNS name for the service.
+  privateDnsNameConfigurations:
+    type: array
+    items:
+      $ref: "#/types/aws:ec2/VpcEndpointServicePrivateDnsNameConfiguration:VpcEndpointServicePrivateDnsNameConfiguration"
+    description: |
+      List of objects containing information about the endpoint service private DNS name configuration.
+  serviceName:
+    type: string
+    description: |
+      The service name.
+  serviceType:
+    type: string
+    description: |
+      The service type, `Gateway` or `Interface`.
+  state:
+    type: string
+    description: |
+      Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
+  supportedIpAddressTypes:
+    type: array
+    items:
+      type: string
+    description: |
+      The supported IP address types. The possible values are `ipv4` and `ipv6`.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - acceptanceRequired
+  - allowedPrincipals
+  - arn
+  - availabilityZones
+  - baseEndpointDnsNames
+  - managesVpcEndpoints
+  - privateDnsName
+  - privateDnsNameConfigurations
+  - serviceName
+  - serviceType
+  - state
+  - supportedIpAddressTypes
+  - tagsAll
+inputProperties:
+  acceptanceRequired:
+    type: boolean
+    description: |
+      Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
+  allowedPrincipals:
+    type: array
+    items:
+      type: string
+    description: |
+      The ARNs of one or more principals allowed to discover the endpoint service.
+  gatewayLoadBalancerArns:
+    type: array
+    items:
+      type: string
+    description: |
+      Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
+  networkLoadBalancerArns:
+    type: array
+    items:
+      type: string
+    description: |
+      Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
+  privateDnsName:
+    type: string
+    description: |
+      The private DNS name for the service.
+  supportedIpAddressTypes:
+    type: array
+    items:
+      type: string
+    description: |
+      The supported IP address types. The possible values are `ipv4` and `ipv6`.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+requiredInputs:
+  - acceptanceRequired
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering VpcEndpointService resources.
+  properties:
+    acceptanceRequired:
+      type: boolean
+      description: |
+        Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
+    allowedPrincipals:
+      type: array
+      items:
+        type: string
+      description: |
+        The ARNs of one or more principals allowed to discover the endpoint service.
+    arn:
+      type: string
+      description: |
+        The Amazon Resource Name (ARN) of the VPC endpoint service.
+    availabilityZones:
+      type: array
+      items:
+        type: string
+      description: |
+        A set of Availability Zones in which the service is available.
+    baseEndpointDnsNames:
+      type: array
+      items:
+        type: string
+      description: |
+        A set of DNS names for the service.
+    gatewayLoadBalancerArns:
+      type: array
+      items:
+        type: string
+      description: |
+        Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
+    managesVpcEndpoints:
+      type: boolean
+      description: |
+        Whether or not the service manages its VPC endpoints - `true` or `false`.
+    networkLoadBalancerArns:
+      type: array
+      items:
+        type: string
+      description: |
+        Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
+    privateDnsName:
+      type: string
+      description: |
+        The private DNS name for the service.
+    privateDnsNameConfigurations:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/VpcEndpointServicePrivateDnsNameConfiguration:VpcEndpointServicePrivateDnsNameConfiguration"
+      description: |
+        List of objects containing information about the endpoint service private DNS name configuration.
+    serviceName:
+      type: string
+      description: |
+        The service name.
+    serviceType:
+      type: string
+      description: |
+        The service type, `Gateway` or `Interface`.
+    state:
+      type: string
+      description: |
+        Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
+    supportedIpAddressTypes:
+      type: array
+      items:
+        type: string
+      description: |
+        The supported IP address types. The possible values are `ipv4` and `ipv6`.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

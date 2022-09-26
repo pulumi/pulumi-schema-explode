@@ -1,0 +1,83 @@
+$token: aws:transfer/getServer:getServer
+inputs:
+  description: |
+    A collection of arguments for invoking getServer.
+  properties:
+    serverId:
+      type: string
+      description: |
+        ID for an SFTP server.
+  type: object
+  required:
+    - serverId
+outputs:
+  description: |
+    A collection of values returned by getServer.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of Transfer Server.
+    certificate:
+      type: string
+      description: |
+        ARN of any certificate.
+    domain:
+      type: string
+      description: |
+        The domain of the storage system that is used for file transfers.
+    endpoint:
+      type: string
+      description: |
+        Endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`).
+    endpointType:
+      type: string
+      description: |
+        Type of endpoint that the server is connected to.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    identityProviderType:
+      type: string
+      description: |
+        The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice.
+    invocationRole:
+      type: string
+      description: |
+        ARN of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
+    loggingRole:
+      type: string
+      description: |
+        ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
+    protocols:
+      type: array
+      items:
+        type: string
+      description: |
+        File transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint.
+    securityPolicyName:
+      type: string
+      description: |
+        The name of the security policy that is attached to the server.
+    serverId:
+      type: string
+    url:
+      type: string
+      description: |
+        URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
+  type: object
+  required:
+    - arn
+    - certificate
+    - domain
+    - endpoint
+    - endpointType
+    - identityProviderType
+    - invocationRole
+    - loggingRole
+    - protocols
+    - securityPolicyName
+    - serverId
+    - url
+    - id

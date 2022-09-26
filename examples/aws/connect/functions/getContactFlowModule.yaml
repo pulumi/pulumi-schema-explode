@@ -1,0 +1,78 @@
+$token: aws:connect/getContactFlowModule:getContactFlowModule
+inputs:
+  description: |
+    A collection of arguments for invoking getContactFlowModule.
+  properties:
+    contactFlowModuleId:
+      type: string
+      description: |
+        Returns information on a specific Contact Flow Module by contact flow module id
+    instanceId:
+      type: string
+      description: |
+        Reference to the hosting Amazon Connect Instance
+    name:
+      type: string
+      description: |
+        Returns information on a specific Contact Flow Module by name
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags to assign to the Contact Flow Module.
+  type: object
+  required:
+    - instanceId
+outputs:
+  description: |
+    A collection of values returned by getContactFlowModule.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the Contact Flow Module.
+    contactFlowModuleId:
+      type: string
+    content:
+      type: string
+      description: |
+        Logic of the Contact Flow Module.
+    description:
+      type: string
+      description: |
+        Description of the Contact Flow Module.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    instanceId:
+      type: string
+    name:
+      type: string
+    state:
+      type: string
+      description: |
+        Type of Contact Flow Module Module. Values are either `ACTIVE` or `ARCHIVED`.
+    status:
+      type: string
+      description: |
+        Status of the Contact Flow Module Module. Values are either `PUBLISHED` or `SAVED`.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags to assign to the Contact Flow Module.
+  type: object
+  required:
+    - arn
+    - contactFlowModuleId
+    - content
+    - description
+    - instanceId
+    - name
+    - state
+    - status
+    - tags
+    - id

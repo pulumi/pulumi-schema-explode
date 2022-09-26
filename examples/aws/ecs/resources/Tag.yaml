@@ -1,0 +1,56 @@
+$token: aws:ecs/tag:Tag
+properties:
+  key:
+    type: string
+    description: |
+      Tag name.
+  resourceArn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the ECS resource to tag.
+  value:
+    type: string
+    description: |
+      Tag value.
+required:
+  - key
+  - resourceArn
+  - value
+inputProperties:
+  key:
+    type: string
+    description: |
+      Tag name.
+    willReplaceOnChanges: true
+  resourceArn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the ECS resource to tag.
+    willReplaceOnChanges: true
+  value:
+    type: string
+    description: |
+      Tag value.
+requiredInputs:
+  - key
+  - resourceArn
+  - value
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Tag resources.
+  properties:
+    key:
+      type: string
+      description: |
+        Tag name.
+      willReplaceOnChanges: true
+    resourceArn:
+      type: string
+      description: |
+        Amazon Resource Name (ARN) of the ECS resource to tag.
+      willReplaceOnChanges: true
+    value:
+      type: string
+      description: |
+        Tag value.
+  type: object

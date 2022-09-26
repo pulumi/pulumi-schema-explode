@@ -1,0 +1,37 @@
+$token: aws:directoryservice/DirectoryVpcSettings:DirectoryVpcSettings
+properties:
+  availabilityZones:
+    type: array
+    items:
+      type: string
+    language:
+      python:
+        mapCase: false
+  subnetIds:
+    type: array
+    items:
+      type: string
+    description: |
+      The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+  vpcId:
+    type: string
+    description: |
+      The identifier of the VPC that the directory is in.
+    language:
+      python:
+        mapCase: false
+    willReplaceOnChanges: true
+type: object
+required:
+  - subnetIds
+  - vpcId
+language:
+  nodejs:
+    requiredOutputs:
+      - availabilityZones
+      - subnetIds
+      - vpcId

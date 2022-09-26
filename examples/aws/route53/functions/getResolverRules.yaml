@@ -1,0 +1,56 @@
+$token: aws:route53/getResolverRules:getResolverRules
+inputs:
+  description: |
+    A collection of arguments for invoking getResolverRules.
+  properties:
+    nameRegex:
+      type: string
+      description: |
+        Regex string to filter resolver rule names.
+        The filtering is done locally, so could have a performance impact if the result is large.
+        This argument should be used along with other arguments to limit the number of results returned.
+    ownerId:
+      type: string
+      description: |
+        When the desired resolver rules are shared with another AWS account, the account ID of the account that the rules are shared with.
+    resolverEndpointId:
+      type: string
+      description: |
+        ID of the outbound resolver endpoint for the desired resolver rules.
+    ruleType:
+      type: string
+      description: |
+        Rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
+    shareStatus:
+      type: string
+      description: |
+        Whether the desired resolver rules are shared and, if so, whether the current account is sharing the rules with another account, or another account is sharing the rules with the current account. Valid values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getResolverRules.
+  properties:
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    nameRegex:
+      type: string
+    ownerId:
+      type: string
+    resolverEndpointId:
+      type: string
+    resolverRuleIds:
+      type: array
+      items:
+        type: string
+      description: |
+        IDs of the matched resolver rules.
+    ruleType:
+      type: string
+    shareStatus:
+      type: string
+  type: object
+  required:
+    - resolverRuleIds
+    - id

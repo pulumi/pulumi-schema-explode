@@ -1,0 +1,52 @@
+$token: aws:fis/ExperimentTemplateAction:ExperimentTemplateAction
+properties:
+  actionId:
+    type: string
+    description: |
+      ID of the action. To find out what actions are supported see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
+    language:
+      python:
+        mapCase: false
+  description:
+    type: string
+    description: |
+      Description of the action.
+    language:
+      python:
+        mapCase: false
+  name:
+    type: string
+    description: |
+      Friendly name given to the target.
+    language:
+      python:
+        mapCase: false
+  parameters:
+    type: array
+    items:
+      $ref: "#/types/aws:fis/ExperimentTemplateActionParameter:ExperimentTemplateActionParameter"
+    description: |
+      Parameter(s) for the action, if applicable. See below.
+    language:
+      python:
+        mapCase: false
+  startAfters:
+    type: array
+    items:
+      type: string
+    description: |
+      Set of action names that must complete before this action can be executed.
+    language:
+      python:
+        mapCase: false
+  target:
+    $ref: "#/types/aws:fis/ExperimentTemplateActionTarget:ExperimentTemplateActionTarget"
+    description: |
+      Action's target, if applicable. See below.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - actionId
+  - name

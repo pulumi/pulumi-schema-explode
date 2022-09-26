@@ -1,0 +1,75 @@
+$token: aws:index/getAmiIds:getAmiIds
+inputs:
+  description: |
+    A collection of arguments for invoking getAmiIds.
+  properties:
+    executableUsers:
+      type: array
+      items:
+        type: string
+      description: |
+        Limit search to users with *explicit* launch
+        permission on  the image. Valid items are the numeric account ID or `self`.
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:index/getAmiIdsFilter:getAmiIdsFilter"
+      description: |
+        One or more name/value pairs to filter off of. There
+        are several valid keys, for a full reference, check out
+        [describe-images in the AWS CLI reference][1].
+    nameRegex:
+      type: string
+      description: |
+        Regex string to apply to the AMI list returned
+        by AWS. This allows more advanced filtering not supported from the AWS API.
+        This filtering is done locally on what AWS returns, and could have a performance
+        impact if the result is large. Combine this with other
+        options to narrow down the list AWS returns.
+    owners:
+      type: array
+      items:
+        type: string
+      description: |
+        List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
+    sortAscending:
+      type: boolean
+      description: |
+        Used to sort AMIs by creation time.
+  type: object
+  required:
+    - owners
+outputs:
+  description: |
+    A collection of values returned by getAmiIds.
+  properties:
+    executableUsers:
+      type: array
+      items:
+        type: string
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:index/getAmiIdsFilter:getAmiIdsFilter"
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    ids:
+      type: array
+      items:
+        type: string
+    nameRegex:
+      type: string
+    owners:
+      type: array
+      items:
+        type: string
+    sortAscending:
+      type: boolean
+  type: object
+  required:
+    - ids
+    - owners
+    - id
+deprecationMessage: aws.getAmiIds has been deprecated in favor of aws.ec2.getAmiIds

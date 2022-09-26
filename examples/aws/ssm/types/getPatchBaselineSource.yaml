@@ -1,0 +1,33 @@
+$token: aws:ssm/getPatchBaselineSource:getPatchBaselineSource
+properties:
+  configuration:
+    type: string
+    description: |
+      The value of the yum repo configuration.
+    language:
+      python:
+        mapCase: false
+  name:
+    type: string
+    description: |
+      The name specified to identify the patch source.
+    language:
+      python:
+        mapCase: false
+  products:
+    type: array
+    items:
+      type: string
+    description: |
+      The specific operating system versions a patch repository applies to.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - configuration
+  - name
+  - products
+language:
+  nodejs:
+    requiredInputs: []

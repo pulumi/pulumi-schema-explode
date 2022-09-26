@@ -1,0 +1,98 @@
+$token: aws:mskconnect/customPlugin:CustomPlugin
+properties:
+  arn:
+    type: string
+    description: |
+      the Amazon Resource Name (ARN) of the custom plugin.
+  contentType:
+    type: string
+    description: |
+      The type of the plugin file. Allowed values are `ZIP` and `JAR`.
+  description:
+    type: string
+    description: |
+      A summary description of the custom plugin.
+  latestRevision:
+    type: integer
+    description: |
+      an ID of the latest successfully created revision of the custom plugin.
+  location:
+    $ref: "#/types/aws:mskconnect/CustomPluginLocation:CustomPluginLocation"
+    description: |
+      Information about the location of a custom plugin. See below.
+  name:
+    type: string
+    description: |
+      The name of the custom plugin..
+  state:
+    type: string
+    description: |
+      the state of the custom plugin.
+required:
+  - arn
+  - contentType
+  - latestRevision
+  - location
+  - name
+  - state
+inputProperties:
+  contentType:
+    type: string
+    description: |
+      The type of the plugin file. Allowed values are `ZIP` and `JAR`.
+    willReplaceOnChanges: true
+  description:
+    type: string
+    description: |
+      A summary description of the custom plugin.
+    willReplaceOnChanges: true
+  location:
+    $ref: "#/types/aws:mskconnect/CustomPluginLocation:CustomPluginLocation"
+    description: |
+      Information about the location of a custom plugin. See below.
+    willReplaceOnChanges: true
+  name:
+    type: string
+    description: |
+      The name of the custom plugin..
+    willReplaceOnChanges: true
+requiredInputs:
+  - contentType
+  - location
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering CustomPlugin resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        the Amazon Resource Name (ARN) of the custom plugin.
+    contentType:
+      type: string
+      description: |
+        The type of the plugin file. Allowed values are `ZIP` and `JAR`.
+      willReplaceOnChanges: true
+    description:
+      type: string
+      description: |
+        A summary description of the custom plugin.
+      willReplaceOnChanges: true
+    latestRevision:
+      type: integer
+      description: |
+        an ID of the latest successfully created revision of the custom plugin.
+    location:
+      $ref: "#/types/aws:mskconnect/CustomPluginLocation:CustomPluginLocation"
+      description: |
+        Information about the location of a custom plugin. See below.
+      willReplaceOnChanges: true
+    name:
+      type: string
+      description: |
+        The name of the custom plugin..
+      willReplaceOnChanges: true
+    state:
+      type: string
+      description: |
+        the state of the custom plugin.
+  type: object

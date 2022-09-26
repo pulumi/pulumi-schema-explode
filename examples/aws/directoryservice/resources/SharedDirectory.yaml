@@ -1,0 +1,79 @@
+$token: aws:directoryservice/sharedDirectory:SharedDirectory
+properties:
+  directoryId:
+    type: string
+    description: |
+      Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
+  method:
+    type: string
+    description: |
+      Method used when sharing a directory. Valid values are `ORGANIZATIONS` and `HANDSHAKE`. Default is `HANDSHAKE`.
+  notes:
+    type: string
+    description: |
+      Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
+  sharedDirectoryId:
+    type: string
+    description: |
+      Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
+  target:
+    $ref: "#/types/aws:directoryservice/SharedDirectoryTarget:SharedDirectoryTarget"
+    description: |
+      Identifier for the directory consumer account with whom the directory is to be shared. See below.
+required:
+  - directoryId
+  - sharedDirectoryId
+  - target
+inputProperties:
+  directoryId:
+    type: string
+    description: |
+      Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
+    willReplaceOnChanges: true
+  method:
+    type: string
+    description: |
+      Method used when sharing a directory. Valid values are `ORGANIZATIONS` and `HANDSHAKE`. Default is `HANDSHAKE`.
+    willReplaceOnChanges: true
+  notes:
+    type: string
+    description: |
+      Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
+    willReplaceOnChanges: true
+  target:
+    $ref: "#/types/aws:directoryservice/SharedDirectoryTarget:SharedDirectoryTarget"
+    description: |
+      Identifier for the directory consumer account with whom the directory is to be shared. See below.
+    willReplaceOnChanges: true
+requiredInputs:
+  - directoryId
+  - target
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering SharedDirectory resources.
+  properties:
+    directoryId:
+      type: string
+      description: |
+        Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
+      willReplaceOnChanges: true
+    method:
+      type: string
+      description: |
+        Method used when sharing a directory. Valid values are `ORGANIZATIONS` and `HANDSHAKE`. Default is `HANDSHAKE`.
+      willReplaceOnChanges: true
+    notes:
+      type: string
+      description: |
+        Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
+      willReplaceOnChanges: true
+    sharedDirectoryId:
+      type: string
+      description: |
+        Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
+    target:
+      $ref: "#/types/aws:directoryservice/SharedDirectoryTarget:SharedDirectoryTarget"
+      description: |
+        Identifier for the directory consumer account with whom the directory is to be shared. See below.
+      willReplaceOnChanges: true
+  type: object

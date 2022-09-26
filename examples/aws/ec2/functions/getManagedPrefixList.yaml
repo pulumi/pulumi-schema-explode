@@ -1,0 +1,83 @@
+$token: aws:ec2/getManagedPrefixList:getManagedPrefixList
+inputs:
+  description: |
+    A collection of arguments for invoking getManagedPrefixList.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getManagedPrefixListFilter:getManagedPrefixListFilter"
+      description: |
+        Configuration block(s) for filtering. Detailed below.
+    id:
+      type: string
+      description: |
+        ID of the prefix list to select.
+    name:
+      type: string
+      description: |
+        Name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags assigned to the resource.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getManagedPrefixList.
+  properties:
+    addressFamily:
+      type: string
+      description: |
+        Address family of the prefix list. Valid values are `IPv4` and `IPv6`.
+    arn:
+      type: string
+      description: |
+        ARN of the selected prefix list.
+    entries:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getManagedPrefixListEntry:getManagedPrefixListEntry"
+      description: |
+        Set of entries in this prefix list. Each entry is an object with `cidr` and `description`.
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getManagedPrefixListFilter:getManagedPrefixListFilter"
+    id:
+      type: string
+      description: |
+        ID of the selected prefix list.
+    maxEntries:
+      type: integer
+      description: |
+        When then prefix list is managed, the maximum number of entries it supports, or null otherwise.
+    name:
+      type: string
+      description: |
+        Name of the selected prefix list.
+    ownerId:
+      type: string
+      description: |
+        Account ID of the owner of a customer-managed prefix list, or `AWS` otherwise.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags assigned to the resource.
+    version:
+      type: integer
+  type: object
+  required:
+    - addressFamily
+    - arn
+    - entries
+    - id
+    - maxEntries
+    - name
+    - ownerId
+    - tags
+    - version

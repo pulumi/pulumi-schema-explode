@@ -1,0 +1,48 @@
+$token: aws:mskconnect/ConnectorCapacityAutoscaling:ConnectorCapacityAutoscaling
+properties:
+  maxWorkerCount:
+    type: integer
+    description: |
+      The maximum number of workers allocated to the connector.
+    language:
+      python:
+        mapCase: false
+  mcuCount:
+    type: integer
+    description: |
+      The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
+    language:
+      python:
+        mapCase: false
+  minWorkerCount:
+    type: integer
+    description: |
+      The minimum number of workers allocated to the connector.
+    language:
+      python:
+        mapCase: false
+  scaleInPolicy:
+    $ref: "#/types/aws:mskconnect/ConnectorCapacityAutoscalingScaleInPolicy:ConnectorCapacityAutoscalingScaleInPolicy"
+    description: |
+      The scale-in policy for the connector. See below.
+    language:
+      python:
+        mapCase: false
+  scaleOutPolicy:
+    $ref: "#/types/aws:mskconnect/ConnectorCapacityAutoscalingScaleOutPolicy:ConnectorCapacityAutoscalingScaleOutPolicy"
+    description: |
+      The scale-out policy for the connector. See below.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - maxWorkerCount
+  - minWorkerCount
+language:
+  nodejs:
+    requiredOutputs:
+      - maxWorkerCount
+      - minWorkerCount
+      - scaleInPolicy
+      - scaleOutPolicy

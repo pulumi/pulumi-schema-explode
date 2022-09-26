@@ -1,0 +1,35 @@
+$token: aws:kinesis/FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration:FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration
+properties:
+  enabled:
+    type: boolean
+    description: |
+      Enables or disables [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). Defaults to `false`.
+    language:
+      python:
+        mapCase: false
+  inputFormatConfiguration:
+    $ref: "#/types/aws:kinesis/FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration:FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration"
+    description: |
+      Nested argument that specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. More details below.
+    language:
+      python:
+        mapCase: false
+  outputFormatConfiguration:
+    $ref: "#/types/aws:kinesis/FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration:FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration"
+    description: |
+      Nested argument that specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. More details below.
+    language:
+      python:
+        mapCase: false
+  schemaConfiguration:
+    $ref: "#/types/aws:kinesis/FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration:FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration"
+    description: |
+      Nested argument that specifies the AWS Glue Data Catalog table that contains the column information. More details below.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - inputFormatConfiguration
+  - outputFormatConfiguration
+  - schemaConfiguration

@@ -1,0 +1,104 @@
+$token: aws:dlm/lifecyclePolicy:LifecyclePolicy
+properties:
+  arn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
+  description:
+    type: string
+    description: |
+      A description for the DLM lifecycle policy.
+  executionRoleArn:
+    type: string
+    description: |
+      The ARN of an IAM role that is able to be assumed by the DLM service.
+  policyDetails:
+    $ref: "#/types/aws:dlm/LifecyclePolicyPolicyDetails:LifecyclePolicyPolicyDetails"
+    description: |
+      See the `policy_details` configuration block. Max of 1.
+  state:
+    type: string
+    description: |
+      Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - arn
+  - description
+  - executionRoleArn
+  - policyDetails
+  - tagsAll
+inputProperties:
+  description:
+    type: string
+    description: |
+      A description for the DLM lifecycle policy.
+  executionRoleArn:
+    type: string
+    description: |
+      The ARN of an IAM role that is able to be assumed by the DLM service.
+  policyDetails:
+    $ref: "#/types/aws:dlm/LifecyclePolicyPolicyDetails:LifecyclePolicyPolicyDetails"
+    description: |
+      See the `policy_details` configuration block. Max of 1.
+  state:
+    type: string
+    description: |
+      Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+requiredInputs:
+  - description
+  - executionRoleArn
+  - policyDetails
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering LifecyclePolicy resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
+    description:
+      type: string
+      description: |
+        A description for the DLM lifecycle policy.
+    executionRoleArn:
+      type: string
+      description: |
+        The ARN of an IAM role that is able to be assumed by the DLM service.
+    policyDetails:
+      $ref: "#/types/aws:dlm/LifecyclePolicyPolicyDetails:LifecyclePolicyPolicyDetails"
+      description: |
+        See the `policy_details` configuration block. Max of 1.
+    state:
+      type: string
+      description: |
+        Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

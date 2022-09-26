@@ -1,0 +1,28 @@
+$token: aws:mwaa/EnvironmentLoggingConfigurationTaskLogs:EnvironmentLoggingConfigurationTaskLogs
+properties:
+  cloudWatchLogGroupArn:
+    type: string
+    language:
+      python:
+        mapCase: false
+  enabled:
+    type: boolean
+    description: |
+      Enabling or disabling the collection of logs
+    language:
+      python:
+        mapCase: false
+  logLevel:
+    type: string
+    description: |
+      Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+    language:
+      python:
+        mapCase: false
+type: object
+language:
+  nodejs:
+    requiredOutputs:
+      - cloudWatchLogGroupArn
+      - enabled
+      - logLevel

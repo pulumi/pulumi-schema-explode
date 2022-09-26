@@ -1,0 +1,73 @@
+$token: aws:mediastore/container:Container
+properties:
+  arn:
+    type: string
+    description: |
+      The ARN of the container.
+  endpoint:
+    type: string
+    description: |
+      The DNS endpoint of the container.
+  name:
+    type: string
+    description: |
+      The name of the container. Must contain alphanumeric characters or underscores.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - arn
+  - endpoint
+  - name
+  - tagsAll
+inputProperties:
+  name:
+    type: string
+    description: |
+      The name of the container. Must contain alphanumeric characters or underscores.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Container resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The ARN of the container.
+    endpoint:
+      type: string
+      description: |
+        The DNS endpoint of the container.
+    name:
+      type: string
+      description: |
+        The name of the container. Must contain alphanumeric characters or underscores.
+      willReplaceOnChanges: true
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

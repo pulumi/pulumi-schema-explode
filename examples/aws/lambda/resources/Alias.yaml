@@ -1,0 +1,97 @@
+$token: aws:lambda/alias:Alias
+properties:
+  arn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) identifying your Lambda function alias.
+  description:
+    type: string
+    description: |
+      Description of the alias.
+  functionName:
+    type: string
+    description: |
+      Lambda Function name or ARN.
+  functionVersion:
+    type: string
+    description: |
+      Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
+  invokeArn:
+    type: string
+    description: |
+      The ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`
+  name:
+    type: string
+    description: |
+      Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
+  routingConfig:
+    $ref: "#/types/aws:lambda/AliasRoutingConfig:AliasRoutingConfig"
+    description: |
+      The Lambda alias' route configuration settings. Fields documented below
+required:
+  - arn
+  - functionName
+  - functionVersion
+  - invokeArn
+  - name
+inputProperties:
+  description:
+    type: string
+    description: |
+      Description of the alias.
+  functionName:
+    type: string
+    description: |
+      Lambda Function name or ARN.
+    willReplaceOnChanges: true
+  functionVersion:
+    type: string
+    description: |
+      Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
+  name:
+    type: string
+    description: |
+      Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
+    willReplaceOnChanges: true
+  routingConfig:
+    $ref: "#/types/aws:lambda/AliasRoutingConfig:AliasRoutingConfig"
+    description: |
+      The Lambda alias' route configuration settings. Fields documented below
+requiredInputs:
+  - functionName
+  - functionVersion
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Alias resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The Amazon Resource Name (ARN) identifying your Lambda function alias.
+    description:
+      type: string
+      description: |
+        Description of the alias.
+    functionName:
+      type: string
+      description: |
+        Lambda Function name or ARN.
+      willReplaceOnChanges: true
+    functionVersion:
+      type: string
+      description: |
+        Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
+    invokeArn:
+      type: string
+      description: |
+        The ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`
+    name:
+      type: string
+      description: |
+        Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
+      willReplaceOnChanges: true
+    routingConfig:
+      $ref: "#/types/aws:lambda/AliasRoutingConfig:AliasRoutingConfig"
+      description: |
+        The Lambda alias' route configuration settings. Fields documented below
+  type: object

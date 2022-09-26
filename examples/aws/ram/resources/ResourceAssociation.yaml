@@ -1,0 +1,42 @@
+$token: aws:ram/resourceAssociation:ResourceAssociation
+properties:
+  resourceArn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
+  resourceShareArn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the RAM Resource Share.
+required:
+  - resourceArn
+  - resourceShareArn
+inputProperties:
+  resourceArn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
+    willReplaceOnChanges: true
+  resourceShareArn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the RAM Resource Share.
+    willReplaceOnChanges: true
+requiredInputs:
+  - resourceArn
+  - resourceShareArn
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering ResourceAssociation resources.
+  properties:
+    resourceArn:
+      type: string
+      description: |
+        Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
+      willReplaceOnChanges: true
+    resourceShareArn:
+      type: string
+      description: |
+        Amazon Resource Name (ARN) of the RAM Resource Share.
+      willReplaceOnChanges: true
+  type: object

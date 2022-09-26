@@ -1,0 +1,55 @@
+$token: aws:route53/getResolverEndpoint:getResolverEndpoint
+inputs:
+  description: |
+    A collection of arguments for invoking getResolverEndpoint.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:route53/getResolverEndpointFilter:getResolverEndpointFilter"
+      description: |
+        One or more name/value pairs to use as filters. There are
+        several valid keys, for a full reference, check out
+        [Route53resolver Filter value in the AWS API reference][1].
+    resolverEndpointId:
+      type: string
+      description: |
+        ID of the Route53 Resolver Endpoint.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getResolverEndpoint.
+  properties:
+    arn:
+      type: string
+    direction:
+      type: string
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:route53/getResolverEndpointFilter:getResolverEndpointFilter"
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    ipAddresses:
+      type: array
+      items:
+        type: string
+    name:
+      type: string
+    resolverEndpointId:
+      type: string
+    status:
+      type: string
+    vpcId:
+      type: string
+  type: object
+  required:
+    - arn
+    - direction
+    - ipAddresses
+    - name
+    - status
+    - vpcId
+    - id

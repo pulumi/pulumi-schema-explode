@@ -1,0 +1,162 @@
+$token: aws:ec2transitgateway/vpcAttachment:VpcAttachment
+properties:
+  applianceModeSupport:
+    type: string
+    description: |
+      Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
+  dnsSupport:
+    type: string
+    description: |
+      Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
+  ipv6Support:
+    type: string
+    description: |
+      Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+  subnetIds:
+    type: array
+    items:
+      type: string
+    description: |
+      Identifiers of EC2 Subnets.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  transitGatewayDefaultRouteTableAssociation:
+    type: boolean
+    description: |
+      Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
+  transitGatewayDefaultRouteTablePropagation:
+    type: boolean
+    description: |
+      Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
+  transitGatewayId:
+    type: string
+    description: |
+      Identifier of EC2 Transit Gateway.
+  vpcId:
+    type: string
+    description: |
+      Identifier of EC2 VPC.
+  vpcOwnerId:
+    type: string
+    description: |
+      Identifier of the AWS account that owns the EC2 VPC.
+required:
+  - subnetIds
+  - tagsAll
+  - transitGatewayId
+  - vpcId
+  - vpcOwnerId
+inputProperties:
+  applianceModeSupport:
+    type: string
+    description: |
+      Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
+  dnsSupport:
+    type: string
+    description: |
+      Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
+  ipv6Support:
+    type: string
+    description: |
+      Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+  subnetIds:
+    type: array
+    items:
+      type: string
+    description: |
+      Identifiers of EC2 Subnets.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  transitGatewayDefaultRouteTableAssociation:
+    type: boolean
+    description: |
+      Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
+  transitGatewayDefaultRouteTablePropagation:
+    type: boolean
+    description: |
+      Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
+  transitGatewayId:
+    type: string
+    description: |
+      Identifier of EC2 Transit Gateway.
+    willReplaceOnChanges: true
+  vpcId:
+    type: string
+    description: |
+      Identifier of EC2 VPC.
+    willReplaceOnChanges: true
+requiredInputs:
+  - subnetIds
+  - transitGatewayId
+  - vpcId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering VpcAttachment resources.
+  properties:
+    applianceModeSupport:
+      type: string
+      description: |
+        Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
+    dnsSupport:
+      type: string
+      description: |
+        Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
+    ipv6Support:
+      type: string
+      description: |
+        Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+    subnetIds:
+      type: array
+      items:
+        type: string
+      description: |
+        Identifiers of EC2 Subnets.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    transitGatewayDefaultRouteTableAssociation:
+      type: boolean
+      description: |
+        Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
+    transitGatewayDefaultRouteTablePropagation:
+      type: boolean
+      description: |
+        Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
+    transitGatewayId:
+      type: string
+      description: |
+        Identifier of EC2 Transit Gateway.
+      willReplaceOnChanges: true
+    vpcId:
+      type: string
+      description: |
+        Identifier of EC2 VPC.
+      willReplaceOnChanges: true
+    vpcOwnerId:
+      type: string
+      description: |
+        Identifier of the AWS account that owns the EC2 VPC.
+  type: object

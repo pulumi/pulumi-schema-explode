@@ -1,0 +1,56 @@
+$token: aws:wafv2/getIpSet:getIpSet
+inputs:
+  description: |
+    A collection of arguments for invoking getIpSet.
+  properties:
+    name:
+      type: string
+      description: |
+        Name of the WAFv2 IP Set.
+    scope:
+      type: string
+      description: |
+        Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+  type: object
+  required:
+    - name
+    - scope
+outputs:
+  description: |
+    A collection of values returned by getIpSet.
+  properties:
+    addresses:
+      type: array
+      items:
+        type: string
+      description: |
+        An array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
+    arn:
+      type: string
+      description: |
+        ARN of the entity.
+    description:
+      type: string
+      description: |
+        Description of the set that helps with identification.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    ipAddressVersion:
+      type: string
+      description: |
+        IP address version of the set.
+    name:
+      type: string
+    scope:
+      type: string
+  type: object
+  required:
+    - addresses
+    - arn
+    - description
+    - ipAddressVersion
+    - name
+    - scope
+    - id

@@ -1,0 +1,43 @@
+$token: aws:cloudwatch/getEventSource:getEventSource
+inputs:
+  description: |
+    A collection of arguments for invoking getEventSource.
+  properties:
+    namePrefix:
+      type: string
+      description: |
+        Specifying this limits the results to only those partner event sources with names that start with the specified prefix
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getEventSource.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the partner event source
+    createdBy:
+      type: string
+      description: |
+        Name of the SaaS partner that created the event source
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    name:
+      type: string
+      description: |
+        Name of the event source
+    namePrefix:
+      type: string
+    state:
+      type: string
+      description: |
+        State of the event source (`ACTIVE` or `PENDING`)
+  type: object
+  required:
+    - arn
+    - createdBy
+    - name
+    - state
+    - id

@@ -1,0 +1,75 @@
+$token: aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration
+description: "Provides a lifecycle configuration for SageMaker Notebook Instances.
+
+
+
+  ## Import
+
+
+  Models can be imported using the `name`, e.g.,
+
+
+  ```sh
+
+  \ $ pulumi import aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration lc foo
+
+  ```
+
+
+  \ "
+properties:
+  arn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
+  name:
+    type: string
+    description: |
+      The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
+  onCreate:
+    type: string
+    description: |
+      A shell script (base64-encoded) that runs only once when the SageMaker Notebook Instance is created.
+  onStart:
+    type: string
+    description: |
+      A shell script (base64-encoded) that runs every time the SageMaker Notebook Instance is started including the time it's created.
+required:
+  - arn
+  - name
+inputProperties:
+  name:
+    type: string
+    description: |
+      The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
+    willReplaceOnChanges: true
+  onCreate:
+    type: string
+    description: |
+      A shell script (base64-encoded) that runs only once when the SageMaker Notebook Instance is created.
+  onStart:
+    type: string
+    description: |
+      A shell script (base64-encoded) that runs every time the SageMaker Notebook Instance is started including the time it's created.
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering NotebookInstanceLifecycleConfiguration resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
+    name:
+      type: string
+      description: |
+        The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
+      willReplaceOnChanges: true
+    onCreate:
+      type: string
+      description: |
+        A shell script (base64-encoded) that runs only once when the SageMaker Notebook Instance is created.
+    onStart:
+      type: string
+      description: |
+        A shell script (base64-encoded) that runs every time the SageMaker Notebook Instance is started including the time it's created.
+  type: object

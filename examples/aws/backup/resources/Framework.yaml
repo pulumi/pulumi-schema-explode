@@ -1,0 +1,124 @@
+$token: aws:backup/framework:Framework
+properties:
+  arn:
+    type: string
+    description: |
+      The ARN of the backup framework.
+  controls:
+    type: array
+    items:
+      $ref: "#/types/aws:backup/FrameworkControl:FrameworkControl"
+    description: |
+      One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
+  creationTime:
+    type: string
+    description: |
+      The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
+  deploymentStatus:
+    type: string
+    description: |
+      The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
+  description:
+    type: string
+    description: |
+      The description of the framework with a maximum of 1,024 characters
+  name:
+    type: string
+    description: |
+      The name of a parameter, for example, BackupPlanFrequency.
+  status:
+    type: string
+    description: |
+      A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - arn
+  - controls
+  - creationTime
+  - deploymentStatus
+  - name
+  - status
+  - tagsAll
+inputProperties:
+  controls:
+    type: array
+    items:
+      $ref: "#/types/aws:backup/FrameworkControl:FrameworkControl"
+    description: |
+      One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
+  description:
+    type: string
+    description: |
+      The description of the framework with a maximum of 1,024 characters
+  name:
+    type: string
+    description: |
+      The name of a parameter, for example, BackupPlanFrequency.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+requiredInputs:
+  - controls
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Framework resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The ARN of the backup framework.
+    controls:
+      type: array
+      items:
+        $ref: "#/types/aws:backup/FrameworkControl:FrameworkControl"
+      description: |
+        One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
+    creationTime:
+      type: string
+      description: |
+        The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
+    deploymentStatus:
+      type: string
+      description: |
+        The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
+    description:
+      type: string
+      description: |
+        The description of the framework with a maximum of 1,024 characters
+    name:
+      type: string
+      description: |
+        The name of a parameter, for example, BackupPlanFrequency.
+      willReplaceOnChanges: true
+    status:
+      type: string
+      description: |
+        A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

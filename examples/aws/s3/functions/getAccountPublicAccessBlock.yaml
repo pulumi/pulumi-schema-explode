@@ -1,0 +1,41 @@
+$token: aws:s3/getAccountPublicAccessBlock:getAccountPublicAccessBlock
+inputs:
+  description: |
+    A collection of arguments for invoking getAccountPublicAccessBlock.
+  properties:
+    accountId:
+      type: string
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getAccountPublicAccessBlock.
+  properties:
+    accountId:
+      type: string
+    blockPublicAcls:
+      type: boolean
+      description: |
+        Whether or not Amazon S3 should block public ACLs for buckets in this account is enabled. Returns as `true` or `false`.
+    blockPublicPolicy:
+      type: boolean
+      description: |
+        Whether or not Amazon S3 should block public bucket policies for buckets in this account is enabled. Returns as `true` or `false`.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    ignorePublicAcls:
+      type: boolean
+      description: |
+        Whether or not Amazon S3 should ignore public ACLs for buckets in this account is enabled. Returns as `true` or `false`.
+    restrictPublicBuckets:
+      type: boolean
+      description: |
+        Whether or not Amazon S3 should restrict public bucket policies for buckets in this account is enabled. Returns as `true` or `false`.
+  type: object
+  required:
+    - blockPublicAcls
+    - blockPublicPolicy
+    - ignorePublicAcls
+    - restrictPublicBuckets
+    - id

@@ -1,0 +1,55 @@
+$token: aws:cognito/UserPoolSchema:UserPoolSchema
+properties:
+  attributeDataType:
+    type: string
+    description: |
+      Attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
+    language:
+      python:
+        mapCase: false
+  developerOnlyAttribute:
+    type: boolean
+    description: |
+      Whether the attribute type is developer only.
+    language:
+      python:
+        mapCase: false
+  mutable:
+    type: boolean
+    description: |
+      Whether the attribute can be changed once it has been created.
+    language:
+      python:
+        mapCase: false
+  name:
+    type: string
+    description: |
+      Name of the attribute.
+    language:
+      python:
+        mapCase: false
+  numberAttributeConstraints:
+    $ref: "#/types/aws:cognito/UserPoolSchemaNumberAttributeConstraints:UserPoolSchemaNumberAttributeConstraints"
+    description: |
+      Configuration block for the constraints for an attribute of the number type. Detailed below.
+    language:
+      python:
+        mapCase: false
+  required:
+    type: boolean
+    description: |
+      Whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
+    language:
+      python:
+        mapCase: false
+  stringAttributeConstraints:
+    $ref: "#/types/aws:cognito/UserPoolSchemaStringAttributeConstraints:UserPoolSchemaStringAttributeConstraints"
+    description: |
+      Constraints for an attribute of the string type. Detailed below.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - attributeDataType
+  - name

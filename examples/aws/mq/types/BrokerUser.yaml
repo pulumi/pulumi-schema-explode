@@ -1,0 +1,36 @@
+$token: aws:mq/BrokerUser:BrokerUser
+properties:
+  consoleAccess:
+    type: boolean
+    description: |
+      Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engine_type` of `ActiveMQ` only.
+    language:
+      python:
+        mapCase: false
+  groups:
+    type: array
+    items:
+      type: string
+    description: |
+      List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engine_type` of `ActiveMQ` only.
+    language:
+      python:
+        mapCase: false
+  password:
+    type: string
+    description: |
+      Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
+    language:
+      python:
+        mapCase: false
+  username:
+    type: string
+    description: |
+      Username of the user.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - password
+  - username

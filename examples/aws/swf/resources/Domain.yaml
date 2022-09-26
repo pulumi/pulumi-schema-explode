@@ -1,0 +1,109 @@
+$token: aws:swf/domain:Domain
+properties:
+  arn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN)
+  description:
+    type: string
+    description: |
+      The domain description.
+  name:
+    type: string
+    description: |
+      The name of the domain. If omitted, this provider will assign a random, unique name.
+  namePrefix:
+    type: string
+    description: |
+      Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  workflowExecutionRetentionPeriodInDays:
+    type: string
+    description: |
+      Length of time that SWF will continue to retain information about the workflow execution after the workflow execution is complete, must be between 0 and 90 days.
+required:
+  - arn
+  - name
+  - tagsAll
+  - workflowExecutionRetentionPeriodInDays
+inputProperties:
+  description:
+    type: string
+    description: |
+      The domain description.
+    willReplaceOnChanges: true
+  name:
+    type: string
+    description: |
+      The name of the domain. If omitted, this provider will assign a random, unique name.
+    willReplaceOnChanges: true
+  namePrefix:
+    type: string
+    description: |
+      Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  workflowExecutionRetentionPeriodInDays:
+    type: string
+    description: |
+      Length of time that SWF will continue to retain information about the workflow execution after the workflow execution is complete, must be between 0 and 90 days.
+    willReplaceOnChanges: true
+requiredInputs:
+  - workflowExecutionRetentionPeriodInDays
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Domain resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        Amazon Resource Name (ARN)
+    description:
+      type: string
+      description: |
+        The domain description.
+      willReplaceOnChanges: true
+    name:
+      type: string
+      description: |
+        The name of the domain. If omitted, this provider will assign a random, unique name.
+      willReplaceOnChanges: true
+    namePrefix:
+      type: string
+      description: |
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+      willReplaceOnChanges: true
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    workflowExecutionRetentionPeriodInDays:
+      type: string
+      description: |
+        Length of time that SWF will continue to retain information about the workflow execution after the workflow execution is complete, must be between 0 and 90 days.
+      willReplaceOnChanges: true
+  type: object

@@ -1,0 +1,82 @@
+$token: aws:cognito/resourceServer:ResourceServer
+properties:
+  identifier:
+    type: string
+    description: |
+      An identifier for the resource server.
+  name:
+    type: string
+    description: |
+      A name for the resource server.
+  scopeIdentifiers:
+    type: array
+    items:
+      type: string
+    description: |
+      A list of all scopes configured for this resource server in the format identifier/scope_name.
+  scopes:
+    type: array
+    items:
+      $ref: "#/types/aws:cognito/ResourceServerScope:ResourceServerScope"
+    description: |
+      A list of Authorization Scope.
+  userPoolId:
+    type: string
+required:
+  - identifier
+  - name
+  - scopeIdentifiers
+  - userPoolId
+inputProperties:
+  identifier:
+    type: string
+    description: |
+      An identifier for the resource server.
+    willReplaceOnChanges: true
+  name:
+    type: string
+    description: |
+      A name for the resource server.
+    willReplaceOnChanges: true
+  scopes:
+    type: array
+    items:
+      $ref: "#/types/aws:cognito/ResourceServerScope:ResourceServerScope"
+    description: |
+      A list of Authorization Scope.
+  userPoolId:
+    type: string
+    willReplaceOnChanges: true
+requiredInputs:
+  - identifier
+  - userPoolId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering ResourceServer resources.
+  properties:
+    identifier:
+      type: string
+      description: |
+        An identifier for the resource server.
+      willReplaceOnChanges: true
+    name:
+      type: string
+      description: |
+        A name for the resource server.
+      willReplaceOnChanges: true
+    scopeIdentifiers:
+      type: array
+      items:
+        type: string
+      description: |
+        A list of all scopes configured for this resource server in the format identifier/scope_name.
+    scopes:
+      type: array
+      items:
+        $ref: "#/types/aws:cognito/ResourceServerScope:ResourceServerScope"
+      description: |
+        A list of Authorization Scope.
+    userPoolId:
+      type: string
+      willReplaceOnChanges: true
+  type: object

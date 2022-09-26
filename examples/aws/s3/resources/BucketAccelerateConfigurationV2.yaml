@@ -1,0 +1,54 @@
+$token: aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2
+properties:
+  bucket:
+    type: string
+    description: |
+      The name of the bucket.
+  expectedBucketOwner:
+    type: string
+    description: |
+      The account ID of the expected bucket owner.
+  status:
+    type: string
+    description: |
+      The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
+required:
+  - bucket
+  - status
+inputProperties:
+  bucket:
+    type: string
+    description: |
+      The name of the bucket.
+    willReplaceOnChanges: true
+  expectedBucketOwner:
+    type: string
+    description: |
+      The account ID of the expected bucket owner.
+    willReplaceOnChanges: true
+  status:
+    type: string
+    description: |
+      The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
+requiredInputs:
+  - bucket
+  - status
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering BucketAccelerateConfigurationV2 resources.
+  properties:
+    bucket:
+      type: string
+      description: |
+        The name of the bucket.
+      willReplaceOnChanges: true
+    expectedBucketOwner:
+      type: string
+      description: |
+        The account ID of the expected bucket owner.
+      willReplaceOnChanges: true
+    status:
+      type: string
+      description: |
+        The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
+  type: object

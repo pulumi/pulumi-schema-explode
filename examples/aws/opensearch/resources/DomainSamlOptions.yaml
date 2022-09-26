@@ -1,0 +1,38 @@
+$token: aws:opensearch/domainSamlOptions:DomainSamlOptions
+properties:
+  domainName:
+    type: string
+    description: |
+      Name of the domain.
+  samlOptions:
+    $ref: "#/types/aws:opensearch/DomainSamlOptionsSamlOptions:DomainSamlOptionsSamlOptions"
+    description: |
+      SAML authentication options for an AWS OpenSearch Domain.
+required:
+  - domainName
+inputProperties:
+  domainName:
+    type: string
+    description: |
+      Name of the domain.
+    willReplaceOnChanges: true
+  samlOptions:
+    $ref: "#/types/aws:opensearch/DomainSamlOptionsSamlOptions:DomainSamlOptionsSamlOptions"
+    description: |
+      SAML authentication options for an AWS OpenSearch Domain.
+requiredInputs:
+  - domainName
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering DomainSamlOptions resources.
+  properties:
+    domainName:
+      type: string
+      description: |
+        Name of the domain.
+      willReplaceOnChanges: true
+    samlOptions:
+      $ref: "#/types/aws:opensearch/DomainSamlOptionsSamlOptions:DomainSamlOptionsSamlOptions"
+      description: |
+        SAML authentication options for an AWS OpenSearch Domain.
+  type: object

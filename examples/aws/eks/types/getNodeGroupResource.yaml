@@ -1,0 +1,25 @@
+$token: aws:eks/getNodeGroupResource:getNodeGroupResource
+properties:
+  autoscalingGroups:
+    type: array
+    items:
+      $ref: "#/types/aws:eks/getNodeGroupResourceAutoscalingGroup:getNodeGroupResourceAutoscalingGroup"
+    description: |
+      List of objects containing information about AutoScaling Groups.
+    language:
+      python:
+        mapCase: false
+  remoteAccessSecurityGroupId:
+    type: string
+    description: |
+      Identifier of the remote access EC2 Security Group.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - autoscalingGroups
+  - remoteAccessSecurityGroupId
+language:
+  nodejs:
+    requiredInputs: []

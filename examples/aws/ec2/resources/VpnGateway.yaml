@@ -1,0 +1,91 @@
+$token: aws:ec2/vpnGateway:VpnGateway
+properties:
+  amazonSideAsn:
+    type: string
+    description: |
+      The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
+  arn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the VPN Gateway.
+  availabilityZone:
+    type: string
+    description: |
+      The Availability Zone for the virtual private gateway.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  vpcId:
+    type: string
+    description: |
+      The VPC ID to create in.
+required:
+  - amazonSideAsn
+  - arn
+  - tagsAll
+  - vpcId
+inputProperties:
+  amazonSideAsn:
+    type: string
+    description: |
+      The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
+    willReplaceOnChanges: true
+  availabilityZone:
+    type: string
+    description: |
+      The Availability Zone for the virtual private gateway.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  vpcId:
+    type: string
+    description: |
+      The VPC ID to create in.
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering VpnGateway resources.
+  properties:
+    amazonSideAsn:
+      type: string
+      description: |
+        The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
+      willReplaceOnChanges: true
+    arn:
+      type: string
+      description: |
+        Amazon Resource Name (ARN) of the VPN Gateway.
+    availabilityZone:
+      type: string
+      description: |
+        The Availability Zone for the virtual private gateway.
+      willReplaceOnChanges: true
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    vpcId:
+      type: string
+      description: |
+        The VPC ID to create in.
+  type: object

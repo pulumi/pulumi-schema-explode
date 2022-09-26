@@ -1,0 +1,129 @@
+$token: aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2
+properties:
+  bucket:
+    type: string
+    description: |
+      The name of the bucket.
+  errorDocument:
+    $ref: "#/types/aws:s3/BucketWebsiteConfigurationV2ErrorDocument:BucketWebsiteConfigurationV2ErrorDocument"
+    description: |
+      The name of the error document for the website detailed below.
+  expectedBucketOwner:
+    type: string
+    description: |
+      The account ID of the expected bucket owner.
+  indexDocument:
+    $ref: "#/types/aws:s3/BucketWebsiteConfigurationV2IndexDocument:BucketWebsiteConfigurationV2IndexDocument"
+    description: |
+      The name of the index document for the website detailed below.
+  redirectAllRequestsTo:
+    $ref: "#/types/aws:s3/BucketWebsiteConfigurationV2RedirectAllRequestsTo:BucketWebsiteConfigurationV2RedirectAllRequestsTo"
+    description: |
+      The redirect behavior for every request to this bucket's website endpoint detailed below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
+  routingRuleDetails:
+    type: string
+    description: |
+      A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+      describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
+  routingRules:
+    type: array
+    items:
+      $ref: "#/types/aws:s3/BucketWebsiteConfigurationV2RoutingRule:BucketWebsiteConfigurationV2RoutingRule"
+    description: |
+      List of rules that define when a redirect is applied and the redirect behavior detailed below.
+  websiteDomain:
+    type: string
+    description: |
+      The domain of the website endpoint. This is used to create Route 53 alias records.
+  websiteEndpoint:
+    type: string
+    description: |
+      The website endpoint.
+required:
+  - bucket
+  - routingRules
+  - routingRuleDetails
+  - websiteDomain
+  - websiteEndpoint
+inputProperties:
+  bucket:
+    type: string
+    description: |
+      The name of the bucket.
+    willReplaceOnChanges: true
+  errorDocument:
+    $ref: "#/types/aws:s3/BucketWebsiteConfigurationV2ErrorDocument:BucketWebsiteConfigurationV2ErrorDocument"
+    description: |
+      The name of the error document for the website detailed below.
+  expectedBucketOwner:
+    type: string
+    description: |
+      The account ID of the expected bucket owner.
+    willReplaceOnChanges: true
+  indexDocument:
+    $ref: "#/types/aws:s3/BucketWebsiteConfigurationV2IndexDocument:BucketWebsiteConfigurationV2IndexDocument"
+    description: |
+      The name of the index document for the website detailed below.
+  redirectAllRequestsTo:
+    $ref: "#/types/aws:s3/BucketWebsiteConfigurationV2RedirectAllRequestsTo:BucketWebsiteConfigurationV2RedirectAllRequestsTo"
+    description: |
+      The redirect behavior for every request to this bucket's website endpoint detailed below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
+  routingRuleDetails:
+    type: string
+    description: |
+      A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+      describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
+  routingRules:
+    type: array
+    items:
+      $ref: "#/types/aws:s3/BucketWebsiteConfigurationV2RoutingRule:BucketWebsiteConfigurationV2RoutingRule"
+    description: |
+      List of rules that define when a redirect is applied and the redirect behavior detailed below.
+requiredInputs:
+  - bucket
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering BucketWebsiteConfigurationV2 resources.
+  properties:
+    bucket:
+      type: string
+      description: |
+        The name of the bucket.
+      willReplaceOnChanges: true
+    errorDocument:
+      $ref: "#/types/aws:s3/BucketWebsiteConfigurationV2ErrorDocument:BucketWebsiteConfigurationV2ErrorDocument"
+      description: |
+        The name of the error document for the website detailed below.
+    expectedBucketOwner:
+      type: string
+      description: |
+        The account ID of the expected bucket owner.
+      willReplaceOnChanges: true
+    indexDocument:
+      $ref: "#/types/aws:s3/BucketWebsiteConfigurationV2IndexDocument:BucketWebsiteConfigurationV2IndexDocument"
+      description: |
+        The name of the index document for the website detailed below.
+    redirectAllRequestsTo:
+      $ref: "#/types/aws:s3/BucketWebsiteConfigurationV2RedirectAllRequestsTo:BucketWebsiteConfigurationV2RedirectAllRequestsTo"
+      description: |
+        The redirect behavior for every request to this bucket's website endpoint detailed below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
+    routingRuleDetails:
+      type: string
+      description: |
+        A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+        describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
+    routingRules:
+      type: array
+      items:
+        $ref: "#/types/aws:s3/BucketWebsiteConfigurationV2RoutingRule:BucketWebsiteConfigurationV2RoutingRule"
+      description: |
+        List of rules that define when a redirect is applied and the redirect behavior detailed below.
+    websiteDomain:
+      type: string
+      description: |
+        The domain of the website endpoint. This is used to create Route 53 alias records.
+    websiteEndpoint:
+      type: string
+      description: |
+        The website endpoint.
+  type: object

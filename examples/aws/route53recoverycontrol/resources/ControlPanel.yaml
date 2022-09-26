@@ -1,0 +1,75 @@
+$token: aws:route53recoverycontrol/controlPanel:ControlPanel
+properties:
+  arn:
+    type: string
+    description: |
+      ARN of the control panel.
+  clusterArn:
+    type: string
+    description: |
+      ARN of the cluster in which this control panel will reside.
+  defaultControlPanel:
+    type: boolean
+    description: |
+      Whether a control panel is default.
+  name:
+    type: string
+    description: |
+      Name describing the control panel.
+  routingControlCount:
+    type: integer
+    description: |
+      Number routing controls in a control panel.
+  status:
+    type: string
+    description: |
+      Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
+required:
+  - arn
+  - clusterArn
+  - defaultControlPanel
+  - name
+  - routingControlCount
+  - status
+inputProperties:
+  clusterArn:
+    type: string
+    description: |
+      ARN of the cluster in which this control panel will reside.
+    willReplaceOnChanges: true
+  name:
+    type: string
+    description: |
+      Name describing the control panel.
+requiredInputs:
+  - clusterArn
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering ControlPanel resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the control panel.
+    clusterArn:
+      type: string
+      description: |
+        ARN of the cluster in which this control panel will reside.
+      willReplaceOnChanges: true
+    defaultControlPanel:
+      type: boolean
+      description: |
+        Whether a control panel is default.
+    name:
+      type: string
+      description: |
+        Name describing the control panel.
+    routingControlCount:
+      type: integer
+      description: |
+        Number routing controls in a control panel.
+    status:
+      type: string
+      description: |
+        Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
+  type: object

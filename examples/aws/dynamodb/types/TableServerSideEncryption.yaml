@@ -1,0 +1,24 @@
+$token: aws:dynamodb/TableServerSideEncryption:TableServerSideEncryption
+properties:
+  enabled:
+    type: boolean
+    description: |
+      Whether TTL is enabled.
+    language:
+      python:
+        mapCase: false
+  kmsKeyArn:
+    type: string
+    description: |
+      ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - enabled
+language:
+  nodejs:
+    requiredOutputs:
+      - enabled
+      - kmsKeyArn

@@ -1,0 +1,27 @@
+$token: aws:apprunner/ServiceSourceConfigurationCodeRepository:ServiceSourceConfigurationCodeRepository
+properties:
+  codeConfiguration:
+    $ref: "#/types/aws:apprunner/ServiceSourceConfigurationCodeRepositoryCodeConfiguration:ServiceSourceConfigurationCodeRepositoryCodeConfiguration"
+    description: |
+      Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
+    language:
+      python:
+        mapCase: false
+  repositoryUrl:
+    type: string
+    description: |
+      Location of the repository that contains the source code.
+    language:
+      python:
+        mapCase: false
+  sourceCodeVersion:
+    $ref: "#/types/aws:apprunner/ServiceSourceConfigurationCodeRepositorySourceCodeVersion:ServiceSourceConfigurationCodeRepositorySourceCodeVersion"
+    description: |
+      Version that should be used within the source code repository. See Source Code Version below for more details.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - repositoryUrl
+  - sourceCodeVersion

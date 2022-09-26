@@ -1,0 +1,33 @@
+$token: aws:ecs/ServiceServiceRegistries:ServiceServiceRegistries
+properties:
+  containerName:
+    type: string
+    description: |
+      Container name value, already specified in the task definition, to be used for your service discovery service.
+    language:
+      python:
+        mapCase: false
+  containerPort:
+    type: integer
+    description: |
+      Port value, already specified in the task definition, to be used for your service discovery service.
+    language:
+      python:
+        mapCase: false
+  port:
+    type: integer
+    description: |
+      Port value used if your Service Discovery service specified an SRV record.
+    language:
+      python:
+        mapCase: false
+  registryArn:
+    type: string
+    description: |
+      ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`aws.servicediscovery.Service`). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html)
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - registryArn

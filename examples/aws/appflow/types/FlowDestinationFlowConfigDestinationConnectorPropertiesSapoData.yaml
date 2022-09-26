@@ -1,0 +1,42 @@
+$token: aws:appflow/FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData:FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData
+properties:
+  errorHandlingConfig:
+    $ref: "#/types/aws:appflow/FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig:FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig"
+    description: |
+      Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+    language:
+      python:
+        mapCase: false
+  idFieldNames:
+    type: array
+    items:
+      type: string
+    description: |
+      Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+    language:
+      python:
+        mapCase: false
+  objectPath:
+    type: string
+    description: |
+      Object path specified in the SAPOData flow source.
+    language:
+      python:
+        mapCase: false
+  successResponseHandlingConfig:
+    $ref: "#/types/aws:appflow/FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig:FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig"
+    description: |
+      Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data. See Success Response Handling Config for more details.
+    language:
+      python:
+        mapCase: false
+  writeOperationType:
+    type: string
+    description: |
+      This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `id_field_names` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - objectPath

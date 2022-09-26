@@ -1,0 +1,40 @@
+$token: aws:dynamodb/contributorInsights:ContributorInsights
+properties:
+  indexName:
+    type: string
+    description: |
+      The global secondary index name
+  tableName:
+    type: string
+    description: |
+      The name of the table to enable contributor insights
+required:
+  - tableName
+inputProperties:
+  indexName:
+    type: string
+    description: |
+      The global secondary index name
+    willReplaceOnChanges: true
+  tableName:
+    type: string
+    description: |
+      The name of the table to enable contributor insights
+    willReplaceOnChanges: true
+requiredInputs:
+  - tableName
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering ContributorInsights resources.
+  properties:
+    indexName:
+      type: string
+      description: |
+        The global secondary index name
+      willReplaceOnChanges: true
+    tableName:
+      type: string
+      description: |
+        The name of the table to enable contributor insights
+      willReplaceOnChanges: true
+  type: object

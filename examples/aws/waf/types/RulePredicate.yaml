@@ -1,0 +1,31 @@
+$token: aws:waf/RulePredicate:RulePredicate
+properties:
+  dataId:
+    type: string
+    description: |
+      A unique identifier for a predicate in the rule, such as Byte Match Set ID or IPSet ID.
+    language:
+      python:
+        mapCase: false
+  negated:
+    type: boolean
+    description: |
+      Set this to `false` if you want to allow, block, or count requests
+      based on the settings in the specified `waf_byte_match_set`, `waf_ipset`, `aws.waf.SizeConstraintSet`, `aws.waf.SqlInjectionMatchSet` or `aws.waf.XssMatchSet`.
+      For example, if an IPSet includes the IP address `192.0.2.44`, AWS WAF will allow or block requests based on that IP address.
+      If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses except `192.0.2.44`.
+    language:
+      python:
+        mapCase: false
+  type:
+    type: string
+    description: |
+      The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - dataId
+  - negated
+  - type

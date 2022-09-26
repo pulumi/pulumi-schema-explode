@@ -1,0 +1,43 @@
+$token: aws:wafv2/WebAclRuleStatementManagedRuleGroupStatement:WebAclRuleStatementManagedRuleGroupStatement
+properties:
+  excludedRules:
+    type: array
+    items:
+      $ref: "#/types/aws:wafv2/WebAclRuleStatementManagedRuleGroupStatementExcludedRule:WebAclRuleStatementManagedRuleGroupStatementExcludedRule"
+    description: |
+      The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details.
+    language:
+      python:
+        mapCase: false
+  name:
+    type: string
+    description: |
+      Name of the managed rule group.
+    language:
+      python:
+        mapCase: false
+  scopeDownStatement:
+    $ref: "#/types/aws:wafv2/WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement:WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement"
+    description: |
+      Narrows the scope of the statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details.
+    language:
+      python:
+        mapCase: false
+  vendorName:
+    type: string
+    description: |
+      Name of the managed rule group vendor.
+    language:
+      python:
+        mapCase: false
+  version:
+    type: string
+    description: |
+      Version of the managed rule group. You can set `Version_1.0` or `Version_1.1` etc. If you want to use the default version, do not set anything.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - name
+  - vendorName

@@ -1,0 +1,24 @@
+$token: aws:elasticache/ReplicationGroupClusterMode:ReplicationGroupClusterMode
+properties:
+  numNodeGroups:
+    type: integer
+    description: |
+      Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `global_replication_group_id` is set.
+    deprecationMessage: Use root-level num_node_groups instead
+    language:
+      python:
+        mapCase: false
+  replicasPerNodeGroup:
+    type: integer
+    description: |
+      Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+    deprecationMessage: Use root-level replicas_per_node_group instead
+    language:
+      python:
+        mapCase: false
+type: object
+language:
+  nodejs:
+    requiredOutputs:
+      - numNodeGroups
+      - replicasPerNodeGroup

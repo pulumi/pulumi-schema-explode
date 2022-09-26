@@ -1,0 +1,79 @@
+$token: aws:ec2transitgateway/getConnectPeer:getConnectPeer
+inputs:
+  description: |
+    A collection of arguments for invoking getConnectPeer.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2transitgateway/getConnectPeerFilter:getConnectPeerFilter"
+      description: |
+        One or more configuration blocks containing name-values filters. Detailed below.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value tags for the EC2 Transit Gateway Connect Peer
+    transitGatewayConnectPeerId:
+      type: string
+      description: |
+        Identifier of the EC2 Transit Gateway Connect Peer.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getConnectPeer.
+  properties:
+    arn:
+      type: string
+      description: |
+        EC2 Transit Gateway Connect Peer ARN
+    bgpAsn:
+      type: string
+      description: |
+        BGP ASN number assigned customer device
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2transitgateway/getConnectPeerFilter:getConnectPeerFilter"
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    insideCidrBlocks:
+      type: array
+      items:
+        type: string
+      description: |
+        CIDR blocks that will be used for addressing within the tunnel.
+    peerAddress:
+      type: string
+      description: |
+        IP addressed assigned to customer device, which is used as tunnel endpoint
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value tags for the EC2 Transit Gateway Connect Peer
+    transitGatewayAddress:
+      type: string
+      description: |
+        The IP address assigned to Transit Gateway, which is used as tunnel endpoint.
+    transitGatewayAttachmentId:
+      type: string
+      description: |
+        The Transit Gateway Connect
+    transitGatewayConnectPeerId:
+      type: string
+  type: object
+  required:
+    - arn
+    - bgpAsn
+    - insideCidrBlocks
+    - peerAddress
+    - tags
+    - transitGatewayAddress
+    - transitGatewayAttachmentId
+    - transitGatewayConnectPeerId
+    - id

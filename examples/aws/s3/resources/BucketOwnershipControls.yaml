@@ -1,0 +1,40 @@
+$token: aws:s3/bucketOwnershipControls:BucketOwnershipControls
+properties:
+  bucket:
+    type: string
+    description: |
+      The name of the bucket that you want to associate this access point with.
+  rule:
+    $ref: "#/types/aws:s3/BucketOwnershipControlsRule:BucketOwnershipControlsRule"
+    description: |
+      Configuration block(s) with Ownership Controls rules. Detailed below.
+required:
+  - bucket
+  - rule
+inputProperties:
+  bucket:
+    type: string
+    description: |
+      The name of the bucket that you want to associate this access point with.
+    willReplaceOnChanges: true
+  rule:
+    $ref: "#/types/aws:s3/BucketOwnershipControlsRule:BucketOwnershipControlsRule"
+    description: |
+      Configuration block(s) with Ownership Controls rules. Detailed below.
+requiredInputs:
+  - bucket
+  - rule
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering BucketOwnershipControls resources.
+  properties:
+    bucket:
+      type: string
+      description: |
+        The name of the bucket that you want to associate this access point with.
+      willReplaceOnChanges: true
+    rule:
+      $ref: "#/types/aws:s3/BucketOwnershipControlsRule:BucketOwnershipControlsRule"
+      description: |
+        Configuration block(s) with Ownership Controls rules. Detailed below.
+  type: object

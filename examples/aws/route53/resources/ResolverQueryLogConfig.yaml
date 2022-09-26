@@ -1,0 +1,106 @@
+$token: aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig
+properties:
+  arn:
+    type: string
+    description: |
+      The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
+  destinationArn:
+    type: string
+    description: |
+      The ARN of the resource that you want Route 53 Resolver to send query logs.
+      You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
+  name:
+    type: string
+    description: |
+      The name of the Route 53 Resolver query logging configuration.
+  ownerId:
+    type: string
+    description: |
+      The AWS account ID of the account that created the query logging configuration.
+  shareStatus:
+    type: string
+    description: |
+      An indication of whether the query logging configuration is shared with other AWS accounts, or was shared with the current account by another AWS account.
+      Sharing is configured through AWS Resource Access Manager (AWS RAM).
+      Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - arn
+  - destinationArn
+  - name
+  - ownerId
+  - shareStatus
+  - tagsAll
+inputProperties:
+  destinationArn:
+    type: string
+    description: |
+      The ARN of the resource that you want Route 53 Resolver to send query logs.
+      You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
+    willReplaceOnChanges: true
+  name:
+    type: string
+    description: |
+      The name of the Route 53 Resolver query logging configuration.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+requiredInputs:
+  - destinationArn
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering ResolverQueryLogConfig resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
+    destinationArn:
+      type: string
+      description: |
+        The ARN of the resource that you want Route 53 Resolver to send query logs.
+        You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
+      willReplaceOnChanges: true
+    name:
+      type: string
+      description: |
+        The name of the Route 53 Resolver query logging configuration.
+      willReplaceOnChanges: true
+    ownerId:
+      type: string
+      description: |
+        The AWS account ID of the account that created the query logging configuration.
+    shareStatus:
+      type: string
+      description: |
+        An indication of whether the query logging configuration is shared with other AWS accounts, or was shared with the current account by another AWS account.
+        Sharing is configured through AWS Resource Access Manager (AWS RAM).
+        Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

@@ -1,0 +1,31 @@
+$token: aws:mwaa/EnvironmentLastUpdated:EnvironmentLastUpdated
+properties:
+  createdAt:
+    type: string
+    description: |
+      The Created At date of the MWAA Environment
+      * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
+    language:
+      python:
+        mapCase: false
+  errors:
+    type: array
+    items:
+      $ref: "#/types/aws:mwaa/EnvironmentLastUpdatedError:EnvironmentLastUpdatedError"
+    language:
+      python:
+        mapCase: false
+  status:
+    type: string
+    description: |
+      The status of the Amazon MWAA Environment
+    language:
+      python:
+        mapCase: false
+type: object
+language:
+  nodejs:
+    requiredOutputs:
+      - createdAt
+      - errors
+      - status

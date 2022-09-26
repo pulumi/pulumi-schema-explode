@@ -1,0 +1,43 @@
+$token: aws:chime/VoiceConnectorOrganizationRoute:VoiceConnectorOrganizationRoute
+properties:
+  host:
+    type: string
+    description: |
+      The FQDN or IP address to contact for origination traffic.
+    language:
+      python:
+        mapCase: false
+  port:
+    type: integer
+    description: |
+      The designated origination route port. Defaults to `5060`.
+    language:
+      python:
+        mapCase: false
+  priority:
+    type: integer
+    description: |
+      The priority associated with the host, with 1 being the highest priority. Higher priority hosts are attempted first.
+    language:
+      python:
+        mapCase: false
+  protocol:
+    type: string
+    description: |
+      The protocol to use for the origination route. Encryption-enabled Amazon Chime Voice Connectors use TCP protocol by default.
+    language:
+      python:
+        mapCase: false
+  weight:
+    type: integer
+    description: |
+      The weight associated with the host. If hosts are equal in priority, calls are redistributed among them based on their relative weight.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - host
+  - priority
+  - protocol
+  - weight

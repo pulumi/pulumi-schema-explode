@@ -1,0 +1,122 @@
+$token: aws:iam/policyAttachment:PolicyAttachment
+properties:
+  groups:
+    type: array
+    items:
+      type: string
+    description: |
+      The group(s) the policy should be applied to
+  name:
+    type: string
+    description: |
+      The name of the attachment. This cannot be an empty string.
+  policyArn:
+    type: string
+    $ref: "#/types/aws:index/aRN:ARN"
+    description: |
+      The ARN of the policy you want to apply
+  roles:
+    type: array
+    items:
+      type: string
+    description: |
+      The role(s) the policy should be applied to
+  users:
+    type: array
+    items:
+      type: string
+    description: |
+      The user(s) the policy should be applied to
+required:
+  - name
+  - policyArn
+inputProperties:
+  groups:
+    type: array
+    items:
+      type: string
+      oneOf:
+        - type: string
+        - type: string
+          $ref: "#/types/aws:iam/group:Group"
+    description: |
+      The group(s) the policy should be applied to
+  name:
+    type: string
+    description: |
+      The name of the attachment. This cannot be an empty string.
+    willReplaceOnChanges: true
+  policyArn:
+    type: string
+    $ref: "#/types/aws:index/aRN:ARN"
+    description: |
+      The ARN of the policy you want to apply
+    willReplaceOnChanges: true
+  roles:
+    type: array
+    items:
+      type: string
+      oneOf:
+        - type: string
+        - type: string
+          $ref: "#/types/aws:iam/role:Role"
+    description: |
+      The role(s) the policy should be applied to
+  users:
+    type: array
+    items:
+      type: string
+      oneOf:
+        - type: string
+        - type: string
+          $ref: "#/types/aws:iam/user:User"
+    description: |
+      The user(s) the policy should be applied to
+requiredInputs:
+  - policyArn
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering PolicyAttachment resources.
+  properties:
+    groups:
+      type: array
+      items:
+        type: string
+        oneOf:
+          - type: string
+          - type: string
+            $ref: "#/types/aws:iam/group:Group"
+      description: |
+        The group(s) the policy should be applied to
+    name:
+      type: string
+      description: |
+        The name of the attachment. This cannot be an empty string.
+      willReplaceOnChanges: true
+    policyArn:
+      type: string
+      $ref: "#/types/aws:index/aRN:ARN"
+      description: |
+        The ARN of the policy you want to apply
+      willReplaceOnChanges: true
+    roles:
+      type: array
+      items:
+        type: string
+        oneOf:
+          - type: string
+          - type: string
+            $ref: "#/types/aws:iam/role:Role"
+      description: |
+        The role(s) the policy should be applied to
+    users:
+      type: array
+      items:
+        type: string
+        oneOf:
+          - type: string
+          - type: string
+            $ref: "#/types/aws:iam/user:User"
+      description: |
+        The user(s) the policy should be applied to
+  type: object

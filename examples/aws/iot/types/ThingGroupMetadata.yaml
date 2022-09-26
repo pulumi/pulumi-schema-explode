@@ -1,0 +1,28 @@
+$token: aws:iot/ThingGroupMetadata:ThingGroupMetadata
+properties:
+  creationDate:
+    type: string
+    language:
+      python:
+        mapCase: false
+  parentGroupName:
+    type: string
+    description: |
+      The name of the parent Thing Group.
+    language:
+      python:
+        mapCase: false
+  rootToParentGroups:
+    type: array
+    items:
+      $ref: "#/types/aws:iot/ThingGroupMetadataRootToParentGroup:ThingGroupMetadataRootToParentGroup"
+    language:
+      python:
+        mapCase: false
+type: object
+language:
+  nodejs:
+    requiredOutputs:
+      - creationDate
+      - parentGroupName
+      - rootToParentGroups

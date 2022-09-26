@@ -1,0 +1,46 @@
+$token: aws:ec2/getNetworkInterfaces:getNetworkInterfaces
+inputs:
+  description: |
+    A collection of arguments for invoking getNetworkInterfaces.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getNetworkInterfacesFilter:getNetworkInterfacesFilter"
+      description: |
+        Custom filter block as described below.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags, each pair of which must exactly match
+        a pair on the desired network interfaces.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getNetworkInterfaces.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getNetworkInterfacesFilter:getNetworkInterfacesFilter"
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    ids:
+      type: array
+      items:
+        type: string
+      description: |
+        List of all the network interface ids found.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+  type: object
+  required:
+    - ids
+    - tags
+    - id

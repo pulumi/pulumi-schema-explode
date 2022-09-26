@@ -1,0 +1,131 @@
+$token: aws:pinpoint/apnsChannel:ApnsChannel
+properties:
+  applicationId:
+    type: string
+    description: |
+      The application ID.
+  bundleId:
+    type: string
+    description: |
+      The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
+  certificate:
+    type: string
+    description: |
+      The pem encoded TLS Certificate from Apple.
+  defaultAuthenticationMethod:
+    type: string
+    description: |
+      The default authentication method used for APNs.
+      __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
+      You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
+      If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
+  enabled:
+    type: boolean
+    description: |
+      Whether the channel is enabled or disabled. Defaults to `true`.
+  privateKey:
+    type: string
+    description: |
+      The Certificate Private Key file (ie. `.key` file).
+  teamId:
+    type: string
+    description: |
+      The ID assigned to your Apple developer account team. This value is provided on the Membership page.
+  tokenKey:
+    type: string
+    description: |
+      The `.p8` file that you download from your Apple developer account when you create an authentication key.
+  tokenKeyId:
+    type: string
+    description: |
+      The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
+required:
+  - applicationId
+inputProperties:
+  applicationId:
+    type: string
+    description: |
+      The application ID.
+    willReplaceOnChanges: true
+  bundleId:
+    type: string
+    description: |
+      The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
+  certificate:
+    type: string
+    description: |
+      The pem encoded TLS Certificate from Apple.
+  defaultAuthenticationMethod:
+    type: string
+    description: |
+      The default authentication method used for APNs.
+      __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
+      You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
+      If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
+  enabled:
+    type: boolean
+    description: |
+      Whether the channel is enabled or disabled. Defaults to `true`.
+  privateKey:
+    type: string
+    description: |
+      The Certificate Private Key file (ie. `.key` file).
+  teamId:
+    type: string
+    description: |
+      The ID assigned to your Apple developer account team. This value is provided on the Membership page.
+  tokenKey:
+    type: string
+    description: |
+      The `.p8` file that you download from your Apple developer account when you create an authentication key.
+  tokenKeyId:
+    type: string
+    description: |
+      The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
+requiredInputs:
+  - applicationId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering ApnsChannel resources.
+  properties:
+    applicationId:
+      type: string
+      description: |
+        The application ID.
+      willReplaceOnChanges: true
+    bundleId:
+      type: string
+      description: |
+        The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
+    certificate:
+      type: string
+      description: |
+        The pem encoded TLS Certificate from Apple.
+    defaultAuthenticationMethod:
+      type: string
+      description: |
+        The default authentication method used for APNs.
+        __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
+        You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
+        If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
+    enabled:
+      type: boolean
+      description: |
+        Whether the channel is enabled or disabled. Defaults to `true`.
+    privateKey:
+      type: string
+      description: |
+        The Certificate Private Key file (ie. `.key` file).
+    teamId:
+      type: string
+      description: |
+        The ID assigned to your Apple developer account team. This value is provided on the Membership page.
+    tokenKey:
+      type: string
+      description: |
+        The `.p8` file that you download from your Apple developer account when you create an authentication key.
+    tokenKeyId:
+      type: string
+      description: |
+        The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
+  type: object

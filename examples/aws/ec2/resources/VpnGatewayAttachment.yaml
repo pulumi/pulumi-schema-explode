@@ -1,0 +1,42 @@
+$token: aws:ec2/vpnGatewayAttachment:VpnGatewayAttachment
+properties:
+  vpcId:
+    type: string
+    description: |
+      The ID of the VPC.
+  vpnGatewayId:
+    type: string
+    description: |
+      The ID of the Virtual Private Gateway.
+required:
+  - vpcId
+  - vpnGatewayId
+inputProperties:
+  vpcId:
+    type: string
+    description: |
+      The ID of the VPC.
+    willReplaceOnChanges: true
+  vpnGatewayId:
+    type: string
+    description: |
+      The ID of the Virtual Private Gateway.
+    willReplaceOnChanges: true
+requiredInputs:
+  - vpcId
+  - vpnGatewayId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering VpnGatewayAttachment resources.
+  properties:
+    vpcId:
+      type: string
+      description: |
+        The ID of the VPC.
+      willReplaceOnChanges: true
+    vpnGatewayId:
+      type: string
+      description: |
+        The ID of the Virtual Private Gateway.
+      willReplaceOnChanges: true
+  type: object

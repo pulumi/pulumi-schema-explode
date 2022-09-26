@@ -1,0 +1,185 @@
+$token: aws:comprehend/entityRecognizer:EntityRecognizer
+properties:
+  arn:
+    type: string
+    description: |
+      ARN of the Entity Recognizer version.
+  dataAccessRoleArn:
+    type: string
+    description: |
+      The ARN for an IAM Role which allows Comprehend to read the training and testing data.
+  inputDataConfig:
+    $ref: "#/types/aws:comprehend/EntityRecognizerInputDataConfig:EntityRecognizerInputDataConfig"
+    description: |
+      Configuration for the training and testing data.
+      See the `input_data_config` Configuration Block section below.
+  languageCode:
+    type: string
+    description: |
+      Two-letter language code for the language.
+      One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
+  modelKmsKeyId:
+    type: string
+    description: |
+      The ID or ARN of a KMS Key used to encrypt trained Entity Recognizers.
+  name:
+    type: string
+    description: |
+      Name for the Entity Recognizer.
+      Has a maximum length of 63 characters.
+      Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. If configured with a provider [`default_tags` Configuration Block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+  versionName:
+    type: string
+  versionNamePrefix:
+    type: string
+    description: |
+      Creates a unique version name beginning with the specified prefix.
+      Has a maximum length of 37 characters.
+      Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+      Conflicts with `version_name`.
+  volumeKmsKeyId:
+    type: string
+    description: |
+      ID or ARN of a KMS Key used to encrypt storage volumes during job processing.
+  vpcConfig:
+    $ref: "#/types/aws:comprehend/EntityRecognizerVpcConfig:EntityRecognizerVpcConfig"
+    description: |
+      Configuration parameters for VPC to contain Entity Recognizer resources.
+      See the `vpc_config` Configuration Block section below.
+required:
+  - arn
+  - dataAccessRoleArn
+  - inputDataConfig
+  - languageCode
+  - name
+  - tagsAll
+  - versionName
+  - versionNamePrefix
+inputProperties:
+  dataAccessRoleArn:
+    type: string
+    description: |
+      The ARN for an IAM Role which allows Comprehend to read the training and testing data.
+  inputDataConfig:
+    $ref: "#/types/aws:comprehend/EntityRecognizerInputDataConfig:EntityRecognizerInputDataConfig"
+    description: |
+      Configuration for the training and testing data.
+      See the `input_data_config` Configuration Block section below.
+  languageCode:
+    type: string
+    description: |
+      Two-letter language code for the language.
+      One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
+  modelKmsKeyId:
+    type: string
+    description: |
+      The ID or ARN of a KMS Key used to encrypt trained Entity Recognizers.
+  name:
+    type: string
+    description: |
+      Name for the Entity Recognizer.
+      Has a maximum length of 63 characters.
+      Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags to assign to the resource. If configured with a provider [`default_tags` Configuration Block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+  versionName:
+    type: string
+  versionNamePrefix:
+    type: string
+    description: |
+      Creates a unique version name beginning with the specified prefix.
+      Has a maximum length of 37 characters.
+      Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+      Conflicts with `version_name`.
+  volumeKmsKeyId:
+    type: string
+    description: |
+      ID or ARN of a KMS Key used to encrypt storage volumes during job processing.
+  vpcConfig:
+    $ref: "#/types/aws:comprehend/EntityRecognizerVpcConfig:EntityRecognizerVpcConfig"
+    description: |
+      Configuration parameters for VPC to contain Entity Recognizer resources.
+      See the `vpc_config` Configuration Block section below.
+requiredInputs:
+  - dataAccessRoleArn
+  - inputDataConfig
+  - languageCode
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering EntityRecognizer resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the Entity Recognizer version.
+    dataAccessRoleArn:
+      type: string
+      description: |
+        The ARN for an IAM Role which allows Comprehend to read the training and testing data.
+    inputDataConfig:
+      $ref: "#/types/aws:comprehend/EntityRecognizerInputDataConfig:EntityRecognizerInputDataConfig"
+      description: |
+        Configuration for the training and testing data.
+        See the `input_data_config` Configuration Block section below.
+    languageCode:
+      type: string
+      description: |
+        Two-letter language code for the language.
+        One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
+    modelKmsKeyId:
+      type: string
+      description: |
+        The ID or ARN of a KMS Key used to encrypt trained Entity Recognizers.
+    name:
+      type: string
+      description: |
+        Name for the Entity Recognizer.
+        Has a maximum length of 63 characters.
+        Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags to assign to the resource. If configured with a provider [`default_tags` Configuration Block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+    versionName:
+      type: string
+    versionNamePrefix:
+      type: string
+      description: |
+        Creates a unique version name beginning with the specified prefix.
+        Has a maximum length of 37 characters.
+        Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        Conflicts with `version_name`.
+    volumeKmsKeyId:
+      type: string
+      description: |
+        ID or ARN of a KMS Key used to encrypt storage volumes during job processing.
+    vpcConfig:
+      $ref: "#/types/aws:comprehend/EntityRecognizerVpcConfig:EntityRecognizerVpcConfig"
+      description: |
+        Configuration parameters for VPC to contain Entity Recognizer resources.
+        See the `vpc_config` Configuration Block section below.
+  type: object

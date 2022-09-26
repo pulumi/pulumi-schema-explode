@@ -1,0 +1,30 @@
+$token: aws:guardduty/OrganizationConfigurationDatasources:OrganizationConfigurationDatasources
+properties:
+  kubernetes:
+    $ref: "#/types/aws:guardduty/OrganizationConfigurationDatasourcesKubernetes:OrganizationConfigurationDatasourcesKubernetes"
+    description: |
+      Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
+    language:
+      python:
+        mapCase: false
+  malwareProtection:
+    $ref: "#/types/aws:guardduty/OrganizationConfigurationDatasourcesMalwareProtection:OrganizationConfigurationDatasourcesMalwareProtection"
+    description: |
+      Enable Malware Protection automatically for new member accounts.
+    language:
+      python:
+        mapCase: false
+  s3Logs:
+    $ref: "#/types/aws:guardduty/OrganizationConfigurationDatasourcesS3Logs:OrganizationConfigurationDatasourcesS3Logs"
+    description: |
+      Enable S3 Protection automatically for new member accounts.
+    language:
+      python:
+        mapCase: false
+type: object
+language:
+  nodejs:
+    requiredOutputs:
+      - kubernetes
+      - malwareProtection
+      - s3Logs

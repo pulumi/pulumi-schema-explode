@@ -1,0 +1,68 @@
+$token: aws:location/getGeofenceCollection:getGeofenceCollection
+inputs:
+  description: |
+    A collection of arguments for invoking getGeofenceCollection.
+  properties:
+    collectionName:
+      type: string
+      description: |
+        Name of the geofence collection.
+    kmsKeyId:
+      type: string
+      description: |
+        Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags for the geofence collection.
+  type: object
+  required:
+    - collectionName
+outputs:
+  description: |
+    A collection of values returned by getGeofenceCollection.
+  properties:
+    collectionArn:
+      type: string
+      description: |
+        ARN for the geofence collection resource. Used when you need to specify a resource across all AWS.
+    collectionName:
+      type: string
+    createTime:
+      type: string
+      description: |
+        Timestamp for when the geofence collection resource was created in ISO 8601 format.
+    description:
+      type: string
+      description: |
+        Optional description of the geofence collection resource.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    kmsKeyId:
+      type: string
+      description: |
+        Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags for the geofence collection.
+    updateTime:
+      type: string
+      description: |
+        Timestamp for when the geofence collection resource was last updated in ISO 8601 format.
+  type: object
+  required:
+    - collectionArn
+    - collectionName
+    - createTime
+    - description
+    - kmsKeyId
+    - tags
+    - updateTime
+    - id

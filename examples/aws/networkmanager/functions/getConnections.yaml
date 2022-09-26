@@ -1,0 +1,49 @@
+$token: aws:networkmanager/getConnections:getConnections
+inputs:
+  description: |
+    A collection of arguments for invoking getConnections.
+  properties:
+    deviceId:
+      type: string
+      description: |
+        ID of the device of the connections to retrieve.
+    globalNetworkId:
+      type: string
+      description: |
+        ID of the Global Network of the connections to retrieve.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Restricts the list to the connections with these tags.
+  type: object
+  required:
+    - globalNetworkId
+outputs:
+  description: |
+    A collection of values returned by getConnections.
+  properties:
+    deviceId:
+      type: string
+    globalNetworkId:
+      type: string
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    ids:
+      type: array
+      items:
+        type: string
+      description: |
+        IDs of the connections.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+  type: object
+  required:
+    - globalNetworkId
+    - ids
+    - id

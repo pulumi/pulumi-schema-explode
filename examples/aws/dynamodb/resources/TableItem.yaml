@@ -1,0 +1,70 @@
+$token: aws:dynamodb/tableItem:TableItem
+properties:
+  hashKey:
+    type: string
+    description: |
+      Hash key to use for lookups and identification of the item
+  item:
+    type: string
+    description: |
+      JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
+  rangeKey:
+    type: string
+    description: |
+      Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
+  tableName:
+    type: string
+    description: |
+      Name of the table to contain the item.
+required:
+  - hashKey
+  - item
+  - tableName
+inputProperties:
+  hashKey:
+    type: string
+    description: |
+      Hash key to use for lookups and identification of the item
+    willReplaceOnChanges: true
+  item:
+    type: string
+    description: |
+      JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
+  rangeKey:
+    type: string
+    description: |
+      Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
+    willReplaceOnChanges: true
+  tableName:
+    type: string
+    description: |
+      Name of the table to contain the item.
+    willReplaceOnChanges: true
+requiredInputs:
+  - hashKey
+  - item
+  - tableName
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering TableItem resources.
+  properties:
+    hashKey:
+      type: string
+      description: |
+        Hash key to use for lookups and identification of the item
+      willReplaceOnChanges: true
+    item:
+      type: string
+      description: |
+        JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
+    rangeKey:
+      type: string
+      description: |
+        Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
+      willReplaceOnChanges: true
+    tableName:
+      type: string
+      description: |
+        Name of the table to contain the item.
+      willReplaceOnChanges: true
+  type: object

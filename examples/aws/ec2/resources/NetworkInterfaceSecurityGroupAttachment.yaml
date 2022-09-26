@@ -1,0 +1,42 @@
+$token: aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment
+properties:
+  networkInterfaceId:
+    type: string
+    description: |
+      The ID of the network interface to attach to.
+  securityGroupId:
+    type: string
+    description: |
+      The ID of the security group.
+required:
+  - networkInterfaceId
+  - securityGroupId
+inputProperties:
+  networkInterfaceId:
+    type: string
+    description: |
+      The ID of the network interface to attach to.
+    willReplaceOnChanges: true
+  securityGroupId:
+    type: string
+    description: |
+      The ID of the security group.
+    willReplaceOnChanges: true
+requiredInputs:
+  - networkInterfaceId
+  - securityGroupId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering NetworkInterfaceSecurityGroupAttachment resources.
+  properties:
+    networkInterfaceId:
+      type: string
+      description: |
+        The ID of the network interface to attach to.
+      willReplaceOnChanges: true
+    securityGroupId:
+      type: string
+      description: |
+        The ID of the security group.
+      willReplaceOnChanges: true
+  type: object

@@ -1,0 +1,24 @@
+$token: aws:appsync/ResolverSyncConfig:ResolverSyncConfig
+properties:
+  conflictDetection:
+    type: string
+    description: |
+      Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
+    language:
+      python:
+        mapCase: false
+  conflictHandler:
+    type: string
+    description: |
+      Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
+    language:
+      python:
+        mapCase: false
+  lambdaConflictHandlerConfig:
+    $ref: "#/types/aws:appsync/ResolverSyncConfigLambdaConflictHandlerConfig:ResolverSyncConfigLambdaConflictHandlerConfig"
+    description: |
+      Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+    language:
+      python:
+        mapCase: false
+type: object

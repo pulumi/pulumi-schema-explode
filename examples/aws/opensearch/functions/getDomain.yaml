@@ -1,0 +1,160 @@
+$token: aws:opensearch/getDomain:getDomain
+inputs:
+  description: |
+    A collection of arguments for invoking getDomain.
+  properties:
+    domainName:
+      type: string
+      description: |
+        Name of the domain.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Tags assigned to the domain.
+  type: object
+  required:
+    - domainName
+outputs:
+  description: |
+    A collection of values returned by getDomain.
+  properties:
+    accessPolicies:
+      type: string
+      description: |
+        Policy document attached to the domain.
+    advancedOptions:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value string pairs to specify advanced configuration options.
+    advancedSecurityOptions:
+      type: array
+      items:
+        $ref: "#/types/aws:opensearch/getDomainAdvancedSecurityOption:getDomainAdvancedSecurityOption"
+      description: |
+        Status of the OpenSearch domain's advanced security options. The block consists of the following attributes:
+    arn:
+      type: string
+      description: |
+        ARN of the domain.
+    autoTuneOptions:
+      type: array
+      items:
+        $ref: "#/types/aws:opensearch/getDomainAutoTuneOption:getDomainAutoTuneOption"
+      description: |
+        Configuration of the Auto-Tune options of the domain.
+    clusterConfigs:
+      type: array
+      items:
+        $ref: "#/types/aws:opensearch/getDomainClusterConfig:getDomainClusterConfig"
+      description: |
+        Cluster configuration of the domain.
+    cognitoOptions:
+      type: array
+      items:
+        $ref: "#/types/aws:opensearch/getDomainCognitoOption:getDomainCognitoOption"
+      description: |
+        Domain Amazon Cognito Authentication options for Kibana.
+    created:
+      type: boolean
+      description: |
+        Status of the creation of the domain.
+    deleted:
+      type: boolean
+      description: |
+        Status of the deletion of the domain.
+    domainId:
+      type: string
+      description: |
+        Unique identifier for the domain.
+    domainName:
+      type: string
+    ebsOptions:
+      type: array
+      items:
+        $ref: "#/types/aws:opensearch/getDomainEbsOption:getDomainEbsOption"
+      description: |
+        EBS Options for the instances in the domain.
+    encryptionAtRests:
+      type: array
+      items:
+        $ref: "#/types/aws:opensearch/getDomainEncryptionAtRest:getDomainEncryptionAtRest"
+      description: |
+        Domain encryption at rest related options.
+    endpoint:
+      type: string
+      description: |
+        Domain-specific endpoint used to submit index, search, and data upload requests.
+    engineVersion:
+      type: string
+      description: |
+        OpenSearch version for the domain.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    kibanaEndpoint:
+      type: string
+      description: |
+        Domain-specific endpoint used to access the Kibana application.
+    logPublishingOptions:
+      type: array
+      items:
+        $ref: "#/types/aws:opensearch/getDomainLogPublishingOption:getDomainLogPublishingOption"
+      description: |
+        Domain log publishing related options.
+    nodeToNodeEncryptions:
+      type: array
+      items:
+        $ref: "#/types/aws:opensearch/getDomainNodeToNodeEncryption:getDomainNodeToNodeEncryption"
+      description: |
+        Domain in transit encryption related options.
+    processing:
+      type: boolean
+      description: |
+        Status of a configuration change in the domain.
+        * `snapshot_options` – Domain snapshot related options.
+    snapshotOptions:
+      type: array
+      items:
+        $ref: "#/types/aws:opensearch/getDomainSnapshotOption:getDomainSnapshotOption"
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Tags assigned to the domain.
+    vpcOptions:
+      type: array
+      items:
+        $ref: "#/types/aws:opensearch/getDomainVpcOption:getDomainVpcOption"
+      description: |
+        VPC Options for private OpenSearch domains.
+  type: object
+  required:
+    - accessPolicies
+    - advancedOptions
+    - advancedSecurityOptions
+    - arn
+    - autoTuneOptions
+    - clusterConfigs
+    - cognitoOptions
+    - created
+    - deleted
+    - domainId
+    - domainName
+    - ebsOptions
+    - encryptionAtRests
+    - endpoint
+    - engineVersion
+    - kibanaEndpoint
+    - logPublishingOptions
+    - nodeToNodeEncryptions
+    - processing
+    - snapshotOptions
+    - tags
+    - vpcOptions
+    - id

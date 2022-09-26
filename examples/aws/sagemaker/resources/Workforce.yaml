@@ -1,0 +1,83 @@
+$token: aws:sagemaker/workforce:Workforce
+properties:
+  arn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
+  cognitoConfig:
+    $ref: "#/types/aws:sagemaker/WorkforceCognitoConfig:WorkforceCognitoConfig"
+    description: |
+      Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidc_config`. see Cognito Config details below.
+  oidcConfig:
+    $ref: "#/types/aws:sagemaker/WorkforceOidcConfig:WorkforceOidcConfig"
+    description: |
+      Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.
+  sourceIpConfig:
+    $ref: "#/types/aws:sagemaker/WorkforceSourceIpConfig:WorkforceSourceIpConfig"
+    description: |
+      A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
+  subdomain:
+    type: string
+    description: |
+      The subdomain for your OIDC Identity Provider.
+  workforceName:
+    type: string
+    description: |
+      The name of the Workforce (must be unique).
+required:
+  - arn
+  - sourceIpConfig
+  - subdomain
+  - workforceName
+inputProperties:
+  cognitoConfig:
+    $ref: "#/types/aws:sagemaker/WorkforceCognitoConfig:WorkforceCognitoConfig"
+    description: |
+      Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidc_config`. see Cognito Config details below.
+    willReplaceOnChanges: true
+  oidcConfig:
+    $ref: "#/types/aws:sagemaker/WorkforceOidcConfig:WorkforceOidcConfig"
+    description: |
+      Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.
+  sourceIpConfig:
+    $ref: "#/types/aws:sagemaker/WorkforceSourceIpConfig:WorkforceSourceIpConfig"
+    description: |
+      A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
+  workforceName:
+    type: string
+    description: |
+      The name of the Workforce (must be unique).
+    willReplaceOnChanges: true
+requiredInputs:
+  - workforceName
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Workforce resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
+    cognitoConfig:
+      $ref: "#/types/aws:sagemaker/WorkforceCognitoConfig:WorkforceCognitoConfig"
+      description: |
+        Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidc_config`. see Cognito Config details below.
+      willReplaceOnChanges: true
+    oidcConfig:
+      $ref: "#/types/aws:sagemaker/WorkforceOidcConfig:WorkforceOidcConfig"
+      description: |
+        Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.
+    sourceIpConfig:
+      $ref: "#/types/aws:sagemaker/WorkforceSourceIpConfig:WorkforceSourceIpConfig"
+      description: |
+        A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
+    subdomain:
+      type: string
+      description: |
+        The subdomain for your OIDC Identity Provider.
+    workforceName:
+      type: string
+      description: |
+        The name of the Workforce (must be unique).
+      willReplaceOnChanges: true
+  type: object

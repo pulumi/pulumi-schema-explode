@@ -1,0 +1,96 @@
+$token: aws:route53/getZone:getZone
+inputs:
+  description: |
+    A collection of arguments for invoking getZone.
+  properties:
+    name:
+      type: string
+      description: |
+        Hosted Zone name of the desired Hosted Zone.
+    privateZone:
+      type: boolean
+      description: |
+        Used with `name` field to get a private Hosted Zone.
+    resourceRecordSetCount:
+      type: integer
+      description: |
+        The number of Record Set in the Hosted Zone.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
+    vpcId:
+      type: string
+      description: |
+        Used with `name` field to get a private Hosted Zone associated with the vpc_id (in this case, private_zone is not mandatory).
+    zoneId:
+      type: string
+      description: |
+        Hosted Zone id of the desired Hosted Zone.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getZone.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the Hosted Zone.
+    callerReference:
+      type: string
+      description: |
+        Caller Reference of the Hosted Zone.
+    comment:
+      type: string
+      description: |
+        Comment field of the Hosted Zone.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    linkedServiceDescription:
+      type: string
+      description: |
+        The description provided by the service that created the Hosted Zone (e.g., `arn:aws:servicediscovery:us-east-1:1234567890:namespace/ns-xxxxxxxxxxxxxxxx`).
+    linkedServicePrincipal:
+      type: string
+      description: |
+        The service that created the Hosted Zone (e.g., `servicediscovery.amazonaws.com`).
+    name:
+      type: string
+    nameServers:
+      type: array
+      items:
+        type: string
+      description: |
+        List of DNS name servers for the Hosted Zone.
+    privateZone:
+      type: boolean
+    resourceRecordSetCount:
+      type: integer
+      description: |
+        The number of Record Set in the Hosted Zone.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+    vpcId:
+      type: string
+    zoneId:
+      type: string
+  type: object
+  required:
+    - arn
+    - callerReference
+    - comment
+    - linkedServiceDescription
+    - linkedServicePrincipal
+    - name
+    - nameServers
+    - resourceRecordSetCount
+    - tags
+    - vpcId
+    - zoneId
+    - id

@@ -1,0 +1,33 @@
+$token: aws:outposts/getOutpostInstanceTypes:getOutpostInstanceTypes
+inputs:
+  description: |
+    A collection of arguments for invoking getOutpostInstanceTypes.
+  properties:
+    arn:
+      type: string
+      description: |
+        Outpost ARN.
+  type: object
+  required:
+    - arn
+outputs:
+  description: |
+    A collection of values returned by getOutpostInstanceTypes.
+  properties:
+    arn:
+      type: string
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    instanceTypes:
+      type: array
+      items:
+        type: string
+      description: |
+        Set of instance types.
+  type: object
+  required:
+    - arn
+    - instanceTypes
+    - id

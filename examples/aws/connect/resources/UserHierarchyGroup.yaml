@@ -1,0 +1,116 @@
+$token: aws:connect/userHierarchyGroup:UserHierarchyGroup
+properties:
+  arn:
+    type: string
+    description: |
+      The Amazon Resource Name (ARN) of the hierarchy group.
+  hierarchyGroupId:
+    type: string
+    description: |
+      The identifier for the hierarchy group.
+  hierarchyPaths:
+    type: array
+    items:
+      $ref: "#/types/aws:connect/UserHierarchyGroupHierarchyPath:UserHierarchyGroupHierarchyPath"
+    description: |
+      A block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
+  instanceId:
+    type: string
+    description: |
+      Specifies the identifier of the hosting Amazon Connect Instance.
+  levelId:
+    type: string
+    description: |
+      The identifier of the level in the hierarchy group.
+  name:
+    type: string
+    description: |
+      The name of the user hierarchy group. Must not be more than 100 characters.
+  parentGroupId:
+    type: string
+    description: |
+      The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - arn
+  - hierarchyGroupId
+  - hierarchyPaths
+  - instanceId
+  - levelId
+  - name
+  - tagsAll
+inputProperties:
+  instanceId:
+    type: string
+    description: |
+      Specifies the identifier of the hosting Amazon Connect Instance.
+  name:
+    type: string
+    description: |
+      The name of the user hierarchy group. Must not be more than 100 characters.
+  parentGroupId:
+    type: string
+    description: |
+      The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+requiredInputs:
+  - instanceId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering UserHierarchyGroup resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        The Amazon Resource Name (ARN) of the hierarchy group.
+    hierarchyGroupId:
+      type: string
+      description: |
+        The identifier for the hierarchy group.
+    hierarchyPaths:
+      type: array
+      items:
+        $ref: "#/types/aws:connect/UserHierarchyGroupHierarchyPath:UserHierarchyGroupHierarchyPath"
+      description: |
+        A block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
+    instanceId:
+      type: string
+      description: |
+        Specifies the identifier of the hosting Amazon Connect Instance.
+    levelId:
+      type: string
+      description: |
+        The identifier of the level in the hierarchy group.
+    name:
+      type: string
+      description: |
+        The name of the user hierarchy group. Must not be more than 100 characters.
+    parentGroupId:
+      type: string
+      description: |
+        The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
+      willReplaceOnChanges: true
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

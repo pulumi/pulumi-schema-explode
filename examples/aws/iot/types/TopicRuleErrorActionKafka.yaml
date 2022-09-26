@@ -1,0 +1,44 @@
+$token: aws:iot/TopicRuleErrorActionKafka:TopicRuleErrorActionKafka
+properties:
+  clientProperties:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
+    language:
+      python:
+        mapCase: false
+  destinationArn:
+    type: string
+    description: |
+      The ARN of Kafka action's VPC `aws.iot.TopicRuleDestination` .
+    language:
+      python:
+        mapCase: false
+  key:
+    type: string
+    description: |
+      The Kafka message key.
+    language:
+      python:
+        mapCase: false
+  partition:
+    type: string
+    description: |
+      The Kafka message partition.
+    language:
+      python:
+        mapCase: false
+  topic:
+    type: string
+    description: |
+      The Kafka topic for messages to be sent to the Kafka broker.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - clientProperties
+  - destinationArn
+  - topic

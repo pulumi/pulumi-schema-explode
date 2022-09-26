@@ -1,0 +1,44 @@
+$token: aws:ssm/getParameter:getParameter
+inputs:
+  description: |
+    A collection of arguments for invoking getParameter.
+  properties:
+    name:
+      type: string
+      description: |
+        Name of the parameter.
+    withDecryption:
+      type: boolean
+      description: |
+        Whether to return decrypted `SecureString` value. Defaults to `true`.
+  type: object
+  required:
+    - name
+outputs:
+  description: |
+    A collection of values returned by getParameter.
+  properties:
+    arn:
+      type: string
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    name:
+      type: string
+    type:
+      type: string
+    value:
+      type: string
+    version:
+      type: integer
+    withDecryption:
+      type: boolean
+  type: object
+  required:
+    - arn
+    - name
+    - type
+    - value
+    - version
+    - id

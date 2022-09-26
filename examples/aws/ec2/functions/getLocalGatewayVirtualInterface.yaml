@@ -1,0 +1,75 @@
+$token: aws:ec2/getLocalGatewayVirtualInterface:getLocalGatewayVirtualInterface
+inputs:
+  description: |
+    A collection of arguments for invoking getLocalGatewayVirtualInterface.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getLocalGatewayVirtualInterfaceFilter:getLocalGatewayVirtualInterfaceFilter"
+      description: |
+        One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaces.html) for supported filters. Detailed below.
+    id:
+      type: string
+      description: |
+        Identifier of EC2 Local Gateway Virtual Interface.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getLocalGatewayVirtualInterface.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getLocalGatewayVirtualInterfaceFilter:getLocalGatewayVirtualInterfaceFilter"
+    id:
+      type: string
+    localAddress:
+      type: string
+      description: |
+        Local address.
+    localBgpAsn:
+      type: integer
+      description: |
+        Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the EC2 Local Gateway.
+    localGatewayId:
+      type: string
+      description: |
+        Identifier of the EC2 Local Gateway.
+    localGatewayVirtualInterfaceIds:
+      type: array
+      items:
+        type: string
+    peerAddress:
+      type: string
+      description: |
+        Peer address.
+    peerBgpAsn:
+      type: integer
+      description: |
+        Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the peer.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+    vlan:
+      type: integer
+      description: |
+        Virtual Local Area Network.
+  type: object
+  required:
+    - id
+    - localAddress
+    - localBgpAsn
+    - localGatewayId
+    - localGatewayVirtualInterfaceIds
+    - peerAddress
+    - peerBgpAsn
+    - tags
+    - vlan

@@ -1,0 +1,71 @@
+$token: aws:route53/trafficPolicy:TrafficPolicy
+properties:
+  comment:
+    type: string
+    description: |
+      Comment for the traffic policy.
+  document:
+    type: string
+    description: |
+      Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
+  name:
+    type: string
+    description: |
+      Name of the traffic policy.
+  type:
+    type: string
+    description: |
+      DNS type of the resource record sets that Amazon Route 53 creates when you use a traffic policy to create a traffic policy instance.
+  version:
+    type: integer
+    description: |
+      Version number of the traffic policy. This value is automatically incremented by AWS after each update of this resource.
+required:
+  - document
+  - name
+  - type
+  - version
+inputProperties:
+  comment:
+    type: string
+    description: |
+      Comment for the traffic policy.
+  document:
+    type: string
+    description: |
+      Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
+    willReplaceOnChanges: true
+  name:
+    type: string
+    description: |
+      Name of the traffic policy.
+    willReplaceOnChanges: true
+requiredInputs:
+  - document
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering TrafficPolicy resources.
+  properties:
+    comment:
+      type: string
+      description: |
+        Comment for the traffic policy.
+    document:
+      type: string
+      description: |
+        Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
+      willReplaceOnChanges: true
+    name:
+      type: string
+      description: |
+        Name of the traffic policy.
+      willReplaceOnChanges: true
+    type:
+      type: string
+      description: |
+        DNS type of the resource record sets that Amazon Route 53 creates when you use a traffic policy to create a traffic policy instance.
+    version:
+      type: integer
+      description: |
+        Version number of the traffic policy. This value is automatically incremented by AWS after each update of this resource.
+  type: object

@@ -1,0 +1,22 @@
+$token: aws:glue/CrawlerCatalogTarget:CrawlerCatalogTarget
+properties:
+  databaseName:
+    type: string
+    description: |
+      The name of the Glue database to be synchronized.
+    language:
+      python:
+        mapCase: false
+  tables:
+    type: array
+    items:
+      type: string
+    description: |
+      A list of catalog tables to be synchronized.
+    language:
+      python:
+        mapCase: false
+type: object
+required:
+  - databaseName
+  - tables

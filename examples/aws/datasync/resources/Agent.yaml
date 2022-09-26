@@ -1,0 +1,160 @@
+$token: aws:datasync/agent:Agent
+properties:
+  activationKey:
+    type: string
+    description: |
+      DataSync Agent activation key during resource creation. Conflicts with `ip_address`. If an `ip_address` is provided instead, the provider will retrieve the `activation_key` as part of the resource creation.
+  arn:
+    type: string
+    description: |
+      Amazon Resource Name (ARN) of the DataSync Agent.
+  ipAddress:
+    type: string
+    description: |
+      DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. DataSync Agent must be accessible on port 80 from where the provider is running.
+  name:
+    type: string
+    description: |
+      Name of the DataSync Agent.
+  privateLinkEndpoint:
+    type: string
+    description: |
+      The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activation_key`.
+  securityGroupArns:
+    type: array
+    items:
+      type: string
+    description: |
+      The ARNs of the security groups used to protect your data transfer task subnets.
+  subnetArns:
+    type: array
+    items:
+      type: string
+    description: |
+      The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  vpcEndpointId:
+    type: string
+    description: |
+      The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
+required:
+  - activationKey
+  - arn
+  - ipAddress
+  - name
+  - tagsAll
+inputProperties:
+  activationKey:
+    type: string
+    description: |
+      DataSync Agent activation key during resource creation. Conflicts with `ip_address`. If an `ip_address` is provided instead, the provider will retrieve the `activation_key` as part of the resource creation.
+    willReplaceOnChanges: true
+  ipAddress:
+    type: string
+    description: |
+      DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. DataSync Agent must be accessible on port 80 from where the provider is running.
+    willReplaceOnChanges: true
+  name:
+    type: string
+    description: |
+      Name of the DataSync Agent.
+  privateLinkEndpoint:
+    type: string
+    description: |
+      The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activation_key`.
+    willReplaceOnChanges: true
+  securityGroupArns:
+    type: array
+    items:
+      type: string
+    description: |
+      The ARNs of the security groups used to protect your data transfer task subnets.
+    willReplaceOnChanges: true
+  subnetArns:
+    type: array
+    items:
+      type: string
+    description: |
+      The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+  vpcEndpointId:
+    type: string
+    description: |
+      The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
+    willReplaceOnChanges: true
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering Agent resources.
+  properties:
+    activationKey:
+      type: string
+      description: |
+        DataSync Agent activation key during resource creation. Conflicts with `ip_address`. If an `ip_address` is provided instead, the provider will retrieve the `activation_key` as part of the resource creation.
+      willReplaceOnChanges: true
+    arn:
+      type: string
+      description: |
+        Amazon Resource Name (ARN) of the DataSync Agent.
+    ipAddress:
+      type: string
+      description: |
+        DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. DataSync Agent must be accessible on port 80 from where the provider is running.
+      willReplaceOnChanges: true
+    name:
+      type: string
+      description: |
+        Name of the DataSync Agent.
+    privateLinkEndpoint:
+      type: string
+      description: |
+        The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activation_key`.
+      willReplaceOnChanges: true
+    securityGroupArns:
+      type: array
+      items:
+        type: string
+      description: |
+        The ARNs of the security groups used to protect your data transfer task subnets.
+      willReplaceOnChanges: true
+    subnetArns:
+      type: array
+      items:
+        type: string
+      description: |
+        The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
+      willReplaceOnChanges: true
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    vpcEndpointId:
+      type: string
+      description: |
+        The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
+      willReplaceOnChanges: true
+  type: object

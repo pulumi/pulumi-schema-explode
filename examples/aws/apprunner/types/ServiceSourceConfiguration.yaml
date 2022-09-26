@@ -1,0 +1,31 @@
+$token: aws:apprunner/ServiceSourceConfiguration:ServiceSourceConfiguration
+properties:
+  authenticationConfiguration:
+    $ref: "#/types/aws:apprunner/ServiceSourceConfigurationAuthenticationConfiguration:ServiceSourceConfigurationAuthenticationConfiguration"
+    description: |
+      Describes resources needed to authenticate access to some source repositories. See Authentication Configuration below for more details.
+    language:
+      python:
+        mapCase: false
+  autoDeploymentsEnabled:
+    type: boolean
+    description: |
+      Whether continuous integration from the source repository is enabled for the App Runner service. If set to `true`, each repository change (source code commit or new image version) starts a deployment. Defaults to `true`.
+    language:
+      python:
+        mapCase: false
+  codeRepository:
+    $ref: "#/types/aws:apprunner/ServiceSourceConfigurationCodeRepository:ServiceSourceConfigurationCodeRepository"
+    description: |
+      Description of a source code repository. See Code Repository below for more details.
+    language:
+      python:
+        mapCase: false
+  imageRepository:
+    $ref: "#/types/aws:apprunner/ServiceSourceConfigurationImageRepository:ServiceSourceConfigurationImageRepository"
+    description: |
+      Description of a source image repository. See Image Repository below for more details.
+    language:
+      python:
+        mapCase: false
+type: object

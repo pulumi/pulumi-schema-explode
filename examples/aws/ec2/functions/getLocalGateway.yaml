@@ -1,0 +1,61 @@
+$token: aws:ec2/getLocalGateway:getLocalGateway
+inputs:
+  description: |
+    A collection of arguments for invoking getLocalGateway.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getLocalGatewayFilter:getLocalGatewayFilter"
+      description: |
+        Custom filter block as described below.
+    id:
+      type: string
+      description: |
+        Id of the specific Local Gateway to retrieve.
+    state:
+      type: string
+      description: |
+        Current state of the desired Local Gateway.
+        Can be either `"pending"` or `"available"`.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Mapping of tags, each pair of which must exactly match
+        a pair on the desired Local Gateway.
+  type: object
+outputs:
+  description: |
+    A collection of values returned by getLocalGateway.
+  properties:
+    filters:
+      type: array
+      items:
+        $ref: "#/types/aws:ec2/getLocalGatewayFilter:getLocalGatewayFilter"
+    id:
+      type: string
+    outpostArn:
+      type: string
+      description: |
+        ARN of Outpost
+    ownerId:
+      type: string
+      description: |
+        AWS account identifier that owns the Local Gateway.
+    state:
+      type: string
+      description: |
+        State of the local gateway.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+  type: object
+  required:
+    - id
+    - outpostArn
+    - ownerId
+    - state
+    - tags

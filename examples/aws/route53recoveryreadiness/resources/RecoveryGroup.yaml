@@ -1,0 +1,84 @@
+$token: aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup
+properties:
+  arn:
+    type: string
+    description: |
+      ARN of the recovery group
+  cells:
+    type: array
+    items:
+      type: string
+    description: |
+      List of cell arns to add as nested fault domains within this recovery group
+  recoveryGroupName:
+    type: string
+    description: |
+      A unique name describing the recovery group.
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+  tagsAll:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+required:
+  - arn
+  - recoveryGroupName
+  - tagsAll
+inputProperties:
+  cells:
+    type: array
+    items:
+      type: string
+    description: |
+      List of cell arns to add as nested fault domains within this recovery group
+  recoveryGroupName:
+    type: string
+    description: |
+      A unique name describing the recovery group.
+    willReplaceOnChanges: true
+  tags:
+    type: object
+    additionalProperties:
+      type: string
+    description: |
+      Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+requiredInputs:
+  - recoveryGroupName
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering RecoveryGroup resources.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the recovery group
+    cells:
+      type: array
+      items:
+        type: string
+      description: |
+        List of cell arns to add as nested fault domains within this recovery group
+    recoveryGroupName:
+      type: string
+      description: |
+        A unique name describing the recovery group.
+      willReplaceOnChanges: true
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+    tagsAll:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+  type: object

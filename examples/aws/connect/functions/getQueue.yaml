@@ -1,0 +1,87 @@
+$token: aws:connect/getQueue:getQueue
+inputs:
+  description: |
+    A collection of arguments for invoking getQueue.
+  properties:
+    instanceId:
+      type: string
+      description: |
+        Reference to the hosting Amazon Connect Instance
+    name:
+      type: string
+      description: |
+        Returns information on a specific Queue by name
+    queueId:
+      type: string
+      description: |
+        Returns information on a specific Queue by Queue id
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags assigned to the Queue.
+  type: object
+  required:
+    - instanceId
+outputs:
+  description: |
+    A collection of values returned by getQueue.
+  properties:
+    arn:
+      type: string
+      description: |
+        ARN of the Queue.
+    description:
+      type: string
+      description: |
+        Description of the Queue.
+    hoursOfOperationId:
+      type: string
+      description: |
+        Specifies the identifier of the Hours of Operation.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    instanceId:
+      type: string
+    maxContacts:
+      type: integer
+      description: |
+        Maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
+    name:
+      type: string
+    outboundCallerConfigs:
+      type: array
+      items:
+        $ref: "#/types/aws:connect/getQueueOutboundCallerConfig:getQueueOutboundCallerConfig"
+      description: |
+        A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
+    queueId:
+      type: string
+      description: |
+        Identifier for the Queue.
+    status:
+      type: string
+      description: |
+        Description of the Queue. Values are `ENABLED` or `DISABLED`.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Map of tags assigned to the Queue.
+  type: object
+  required:
+    - arn
+    - description
+    - hoursOfOperationId
+    - instanceId
+    - maxContacts
+    - name
+    - outboundCallerConfigs
+    - queueId
+    - status
+    - tags
+    - id

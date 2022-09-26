@@ -1,0 +1,57 @@
+$token: aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization
+properties:
+  vpcId:
+    type: string
+    description: |
+      The VPC to authorize for association with the private hosted zone.
+  vpcRegion:
+    type: string
+    description: |
+      The VPC's region. Defaults to the region of the AWS provider.
+  zoneId:
+    type: string
+    description: |
+      The ID of the private hosted zone that you want to authorize associating a VPC with.
+required:
+  - vpcId
+  - vpcRegion
+  - zoneId
+inputProperties:
+  vpcId:
+    type: string
+    description: |
+      The VPC to authorize for association with the private hosted zone.
+    willReplaceOnChanges: true
+  vpcRegion:
+    type: string
+    description: |
+      The VPC's region. Defaults to the region of the AWS provider.
+    willReplaceOnChanges: true
+  zoneId:
+    type: string
+    description: |
+      The ID of the private hosted zone that you want to authorize associating a VPC with.
+    willReplaceOnChanges: true
+requiredInputs:
+  - vpcId
+  - zoneId
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering VpcAssociationAuthorization resources.
+  properties:
+    vpcId:
+      type: string
+      description: |
+        The VPC to authorize for association with the private hosted zone.
+      willReplaceOnChanges: true
+    vpcRegion:
+      type: string
+      description: |
+        The VPC's region. Defaults to the region of the AWS provider.
+      willReplaceOnChanges: true
+    zoneId:
+      type: string
+      description: |
+        The ID of the private hosted zone that you want to authorize associating a VPC with.
+      willReplaceOnChanges: true
+  type: object

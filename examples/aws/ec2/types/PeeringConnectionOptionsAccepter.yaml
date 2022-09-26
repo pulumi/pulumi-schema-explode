@@ -1,0 +1,31 @@
+$token: aws:ec2/PeeringConnectionOptionsAccepter:PeeringConnectionOptionsAccepter
+properties:
+  allowClassicLinkToRemoteVpc:
+    type: boolean
+    description: |
+      Allow a local linked EC2-Classic instance to communicate
+      with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
+      to the remote VPC. This option is not supported for inter-region VPC peering.
+    deprecationMessage: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.
+    language:
+      python:
+        mapCase: false
+  allowRemoteVpcDnsResolution:
+    type: boolean
+    description: |
+      Allow a local VPC to resolve public DNS hostnames to
+      private IP addresses when queried from instances in the peer VPC.
+    language:
+      python:
+        mapCase: false
+  allowVpcToRemoteClassicLink:
+    type: boolean
+    description: |
+      Allow a local VPC to communicate with a linked EC2-Classic
+      instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
+      connection. This option is not supported for inter-region VPC peering.
+    deprecationMessage: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.
+    language:
+      python:
+        mapCase: false
+type: object

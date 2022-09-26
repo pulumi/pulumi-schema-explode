@@ -1,0 +1,69 @@
+$token: aws:location/getTracker:getTracker
+inputs:
+  description: |
+    A collection of arguments for invoking getTracker.
+  properties:
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags for the tracker.
+    trackerName:
+      type: string
+      description: |
+        Name of the tracker resource.
+  type: object
+  required:
+    - trackerName
+outputs:
+  description: |
+    A collection of values returned by getTracker.
+  properties:
+    createTime:
+      type: string
+      description: |
+        Timestamp for when the tracker resource was created in ISO 8601 format.
+    description:
+      type: string
+      description: |
+        Optional description for the tracker resource.
+    id:
+      type: string
+      description: |
+        The provider-assigned unique ID for this managed resource.
+    kmsKeyId:
+      type: string
+      description: |
+        Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+    positionFiltering:
+      type: string
+      description: |
+        Position filtering method of the tracker resource.
+    tags:
+      type: object
+      additionalProperties:
+        type: string
+      description: |
+        Key-value map of resource tags for the tracker.
+    trackerArn:
+      type: string
+      description: |
+        ARN for the tracker resource. Used when you need to specify a resource across all AWS.
+    trackerName:
+      type: string
+    updateTime:
+      type: string
+      description: |
+        Timestamp for when the tracker resource was last updated in ISO 8601 format.
+  type: object
+  required:
+    - createTime
+    - description
+    - kmsKeyId
+    - positionFiltering
+    - tags
+    - trackerArn
+    - trackerName
+    - updateTime
+    - id

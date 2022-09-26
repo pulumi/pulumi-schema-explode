@@ -1,0 +1,89 @@
+$token: aws:iam/sshKey:SshKey
+properties:
+  encoding:
+    type: string
+    description: |
+      Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
+  fingerprint:
+    type: string
+    description: |
+      The MD5 message digest of the SSH public key.
+  publicKey:
+    type: string
+    description: |
+      The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
+  sshPublicKeyId:
+    type: string
+    description: |
+      The unique identifier for the SSH public key.
+  status:
+    type: string
+    description: |
+      The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
+  username:
+    type: string
+    description: |
+      The name of the IAM user to associate the SSH public key with.
+required:
+  - encoding
+  - fingerprint
+  - publicKey
+  - sshPublicKeyId
+  - status
+  - username
+inputProperties:
+  encoding:
+    type: string
+    description: |
+      Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
+    willReplaceOnChanges: true
+  publicKey:
+    type: string
+    description: |
+      The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
+    willReplaceOnChanges: true
+  status:
+    type: string
+    description: |
+      The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
+  username:
+    type: string
+    description: |
+      The name of the IAM user to associate the SSH public key with.
+    willReplaceOnChanges: true
+requiredInputs:
+  - encoding
+  - publicKey
+  - username
+stateInputs:
+  description: |
+    Input properties used for looking up and filtering SshKey resources.
+  properties:
+    encoding:
+      type: string
+      description: |
+        Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
+      willReplaceOnChanges: true
+    fingerprint:
+      type: string
+      description: |
+        The MD5 message digest of the SSH public key.
+    publicKey:
+      type: string
+      description: |
+        The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
+      willReplaceOnChanges: true
+    sshPublicKeyId:
+      type: string
+      description: |
+        The unique identifier for the SSH public key.
+    status:
+      type: string
+      description: |
+        The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
+    username:
+      type: string
+      description: |
+        The name of the IAM user to associate the SSH public key with.
+      willReplaceOnChanges: true
+  type: object
