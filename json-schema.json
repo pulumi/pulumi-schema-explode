@@ -28,14 +28,16 @@
                       "boolean",
                       "number",
                       "string"
-                    ]
+                    ],
+                    "description": "The constant value for the property, if any. The type of the value must be assignable to the type of the property."
                   },
                   "default": {
                     "type": [
                       "boolean",
                       "number",
                       "string"
-                    ]
+                    ],
+                    "description": "The default value for the property, if any. The type of the value must be assignable to the type of the property."
                   },
                   "defaultInfo": {
                     "type": "object",
@@ -43,31 +45,42 @@
                       "environment": {
                         "type": "array",
                         "items": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "A set of environment variables to probe for a default value."
                         }
                       },
-                      "language": {}
+                      "language": {
+                        "description": "Additional language-specific data about the default value."
+                      }
                     },
                     "required": [
                       "environment"
                     ],
-                    "additionalProperties": false
+                    "additionalProperties": false,
+                    "description": "Additional information about the property's default value, if any."
                   },
                   "deprecationMessage": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Indicates whether the property is deprecated"
                   },
                   "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The description of the property, if any. Interpreted as Markdown."
                   },
-                  "language": {},
+                  "language": {
+                    "description": "Additional language-specific data about the property."
+                  },
                   "plain": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Indicates that when used as an input, this type does not accept eventual values."
                   },
                   "replaceOnChanges": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Specifies whether a change to the property causes its containing resource to be replaced instead of updated (default false)."
                   },
                   "secret": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Specifies whether the property is secret (default false)."
                   },
                   "type": {
                     "type": "string",
@@ -76,13 +89,15 @@
                       "integer",
                       "number",
                       "string"
-                    ]
+                    ],
+                    "description": "The primitive type, if any"
                   }
                 },
                 "required": [
                   "type"
                 ],
-                "additionalProperties": false
+                "additionalProperties": false,
+                "description": "Primitive Property Definition describes an object or resource property"
               },
               {
                 "type": "object",
@@ -92,23 +107,40 @@
                       "boolean",
                       "number",
                       "string"
-                    ]
+                    ],
+                    "description": "The constant value for the property, if any. The type of the value must be assignable to the type of the property."
                   },
                   "default": {
                     "type": [
                       "boolean",
                       "number",
                       "string"
-                    ]
+                    ],
+                    "description": "The default value for the property, if any. The type of the value must be assignable to the type of the property."
                   },
                   "defaultInfo": {
-                    "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/0/properties/defaultInfo"
+                    "type": "object",
+                    "properties": {
+                      "environment": {
+                        "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/0/properties/defaultInfo/properties/environment"
+                      },
+                      "language": {
+                        "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/0/properties/defaultInfo/properties/language"
+                      }
+                    },
+                    "required": [
+                      "environment"
+                    ],
+                    "additionalProperties": false,
+                    "description": "Additional information about the property's default value, if any."
                   },
                   "deprecationMessage": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Indicates whether the property is deprecated"
                   },
                   "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The description of the property, if any. Interpreted as Markdown."
                   },
                   "items": {
                     "anyOf": [
@@ -136,49 +168,74 @@
                                 "type": "object",
                                 "properties": {
                                   "$ref": {
-                                    "type": "string"
+                                    "type": "string",
+                                    "description": "The URI of the referenced type. For example, the built-in Archive, Asset, and Any\ntypes are referenced as \"pulumi.json#/Archive\", \"pulumi.json#/Asset\", and \"pulumi.json#/Any\", respectively.\nA type from this document is referenced as \"#/types/pulumi:type:token\".\nA type from another document is referenced as \"path#/types/pulumi:type:token\", where path is of the form:\n  \"/provider/vX.Y.Z/json\" or \"pulumi.json\" or \"http[s]://example.com/provider/vX.Y.Z/json\"\nA resource from this document is referenced as \"#/resources/pulumi:type:token\".\nA resource from another document is referenced as \"path#/resources/pulumi:type:token\", where path is of the form:\n  \"/provider/vX.Y.Z/json\" or \"pulumi.json\" or \"http[s]://example.com/provider/vX.Y.Z/json\""
                                   },
                                   "const": {
                                     "type": [
                                       "boolean",
                                       "number",
                                       "string"
-                                    ]
+                                    ],
+                                    "description": "The constant value for the property, if any. The type of the value must be assignable to the type of the property."
                                   },
                                   "default": {
                                     "type": [
                                       "boolean",
                                       "number",
                                       "string"
-                                    ]
+                                    ],
+                                    "description": "The default value for the property, if any. The type of the value must be assignable to the type of the property."
                                   },
                                   "defaultInfo": {
-                                    "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/0/properties/defaultInfo"
+                                    "type": "object",
+                                    "properties": {
+                                      "environment": {
+                                        "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/0/properties/defaultInfo/properties/environment"
+                                      },
+                                      "language": {
+                                        "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/0/properties/defaultInfo/properties/language"
+                                      }
+                                    },
+                                    "required": [
+                                      "environment"
+                                    ],
+                                    "additionalProperties": false,
+                                    "description": "Additional information about the property's default value, if any."
                                   },
                                   "deprecationMessage": {
-                                    "type": "string"
+                                    "type": "string",
+                                    "description": "Indicates whether the property is deprecated"
                                   },
                                   "description": {
-                                    "type": "string"
+                                    "type": "string",
+                                    "description": "The description of the property, if any. Interpreted as Markdown."
                                   },
-                                  "language": {},
+                                  "language": {
+                                    "description": "Additional language-specific data about the property."
+                                  },
                                   "plain": {
-                                    "type": "boolean"
+                                    "type": "boolean",
+                                    "description": "Indicates that when used as an input, this type does not accept eventual values."
                                   },
                                   "replaceOnChanges": {
-                                    "type": "boolean"
+                                    "type": "boolean",
+                                    "description": "Specifies whether a change to the property causes its containing resource to be replaced instead of updated (default false)."
                                   },
                                   "secret": {
-                                    "type": "boolean"
+                                    "type": "boolean",
+                                    "description": "pecifies whether the property is secret (default false)."
                                   },
                                   "type": {
-                                    "type": "string"
+                                    "type": "string",
+                                    "description": "gnored; present for compatibility with existing schemas"
                                   }
                                 },
                                 "required": [
                                   "$ref"
                                 ],
-                                "additionalProperties": false
+                                "additionalProperties": false,
+                                "description": "Named Property Definition describes an object or resource property"
                               },
                               {
                                 "type": "object",
@@ -188,14 +245,16 @@
                                       "boolean",
                                       "number",
                                       "string"
-                                    ]
+                                    ],
+                                    "description": "The constant value for the property, if any. The type of the value must be assignable to the type of the property."
                                   },
                                   "default": {
                                     "type": [
                                       "boolean",
                                       "number",
                                       "string"
-                                    ]
+                                    ],
+                                    "description": "The default value for the property, if any. The type of the value must be assignable to the type of the property."
                                   },
                                   "defaultInfo": {
                                     "type": "object",
@@ -203,21 +262,27 @@
                                       "environment": {
                                         "type": "array",
                                         "items": {
-                                          "type": "string"
+                                          "type": "string",
+                                          "description": "A set of environment variables to probe for a default value."
                                         }
                                       },
-                                      "language": {}
+                                      "language": {
+                                        "description": "Additional language-specific data about the default value."
+                                      }
                                     },
                                     "required": [
                                       "environment"
                                     ],
-                                    "additionalProperties": false
+                                    "additionalProperties": false,
+                                    "description": "Additional information about the property's default value, if any."
                                   },
                                   "deprecationMessage": {
-                                    "type": "string"
+                                    "type": "string",
+                                    "description": "Indicates whether the property is deprecated"
                                   },
                                   "description": {
-                                    "type": "string"
+                                    "type": "string",
+                                    "description": "The description of the property, if any. Interpreted as Markdown."
                                   },
                                   "discriminator": {
                                     "type": "object",
@@ -226,18 +291,23 @@
                                         "type": "object",
                                         "additionalProperties": {
                                           "type": "string"
-                                        }
+                                        },
+                                        "description": "an optional object to hold mappings between payload values and schema names or references"
                                       },
                                       "propertyName": {
-                                        "type": "string"
+                                        "type": "string",
+                                        "description": "PropertyName is the name of the property in the payload that will hold the discriminator value"
                                       }
                                     },
                                     "required": [
                                       "propertyName"
                                     ],
-                                    "additionalProperties": false
+                                    "additionalProperties": false,
+                                    "description": "Informs the consumer of an alternative schema based on the value associated with it"
                                   },
-                                  "language": {},
+                                  "language": {
+                                    "description": "Additional language-specific data about the property."
+                                  },
                                   "oneOf": {
                                     "type": "array",
                                     "items": {
@@ -257,61 +327,96 @@
                                         {
                                           "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/1/properties/items/anyOf/2/properties/additionalProperties/anyOf/4"
                                         }
-                                      ]
+                                      ],
+                                      "description": "If present, indicates that values of the type may be one of any of the listed types"
                                     }
                                   },
                                   "plain": {
-                                    "type": "boolean"
+                                    "type": "boolean",
+                                    "description": "Indicates that when used as an input, this type does not accept eventual values."
                                   },
                                   "replaceOnChanges": {
-                                    "type": "boolean"
+                                    "type": "boolean",
+                                    "description": "Specifies whether a change to the property causes its containing resource to be replaced instead of updated (default false)."
                                   },
                                   "secret": {
-                                    "type": "boolean"
+                                    "type": "boolean",
+                                    "description": "Specifies whether the property is secret (default false)."
                                   },
                                   "type": {
-                                    "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/0/properties/type"
+                                    "type": "string",
+                                    "enum": [
+                                      "boolean",
+                                      "integer",
+                                      "number",
+                                      "string"
+                                    ],
+                                    "description": "The underlying primitive type of the union, if any"
                                   }
                                 },
                                 "required": [
                                   "oneOf"
                                 ],
-                                "additionalProperties": false
+                                "additionalProperties": false,
+                                "description": "Union Property Definition describes an object or resource property"
                               }
-                            ]
+                            ],
+                            "description": "The element type of the map. Defaults to \"string\" when omitted."
                           },
                           "const": {
                             "type": [
                               "boolean",
                               "number",
                               "string"
-                            ]
+                            ],
+                            "description": "The constant value for the property, if any. The type of the value must be assignable to the type of the property."
                           },
                           "default": {
                             "type": [
                               "boolean",
                               "number",
                               "string"
-                            ]
+                            ],
+                            "description": "The default value for the property, if any. The type of the value must be assignable to the type of the property."
                           },
                           "defaultInfo": {
-                            "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/0/properties/defaultInfo"
+                            "type": "object",
+                            "properties": {
+                              "environment": {
+                                "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/0/properties/defaultInfo/properties/environment"
+                              },
+                              "language": {
+                                "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/0/properties/defaultInfo/properties/language"
+                              }
+                            },
+                            "required": [
+                              "environment"
+                            ],
+                            "additionalProperties": false,
+                            "description": "Additional information about the property's default value, if any."
                           },
                           "deprecationMessage": {
-                            "type": "string"
+                            "type": "string",
+                            "description": "Indicates whether the property is deprecated"
                           },
                           "description": {
-                            "type": "string"
+                            "type": "string",
+                            "description": "The description of the property, if any. Interpreted as Markdown."
                           },
-                          "language": {},
+                          "language": {
+                            "description": "Additional language-specific data about the property."
+                          },
                           "plain": {
-                            "type": "boolean"
+                            "type": "boolean",
+                            "description": "Indicates that when used as an input, this type does not accept eventual values."
                           },
                           "replaceOnChanges": {
-                            "type": "boolean"
+                            "type": "boolean",
+                            "description": "Specifies whether a change to the property causes its containing resource to be replaced instead of updated (default false)."
                           },
                           "secret": {
-                            "type": "boolean"
+                            "type": "boolean",
+                            "description": "Specifies whether the property is secret (default false)."
                           },
                           "type": {
                             "type": "string",
@@ -321,7 +426,8 @@
                         "required": [
                           "type"
                         ],
-                        "additionalProperties": false
+                        "additionalProperties": false,
+                        "description": "Map Property Definition describes an object or resource property"
                       },
                       {
                         "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/1/properties/items/anyOf/2/properties/additionalProperties/anyOf/3"
@@ -329,17 +435,23 @@
                       {
                         "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/1/properties/items/anyOf/2/properties/additionalProperties/anyOf/4"
                       }
-                    ]
+                    ],
+                    "description": "The element type of the array"
                   },
-                  "language": {},
+                  "language": {
+                    "description": "Additional language-specific data about the property."
+                  },
                   "plain": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Indicates that when used as an input, this type does not accept eventual values."
                   },
                   "replaceOnChanges": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Specifies whether a change to the property causes its containing resource to be replaced instead of updated (default false)."
                   },
                   "secret": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Specifies whether the property is secret (default false)."
                   },
                   "type": {
                     "type": "string",
@@ -350,7 +462,8 @@
                   "items",
                   "type"
                 ],
-                "additionalProperties": false
+                "additionalProperties": false,
+                "description": "Array Property Definition describes an object or resource property"
               },
               {
                 "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/1/properties/items/anyOf/2"
@@ -448,7 +561,8 @@
             "description": "The bag of output values for the function, if any."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "Function Definition describes a function."
       },
       "description": "A map from token to functionSpec that describes the set of functions defined by this package."
     },
@@ -505,16 +619,20 @@
             "type": "object",
             "properties": {
               "name": {
-                "type": "string"
+                "type": "string",
+                "description": "The name portion of the alias, if any"
               },
               "project": {
-                "type": "string"
+                "type": "string",
+                "description": "The project portion of the alias, if any"
               },
               "type": {
-                "type": "string"
+                "type": "string",
+                "description": "The type portion of the alias, if any"
               }
             },
-            "additionalProperties": false
+            "additionalProperties": false,
+            "description": "An alias for a resource"
           },
           "description": "The list of aliases for the resource."
         },
@@ -665,7 +783,8 @@
             "$ref": "#/properties/provider/properties/stateInputs"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "Resource Definition describes a resource or component."
       },
       "description": "A map from type token to resourceSpec that describes the set of resources and components defined by this package."
     },
@@ -718,7 +837,8 @@
                 "description": "A list of the names of an object type's required properties. These properties must be set for inputs and will always be set for outputs."
               }
             },
-            "additionalProperties": false
+            "additionalProperties": false,
+            "description": "Complex object Type Details"
           },
           {
             "type": "object",
@@ -733,39 +853,61 @@
                   "type": "object",
                   "properties": {
                     "deprecationMessage": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Indicates whether the value is deprecated."
                     },
                     "description": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The description of the enum value, if any. Interpreted as Markdown."
                     },
                     "name": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "If present, overrides the name of the enum value that would usually be derived from the value."
                     },
                     "value": {
-                      "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/0/properties/type"
+                      "type": "string",
+                      "enum": [
+                        "boolean",
+                        "integer",
+                        "number",
+                        "string"
+                      ],
+                      "description": "The enum value itself"
                     }
                   },
                   "required": [
                     "value"
                   ],
-                  "additionalProperties": false
-                }
+                  "additionalProperties": false,
+                  "description": "Enum Value Definition"
+                },
+                "description": "The list of possible values for the enum"
               },
               "isOverlay": {
-                "type": "boolean"
+                "type": "boolean",
+                "description": "Indicates that the implementation of the type should not be generated from the schema, and is instead provided out-of-band by the package author"
               },
               "language": {
-                "type": "boolean"
+                "type": "boolean",
+                "description": "Additional language-specific data about the type."
               },
               "type": {
-                "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/0/properties/type"
+                "type": "string",
+                "enum": [
+                  "boolean",
+                  "integer",
+                  "number",
+                  "string"
+                ],
+                "description": "The underlying primitive type of the enum"
               }
             },
             "required": [
               "enum",
               "type"
             ],
-            "additionalProperties": false
+            "additionalProperties": false,
+            "description": "Enum Type Definition"
           }
         ]
       },
@@ -779,5 +921,6 @@
   "required": [
     "name"
   ],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "description": "A description of the schema for a Pulumi Package"
 }
