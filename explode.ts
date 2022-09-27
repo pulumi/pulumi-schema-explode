@@ -29,23 +29,19 @@ export function explode(schema: Schema, options: ExplodeOptions): void {
     ...remainingSchema
   } = schema;
 
-  context.writeData("base", remainingSchema);
+  let base: any = remainingSchema;
+
   if (config !== undefined) {
     context.writeData("config", config);
   }
   if (provider !== undefined) {
     context.writeData("provider", provider);
   }
-  writeLanguages(language, context);
-  for (const [token, fn] of Object.entries(functions ?? {})) {
-    writeTokenSpec("functions", token, fn, context);
-  }
-  for (const [token, resource] of Object.entries(resources ?? {})) {
-    writeTokenSpec("resources", token, resource, context);
-  }
-  for (const [token, type] of Object.entries(types ?? {})) {
-    writeTokenSpec("types", token, type, context);
-  }
+  base.language = writeLanguages(language, context);
+  base.functions = writeTokens(context, "functions", functions);
+  base.resources = writeTokens(context, "resources", resources);
+  base.types = writeTokens(context, "types", types);
+  context.writeData("base", base);
 }
 
 export function fsFileWriter(dir: string): FileWriter {
@@ -92,10 +88,34 @@ function formatYaml(data: any) {
 
 function writeLanguages(language: unknown, context: Context) {
   if (typeof language !== "object" || language == null) {
+    return language;
+  }
+  const entries = Object.entries(language);
+  if (entries.length === 0) {
+    return language;
+  }
+  for (const [name, lang] of entries) {
+    context.writeData(`language.${name}`, lang);
+  }
+}
+
+function writeTokens(
+  context: Context,
+  type: "functions" | "types" | "resources",
+  tokenEntries?: Record<
+    string,
+    FunctionSpec | ResourceSpec | ComplexTypeSpecObject | ComplexTypeSpecEnum
+  >
+) {
+  if (tokenEntries === undefined) {
     return;
   }
-  for (const [name, lang] of Object.entries(language)) {
-    context.writeData(`language.${name}`, lang);
+  const entries = Object.entries(tokenEntries);
+  if (entries.length === 0) {
+    return tokenEntries;
+  }
+  for (const [token, fn] of entries) {
+    writeTokenSpec(type, token, fn, context);
   }
 }
 

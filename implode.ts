@@ -20,7 +20,7 @@ interface Context {
   readFile: (path: string) => string;
 }
 
-function parseSchemaDir(context: Context): Schema {
+export function parseSchemaDir(context: Context): Schema {
   const base: any = parsePath(context, "base");
   if (base === undefined) {
     throw new Error("base.yaml or base.json not found");
@@ -58,11 +58,16 @@ function parseSchemaDir(context: Context): Schema {
 }
 
 function parseLanguage(context: Context) {
+  let count = 0;
   let language: Record<string, any> = {};
   const paths = context.find("language.*.*");
   for (const p of paths) {
     const [_, lang, ext] = p.split(".");
     language[lang] = parseContent(context.readFile(p), ext);
+    count++;
+  }
+  if (count === 0) {
+    return undefined;
   }
   return language;
 }
@@ -71,6 +76,7 @@ function parseTokenSpecs(
   context: Context,
   type: "functions" | "types" | "resources"
 ) {
+  let count = 0;
   const tokens: Record<string, any> = {};
   const paths = context.find(`**/${type}/*.@(json|yaml)`);
   for (const path of paths) {
@@ -87,6 +93,10 @@ function parseTokenSpecs(
       }
     }
     tokens[token] = content;
+    count++;
+  }
+  if (count === 0) {
+    return undefined;
   }
   return tokens;
 }
