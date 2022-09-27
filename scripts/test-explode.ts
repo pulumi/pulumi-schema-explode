@@ -1,6 +1,6 @@
-import { readFileSync, writeFileSync } from "fs";
+import { readFileSync } from "fs";
 import path from "path";
-import { Schema } from "../schema";
+import { Schema } from "../schema-types";
 import { explode, fsFileWriter } from "../explode";
 
 async function makeExample(example: string) {

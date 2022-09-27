@@ -4,7 +4,7 @@ import {
   FunctionSpec,
   ResourceSpec,
   Schema,
-} from "./schema";
+} from "./schema-types";
 import { writeFileSync, existsSync, mkdirSync } from "fs";
 import yaml from "yaml";
 import path, { dirname } from "path";

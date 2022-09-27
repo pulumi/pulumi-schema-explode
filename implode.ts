@@ -1,6 +1,6 @@
-import { Schema } from "./schema";
+import { Schema } from "./schema-types";
 import yaml from "yaml";
-import { readFileSync, existsSync } from "fs";
+import { readFileSync } from "fs";
 import { glob } from "glob";
 import { extname, join } from "path";
 
