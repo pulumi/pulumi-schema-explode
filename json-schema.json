@@ -1,0 +1,783 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "attribution": {
+      "type": "string",
+      "description": "Freeform text attribution of derived work, if required."
+    },
+    "config": {
+      "type": "object",
+      "properties": {
+        "required": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "A list of the names of the package's required configuration variables."
+        },
+        "variables": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "const": {
+                    "type": [
+                      "boolean",
+                      "number",
+                      "string"
+                    ]
+                  },
+                  "default": {
+                    "type": [
+                      "boolean",
+                      "number",
+                      "string"
+                    ]
+                  },
+                  "defaultInfo": {
+                    "type": "object",
+                    "properties": {
+                      "environment": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "language": {}
+                    },
+                    "required": [
+                      "environment"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "deprecationMessage": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "language": {},
+                  "plain": {
+                    "type": "boolean"
+                  },
+                  "replaceOnChanges": {
+                    "type": "boolean"
+                  },
+                  "secret": {
+                    "type": "boolean"
+                  },
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "boolean",
+                      "integer",
+                      "number",
+                      "string"
+                    ]
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "const": {
+                    "type": [
+                      "boolean",
+                      "number",
+                      "string"
+                    ]
+                  },
+                  "default": {
+                    "type": [
+                      "boolean",
+                      "number",
+                      "string"
+                    ]
+                  },
+                  "defaultInfo": {
+                    "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/0/properties/defaultInfo"
+                  },
+                  "deprecationMessage": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "items": {
+                    "anyOf": [
+                      {
+                        "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/0"
+                      },
+                      {
+                        "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/1"
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "additionalProperties": {
+                            "anyOf": [
+                              {
+                                "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/0"
+                              },
+                              {
+                                "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/1"
+                              },
+                              {
+                                "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/1/properties/items/anyOf/2"
+                              },
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "$ref": {
+                                    "type": "string"
+                                  },
+                                  "const": {
+                                    "type": [
+                                      "boolean",
+                                      "number",
+                                      "string"
+                                    ]
+                                  },
+                                  "default": {
+                                    "type": [
+                                      "boolean",
+                                      "number",
+                                      "string"
+                                    ]
+                                  },
+                                  "defaultInfo": {
+                                    "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/0/properties/defaultInfo"
+                                  },
+                                  "deprecationMessage": {
+                                    "type": "string"
+                                  },
+                                  "description": {
+                                    "type": "string"
+                                  },
+                                  "language": {},
+                                  "plain": {
+                                    "type": "boolean"
+                                  },
+                                  "replaceOnChanges": {
+                                    "type": "boolean"
+                                  },
+                                  "secret": {
+                                    "type": "boolean"
+                                  },
+                                  "type": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "$ref"
+                                ],
+                                "additionalProperties": false
+                              },
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "const": {
+                                    "type": [
+                                      "boolean",
+                                      "number",
+                                      "string"
+                                    ]
+                                  },
+                                  "default": {
+                                    "type": [
+                                      "boolean",
+                                      "number",
+                                      "string"
+                                    ]
+                                  },
+                                  "defaultInfo": {
+                                    "type": "object",
+                                    "properties": {
+                                      "environment": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "language": {}
+                                    },
+                                    "required": [
+                                      "environment"
+                                    ],
+                                    "additionalProperties": false
+                                  },
+                                  "deprecationMessage": {
+                                    "type": "string"
+                                  },
+                                  "description": {
+                                    "type": "string"
+                                  },
+                                  "discriminator": {
+                                    "type": "object",
+                                    "properties": {
+                                      "mapping": {
+                                        "type": "object",
+                                        "additionalProperties": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "propertyName": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "propertyName"
+                                    ],
+                                    "additionalProperties": false
+                                  },
+                                  "language": {},
+                                  "oneOf": {
+                                    "type": "array",
+                                    "items": {
+                                      "anyOf": [
+                                        {
+                                          "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/0"
+                                        },
+                                        {
+                                          "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/1"
+                                        },
+                                        {
+                                          "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/1/properties/items/anyOf/2"
+                                        },
+                                        {
+                                          "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/1/properties/items/anyOf/2/properties/additionalProperties/anyOf/3"
+                                        },
+                                        {
+                                          "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/1/properties/items/anyOf/2/properties/additionalProperties/anyOf/4"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "plain": {
+                                    "type": "boolean"
+                                  },
+                                  "replaceOnChanges": {
+                                    "type": "boolean"
+                                  },
+                                  "secret": {
+                                    "type": "boolean"
+                                  },
+                                  "type": {
+                                    "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/0/properties/type"
+                                  }
+                                },
+                                "required": [
+                                  "oneOf"
+                                ],
+                                "additionalProperties": false
+                              }
+                            ]
+                          },
+                          "const": {
+                            "type": [
+                              "boolean",
+                              "number",
+                              "string"
+                            ]
+                          },
+                          "default": {
+                            "type": [
+                              "boolean",
+                              "number",
+                              "string"
+                            ]
+                          },
+                          "defaultInfo": {
+                            "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/0/properties/defaultInfo"
+                          },
+                          "deprecationMessage": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "language": {},
+                          "plain": {
+                            "type": "boolean"
+                          },
+                          "replaceOnChanges": {
+                            "type": "boolean"
+                          },
+                          "secret": {
+                            "type": "boolean"
+                          },
+                          "type": {
+                            "type": "string",
+                            "const": "object"
+                          }
+                        },
+                        "required": [
+                          "type"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/1/properties/items/anyOf/2/properties/additionalProperties/anyOf/3"
+                      },
+                      {
+                        "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/1/properties/items/anyOf/2/properties/additionalProperties/anyOf/4"
+                      }
+                    ]
+                  },
+                  "language": {},
+                  "plain": {
+                    "type": "boolean"
+                  },
+                  "replaceOnChanges": {
+                    "type": "boolean"
+                  },
+                  "secret": {
+                    "type": "boolean"
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "array"
+                  }
+                },
+                "required": [
+                  "items",
+                  "type"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/1/properties/items/anyOf/2"
+              },
+              {
+                "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/1/properties/items/anyOf/2/properties/additionalProperties/anyOf/3"
+              },
+              {
+                "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/1/properties/items/anyOf/2/properties/additionalProperties/anyOf/4"
+              }
+            ]
+          },
+          "description": "A map from variable name to propertySpec that describes a package's configuration variables."
+        }
+      },
+      "additionalProperties": false,
+      "description": "The package's configuration variables."
+    },
+    "description": {
+      "type": "string",
+      "description": "The description of the package. Descriptions are interpreted as Markdown."
+    },
+    "displayName": {
+      "type": "string",
+      "description": "The human-friendly name of the package."
+    },
+    "functions": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "deprecationMessage": {
+            "type": "string",
+            "description": "Indicates whether the function is deprecated"
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of the function, if any. Interpreted as Markdown."
+          },
+          "inputs": {
+            "type": "object",
+            "properties": {
+              "properties": {
+                "type": "object",
+                "additionalProperties": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/0"
+                    },
+                    {
+                      "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/1"
+                    },
+                    {
+                      "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/1/properties/items/anyOf/2"
+                    },
+                    {
+                      "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/1/properties/items/anyOf/2/properties/additionalProperties/anyOf/3"
+                    },
+                    {
+                      "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/1/properties/items/anyOf/2/properties/additionalProperties/anyOf/4"
+                    }
+                  ]
+                },
+                "description": "A map from property name to propertySpec that describes the object's properties."
+              },
+              "required": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "A list of the names of an object type's required properties. These properties must be set for inputs and will always be set for outputs."
+              }
+            },
+            "additionalProperties": false,
+            "description": "The bag of input values for the function, if any."
+          },
+          "isOverlay": {
+            "type": "boolean",
+            "description": "Indicates that the implementation of the function should not be generated from the schema, and is instead provided out-of-band by the package author"
+          },
+          "language": {
+            "description": "Additional language-specific data about the function."
+          },
+          "outputs": {
+            "type": "object",
+            "properties": {
+              "properties": {
+                "$ref": "#/properties/functions/additionalProperties/properties/inputs/properties/properties"
+              },
+              "required": {
+                "$ref": "#/properties/functions/additionalProperties/properties/inputs/properties/required"
+              }
+            },
+            "additionalProperties": false,
+            "description": "The bag of output values for the function, if any."
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": "A map from token to functionSpec that describes the set of functions defined by this package."
+    },
+    "homepage": {
+      "type": "string",
+      "description": "The package's homepage."
+    },
+    "keywords": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "The list of keywords that are associated with the package, if any."
+    },
+    "language": {
+      "description": "Additional language-specific data about the package."
+    },
+    "license": {
+      "type": "string",
+      "description": "The name of the license used for the package's contents."
+    },
+    "logoUrl": {
+      "type": "string",
+      "description": "The URL of the package's logo, if any."
+    },
+    "meta": {
+      "type": "object",
+      "properties": {
+        "moduleFormat": {
+          "type": "string",
+          "description": "A regex that is used by the importer to extract a module name from the module portion of a type token. Packages that use the module format \"namespace1/namespace2/.../namespaceN\" do not need to specify a format. The regex must define one capturing group that contains the module name, which must be formatted as \"namespace1/namespace2/...namespaceN\"."
+        }
+      },
+      "required": [
+        "moduleFormat"
+      ],
+      "additionalProperties": false,
+      "description": "Format metadata about this package."
+    },
+    "name": {
+      "type": "string",
+      "description": "The unqualified name of the package (e.g. \"aws\", \"azure\", \"gcp\", \"kubernetes\", \"random\")"
+    },
+    "pluginDownloadUrl": {
+      "type": "string",
+      "description": "The URL to use when downloading the provider plugin binary."
+    },
+    "provider": {
+      "type": "object",
+      "properties": {
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "project": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          },
+          "description": "The list of aliases for the resource."
+        },
+        "deprecationMessage": {
+          "type": "string",
+          "description": "Indicates whether the resource is deprecated"
+        },
+        "description": {
+          "type": "string",
+          "description": "The description of the resource, if any. Interpreted as Markdown."
+        },
+        "inputProperties": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/0"
+              },
+              {
+                "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/1"
+              },
+              {
+                "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/1/properties/items/anyOf/2"
+              },
+              {
+                "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/1/properties/items/anyOf/2/properties/additionalProperties/anyOf/3"
+              },
+              {
+                "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/1/properties/items/anyOf/2/properties/additionalProperties/anyOf/4"
+              }
+            ]
+          },
+          "description": "A map from property name to propertySpec that describes the resource's input properties."
+        },
+        "isComponent": {
+          "type": "boolean",
+          "description": "Indicates whether the resource is a component."
+        },
+        "isOverlay": {
+          "type": "boolean",
+          "description": "Indicates that the implementation of the resource should not be generated from the schema, and is instead provided out-of-band by the package author"
+        },
+        "methods": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "A map from method name to function token that describes the resource's method set."
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/0"
+              },
+              {
+                "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/1"
+              },
+              {
+                "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/1/properties/items/anyOf/2"
+              },
+              {
+                "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/1/properties/items/anyOf/2/properties/additionalProperties/anyOf/3"
+              },
+              {
+                "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/1/properties/items/anyOf/2/properties/additionalProperties/anyOf/4"
+              }
+            ]
+          },
+          "description": "A map from property name to propertySpec that describes the object's properties."
+        },
+        "required": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "A list of the names of an object type's required properties. These properties must be set for inputs and will always be set for outputs."
+        },
+        "requiredInputs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "A list of the names of the resource's required input properties."
+        },
+        "stateInputs": {
+          "type": "object",
+          "properties": {
+            "properties": {
+              "$ref": "#/properties/functions/additionalProperties/properties/inputs/properties/properties"
+            },
+            "required": {
+              "$ref": "#/properties/functions/additionalProperties/properties/inputs/properties/required"
+            }
+          },
+          "additionalProperties": false,
+          "description": "An optional objectTypeSpec that describes additional inputs that mau be necessary to get an existing resource. If this is unset, only an ID is necessary."
+        }
+      },
+      "additionalProperties": false,
+      "description": "The provider type for this package."
+    },
+    "publisher": {
+      "type": "string",
+      "description": "The name of the person or organization that authored and published the package."
+    },
+    "repository": {
+      "type": "string",
+      "description": "The URL at which the package's sources can be found."
+    },
+    "resources": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "aliases": {
+            "$ref": "#/properties/provider/properties/aliases"
+          },
+          "deprecationMessage": {
+            "$ref": "#/properties/provider/properties/deprecationMessage"
+          },
+          "description": {
+            "$ref": "#/properties/provider/properties/description"
+          },
+          "inputProperties": {
+            "$ref": "#/properties/provider/properties/inputProperties"
+          },
+          "isComponent": {
+            "$ref": "#/properties/provider/properties/isComponent"
+          },
+          "isOverlay": {
+            "$ref": "#/properties/provider/properties/isOverlay"
+          },
+          "methods": {
+            "$ref": "#/properties/provider/properties/methods"
+          },
+          "properties": {
+            "$ref": "#/properties/provider/properties/properties"
+          },
+          "required": {
+            "$ref": "#/properties/provider/properties/required"
+          },
+          "requiredInputs": {
+            "$ref": "#/properties/provider/properties/requiredInputs"
+          },
+          "stateInputs": {
+            "$ref": "#/properties/provider/properties/stateInputs"
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": "A map from type token to resourceSpec that describes the set of resources and components defined by this package."
+    },
+    "types": {
+      "type": "object",
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "description": {
+                "type": "string",
+                "description": "The description of the type, if any. Interpreted as Markdown."
+              },
+              "isOverlay": {
+                "type": "boolean",
+                "description": "Indicates that the implementation of the type should not be generated from the schema, and is instead provided out-of-band by the package author"
+              },
+              "language": {
+                "description": "Additional language-specific data about the type."
+              },
+              "properties": {
+                "type": "object",
+                "additionalProperties": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/0"
+                    },
+                    {
+                      "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/1"
+                    },
+                    {
+                      "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/1/properties/items/anyOf/2"
+                    },
+                    {
+                      "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/1/properties/items/anyOf/2/properties/additionalProperties/anyOf/3"
+                    },
+                    {
+                      "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/1/properties/items/anyOf/2/properties/additionalProperties/anyOf/4"
+                    }
+                  ]
+                },
+                "description": "A map from property name to propertySpec that describes the object's properties."
+              },
+              "required": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "A list of the names of an object type's required properties. These properties must be set for inputs and will always be set for outputs."
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "description": {
+                "type": "string",
+                "description": "The description of the type, if any. Interpreted as Markdown."
+              },
+              "enum": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "deprecationMessage": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/0/properties/type"
+                    }
+                  },
+                  "required": [
+                    "value"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "isOverlay": {
+                "type": "boolean"
+              },
+              "language": {
+                "type": "boolean"
+              },
+              "type": {
+                "$ref": "#/properties/config/properties/variables/additionalProperties/anyOf/0/properties/type"
+              }
+            },
+            "required": [
+              "enum",
+              "type"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "description": "A map from type token to complexTypeSpec that describes the set of complex types (i.e. object, enum) defined by this package."
+    },
+    "version": {
+      "type": "string",
+      "description": "The version of the package. The version must be valid semver."
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "additionalProperties": false
+}
