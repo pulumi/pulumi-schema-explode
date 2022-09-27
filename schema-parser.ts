@@ -1,4 +1,5 @@
 import z from "zod";
+import * as types from "./schema-types";
 
 export const PrimitiveTypeEnum = z.enum([
   "boolean",
@@ -10,7 +11,7 @@ export const PrimitiveTypeEnum = z.enum([
 /**
  * Enum containing possible primitive types
  */
-export type PrimitiveTypeEnum = z.TypeOf<typeof PrimitiveTypeEnum>;
+export type PrimitiveTypeEnum = z.infer<typeof PrimitiveTypeEnum>;
 
 export const EnumValueDefinition = z.object({
   deprecationMessage: z.string().optional(),
@@ -22,7 +23,7 @@ export const EnumValueDefinition = z.object({
 /**
  * Enum Value Definition
  */
-export type EnumValueDefinition = z.TypeOf<typeof EnumValueDefinition>;
+export type EnumValueDefinition = z.infer<typeof EnumValueDefinition>;
 
 export const ComplexTypeSpecEnum = z.object({
   description: z.optional(
@@ -40,7 +41,7 @@ export const ComplexTypeSpecEnum = z.object({
 /**
  * Enum Type Definition
  */
-export type ComplexTypeSpecEnum = z.TypeOf<typeof ComplexTypeSpecEnum>;
+export type ComplexTypeSpecEnum = z.infer<typeof ComplexTypeSpecEnum>;
 
 export const EnumValueDefinitionArgs = z.object({
   deprecationMessage: z.string().optional(),
@@ -52,7 +53,7 @@ export const EnumValueDefinitionArgs = z.object({
 /**
  * Enum Value Definition
  */
-export type EnumValueDefinitionArgs = z.TypeOf<typeof EnumValueDefinitionArgs>;
+export type EnumValueDefinitionArgs = z.infer<typeof EnumValueDefinitionArgs>;
 
 export const PropertySpecDefaultInfo = z.object({
   environment: z.string().array(),
@@ -62,83 +63,37 @@ export const PropertySpecDefaultInfo = z.object({
 /**
  * Additional information about the property's default value, if any.
  */
-export type PropertySpecDefaultInfo = z.TypeOf<typeof PropertySpecDefaultInfo>;
+export type PropertySpecDefaultInfo = z.infer<typeof PropertySpecDefaultInfo>;
 
-export const PropertySpecArray: z.ZodType<PropertySpecArray> = z.lazy(() =>
-  z.object({
-    const: z.union([z.boolean(), z.number(), z.string()]).optional(),
-    default: z.union([z.boolean(), z.number(), z.string()]).optional(),
-    defaultInfo: z.optional(PropertySpecDefaultInfo),
-    deprecationMessage: z.string().optional(),
-    description: z.string().optional(),
-    items: z.union([
-      PropertySpecPrimitive,
-      PropertySpecArray,
-      PropertySpecMap,
-      PropertySpecNamed,
-      PropertySpecUnion,
-    ]),
-    language: z.any().optional(),
-    plain: z.boolean().optional(),
-    replaceOnChanges: z.boolean().optional(),
-    secret: z.boolean().optional(),
-    type: z.literal("array"),
-  })
+export const PropertySpecArray: z.ZodType<types.PropertySpecArray> = z.lazy(
+  () =>
+    z.object({
+      const: z.union([z.boolean(), z.number(), z.string()]).optional(),
+      default: z.union([z.boolean(), z.number(), z.string()]).optional(),
+      defaultInfo: z.optional(PropertySpecDefaultInfo),
+      deprecationMessage: z.string().optional(),
+      description: z.string().optional(),
+      items: z.union([
+        PropertySpecPrimitive,
+        PropertySpecArray,
+        PropertySpecMap,
+        PropertySpecNamed,
+        PropertySpecUnion,
+      ]),
+      language: z.any().optional(),
+      plain: z.boolean().optional(),
+      replaceOnChanges: z.boolean().optional(),
+      secret: z.boolean().optional(),
+      type: z.literal("array"),
+    })
 );
 
 /**
  * Array Property Definition describes an object or resource property
  */
-export interface PropertySpecArray {
-  /**
-   * The constant value for the property, if any. The type of the value must be assignable to the type of the property.
-   */
-  const?: boolean | number | string;
-  /**
-   * The default value for the property, if any. The type of the value must be assignable to the type of the property.
-   */
-  default?: boolean | number | string;
-  /**
-   * Additional information about the property's default value, if any.
-   */
-  defaultInfo?: PropertySpecDefaultInfo;
-  /**
-   * Indicates whether the property is deprecated
-   */
-  deprecationMessage?: string;
-  /**
-   * The description of the property, if any. Interpreted as Markdown.
-   */
-  description?: string;
-  /**
-   * The element type of the array
-   */
-  items:
-    | PropertySpecPrimitive
-    | PropertySpecArray
-    | PropertySpecMap
-    | PropertySpecNamed
-    | PropertySpecUnion;
-  /**
-   * Additional language-specific data about the property.
-   */
-  language?: any;
-  /**
-   * Indicates that when used as an input, this type does not accept eventual values.
-   */
-  plain?: boolean;
-  /**
-   * Specifies whether a change to the property causes its containing resource to be replaced instead of updated (default false).
-   */
-  replaceOnChanges?: boolean;
-  /**
-   * Specifies whether the property is secret (default false).
-   */
-  secret?: boolean;
-  type: "array";
-}
+export type PropertySpecArray = z.infer<typeof PropertySpecArray>;
 
-export const PropertySpecMap: z.ZodType<PropertySpecMap> = z.lazy(() =>
+export const PropertySpecMap: z.ZodType<types.PropertySpecMap> = z.lazy(() =>
   z.object({
     additionalProperties: z
       .union([
@@ -165,54 +120,7 @@ export const PropertySpecMap: z.ZodType<PropertySpecMap> = z.lazy(() =>
 /**
  * Map Property Definition describes an object or resource property
  */
-export interface PropertySpecMap {
-  /**
-   * The element type of the map. Defaults to "string" when omitted.
-   */
-  additionalProperties?:
-    | PropertySpecPrimitive
-    | PropertySpecArray
-    | PropertySpecMap
-    | PropertySpecNamed
-    | PropertySpecUnion;
-  /**
-   * The constant value for the property, if any. The type of the value must be assignable to the type of the property.
-   */
-  const?: boolean | number | string;
-  /**
-   * The default value for the property, if any. The type of the value must be assignable to the type of the property.
-   */
-  default?: boolean | number | string;
-  /**
-   * Additional information about the property's default value, if any.
-   */
-  defaultInfo?: PropertySpecDefaultInfo;
-  /**
-   * Indicates whether the property is deprecated
-   */
-  deprecationMessage?: string;
-  /**
-   * The description of the property, if any. Interpreted as Markdown.
-   */
-  description?: string;
-  /**
-   * Additional language-specific data about the property.
-   */
-  language?: any;
-  /**
-   * Indicates that when used as an input, this type does not accept eventual values.
-   */
-  plain?: boolean;
-  /**
-   * Specifies whether a change to the property causes its containing resource to be replaced instead of updated (default false).
-   */
-  replaceOnChanges?: boolean;
-  /**
-   * Specifies whether the property is secret (default false).
-   */
-  secret?: boolean;
-  type: "object";
-}
+export type PropertySpecMap = z.infer<typeof PropertySpecMap>;
 
 export const PropertySpecUnionDiscriminator = z.object({
   mapping: z.record(z.string(), z.string()).optional(),
@@ -222,7 +130,7 @@ export const PropertySpecUnionDiscriminator = z.object({
 /**
  * Informs the consumer of an alternative schema based on the value associated with it
  */
-export type PropertySpecUnionDiscriminator = z.TypeOf<
+export type PropertySpecUnionDiscriminator = z.infer<
   typeof PropertySpecUnionDiscriminator
 >;
 
@@ -243,7 +151,7 @@ export const PropertySpecNamed = z.object({
 /**
  * Named Property Definition describes an object or resource property
  */
-export type PropertySpecNamed = z.TypeOf<typeof PropertySpecNamed>;
+export type PropertySpecNamed = z.infer<typeof PropertySpecNamed>;
 
 export const PropertySpecPrimitive = z.object({
   const: z.union([z.boolean(), z.number(), z.string()]).optional(),
@@ -261,7 +169,7 @@ export const PropertySpecPrimitive = z.object({
 /**
  * Primitive Property Definition describes an object or resource property
  */
-export type PropertySpecPrimitive = z.TypeOf<typeof PropertySpecPrimitive>;
+export type PropertySpecPrimitive = z.infer<typeof PropertySpecPrimitive>;
 
 export const PropertySpecUnionDefaultInfo = z.object({
   environment: z.string().array(),
@@ -271,94 +179,40 @@ export const PropertySpecUnionDefaultInfo = z.object({
 /**
  * Additional information about the property's default value, if any.
  */
-export type PropertySpecUnionDefaultInfo = z.TypeOf<
+export type PropertySpecUnionDefaultInfo = z.infer<
   typeof PropertySpecUnionDefaultInfo
 >;
 
-export const PropertySpecUnion: z.ZodType<PropertySpecUnion> = z.lazy(() =>
-  z.object({
-    const: z.union([z.boolean(), z.number(), z.string()]).optional(),
-    default: z.union([z.boolean(), z.number(), z.string()]).optional(),
-    defaultInfo: z.optional(PropertySpecUnionDefaultInfo),
-    deprecationMessage: z.string().optional(),
-    description: z.string().optional(),
-    discriminator: PropertySpecUnionDiscriminator.optional(),
-    language: z.any().optional(),
-    oneOf: z
-      .union([
-        PropertySpecPrimitive,
-        PropertySpecArray,
-        PropertySpecMap,
-        PropertySpecNamed,
-        PropertySpecUnion,
-      ])
-      .array(),
-    plain: z.boolean().optional(),
-    replaceOnChanges: z.boolean().optional(),
-    secret: z.boolean().optional(),
-    type: PrimitiveTypeEnum.optional(),
-  })
+export const PropertySpecUnion: z.ZodType<types.PropertySpecUnion> = z.lazy(
+  () =>
+    z.object({
+      const: z.union([z.boolean(), z.number(), z.string()]).optional(),
+      default: z.union([z.boolean(), z.number(), z.string()]).optional(),
+      defaultInfo: z.optional(PropertySpecUnionDefaultInfo),
+      deprecationMessage: z.string().optional(),
+      description: z.string().optional(),
+      discriminator: PropertySpecUnionDiscriminator.optional(),
+      language: z.any().optional(),
+      oneOf: z
+        .union([
+          PropertySpecPrimitive,
+          PropertySpecArray,
+          PropertySpecMap,
+          PropertySpecNamed,
+          PropertySpecUnion,
+        ])
+        .array(),
+      plain: z.boolean().optional(),
+      replaceOnChanges: z.boolean().optional(),
+      secret: z.boolean().optional(),
+      type: PrimitiveTypeEnum.optional(),
+    })
 );
 
 /**
  * Union Property Definition describes an object or resource property
  */
-export interface PropertySpecUnion {
-  /**
-   * The constant value for the property, if any. The type of the value must be assignable to the type of the property.
-   */
-  const?: boolean | number | string;
-  /**
-   * The default value for the property, if any. The type of the value must be assignable to the type of the property.
-   */
-  default?: boolean | number | string;
-  /**
-   * Additional information about the property's default value, if any.
-   */
-  defaultInfo?: PropertySpecUnionDefaultInfo;
-  /**
-   * Indicates whether the property is deprecated
-   */
-  deprecationMessage?: string;
-  /**
-   * The description of the property, if any. Interpreted as Markdown.
-   */
-  description?: string;
-  /**
-   * Informs the consumer of an alternative schema based on the value associated with it
-   */
-  discriminator?: PropertySpecUnionDiscriminator;
-  /**
-   * Additional language-specific data about the property.
-   */
-  language?: any;
-  /**
-   * If present, indicates that values of the type may be one of any of the listed types
-   */
-  oneOf: (
-    | PropertySpecPrimitive
-    | PropertySpecArray
-    | PropertySpecMap
-    | PropertySpecNamed
-    | PropertySpecUnion
-  )[];
-  /**
-   * Indicates that when used as an input, this type does not accept eventual values.
-   */
-  plain?: boolean;
-  /**
-   * Specifies whether a change to the property causes its containing resource to be replaced instead of updated (default false).
-   */
-  replaceOnChanges?: boolean;
-  /**
-   * Specifies whether the property is secret (default false).
-   */
-  secret?: boolean;
-  /**
-   * The underlying primitive type of the union, if any
-   */
-  type?: PrimitiveTypeEnum;
-}
+export type PropertySpecUnion = z.infer<typeof PropertySpecUnion>;
 
 export const ObjectTypeSpec = z.object({
   properties: z
@@ -388,7 +242,7 @@ export const ObjectTypeSpec = z.object({
 /**
  * Object Type Details
  */
-export type ObjectTypeSpec = z.TypeOf<typeof ObjectTypeSpec>;
+export type ObjectTypeSpec = z.infer<typeof ObjectTypeSpec>;
 
 export const ComplexTypeSpecObject = z.object({
   description: z
@@ -433,7 +287,7 @@ export const ComplexTypeSpecObject = z.object({
 /**
  * Complex object Type Details
  */
-export type ComplexTypeSpecObject = z.TypeOf<typeof ComplexTypeSpecObject>;
+export type ComplexTypeSpecObject = z.infer<typeof ComplexTypeSpecObject>;
 
 export const ResourceAlias = z.object({
   name: z.string().optional(),
@@ -444,7 +298,7 @@ export const ResourceAlias = z.object({
 /**
  * An alias for a resource
  */
-export type ResourceAlias = z.TypeOf<typeof ResourceAlias>;
+export type ResourceAlias = z.infer<typeof ResourceAlias>;
 
 export const ResourceSpec = z.object({
   aliases: z
@@ -528,7 +382,7 @@ export const ResourceSpec = z.object({
 /**
  * Resource Definition describes a resource or component.
  */
-export type ResourceSpec = z.TypeOf<typeof ResourceSpec>;
+export type ResourceSpec = z.infer<typeof ResourceSpec>;
 
 export const FunctionSpec = z.object({
   deprecationMessage: z
@@ -562,7 +416,7 @@ export const FunctionSpec = z.object({
 /**
  * Function Definition describes a function.
  */
-export type FunctionSpec = z.TypeOf<typeof FunctionSpec>;
+export type FunctionSpec = z.infer<typeof FunctionSpec>;
 
 export const Config = z.object({
   required: z
@@ -591,7 +445,7 @@ export const Config = z.object({
 /**
  * The package's configuration variables.
  */
-export type Config = z.TypeOf<typeof Config>;
+export type Config = z.infer<typeof Config>;
 
 export const Meta = z.object({
   moduleFormat: z.string({
@@ -602,7 +456,7 @@ export const Meta = z.object({
 /**
  * Format metadata about this package.
  */
-export type Meta = z.TypeOf<typeof Meta>;
+export type Meta = z.infer<typeof Meta>;
 
 export const Schema = z.object({
   attribution: z
@@ -695,68 +549,4 @@ export const Schema = z.object({
 /**
  * A description of the schema for a Pulumi Package
  */
-export type Schema = z.TypeOf<typeof Schema>;
-
-import * as types from "./schema-types";
-
-const PropertySpecPrimitiveA = (
-  a: types.PropertySpecPrimitive
-): PropertySpecPrimitive => a;
-const PropertySpecPrimitiveB = (
-  a: PropertySpecPrimitive
-): types.PropertySpecPrimitive => a;
-
-const PropertySpecDefaultInfoA = (
-  a: types.PropertySpecDefaultInfo
-): PropertySpecDefaultInfo => a;
-const PropertySpecDefaultInfoB = (
-  a: PropertySpecDefaultInfo
-): types.PropertySpecDefaultInfo => a;
-
-const PropertySpecNamedA = (a: types.PropertySpecNamed): PropertySpecNamed => a;
-const PropertySpecNamedB = (a: PropertySpecNamed): types.PropertySpecNamed => a;
-
-const ComplexTypeSpecEnumA = (
-  a: types.ComplexTypeSpecEnum
-): ComplexTypeSpecEnum => a;
-const ComplexTypeSpecEnumB = (
-  a: ComplexTypeSpecEnum
-): types.ComplexTypeSpecEnum => a;
-
-const PrimitiveTypeEnumA = (a: types.PrimitiveTypeEnum): PrimitiveTypeEnum => a;
-const PrimitiveTypeEnumB = (a: PrimitiveTypeEnum): types.PrimitiveTypeEnum => a;
-
-const EnumValueDefinitionA = (
-  a: types.EnumValueDefinition
-): EnumValueDefinition => a;
-const EnumValueDefinitionB = (
-  a: EnumValueDefinition
-): types.EnumValueDefinition => a;
-
-const schemaA = (a: types.Schema): Schema => a;
-const schemaB = (a: Schema): types.Schema => a;
-
-const configA = (a: types.Config): Config => a;
-const configB = (a: Config): types.Config => a;
-
-const resourceSpecA = (a: types.ResourceSpec): ResourceSpec => a;
-const resourceSpecB = (a: ResourceSpec): types.ResourceSpec => a;
-
-const PropertySpecArrayA = (a: types.PropertySpecArray): PropertySpecArray => a;
-const PropertySpecArrayB = (a: PropertySpecArray): types.PropertySpecArray => a;
-
-const PropertySpecMapA = (a: types.PropertySpecMap): PropertySpecMap => a;
-const PropertySpecMapB = (a: PropertySpecMap): types.PropertySpecMap => a;
-
-const PropertySpecUnionA = (a: types.PropertySpecUnion): PropertySpecUnion => a;
-const PropertySpecUnionB = (a: PropertySpecUnion): types.PropertySpecUnion => a;
-
-const ObjectTypeSpecA = (a: types.ObjectTypeSpec): ObjectTypeSpec => a;
-const ObjectTypeSpecB = (a: ObjectTypeSpec): types.ObjectTypeSpec => a;
-
-const ComplexTypeSpecObjectA = (
-  a: types.ComplexTypeSpecObject
-): ComplexTypeSpecObject => a;
-const ComplexTypeSpecObjectB = (
-  a: ComplexTypeSpecObject
-): types.ComplexTypeSpecObject => a;
+export type Schema = z.infer<typeof Schema>;

@@ -1,8 +1,8 @@
-import { Schema } from "./schema-types";
-import yaml from "yaml";
 import { readFileSync } from "fs";
 import { glob } from "glob";
 import { extname, join } from "path";
+import yaml from "yaml";
+import { Schema } from "./schema-types";
 
 export function implode(dir: string): Schema {
   return parseSchemaDir({

@@ -1,7 +1,7 @@
 import { readFileSync } from "fs";
 import path from "path";
-import { Schema } from "../schema-types";
 import { explode, fsFileWriter } from "../explode";
+import { Schema } from "../schema-types";
 
 async function makeExample(example: string) {
   const dir = path.resolve("examples", example);

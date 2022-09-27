@@ -1,3 +1,6 @@
+import { existsSync, mkdirSync, writeFileSync } from "fs";
+import path, { dirname } from "path";
+import yaml from "yaml";
 import {
   ComplexTypeSpecEnum,
   ComplexTypeSpecObject,
@@ -5,9 +8,6 @@ import {
   ResourceSpec,
   Schema,
 } from "./schema-types";
-import { writeFileSync, existsSync, mkdirSync } from "fs";
-import yaml from "yaml";
-import path, { dirname } from "path";
 
 type FileWriter = (path: string, content: string) => void;
 
