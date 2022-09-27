@@ -1,17 +1,16 @@
 import z from "zod";
 
-export const PrimitiveTypeEnum = z.union([
-  z.literal("boolean"),
-  z.literal("integer"),
-  z.literal("number"),
-  z.literal("string"),
+export const PrimitiveTypeEnum = z.enum([
+  "boolean",
+  "integer",
+  "number",
+  "string",
 ]);
 
 /**
  * Enum containing possible primitive types
  */
-export type PrimitiveTypeEnum =
-  typeof PrimitiveTypeEnum[keyof typeof PrimitiveTypeEnum];
+export type PrimitiveTypeEnum = z.TypeOf<typeof PrimitiveTypeEnum>;
 
 export const EnumValueDefinition = z.object({
   deprecationMessage: z.string().optional(),
@@ -35,7 +34,7 @@ export const ComplexTypeSpecEnum = z.object({
   enum: z.array(EnumValueDefinition),
   isOverlay: z.optional(z.boolean()),
   language: z.optional(z.boolean()),
-  type: z.optional(PrimitiveTypeEnum),
+  type: PrimitiveTypeEnum,
 });
 
 /**
@@ -297,7 +296,7 @@ export const PropertySpecUnion: z.ZodType<PropertySpecUnion> = z.lazy(() =>
     plain: z.boolean().optional(),
     replaceOnChanges: z.boolean().optional(),
     secret: z.boolean().optional(),
-    type: PrimitiveTypeEnum,
+    type: PrimitiveTypeEnum.optional(),
   })
 );
 
@@ -717,25 +716,47 @@ const PropertySpecDefaultInfoB = (
 const PropertySpecNamedA = (a: types.PropertySpecNamed): PropertySpecNamed => a;
 const PropertySpecNamedB = (a: PropertySpecNamed): types.PropertySpecNamed => a;
 
-// **Seems like comparison of equivalent recursive types might always fail**
+const ComplexTypeSpecEnumA = (
+  a: types.ComplexTypeSpecEnum
+): ComplexTypeSpecEnum => a;
+const ComplexTypeSpecEnumB = (
+  a: ComplexTypeSpecEnum
+): types.ComplexTypeSpecEnum => a;
 
-// const schemaA = (a: types.Schema): Schema => a;
-// const schemaB = (a: Schema): types.Schema => a;
+const PrimitiveTypeEnumA = (a: types.PrimitiveTypeEnum): PrimitiveTypeEnum => a;
+const PrimitiveTypeEnumB = (a: PrimitiveTypeEnum): types.PrimitiveTypeEnum => a;
 
-// const configA = (a: types.Config): Config => a;
-// const configB = (a: Config): types.Config => a;
+const EnumValueDefinitionA = (
+  a: types.EnumValueDefinition
+): EnumValueDefinition => a;
+const EnumValueDefinitionB = (
+  a: EnumValueDefinition
+): types.EnumValueDefinition => a;
 
-// const resourceSpecA = (a: types.ResourceSpec): ResourceSpec => a;
-// const resourceSpecB = (a: ResourceSpec): types.ResourceSpec => a;
+const schemaA = (a: types.Schema): Schema => a;
+const schemaB = (a: Schema): types.Schema => a;
 
-// const PropertySpecArrayA = (a: types.PropertySpecArray): PropertySpecArray => a;
-// const PropertySpecArrayB = (a: PropertySpecArray): types.PropertySpecArray => a;
+const configA = (a: types.Config): Config => a;
+const configB = (a: Config): types.Config => a;
 
-// const PropertySpecMapA = (a: types.PropertySpecMap): PropertySpecMap => a;
-// const PropertySpecMapB = (a: PropertySpecMap): types.PropertySpecMap => a;
+const resourceSpecA = (a: types.ResourceSpec): ResourceSpec => a;
+const resourceSpecB = (a: ResourceSpec): types.ResourceSpec => a;
 
-// const PropertySpecUnionA = (a: types.PropertySpecUnion): PropertySpecUnion => a;
-// const PropertySpecUnionB = (a: PropertySpecUnion): types.PropertySpecUnion => a;
+const PropertySpecArrayA = (a: types.PropertySpecArray): PropertySpecArray => a;
+const PropertySpecArrayB = (a: PropertySpecArray): types.PropertySpecArray => a;
 
-// const ObjectTypeSpecA = (a: types.ObjectTypeSpec): ObjectTypeSpec => a;
-// const ObjectTypeSpecB = (a: ObjectTypeSpec): types.ObjectTypeSpec => a;
+const PropertySpecMapA = (a: types.PropertySpecMap): PropertySpecMap => a;
+const PropertySpecMapB = (a: PropertySpecMap): types.PropertySpecMap => a;
+
+const PropertySpecUnionA = (a: types.PropertySpecUnion): PropertySpecUnion => a;
+const PropertySpecUnionB = (a: PropertySpecUnion): types.PropertySpecUnion => a;
+
+const ObjectTypeSpecA = (a: types.ObjectTypeSpec): ObjectTypeSpec => a;
+const ObjectTypeSpecB = (a: ObjectTypeSpec): types.ObjectTypeSpec => a;
+
+const ComplexTypeSpecObjectA = (
+  a: types.ComplexTypeSpecObject
+): ComplexTypeSpecObject => a;
+const ComplexTypeSpecObjectB = (
+  a: ComplexTypeSpecObject
+): types.ComplexTypeSpecObject => a;
