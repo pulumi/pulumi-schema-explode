@@ -1,12 +1,12 @@
 import * as fc from "fast-check";
-import { ZodFastCheck } from "zod-fast-check";
-import { Meta } from "./schema-parser";
-import memfs from "memfs";
-import { explode } from "./explode";
-import { parseSchemaDir } from "./implode";
 import glob from "glob";
+import memfs from "memfs";
 import { join } from "path";
 import * as z from "zod";
+import { ZodFastCheck } from "zod-fast-check";
+import { explode } from "./explode";
+import { parseSchemaDir } from "./implode";
+import { Meta } from "./schema-parser";
 
 // Using adjusted schema because zod-fast-check doesn't support lazy zod parsers (required for recursion).
 const TestSchema = z.object(

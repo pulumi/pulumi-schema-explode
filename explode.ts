@@ -11,11 +11,19 @@ import {
 
 type FileWriter = (path: string, content: string) => void;
 
-export interface ExplodeOptions {
+export interface ExplodeOptionsCustomWriter {
   writeFile: FileWriter;
   /** @default yaml */
   format?: "yaml" | "json";
 }
+
+export interface FsExplodeOptions {
+  dir: string;
+  /** @default yaml */
+  format?: "yaml" | "json";
+}
+
+export type ExplodeOptions = ExplodeOptionsCustomWriter | FsExplodeOptions;
 
 export function explode(schema: Schema, options: ExplodeOptions): void {
   const context = new Context(options);
@@ -63,7 +71,11 @@ type Formatter = (data: any) => string;
 
 class Context {
   constructor(options: ExplodeOptions) {
-    this.write = options.writeFile;
+    if ("dir" in options) {
+      this.write = fsFileWriter(options.dir);
+    } else {
+      this.write = options.writeFile;
+    }
     const format = options.format ?? "yaml";
     this.ext = format;
     this.format = format === "yaml" ? formatYaml : formatJson;
