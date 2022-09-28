@@ -47,7 +47,12 @@ yargs(hideBin(process.argv))
       const schemaContent = readFileSync(schemaPath, "utf-8");
       const schema: Schema = JSON.parse(schemaContent);
       if (argv.validate) {
-        Schema.parse(schema);
+        const valid = validate(schema, false);
+        if (!valid) {
+          console.log("Use `validate --debug` to see full validation detail");
+          process.exitCode = 1;
+          return;
+        }
       }
       explode(schema, { dir, format });
     }
@@ -87,7 +92,12 @@ yargs(hideBin(process.argv))
       console.log("imploding", { cwd });
       const schema = implode(cwd);
       if (argv.validate) {
-        Schema.parse(schema);
+        const valid = validate(schema, false);
+        if (!valid) {
+          console.log("Use `validate --debug` to see full validation detail");
+          process.exitCode = 1;
+          return;
+        }
       }
       const schemaContent = JSON.stringify(schema, null, argv.indent);
       if (argv.stdOut) {
@@ -156,6 +166,11 @@ yargs(hideBin(process.argv))
         description: "Don't print any output if valid",
         type: "boolean",
       },
+      debug: {
+        description: "Show verbose validation errors",
+        type: "boolean",
+        default: false,
+      },
     },
     (argv) => {
       const schemaPath = argv.schema;
@@ -163,8 +178,11 @@ yargs(hideBin(process.argv))
       const schema: Schema = stat.isFile()
         ? JSON.parse(readFileSync(schemaPath, "utf-8"))
         : implode(schemaPath);
-      Schema.parse(schema);
-      if (!argv.quiet) {
+      const valid = validate(schema, argv.debug);
+      if (!valid) {
+        console.log("Add --debug to see full validation detail");
+        process.exitCode = 1;
+      } else if (!argv.quiet) {
         console.log(`Schema at ${schemaPath} is valid`);
       }
     }
@@ -172,3 +190,25 @@ yargs(hideBin(process.argv))
   .demandCommand()
   .strict()
   .help().argv;
+
+function validate(schema: Schema, detailed: boolean): boolean {
+  const result = Schema.safeParse(schema);
+  if (!result.success) {
+    if (detailed) {
+      console.error("\x1b[31m", result.error.toString(), "\x1b[0m");
+    } else {
+      for (const error of result.error.issues) {
+        console.error(
+          "\x1b[31m",
+          error.message,
+          `(${error.code})`,
+          "at path",
+          error.path.join(" > "),
+          "\x1b[0m"
+        );
+      }
+    }
+    return false;
+  }
+  return true;
+}
